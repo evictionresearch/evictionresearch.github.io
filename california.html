@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>California Evictions</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="https://evictions.study"><img src="assets/EvictionsSutdy_Logos/png/whitered/whiteletterredbox.png" style="width: 250px;"></a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="https://evictions.study">Home</a></li>
+											<li><a href="https://evictions.study/washington/maps/summary.html">Maps</a></li>
+											<li><a href="https://evictions.study/washington/">WA Report</a></li>
+											<li><a href="https://www.cascadiadata.org/news/2019/05/15/evictions-legislation.html" target="_blank">Policy Reforms</a></li>
+											<li><a href="mailto:timthomas@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact us</a></li>
+											<!-- <li><a href="about.html">About</a></li> -->
+										</ul>
+
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<!-- <header>
+							<h2>California</h2>
+							<p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p>
+						</header> -->
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<section>
+									<!-- <h2>California</h2> -->
+									<!-- <h5>Fit</h5> -->
+									<div class="box alt">
+										<div class="row gtr-50 gtr-uniform">
+											<!-- <div class="col-12"><span class="image fit"><img src="images/banner.jpg" alt="" /></span></div> -->
+											<div class="col-12">
+												<span class="image fit">
+													<!-- <iframe src="maps/us_map.html" height=500 width="500" id="myiframe"></iframe> -->
+													<!-- <a href="baz.html" target="myiframe">Baz</a> -->
+													<!-- <br/> -->
+													<iframe src="https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/" class="image fit" name="myiframe" height=400>
+													</iframe>
+													<ul class="actions" id='twobutton'>
+														<li><a href="https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/" target="myiframe" class="button primary">Bay Area Lockouts</a></li>
+														<li><a href="https://evictions.study/california/maps/ca_state.html" target="myiframe" class="button">CA State Filings</a></li>
+													</ul>
+													<!-- Script to toggle buttons -->
+													<script>
+														var header = document.getElementById("twobutton");
+														var btns = header.getElementsByClassName("button");
+														for (var i = 0; i < btns.length; i++) {
+														  btns[i].addEventListener("click", function() {
+														  var current = document.getElementsByClassName("primary");
+														  if (current.length > 0) {
+														    current[0].className = current[0].className.replace(" primary", "");
+														  }
+														  this.className += " primary";
+														  });
+														}
+													</script>
+
+<!-- 															<div class="col-4 col-12-small">
+																<input type="radio" onclick="window.myiframe='https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/';" />
+																<input type="radio" id="demo-priority-low" name="demo-priority" checked href="https://evictions.study/california/maps/ca_state.html" target="myiframe">
+																<label for="demo-priority-low">County</label>
+															</div>
+															<div class="col-4 col-12-small">
+																<input type="radio" id="demo-priority-normal" name="demo-priority" href="https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/" target="myiframe" >
+																<label for="demo-priority-normal">City</label>
+															</div>
+															<div class="col-4 col-12-small">
+																<input type="radio" id="demo-priority-high" name="demo-priority">
+																<label for="demo-priority-high">Neighborhood</label>
+															</div>
+													<ul>
+															<a href="maps/us_map.html" target="myiframe" class="button primary">Bay Area Lockouts</a>
+
+													</ul>
+ -->												</span>
+											</div>
+
+								</section>
+								<section>
+									<!-- Area graph -->
+									<h2>Lockouts over time</h2>
+													<iframe src="https://evictions.study/california/plots/bay_2017-2021.html" class="image fit" name="myiframe" height=400>
+													</iframe>
+									<!-- Historical average histogram -->
+									<h2>Pandemic lockouts vs. historical average</h2>
+													<iframe src="https://evictions.study/california/plots/ha_9_county.html" class="image fit" name="myiframe" height=400>
+													</iframe>
+									<!-- Race plots -->
+
+									<h2>Pandemic lockout Rate by Race & County</h2>
+													<iframe src="https://evictions.study/california/plots/bay_pan_ev_rate_co.html" class="image fit" name="myiframe" height=400>
+													</iframe>
+
+									<h2>Pandemic lockout Ratio by Race & County</h2>
+													<iframe src="https://evictions.study/california/plots/bay_pan_ev_ratio_co.html" class="image fit" name="myiframe" height=400>
+													</iframe>
+
+									<h2>Contra Costa: Pandemic lockout Rate by Race & City</h2>
+													<iframe src="https://evictions.study/california/plots/bay_pan_ev_rate_pl.html" class="image fit" name="myiframe" height=600>
+													</iframe>
+
+									<h2>Contra Costa: Pandemic lockout Ratio by Race & City</h2>
+													<iframe src="https://evictions.study/california/plots/bay_pan_ev_ratio_pl.html" class="image fit" name="myiframe" height=600>
+													</iframe>
+
+
+
+<!-- 													<iframe src="https://evictions.study/california/plots/ha_4_county.html" class="image fit" name="myiframe" height=400>
+													</iframe> -->
+								</section>
+
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

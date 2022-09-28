@@ -23,15 +23,27 @@ state <-
     states(
         cb = TRUE
     ) %>% 
-    filter(STUSPS %in% c('CA', 'WA', 'MD', 'OH')) %>%
+    filter(STUSPS %in% c('CA', 'WA', 'MD', 'OH', 'IL', 'IN', 'MO', 'PA')) %>%
     mutate(win_url = 
         case_when(
             STUSPS == 'CA' ~ 'https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/', 
-            STUSPS == 'WA' ~ 'https://evictions.study/washington/maps/summary.html', 
-            STUSPS == 'MD' ~ 'https://evictions.study/maryland/report/baltimore.html',
-            STUSPS == 'OH' ~ 'https://evictions.study/ohio/dayton.html'
+            STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
+            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
+            STUSPS == 'IL ' ~ 'https://evictionresearch.net/illinois/',
+            STUSPS == 'IN ' ~ 'https://evictionresearch.net/indiana/',
+            STUSPS == 'MO ' ~ 'https://evictionresearch.net/missouri/',
+            STUSPS == 'PA ' ~ 'https://evictionresearch.net/pennsylvania/',
+            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/dayton.html'
         )
         )
+
+soon_state <-
+    states(cb = TRUE) %>%
+    filter(STUSPS %in% c('MN', 'OR', 'TX', 'DE', 'FL', 'GA', 'SC', 'TN'))
+
+later_state <-
+    states(cb = TRUE) %>%
+    filter(STUSPS %in% c('AL', 'AZ', 'AR', 'CO', 'KS', 'KY', 'ND', 'OK', 'VT', 'VA', 'AK', 'HI', 'CT', 'NM', 'ME', 'NH', 'NY', 'UT', 'WI'))
 
 map <- 
 leaflet(
@@ -58,7 +70,35 @@ leaflet(
                     bringToFront = TRUE
                     )  
         )  %>%
+  addPolygons(
+        data = soon_state,
+        fillOpacity = .5,
+        color = '#808080',
+        stroke = TRUE,
+        label = ~paste(NAME, " Coming end of 2022"),
+        weight = 1,
+        opacity = .5,
+        highlightOptions = highlightOptions(
+                    color = "#ff4a4a",
+                    weight = 5,
+                    bringToFront = TRUE
+                    )
+        )  %>%
+  addPolygons(
+        data = later_state,
+        fillOpacity = .5,
+        color = '#cfcfcf',
+        stroke = TRUE,
+        label = ~paste(NAME, " Coming 2023"),
+        weight = 1,
+        opacity = .5,
+        highlightOptions = highlightOptions(
+                    color = "#ff4a4a",
+                    weight = 5,
+                    bringToFront = TRUE
+                    )
+        )  %>%
   htmlwidgets::onRender(jsCode, data=state) 
 
 map
-saveWidget(map, '~/git/evictions-study.github.io/maps/us_map.html')
+saveWidget(map, '~/git/evictionresearch/evictionresearch.github.io/maps/us_map.html')

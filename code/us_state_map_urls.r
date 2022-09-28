@@ -28,8 +28,8 @@ state <-
         case_when(
             STUSPS == 'CA' ~ 'https://evictionresearch.net/california/',
             STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
-            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             STUSPS == 'IL ' ~ 'https://evictionresearch.net/illinois/',
+            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             STUSPS == 'IN ' ~ 'https://evictionresearch.net/indiana/',
             STUSPS == 'MO ' ~ 'https://evictionresearch.net/missouri/',
             STUSPS == 'PA ' ~ 'https://evictionresearch.net/pennsylvania/',

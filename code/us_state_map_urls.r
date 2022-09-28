@@ -26,7 +26,7 @@ state <-
     filter(STUSPS %in% c('CA', 'WA', 'MD', 'OH', 'IL', 'IN', 'MO', 'PA')) %>%
     mutate(win_url = 
         case_when(
-            STUSPS == 'CA' ~ 'https://shiny.demog.berkeley.edu/alexramiller/kqed-evictions/', 
+            STUSPS == 'CA' ~ 'https://evictionresearch.net/california/',
             STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
             STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             STUSPS == 'IL ' ~ 'https://evictionresearch.net/illinois/',
@@ -47,7 +47,6 @@ later_state <-
 
 map <- 
 leaflet(
-  state, 
   options = leafletOptions(zoomControl = FALSE, minZoom = 3.5, maxZoom = 3.5, dragging = FALSE)) %>% 
     # suspendScroll() %>% 
     setView(lat = 39.82, lng = -98.57, zoom = 3.5) %>% 
@@ -58,6 +57,7 @@ leaflet(
                     options = leafletOptions(pane = "maplabels"),
                     group = "map labels") %>%
   addPolygons(
+        data = state,
         fillOpacity = .5, 
         color = 'Red', 
         stroke = TRUE, 

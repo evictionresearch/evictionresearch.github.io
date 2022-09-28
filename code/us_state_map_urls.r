@@ -73,7 +73,7 @@ leaflet(
   addPolygons(
         data = soon_state,
         fillOpacity = .5,
-        color = '#808080',
+        color = '#cfcfcf',
         stroke = TRUE,
         label = ~paste(NAME, " Coming end of 2022"),
         weight = 1,

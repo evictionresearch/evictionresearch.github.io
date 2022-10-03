@@ -53,7 +53,8 @@ leaflet(
     addMapPane(name = "polygons", zIndex = 410) %>% 
     addMapPane(name = "maplabels", zIndex = 420) %>% 
      addProviderTiles("CartoDB.PositronNoLabels") %>%
-     addProviderTiles("CartoDB.PositronOnlyLabels", 
+  
+     addProviderTiles("Stamen.TerrainLabels", 
                     options = leafletOptions(pane = "maplabels"),
                     group = "map labels") %>%
   addPolygons(

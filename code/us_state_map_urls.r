@@ -33,7 +33,7 @@ state <-
             STUSPS == 'IN' ~ 'https://evictionresearch.net/indiana/',
             STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
             STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
-            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/dayton.html'
+            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/'
         )
         )
 

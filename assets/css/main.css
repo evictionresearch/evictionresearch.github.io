@@ -80,6 +80,7 @@ input, select, textarea {
 
 	html {
 		box-sizing: border-box;
+		scroll-padding-top: 4rem;
 	}
 
 	*, *:before, *:after {

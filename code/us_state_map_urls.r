@@ -30,7 +30,7 @@ state <-
         'MN',
         # 'OR',
         'MD',
-        'MO'#,
+        # 'MO'#,
         # 'PA',
         # 'OH'
         )) %>%
@@ -44,7 +44,7 @@ state <-
             STUSPS == 'MN' ~ 'https://evictionresearch.net/minnesota/',
             # STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
             STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
-            STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
+            # STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
             # STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
             # STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/'
         )
@@ -56,7 +56,7 @@ soon_state <-
         'IL',
 # 'MN',
 'OR',
-# 'MO',
+'MO',
 'PA',
 'OH','DE', 'TX', 'FL', 'GA', 'SC', 'TN'))
 

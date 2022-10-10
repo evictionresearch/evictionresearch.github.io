@@ -25,26 +25,40 @@ state <-
     ) %>% 
     filter(STUSPS %in% c('CA', 'WA',
         # 'DE',
-        'IL', 'IN', 'MN', 'OR', 'MD', 'MO', 'PA', 'OH')) %>%
+        # 'IL',
+        'IN',
+        'MN',
+        # 'OR',
+        'MD',
+        'MO'#,
+        # 'PA',
+        # 'OH'
+        )) %>%
     mutate(win_url = 
         case_when(
             STUSPS == 'CA' ~ 'https://evictionresearch.net/california/',
             STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
             # STUSPS == 'DE' ~ 'https://evictionresearch.net/delaware/',
-            STUSPS == 'IL' ~ 'https://evictionresearch.net/illinois/',
+            # STUSPS == 'IL' ~ 'https://evictionresearch.net/illinois/',
             STUSPS == 'IN' ~ 'https://evictionresearch.net/indiana/',
             STUSPS == 'MN' ~ 'https://evictionresearch.net/minnesota/',
-            STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
+            # STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
             STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
-            STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
-            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/'
+            # STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
+            # STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/'
         )
         )
 
 soon_state <-
     states(cb = TRUE) %>%
-    filter(STUSPS %in% c('TX', 'FL', 'GA', 'SC', 'TN'))
+    filter(STUSPS %in% c(
+        'IL',
+# 'MN',
+'OR',
+# 'MO',
+'PA',
+'OH','DE', 'TX', 'FL', 'GA', 'SC', 'TN'))
 
 later_state <-
     states(cb = TRUE) %>%

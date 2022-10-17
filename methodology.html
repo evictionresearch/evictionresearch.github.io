@@ -100,13 +100,16 @@
 								  </li>								  
 								</ol>
 								
-								<hr/>
+								<!-- <hr/>
 								<h2  id="mining">Court record mining</h2>
 								<p>
 									(Coming soon)
-								</p>
+								</p> -->
 
                 <hr/>
+                <!-- I (Julia) feel like the "Data cleaning" section below is too detailed for the Methodology page, or at least the current version of it. Maybe it would fit if we created a really in-depth Methodology PDF or something, but I don't think we want to explain specific string manipulation techniques or the creation of specific fields here yet. But feel free to add it back in if you can make it accessible and more general. -->
+                
+                <!-- 
 								<h2 id="cleaning">Data cleaning</h2>
 								<p>
 									With all records in a machine readable format, the consolidation of records from disparate jurisdictions and data inquiry requests can begin. 
@@ -125,35 +128,43 @@
 										</li>
 										<li>Case numbers are not case sensitive.</li>
 									</ol>
+								</p>  -->
+								
+								<h2 id="geocoding">Geocoding and Geographic "Redistribution"</h2>
+								<p>Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses. While the Legal Services Corporation geocoded their data before sending it to us, datasets from other sources required that we geocode them ourselves using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. We first used the US Census Bureau’s service - which is capable of processing up to 10,000 addresses per request - and then used either ArcGIS or OpenStreetMap (or both) to geocode leftover addresses.
 								</p>
-								
-								<h3 id="geocoding">Geocoding</h3>
-								<p>Next, we geocoded the data using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. 
-									The US Census Bureau’s geocoding service is capable of processing up to 10,000 addresses per request, so this is the first service used. 
-									Based on the address field availability of records that were not geocoded, ArcGIS or OpenStreetMap is used to geocode the leftover addresses.
-								
-									  Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses, 
-									  which we used to determine the census tract and county where each eviction occurred</p>
-
-								<h3 id="pii">Personally identifying information</h3>
 								<p>
-									After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants.
-									The data include information about eviction filings among (1) individual households, (2) businesses, and (3) unnamed tenants.
-									For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, 
-									so we filtered out cases where the name suggested the defendant was a business rather than a person.
+								While we would like to be able to aggregate all evictions to the census tract level, the quality and specificity of the address field provided in the original data varies. It is not always possible to determine the census tract the eviction occurred in since some addresses list only a zip code or county. In these cases, the latitude and longitude that result from geocoding are the central coordinates of whichever geographic entity is available and do not accurately represent the exact location of the eviction. For example, an eviction with only the zip code listed (instead of a specific street address) would be assigned the latitude and longitude of the zip code’s centroid, which may be located outside of the census tract that the eviction actually occurred in. To address this issue, we devised a system to (1) determine the appropriate geographic scale at which to map eviction rates, and (2) geographically “redistribute” evictions into smaller geographies when necessary.
+								</p>
+								<p>
+								For each county within a state, we determined the geographic scale (census tract, zip code, or county) at which the <i>plurality</i> of eviction cases were available - we called this the county's <i>"primary geography."</i> When the primary geography was the census tract, we mapped the county’s eviction rates at the tract level. If the primary geography was the zip code, we mapped the county’s eviction rates by zip code.
+								</p>
+								<p>
+								However, when the plurality of evictions in a county are available at a certain geographic scale, this does not mean that all of the evictions in that county are available at that scale. For example, a county whose primary geography is the census tract might have some evictions that are only available at the zip code level, and a county whose primary geography is the zip code might have a number of evictions that are only available at the county level. In order to map all the evictions in a county at the same geographic scale (i.e., the "primary geography"), we "redistributed" these evictions into the appropriate geographic entities.
+								</p>
+								<p>
+								  In counties where the primary geography was the census tract, evictions that were available at only the zip code level were distributed equally into census tracts within their respective zip codes. For example, if there were 5 tracts in a zip code and 10 eviction cases in the zip code needing "redistribution", each tract would be assigned 2 cases (except for tracts with zero renters according to the census, which would not be assigned any cases). Similarly, in counties where the primary geography was the zip code, evictions that were available only at the county level were distributed equally into zip codes within the county.
+                </p>
+
+								<h2 id="pii">Defendant Name Cleaning</h2>
+								<p>
+									After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants.	The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person. <!--We assumed that unnamed tenants were individuals, not businesses, BUT WE COULDN'T DO DEMOGRAPHIC ESTIMATION ON THEM?? OR WERE THEY REDISTRIBUTED?-->
 								</p>
 								
-								<h3 id="demographic">Demographic Estimation</h3>
+								<h2 id="demographic">Demographic Estimation</h2>
 								<p>Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography. 
 								</p>
-								<p>When we aggregated evictions to the tract and county level, we calculated the racial composition of each geographic area by adding the predicted probabilities of each race across all eviction cases. For example, if there are three individuals with eviction filings in a tract, and their predicted probabilities of being Asian are 0.3, 0.8, and 0.2 respectively, we would say that there are (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract.</p>
+								<p>
+								  When we aggregated evictions to the tract and county level, we calculated the racial composition of each geographic area by adding the predicted probabilities of each race across all eviction cases. For example, if there are three individuals with eviction filings in a tract, and their predicted probabilities of being Asian are 0.3, 0.8, and 0.2 respectively, we would say that there are (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract.</p>
 								<p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
 								</p>
 								
-								<h3 id="deduplication">Deduplication</h3>
-								<p>After cleaning names and standardizing addresses with geocoding services, the records are now deduplicated. This is necessary because the legal process for evictions are different not only between states but between jurisdictions.
-									There is no standard method of filing case numbers- many records have different case numbers but identical fields for name and address- these records cannot be counted as unique eviction events as they are more likely than not a matter of paperwork than they are the act of attempting to remove an individual from their place of residence. 
-									In the event of identical name and address fields but distinct case numbers, only the earliest case is kept. 
+								<h2 id="deduplication">Deduplication</h2>
+								<p>
+								  Jurisdictions across the U.S. process and record eviction cases differently. For example, in some datasets we received, there were multiple rows with identical defendant names and addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time. Datasets from some other jurisdictions simply contain a single row for each individual case, each with its own unique case ID.
+								</p>
+								<p>								  
+									To make sure we are not overcounting evictions, we deduplicated the data: among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "Y", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row.
 								</p>
 							</div>
 						</section>

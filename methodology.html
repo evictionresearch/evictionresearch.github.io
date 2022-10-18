@@ -64,11 +64,11 @@
 							  <h2>Table of contents</h2>
 							  <ol>
 							    <li><a href="#acquisition">Acquisition</a></li>
-							    <li><a href="#mining">Court record mining</a></li>
+							    <!--<li><a href="#mining">Court record mining</a></li>-->
 							    <li><a href="#cleaning">Data cleaning</a>
 							    <ol>
-							      <li><a href="#geocoding">Geocoding</a>
-							      <li><a href="#pii">Personally identifying information</a>
+							      <li><a href="#geocoding">Geocoding and geographic "redistribution"</a>
+							      <li><a href="#pii">Defendant name cleaning</a>
 							      <li><a href="#demographic">Demographic estimation</a>
 							      <li><a href="#deduplication">Deduplication</a>
 							    </ol>
@@ -107,7 +107,7 @@
 								</p> -->
 
                 <hr/>
-                <!-- I (Julia) feel like the "Data cleaning" section below is too detailed for the Methodology page, or at least the current version of it. Maybe it would fit if we created a really in-depth Methodology PDF or something, but I don't think we want to explain specific string manipulation techniques or the creation of specific fields here yet. But feel free to add it back in if you can make it accessible and more general. -->
+                <!-- I (Julia) think the "Data cleaning" section below is too detailed for the Methodology page, or at least the current version of it. Maybe it would fit if we created a really in-depth Methodology PDF or something, but I don't think we want to explain specific string manipulation techniques or the creation of specific fields here yet. But feel free to add it back in if you can make it accessible and more general. -->
                 
                 <!-- 
 								<h2 id="cleaning">Data cleaning</h2>
@@ -148,23 +148,58 @@
 
 								<h2 id="pii">Defendant Name Cleaning</h2>
 								<p>
-									After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants.	The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person. <!--We assumed that unnamed tenants were individuals, not businesses, BUT WE COULDN'T DO DEMOGRAPHIC ESTIMATION ON THEM?? OR WERE THEY REDISTRIBUTED?-->
+									After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants.	The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person.
 								</p>
 								
 								<h2 id="demographic">Demographic Estimation</h2>
-								<p>Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography. 
-								</p>
 								<p>
-								  When we aggregated evictions to the tract and county level, we calculated the racial composition of each geographic area by adding the predicted probabilities of each race across all eviction cases. For example, if there are three individuals with eviction filings in a tract, and their predicted probabilities of being Asian are 0.3, 0.8, and 0.2 respectively, we would say that there are (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract.</p>
-								<p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
+								  Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography. 
 								</p>
+								<p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
+								</p>	
+								<p>
+								  To determine eviction rates by race at the tract and county level:
+								</p>
+								<ol>
+								<li>
+								  We first summed the predicted probabilities of each race for all the individuals in the tract/county by month to determine the <b>predicted number of evictions for each racial group</b>.
+								  <br>
+								  <br>
+								  <ul>
+								    <li>For example, if there were three individuals in a tract/county in June 2017, and their predicted probabilities of being Asian were 0.3, 0.8, and 0.2 respectively, we would say that there were (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract/county in that month.</li>
+								  </ul>
+								</li>								
+								<li>
+								We then estimated the <b>proportion of evictions filed against each racial group</b> by dividing these predicted race-specific evictions by the predicted sum of evictions for all racial groups.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if there were 1.3 evictions among Asians in a tract/county in June 2017, and 16 evictions among all racial groups (Asian + Black + Latine + White + other), we would say that 1.3 / 16 = approximately 8% of evictions in June 2017 were among Asians.</li>
+								</ul>
+								</li>								
+								<li>However, because we could not successfully perform demographic estimation for all individuals listed in the data (e.g., when the defendant name was something like "UNAUTHORIZED OCCUPANT"), simply counting the cases for which demographic estimation was successful misrepresents the real eviction counts. To remedy this, we multiplied the estimated proportions (explained in the paragraph above) by the total number of unique eviction cases included in the data (calculated before demographic estimation was conducted) to again estimate the <b>number of evictions for each racial group</b>.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if we determined that 8% of evictions in the tract/county in June 2017 were among Asians, and there were 19 total evictions (according to pre-demographic estimation calculations), we would say that there were actually 0.08 * 19 = 1.52 evictions among Asians.</li>
+								</ul>
+								</li>							
+								<li>
+								Finally, we calculated <b>eviction rates by race, or the share of renters in each racial group</b> (i.e., the universe of people who could potentially face eviction) who were evicted. To do this, we divided the updated estimated eviction counts by the total number of renters in each racial group, according to the 2020 census.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if we calculated 1.52 evictions among Asians in the tract/county in June 2017, and there were 70 Asian renters tract/county according to the 2020 census, we would say that the eviction rate among Asians was 1.52 / 70 = approximately 2.2%.</li>
+								</ul>
+								</li>
+								</ol>
 								
 								<h2 id="deduplication">Deduplication</h2>
 								<p>
 								  Jurisdictions across the U.S. process and record eviction cases differently. For example, in some datasets we received, there were multiple rows with identical defendant names and addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time. Datasets from some other jurisdictions simply contain a single row for each individual case, each with its own unique case ID.
 								</p>
 								<p>								  
-									To make sure we are not overcounting evictions, we deduplicated the data: among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "Y", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row.
+									To make sure we are not overcounting evictions, we deduplicated the data: among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "123 Main Street, [City] [Zip Code]", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row.
 								</p>
 							</div>
 						</section>

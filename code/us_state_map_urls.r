@@ -28,7 +28,7 @@ state <-
         # 'IL',
         'IN',
         'MN',
-        # 'OR',
+        'OR',
         'MD'#,
         # 'MO'#,
         # 'PA',
@@ -42,7 +42,7 @@ state <-
             # STUSPS == 'IL' ~ 'https://evictionresearch.net/illinois/',
             STUSPS == 'IN' ~ 'https://evictionresearch.net/indiana/',
             STUSPS == 'MN' ~ 'https://evictionresearch.net/minnesota/',
-            # STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
+            STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
             STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             # STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
             # STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
@@ -55,11 +55,14 @@ soon_state <-
     states(cb = TRUE) %>%
     filter(STUSPS %in% c(
         'IL',
-# 'MN',
-'OR',
-'MO',
-'PA',
-'OH','TX', 'FL', 'GA', 'SC', 'TN'))
+        'MO',
+        'PA',
+        'OH',
+        'TX',
+        'FL',
+        'GA',
+        'SC',
+        'TN'))
 
 later_state <-
     states(cb = TRUE) %>%

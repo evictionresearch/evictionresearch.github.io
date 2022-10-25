@@ -39,11 +39,11 @@
 										<li><a href="index.html">Home</a></li>
 										<li><a href="methodology.html">Methodology</a></li>
 										<li><a href="resources.html">Eviction help</a></li>
+										<li><a href="research.html">Research</a></li>
 										<li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact us</a></li>
 				  						<!--<li><a href="">State Maps</a></li>
 										<li><a href="">Reports</a></li>
 										<li><a href="news.html">News</a></li>
-				  						<li><a href="research.html">Research</a></li>
 				  						<li><a href="about.html">About</a></li>-->
 									</ul>
 								</div>
@@ -56,14 +56,14 @@
 					<article id="main">
 						<header>
 							<h2>Methodology</h2>
-							<p>Eviction data acquisition, cleaning, and analysis</p>
+							<p>Eviction data sources, cleaning, and analysis</p>
 						</header>
 						<section class="wrapper style5">
 							<div class="inner">
 							  
 							  <h2>Table of contents</h2>
 							  <ol>
-							    <li><a href="#acquisition">Acquisition</a></li>
+							    <li><a href="#acquisition">Data Sources</a></li>
 							    <!--<li><a href="#mining">Court record mining</a></li>-->
 							    <li><a href="#cleaning">Data cleaning</a>
 							    <ol>
@@ -93,10 +93,15 @@
 								    <p style="margin-left:2%;">Eviction data for Cook County, DuPage County, Kane County, McHenry County, and Will County was provided through FOIA requests, web scraping, and Chicago Legal Aid. The information available varied with each county and not all records contained sufficient information for reporting. The discrepancies are noted in the Illinois state profile.</p>
 								  </li>			
 								  <li><b>Baltimore City Sheriff's Department</b>
-								    <p style="margin-left:2%;">(Updated soon)</p>
+								    <p style="margin-left:2%;">
+								    	Baltimore eviction data consists of Sheriff service calls and completions, otherwise known as writs of restitution. Writs are executed after the filing if the tenant is still on the premises. These data were provided by the Baltimore City Sheriff's department in collaboration with the Public Justice Center.
+								    </p>
 								  </li>
-								  <li><b>Washington state county court clerks' online portals</b>
-								    <p style="margin-left:2%;">(Updated soon)</p>
+								  <li><b>Washington State unlawful detainer data</b>
+								    <p style="margin-left:2%;">
+								    	Washington Eviction data consists primarily of Unlawful Detainers (eviction filings). The ERN team conducted a multi-stage process to collect, clean, and analyze these data. First, case number ID's, judgments, names, and county of the filing were requested through the WA State Administrative Office of the Courts. Because these data did not contain addresses, which is necessary to map and estimate demographics, ERN reached out to county clerks where case file images are held to request online access to their record systems and scrape these records using the case number. Next, ERN digitized the court records and used Natural Language Processing to mine the court record addresses of the defendant. <i>(Future research will include mining the reason for eviction and other characteristics regarding each case to determine causes and consequences of eviction).</i> Finally, addresses are geocoded so we can map and conduct demographic estimation of those facing eviction.<br>
+								    	County level data covers the entire state while tract level data covers King, Pierce, Snohomish, and Whatcom counties.
+								    </p>
 								  </li>								  
 								</ol>
 								

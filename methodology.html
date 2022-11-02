@@ -62,9 +62,9 @@
                 <div class="inner">
                     <h2>Table of contents</h2>
                     <ol>
-                        <li><a href="#acquisition">Data Sources</a></li>
+                        <li><a href="#acquisition">Data</a></li>
                         <!--<li><a href="#mining">Court record mining</a></li>-->
-                        <li><a href="#cleaning">Data cleaning</a>
+                        <li><a href="#curation">Data curation</a>
                             <ol>
                                 <li><a href="#geocoding">Geocoding and geographic "redistribution"</a>
                                 <li><a href="#pii">Defendant name cleaning</a>
@@ -74,7 +74,14 @@
                         </li>
                     </ol>
                     <hr />
-                    <h2>Data providers:</h2>
+                    <h2 id="curation">Data</h2>
+                    <h3>Overview</h3>
+                    <p>
+                    	Eviction data are inherently difficult to collect and clean: There is no central database on eviction and each state stores
+                    		</li>
+                    	</ul> because there is no real standardized format or collection strategy.
+                    </p>
+                    <h3>Data Providers</h3>
                     <ol>
                         <li><b>Legal Services Corporation</b>
                             <p style="margin-left:2%;">States included: Delaware, Indiana, Minnesota, Missouri, Ohio, Pennsylvania</p>
@@ -103,9 +110,9 @@
 									(Coming soon)
 								</p> -->
                     <hr />
-                    <!-- I (Julia) think the "Data cleaning" section below is too detailed for the Methodology page, or at least the current version of it. Maybe it would fit if we created a really in-depth Methodology PDF or something, but I don't think we want to explain specific string manipulation techniques or the creation of specific fields here yet. But feel free to add it back in if you can make it accessible and more general. -->
+                    <!-- I (Julia) think the "Data curation" section below is too detailed for the Methodology page, or at least the current version of it. Maybe it would fit if we created a really in-depth Methodology PDF or something, but I don't think we want to explain specific string manipulation techniques or the creation of specific fields here yet. But feel free to add it back in if you can make it accessible and more general. -->
                     <!--
-								<h2 id="cleaning">Data cleaning</h2>
+								<h2 id="curation">Data cleaning</h2>
 								<p>
 									With all records in a machine readable format, the consolidation of records from disparate jurisdictions and data inquiry requests can begin.
 								</p>
@@ -126,7 +133,7 @@
 								</p>  -->
                     <h2 id="geocoding">Geocoding and Geographic "Redistribution"</h2>
                     <p>
-                    	Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses. While the Legal Services Corporation geocoded their data before sending it to us, datasets from other sources required that we geocode them ourselves using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. We first used the US Census Bureau’s service - which is capable of processing up to 10,000 addresses per request - and then used either ArcGIS or OpenStreetMap (or both) to geocode leftover addresses.
+                        Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses. While the Legal Services Corporation geocoded their data before sending it to us, datasets from other sources required that we geocode them ourselves using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. We first used the US Census Bureau’s service - which is capable of processing up to 10,000 addresses per request - and then used either ArcGIS or OpenStreetMap (or both) to geocode leftover addresses.
                     </p>
                     <p>
                         While we would like to be able to aggregate all evictions to the census tract level, the quality and specificity of the address field provided in the original data varies. It is not always possible to determine the census tract the eviction occurred in since some addresses list only a zip code or county. In these cases, the latitude and longitude that result from geocoding are the central coordinates of whichever geographic entity is available and do not accurately represent the exact location of the eviction. For example, an eviction with only the zip code listed (instead of a specific street address) would be assigned the latitude and longitude of the zip code’s centroid, which may be located outside of the census tract that the eviction actually occurred in. To address this issue, we devised a system to (1) determine the appropriate geographic scale at which to map eviction rates, and (2) geographically “redistribute” evictions into smaller geographies when necessary.
@@ -149,7 +156,7 @@
                         Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.
                     </p>
                     <p>
-                    	We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
+                        We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
                     </p>
                     <p>
                         To determine eviction rates by race at the tract and county level:

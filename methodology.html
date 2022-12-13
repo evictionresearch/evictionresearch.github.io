@@ -41,6 +41,7 @@
 										<li><a href="resources.html">Eviction help</a></li>
 										<li><a href="research.html">Research</a></li>
 										<li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact us</a></li>
+										<li><a href="research.html">Other Research</a></li>
 				  						<!--<li><a href="">State Maps</a></li>
 										<li><a href="">Reports</a></li>
 										<li><a href="news.html">News</a></li>
@@ -78,13 +79,13 @@
                 <hr/>
 								<h2 id="acquisition">Acquisition</h2>
 								<p>
-								  (Coming soon)
 								  <!-- Eviction data is not publicly available, [reasoning why this may be so, explanation of how sparse resources to analyze this are, etc] -->
 								</p>
 								<h3>Data providers:</h3>
 								<ol>
 								  <li><b>Legal Services Corporation</b>
-								    <p style="margin-left:2%;">States included: Delaware, Indiana, Minnesota, Missouri, Ohio, Pennsylvania</p>
+								    <p style="margin-left:2%;"><i>States included:</i> Alaska, Arizona, Arkansas, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Indiana, Kansas, Kentucky, Maine, Minnesota, Mississippi, Missouri, New York, North Dakota, Ohio, Oklahoma, Pennsylvania, Puerto Rico, South Carolina, Tennessee, Texas, Utah, Vermont, Virgin Islands, Virginia, Wisconsin.
+								    </p>
 								  </li>
 								  <li><b>Portland State University</b>
 								    <p style="margin-left:2%;">Eviction data for the entire state of Oregon were provided by Lisa Bates, PhD director of EvictedInOregon at Portland State University. The records contained fields for case number, date of filing, each party listed on a case, the side of the listed party, type of eviction, and whether the filing occurred during a moratorium.</p>
@@ -158,10 +159,10 @@
 								
 								<h2 id="demographic">Demographic Estimation</h2>
 								<p>
-								  Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography. 
+								  Using the surname extracted from the defendant name field, we estimated the race of each defendant with a valid human name using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.
 								</p>
-								<p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
-								</p>	
+								<!-- <p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
+								</p> -->	
 								<p>
 								  To determine eviction rates by race at the tract and county level:
 								</p>
@@ -201,10 +202,11 @@
 								
 								<h2 id="deduplication">Deduplication</h2>
 								<p>
-								  Jurisdictions across the U.S. process and record eviction cases differently. For example, in some datasets we received, there were multiple rows with identical defendant names and addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time. Datasets from some other jurisdictions simply contain a single row for each individual case, each with its own unique case ID.
-								</p>
-								<p>								  
-									To make sure we are not overcounting evictions, we deduplicated the data: among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "123 Main Street, [City] [Zip Code]", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row.
+								  Jurisdictions across the U.S. process and record eviction cases differently. When individual case IDs were available in the raw data, we assumed that all rows with a single case ID refer to the same eviction filing and deduplicated the data (i.e., kept only one row per unique case ID) using this field when possible. However, in many cases, we found other kinds of "duplicates." In some datasets we received, for example, there were multiple rows with identical defendant names and street addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time.
+								  <br><br>
+								  To avoid overcounting eviction filings, when possible we deduplicated the data based on "personally identifiable information" (PII): among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "123 Main Street, [City] [Zip Code]", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row so that we only counted one eviction - not two - for John X at 123 Main Street.
+								  <br><br>
+								  Unfortunately, we were only able to determine these kinds of duplicates using datasets containing PII, and only for rows of the data that contained a <i>valid, non-missing and non-blank</i> human name and address. For example, one dataset we received from the Legal Services Corporation contains PII, but only for a subset of counties, whereas a different dataset from the Legal Services Corporation contains data without PII but for a larger number of counties. Since we want to map and plot data for as many counties as we can, we show data that is deduplicated based on case ID only <i>(not PII)</i> in the county-level map layer and first two trend plots, whereas we only show data that is deduplicated based on PII in the tract-level map layer and race plots.
 								</p>
 							</div>
 						</section>

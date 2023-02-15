@@ -25,86 +25,86 @@
         <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 
-<body class="is-preload">
-    <!-- Page Wrapper -->
-    <div id="page-wrapper">
-        <!-- Header -->
-        <header id="header">
-            <h1><a href="index.html"><img src="assets/ern_logo/1A/ERN_1A_LOGO_BANNER_REV.png" style="width: 300px;"></a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="methodology.html">Methodology</a></li>
-                                <li><a href="resources.html">Eviction help</a></li>
-                                <li><a href="research.html">Other Research</a></li>
-                                <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact us</a></li>
-                                <!--<li><a href="">State Maps</a></li>
-											<li><a href="">Reports</a></li>
-											<li><a href="news.html">News</a></li>
-					  						<li><a href="about.html">About</a></li>-->
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-        <!-- Main -->
-        <article id="main">
-            <header>
-                <h2>Methodology</h2>
-                <p>Eviction data sources, cleaning, and analysis</p>
-            </header>
-            <section class="wrapper style5">
-                <div class="inner">
-                    <h2>Table of contents</h2>
-                    <ol>
-                        <li><a href="#acquisition">Data</a></li>
-                        <!--<li><a href="#mining">Court record mining</a></li>-->
-                        <li><a href="#curation">Data curation</a>
-                            <ol>
-                                <li><a href="#geocoding">Geocoding and geographic "redistribution"</a>
-                                <li><a href="#pii">Defendant name cleaning</a>
-                                <li><a href="#demographic">Demographic estimation</a>
-                                <li><a href="#deduplication">Deduplication</a>
-                            </ol>
-                        </li>
-                    </ol>
-                    <hr />
-                    <h2 id="curation">Data</h2>
-                    <h3>Overview</h3>
-                    <p>
-                    	Eviction data are inherently difficult to collect and clean: There is no central database on eviction and each state stores
-                    		</li>
-                    	</ul> because there is no real standardized format or collection strategy.
-                    </p>
-                    <h3>Data Providers</h3>
-                    <ol>
-                        <li><b>Legal Services Corporation</b>
-                            <p style="margin-left:2%;">States included: Delaware, Indiana, Minnesota, Missouri, Ohio, Pennsylvania</p>
-                        </li>
-                        <li><b>Portland State University</b>
-                            <p style="margin-left:2%;">Eviction data for the entire state of Oregon were provided by Lisa Bates, PhD director of EvictedInOregon at Portland State University. The records contained fields for case number, date of filing, each party listed on a case, the side of the listed party, type of eviction, and whether the filing occurred during a moratorium.</p>
-                        </li>
-                        <li><b>Chicago Legal Aid</b>
-                            <p style="margin-left:2%;">Eviction data for Cook County, DuPage County, Kane County, McHenry County, and Will County was provided through FOIA requests, web scraping, and Chicago Legal Aid. The information available varied with each county and not all records contained sufficient information for reporting. The discrepancies are noted in the Illinois state profile.</p>
-                        </li>
-                        <li><b>Baltimore City Sheriff's Department</b>
-                            <p style="margin-left:2%;">
-                                Baltimore eviction data consists of Sheriff service calls and completions, otherwise known as writs of restitution. Writs are executed after the filing if the tenant is still on the premises. These data were provided by the Baltimore City Sheriff's department in collaboration with the Public Justice Center.
-                            </p>
-                        </li>
-                        <li><b>Washington State unlawful detainer data</b>
-                            <p style="margin-left:2%;">
-                                Washington Eviction data consists primarily of Unlawful Detainers (eviction filings). The ERN team conducted a multi-stage process to collect, clean, and analyze these data. First, case number ID's, judgments, names, and county of the filing were requested through the WA State Administrative Office of the Courts. Because these data did not contain addresses, which is necessary to map and estimate demographics, ERN reached out to county clerks where case file images are held to request online access to their record systems and scrape these records using the case number. Next, ERN digitized the court records and used Natural Language Processing to mine the court record addresses of the defendant. <i>(Future research will include mining the reason for eviction and other characteristics regarding each case to determine causes and consequences of eviction).</i> Finally, addresses are geocoded so we can map and conduct demographic estimation of those facing eviction.<br>
-                                County level data covers the entire state while tract level data covers King, Pierce, Snohomish, and Whatcom counties.
-                            </p>
-                        </li>
-                    </ol>
-                    <!-- <hr/>
+				<!-- Header -->
+				<header id="header">
+					<h1><a href="index.html"><img src="assets/ern_logo/1A/ERN_1A_LOGO_BANNER_REV.png" style="width: 300px;"></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="special">
+								<a href="#menu" class="menuToggle"><span>Menu</span></a>
+								<div id="menu">
+									<ul>
+										<li><a href="index.html">Home</a></li>
+										<li><a href="methodology.html">Methodology</a></li>
+										<li><a href="resources.html">Eviction help</a></li>
+										<li><a href="research.html">Research</a></li>
+										<li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact us</a></li>
+										<li><a href="research.html">Other Research</a></li>
+				  						<!--<li><a href="">State Maps</a></li>
+										<li><a href="">Reports</a></li>
+										<li><a href="news.html">News</a></li>
+				  						<li><a href="about.html">About</a></li>-->
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</nav>
+				</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Methodology</h2>
+							<p>Eviction data sources, cleaning, and analysis</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+							  
+							  <h2>Table of contents</h2>
+							  <ol>
+							    <li><a href="#acquisition">Data Sources</a></li>
+							    <!--<li><a href="#mining">Court record mining</a></li>-->
+							    <li><a href="#cleaning">Data cleaning</a>
+							    <ol>
+							      <li><a href="#geocoding">Geocoding and geographic "redistribution"</a>
+							      <li><a href="#pii">Defendant name cleaning</a>
+							      <li><a href="#demographic">Demographic estimation</a>
+							      <li><a href="#deduplication">Deduplication</a>
+							    </ol>
+							    </li>
+							  </ol> 
+
+                <hr/>
+								<h2 id="acquisition">Acquisition</h2>
+								<p>
+								  <!-- Eviction data is not publicly available, [reasoning why this may be so, explanation of how sparse resources to analyze this are, etc] -->
+								</p>
+								<h3>Data providers:</h3>
+								<ol>
+								  <li><b>Legal Services Corporation</b>
+								    <p style="margin-left:2%;"><i>States included:</i> Alaska, Arizona, Arkansas, Colorado, Connecticut, Delaware, Florida, Georgia, Hawaii, Indiana, Kansas, Kentucky, Maine, Minnesota, Mississippi, Missouri, New York, North Dakota, Ohio, Oklahoma, Pennsylvania, Puerto Rico, South Carolina, Tennessee, Texas, Utah, Vermont, Virgin Islands, Virginia, Wisconsin.
+								    </p>
+								  </li>
+								  <li><b>Portland State University</b>
+								    <p style="margin-left:2%;">Eviction data for the entire state of Oregon were provided by Lisa Bates, PhD director of EvictedInOregon at Portland State University. The records contained fields for case number, date of filing, each party listed on a case, the side of the listed party, type of eviction, and whether the filing occurred during a moratorium.</p>
+								  </li>
+								  <li><b>Chicago Legal Aid / ACLU</b>
+								    <p style="margin-left:2%;">Eviction data for Cook County, DuPage County, Kane County, McHenry County, and Will County was provided through FOIA requests, web scraping, and Chicago Legal Aid. The information available varied with each county and not all records contained sufficient information for reporting. The discrepancies are noted in the Illinois state profile.</p>
+								  </li>			
+								  <li><b>Baltimore City Sheriff's Department</b>
+								    <p style="margin-left:2%;">
+								    	Baltimore eviction data consists of Sheriff service calls and completions, otherwise known as writs of restitution. Writs are executed after the filing if the tenant is still on the premises. These data were provided by the Baltimore City Sheriff's department in collaboration with the Public Justice Center.
+								    </p>
+								  </li>
+								  <li><b>Washington State unlawful detainer data</b>
+								    <p style="margin-left:2%;">
+								    	Washington Eviction data consists primarily of Unlawful Detainers (eviction filings). The ERN team conducted a multi-stage process to collect, clean, and analyze these data. First, case number ID's, judgments, names, and county of the filing were requested through the WA State Administrative Office of the Courts. Because these data did not contain addresses, which is necessary to map and estimate demographics, ERN reached out to county clerks where case file images are held to request online access to their record systems and scrape these records using the case number. Next, ERN digitized the court records and used Natural Language Processing to mine the court record addresses of the defendant. <i>(Future research will include mining the reason for eviction and other characteristics regarding each case to determine causes and consequences of eviction).</i> Finally, addresses are geocoded so we can map and conduct demographic estimation of those facing eviction.<br>
+								    	County level data covers the entire state while tract level data covers King, Pierce, Snohomish, and Whatcom counties.
+								    </p>
+								  </li>								  
+								</ol>
+								
+								<!-- <hr/>
 								<h2  id="mining">Court record mining</h2>
 								<p>
 									(Coming soon)
@@ -131,101 +131,103 @@
 										<li>Case numbers are not case sensitive.</li>
 									</ol>
 								</p>  -->
-                    <h2 id="geocoding">Geocoding and Geographic "Redistribution"</h2>
-                    <p>
-                        Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses. While the Legal Services Corporation geocoded their data before sending it to us, datasets from other sources required that we geocode them ourselves using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. We first used the US Census Bureau’s service - which is capable of processing up to 10,000 addresses per request - and then used either ArcGIS or OpenStreetMap (or both) to geocode leftover addresses.
-                    </p>
-                    <p>
-                        While we would like to be able to aggregate all evictions to the census tract level, the quality and specificity of the address field provided in the original data varies. It is not always possible to determine the census tract the eviction occurred in since some addresses list only a zip code or county. In these cases, the latitude and longitude that result from geocoding are the central coordinates of whichever geographic entity is available and do not accurately represent the exact location of the eviction. For example, an eviction with only the zip code listed (instead of a specific street address) would be assigned the latitude and longitude of the zip code’s centroid, which may be located outside of the census tract that the eviction actually occurred in. To address this issue, we devised a system to (1) determine the appropriate geographic scale at which to map eviction rates, and (2) geographically “redistribute” evictions into smaller geographies when necessary.
-                    </p>
-                    <p>
-                        For each county within a state, we determined the geographic scale (census tract, zip code, or county) at which the <i>plurality</i> of eviction cases were available - we called this the county's <i>"primary geography."</i> When the primary geography was the census tract, we mapped the county’s eviction rates at the tract level. If the primary geography was the zip code, we mapped the county’s eviction rates by zip code.
-                    </p>
-                    <p>
-                        However, when the plurality of evictions in a county are available at a certain geographic scale, this does not mean that all of the evictions in that county are available at that scale. For example, a county whose primary geography is the census tract might have some evictions that are only available at the zip code level, and a county whose primary geography is the zip code might have a number of evictions that are only available at the county level. In order to map all the evictions in a county at the same geographic scale (i.e., the "primary geography"), we "redistributed" these evictions into the appropriate geographic entities.
-                    </p>
-                    <p>
-                        In counties where the primary geography was the census tract, evictions that were available at only the zip code level were distributed equally into census tracts within their respective zip codes. For example, if there were 5 tracts in a zip code and 10 eviction cases in the zip code needing "redistribution", each tract would be assigned 2 cases (except for tracts with zero renters according to the census, which would not be assigned any cases). Similarly, in counties where the primary geography was the zip code, evictions that were available only at the county level were distributed equally into zip codes within the county.
-                    </p>
-                    <h2 id="pii">Defendant Name Cleaning</h2>
-                    <p>
-                        After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants. The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person.
-                    </p>
-                    <h2 id="demographic">Demographic Estimation</h2>
-                    <p>
-                        Using the surname extracted from the defendant name field, we estimated the race of each defendant using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.
-                    </p>
-                    <p>
-                        We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
-                    </p>
-                    <p>
-                        To determine eviction rates by race at the tract and county level:
-                    </p>
-                    <ol>
-                        <li>
-                            We first summed the predicted probabilities of each race for all the individuals in the tract/county by month to determine the <b>predicted number of evictions for each racial group</b>.
-                            <br>
-                            <br>
-                            <ul>
-                                <li>For example, if there were three individuals in a tract/county in June 2017, and their predicted probabilities of being Asian were 0.3, 0.8, and 0.2 respectively, we would say that there were (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract/county in that month.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            We then estimated the <b>proportion of evictions filed against each racial group</b> by dividing these predicted race-specific evictions by the predicted sum of evictions for all racial groups.
-                            <br>
-                            <br>
-                            <ul>
-                                <li>For example, if there were 1.3 evictions among Asians in a tract/county in June 2017, and 16 evictions among all racial groups (Asian + Black + Latine + White + other), we would say that 1.3 / 16 = approximately 8% of evictions in June 2017 were among Asians.</li>
-                            </ul>
-                        </li>
-                        <li>However, because we could not successfully perform demographic estimation for all individuals listed in the data (e.g., when the defendant name was something like "UNAUTHORIZED OCCUPANT"), simply counting the cases for which demographic estimation was successful misrepresents the real eviction counts. To remedy this, we multiplied the estimated proportions (explained in the paragraph above) by the total number of unique eviction cases included in the data (calculated before demographic estimation was conducted) to again estimate the <b>number of evictions for each racial group</b>.
-                            <br>
-                            <br>
-                            <ul>
-                                <li>For example, if we determined that 8% of evictions in the tract/county in June 2017 were among Asians, and there were 19 total evictions (according to pre-demographic estimation calculations), we would say that there were actually 0.08 * 19 = 1.52 evictions among Asians.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Finally, we calculated <b>eviction rates by race, or the share of renters in each racial group</b> (i.e., the universe of people who could potentially face eviction) who were evicted. To do this, we divided the updated estimated eviction counts by the total number of renters in each racial group, according to the 2020 census.
-                            <br>
-                            <br>
-                            <ul>
-                                <li>For example, if we calculated 1.52 evictions among Asians in the tract/county in June 2017, and there were 70 Asian renters tract/county according to the 2020 census, we would say that the eviction rate among Asians was 1.52 / 70 = approximately 2.2%.</li>
-                            </ul>
-                        </li>
-                    </ol>
-                    <h2 id="deduplication">Deduplication</h2>
-                    <p>
-                        Jurisdictions across the U.S. process and record eviction cases differently. For example, in some datasets we received, there were multiple rows with identical defendant names and addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time. Datasets from some other jurisdictions simply contain a single row for each individual case, each with its own unique case ID.
-                    </p>
-                    <p>
-                        To make sure we are not overcounting evictions, we deduplicated the data: among rows with identical defendant names and addresses, we kept only the row with the earliest date. For example, if a dataset included two rows where the defendant name was "John X" and the address was "123 Main Street, [City] [Zip Code]", and the rows had "October 2018" and "April 2018" listed in the "Date" column, we would keep only the "April 2018" row.
-                    </p>
-                </div>
-            </section>
-        </article>
-        <!-- Footer -->
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://twitter.com/EvictionNet" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
-                <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-            </ul>
-            <div>
-                <ul class="copyright">
-                    <li>&copy; 2022 The Eviction Research Network</li>
-                    <li><a href="https://urbandisplacement.org" target="_blank">urbandisplacement.org</a></li>
-                    <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a> & <a href="https://www.dannyrothschild.com" target="_blank">Danny Rothschild</a></li>
-                </ul>
-        </footer>
-    </div>
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+								
+								<h2 id="geocoding">Geocoding and Geographic "Redistribution"</h2>
+								<p>Geocoding is the process of creating spatial data by establishing the latitude and longitude of individual addresses. While the Legal Services Corporation geocoded their data before sending it to us, datasets from other sources required that we geocode them ourselves using a combination of US Census Bureau, ArcGIS, and OpenStreetMap geocoding services. We first used the US Census Bureau’s service - which is capable of processing up to 10,000 addresses per request - and then used either ArcGIS or OpenStreetMap (or both) to geocode leftover addresses.
+								</p>
+								<p>
+								While we would like to be able to aggregate all evictions to the census tract level, the quality and specificity of the address field provided in the original data varies. It is not always possible to determine the census tract the eviction occurred in since some addresses list only a zip code or county. In these cases, the latitude and longitude that result from geocoding are the central coordinates of whichever geographic entity is available and do not accurately represent the exact location of the eviction. For example, an eviction with only the zip code listed (instead of a specific street address) would be assigned the latitude and longitude of the zip code’s centroid, which may be located outside of the census tract that the eviction actually occurred in. To address this issue, we devised a system to (1) determine the appropriate geographic scale at which to map eviction rates, and (2) geographically “redistribute” evictions into smaller geographies when necessary.
+								</p>
+								<p>
+								For each county within a state, we determined the geographic scale (census tract, zip code, or county) at which the <i>plurality</i> of eviction cases were available - we called this the county's <i>"primary geography."</i> When the primary geography was the census tract, we mapped the county’s eviction rates at the tract level. If the primary geography was the zip code, we mapped the county’s eviction rates by zip code.
+								</p>
+								<p>
+								However, when the plurality of evictions in a county are available at a certain geographic scale, this does not mean that all of the evictions in that county are available at that scale. For example, a county whose primary geography is the census tract might have some evictions that are only available at the zip code level, and a county whose primary geography is the zip code might have a number of evictions that are only available at the county level. In order to map all the evictions in a county at the same geographic scale (i.e., the "primary geography"), we "redistributed" these evictions into the appropriate geographic entities.
+								</p>
+								<p>
+								  In counties where the primary geography was the census tract, evictions that were available at only the zip code level were distributed equally into census tracts within their respective zip codes. For example, if there were 5 tracts in a zip code and 10 eviction cases in the zip code needing "redistribution", each tract would be assigned 2 cases (except for tracts with zero renters according to the census, which would not be assigned any cases). Similarly, in counties where the primary geography was the zip code, evictions that were available only at the county level were distributed equally into zip codes within the county.
+                </p>
+
+								<h2 id="pii">Defendant Name Cleaning</h2>
+								<p>
+									After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants.	The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person.
+								</p>
+								
+								<h2 id="demographic">Demographic Estimation</h2>
+								<p>
+								  Using the surname extracted from the defendant name field, we estimated the race of each defendant with a valid human name using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses the Bayes’ rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.
+								</p>
+								<!-- <p>We also estimated the sex of each defendant by cross-validating the first name of the individual with the Social Security Administration (SSA) Name Registry from 1932 to 2012 and the US Census Integrated Public Use Microdata Series (IPUMS).
+								</p> -->	
+								<p>
+								  To determine eviction rates by race at the tract and county level:
+								</p>
+								<ol>
+								<li>
+								  We first summed the predicted probabilities of each race for all the individuals in the tract/county by month to determine the <b>predicted number of evictions for each racial group</b>.
+								  <br>
+								  <br>
+								  <ul>
+								    <li>For example, if there were three individuals in a tract/county in June 2017, and their predicted probabilities of being Asian were 0.3, 0.8, and 0.2 respectively, we would say that there were (0.3 + 0.8 + 0.2) = 1.3 evictions among Asians in that tract/county in that month.</li>
+								  </ul>
+								</li>								
+								<li>
+								We then estimated the <b>proportion of evictions filed against each racial group</b> by dividing these predicted race-specific evictions by the predicted sum of evictions for all racial groups.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if there were 1.3 evictions among Asians in a tract/county in June 2017, and 16 evictions among all racial groups (Asian + Black + Latine + White + other), we would say that 1.3 / 16 = approximately 8% of evictions in June 2017 were among Asians.</li>
+								</ul>
+								</li>								
+								<li>However, because we could not successfully perform demographic estimation for all individuals listed in the data (e.g., when the defendant name was something like "UNAUTHORIZED OCCUPANT"), simply counting the cases for which demographic estimation was successful misrepresents the real eviction counts. To remedy this, we multiplied the estimated proportions (explained in the paragraph above) by the total number of unique eviction cases included in the data (calculated before demographic estimation was conducted) to again estimate the <b>number of evictions for each racial group</b>.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if we determined that 8% of evictions in the tract/county in June 2017 were among Asians, and there were 19 total evictions (according to pre-demographic estimation calculations), we would say that there were actually 0.08 * 19 = 1.52 evictions among Asians.</li>
+								</ul>
+								</li>							
+								<li>
+								Finally, we calculated <b>eviction rates by race, or the share of renters in each racial group</b> (i.e., the universe of people who could potentially face eviction) who were evicted. To do this, we divided the updated estimated eviction counts by the total number of renters in each racial group, according to the 2020 census.
+								<br>
+								<br>
+								<ul>
+								  <li>For example, if we calculated 1.52 evictions among Asians in the tract/county in June 2017, and there were 70 Asian renters tract/county according to the 2020 census, we would say that the eviction rate among Asians was 1.52 / 70 = approximately 2.2%.</li>
+								</ul>
+								</li>
+								</ol>
+								
+								<h2 id="deduplication">Deduplication</h2>
+								<p>
+								  In some of the datasets we received, there were many instances of multiple rows with identical defendant names and street addresses, each row corresponding to a different date and with a different case ID. These cases presumably do not represent multiple separate evictions, but a single case being entered into the court's system at different points in time. While deduplication could generally not be done for county-level data because the datasets did not contain enough information, we did deduplicate tract-level data when valid defendant names and addresses were available, keeping the earliest row for each unique name and address.
+								</p>
+							</div>
+						</section>
+					</article>
+
+				<!-- Footer -->
+                <footer id="footer">
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/EvictionNet" class="icon brands fa-twitter" target="_blank"><span class="label">Twitter</span></a></li>
+                        <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+                    </ul>
+                    <div>
+                    <ul class="copyright">
+                        <li>&copy; 2022 The Eviction Research Network</li>
+                        <li><a href="https://urbandisplacement.org" target="_blank">urbandisplacement.org</a></li>
+                        <li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a> & <a href="https://www.dannyrothschild.com" target="_blank">Danny Rothschild</a></li>							
+
+                    </ul>
+                </footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
 </html>

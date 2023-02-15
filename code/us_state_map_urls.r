@@ -29,10 +29,10 @@ state <-
         'IN',
         'MN',
         'OR',
-        'MD'#,
+        'MD',
         # 'MO'#,
         # 'PA',
-        # 'OH'
+        'OH'
         )) %>%
     mutate(win_url = 
         case_when(
@@ -43,10 +43,10 @@ state <-
             STUSPS == 'IN' ~ 'https://evictionresearch.net/indiana/',
             STUSPS == 'MN' ~ 'https://evictionresearch.net/minnesota/',
             STUSPS == 'OR' ~ 'https://evictionresearch.net/oregon/',
-            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html'#,
+            STUSPS == 'MD' ~ 'https://evictionresearch.net/maryland/report/baltimore.html',
             # STUSPS == 'MO' ~ 'https://evictionresearch.net/missouri/',
             # STUSPS == 'PA' ~ 'https://evictionresearch.net/pennsylvania/',
-            # STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/'
+            STUSPS == 'OH' ~ 'https://evictionresearch.net/ohio/dayton.html'
         )
         )
 
@@ -56,7 +56,7 @@ soon_state <-
         'IL',
         'MO',
         'PA',
-        'OH',
+        # 'OH',
         'TX',
         'FL',
         'GA',

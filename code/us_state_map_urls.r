@@ -1,11 +1,8 @@
 # ==========================================================================
 # Create U.S. map with url links for each state
 # ==========================================================================
-library(tidyverse)
-library(tigris)
-library(leaflet)
-library(htmlwidgets)
-library(leaflet.extras)
+
+librarian::shelf(tidyverse, tigris, leaflet, htmlwidgets, leaflet.extras)
 
 jsCode <- paste0('
  function(el, x, data) {
@@ -98,7 +95,7 @@ leaflet(
         fillOpacity = .5,
         color = '#cfcfcf',
         stroke = TRUE,
-        label = ~paste(NAME, " Coming end of 2022"),
+        label = ~paste(NAME, " Coming soon"),
         weight = 1,
         opacity = .5,
         highlightOptions = highlightOptions(
@@ -112,7 +109,7 @@ leaflet(
         fillOpacity = .5,
         color = '#cfcfcf',
         stroke = TRUE,
-        label = ~paste(NAME, " Coming 2023"),
+        label = ~paste(NAME, " Coming soon"),
         weight = 1,
         opacity = .5,
         highlightOptions = highlightOptions(

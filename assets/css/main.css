@@ -5,6 +5,7 @@
 	Spectral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Edited by: Tim Thomas for the evictionresearch.net
 */
 
 html, body, div, span, applet, object,
@@ -104,7 +105,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #fff;
-		font-family: "Open Sans", Helvetica, sans-serif;
+		font-family: "Roboto", Helvetica, sans-serif;
 		font-size: 15pt;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -167,7 +168,7 @@ input, select, textarea {
 	h1, h2, h3, h4, h5, h6 {
 		color: #fff;
 		font-weight: 800;
-		letter-spacing: 0.225em;
+/*		letter-spacing: 0.225em;*/
 		line-height: 1em;
 		margin: 0 0 1em 0;
 		text-transform: uppercase;
@@ -2790,8 +2791,9 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		padding: 6em 0 4em 0 ;
-	}
+    padding: 0em 4em 0.1em 4em;
+
+}
 
 		.wrapper > .inner {
 			width: 60em;
@@ -3815,11 +3817,11 @@ input, select, textarea {
 /* Main */
 
 	#main > header {
-		padding: 12em 0 10em 0 ;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		padding: 0em 0  0em 0 ;
+/* 		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
 		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg"); */
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3843,35 +3845,40 @@ input, select, textarea {
 				color: inherit;
 			}
 
-		@media screen and (max-width: 1680px) {
+/* 		@media screen and (max-width: 1680px) { */
+		@media screen {
 
 			#main > header {
-				padding: 10em 0 8em 0 ;
+				padding: 0em 0 0em 0 ;
 			}
 
 		}
 
-		@media screen and (max-width: 1280px) {
+/* 		@media screen and (max-width: 1280px) { */
+		@media screen {
 
 			#main > header {
-				padding: 8em 3em 6em 3em ;
-			}
+        padding: 0em 0em 0em 0em;
+
+    }
 
 		}
 
 		@media screen and (max-width: 980px) {
 
 			#main > header {
-				padding: 10em 3em 8em 3em ;
-			}
+        padding: 0em 0em 0em 0em;
+
+    }
 
 		}
 
 		@media screen and (max-width: 736px) {
 
 			#main > header {
-				padding: 5em 3em 3em 3em ;
-			}
+        padding: 0em 0em 0em 0em;
+
+    }
 
 				#main > header h2 {
 					font-size: 1.25em;

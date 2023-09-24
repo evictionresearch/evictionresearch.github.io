@@ -73,13 +73,13 @@ leaflet(
     addMapPane(name = "maplabels", zIndex = 420) %>% 
      addProviderTiles("CartoDB.PositronNoLabels") %>%
   
-     addProviderTiles("Stamen.TerrainLabels", 
+     addProviderTiles("Stamen.TonerLabels",
                     options = leafletOptions(pane = "maplabels"),
                     group = "map labels") %>%
   addPolygons(
         data = state,
         fillOpacity = .5, 
-        color = 'Red', 
+        color = '#F9322B',
         stroke = TRUE, 
         label = ~NAME, 
         weight = 1, 

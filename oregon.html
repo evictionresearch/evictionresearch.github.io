@@ -6,321 +6,309 @@
 * Look for "!!EDIT!!" in the script below to pay special attention on what to edit.
 -->
 <html>
-
-<head>
-	<!-- !!EDIT!! STATE (do a replace all) -->
-	<title>Oregon Eviction Filings</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
+	<head>
+		<!-- logo -->
+		<link rel="icon" type="image/png" href="https://evictionresearch.net/archive/png/color/EvictionsStudy_EmblemCircle_red_icon.jpeg" />
+		<!-- !!EDIT!! STATE (do a replace all) -->
+		<title>Oregon Eviction Filings</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-</head>
-
-<body class="is-preload">
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-		<!-- Header -->
-		<header id="header">
-			<u>
+		</noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Page Wrapper -->
+		<div id="page-wrapper">
+			<!-- Header -->
+			<header id="header">
+				<u>
 				<h1><a href="https://evictionresearch.net"><img src="assets/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
-							style="width: 300px;" style="font-size:200%"></a></h1>
-			</u>
-			<nav id="nav">
-				<ul>
-					<li class="special">
-						<a href="#menu" class="menuToggle"><span>Menu</span></a>
-						<div id="menu">
-							<ul>
-								<li><a href="index.html">Home</a></li>
-								<li><a href="https://evictionresearch.net/methodology.html">Methodology</a></li>
-								<li><a href="https://evictionresearch.net/resources.html">Eviction Help</a></li>
-								<li><a
+				style="width: 300px;" style="font-size:200%"></a></h1>
+				</u>
+				<nav id="nav">
+					<ul>
+						<li class="special">
+							<a href="#menu" class="menuToggle"><span>Menu</span></a>
+							<div id="menu">
+								<ul>
+									<li><a href="index.html">Home</a></li>
+									<li><a href="https://evictionresearch.net/methodology.html">Methodology</a></li>
+									<li><a href="https://evictionresearch.net/resources.html">Eviction Help</a></li>
+									<li><a
 										href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact
-										us</a></li>
-								<!-- <li><a href="about.html">About</a></li> -->
-							</ul>
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</header>
-
-		<!-- Title & Map -->
-		<article id="main">
-			<header>
-				<h2>Oregon Eviction Filings</h2>
+									us</a></li>
+									<!-- <li><a href="about.html">About</a></li> -->
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</nav>
 			</header>
-			<section class="wrapper style5">
-				<iframe src="maps/map_all.html" class="image fit" name="mapframe" height=500 data-external="1">
-				</iframe>
-				<div class="inner">
-					<section>
-						<div class="box alt">
-							<div class="row gtr-50 gtr-uniform">
-								<div class="col-12">
-									<span class="image fit">
-										<ul class="actions fit" id='map buttons'>
-											<li title="All cases map"><a href="maps/map_all.html" target="mapframe"
-													class="button primary fit">All Evictions</a></li>
-											<li title="Pre-pandemic map"><a href="maps/map_pre.html" target="mapframe"
-													class="button fit">Pre-Pandemic</a></li>
-											<li title="Cases map from 03/2020 to 09/2022"><a href="maps/map_pan.html"
-													target="mapframe" class="button fit">Pandemic</a></li>
-										</ul>
-									</span>
-									<!-- Script to toggle buttons -->
-									<script>
-										var header = document.getElementById("map buttons");
-										var btns = header.getElementsByClassName("button fit");
-										for (var i = 0; i < btns.length; i++) {
-											btns[i].addEventListener("click", function () {
-												var current = document.getElementsByClassName("primary");
-												if (current.length > 0) {
-													current[0].className = current[0].className.replace(" primary", "");
-												}
-												this.className += " primary";
-											});
-										}
-									</script>
-									<!-- !!EDIT!! Authors -->
-									<p style="font-size:80%"><span class="image right"><img src="images/logos/Portland-State-University-Logo.png" alt="" /></span>
+			<!-- Title & Map -->
+			<article id="main">
+				<header>
+					<h2>Oregon Eviction Filings</h2>
+				</header>
+				<section class="wrapper style5">
+					<iframe src="maps/map_all.html" class="image fit" name="mapframe" height=500 data-external="1">
+					</iframe>
+					<div class="inner">
+						<section>
+							<div class="box alt">
+								<div class="row gtr-50 gtr-uniform">
+									<div class="col-12">
+										<span class="image fit">
+											<ul class="actions fit" id='map buttons'>
+												<li title="All cases map"><a href="maps/map_all.html" target="mapframe"
+												class="button primary fit">All Evictions</a></li>
+												<li title="Pre-pandemic map"><a href="maps/map_pre.html" target="mapframe"
+												class="button fit">Pre-Pandemic</a></li>
+												<li title="Cases map from 03/2020 to 09/2022"><a href="maps/map_pan.html"
+												target="mapframe" class="button fit">Pandemic</a></li>
+											</ul>
+										</span>
+										<!-- Script to toggle buttons -->
+										<script>
+											var header = document.getElementById("map buttons");
+											var btns = header.getElementsByClassName("button fit");
+											for (var i = 0; i < btns.length; i++) {
+												btns[i].addEventListener("click", function () {
+													var current = document.getElementsByClassName("primary");
+													if (current.length > 0) {
+														current[0].className = current[0].className.replace(" primary", "");
+													}
+													this.className += " primary";
+												});
+											}
+										</script>
+										<!-- !!EDIT!! Authors -->
+										<p style="font-size:80%"><span class="image right"><img src="images/logos/Portland-State-University-Logo.png" alt="" /></span>
 										<i>Data collected by: <a href="https://www.pdx.edu/profile/lisa-bates"
-												target="_blank">Lisa Bates Ph.D., @Portland State University</a> - <a
-												href="https://www.evictedinoregon.com/" target="_blank">Evicted In
-												Oregon</a><br>
-											Analysis by:
-											Hannah Moore, Julia Greenberg, Amit Cohen, Cheng Ren, & Tim Thomas @ U.C.
-											Berkeley's Urban Displacement Project & Eviction Research Network
-											<!-- !!EDIT!! Date --> <br><br>
-											Updated: December 6, 2022
-										</i>
-									</p>
-								</div>
+										target="_blank">Lisa Bates Ph.D., @Portland State University</a> - <a
+										href="https://www.evictedinoregon.com/" target="_blank">Evicted In
+									Oregon</a><br>
+									Analysis by:
+									Hannah Moore, Julia Greenberg, Amit Cohen, Cheng Ren, & Tim Thomas @ U.C.
+									Berkeley's Urban Displacement Project & Eviction Research Network
+									<!-- !!EDIT!! Date --> <br><br>
+									Updated: December 6, 2022
+									</i>
+								</p>
 							</div>
 						</div>
-					</section>
-					<section>
-						<div>
-							<h2>Overview</h2>
-							<!-- !!EDIT!! Overview numbers -->
-							<p>
-								Evictions have long-term impacts on a households' future <a
-									href="https://www.nationalacademies.org/our-work/response-and-resilient-recovery-strategic-science-initiative-strategy-group-on-covid-and-rental-evictions#sectionPublications"
-									target="_blank">housing, health, and economic outcomes</a>. Despite local, state,
-								and federal moratoriums, over 16,000 renters experienced an eviction filing in Oregon
-								during the pandemic. Overall we found that:
-							</p>
-							<!-- !!EDIT!! Toplines -->
+					</div>
+				</section>
+				<section>
+					<div>
+						<h2>Overview</h2>
+						<!-- !!EDIT!! Overview numbers -->
+						<p>
+							Evictions have long-term impacts on a households' future <a
+								href="https://www.nationalacademies.org/our-work/response-and-resilient-recovery-strategic-science-initiative-strategy-group-on-covid-and-rental-evictions#sectionPublications"
+							target="_blank">housing, health, and economic outcomes</a>. Despite local, state,
+							and federal moratoriums, over 16,000 renters experienced an eviction filing in Oregon
+							during the pandemic. Overall we found that:
+						</p>
+						<!-- !!EDIT!! Toplines -->
+						<ul>
+							<li>
+								Pandemic evictions occurred most in downtown Portland and in surrounding areas near Vancouver WA, Gresham, and Beaverton. All other major Oregon towns had sizable evictions with noticeably high rates in north east, central, and south west Oregon.
+							</li>
+							<li>
+								Eviction rates fell close to zero in the early months of the pandemic and rose to over 50% of historical average in July 2021, towards the end of the CDC Moratorium, surpassing historical
+								average in June, August, and September of 2022.
+							</li>
+							<li>
+								Though 2022 is not over, eviction rates are already higher than 2020 and 2021 both overall and for each racial and ethnic group:
+							</li>
 							<ul>
 								<li>
-									Pandemic evictions occurred most in downtown Portland and in surrounding areas near Vancouver WA, Gresham, and Beaverton. All other major Oregon towns had sizable evictions with noticeably high rates in north east, central, and south west Oregon.
+									1 in 57 renters experienced an eviction filing (1.8%)
 								</li>
 								<li>
-									Eviction rates fell close to zero in the early months of the pandemic and rose to over 50% of historical average in July 2021, towards the end of the CDC Moratorium, surpassing historical
-									average in June, August, and September of 2022.
+									1 in 77 Asian renters experienced an eviction filing (1.3%)
 								</li>
 								<li>
-									Though 2022 is not over, eviction rates are already higher than 2020 and 2021 both overall and for each racial and ethnic group:
+									1 in 58 Latine and White renters experienced an eviction filing (1.7% & 1.8%)
 								</li>
-								<ul>
-									<li>
-										1 in 57 renters experienced an eviction filing (1.8%)
-									</li>
-									<li>
-										1 in 77 Asian renters experienced an eviction filing (1.3%)
-									</li>
-									<li>
-										1 in 58 Latine and White renters experienced an eviction filing (1.7% & 1.8%)
-									</li>
-									<li>
-										1 in 41 Black renters experienced an eviction filing (2.5%)
-									</li>
-									<li>
-										1 in 42 “Other Group” (mixed-race, Indigenous, and other racial/ethnic groups) renters experienced an eviction filing (2.4%)
-									</li>
-								</ul>
+								<li>
+									1 in 41 Black renters experienced an eviction filing (2.5%)
+								</li>
+								<li>
+									1 in 42 “Other Group” (mixed-race, Indigenous, and other racial/ethnic groups) renters experienced an eviction filing (2.4%)
+								</li>
 							</ul>
-							<!-- !!EDIT!! collaborator -->
-							<p>
-								In collaboration with Portland State University's <a href="https://evictedinoregon.com" target="_blank">Evicted In Oregon</a> team, UC Berkeley's Eviction Research
-								Network and Urban Displacement Project analyzed eviction filings in the state of Oregon
-								from 2017 to 2022. An eviction filing marks the point at which formal eviction
-								proceedings have begun. Depending on the situation, households may leave anytime prior to a notice to after an eviction lawsuit.
-							</p>
-							<p>
-								In this analysis, we will show you where and how many evictions were on file both before
-								and during the pandemic. We'll also show you the racial disparities in Oregon evictions.
-							</p>
-							<p>
-								To learn more about how we created these maps and plots, and what data we are using, see
-								our <a href="https://evictionresearch.net/methodology.html" target="_blank">methodology
-								page</a>.
-							</p>
-							<hr>
-						</div>
-					</section>
-					<section>
-<!-- Count pancake graph -->
-						<!-- !!EDIT!! h2 title as needed -->
-						<h2>Moratoriums greatly reduced evictions</h2>
-						<div style="min-height:568px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/KZkI3/embed.js?v=7" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/KZkI3/full.png" alt="" /></noscript></div>
-							<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
-						<!-- !!EDIT!! numbers -->
+						</ul>
+						<!-- !!EDIT!! collaborator -->
 						<p>
-							After the first eviction moratorium in March 2020, eviction cases dropped drastically to just over 100 cases for all counties in Oregon. The number of cases each month steadily increased until July 2020 after which they plateaued through December 2020. The CDC moratorium issued in September 2020 does not account for any significant decline in cases for the latter half of 2020.
+							In collaboration with Portland State University's <a href="https://evictedinoregon.com" target="_blank">Evicted In Oregon</a> team, UC Berkeley's Eviction Research
+							Network and Urban Displacement Project analyzed eviction filings in the state of Oregon
+							from 2017 to 2022. An eviction filing marks the point at which formal eviction
+							proceedings have begun. Depending on the situation, households may leave anytime prior to a notice to after an eviction lawsuit.
 						</p>
 						<p>
-							The case count each month steadily increased throughout 2021 until July, which experienced the largest month to month change in case counts since the start of the pandemic. Case counts plateau for the remainder of the year at this level until a steep increase at the start of 2022 that continues to increase until a brief decline in July 2022. An increase happens again in August followed by a slight decline in September 2022.
+							In this analysis, we will show you where and how many evictions were on file both before
+							and during the pandemic. We'll also show you the racial disparities in Oregon evictions.
 						</p>
 						<p>
-							The counties in the graph above are ordered by the average number of evictions across the
-							entire time period.
+							To learn more about how we created these maps and plots, and what data we are using, see
+							our <a href="https://evictionresearch.net/methodology.html" target="_blank">methodology
+							page</a>.
 						</p>
-						<p>
-							<i>Note that data is updated as recent case information becomes available.</i>
-						</p>
-						<p>
-							The content of this graph is repeated in tabular form in the appendix.
-						</p>
-
-<!-- Historical average histogram -->
-						<!-- !!!EDIT!!! Takeaway title -->
-						<h2>Eviction counts are now above historical average</h2>
+						<hr>
+					</div>
+				</section>
+				<section>
+					<!-- Count pancake graph -->
+					<!-- !!EDIT!! h2 title as needed -->
+					<h2>Moratoriums greatly reduced evictions</h2>
+					<div style="min-height:568px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/KZkI3/embed.js?v=7" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/KZkI3/full.png" alt="" /></noscript></div>
+				<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
+				<!-- !!EDIT!! numbers -->
+				<p>
+					After the first eviction moratorium in March 2020, eviction cases dropped drastically to just over 100 cases for all counties in Oregon. The number of cases each month steadily increased until July 2020 after which they plateaued through December 2020. The CDC moratorium issued in September 2020 does not account for any significant decline in cases for the latter half of 2020.
+				</p>
+				<p>
+					The case count each month steadily increased throughout 2021 until July, which experienced the largest month to month change in case counts since the start of the pandemic. Case counts plateau for the remainder of the year at this level until a steep increase at the start of 2022 that continues to increase until a brief decline in July 2022. An increase happens again in August followed by a slight decline in September 2022.
+				</p>
+				<p>
+					The counties in the graph above are ordered by the average number of evictions across the
+					entire time period.
+				</p>
+				<p>
+					<i>Note that data is updated as recent case information becomes available.</i>
+				</p>
+				<p>
+					The content of this graph is repeated in tabular form in the appendix.
+				</p>
+				<!-- Historical average histogram -->
+				<!-- !!!EDIT!!! Takeaway title -->
+				<h2>Eviction counts are now above historical average</h2>
 				<div style="min-height:400px"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/thtDl/embed.js?v=1" charset="utf-8"></script><noscript><img src="https://datawrapper.dwcdn.net/thtDl/full.png" alt="" /></noscript></div>
-<!-- 						<iframe class="desktopShow" src="plots/historical_average.html" width="100%" height="400" scrolling="no"
-							seamless="seamless" frameBorder="0" data-external="1"></iframe>
-						<img class = "mobileShow" src="plots/historical_avg_mobile.png" width="100%" height="auto">
-						<p style="font-size:70%" align="right">
-							<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
- -->						<!-- !!EDIT!! Numbers & text -->
-						<p>
-							The graph above compares pandemic eviction rates to pre-pandemic averages. Bars that extend
-							above the dashed line represent months where rates were higher than the historical average
-							for that month, while bars below the dashed line represent months where rates were lower
-							than the historical average for that month.
-						</p>
-						<p>
-							November is the lowest historical average month at 1,114 eviction filings while January is the highest historical average at 1,691.
-						</p>
-						<p>
-							Following the onset of the pandemic in March 2020, the evictions for each month of the pandemic are below 25% of their
-							historical average for the entirety of 2020. January 2021 starts below 25% but climbs to 50% by July and does not fall
-							below this value for the remainder of the study period. While there is seasonality to pandemic eviction cases relative
-							to the historical average starting with July 2021, each peak and trough in 2021-2022 are higher than those that came
-							before which indicates a slow but steady return to to pre-pandemic monthly eviction filings, which does occur in June, August and September of 2022.
-						</p>
-						<!-- Evictions by race -->
-						<!-- !!!EDIT!!! takeaway, numbers, & text -->
-						<h2>Black and "Other Groups" disproportionately evicted</h2>
-						<p>
-							The race and ethnicity of named parties per eviction filing were estimated using their last
-							name and the demographic information of the census tract in which they lived. While our
-							methodology gives good overall estimates, the results may be biased toward the racial
-							majority in the corresponding tracts.
-						</p>
-						<iframe class = "desktopShow" src="plots/race.html" width="100%" height="400" scrolling="no" seamless="seamless" frameBorder="0" data-external="1"></iframe>
-						<img class = "mobileShow" src="plots/race_mobile.png" width="100%" height="auto">
-						<p style="font-size:70%" align="right">
-							<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
-						<p>
-							The graph above shows eviction rates by race and ethnicity and reveals the disproportionate
-							impact evictions have on Black and 'Other' renters in Oregon - the eviction filing rate for these groups is greater than all other groups throughout the entire study period. The total number of renters per census tract by race and ethnicity in Oregon come from the ACS 2016 - 2020 5-year estimates. This value is the denominator of the eviction filing rate, with the numerator being the estimated race and ethnicity of those listed in the case. The eviction filing rate is then the percentage of renters in each group that we estimated to be the
-							defendant of an eviction filing.
-						</p>
-						<p>
-							Latine and White eviction rates remain similarly throughout the 6
-							years while Asian eviction rate remains the lowest and the stablest throughout the 6 years
-							comparing to the other ethnic groups.
-						</p>
-
-						<iframe class = "desktopShow" src="plots/race_ratio.html" width="100%" height="400" scrolling="no" seamless="seamless" frameBorder="0" data-external="1"></iframe>
-						<img class = "mobileShow" src="plots/race_ratio_mobile.png" width="100%" height="auto">
-						<p style="font-size:70%" align="right">
-							<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
-						<p>
-							This graph demonstrates the amount by which the estimated eviction rates of Asian, Black,
-							Latine, and "Other Group" renters compare to the estimated eviction rate for White renters.
-							A ratio greater than 1 (dashed line) means that there is a greater eviction filing rate for
-							non-White renters than White renters. A ratio less than 1 means the opposite - there is a
-							lower eviction filing rate for non-White renters than White renters.
-						</p>
-						<p>
-							As noted in the chart above, Black and 'Other Group' renters were above the overall eviction
-							filing rate for the entire study period. This is apparent again in the eviction filing rate ratio to White renters.
-							Latine eviction rate fluctuates mildly over and below the 1 ratio line while the Asian to White eviction ratio ranges between .6 - .8 over the study period. 
-						</p>
-						<h2>Disclaimer</h2>
-						<p>
-							As noted earlier, the demographic information is estimated by combining the probability of
-							someones race or ethnicity based on their surname and informed by the racial composition of
-							the census tract where they lived. The segregation map layer shows a majority of census tracts
-							are 'mostly white'. This means it would be more likely than not that a
-							mis-classification would estimate 'White', due to the demographic composition of the census tract
-							to which the case was mapped. Therefore, these graphs are a conservative estimate of the racial disparity in eviction
-							cases.
-						</p>
-						<p>
-							Also, the use of eviction filings in our data underestimates the real number of households
-							that were forced to leave. Many households leave after a notice and prior to a filing while
-							others may leave if threatened with an eviction before a notice. These latter occasions are
-							considered “illegal evictions.” Alternatively, not all eviction filings lead to a removal as
-							some may work out a deal with their landlord to stay. At this time, these data do not allow
-							us to track these types of moves or stays, however we are constantly working on solutions to
-							try and get at these types of statistics.
-						</p>
-						<p>
-							Finally, it should be noted that for the purposes of this report, '2022' ends with September
-							2022. There is still time left for these yearly average rates and ratios to change and
-							trends that are observed now may be quite different by December.
-						</p>
-						<p>
-							This page will continue to be updated with new data and content. Follow us on twitter <a
-								href="https://twitter.com/EvictionNet" target="_blank">@EvictionNet</a> for these
-							updates.
-						</p>
-						<p><i>Data table coming soon</i></p>
-						<!-- NEED TO ADD TABLE -->
-					</section>
-
-				</div>
+				<!-- 						<iframe class="desktopShow" src="plots/historical_average.html" width="100%" height="400" scrolling="no"
+					seamless="seamless" frameBorder="0" data-external="1"></iframe>
+				<img class = "mobileShow" src="plots/historical_avg_mobile.png" width="100%" height="auto">
+				<p style="font-size:70%" align="right">
+					<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
+				-->						<!-- !!EDIT!! Numbers & text -->
+				<p>
+					The graph above compares pandemic eviction rates to pre-pandemic averages. Bars that extend
+					above the dashed line represent months where rates were higher than the historical average
+					for that month, while bars below the dashed line represent months where rates were lower
+					than the historical average for that month.
+				</p>
+				<p>
+					November is the lowest historical average month at 1,114 eviction filings while January is the highest historical average at 1,691.
+				</p>
+				<p>
+					Following the onset of the pandemic in March 2020, the evictions for each month of the pandemic are below 25% of their
+					historical average for the entirety of 2020. January 2021 starts below 25% but climbs to 50% by July and does not fall
+					below this value for the remainder of the study period. While there is seasonality to pandemic eviction cases relative
+					to the historical average starting with July 2021, each peak and trough in 2021-2022 are higher than those that came
+					before which indicates a slow but steady return to to pre-pandemic monthly eviction filings, which does occur in June, August and September of 2022.
+				</p>
+				<!-- Evictions by race -->
+				<!-- !!!EDIT!!! takeaway, numbers, & text -->
+				<h2>Black and "Other Groups" disproportionately evicted</h2>
+				<p>
+					The race and ethnicity of named parties per eviction filing were estimated using their last
+					name and the demographic information of the census tract in which they lived. While our
+					methodology gives good overall estimates, the results may be biased toward the racial
+					majority in the corresponding tracts.
+				</p>
+				<iframe class = "desktopShow" src="plots/race.html" width="100%" height="400" scrolling="no" seamless="seamless" frameBorder="0" data-external="1"></iframe>
+				<img class = "mobileShow" src="plots/race_mobile.png" width="100%" height="auto">
+				<p style="font-size:70%" align="right">
+				<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
+				<p>
+					The graph above shows eviction rates by race and ethnicity and reveals the disproportionate
+					impact evictions have on Black and 'Other' renters in Oregon - the eviction filing rate for these groups is greater than all other groups throughout the entire study period. The total number of renters per census tract by race and ethnicity in Oregon come from the ACS 2016 - 2020 5-year estimates. This value is the denominator of the eviction filing rate, with the numerator being the estimated race and ethnicity of those listed in the case. The eviction filing rate is then the percentage of renters in each group that we estimated to be the
+					defendant of an eviction filing.
+				</p>
+				<p>
+					Latine and White eviction rates remain similarly throughout the 6
+					years while Asian eviction rate remains the lowest and the stablest throughout the 6 years
+					comparing to the other ethnic groups.
+				</p>
+				<iframe class = "desktopShow" src="plots/race_ratio.html" width="100%" height="400" scrolling="no" seamless="seamless" frameBorder="0" data-external="1"></iframe>
+				<img class = "mobileShow" src="plots/race_ratio_mobile.png" width="100%" height="auto">
+				<p style="font-size:70%" align="right">
+				<i>Data collected by Portland State University. Analysis by The Eviction Research Network, 2022</i></p>
+				<p>
+					This graph demonstrates the amount by which the estimated eviction rates of Asian, Black,
+					Latine, and "Other Group" renters compare to the estimated eviction rate for White renters.
+					A ratio greater than 1 (dashed line) means that there is a greater eviction filing rate for
+					non-White renters than White renters. A ratio less than 1 means the opposite - there is a
+					lower eviction filing rate for non-White renters than White renters.
+				</p>
+				<p>
+					As noted in the chart above, Black and 'Other Group' renters were above the overall eviction
+					filing rate for the entire study period. This is apparent again in the eviction filing rate ratio to White renters.
+					Latine eviction rate fluctuates mildly over and below the 1 ratio line while the Asian to White eviction ratio ranges between .6 - .8 over the study period.
+				</p>
+				<h2>Disclaimer</h2>
+				<p>
+					As noted earlier, the demographic information is estimated by combining the probability of
+					someones race or ethnicity based on their surname and informed by the racial composition of
+					the census tract where they lived. The segregation map layer shows a majority of census tracts
+					are 'mostly white'. This means it would be more likely than not that a
+					mis-classification would estimate 'White', due to the demographic composition of the census tract
+					to which the case was mapped. Therefore, these graphs are a conservative estimate of the racial disparity in eviction
+					cases.
+				</p>
+				<p>
+					Also, the use of eviction filings in our data underestimates the real number of households
+					that were forced to leave. Many households leave after a notice and prior to a filing while
+					others may leave if threatened with an eviction before a notice. These latter occasions are
+					considered “illegal evictions.” Alternatively, not all eviction filings lead to a removal as
+					some may work out a deal with their landlord to stay. At this time, these data do not allow
+					us to track these types of moves or stays, however we are constantly working on solutions to
+					try and get at these types of statistics.
+				</p>
+				<p>
+					Finally, it should be noted that for the purposes of this report, '2022' ends with September
+					2022. There is still time left for these yearly average rates and ratios to change and
+					trends that are observed now may be quite different by December.
+				</p>
+				<p>
+					This page will continue to be updated with new data and content. Follow us on twitter <a
+					href="https://twitter.com/EvictionNet" target="_blank">@EvictionNet</a> for these
+					updates.
+				</p>
+				<p><i>Data table coming soon</i></p>
+				<!-- NEED TO ADD TABLE -->
 			</section>
-		</article>
-
-		<!-- Footer -->
-		<!-- Footer -->
-		<footer id="footer">
-			<ul class="icons">
-				<li><a href="https://twitter.com/EvictionNet" class="icon brands fa-twitter" target="_blank"><span
-							class="label">Twitter</span></a></li>
-				<li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
-						class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
-			</ul>
-			<div>
-				<ul class="copyright">
-					<li>&copy; 2023 The Eviction Research Network</li>
-					<li><a href="https://urbandisplacement.org" target="_blank">Urban Displacement Project</a></li>
-					<li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a> & <a
-							href="https://www.dannyrothschild.com" target="_blank">Danny Rothschild</a></li>
-
-				</ul>
-		</footer>
-
-	</div>
-
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
-
+		</div>
+	</section>
+</article>
+<!-- Footer -->
+<!-- Footer -->
+<footer id="footer">
+	<ul class="icons">
+		<li><a href="https://twitter.com/EvictionNet" class="icon brands fa-twitter" target="_blank"><span
+		class="label">Twitter</span></a></li>
+		<li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+			class="icon solid fa-envelope" target="_blank"><span class="label">Email</span></a></li>
+		</ul>
+		<div>
+			<ul class="copyright">
+				<li>&copy; 2023 The Eviction Research Network</li>
+				<li><a href="https://urbandisplacement.org" target="_blank">Urban Displacement Project</a></li>
+				<li>Design: <a href="http://html5up.net" target="_blank">HTML5 UP</a> & <a
+			href="https://www.dannyrothschild.com" target="_blank">Danny Rothschild</a></li>
+		</ul>
+	</footer>
+</div>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>
-
 <!-- help https://housing.ca.gov/tenant/protection_guidelines.html -->

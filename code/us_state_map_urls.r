@@ -2,7 +2,7 @@
 # Create U.S. map with url links for each state
 # ==========================================================================
 
-librarian::shelf(tidyverse, tigris, leaflet, htmlwidgets, leaflet.extras)
+librarian::shelf(maps, sf, tidyverse, tigris, rstudio/leaflet, htmlwidgets, leaflet.extras, update_all = TRUE)
 
 jsCode <- paste0('
  function(el, x, data) {
@@ -64,8 +64,14 @@ later_state <-
     states(cb = TRUE) %>%
     filter(STUSPS %in% c('AL', 'AZ', 'AR', 'CO', 'KS', 'KY', 'ND', 'OK', 'VT', 'VA', 'AK', 'HI', 'CT', 'NM', 'ME', 'NH', 'NY', 'UT', 'WI'))
 
+# state_center <- 
+#     st_centroid(state) %>% 
+#     mutate(lng = st_coordinates(.)[1], lat = st_coordinates(.)[2]) %>%
+#     st_drop_geometry()
+
 map <- 
 leaflet(
+    # state_center, 
   options = leafletOptions(zoomControl = FALSE, minZoom = 3.7, maxZoom = 3.7, dragging = FALSE, attributionControl=FALSE)) %>%
     # suspendScroll() %>% 
     setView(lat = 39, lng = -96, zoom = 3.5) %>%
@@ -73,7 +79,7 @@ leaflet(
     addMapPane(name = "maplabels", zIndex = 420) %>% 
      addProviderTiles("CartoDB.PositronNoLabels") %>%
   
-     addProviderTiles("Stamen.TonerLabels",
+     addProviderTiles("CartoDB.PositronOnlyLabels",
                     options = leafletOptions(pane = "maplabels"),
                     group = "map labels") %>%
   addPolygons(

@@ -1,5 +1,7 @@
-# The Evictions Study
-URL: [Evictions Study](https://evictions.study) 
+# The Eviction Research Network
+URL: [evictionresearch.net](https://evictionresearch.net) 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10642019.svg)](https://doi.org/10.5281/zenodo.10642019)
+
 
 ## Web Design Strategy
 

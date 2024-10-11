@@ -34,7 +34,7 @@ state <-
     mutate(win_url = 
         case_when(
             STUSPS == 'CA' ~ 'https://evictionresearch.net/california/',
-            STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/maps/summary.html',
+            STUSPS == 'WA' ~ 'https://evictionresearch.net/washington/',
             STUSPS == 'DE' ~ 'https://evictionresearch.net/delaware/',
             # STUSPS == 'IL' ~ 'https://evictionresearch.net/illinois/',
             STUSPS == 'IN' ~ 'https://evictionresearch.net/indiana/',
@@ -47,29 +47,29 @@ state <-
         )
         )
 
-soon_state <-
-    states(cb = TRUE) %>%
-    filter(STUSPS %in% c(
-        'IL',
-        'MO',
-        'PA',
-        # 'OH',
-        'TX',
-        'FL',
-        'GA',
-        'SC',
-        'TN'))
+# soon_state <-
+#     states(cb = TRUE) %>%
+#     filter(STUSPS %in% c(
+#         'IL',
+#         'MO',
+#         'PA',
+#         # 'OH',
+#         'TX',
+#         'FL',
+#         'GA',
+#         'SC',
+#         'TN'))
 
-later_state <-
-    states(cb = TRUE) %>%
-    filter(STUSPS %in% c('AL', 'AZ', 'AR', 'CO', 'KS', 'KY', 'ND', 'OK', 'VT', 'VA', 'AK', 'HI', 'CT', 'NM', 'ME', 'NH', 'NY', 'UT', 'WI'))
+# later_state <-
+#     states(cb = TRUE) %>%
+#     filter(STUSPS %in% c('AL', 'AZ', 'AR', 'CO', 'KS', 'KY', 'ND', 'OK', 'VT', 'VA', 'AK', 'HI', 'CT', 'NM', 'ME', 'NH', 'NY', 'UT', 'WI'))
 
 # state_center <- 
 #     st_centroid(state) %>% 
 #     mutate(lng = st_coordinates(.)[1], lat = st_coordinates(.)[2]) %>%
 #     st_drop_geometry()
 
-map <- 
+us_map <-
 leaflet(
     # state_center, 
   options = leafletOptions(zoomControl = FALSE, minZoom = 3.7, maxZoom = 3.7, dragging = FALSE, attributionControl=FALSE)) %>%
@@ -96,35 +96,35 @@ leaflet(
                     bringToFront = TRUE
                     )  
         )  %>%
-  addPolygons(
-        data = soon_state,
-        fillOpacity = .5,
-        color = '#cfcfcf',
-        stroke = TRUE,
-        label = ~paste(NAME, " Coming soon"),
-        weight = 1,
-        opacity = .5,
-        highlightOptions = highlightOptions(
-                    color = "#ff4a4a",
-                    weight = 5,
-                    bringToFront = TRUE
-                    )
-        )  %>%
-  addPolygons(
-        data = later_state,
-        fillOpacity = .5,
-        color = '#cfcfcf',
-        stroke = TRUE,
-        label = ~paste(NAME, " Coming soon"),
-        weight = 1,
-        opacity = .5,
-        highlightOptions = highlightOptions(
-                    color = "#ff4a4a",
-                    weight = 5,
-                    bringToFront = TRUE
-                    )
-        )  %>%
+  # addPolygons(
+  #       data = soon_state,
+  #       fillOpacity = .5,
+  #       color = '#cfcfcf',
+  #       stroke = TRUE,
+  #       label = ~paste(NAME, " Coming soon"),
+  #       weight = 1,
+  #       opacity = .5,
+  #       highlightOptions = highlightOptions(
+  #                   color = "#ff4a4a",
+  #                   weight = 5,
+  #                   bringToFront = TRUE
+  #                   )
+  #       )  %>%
+  # addPolygons(
+  #       data = later_state,
+  #       fillOpacity = .5,
+  #       color = '#cfcfcf',
+  #       stroke = TRUE,
+  #       label = ~paste(NAME, " Coming soon"),
+  #       weight = 1,
+  #       opacity = .5,
+  #       highlightOptions = highlightOptions(
+  #                   color = "#ff4a4a",
+  #                   weight = 5,
+  #                   bringToFront = TRUE
+  #                   )
+  #       )  %>%
   htmlwidgets::onRender(jsCode, data=state) 
 
-map
-saveWidget(map, '~/git/evictionresearch/evictionresearch.github.io/maps/us_map.html')
+us_map
+saveWidget(us_map, '~/git/evictionresearch/evictionresearch.github.io/maps/us_map.html')

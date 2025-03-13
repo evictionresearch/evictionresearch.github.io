@@ -41,6 +41,18 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         <link rel="stylesheet" href="assets/css/main.css" />
         <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        
+        <!-- Custom scripts -->
+        <script>
+            // Function to resize iframes to fit their content
+            function resizeIframe(obj) {
+                try {
+                    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+                } catch (e) {
+                    console.log('Could not resize iframe: ', e);
+                }
+            }
+        </script>
     </head>
     <body class="landing is-preload">
         <!-- Google Tag Manager (noscript) -->

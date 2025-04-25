@@ -1755,6 +1755,13 @@ input, select, textarea {
 
 		}
 
+/* Limit the width of text containers */
+.text-container {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+    text-align: left; /* Ensure the text is left-aligned */
+}
+
 /* Section/Article */
 
 	section.special, article.special {
@@ -1779,6 +1786,7 @@ input, select, textarea {
 
 	header.major {
 		margin: 0 0 3.5em 0;
+		text-align: left; /* Change text alignment to left */
 	}
 
 		header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
@@ -1797,6 +1805,7 @@ input, select, textarea {
 		header.major p {
 			color: #fff;
 			top: 0;
+			text-align: left; /* Ensure both title and paragraph are left-aligned */
 		}
 
 		@media screen and (max-width: 736px) {

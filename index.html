@@ -99,23 +99,32 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
             </section>
             <!-- One -->
             <section id="one" class="wrapper style1 special">
-                <div class="inner">
+                <div.a class="inner">
                     <header class="major">
                         <h2><br>Tracking Eviction Trends for FY ‘24 in Oregon 
                             PRESENTATION BY MINA MOHEBBI & DAVID CAMPER</h2>
-                        <p>The Eviction Research Network collects, analyzes, & maps eviction data while helping other researchers map & analyze theirs. For our Capstone Project, we were tasked with assisting ERN with completing, interpreting & visualizing the extension of their 2024 Q1 report of evictions in the state of Oregon.
+                        <p>The Eviction Research Network collects, analyzes, & maps eviction data while helping other researchers map & analyze theirs. For our Capstone Project, we were tasked with assisting ERN with completing, interpreting & visualizing the extension of their 2024 Q1 report of evictions in the state of Oregon. Our task was to tell the story of eviction rates in the state as it relates to racial disparities and historical trends of discrimination.
+                        <p>
+                            <h2>Methodology:</h2>
+                        <p><b>Automated data ingestion & cleaning:</b> Pulled in pre-aggregated eviction records for fiscal year 2024, removed counties with no data, standardized dates to month-start, and put together historical and recent data in one table.
+                        <p><b>Reusable summary functions:</b> Defined functions that compute things like monthly totals by county, percent changes vs. historical averages, or rolling 12-month summaries, so we can get consistent outputs for any date range.
+                        <p><b>Demographic level analysis:</b> Eviction counts are joined with American Community Survey (Census) data (race, household headship, income, rent, neighborhood classifications) to calculate eviction rates per 1,000 renters for different subgroups (e.g., by race, by income bracket, by rent quartile).
+                        <p><b>Rate & ratio calculations:</b> for each group, we derived per-1,000-renters eviction rates, then computed comparative metrics (e.g., Black-to-White rate ratios or percent differences from a baseline year) to highlight disparities.
+                        <p><b>Automated chart publishing:</b> finally, cleaned and summarized tables were automatically pushed to DataWrapper via its API, to create our visualizations.
+
                         </p>
                     </header>
-                </div>
+                </div.a>
             </section>
             <!-- Two -->
             <section id="three" class="wrapper style3 special">
                 <section class="spotlight">
                     <div class="inner">
                         <!-- Title and Text -->
-                        <header class="major">
+                        <header class="major text-container">
                             <h3>Oregon Eviction Trends Pancake Plot</h3>
-                            <p>This chart provides an interactive visualization of eviction rates in Oregon, highlighting trends and key events from 2019 to 2024.</p>
+                            <p>• HB 2001 passed in March 2023, and it made changes to the eviction process by extending the notice period required before an eviction complaint can be filed.</p>
+                            <p>• Our pancake plot shows 2024 as having the highest ever recorded peaks in eviction filings since 2019. It spells a continued demand for continued interventions.</p>
                         </header>
                     </div>
                     <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; z-index: 10; background-color: #ffffff; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
@@ -135,9 +144,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <section class="spotlight">
                     <div class="inner">
                         <!-- Title and Text -->
-                        <header class="major">
+                        <header class="major text-container">
                             <h3>Oregon Eviction Trends Line Plot</h3>
-                            <p>This chart provides an interactive visualization of eviction rates in Oregon, highlighting trends and key events from 2019 to 2024.</p>
+                            <p>• White and other racial group renters follow a lower but parallel trend to the state average of evictions per 1000 renters.</p>
+                            <p>• Evictions for black renters have consistently surpassed all other demographics by large margins, with Latinx renters close behind.</p>
+                            <p>•Black renters also seem to have a contrasting pattern in the increases and decreases in eviction filings when compared to Latinx renters.</p>
                         </header>
                     </div>
                     <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; z-index: 10; background-color: #ffffff; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
@@ -157,9 +168,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <section class="spotlight">
                     <div class="inner">
                         <!-- Title and Text -->
-                        <header class="major">
-                            <h3>Oregon Eviction Trends Neighborhood Plot</h3>
-                            <p>This chart provides an interactive visualization of eviction rates in Oregon, highlighting trends and key events from 2019 to 2024.</p>
+                        <header class="major text-container">
+                            <h3>Oregon Eviction Trends Neighborhood Plot <br><span>(By Median Rent)</span></h3>
+                            <p>• Eviction rates for black renters are consistently higher across all neighborhood types, with the highest rates in urban neighborhoods.</p>
+                            <p>• The middle median rent brackets have higher eviction rates across demographic groups than the lowest and highest quartiles.</p>
+                            <p>• Historically marginalized racial groups consistently face the most evictions, regardless of median rent.</p>
                         </header>
                     </div>
                     <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; z-index: 10; background-color: #ffffff; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
@@ -179,9 +192,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
                 <section class="spotlight">
                     <div class="inner">
                         <!-- Title and Text -->
-                        <header class="major">
-                            <h3>Oregon Eviction Trends Neighborhood Plot</h3>
-                            <p>This chart provides an interactive visualization of eviction rates in Oregon, highlighting trends and key events from 2019 to 2024.</p>
+                        <header class="major text-container">
+                            <h3>Oregon Eviction Trends Neighborhood Plot <br><span>(By Neighborhood Composition)</span></h3>
+                            <p>• Diverse neighborhoods (>10% composition of each racial group) have the highest rate of evictions across the majority of racial groups.</p>
+                            <p>• White evictions are consistently low across all neighborhood compositions except Diverse, in which the evictions for white renters are significantly higher. This could be attributed to the history of white flight or remnants of de facto segregation, leaving diverse neighborhoods starved of higher income jobs and opportunities.</p>
                         </header>
                     </div>
                     <div class="image" style="display: flex; justify-content: center; align-items: center; width: 100%; position: relative; z-index: 10; background-color: #ffffff; padding: 20px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
@@ -214,171 +228,20 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
         -->
     </section>
     <!-- Three -->
-    <section id="three" class="wrapper style3 special">
-        <div class="inner">
-            <header class="major" id="about">
-                <h2><br>UC Berkeley Team</h2>
-                <!-- </div> -->
-                <ul class="features">
-                    <li class="aligncenter"><img src="images/photos/tim.jpg" alt="Tim Thomas, director" width="250" />
-                        <p><b><a href="https://www.urbandisplacement.org/team/tim-thomas-ph-d/" target="_blank">Tim Thomas, Ph.D.</a><br />
-                        Director<br />
-                        UC Berkeley
-                    </b></p>
-                </li>
-                <!--                         <li class="aligncenter"><img src="images/photos/hannah.jpeg" width="250" />
-                    <p><b><a href="https://www.urbandisplacement.org/team/hannah-moore/" target="_blank">Hannah Moore</a><br />
-                    Lead Data Scientist<br />
-                    UC Berkeley
-                </b></p>
-            </li>
-            -->
-            <li class="aligncenter"><img src="images/photos/aaronculich.png" width="250" alt="Aaron Culich" />
-                <p><b><a href="https://www.linkedin.com/in/aaron-culich" target="_blank">Aaron Culich</a><br />
-                Data Science Director<br />
-                UC Berkeley
-            </b></p>
-        </li>
-            <li class="aligncenter"><img src="images/photos/kaseyzapatka.jpeg" width="250" />
-                <p><b><a href="https://www.kaseyzapatka.com" target="_blank">Kasey Zapatka, Ph.D.</a><br />
-                Postdoctoral Scholar<br />
-                UC Berkeley
-            </b></p>
-        </li>
-        <li class="aligncenter"><img src="images/photos/piadeshpande.png" width="250" />
-            <p><b><a href="https://bids.berkeley.edu/people/pia-deshpande" target="_blank">Pia Deshpande</a><br />
-            CRELS Graduate Fellow<br />
-            UC Berkeley
-        </b></p>
-    </li>
-    <li class="aligncenter"><img src="images/photos/angel-mendiola-ross.jpg" width="250" />
-        <p><b><a href="https://bids.berkeley.edu/people/ángel-mendiola-ross" target="_blank">Ángel Mendiola Ross</a><br />
-        CRELS Graduate Fellow<br />
-        UC Berkeley
-    </b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/alex.jpg" width="250" />
-    <p><b><a href="https://alexramiller.com" target="_blank">Alex Ramiller</a><br />
-    Graduate Researcher<br />
-    UC Berkeley
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/miaschwinghammer.jpg" width="250" />
-<p><b><a href="https://www.linkedin.com/in/miaschwing/" target="_blank">Mia Schwinghammer</a><br />
-Undergraduate Researcher<br />
-UC Berkeley
-</b></p>
-</li>
-<!--                         <li class="aligncenter"><img src="images/photos/jennifer_chen.JPG" width="250" />
-<p><b><a href="https://www.urbandisplacement.org/team/jennifer-chen/" target="_blank">Jennifer Chen</a><br />
-Undergraduate Researcher<br />
-UC Berkeley
-</b></p>
-</li>
--->                        <!-- <li class="aligncenter"><img src="images/photos/ashley.jpg" width="250" />
-<p><b><a href="https://www.urbandisplacement.org/team/ashley-santos/" target="_blank">Ashley Santos</a><br />
-Undergraduate Researcher<br />
-UC Berkeley
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/Emely_Martinez_Ramirez.jpg" width="250" />
-<p><b><a href="https://www.urbandisplacement.org/team/Emely-Martinez-Ramirez/" target="_blank">Emely Martinez Ramirez</a><br />
-Undergraduate Researcher<br />
-UC Berkeley
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/Aniket_Rahane.JPG" width="250" />
-<p><b><a href="https://www.urbandisplacement.org/team/Aniket-Rahane/" target="_blank">Aniket Rahane</a><br />
-Undergraduate Researcher<br />
-UC Berkeley
-</b></p>
-</li> -->
-<br />
-</ul>
-</header>
-<header class="major">
-<h2>Research Collaborators</h2>
-<ul class="features">
-<li class="aligncenter"><img src="images/photos/lisabates.png" width="250" />
-<p><b><a href="https://www.pdx.edu/profile/lisa-bates" target="_blank">Lisa Bates, Ph.D.</a><br>
-Oregon Project Director<br>
-Portland State University
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/malcolmdrewery.jpeg" width="250" />
-<p><b><a href="https://www.coppin.edu/applied-social-and-political-science-department/malcolm-drewery" target="_blank">Malcolm Drewery, Ph.D.</a><br>
-Baltimore Collaborator<br>
-Coppin State University
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/ChengRen2.jpg" width="250" />
-<p><b><a href="https://www.albany.edu/ssw/faculty/cheng-ren" target="_blank">Cheng Ren</a><br />
-New York Collaborator<br />
-University of Albany, SUNY
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/kathyrowell.jpg" width="250" />
-<p><b><a href="http://www.katherinerowell.com" target="_blank">Kathy Rowell, Ph.D.</a><br>
-Ohio Collaborator<br>
-Sinclair Community College
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/ott.jpg" width="250" />
-<p><b><a href="https://ischool.uw.edu/people/faculty/profile/otoomet" target="_blank"> Ott Toomet, Ph.D.</a><br>
-Washington State Collaborator<br>
-University of Washington
-</b></p>
-</li>
-<li class="aligncenter"><img src="images/photos/jose.jpg" width="250" />
-<p><b>Jose Hernandez, Ph.D.<br>
-Washington State Collaborator<br>
-Microsoft
-</b></p>
-</li>
-</ul>
-</header>
-<header class="major">
-<h2>Expert Collaborators</h2>
-<ul class="features">
-<p>Edmund Witter - Housing Justice Project Washington | Scott Crain - Northwest Justice Project | Matt Hill - Public Justice Center Maryland | Eric Dunn - National Housing Law Project Virginia | Sandra Park - ACLU New York</p>
-</ul>
-</header>
-<header class="major">
-<h2>Student Alumni</h2>
-<ul class="features">
-<p>HC Moore, Violet Davis | Miller Jacquet | Riya Rupen Patwa | Pedro Ochoa Navarrete | Jennifer Chen | Ian Kennedy Ph.D. | Anisha Keshavan Ph.D. | Yohan Min Ph.D | Max McDonald | Lucero Mejia | Avery Richards Ph.D. | Amit Cohen | Ashley Santos | Emely Ramirez | Aniket Rahane</p>
-</ul>
-</header>
-<header class="major">
-<h2>Organizational Collaborators & Funders</h2>
-<ul class="icons">
-<!-- funders & other partners -->
-<li><a href="https://www.policylink.org" class="image" target="_blank"><img src="images/logos/policylink_logo.png" alt="" height="45" /></a></li>
-<li><a href="https://www.gatesfoundation.org" class="image" target="_blank"><img src="images/logos/bmg.png" alt="" height="45" /></a></li>
-<li><a href="https://www.enterprisecommunity.org" class="image" target="_blank"><img src="images/logos/enterprise.png" alt="" height="45" /></a></li>
-<li><a href="https://www.kqed.org" class="image" target="_blank"><img src="images/logos/KQED logos/kqed-logo-white.png" alt="" height="45" /></a></li>
-<br>
-<br>
-<!-- Legal -->
-<li><a href="https://www.lsctracker.org/summary" class="image" target="_blank"><img src="images/logos/lsc_logo_white.png" alt="" height="45" /></a></li>
-<li><a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" class="image" target="_blank"><img src="images/logos/hjp_logo.png" alt="" height="45" /></a></li>
-<li><a href="https://www.aclu.org" class="image" target="_blank"><img src="images/logos/ACLULogo_Blue-on-white.jpg" alt="" height="45" /></a></li>
-<li><a href="https://www.nhlp.org" class="image" target="_blank"><img src="images/logos/NHLP_Logo_Horizontal.eps.png" alt="" height="45" /></a></li>
-<li><a href="https://www.legalaidchicago.org/" class="image" target="_blank"><img src="images/logos/logo-laf_226a06d3.png" alt="" height="45" /></a></li>
-<li><a href="https://www.publicjustice.org/en/" class="image" target="_blank"><img src="images/logos/PJC.png" alt="" height="45" /></a></li>
-<br>
-<br>
-<!-- Academic -->
-<li><a href="https://www.berkeley.edu" class="image" target="_blank"><img src="images/logos/Berkeley_wordmark_white.png" alt="" height="45" /></a></li>
-<li><a href="https://www.urbandisplacement.org" class="image" target="_blank"><img src="images/logos/UDPLogo.png" alt="" height="45" /></a></li>
-<li><a href="https://bids.berkeley.edu" class="image" target="_blank"><img src="images/logos/BIDS-Banner-Logo---White cropped left for website footer.png" alt="" height="45" /></a></li>
-<li><a href="https://www.pdx.edu" class="image" target="_blank"><img src="images/logos/PSUlogo-transparent.gif" alt="" height="45" /></a></li>
-<li><a href="https://csde.washington.edu" class="image" target="_blank"><img src="images/logos/csde.png" alt="" height="45" /></a></li>
-<li><a href="https://www.cascadia-data.org" class="image" target="_blank"><img src="images/logos/cuac.png" alt="" height="45"></a></li>
-<li><a href="https://escience.washington.edu" class="image" target="_blank"><img src="images/logos/escience.png" alt="" height="45" /></a></li>
-<li><a href="https://www.sinclair.edu" class="image" target="_blank"><img src="images/logos/sinclaire_logo.png" alt="" height="45" /></a></li>
-</ul>
-</header>
+    <section id="one" class="wrapper style1 special">
+        <div.a class="inner">
+            <header class="major">
+                <h2><br>Key Takeaways</h2>
+                <p>• Creating pipelines using existing tools and libraries like Datawrapper, Leaflet, and the neighborhood package help translate data into unique and effective visualizations.
+                <p>• Black and Latine renters in Oregon were overwhelmingly negatively impacted by evictions in 2024, with indications that rates will continue to rise.
+                <p>• There is a need for systemic intervention to reduce the impact on vulnerable renting groups.
+
+
+                <p>Thank you, for listening.
+                </p>
+            </header>
+        </div.a>
+    </section>    
 <!--                 <header class="major">
 <h2>Want to collaborate?</h2>
 <p>

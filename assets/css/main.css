@@ -18,11 +18,17 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+/* ERN Brand Colors (canonical) — keep in sync with cidrlab.github.io/assets/css/main.css
+   Dark navy:    #19222C  — dark backgrounds, header, footer
+   Medium blue:  #223754  — default text, headings, secondary surfaces
+   Accent red:   #F9322B  — buttons, links, highlights
+   Light blue:   #e8eef4  — alternating section backgrounds
+   See: evictionresearch.github.io/BRAND.md */
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #364d59; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #52565e; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ee3029; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --default-color: #223754; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #19222C; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #F9322B; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -34,13 +40,13 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ee3029; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #F9322B; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
-  --background-color: #f4f7f6;
+  --background-color: #e8eef4; /* ERN brand light blue — cool tint toward #223754 */
   --surface-color: #ffffff;
 }
 

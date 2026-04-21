@@ -1,0 +1,1626 @@
+{
+  "updated": "2026-04-20",
+  "count": 272,
+  "items": [
+    {
+      "title": "Eviction Lab",
+      "authors": "Matthew Desmond, Peter Hepburn, and team",
+      "year": null,
+      "type": "dataset",
+      "venue": "Princeton University",
+      "state": "national",
+      "url": "https://evictionlab.org/",
+      "description": ""
+    },
+    {
+      "title": "Eviction Tracking System",
+      "authors": "Eviction Lab",
+      "year": null,
+      "type": "dataset",
+      "venue": "Princeton University",
+      "state": "national",
+      "url": "https://evictionlab.org/eviction-tracking/",
+      "description": ""
+    },
+    {
+      "title": "Civil Court Data Initiative: Eviction Tracker",
+      "authors": "Legal Services Corporation",
+      "year": null,
+      "type": "dataset",
+      "venue": "Legal Services Corporation",
+      "state": "national",
+      "url": "https://civilcourtdata.lsc.gov/data/eviction/",
+      "description": ""
+    },
+    {
+      "title": "Anti-Eviction Mapping Project",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "",
+      "state": "national",
+      "url": "https://antievictionmap.com/",
+      "description": ""
+    },
+    {
+      "title": "Eviction Innovation",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "",
+      "state": "national",
+      "url": "https://evictioninnovation.org/landscape/",
+      "description": ""
+    },
+    {
+      "title": "Eviction Right to Counsel Resource Center",
+      "authors": "Stout",
+      "year": null,
+      "type": "report",
+      "venue": "Stout",
+      "state": "national",
+      "url": "https://www.stout.com/en/services/transformative-change-consulting/eviction-right-to-counsel-resources",
+      "description": ""
+    },
+    {
+      "title": "Examining Excess Mortality Associated with the COVID-19 Pandemic for Renters Threatened with Eviction",
+      "authors": "Nick Graetz, Peter Hepburn, Carl Gershenson, Matthew Desmond",
+      "year": 2024,
+      "type": "academic",
+      "venue": "JAMA",
+      "state": "national",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10879945/",
+      "description": ""
+    },
+    {
+      "title": "Eviction and the Rental Housing Crisis in Rural America",
+      "authors": "Carl Gershenson & Matthew Desmond",
+      "year": 2024,
+      "type": "academic",
+      "venue": "Rural Sociology",
+      "state": "national",
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1111/ruso.12528",
+      "description": ""
+    },
+    {
+      "title": "Disrupting the Eviction System: Tenant Right to Counsel",
+      "authors": "Eviction Lab",
+      "year": 2024,
+      "type": "report",
+      "venue": "Princeton University",
+      "state": "national",
+      "url": "https://evictionlab.org/disrupting-the-eviction-system/",
+      "description": ""
+    },
+    {
+      "title": "Evictions: National Data Are Limited and Challenging to Collect",
+      "authors": "U.S. Government Accountability Office",
+      "year": 2024,
+      "type": "report",
+      "venue": "U.S. Government Accountability Office",
+      "state": "national",
+      "url": "https://www.gao.gov/products/gao-24-106637",
+      "description": ""
+    },
+    {
+      "title": "A Comprehensive Demographic Profile of the US Evicted Population",
+      "authors": "Nick Graetz, Carl Gershenson, Peter Hepburn, Sonya R. Porter, Danielle H. Sandler, Matthew Desmond",
+      "year": 2023,
+      "type": "academic",
+      "venue": "PNAS",
+      "state": "national",
+      "url": "https://www.pnas.org/doi/10.1073/pnas.2305860120",
+      "description": ""
+    },
+    {
+      "title": "Preliminary Analysis: Eviction Filing Patterns in 2023",
+      "authors": "Eviction Lab",
+      "year": 2023,
+      "type": "report",
+      "venue": "Princeton University",
+      "state": "national",
+      "url": "https://evictionlab.org/ets-report-2023/",
+      "description": ""
+    },
+    {
+      "title": "Racial and Gender Disparities among Evicted Americans",
+      "authors": "Peter Hepburn, Renee Louis, Matthew Desmond",
+      "year": 2020,
+      "type": "academic",
+      "venue": "Sociological Science",
+      "state": "national",
+      "url": "https://sociologicalscience.com/download/vol-7/december/SocSci_v7_649to662.pdf",
+      "description": ""
+    },
+    {
+      "title": "COVID-19 Housing Policy: State and Federal Eviction Moratoria and Supportive Measures in the United States During the Pandemic",
+      "authors": "Emily A. Benfer, Robert Koehler, Alyx Mark, Valerie Nazzaro, Anne Kat Alexander, Peter Hepburn, Danya E. Keene & Matthew Desmond",
+      "year": 2022,
+      "type": "report",
+      "venue": "",
+      "state": "national",
+      "url": "https://www.ncsc.org/__data/assets/pdf_file/0028/78193/COVID-19-Housing-Policy.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions in New England and the Impact of Public Policy During the COVID-19 Pandemic",
+      "authors": "Nicholas Chiumenti",
+      "year": 2022,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Boston",
+      "state": "national",
+      "url": "https://www.bostonfed.org/publications/new-england-public-policy-center-regional-briefs/2022/evictions-in-new-england-and-the-impact-of-public-policy-during-the-covid19-pandemic.aspx",
+      "description": ""
+    },
+    {
+      "title": "Rental Eviction and the COVID-19 Pandemic: Averting a Looming Crisis",
+      "authors": "National Academies of Science, Engineering, & Medicine",
+      "year": 2022,
+      "type": "report",
+      "venue": "National Academies of Science, Engineering, & Medicine",
+      "state": "national",
+      "url": "https://nap.nationalacademies.org/catalog/26106/rental-eviction-and-the-covid-19-pandemic-averting-a-looming",
+      "description": ""
+    },
+    {
+      "title": "Feedback Dynamics of the Low-Income Rental Housing Market: Exploring Policy Responses to COVID-19",
+      "authors": "Katherine Marcal, Patrick Fowler, Peter Hovmand",
+      "year": 2022,
+      "type": "working-paper",
+      "venue": "Case Western Reserve University",
+      "state": "national",
+      "url": "https://arxiv.org/pdf/2206.12647.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evidence Matters: Evictions",
+      "authors": "HUD Office of Policy Development and Research",
+      "year": 2021,
+      "type": "report",
+      "venue": "HUD Office of Policy Development and Research",
+      "state": "national",
+      "url": "https://www.huduser.gov/portal/sites/default/files/pdf/EM-Newsletter-Summer2021.pdf",
+      "description": ""
+    },
+    {
+      "title": "Report to Congress on the Feasibility of Creating a National Evictions Database",
+      "authors": "Office of Policy Development & Research",
+      "year": 2021,
+      "type": "report",
+      "venue": "Office of Policy Development & Research",
+      "state": "national",
+      "url": "https://www.huduser.gov/portal/sites/default/files/pdf/Eviction-Database-Feasibility-Report-to-Congress-2021.pdf",
+      "description": ""
+    },
+    {
+      "title": "Analysis of Current and Expected Rental Shortfall and Potential Evictions in the U.S",
+      "authors": "Stout",
+      "year": 2020,
+      "type": "report",
+      "venue": "Stout",
+      "state": "national",
+      "url": "https://www.ncsha.org/wp-content/uploads/Analysis-of-Current-and-Expected-Rental-Shortfall-and-Potential-Evictions-in-the-US_Stout_FINAL.pdf",
+      "description": ""
+    },
+    {
+      "title": "Housing Instability and Emergency Rental Assistance in Alaska",
+      "authors": "Helen Renfrew",
+      "year": 2021,
+      "type": "report",
+      "venue": "Alaska Coalition on Housing and Homelessness",
+      "state": "alaska",
+      "url": "https://nlihc.org/sites/default/files/Housing-Instability-and-Emergency-Rental-Assistance-in-Alaska.pdf",
+      "description": ""
+    },
+    {
+      "title": "Cost of Eviction Calculator",
+      "authors": "University of Arizona, James E. Rogers College of Law",
+      "year": null,
+      "type": "dataset",
+      "venue": "University of Arizona",
+      "state": "arizona",
+      "url": "https://law.arizona.edu/eviction-calculator",
+      "description": ""
+    },
+    {
+      "title": "Race and the COVID-19 Eviction and Housing Crisis",
+      "authors": "Bradey Camille Baltz",
+      "year": 2021,
+      "type": "academic",
+      "venue": "",
+      "state": "arkansas",
+      "url": "https://law.uark.edu/alr/lawnotes/articles/PDF-baltz-race-covid.pdf",
+      "description": ""
+    },
+    {
+      "title": "Assessing the Health and Equity Impacts of Arkansas's Landlord-Tenant Laws",
+      "authors": "Arkansas Community Institute, The Central Arkansas Re-Entry (CARE) Coalition",
+      "year": null,
+      "type": "report",
+      "venue": "Arkansas Community Institute",
+      "state": "arkansas",
+      "url": "https://www.pewtrusts.org/-/media/assets/2018/09/warranty-of-habitability-in-arkansas-hia.pdf",
+      "description": ""
+    },
+    {
+      "title": "Densifying Berkeley: Potential Impacts on Displacement and Equity",
+      "authors": "Anti-Eviction Project",
+      "year": 2022,
+      "type": "report",
+      "venue": "Anti-Eviction Project",
+      "state": "california",
+      "url": "https://static1.squarespace.com/static/52b7d7a6e4b0b3e376ac8ea2/t/635830839d2601366841cfb4/1666723974882/AEMP_DensifyingBerkeleyReport_2022.pdf",
+      "description": ""
+    },
+    {
+      "title": "Eviction Risk Insights Breakdown for California",
+      "authors": "Urban Footprint",
+      "year": 2021,
+      "type": "report",
+      "venue": "Urban Footprint",
+      "state": "california",
+      "url": "https://urbanfootprint.com/blog/in-the-news/eri-breakdown-california/",
+      "description": ""
+    },
+    {
+      "title": "Project HOME: Modeling and Mapping Eviction rates in California",
+      "authors": "Joshua Archer, Akaash Kambath, Swetha Pola, Yizi Zhou",
+      "year": 2021,
+      "type": "report",
+      "venue": "School of Information, University of California, Berkeley",
+      "state": "california",
+      "url": "https://jearcher.github.io/project-home/HTML/public/index.html",
+      "description": ""
+    },
+    {
+      "title": "Right to Counsel in Eviction Cases: A California Case Study",
+      "authors": "School of Law, Boston University",
+      "year": 2021,
+      "type": "report",
+      "venue": "School of Law, Boston University",
+      "state": "california",
+      "url": "https://sites.bu.edu/dome/2021/08/27/right-to-counsel-in-eviction-cases-a-california-case-study/",
+      "description": ""
+    },
+    {
+      "title": "Fact Sheet: Preventing Eviction and Indebtedness in California",
+      "authors": "Bay Area Equity Atlas, Housing NOW! California",
+      "year": 2021,
+      "type": "report",
+      "venue": "Bay Area Equity Atlas",
+      "state": "california",
+      "url": "https://bayareaequityatlas.org/research/analyses/COVID-19-evictions-california",
+      "description": ""
+    },
+    {
+      "title": "California Evictions Are Fast and Frequent",
+      "authors": "Aimee Inglis, Dean Preston",
+      "year": 2018,
+      "type": "report",
+      "venue": "",
+      "state": "california",
+      "url": "https://static1.squarespace.com/static/52b7d7a6e4b0b3e376ac8ea2/t/5b1273ca0e2e72ec53ab0655/1527935949227/CA_Evictions_are_Fast_and_Frequent.pdf",
+      "description": ""
+    },
+    {
+      "title": "A New Normal: How Eviction Court Filing Data Can Advance a More Stable Housing Ecosystem for all Coloradans",
+      "authors": "Enterprise Community Partners",
+      "year": 2022,
+      "type": "report",
+      "venue": "Enterprise Community Partners",
+      "state": "colorado",
+      "url": "https://www.enterprisecommunity.org/sites/default/files/2022-10/2022-006%20Denver%20White%20Paper%20%28A%20New%20Normal%29%20R7.pdf",
+      "description": ""
+    },
+    {
+      "title": "Community Economic Defense Project",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "Community Economic Defense Project",
+      "state": "colorado",
+      "url": "https://cedproject.org/research/",
+      "description": ""
+    },
+    {
+      "title": "Facing Eviction Alone",
+      "authors": "Aubrey Hasvold, Jack Regenbogen",
+      "year": 2017,
+      "type": "report",
+      "venue": "Colorado Coalition for the Homeless, Colorado Center on Law and Policy",
+      "state": "colorado",
+      "url": "https://www.coloradocoalition.org/sites/default/files/2017-09/Facing%20Eviction%20Alone%209-11-17.pdf",
+      "description": ""
+    },
+    {
+      "title": "Exposing Connecticut's Eviction Crisis: Understanding The Intersection Of Race And Sex In Connecticut's Eviction Crisis",
+      "authors": "CT Data Collaborative, Connecticut Fair Housing Center",
+      "year": 2022,
+      "type": "report",
+      "venue": "CT Data Collaborative",
+      "state": "connecticut",
+      "url": "https://www.ctdata.org/evictions-report",
+      "description": ""
+    },
+    {
+      "title": "Housing Opportunity Mobility Equity Stability (H.O.M.E.S.) Campaign: List of Latest Stories and Research",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "H.O.M.E.S. Campaign",
+      "state": "delaware",
+      "url": "https://www.homescampaignde.org/news-and-academic-articles",
+      "description": ""
+    },
+    {
+      "title": "Prior Evictions Among People Experiencing Homelessness in Delaware",
+      "authors": "Metraux S, Mwangi O, McGuire J",
+      "year": 2022,
+      "type": "academic",
+      "venue": "Delaware Journal of Public Health",
+      "state": "delaware",
+      "url": "https://djph.org/wp-content/uploads/2022/09/djph-83-009.pdf",
+      "description": ""
+    },
+    {
+      "title": "Addressing the Threat of COVID-19 Related Housing Instability and Displacement in Delaware",
+      "authors": "Metraux S, Rayl M, O'Hanlon J, O'Neill S",
+      "year": 2020,
+      "type": "report",
+      "venue": "Center for Community Research and Service & Institute for Public Administration, University of Delaware",
+      "state": "delaware",
+      "url": "https://udspace.udel.edu/bitstream/handle/19716/25186/200330%20covid%20housing%20complete%20draft.pdf?sequence=1&isAllowed=y",
+      "description": ""
+    },
+    {
+      "title": "Eviction and Legal Representation in Delaware - An Overview",
+      "authors": "Guterbock A, Metraux S",
+      "year": 2020,
+      "type": "report",
+      "venue": "Biden School of Public Policy & Administration, University of Delaware",
+      "state": "delaware",
+      "url": "https://udspace.udel.edu/bitstream/handle/19716/26352/CCRS%20Eviction%20Brief%20final%20v2.pdf?sequence=5&isAllowed=y",
+      "description": ""
+    },
+    {
+      "title": "Too Expensive to Rent: Florida's Rental Market & Eviction Moratorium",
+      "authors": "Florida TaxWatch",
+      "year": 2022,
+      "type": "report",
+      "venue": "Florida TaxWatch",
+      "state": "florida",
+      "url": "https://floridataxwatch.org/Research/Full-Library/ArtMID/34407/ArticleID/19154/TOO-EXPENSIVE-TO-RENT-FLORIDA%E2%80%99S-RENTAL-MARKET-EVICTION-MORATORIUM",
+      "description": ""
+    },
+    {
+      "title": "Tracking the Fallout: The Impact of Eviction Moratoriums on Racial/Ethnic Disparities in Evictions and Displacement Post-COVID-19",
+      "authors": "Zinzi Bailey, Alana Greer",
+      "year": 2020,
+      "type": "report",
+      "venue": "Policies for Action: Policy and Law Research to Build a Culture of Health",
+      "state": "florida",
+      "url": "https://policiesforaction.org/project/tracking-fallout-impact-eviction-moratoriums-racialethnic-disparities-evictions-and",
+      "description": ""
+    },
+    {
+      "title": "No Eviction Without Representation: Eviction's Disproportionate Harms and the Promise of Right to Counsel",
+      "authors": "American Civil Liberties Union, National Coalition for a Civil Right to Counsel",
+      "year": null,
+      "type": "report",
+      "venue": "American Civil Liberties Union",
+      "state": "florida",
+      "url": "https://www.aclu.org/report/no-eviction-without-representation",
+      "description": ""
+    },
+    {
+      "title": "Preserving Affordable Rental Housing",
+      "authors": "Shimberg Center for Housing Studies, University of Florida",
+      "year": null,
+      "type": "report",
+      "venue": "Shimberg Center for Housing Studies",
+      "state": "florida",
+      "url": "http://www.shimberg.ufl.edu/research/preserving-rental-housing",
+      "description": ""
+    },
+    {
+      "title": "Planning and Property Lab",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "Georgia Institute of Technology",
+      "state": "georgia",
+      "url": "https://sites.gatech.edu/planningproperty/",
+      "description": ""
+    },
+    {
+      "title": "Metro Atlanta Housing Strategy",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "Metro Atlanta Housing Strategy",
+      "state": "georgia",
+      "url": "https://metroatlhousing.org/atlanta-region-eviction-tracker/",
+      "description": ""
+    },
+    {
+      "title": "Special Briefing: Despite CDC Moratorium, Atlanta-Area Eviction Filings Hit Low-Income, Minority Neighborhoods",
+      "authors": "Center for Housing & Policy Community & Economic Development, Federal Reserve Bank of Atlanta",
+      "year": null,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Atlanta",
+      "state": "georgia",
+      "url": "https://www.atlantafed.org/-/media/documents/community-development/publications/special/despite-cdc-moratorium-atlanta-area-eviction-filings-hit-low-income-minority-neighborhoods/5-county-eviction-brief-and-appendix.pdf",
+      "description": ""
+    },
+    {
+      "title": "Housing Stability, Evictions, and Subsidized Rental Properties: Evidence From Metro Atlanta, Georgia",
+      "authors": "Austin Harrison, Dan Immergluck, Jeff Ernsthausen & Stephanie Earl",
+      "year": 2020,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "georgia",
+      "url": "https://www.nlihc.org/sites/default/files/HPD_Evictions_Atlanta.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions, large owners, and serial filings: findings from Atlanta",
+      "authors": "Dan Immergluck, Jeff Ernsthausen, Stephanie Earl & Allison Powell",
+      "year": 2020,
+      "type": "academic",
+      "venue": "",
+      "state": "georgia",
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/02673037.2019.1639635",
+      "description": ""
+    },
+    {
+      "title": "From Foreclosure to Eviction: Housing Insecurity in Corporate-Owned Single-Family Rentals",
+      "authors": "Elora Lee Raymond, Richard Duckworth, Benjamin Miller, Michael Lucas, Shiraj Pokharel",
+      "year": null,
+      "type": "academic",
+      "venue": "Cityscape, U.S. Department of Housing and Urban Development",
+      "state": "georgia",
+      "url": "https://www.huduser.gov/portal/periodicals/cityscpe/vol20num3/article9.html",
+      "description": ""
+    },
+    {
+      "title": "Eviction Prevention Through Hawai'i's Tenant-Landlord Mediation Program",
+      "authors": "Hawaii Appleseed Center for Law and Economic Justice, Housing Crisis Research Collaborative",
+      "year": 2022,
+      "type": "report",
+      "venue": "Hawaii Appleseed Center",
+      "state": "hawaii",
+      "url": "https://hiappleseed.org/publications/eviction-prevention-mediation-hawaii",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Idaho",
+      "authors": "Boise State University, Idaho Policy Institute",
+      "year": null,
+      "type": "report",
+      "venue": "Boise State University",
+      "state": "idaho",
+      "url": "https://www.boisestate.edu/sps-ipi/evictions-in-idaho/",
+      "description": ""
+    },
+    {
+      "title": "Out of Control: Growth and Indirect Discrimination in Ada and Canyon Counties' Rental Processes",
+      "authors": "Berit Shaus, Sharon Hanson, Tim Thomas",
+      "year": 2021,
+      "type": "academic",
+      "venue": "Journal of Student Research",
+      "state": "idaho",
+      "url": "https://www.jsr.org/hs/index.php/path/article/view/2029",
+      "description": ""
+    },
+    {
+      "title": "Despite Federal Moratorium, Eviction Rates Returning to Pre-Pandemic Levels",
+      "authors": "Benjamin Larsen, McAllister Hall",
+      "year": 2021,
+      "type": "report",
+      "venue": "Boise State University",
+      "state": "idaho",
+      "url": "https://scholarworks.boisestate.edu/cgi/viewcontent.cgi?article=1006&context=uar_2021",
+      "description": ""
+    },
+    {
+      "title": "Treasure Valley Eviction Report",
+      "authors": "Jesse Tree",
+      "year": null,
+      "type": "report",
+      "venue": "Jesse Tree",
+      "state": "idaho",
+      "url": "https://npr.brightspotcdn.com/f7/bc/6a134e434141b21e129bb6cf1ef2/jesse-tree-eviction-report.pdf",
+      "description": ""
+    },
+    {
+      "title": "Chicago Evictions",
+      "authors": "Lawyers' Committee for Better Housing",
+      "year": null,
+      "type": "report",
+      "venue": "Lawyers' Committee for Better Housing",
+      "state": "illinois",
+      "url": "https://eviction.lcbh.org/reports",
+      "description": ""
+    },
+    {
+      "title": "Addressing Eviction: Eviction in Illinois",
+      "authors": "Housing Action Illinois",
+      "year": null,
+      "type": "report",
+      "venue": "Housing Action Illinois",
+      "state": "illinois",
+      "url": "https://housingactionil.org/what-we-do/advocacy/eviction/",
+      "description": ""
+    },
+    {
+      "title": "Race and Eviction During the Pandemic",
+      "authors": "Gaines, Brian J. and Mazzone, Jason and Mettler, Matthew and Wilson, Robin Fretwell",
+      "year": 2022,
+      "type": "working-paper",
+      "venue": "SSRN",
+      "state": "illinois",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4247293",
+      "description": ""
+    },
+    {
+      "title": "Unhealthy Behaviors in Urban Illinois Communities Affected by Eviction: A Descriptive Analysis",
+      "authors": "Hazekamp C, Yousuf S, Khare M, MacDowell M.",
+      "year": 2021,
+      "type": "academic",
+      "venue": "",
+      "state": "illinois",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33533076/",
+      "description": ""
+    },
+    {
+      "title": "Chicago Evictions and COVID-19",
+      "authors": "University of Illinois Chicago, School of Public Health",
+      "year": null,
+      "type": "report",
+      "venue": "University of Illinois Chicago",
+      "state": "illinois",
+      "url": "https://publichealth.uic.edu/uic-covid-19-public-health-response/covid-19-maps-chicago-illinois/chicago-evictions-and-covid-19/",
+      "description": ""
+    },
+    {
+      "title": "Housing Instability in Marion County Evictions Before and During COVID-19",
+      "authors": "Indiana University, Public Policy Institute, Center for Research on Inclusion & Social Policy",
+      "year": 2021,
+      "type": "report",
+      "venue": "Indiana University",
+      "state": "indiana",
+      "url": "https://policyinstitute.iu.edu/doc/Evictions-2020-Brief_CRISP_Feb.15.2021_ACCESSIBLE.pdf",
+      "description": ""
+    },
+    {
+      "title": "How Indiana Courts Can Prevent Evictions: Responding to a Looming Public Health and Economic Crisis",
+      "authors": "Health and Human Rights Clinic, Indiana University, McKinney School of Law, The Indiana Justice Project, Notre Dame Clinical Law Center",
+      "year": 2021,
+      "type": "report",
+      "venue": "Indiana University",
+      "state": "indiana",
+      "url": "https://mckinneylaw.iu.edu/practice/clinics/_docs/Indiana_courts_prevent_evictions.pdf",
+      "description": ""
+    },
+    {
+      "title": "Insuring the Effectiveness of Indiana's Landlord-Tenant Laws: The Necessity of Recognizing the Doctrine of Retaliatory Eviction In Indiana",
+      "authors": "Brian D. Casserly",
+      "year": 2013,
+      "type": "academic",
+      "venue": "Indiana Law Review",
+      "state": "indiana",
+      "url": "https://heinonline.org/HOL/Page?handle=hein.journals/indilr46&id=1383&collection=journals&index=",
+      "description": ""
+    },
+    {
+      "title": "UnevictIA",
+      "authors": "",
+      "year": null,
+      "type": "dataset",
+      "venue": "",
+      "state": "iowa",
+      "url": "https://www.unevictia.com/",
+      "description": ""
+    },
+    {
+      "title": "Kansas - Housing Needs By State",
+      "authors": "National Low Income Housing Coalition",
+      "year": null,
+      "type": "report",
+      "venue": "National Low Income Housing Coalition",
+      "state": "kansas",
+      "url": "https://nlihc.org/housing-needs-by-state/kansas",
+      "description": ""
+    },
+    {
+      "title": "Kansas Evictions Report Shows Ignorance of Legal System",
+      "authors": "Sherman Smith",
+      "year": 2022,
+      "type": "news",
+      "venue": "Kansas Reflector, Derby Informer",
+      "state": "kansas",
+      "url": "http://www.derbyinformer.com/news/state/kansas-evictions-report-shows-ignorance-of-legal-system/article_863bb914-01fd-11ed-aabe-af15677e7c3c.html",
+      "description": ""
+    },
+    {
+      "title": "Louisville Eviction Lab",
+      "authors": "Rootcause Research Center",
+      "year": null,
+      "type": "dataset",
+      "venue": "Rootcause Research Center",
+      "state": "kentucky",
+      "url": "https://www.rootcauseresearch.org/lel",
+      "description": ""
+    },
+    {
+      "title": "2021-2022 Evictions in Louisville: According to Property Owners",
+      "authors": "JP Morgan & Chase Co, Metropolitan Housing Coalition, Kiaspo",
+      "year": 2022,
+      "type": "report",
+      "venue": "Metropolitan Housing Coalition",
+      "state": "kentucky",
+      "url": "https://metropolitanhousing.org/wp-content/uploads/2022/11/MHC-Report.2022_LoRes.pdf",
+      "description": ""
+    },
+    {
+      "title": "2020-2021 State of Metropolitan Housing Report: COVID-19 and the Struggle to Stay Safe at Home in Lousville, KY",
+      "authors": "Metropolitan Housing Coalition, University of Louisville Center for Environmental Policy & Management",
+      "year": 2021,
+      "type": "report",
+      "venue": "Metropolitan Housing Coalition",
+      "state": "kentucky",
+      "url": "https://metropolitanhousing.org/wp-content/uploads/2021/04/FINAL_MHC_2020-2021-SMHR_web.pdf",
+      "description": ""
+    },
+    {
+      "title": "Mapping dispossession: Eviction, foreclosure and the multiple geographies of housing instability in Lexington, Kentucky",
+      "authors": "Taylor Shelton",
+      "year": 2018,
+      "type": "academic",
+      "venue": "Geoforum",
+      "state": "kentucky",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0016718518302847",
+      "description": ""
+    },
+    {
+      "title": "The Eviction Geography of New Orleans: An Empirical Study to Further Housing Justice",
+      "authors": "Davida Finger",
+      "year": 2020,
+      "type": "academic",
+      "venue": "University of Columbia",
+      "state": "louisiana",
+      "url": "https://digitalcommons.law.udc.edu/cgi/viewcontent.cgi?article=1003&context=udclr",
+      "description": ""
+    },
+    {
+      "title": "New Orleans' Eviction Geography: Results of an Increasingly Precarious Housing Market",
+      "authors": "Jane Place Neighborhood, Sustainability Initiative, Professor Davida Finger",
+      "year": 2019,
+      "type": "report",
+      "venue": "Loyola University New Orleans",
+      "state": "louisiana",
+      "url": "https://storage.googleapis.com/wzukusers/user-27881231/documents/5c95369d185a9kbj1pY4/JPNSI_Evictions_Final.pdf",
+      "description": ""
+    },
+    {
+      "title": "EVICTIONS IN MAINE: An Analysis of Eviction Filings and Outcomes as the COVID-19 Pandemic Threatens to Increase Rental Housing Instability",
+      "authors": "Maine Affordable Housing Coalition",
+      "year": 2020,
+      "type": "report",
+      "venue": "Maine Affordable Housing Coalition",
+      "state": "maine",
+      "url": "https://mainehousingcoalition.org/wp-content/uploads/2020/09/Maine-Eviction-Report-FINAL-September-2020.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions in New England and the Impact of Public Policy during the COVID-19 Pandemic",
+      "authors": "Nicholas Chiumenti",
+      "year": 2022,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Boston",
+      "state": "maine",
+      "url": "https://www.bostonfed.org/publications/new-england-public-policy-center-regional-briefs/2022/evictions-in-new-england-and-the-impact-of-public-policy-during-the-covid19-pandemic",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Montgomery County",
+      "authors": "Stephanie Bryant, Keili Robinson, Natalia Carrizosa",
+      "year": 2018,
+      "type": "report",
+      "venue": "Office of Legislative Oversight",
+      "state": "maryland",
+      "url": "https://www.montgomerycountymd.gov/OLO/Resources/Files/2018%20Reports/2018_10EvictionsMontgomeryCounty.pdf",
+      "description": ""
+    },
+    {
+      "title": "Housing Justice Beyond the Emergency: An Analysis of Racial Inequity in Eviction Filings Across Massachusetts",
+      "authors": "Homes for All Massachusetts",
+      "year": 2022,
+      "type": "report",
+      "venue": "Homes for All Massachusetts",
+      "state": "massachusetts",
+      "url": "https://www.homesforallmass.org/covid-evictions-report/hfamass-covid-evictions-report-short-03-22-screen-rfs.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Boston's Communities of Color: The First Year of the Pandemic",
+      "authors": "City Life/Vida Urbana",
+      "year": 2021,
+      "type": "report",
+      "venue": "City Life/Vida Urbana",
+      "state": "massachusetts",
+      "url": "https://d3n8a8pro7vhmx.cloudfront.net/clvu/pages/2779/attachments/original/1618424939/COVID-19_eviction_report_April_2021.pdf?1618424939",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Boston: The Disproportionate Effects of Forced Moves on Communities of Color",
+      "authors": "Massachusetts Institute of Technology, City Life/Vida Urbana",
+      "year": 2020,
+      "type": "report",
+      "venue": "MIT",
+      "state": "massachusetts",
+      "url": "https://www.bostonevictions.org/",
+      "description": ""
+    },
+    {
+      "title": "The Eviction Machine",
+      "authors": "Urban Praxis Workshop",
+      "year": null,
+      "type": "dataset",
+      "venue": "Urban Praxis Workshop",
+      "state": "michigan",
+      "url": "https://www.evictionmachine.org/home",
+      "description": ""
+    },
+    {
+      "title": "Michigan Evictions: Trends, Data Sources, and Neighborhood Determinants",
+      "authors": "Poverty Solutions University of Michigan, Michigan Poverty Law Program, Taubman College Architecture & Urban Planning University of Michigan",
+      "year": 2020,
+      "type": "report",
+      "venue": "University of Michigan",
+      "state": "michigan",
+      "url": "https://sites.fordschool.umich.edu/poverty2021/files/2021/03/Michigan-Eviction-Project-working-paper-1.pdf",
+      "description": ""
+    },
+    {
+      "title": "The Illusion of Choice: Evictions and Profit in North Minneapolis",
+      "authors": "Dr. Lewis B, Calhoun M, Matthias C, Conception K, Reyes T, Szczepanski C, Norton G, Noble E, and Tisdale G",
+      "year": 2021,
+      "type": "report",
+      "venue": "Center for Urban and Regional Affairs, University of Minnesota",
+      "state": "minnesota",
+      "url": "https://evictions.cura.umn.edu/sites/evictions.cura.umn.edu/files/files/general/illusion-of-choice-full-report-web.pdf",
+      "description": ""
+    },
+    {
+      "title": "Preventing Eviction Filing: Piloting a Pre-filing Eviction Prevention Clinic",
+      "authors": "Cohen M, Noble E",
+      "year": 2020,
+      "type": "report",
+      "venue": "Metropolitan Housing and Communities Policy Center, Urban Institute",
+      "state": "minnesota",
+      "url": "https://view.ckcest.cn/AllFiles/ZKBG/Pages/984/preventing-eviction-filings-piloting-a-pre-filing-eviction-prevention-clinic.pdf",
+      "description": ""
+    },
+    {
+      "title": "Mitigating Power Imbalance in Eviction Mediation: A Model for Minnesota",
+      "authors": "Hare R",
+      "year": 2020,
+      "type": "academic",
+      "venue": "Law & Inequality",
+      "state": "minnesota",
+      "url": "https://scholarship.law.umn.edu/cgi/viewcontent.cgi?article=1620&context=lawineq",
+      "description": ""
+    },
+    {
+      "title": "Minnesota Housing: Research on Housing and Community Needs",
+      "authors": "",
+      "year": 2020,
+      "type": "report",
+      "venue": "Minnesota Housing",
+      "state": "minnesota",
+      "url": "https://www.mnhousing.gov/sites/np/research",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Minneapolis",
+      "authors": "Minneapolis Eviction Team",
+      "year": 2016,
+      "type": "report",
+      "venue": "",
+      "state": "minnesota",
+      "url": "https://lims.minneapolismn.gov/Download/FileV2/21054/Renter-Protections-Ordinance---Eviction-Studies.pdf",
+      "description": ""
+    },
+    {
+      "title": "Housing Needs by State: Mississippi",
+      "authors": "National Low Income Housing Coalition",
+      "year": null,
+      "type": "report",
+      "venue": "National Low Income Housing Coalition",
+      "state": "mississippi",
+      "url": "https://nlihc.org/housing-needs-by-state/mississippi",
+      "description": ""
+    },
+    {
+      "title": "'Evicted' Exhibit At Margaret Walker Center Highlights Eviction Realities, Disparities In Mississippi, Beyond",
+      "authors": "Mississippi Free Press, Taylor McKay Hathorn",
+      "year": 2021,
+      "type": "news",
+      "venue": "Mississippi Free Press",
+      "state": "mississippi",
+      "url": "https://www.mississippifreepress.org/13330/evicted-exhibit-at-margaret-walker-center-highlights-eviction-realities-disparities-in-mississippi-beyond",
+      "description": ""
+    },
+    {
+      "title": "Kansas City Eviction Project",
+      "authors": "",
+      "year": null,
+      "type": "dataset",
+      "venue": "",
+      "state": "missouri",
+      "url": "https://www.evictionkc.org/project",
+      "description": ""
+    },
+    {
+      "title": "St. Louis, Justice For All - Evictions",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "City of St. Louis",
+      "state": "missouri",
+      "url": "https://www.stlouis-mo.gov/government/departments/mayor/initiatives/resilience/equity/justice/court-reform/evictions.cfm",
+      "description": ""
+    },
+    {
+      "title": "Addressing the Eviction Crisis and Housing Instability Through Mediation",
+      "authors": "Karen Tokarz, Samuel Hoff Stragand, Michael Geigerman, and Wolf Smith",
+      "year": 2020,
+      "type": "academic",
+      "venue": "Washington University Law Review",
+      "state": "missouri",
+      "url": "https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=2170&context=law_journal_law_policy",
+      "description": ""
+    },
+    {
+      "title": "National Eviction Risk Projections",
+      "authors": "COVID-19 Eviction Defense Project, The Aspen Institute Financial Security Program",
+      "year": 2020,
+      "type": "report",
+      "venue": "The Aspen Institute",
+      "state": "missouri",
+      "url": "https://www.aspeninstitute.org/wp-content/uploads/2020/08/Evictions-Data-Update-August.pdf",
+      "description": ""
+    },
+    {
+      "title": "Navigating COVID-19: Health Policy Solutions Housing",
+      "authors": "Amy Siegler",
+      "year": 2020,
+      "type": "report",
+      "venue": "Missouri Foundation for Health",
+      "state": "missouri",
+      "url": "https://mffh.org/wp-content/uploads/2020/09/Housing.pdf",
+      "description": ""
+    },
+    {
+      "title": "Beyond Housing Affordability: Results from a Montana Evictions Project",
+      "authors": "Montana Legal Services Association",
+      "year": 2023,
+      "type": "report",
+      "venue": "Montana Legal Services Association",
+      "state": "montana",
+      "url": "https://www.mtlsa.org/2023/10/23/beyond-housing-affordability-results-from-a-montana-evictions-project/",
+      "description": ""
+    },
+    {
+      "title": "Examination of Eviction Filings in Lancaster County, Nebraska, 2019–2021",
+      "authors": "Ryan Sullivan",
+      "year": 2022,
+      "type": "academic",
+      "venue": "University of Nebraska College of Law",
+      "state": "nebraska",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4093257",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Nebraska During the COVID-19 Pandemic",
+      "authors": "Pierce Greenberg, Erin Feichtinger, Danni Smith, Emily Burke",
+      "year": 2021,
+      "type": "report",
+      "venue": "Creighton University, Together",
+      "state": "nebraska",
+      "url": "https://hazards.colorado.edu/quick-response-report/evictions-in-nebraska-during-the-covid-19-pandemic",
+      "description": ""
+    },
+    {
+      "title": "Understanding Evictions in Omaha",
+      "authors": "Pierce Greenberg, PhD, Gary Fischer, JD",
+      "year": 2020,
+      "type": "report",
+      "venue": "",
+      "state": "nebraska",
+      "url": "https://storymaps.arcgis.com/stories/b839374e031d4ecfa21cb1fbaebbf31e",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Nebraska During Covid-19",
+      "authors": "Social Science Data Lab, Creighton University",
+      "year": 2020,
+      "type": "report",
+      "venue": "Creighton University",
+      "state": "nebraska",
+      "url": "http://socialsciencedatalab.com/wp-content/uploads/2021/03/EvictionsInNebraskaDuringCOVID19.pdf",
+      "description": ""
+    },
+    {
+      "title": "Judge Sees the Raw End of a 170 Percent Eviction Increase in the Las Vegas Valley",
+      "authors": "Nevada Independent",
+      "year": 2024,
+      "type": "news",
+      "venue": "Nevada Independent",
+      "state": "nevada",
+      "url": "https://thenevadaindependent.com/article/judge-sees-the-raw-end-of-a-170-percent-eviction-increase-in-the-las-vegas-valley",
+      "description": ""
+    },
+    {
+      "title": "Analysis of Impediments to Fair Housing Choice in New Hampshire",
+      "authors": "New Hampshire Legal Assistance",
+      "year": 2020,
+      "type": "report",
+      "venue": "New Hampshire Legal Assistance",
+      "state": "new hampshire",
+      "url": "https://www.nhhfa.org/wp-content/uploads/2021/04/2020-Analysis-Impediments-Fair-Housing-ChoiceNH.pdf",
+      "description": ""
+    },
+    {
+      "title": "Unjustified Residential Evictions in New Jersey",
+      "authors": "Lowenstein Center for the Public Interest, Rutgers Law School, Seton Hall Law, Volunteer Lawyers for Justice",
+      "year": 2024,
+      "type": "report",
+      "venue": "Rutgers Law School",
+      "state": "new jersey",
+      "url": "https://law.shu.edu/documents/Unjustified-Evictions-in-New-Jersey-10-29-24.pdf",
+      "description": ""
+    },
+    {
+      "title": "New Mexico Eviction Data",
+      "authors": "Samuel Taub",
+      "year": 2022,
+      "type": "dataset",
+      "venue": "University of New Mexico School of Law",
+      "state": "new mexico",
+      "url": "https://www.nmevictions.org/",
+      "description": ""
+    },
+    {
+      "title": "Evictions in the COVID-19 Era: A threat to family and community health in Santa Fe",
+      "authors": "Human Impact Partners",
+      "year": 2020,
+      "type": "report",
+      "venue": "Human Impact Partners",
+      "state": "new mexico",
+      "url": "https://humanimpact.org/wp-content/uploads/2020/12/Eviction-in-the-COVID-19-Era-A-Threat-to-Family-and-Community-Health-in-Santa-Fe-12.2020.HIP_.pdf",
+      "description": ""
+    },
+    {
+      "title": "Robin Hood",
+      "authors": "",
+      "year": null,
+      "type": "report",
+      "venue": "Robin Hood",
+      "state": "new york",
+      "url": "https://www.robinhood.org/",
+      "description": ""
+    },
+    {
+      "title": "NYC Eviction Filings",
+      "authors": "Anti-Eviction Mapping Project, Right to Counsel NYC Coalition, JustFix.nyc",
+      "year": null,
+      "type": "dataset",
+      "venue": "Anti-Eviction Mapping Project",
+      "state": "new york",
+      "url": "https://www.worstevictorsnyc.org/map",
+      "description": ""
+    },
+    {
+      "title": "Active Eviction Cases in New York State",
+      "authors": "Right to Counsel NYC Coalition",
+      "year": 2022,
+      "type": "dataset",
+      "venue": "Right to Counsel NYC Coalition",
+      "state": "new york",
+      "url": "https://www.righttocounselnyc.org/evictioncrisismonitor",
+      "description": ""
+    },
+    {
+      "title": "Low-Income New Yorkers are an Inch Away from Eviction: How to Address Rent Debt and Eviction Pressure to Keep Them Housed",
+      "authors": "Oksana Mironova, Samuel Stein",
+      "year": 2021,
+      "type": "report",
+      "venue": "",
+      "state": "new york",
+      "url": "https://smhttp-ssl-58547.nexcesscdn.net/nycss/images/uploads/pubs/Eviction_Pressure_V2.pdf",
+      "description": ""
+    },
+    {
+      "title": "The Effects of Evictions on Low-Income Households",
+      "authors": "Robert Collinson, Davin Reed",
+      "year": 2018,
+      "type": "academic",
+      "venue": "NYU School of Law",
+      "state": "new york",
+      "url": "https://www.law.nyu.edu/sites/default/files/upload_documents/evictions_collinson_reed.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions Up, Representation Down",
+      "authors": "Office of the New York City Comptroller",
+      "year": 2024,
+      "type": "report",
+      "venue": "Office of the New York City Comptroller",
+      "state": "new york",
+      "url": "https://comptroller.nyc.gov/reports/evictions-up-representation-down/",
+      "description": ""
+    },
+    {
+      "title": "GreensBoro's Eviction Crisis",
+      "authors": "Stephen J. Sills, Phillip Sheldon, Kelsi Hobbs",
+      "year": null,
+      "type": "report",
+      "venue": "University of North Carolina Greensboro",
+      "state": "north carolina",
+      "url": "https://chcs.uncg.edu/wp-content/uploads/2018/08/Eviction-Interviews-Report-docx.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evictions In Durham",
+      "authors": "Dataworks NC",
+      "year": null,
+      "type": "dataset",
+      "venue": "Dataworks NC",
+      "state": "north carolina",
+      "url": "https://dataworks-nc.org/evictions/",
+      "description": ""
+    },
+    {
+      "title": "Eviction Resolution Project",
+      "authors": "Center for Housing and Community Studies, University of North Carolina Greensboro",
+      "year": null,
+      "type": "report",
+      "venue": "University of North Carolina Greensboro",
+      "state": "north carolina",
+      "url": "https://chcs.uncg.edu/eviction-diversion-program-edp/",
+      "description": ""
+    },
+    {
+      "title": "Durham Evictions",
+      "authors": "Rhodes Information Initiative, Data+, Duke University, Ellis Ackerman, Rodrigo Araujo, Samantha Miezio",
+      "year": 2019,
+      "type": "dataset",
+      "venue": "Duke University",
+      "state": "north carolina",
+      "url": "https://bigdata.duke.edu/projects/durham-evictions/",
+      "description": ""
+    },
+    {
+      "title": "A Snapshot of Evictions in North Carolina",
+      "authors": "North Carolina Justice Center, Budget and Tax Center, Sydney Idzikowski",
+      "year": 2018,
+      "type": "report",
+      "venue": "North Carolina Justice Center",
+      "state": "north carolina",
+      "url": "https://www.ncjustice.org/wp-content/uploads/2018/12/BTC-BRIEF-evictions-brief-dec2018.pdf",
+      "description": ""
+    },
+    {
+      "title": "Part 1: An Introduction to Evictions in Charlotte-Mecklenburg",
+      "authors": "University of North Carolina, Charlotte Urban Institute",
+      "year": 2017,
+      "type": "report",
+      "venue": "UNC Charlotte",
+      "state": "north carolina",
+      "url": "https://mecklenburghousingdata.org/wp-content/uploads/2017/09/Charlotte-Mecklenburg-Evictions-Report-Part-1.pdf",
+      "description": ""
+    },
+    {
+      "title": "North Dakota Case Study: The Eviction Mill's Fast Track to Homelessness",
+      "authors": "Schmidt, Breezy A.",
+      "year": 2017,
+      "type": "academic",
+      "venue": "North Dakota Law Review",
+      "state": "north dakota",
+      "url": "https://commons.und.edu/cgi/viewcontent.cgi?article=1099&context=ndlr",
+      "description": ""
+    },
+    {
+      "title": "The Concentrated Geography of Eviction",
+      "authors": "Devin Rutan, Matthew Desmond",
+      "year": 2021,
+      "type": "academic",
+      "venue": "The Annals of the American Academy of Political and Social Science",
+      "state": "ohio",
+      "url": "https://journals.sagepub.com/doi/full/10.1177/0002716221991458",
+      "description": ""
+    },
+    {
+      "title": "Advocates Warn of Post-Moratorium Spike",
+      "authors": "Coalition on Homelessness and Housing in Ohio",
+      "year": null,
+      "type": "report",
+      "venue": "Coalition on Homelessness and Housing in Ohio",
+      "state": "ohio",
+      "url": "https://cohhio.org/report-highlights-evictions-during-the-pandemic/",
+      "description": ""
+    },
+    {
+      "title": "The Threat of Eviction during COVID-19: Perspectives from Cleveland's Ohio City",
+      "authors": "Michelle Volpe-Kohler",
+      "year": null,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Cleveland",
+      "state": "ohio",
+      "url": "https://www.clevelandfed.org/topics/housing/mmst-20210504-evictions",
+      "description": ""
+    },
+    {
+      "title": "The Cleveland Eviction Study: Observations in Eviction Court and the Stories of Poeple Facing Eviction",
+      "authors": "April Hirsh Urban, Aleksandra Tyler, Francisca García-Cobián Richter, Claudia Coulton, Tsui Chan",
+      "year": null,
+      "type": "report",
+      "venue": "Case Western Reserve University",
+      "state": "ohio",
+      "url": "https://case.edu/socialwork/povertycenter/sites/case.edu.povertycenter/files/2019-11/The%20Cleveland%20Eviction%20Study-10242019-fully%20accessible%28r%29.pdf",
+      "description": ""
+    },
+    {
+      "title": "Making Sense of Eviction Trends during the Pandemic",
+      "authors": "Hal Martin",
+      "year": 2022,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Cleveland",
+      "state": "ohio",
+      "url": "https://www.clevelandfed.org/publications/economic-commentary/2022/ec-202212-making-sense-of-eviction-trends-during-the-pandemic",
+      "description": ""
+    },
+    {
+      "title": "You are being asked to leave the premises: A Study of Eviction in Cincinatti and Hamilton County, Ohio 2014-2017",
+      "authors": "Elaina Johns-Wolfe, M.A.",
+      "year": 2018,
+      "type": "academic",
+      "venue": "Department of Sociology, University of Cincinnati",
+      "state": "ohio",
+      "url": "https://cincinnatilegalaid.net/wp-content/uploads/Eviction-Report_Final-1.pdf",
+      "description": ""
+    },
+    {
+      "title": "It's Time for Action to Address Oklahoma's Eviction Crisis",
+      "authors": "OKPolicy, Oklahoma Policy Institute, Ryan Gentzler",
+      "year": 2022,
+      "type": "report",
+      "venue": "Oklahoma Policy Institute",
+      "state": "oklahoma",
+      "url": "https://okpolicy.org/its-time-for-action-to-address-oklahomas-eviction-crisis/",
+      "description": ""
+    },
+    {
+      "title": "Evicted in Oregon",
+      "authors": "",
+      "year": null,
+      "type": "dataset",
+      "venue": "",
+      "state": "oregon",
+      "url": "https://www.evictedinoregon.com",
+      "description": ""
+    },
+    {
+      "title": "Comparisons of Eviction Data from SETA's Tenant Hotline and Court Records",
+      "authors": "Springfield Eugene Tenant Association",
+      "year": 2022,
+      "type": "report",
+      "venue": "Springfield Eugene Tenant Association",
+      "state": "oregon",
+      "url": "https://drive.google.com/file/d/1jOdm1WGgHwQs0zD3royowTIAmNJNJlIi/view",
+      "description": ""
+    },
+    {
+      "title": "Evaluating Oregon's Safe Harbor Eviction Diversion",
+      "authors": "Lisa K. Bates, Colleen Carroll, Minji Cho, Devin MacArthur",
+      "year": null,
+      "type": "report",
+      "venue": "Portland State University",
+      "state": "oregon",
+      "url": "https://www.pdx.edu/homelessness/evaluating-oregons-safe-harbor-eviction-diversion",
+      "description": ""
+    },
+    {
+      "title": "Oregon's Safe Harbor for Tenants: Rocky Shoals In Eviction Diversion",
+      "authors": "Lisa Bates",
+      "year": null,
+      "type": "report",
+      "venue": "Portland State University",
+      "state": "oregon",
+      "url": "https://www.pdx.edu/homelessness/sites/g/files/znldhr1791/files/2021-12/Bates-Oregon%20Safe%20Harbor%20early%20implementation.pdf",
+      "description": ""
+    },
+    {
+      "title": "Revealing Opportunities and Challenges: An Analysis of Eviction Filings in Pennsylvania",
+      "authors": "The Housing Alliance of Pennsylvania",
+      "year": 2022,
+      "type": "report",
+      "venue": "The Housing Alliance of Pennsylvania",
+      "state": "pennsylvania",
+      "url": "https://housingalliancepa.org/wp-content/uploads/Statewide-Eviction-Analysis_Housing-Alliance-of-PA_Feb-2022.pdf",
+      "description": ""
+    },
+    {
+      "title": "Longer Trips to Court Cause Evictions",
+      "authors": "Hoffman, David A. and Strezhnev, Anton",
+      "year": 2022,
+      "type": "academic",
+      "venue": "",
+      "state": "pennsylvania",
+      "url": "https://deliverypdf.ssrn.com/delivery.php?ID=311071073029064105080104003081126120035055026027031023101089115109004115092127124009003043120052118045043115123094125092117031013080071041077124097093002077016019007019004095094096068025010029126067099075068071093001019007065065105080081013105070117&EXT=pdf&INDEX=TRUE",
+      "description": ""
+    },
+    {
+      "title": "Eviction In Allegheny County: A Mixed-Methods Study By The Pittsburgh Foundation",
+      "authors": "The Pittsburgh Foundation",
+      "year": 2021,
+      "type": "report",
+      "venue": "The Pittsburgh Foundation",
+      "state": "pennsylvania",
+      "url": "https://pittsburghfoundation.org/sites/default/files/Eviction%20in%20Allegheny%20County-a%20mixed%20methods%20study_0.pdf",
+      "description": ""
+    },
+    {
+      "title": "Affordable Housing, Eviction, and Health Prevalence and Impact of Evictions Eviction Prevention Initiatives",
+      "authors": "Office of Policy Development and Research",
+      "year": 2021,
+      "type": "report",
+      "venue": "Office of Policy Development and Research",
+      "state": "pennsylvania",
+      "url": "https://www.huduser.gov/portal/periodicals/em/Summer21/highlight3.html#title",
+      "description": ""
+    },
+    {
+      "title": "Evictions in Philadelphia: A Data & Policy Update",
+      "authors": "Ira Goldstein, Emily Dowdall, Colin Weidig, Janine Simmons, Brian Carney",
+      "year": 2019,
+      "type": "report",
+      "venue": "Reinvestment Fund",
+      "state": "pennsylvania",
+      "url": "https://www.reinvestment.com/wp-content/uploads/2019/10/ReinvestmentFund__PHL-Evictions-Brief-Oct-2019.pdf",
+      "description": ""
+    },
+    {
+      "title": "The Impact of Short-Term Rentals in Puerto Rico: 2014-2020",
+      "authors": "Raúl Santiago-Bartolomei Ph.D., Deepak Lamba-Nieves Ph.D., Enrique A. Figueroa Grillasca, Ysatis A. Santiago Venegas",
+      "year": 2022,
+      "type": "report",
+      "venue": "CNE Puerto Rico's Think Tank",
+      "state": "puerto rico",
+      "url": "https://grupocne.org/2022/12/12/the-impact-of-short-term-rentals-in-puerto-rico-2014-2020/#conclusion",
+      "description": ""
+    },
+    {
+      "title": "Exploring the Experiences of University Students Evicted from Campus Housing During the COVID-19 Pandemic",
+      "authors": "Marla Perez-Lugo, Haorui Wu, Frances Gonzalez Crespo, Adriana Castillo, Cecilio Ortiz Garcia",
+      "year": 2020,
+      "type": "report",
+      "venue": "Natural Hazards Center",
+      "state": "puerto rico",
+      "url": "https://hazards.colorado.edu/quick-response-report/exploring-the-experiences-of-university-students-evicted-from-campus-housing-during-the-covid-19-pandemic",
+      "description": ""
+    },
+    {
+      "title": "Evicted Rhode Island: A Rodemap to Reforming the Rhode Island Eviction System",
+      "authors": "",
+      "year": null,
+      "type": "dataset",
+      "venue": "",
+      "state": "rhode island",
+      "url": "http://evicted-in-ri.com/#/",
+      "description": ""
+    },
+    {
+      "title": "The Eviction Landscape in South Carolina",
+      "authors": "Ethan Magnuson",
+      "year": 2021,
+      "type": "academic",
+      "venue": "",
+      "state": "south carolina",
+      "url": "https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=1404&context=senior_theses",
+      "description": ""
+    },
+    {
+      "title": "Home is Where the Heart Is: On Evictions in South Carolina",
+      "authors": "South Carolina AppleSeed Legal Justice Center",
+      "year": null,
+      "type": "report",
+      "venue": "South Carolina AppleSeed Legal Justice Center",
+      "state": "south carolina",
+      "url": "https://www.scjustice.org/home-is-where-the-heart-is/",
+      "description": ""
+    },
+    {
+      "title": "COVID-19 and Evictions in Memphis",
+      "authors": "Andrew Guthrie,  Courtnee Melton-Fant, Katherine Lambert-Pennington",
+      "year": 2022,
+      "type": "report",
+      "venue": "University of Memphis",
+      "state": "tennessee",
+      "url": "https://blogs.memphis.edu/benhooksinstitute/2022/01/13/covid-19-and-evictions-in-memphis/",
+      "description": ""
+    },
+    {
+      "title": "Race, mental health, and evictions filings in Memphis, TN, USA",
+      "authors": "Courtnee Melton-Fant, Austin Harrison, Katy Ramsey Mason",
+      "year": 2022,
+      "type": "academic",
+      "venue": "Social Sciences",
+      "state": "tennessee",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2211335522000432",
+      "description": ""
+    },
+    {
+      "title": "COVID-19 Renters and Housing Instability: Combatting the Eviction Epidemic during the COVID-19 Pandemic in Knox County, Tennessee",
+      "authors": "Samantha B. Myers-Miller",
+      "year": 2022,
+      "type": "academic",
+      "venue": "University of Tennessee",
+      "state": "tennessee",
+      "url": "https://trace.tennessee.edu/cgi/viewcontent.cgi?article=7908&context=utk_gradthes",
+      "description": ""
+    },
+    {
+      "title": "The State of Evictions in Memphis, Tennessee",
+      "authors": "Alexander Martin Uhlmann",
+      "year": 2020,
+      "type": "academic",
+      "venue": "University of Texas at Austin",
+      "state": "tennessee",
+      "url": "https://repositories.lib.utexas.edu/bitstream/handle/2152/115223/UHLMANN-MASTERSREPORT-2020.pdf?sequence=1&isAllowed=y",
+      "description": ""
+    },
+    {
+      "title": "A Review Of Eviction Protections In Dallas, Texas",
+      "authors": "Timothy Bray",
+      "year": 2021,
+      "type": "report",
+      "venue": "The Institute for Urban Policy Research at the University of Texas at Dallas",
+      "state": "texas",
+      "url": "https://urbanpolicyresearch.org/download/a-review-of-eviction-protections-in-dallas-texas/",
+      "description": ""
+    },
+    {
+      "title": "Displaced in Place: Manufactured Housing, Mass Eviction, and the Paradox of State Intervention",
+      "authors": "Esther Sullivan",
+      "year": 2017,
+      "type": "academic",
+      "venue": "American Sociological Review",
+      "state": "texas",
+      "url": "https://journals.sagepub.com/doi/abs/10.1177/0003122416688667",
+      "description": ""
+    },
+    {
+      "title": "Retaliatory Eviction in Texas - An Analysis and a Proposal",
+      "authors": "Jane E. Bockus",
+      "year": 1978,
+      "type": "academic",
+      "venue": "St. Mary's University Law Journal",
+      "state": "texas",
+      "url": "https://commons.stmarytx.edu/cgi/viewcontent.cgi?article=1574&context=thestmaryslawjournal",
+      "description": ""
+    },
+    {
+      "title": "RVA Eviction Lab",
+      "authors": "",
+      "year": null,
+      "type": "dataset",
+      "venue": "",
+      "state": "virginia",
+      "url": "https://rampages.us/rvaevictionlab/",
+      "description": ""
+    },
+    {
+      "title": "The Geography of Eviction in Richmond: Beyond Poverty",
+      "authors": "Benjamin F. Teresa, PhD",
+      "year": null,
+      "type": "report",
+      "venue": "RVA Eviction Lab",
+      "state": "virginia",
+      "url": "https://evictioninnovation.org/wp-content/uploads/2021/04/Richmond-GeographiesofEviction.pdf",
+      "description": ""
+    },
+    {
+      "title": "The Virginia Eviction Reduction Pilot Program: Final Report on Phase 1",
+      "authors": "Dr. Benjamin Teresa, Kathryn Howell, Ivan Duen, Hannah Woehrle, Connor White, Maria Tova Enriquez Dougherty",
+      "year": 2022,
+      "type": "report",
+      "venue": "RVA Eviction Lab",
+      "state": "virginia",
+      "url": "https://www.dhcd.virginia.gov/sites/default/files/Docx/verp/VERP-2020-final-report.pdf",
+      "description": ""
+    },
+    {
+      "title": "After the Eviction Moratorium: How Are Renters Faring?",
+      "authors": "Stephanie Norris",
+      "year": 2022,
+      "type": "report",
+      "venue": "Federal Reserve Bank of Richmond",
+      "state": "virginia",
+      "url": "https://www.richmondfed.org/research/regional_economy/regional_matters/2022/rm_09_29_2022_housing_insecurity",
+      "description": ""
+    },
+    {
+      "title": "Initial Analysis and Recommendations to Reduce Evictions in Virginia",
+      "authors": "Department of Housing & Community Development",
+      "year": 2020,
+      "type": "report",
+      "venue": "Department of Housing & Community Development",
+      "state": "virginia",
+      "url": "https://www.dhcd.virginia.gov/sites/default/files/Docx/verp/evictions-initial-analysis-and-recommendations.pdf",
+      "description": ""
+    },
+    {
+      "title": "Utah Evictions & Connections To Racial Ethnic Disparities In Utah",
+      "authors": "Utah Division of Multicultural Affairs",
+      "year": null,
+      "type": "report",
+      "venue": "Utah Division of Multicultural Affairs",
+      "state": "utah",
+      "url": "https://multicultural.utah.gov/wp-content/uploads/2021/06/MCA-Evictions-Report-June-2021-FINAL-1.pdf",
+      "description": ""
+    },
+    {
+      "title": "Racial Disparities In Eviction Rates During COVID-19",
+      "authors": "Utah Division of Multicultural Affairs, Utah Department of Cultural & Community Engagement",
+      "year": 2020,
+      "type": "report",
+      "venue": "Utah Department of Cultural & Community Engagement",
+      "state": "utah",
+      "url": "https://multicultural.utah.gov/race-eviction-rates/",
+      "description": ""
+    },
+    {
+      "title": "Housing Inequalities: Eviction Patterns in Salt Lake County,Utah",
+      "authors": "Richard M. Medina, Kara Byrne, Simon Brewer, Emily A. Nicolosi",
+      "year": 2020,
+      "type": "academic",
+      "venue": "University of Utah",
+      "state": "utah",
+      "url": "https://www.utahhousing.org/uploads/2/6/4/4/26444747/housing_inequalities_eviction_patterns_in_salt_lake_county.pdf",
+      "description": ""
+    },
+    {
+      "title": "Evicted in Utah",
+      "authors": "The Utah Investigative Journalism Project, The Salt Lake Tribune, The Economic Hardship Reporing Project",
+      "year": null,
+      "type": "news",
+      "venue": "The Salt Lake Tribune",
+      "state": "utah",
+      "url": "https://www.evictedinutah.com/about-us/",
+      "description": ""
+    },
+    {
+      "title": "Eviction in Vermont: A Closer Look",
+      "authors": "Vermont Legal Aid",
+      "year": 2019,
+      "type": "report",
+      "venue": "Vermont Legal Aid",
+      "state": "vermont",
+      "url": "https://www.vtlegalaid.org/sites/default/files/Eviction-Report-VLA-3.18.19-web.pdf",
+      "description": ""
+    },
+    {
+      "title": "Rental Eviction and the COVID-19 Pandemic: Averting a Looming Crisis",
+      "authors": "The National Academies of Sciences, Engineering, Medicine",
+      "year": 2022,
+      "type": "report",
+      "venue": "National Academies",
+      "state": "washington",
+      "url": "https://nap.nationalacademies.org/read/26106/chapter/1",
+      "description": ""
+    },
+    {
+      "title": "The State of Evictions Racial and Gender Disparities in Washington Evictions",
+      "authors": "Tim Thomas",
+      "year": null,
+      "type": "report",
+      "venue": "eScience Institute & Sociology, University of Washington",
+      "state": "washington",
+      "url": "https://www.wliha.org/sites/default/files/DrThomasStateofEvictions_slides_2-26LALwebinar.pdf",
+      "description": ""
+    },
+    {
+      "title": "Research/Policy Resources",
+      "authors": "Rental Housing Association of Washington",
+      "year": null,
+      "type": "report",
+      "venue": "Rental Housing Association of Washington",
+      "state": "washington",
+      "url": "https://www.rhawa.org/research-policy#Pandemic",
+      "description": ""
+    },
+    {
+      "title": "Forced Out: Race, Market, and Neighborhood Dynamics of Evictions",
+      "authors": "Thomas, Timothy A.",
+      "year": 2017,
+      "type": "academic",
+      "venue": "Department of Sociology, University of Washington",
+      "state": "washington",
+      "url": "https://soc.washington.edu/research/graduate/forced-out-race-market-and-neighborhood-dynamics-evictions#",
+      "description": ""
+    },
+    {
+      "title": "Toward a National Eviction Data Collection Strategy Using Natural Language Processing",
+      "authors": "Tim Thomas, Alex Ramiller, Cheng Ren, Ott Toomet",
+      "year": 2024,
+      "type": "academic",
+      "venue": "Cityscape, HUD",
+      "state": "washington",
+      "url": "https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf",
+      "description": ""
+    },
+    {
+      "title": "Expiring Eviction Moratoriums and COVID-19 Incidence and Mortality",
+      "authors": "Kathryn M Leifheit, Sabriya L Linton, Julia Raifman, Gabriel L Schwartz, Emily A Benfer, Frederick J Zimmerman, Craig Evan Pollack",
+      "year": 2021,
+      "type": "academic",
+      "venue": "American Journal of Epidemiology",
+      "state": "washington d.c.",
+      "url": "https://academic.oup.com/aje/article/190/12/2503/6328194?login=false",
+      "description": ""
+    },
+    {
+      "title": "Eviction in Washington, DC: Racial and Geographic Disparities in Housing Instability",
+      "authors": "Brian J. McCabe, Eva Rosen",
+      "year": 2020,
+      "type": "report",
+      "venue": "Georgetown University",
+      "state": "washington d.c.",
+      "url": "https://georgetown.app.box.com/s/8cq4p8ap4nq5xm75b5mct0nz5002z3ap",
+      "description": ""
+    },
+    {
+      "title": "Track Milwaukee Evictions",
+      "authors": "Medical College of Wisconsin Institute for Health Equity's Division of Epidemiology, Legal Action of Wisconsin, Milwaukee City Attorney's Office, Milwaukee Department of Neighborhood Services",
+      "year": null,
+      "type": "dataset",
+      "venue": "Medical College of Wisconsin",
+      "state": "wisconsin",
+      "url": "https://mke-evict.com/",
+      "description": ""
+    },
+    {
+      "title": "Comprehensive Study of One Month of Evictions in Milkwaukee County, Wisconsin",
+      "authors": "Apartment Association of Southeastern Wisconsin Inc",
+      "year": 2022,
+      "type": "report",
+      "venue": "Apartment Association of Southeastern Wisconsin",
+      "state": "wisconsin",
+      "url": "https://aasew.org/resources/Documents/AASEW_Eviction_Study_Dec_2019.pdf",
+      "description": ""
+    },
+    {
+      "title": "Wisconsin Eviction Data Project",
+      "authors": "Interagency Council on Homelessness, State of Wisconsin Department of Administration",
+      "year": null,
+      "type": "dataset",
+      "venue": "State of Wisconsin Department of Administration",
+      "state": "wisconsin",
+      "url": "https://doa.wi.gov/Pages/Wisconsin-Eviction-Data-Project.aspx",
+      "description": ""
+    },
+    {
+      "title": "Uprooted: Evictions in Wisconsin",
+      "authors": "Wisconsin Policy Forum",
+      "year": 2018,
+      "type": "report",
+      "venue": "Wisconsin Policy Forum",
+      "state": "wisconsin",
+      "url": "https://wispolicyforum.org/wp-content/uploads/2018/12/Focus_18_25-1.pdf",
+      "description": ""
+    }
+  ]
+}

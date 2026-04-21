@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Eviction Help & Resources — Eviction Research Network</title>
-  <meta name="description" content="Eviction help and tenant resources compiled by the Eviction Research Network. Find legal aid, rental assistance programs, and housing counseling by state.">
-  <meta name="keywords" content="eviction help, tenant resources, legal aid, rental assistance, housing counseling, eviction defense, tenant rights, fair housing">
+  <meta name="description" content="Legal aid, rental assistance, housing counseling, and eviction-diversion programs for tenants facing eviction — organized by state. Compiled by the Eviction Research Network at UC Berkeley.">
+  <meta name="keywords" content="eviction help, tenant resources, legal aid, rental assistance, housing counseling, eviction defense, eviction diversion">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
 
   <!-- Open Graph / social -->
@@ -29,26 +29,25 @@
 
   <!-- Critical above-the-fold CSS -->
   <style>
-    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
     .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
     h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
-    .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
+    .header{background-color:rgba(25,34,44,0.98);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
     .header .logo img{max-height:60px;width:auto}
-    .page-title{padding:160px 0 60px;text-align:center;position:relative}
-    .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
+    .resource-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);color:#fff;padding:130px 0 50px}
+    .resource-hero h1{color:#fff;font-size:44px;font-weight:700;letter-spacing:-0.02em;margin:0 0 12px;line-height:1.1}
+    .resource-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:720px;margin:0}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Non-critical CSS (async; resources page does not use glightbox/swiper/aos) -->
+  <!-- Non-critical CSS (async) -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
   </noscript>
 </head>
@@ -78,11 +77,12 @@
               <li><a href="https://evictionresearch.net/washington/" target="_blank">Washington</a></li>
             </ul>
           </li>
+          <li><a href="news.html">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" class="active"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
               <li><a href="resources.html" class="active">Eviction Help</a></li>
-              <li><a href="research.html" >Other Eviction Research</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -95,223 +95,493 @@
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" style="background-image: url(images/seattlelighter.jpg);">
-      <div class="container position-relative">
-        <h1>Eviction Help</h1>
-        <p>Links to organizations that provide help to households facing eviction</p>
-        <nav class="breadcrumbs"></nav>
+    <!-- =================== HERO =================== -->
+    <section class="resource-hero">
+      <div class="container">
+        <h1>Eviction help &amp; tenant resources</h1>
+        <p class="lede">Legal aid, rental assistance, and housing counseling for tenants facing eviction — organized by state. Listings cover regions where the Eviction Research Network has conducted active research.</p>
       </div>
-    </div><!-- End Page Title -->
+    </section>
 
-    <!-- Content Section -->
+    <!-- =================== EMERGENCY BANNER =================== -->
+    <div class="emergency-banner" role="region" aria-label="Emergency resources">
+      <div class="container">
+        <div class="eb-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
+        <div class="eb-text">
+          <strong>If you need help right now</strong>
+          Dial <strong>2-1-1</strong> from any phone for immediate connection to rental assistance, shelter, and tenant-legal services in your area. If you've received court papers, contact a legal aid program <em>today</em> — response deadlines are often 5–10 days.
+        </div>
+        <div class="eb-actions">
+          <a class="eb-btn" href="tel:211">Call 2-1-1</a>
+          <a class="eb-btn" href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener">National rent relief</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== STATE JUMP BAR =================== -->
+    <nav class="state-jumpbar" aria-label="Jump to state">
+      <div class="container">
+        <div class="sj-inner">
+          <span class="sj-label">Jump to state:</span>
+          <div class="sj-pills">
+            <a class="sj-pill" href="#delaware">Delaware</a>
+            <a class="sj-pill" href="#illinois">Illinois</a>
+            <a class="sj-pill" href="#indiana">Indiana</a>
+            <a class="sj-pill" href="#minnesota">Minnesota</a>
+            <a class="sj-pill" href="#missouri">Missouri</a>
+            <a class="sj-pill" href="#pennsylvania">Pennsylvania</a>
+            <a class="sj-pill" href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener">National ↗</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- =================== DIRECTORY =================== -->
     <section class="section">
       <div class="container">
-        <p><i>Page last updated <script>
-                            date = new Date().toLocaleDateString();
-                            document.write(date);
-                        </script></i></p>
-                        <h4>Note</h4>
-                        <p>This page lists organizations that provide services and financial assistance to households facing eviction. We include this information for states where we have done research, and organize resources by state and county/metropolitan region.</p>
-                        <p>Also see this <a href="https://ipropertymanagement.com/guides/rent-relief-programs" tarket="_blank">national list of rent assistance programs</a> that covers areas outside of our study areas</p>
-                        <p>If you know of a relevant organization that is not listed here and you are authorized to make the organization's services known to the public, please send us an email at <b>evictions@berkeley.edu</b> that includes your contact information and the name of the organization.</p>
-                        <p>Please contact these groups directly for more information.</p>
-                        <h4>States</h4>
-                        <p>
-                            <ul>
-                                <li><a href="#delaware">Delaware</a></li>
-                                <li><a href="#illinois">Illinois</a></li>
-                                <li><a href="#indiana">Indiana</a></li>
-                                <li><a href="#minnesota">Minnesota</a></li>
-                                <li><a href="#missouri">Missouri</a></li>
-                                <li><a href="#pennsylvania">Pennsylvania</a></li>
-                                <li><a href="
-                                https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank">National</a></li>
-                            </ul>
-                        </p>
-                        <hr />
-                        <h2 id="delaware">Delaware</h2>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://delegalhelplink.org/" target="_blank">Delaware Legal Help Link</a></li>
-                            <li><a href="https://delegalhelplink.org/dehousing-1" target="_blank">Delaware Legal Help Link Eviction Help</a></li>
-                            <li><a href="https://www.lscd.com/topics/401/housing" target="_blank">Legal Services Coorporation of Delaware Inc.</a></li>
-                            <li><a href="http://www.destatehousing.com/Renters/renters.php" target="_blank">Delaware State Housing Authority</a></li>
-                        </ul>
-                        <hr />
-                        <h2 id="illinois">Illinois</h2>
-                        <h4 style="margin-left:5%;">Illinois Department of Human Services</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.dhs.state.il.us/page.aspx?item=30362" target="_blank">Emergency & Transitional Housing Program</a></li>
-                            <li><a href="https://www.dhs.state.il.us/page.aspx?item=134895" target="_blank">Emergency Rental and Utility Assistance</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Cook County, IL</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.chicago.gov/city/en/depts/fss/provdrs/serv/svcs/how_to_find_rentalassistanceinchicago.html" target="_blank">Chicago Rental Assistance Program</a></li>
-                            <li><a href="https://www.cookcountylegalaid.org/" target="_blank">Cook County Legal Aid for Housing and Debt</a></li>
-                            <li><a href="https://chicookilrenthelp.org/" target="_blank">Emergency COVID-19 Rental Assistance Programs</a></li>
-                        </ul>
-                        <hr />
-                        <h2 id="indiana">Indiana</h2>
-                        <h4 style="margin-left:5%;">Lake County, IN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://in211.communityos.org/apssreadonly/render/id/5910/form/service/record_id/12182" target="_blank">Housing Payment Assistance</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Owen County, IN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://bloomington.in.gov/sites/default/files/2021-09/Help%20for%20Homeowners%20and%20Renters%20with%20links.pdf" target="_blank">City of Bloomington HAND Help for Homeowners and Renters</a></li>
-                            <li><a href="https://bloomington.in.gov/sites/default/files/2021-09/Monroe%20Co.%20Summons%20Packet%20for%20Evictions_2_2021.pdf" target="_blank">Monroe Co Summons Packet for Evictions</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Delaware County, IN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.cityofmuncie.com/egov/documents/1631286130_06113.pdf" target="_blank">Muncie’s Rental Advocacy Book: THE RENTER’S BOOK</a></li>
-                        </ul>
-                        <hr />
-                        <h2 id="minnesota">Minnesota</h2>
-                        <h4 style="margin-left:5%;">Olmsted County, MN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.olmstedcounty.gov/residents/services-individuals-families/financial-assistance/emergency-assistance" target="_blank">County Emergency Cash Assistance</a></li>
-                            <li><a href="https://www.olmstedcounty.gov/residents/services-individuals-families/housing/rental-assistance" target="_blank">Olmsted County Rental Assistance</a></li>
-                            <li><a href="https://www.olmstedcounty.gov/residents/services-individuals-families/crisis/resources-community#other-housingassistance15" target="_blank">Resources in the Community</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Ramsey County, MN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.ramseycounty.us/residents/assistance-support/assistance/housing-services-support" target="_blank">Ramsey County Housing Services and Support</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Koochiching County, MN</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="http://www.koochhra.com/bridgeshousing.htm" target="_blank">Housing and Redevelopment Authority of Koochiching County Bridges Rental Assistance</a></li>
-                            <li><a href="https://www.kootasca.org/programs/renters/" target="_blank">Kootasca Community Actions Renter Programs</a></li>
-                        </ul>
-                        <hr />
-                        <h2 id="missouri">Missouri</h2>
-                        <h4 style="margin-left:5%;">Missouri Department of Mental Health</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://dmh.mo.gov/housing/unit/rental-assistance" target="_blank">Missouri Department of Mental Health Rental Assistance Program (RAP) and Alternatives</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Missouri Community Action Network</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="http://www.communityaction.org/wp-content/uploads/2019/02/MCAN-Statewide-AgencyInfo.pdf" target="_blank">Community Action Agencies Contact Information</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Clay County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.claycountymo.gov/transparency/erap" target="_blank">Clay County Emergency Rental Assistance</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Jackson County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.jacksoncountyerap.org/" target="_blank">Jackson County Rental Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Jefferson County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.jfcac.org/erap.html" target="_blank">Jefferson County Emergency Rental Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">St. Louis County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://stlouisco.onlinepha.com/" target="_blank">St. Louis County Emergency Rental Assistance Program</a></li>
-                            <li><a href="https://www.stjosephmo.gov/341/Housing-Authority" target="_blank">St. Louis Housing Authority</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Jasper County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://ccsomo.org/" target="_blank">Catholic Charities of Southern Missouri</a></li>
-                            <li><a href="https://www.crosslinesjoplin.org/" target="_blank">Crosslines Ministries</a></li>
-                            <li><a href="https://www.joplinmo.org/1079/Community-Resources" target="_blank">Joplin Community Resources</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Greene County, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.springfieldmo.gov/2387/Housing-Assistance-Programs" target="_blank">Housing Assistance Programs</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Kansas City, MO</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.kcmo.gov/city-hall/housing/emergency-rental-and-utilities-assistance" target="_blank">Kansas City Emergency Rental Assistance Program</a></li>
-                        </ul>
-                        <hr />
-                        <h2 id="pennsylvania">Pennsylvania</h2>
-                        <h4 style="margin-left:5%;">Pennsylvania Department of Human Services</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.dhs.pa.gov/Services/Assistance/Pages/Housing-Resources.aspx" target="_blank">Pennsylvania Department of Human Services Housing Resources</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Pennsylvania Community Action</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.thecaap.org/findanagency" target="_blank">Pennsylvania Community Action Agencies</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Berks County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.doyourpartberks.com/rental-assistance" target="_blank">Berks County Emergency Rental Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Bucks County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.buckscounty.gov/828/Emergency-Rental-Assistance-BERA" target="_blank">Bucks County Emergency Rental Assistance (BERA)</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Chester County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.chesco.org/4905/Rent-Assistance" target="_blank">Chester County Emergency Rent & Utility Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Cumberland County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://cchra.com/program/individual/Emergency-rental-assistance-program" target="_blank">(Inactive) Cumberland County Emergency Rental Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Delaware County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.delco-era.com/" target="_blank">Delaware County Emergency Rental Assistance (DELCO ERA)</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Lancaster County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.lchra.com/rent/" target="_blank">Lancaster County COVID-19 Emergency Rental and Utility Assistance</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Montgomery County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://yourwayhome.org/eruc" target="_blank">Montgomery County Rent and Utility Relief Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Northampton County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.northamptoncounty.org/CMTYECDV/Pages/Housing-and-Community-Resources.aspx" target="_blank">Northampton County Community Mediation and Eviction Diversion Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Washington County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://myblueprints.org/services/home/rental-assistance/" target="_blank">Washington County Emergency Rental Assistance Program</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Westmoreland County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://erapwestmoreland.org/" target="_blank">Westmoreland County Emergency Rental Assistance Program (ERAP)</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Erie County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.eccm.org/services/mental-health/coordinated-entry" target="_blank">Erie County Coordinated Care Program</a></li>
-                            <li><a href="https://www.hace.org/" target="_blank">Housing Authority of the City of Erie</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Lackawanna County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.catherinemcauleycenter.org/housing" target="_blank">Catherine McAuley Center</a></li>
-                            <li><a href="https://scrantonpa.gov/your-government/department-of-community-development/community-development/community-resources/" target="_blank">Scranton Housing Authority Community Resources</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Luzerne County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.wilkesbarrehousing.org/" target="_blank">Wilkes-Barre Housing Authority</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Centre County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.statecollegepa.us/185/Housing-Assistance-Programs" target="_blank">State College Housing Assistance Programs</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Allegheny County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://pittsburghpa.gov/harp/" target="_blank">Pittsburgh Housing Assistance Resources Portal</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Dauphin County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://harrisburghousing.org/contact-us" target="_blank">Harrisburg Housing Authority</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">York County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.yorkcpc.org/program-overview/" target="_blank">York Community Progress Council</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Philadelphia County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://eviction-diversion.phila.gov/#/" target="_blank">City of Philadelphia Eviction Diversion Program</a></li>
-                            <li><a href="https://www.phila.gov/departments/office-of-community-empowerment-and-opportunity/" target="_blank">City of Philadelphia Office of Community Empowerment and Opportunity</a></li>
-                        </ul>
-                        <h4 style="margin-left:5%;">Lehigh County, PA</h4>
-                        <ul style="margin-left:5%;">
-                            <li><a href="https://www.communityactionlv.org/" target="_blank">Lehigh County Community Action Agency</a></li>
-                        </ul>
+
+        <!-- Legend -->
+        <div class="tag-legend" role="region" aria-label="Service category legend">
+          <h4>Service Categories</h4>
+          <div class="tl-items">
+            <span><span class="tag-pill t-legal">Legal Aid</span> Free eviction defense &amp; tenant-rights attorneys</span>
+            <span><span class="tag-pill t-rental">Rental Assistance</span> Direct payment of back / ongoing rent</span>
+            <span><span class="tag-pill t-counseling">Housing Counseling</span> Case management &amp; referrals</span>
+            <span><span class="tag-pill t-mediation">Mediation / Diversion</span> Pre-filing settlement programs</span>
+            <span><span class="tag-pill t-crisis">Crisis / Shelter</span> Emergency shelter &amp; transitional housing</span>
+            <span><span class="tag-pill t-info">Tenant Info</span> Know-your-rights guides &amp; forms</span>
+          </div>
+        </div>
+
+        <p style="color:#5a6b80; font-size:14px; margin-bottom:32px;">
+          <i class="bi bi-info-circle" aria-hidden="true"></i>
+          Listings were last audited <script>document.write(new Date().toLocaleDateString());</script>. Program availability and funding change frequently — call before visiting. See one that's missing? <a href="mailto:evictions@berkeley.edu?Subject=Resource%20to%20add%20to%20Eviction%20Help%20page">Email us</a>.
+        </p>
+
+        <!-- ============ DELAWARE ============ -->
+        <div class="state-block" id="delaware">
+          <div class="state-block-header">
+            <h2>Delaware</h2>
+            <span class="state-count">4 programs · statewide</span>
+          </div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://delegalhelplink.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Delaware Legal Help Link</div>
+              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span><span class="tag-pill t-info">Tenant Info</span></div>
+            </a>
+            <a class="resource-card" href="https://delegalhelplink.org/dehousing-1" target="_blank" rel="noopener">
+              <div class="rc-name">Delaware Legal Help Link — Eviction Help</div>
+              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
+            </a>
+            <a class="resource-card" href="https://www.lscd.com/topics/401/housing" target="_blank" rel="noopener">
+              <div class="rc-name">Legal Services Corporation of Delaware, Inc.</div>
+              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
+            </a>
+            <a class="resource-card" href="http://www.destatehousing.com/Renters/renters.php" target="_blank" rel="noopener">
+              <div class="rc-name">Delaware State Housing Authority — Renters</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ ILLINOIS ============ -->
+        <div class="state-block" id="illinois">
+          <div class="state-block-header">
+            <h2>Illinois</h2>
+            <span class="state-count">5 programs · state + Cook County</span>
+          </div>
+
+          <div class="state-subregion">Illinois Dept. of Human Services (statewide)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.dhs.state.il.us/page.aspx?item=30362" target="_blank" rel="noopener">
+              <div class="rc-name">Emergency &amp; Transitional Housing Program</div>
+              <div class="rc-tags"><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
+            </a>
+            <a class="resource-card" href="https://www.dhs.state.il.us/page.aspx?item=134895" target="_blank" rel="noopener">
+              <div class="rc-name">Emergency Rental &amp; Utility Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Cook County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.chicago.gov/city/en/depts/fss/provdrs/serv/svcs/how_to_find_rentalassistanceinchicago.html" target="_blank" rel="noopener">
+              <div class="rc-name">Chicago Rental Assistance Program</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="https://www.cookcountylegalaid.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Cook County Legal Aid for Housing &amp; Debt</div>
+              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
+            </a>
+            <a class="resource-card" href="https://chicookilrenthelp.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Emergency COVID-19 Rental Assistance Programs</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ INDIANA ============ -->
+        <div class="state-block" id="indiana">
+          <div class="state-block-header">
+            <h2>Indiana</h2>
+            <span class="state-count">4 programs · Lake, Owen, Delaware counties</span>
+          </div>
+
+          <div class="state-subregion">Lake County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://in211.communityos.org/apssreadonly/render/id/5910/form/service/record_id/12182" target="_blank" rel="noopener">
+              <div class="rc-name">Housing Payment Assistance (IN 2-1-1)</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Owen / Monroe County (Bloomington)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://bloomington.in.gov/sites/default/files/2021-09/Help%20for%20Homeowners%20and%20Renters%20with%20links.pdf" target="_blank" rel="noopener">
+              <div class="rc-name">City of Bloomington HAND — Help for Homeowners &amp; Renters</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-info">Tenant Info</span></div>
+            </a>
+            <a class="resource-card" href="https://bloomington.in.gov/sites/default/files/2021-09/Monroe%20Co.%20Summons%20Packet%20for%20Evictions_2_2021.pdf" target="_blank" rel="noopener">
+              <div class="rc-name">Monroe County Summons Packet for Evictions</div>
+              <div class="rc-tags"><span class="tag-pill t-info">Tenant Info</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Delaware County (Muncie)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.cityofmuncie.com/egov/documents/1631286130_06113.pdf" target="_blank" rel="noopener">
+              <div class="rc-name">Muncie's Rental Advocacy Book — THE RENTER'S BOOK</div>
+              <div class="rc-tags"><span class="tag-pill t-info">Tenant Info</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ MINNESOTA ============ -->
+        <div class="state-block" id="minnesota">
+          <div class="state-block-header">
+            <h2>Minnesota</h2>
+            <span class="state-count">6 programs · Olmsted, Ramsey, Koochiching counties</span>
+          </div>
+
+          <div class="state-subregion">Olmsted County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/financial-assistance/emergency-assistance" target="_blank" rel="noopener">
+              <div class="rc-name">County Emergency Cash Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
+            </a>
+            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/housing/rental-assistance" target="_blank" rel="noopener">
+              <div class="rc-name">Olmsted County Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/crisis/resources-community#other-housingassistance15" target="_blank" rel="noopener">
+              <div class="rc-name">Resources in the Community</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Ramsey County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.ramseycounty.us/residents/assistance-support/assistance/housing-services-support" target="_blank" rel="noopener">
+              <div class="rc-name">Ramsey County Housing Services &amp; Support</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Koochiching County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="http://www.koochhra.com/bridgeshousing.htm" target="_blank" rel="noopener">
+              <div class="rc-name">Housing &amp; Redevelopment Authority — Bridges Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="https://www.kootasca.org/programs/renters/" target="_blank" rel="noopener">
+              <div class="rc-name">Kootasca Community Actions — Renter Programs</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ MISSOURI ============ -->
+        <div class="state-block" id="missouri">
+          <div class="state-block-header">
+            <h2>Missouri</h2>
+            <span class="state-count">13 programs · statewide + 8 counties</span>
+          </div>
+
+          <div class="state-subregion">Statewide</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://dmh.mo.gov/housing/unit/rental-assistance" target="_blank" rel="noopener">
+              <div class="rc-name">MO Dept. of Mental Health — Rental Assistance Program (RAP)</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="http://www.communityaction.org/wp-content/uploads/2019/02/MCAN-Statewide-AgencyInfo.pdf" target="_blank" rel="noopener">
+              <div class="rc-name">Community Action Agencies — Contact Directory</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Clay County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.claycountymo.gov/transparency/erap" target="_blank" rel="noopener">
+              <div class="rc-name">Clay County Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Jackson County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.jacksoncountyerap.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Jackson County Rental Assistance Program</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Jefferson County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.jfcac.org/erap.html" target="_blank" rel="noopener">
+              <div class="rc-name">Jefferson County Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">St. Louis County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://stlouisco.onlinepha.com/" target="_blank" rel="noopener">
+              <div class="rc-name">St. Louis County Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="https://www.stjosephmo.gov/341/Housing-Authority" target="_blank" rel="noopener">
+              <div class="rc-name">St. Louis Housing Authority</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Jasper County (Joplin)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://ccsomo.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Catholic Charities of Southern Missouri</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+            <a class="resource-card" href="https://www.crosslinesjoplin.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Crosslines Ministries</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
+            </a>
+            <a class="resource-card" href="https://www.joplinmo.org/1079/Community-Resources" target="_blank" rel="noopener">
+              <div class="rc-name">Joplin Community Resources</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Greene County (Springfield)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.springfieldmo.gov/2387/Housing-Assistance-Programs" target="_blank" rel="noopener">
+              <div class="rc-name">Springfield Housing Assistance Programs</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Kansas City</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.kcmo.gov/city-hall/housing/emergency-rental-and-utilities-assistance" target="_blank" rel="noopener">
+              <div class="rc-name">Kansas City Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ============ PENNSYLVANIA ============ -->
+        <div class="state-block" id="pennsylvania">
+          <div class="state-block-header">
+            <h2>Pennsylvania</h2>
+            <span class="state-count">23 programs · statewide + 17 counties</span>
+          </div>
+
+          <div class="state-subregion">Statewide</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.dhs.pa.gov/Services/Assistance/Pages/Housing-Resources.aspx" target="_blank" rel="noopener">
+              <div class="rc-name">PA Dept. of Human Services — Housing Resources</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+            <a class="resource-card" href="https://www.thecaap.org/findanagency" target="_blank" rel="noopener">
+              <div class="rc-name">PA Community Action Agencies — Find an Agency</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Berks County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.doyourpartberks.com/rental-assistance" target="_blank" rel="noopener">
+              <div class="rc-name">Berks County Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Bucks County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.buckscounty.gov/828/Emergency-Rental-Assistance-BERA" target="_blank" rel="noopener">
+              <div class="rc-name">Bucks Emergency Rental Assistance (BERA)</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Chester County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.chesco.org/4905/Rent-Assistance" target="_blank" rel="noopener">
+              <div class="rc-name">Chester County Emergency Rent &amp; Utility Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Cumberland County</div>
+          <div class="resource-grid">
+            <a class="resource-card inactive" href="https://cchra.com/program/individual/Emergency-rental-assistance-program" target="_blank" rel="noopener">
+              <div class="rc-name">Cumberland County ERAP <span style="font-weight:400; color:#888;">(inactive)</span></div>
+              <div class="rc-tags"><span class="tag-pill t-inactive">Inactive</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Delaware County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.delco-era.com/" target="_blank" rel="noopener">
+              <div class="rc-name">Delaware County Emergency Rental Assistance (DELCO ERA)</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Lancaster County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.lchra.com/rent/" target="_blank" rel="noopener">
+              <div class="rc-name">Lancaster County COVID-19 Emergency Rental &amp; Utility Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Montgomery County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://yourwayhome.org/eruc" target="_blank" rel="noopener">
+              <div class="rc-name">Montgomery County Rent &amp; Utility Relief Program</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Northampton County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.northamptoncounty.org/CMTYECDV/Pages/Housing-and-Community-Resources.aspx" target="_blank" rel="noopener">
+              <div class="rc-name">Northampton County Community Mediation &amp; Eviction Diversion</div>
+              <div class="rc-tags"><span class="tag-pill t-mediation">Mediation / Diversion</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Washington County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://myblueprints.org/services/home/rental-assistance/" target="_blank" rel="noopener">
+              <div class="rc-name">Washington County Emergency Rental Assistance</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Westmoreland County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://erapwestmoreland.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Westmoreland County ERAP</div>
+              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Erie County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.eccm.org/services/mental-health/coordinated-entry" target="_blank" rel="noopener">
+              <div class="rc-name">Erie County Coordinated Care Program</div>
+              <div class="rc-tags"><span class="tag-pill t-crisis">Crisis / Shelter</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+            <a class="resource-card" href="https://www.hace.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Housing Authority of the City of Erie</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Lackawanna County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.catherinemcauleycenter.org/housing" target="_blank" rel="noopener">
+              <div class="rc-name">Catherine McAuley Center</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
+            </a>
+            <a class="resource-card" href="https://scrantonpa.gov/your-government/department-of-community-development/community-development/community-resources/" target="_blank" rel="noopener">
+              <div class="rc-name">Scranton Community Development Resources</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Luzerne County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.wilkesbarrehousing.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Wilkes-Barre Housing Authority</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Centre County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.statecollegepa.us/185/Housing-Assistance-Programs" target="_blank" rel="noopener">
+              <div class="rc-name">State College Housing Assistance Programs</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Allegheny County (Pittsburgh)</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://pittsburghpa.gov/harp/" target="_blank" rel="noopener">
+              <div class="rc-name">Pittsburgh Housing Assistance Resources Portal (HARP)</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Dauphin County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://harrisburghousing.org/contact-us" target="_blank" rel="noopener">
+              <div class="rc-name">Harrisburg Housing Authority</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">York County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.yorkcpc.org/program-overview/" target="_blank" rel="noopener">
+              <div class="rc-name">York Community Progress Council</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Philadelphia County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://eviction-diversion.phila.gov/#/" target="_blank" rel="noopener">
+              <div class="rc-name">City of Philadelphia Eviction Diversion Program</div>
+              <div class="rc-tags"><span class="tag-pill t-mediation">Mediation / Diversion</span></div>
+            </a>
+            <a class="resource-card" href="https://www.phila.gov/departments/office-of-community-empowerment-and-opportunity/" target="_blank" rel="noopener">
+              <div class="rc-name">Philadelphia Office of Community Empowerment &amp; Opportunity</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
+            </a>
+          </div>
+
+          <div class="state-subregion">Lehigh County</div>
+          <div class="resource-grid">
+            <a class="resource-card" href="https://www.communityactionlv.org/" target="_blank" rel="noopener">
+              <div class="rc-name">Lehigh County Community Action Agency</div>
+              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Not listed CTA -->
+        <div class="not-listed-cta">
+          <h3>Don't see your state or county?</h3>
+          <p>Our listings cover regions where ERN has conducted active research. For areas outside our coverage, try the national rent-relief directory, or 2-1-1 (dial from any phone).</p>
+          <a href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener" class="cta-btn" style="display:inline-block; padding:10px 22px; background:#F9322B; color:#fff; border-radius:4px; font-weight:600; text-decoration:none;">National rent-relief directory →</a>
+        </div>
+
+        <p style="margin-top:36px; font-size:14px; color:#5a6b80;">
+          Know of a program that should be listed? Email <a href="mailto:evictions@berkeley.edu?Subject=Resource%20to%20add%20to%20Eviction%20Help%20page"><b>evictions@berkeley.edu</b></a> with the organization name, service type, and a link.
+        </p>
       </div>
     </section>
 
@@ -319,37 +589,51 @@
 
 
   <footer id="footer" class="footer dark-background">
-
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-3 col-md-6 footer-about">
+
+        <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy">
+            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy" style="max-height:70px; width:auto;">
           </a>
-          <div class="social-links d-flex mt-4">
+          <p style="margin-top:14px; font-size:14px; line-height:1.55; color:#d5dde6;">Open-source eviction data and research for policy, journalism, and tenant advocacy. Housed in UC&nbsp;Berkeley's Department of Sociology.</p>
+          <div class="social-links d-flex mt-3">
             <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="bi bi-cloud"></i></a>
             <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
             <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email"><i class="bi bi-envelope"></i></a>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 footer-links">
-          <h4>Useful Links</h4>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Research</h4>
           <ul>
-            <li><a href="https://evictionresearch.net/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="resources.html">Resources</a></li>
             <li><a href="research.html">Other Eviction Research</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="news.html">News &amp; Press</a></li>
+            <li><a href="about.html#team">Team</a></li>
           </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">Eviction Help</a></li>
+            <li><a href="https://evictionresearch.net/hprm/" target="_blank">HPRM Dashboard</a></li>
+            <li><a href="https://github.com/EvictionResearch" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:evictions@berkeley.edu">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Affiliated With</h4>
+          <p style="font-size:13px; line-height:1.6; color:#d5dde6;">UC Berkeley Sociology · Institute of Governmental Studies · Berkeley Institute for Data Science · Division of Computing, Data Science &amp; Society · Urban Displacement Project</p>
+          <p style="font-size:12px; color:#9eabbd; margin-top:10px;">Research outputs are preserved and citable via Zenodo DOI.</p>
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p class="mb-1"><small>The Eviction Research Network is housed in UC Berkeley's Department of Sociology and affiliated with IGS, BIDS, CDSS, and the Urban Displacement Project.</small></p>
       <p>&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
     </div>
 
   </footer>
@@ -360,7 +644,7 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files (minimal — this page only needs Bootstrap; main.js is guarded for missing libs) -->
+  <!-- Vendor JS (minimal — only bootstrap needed) -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
 
   <!-- Main JS File -->

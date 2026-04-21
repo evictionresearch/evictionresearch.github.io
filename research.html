@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Research & Publications — Eviction Research Network</title>
-  <meta name="description" content="Peer-reviewed publications, reports, and working papers from the Eviction Research Network (ERN) and affiliated scholars. Research on eviction disparities, displacement, housing precarity, and policy impact.">
-  <meta name="keywords" content="eviction publications, eviction research papers, housing research, displacement research, eviction policy papers, Tim Thomas publications, UC Berkeley housing research, racial disparities eviction">
+  <meta name="description" content="Evidence-based eviction-prevention policies for legislators, plus a searchable library of 270+ peer-reviewed publications, reports, and datasets on eviction, displacement, and housing precarity.">
+  <meta name="keywords" content="eviction prevention policy, right to counsel, eviction diversion, rental assistance, just cause eviction, eviction record sealing, housing research, displacement, Eviction Research Network">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
 
   <!-- Open Graph / social -->
   <meta property="og:title" content="Research & Publications — Eviction Research Network">
-  <meta property="og:description" content="Peer-reviewed publications, reports, and working papers on eviction, displacement, and housing precarity from ERN and affiliated scholars.">
+  <meta property="og:description" content="Evidence-based policies that prevent evictions + a searchable library of 270+ publications. For legislators, journalists, and researchers.">
   <meta property="og:url" content="https://evictionresearch.net/research.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
@@ -29,26 +29,28 @@
 
   <!-- Critical above-the-fold CSS -->
   <style>
-    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
     .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
     h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
-    .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
+    .header{background-color:rgba(25,34,44,0.98);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
     .header .logo img{max-height:60px;width:auto}
-    .page-title{padding:160px 0 60px;text-align:center;position:relative}
-    .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
+    .research-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);color:#fff;padding:130px 0 50px}
+    .research-hero h1{color:#fff;font-size:44px;font-weight:700;letter-spacing:-0.02em;margin:0 0 12px;line-height:1.1}
+    .research-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0}
+    .research-hero .rh-tablinks{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+    .research-hero .rh-tablink{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.12);color:#fff;font-family:var(--heading-font);font-size:14px;text-decoration:none;border-radius:4px;border:1px solid rgba(255,255,255,0.2);transition:all .15s}
+    .research-hero .rh-tablink:hover{background:#F9322B;border-color:#F9322B;color:#fff}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Non-critical CSS (async; research page does not use glightbox/swiper/aos) -->
+  <!-- Non-critical CSS (async) -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
   </noscript>
 </head>
@@ -78,10 +80,11 @@
               <li><a href="https://evictionresearch.net/washington/" target="_blank">Washington</a></li>
             </ul>
           </li>
+          <li><a href="news.html">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" class="active"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="resources.html" >Eviction Help</a></li>
+              <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html" class="active">Other Eviction Research</a></li>
             </ul>
           </li>
@@ -95,1354 +98,184 @@
 
   <main class="main">
 
-    <!-- Page Title -->
-    <div class="page-title dark-background" style="background-image: url(images/seattlelighter.jpg);">
-      <div class="container position-relative">
-        <h1>Other Eviction Research</h1>
-        <p>National &amp; Local Studies on Eviction</p>
-        <nav class="breadcrumbs"></nav>
-      </div>
-    </div><!-- End Page Title -->
-
-    <!-- Content Section -->
-    <section class="section">
+    <!-- =================== HERO =================== -->
+    <section class="research-hero">
       <div class="container">
-        <p>
-							The Eviction Research Network aims to highlight the important work done by our partners and other institutions throughout the country. Below you will find links to academic and non-academic research on evictions. If you know of work that you think should be included in this list, please <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" target="_blank">email us</a>.
-						</p>
-						<!-- State TOC -->
-						<h4>Table of Contents</h4>
-						<ul>
-							<li><a href = "#national">National (not state-specific)</a></li>
-							<li><i>Available states:</i>
-								<ul>
-									<li><a href="#alaska">Alaska</a></li>
-									<li><a href="#arizona">Arizona</a></li>
-									<li><a href="#arkansas">Arkansas</a></li>
-									<li><a href="#california">California</a></li>
-									<li><a href="#colorado">Colorado</a></li>
-									<li><a href="#connecticut">Connecticut</a></li>
-									<li><a href="#delaware">Delaware</a></li>
-									<li><a href="#florida">Florida</a></li>
-									<li><a href="#georgia">Georgia</a></li>
-									<li><a href="#hawaii">Hawaii</a></li>
-									<li><a href="#idaho">Idaho</a></li>
-									<li><a href="#illinois">Illinois</a></li>
-									<li><a href="#indiana">Indiana</a></li>
-									<li><a href="#iowa">Iowa</a></li>
-									<li><a href="#kansas">Kansas</a></li>
-									<li><a href="#kentucky">Kentucky</a></li>
-									<li><a href="#louisiana">Louisiana</a></li>
-									<li><a href="#maine">Maine</a></li>
-									<li><a href="#maryland">Maryland</a></li>
-									<li><a href="#massachusetts">Massachusetts</a></li>
-									<li><a href="#michigan">Michigan</a></li>
-									<li><a href="#minnesota">Minnesota</a></li>
-									<li><a href="#mississippi">Mississippi</a></li>
-									<li><a href="#missouri">Missouri</a></li>
-									<li><a href="#montana">Montana</a></li>
-									<li><a href="#nebraska">Nebraska</a></li>
-									<li><a href="#nevada">Nevada</a></li>
-									<li><a href="#newhampshire">New Hampshire</a></li>
-									<li><a href="#newjersey">New Jersey</a></li>
-									<li><a href="#newmexico">New Mexico</a></li>
-									<li><a href="#newyork">New York</a></li>
-									<li><a href="#northcarolina">North Carolina</a></li>
-									<li><a href="#northdakota">North Dakota</a></li>
-									<li><a href="#ohio">Ohio</a></li>
-									<li><a href="#oklahoma">Oklahoma</a></li>
-									<li><a href="#oregon">Oregon</a></li>
-									<li><a href="#pennsylvania">Pennsylvania</a></li>
-									<li><a href="#puertorico">Puerto Rico</a></li>
-									<li><a href="#rhodeisland">Rhode Island</a></li>
-									<li><a href="#southcarolina">South Carolina</a></li>
-									<li><a href="#tennessee">Tennessee</a></li>
-									<li><a href="#texas">Texas</a></li>
-									<li><a href="#utah">Utah</a></li>
-									<li><a href="#vermont">Vermont</a></li>
-									<li><a href="#virginia">Virginia</a></li>
-									<li><a href="#washington">Washington</a></li>
-									<li><a href="#washingtondc">Washington D.C</a></li>
-									<li><a href="#wisconsin">Wisconsin</a></li>
-								</ul>
-							</li>
-						</ul>
-						
-						<hr>
-						<!-- National Studies -->
-						<h2 id="national">National</h2>
-						<p>
-							<a href="https://evictionlab.org/" target="_blank">
-								<b>Eviction Lab</b>
-							</a>
-							<br>
-							<i>Matthew Desmond, Peter Hepburn, and team, Princeton University (Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://evictionlab.org/eviction-tracking/" target="_blank">
-								<b>Eviction Tracking System</b>
-							</a>
-							<br>
-							<i>Eviction Lab, Princeton University (Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://civilcourtdata.lsc.gov/data/eviction/" target="_blank">
-								<b>Civil Court Data Initiative: Eviction Tracker</b>
-							</a>
-							<br>
-							<i>Legal Services Corporation (Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://antievictionmap.com/" target="_blank">
-								<b>Anti-Eviction Mapping Project</b>
-							</a>
-							<br>
-							<i> (Updated frequently)</i>
-						</p>
-						<p>
-							<a href="https://evictioninnovation.org/landscape/" target="_blank">
-								<b>Eviction Innovation</b>
-							</a>
-						</p>
-						<p>
-							<a href="https://www.stout.com/en/services/transformative-change-consulting/eviction-right-to-counsel-resources" target="_blank">
-								<b>Eviction Right to Counsel Resource Center</b>
-							</a>
-							<br>
-							<i>Stout (updated frequently)</i>
-						</p>
-						<p>
-							<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10879945/" target="_blank">
-								<b>Examining Excess Mortality Associated with the COVID-19 Pandemic for Renters Threatened with Eviction</b>
-							</a>
-							<br>
-							<i>Nick Graetz, Peter Hepburn, Carl Gershenson, Matthew Desmond, JAMA (2024)</i>
-						</p>
-						<p>
-							<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ruso.12528" target="_blank">
-								<b>Eviction and the Rental Housing Crisis in Rural America</b>
-							</a>
-							<br>
-							<i>Carl Gershenson & Matthew Desmond, Rural Sociology (2024)</i>
-						</p>
-						<p>
-							<a href="https://evictionlab.org/disrupting-the-eviction-system/" target="_blank">
-								<b>Disrupting the Eviction System: Tenant Right to Counsel</b>
-							</a>
-							<br>
-							<i>Eviction Lab, Princeton University (2024)</i>
-						</p>
-						<p>
-							<a href="https://www.gao.gov/products/gao-24-106637" target="_blank">
-								<b>Evictions: National Data Are Limited and Challenging to Collect</b>
-							</a>
-							<br>
-							<i>U.S. Government Accountability Office (2024)</i>
-						</p>
-						<p>
-							<a href="https://www.pnas.org/doi/10.1073/pnas.2305860120" target="_blank">
-								<b>A Comprehensive Demographic Profile of the US Evicted Population</b>
-							</a>
-							<br>
-							<i>Nick Graetz, Carl Gershenson, Peter Hepburn, Sonya R. Porter, Danielle H. Sandler, Matthew Desmond, PNAS (2023)</i>
-						</p>
-						<p>
-							<a href="https://evictionlab.org/ets-report-2023/" target="_blank">
-								<b>Preliminary Analysis: Eviction Filing Patterns in 2023</b>
-							</a>
-							<br>
-							<i>Eviction Lab, Princeton University (2023)</i>
-						</p>
-						<p>
-							<a href="https://sociologicalscience.com/download/vol-7/december/SocSci_v7_649to662.pdf" target="_blank">
-								<b>Racial and Gender Disparities among Evicted Americans</b>
-							</a>
-							<br>
-							<i>Peter Hepburn, Renee Louis, Matthew Desmond, Sociological Science (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.ncsc.org/__data/assets/pdf_file/0028/78193/COVID-19-Housing-Policy.pdf" target="_blank">
-								<b>COVID-19 Housing Policy: State and Federal Eviction Moratoria and Supportive Measures in the United States During the Pandemic</b>
-							</a>
-							<br>
-							<i>Emily A. Benfer, Robert Koehler, Alyx Mark, Valerie Nazzaro, Anne Kat Alexander, Peter Hepburn, Danya E. Keene & Matthew Desmond (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.bostonfed.org/publications/new-england-public-policy-center-regional-briefs/2022/evictions-in-new-england-and-the-impact-of-public-policy-during-the-covid19-pandemic.aspx" target="_blank">
-								<b>Evictions in New England and the Impact of Public Policy During the COVID-19 Pandemic</b>
-							</a>
-							<br>
-							<i>Nicholas Chiumenti, Federal Reserve Bank of Boston (2022)</i>
-						</p>
-						<p>
-							<a href="https://nap.nationalacademies.org/catalog/26106/rental-eviction-and-the-covid-19-pandemic-averting-a-looming" target="_blank">
-								<b>Rental Eviction and the COVID-19 Pandemic: Averting a Looming Crisis</b>
-							</a>
-							<br>
-							<i>National Academies of Science, Engineering, & Medicine (2022)</i>
-						</p>
-						<p>
-							<a href="https://arxiv.org/pdf/2206.12647.pdf" target="_blank">
-								<b>Feedback Dynamics of the Low-Income Rental Housing Market: Exploring Policy Responses to COVID-19</b>
-							</a>
-							<br>
-							<i>Katherine Marcal, Patrick Fowler, Peter Hovmand, School of Social Work Greenspun College of Urban Affairs, Brown School of Social Work, Public Health, and Social Policy, Division of Computational and Data Sciences, Center for Community Health Integration, School of Medicine, Case Western Reserve University School of Coumputing and Information  (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.huduser.gov/portal/sites/default/files/pdf/EM-Newsletter-Summer2021.pdf" target="_blank">
-								<b>Evidence Matters: Evictions</b>
-							</a>
-							<br>
-							<i>HUD Office of Policy Development and Research (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.huduser.gov/portal/sites/default/files/pdf/Eviction-Database-Feasibility-Report-to-Congress-2021.pdf" target="_blank">
-								<b>Report to Congress on the Feasibility of Creating a National Evictions Database</b>
-							</a>
-							<br>
-							<i>Office of Policy Development & Research (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.ncsha.org/wp-content/uploads/Analysis-of-Current-and-Expected-Rental-Shortfall-and-Potential-Evictions-in-the-US_Stout_FINAL.pdf" target="_blank">
-								<b>Analysis of Current and Expected Rental Shortfall and Potential Evictions in the U.S</b>
-							</a>
-							<br>
-							<i>Stout (2020)</i>
-						</p>
-						
-						<hr>
-						<!-- State Studies -->
-						<h2 id="alaska">Alaska</h2>
-						<p>
-							<a href="https://nlihc.org/sites/default/files/Housing-Instability-and-Emergency-Rental-Assistance-in-Alaska.pdf" target="_blank">
-								<b>Housing Instability and Emergency Rental Assistance in Alaska</b>
-							</a>
-							<br>
-							<i>Helen Renfrew, Alaska Coalition on Housing and Homelessness (2021)</i>
-						</p>
-						
-						<hr>
-						<h2 id="arizona">Arizona</h2>
-						<p>
-							<a href="https://law.arizona.edu/eviction-calculator" target="_blank">
-								<b>Cost of Eviction Calculator</b>
-							</a>
-							<br>
-							<i>University of Arizona, James E. Rogers College of Law</i>
-						</p>
-						
-						<hr>
-						<h2 id="arkansas">Arkansas</h2>
-						<p>
-							<a href="https://law.uark.edu/alr/lawnotes/articles/PDF-baltz-race-covid.pdf" target="_blank">
-								<b>Race and the COVID-19 Eviction and Housing Crisis</b>
-							</a>
-							<br>
-							<i>Bradey Camille Baltz (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.pewtrusts.org/-/media/assets/2018/09/warranty-of-habitability-in-arkansas-hia.pdf" target="_blank">
-								<b>Assessing the Health and Equity Impacts of Arkansas's Landlord-Tenant Laws</b>
-							</a>
-							<br>
-							<i>Arkansas Community Institute, The Central Arkansas Re-Entry (CARE) Coalition </i>
-						</p>
-						
-						
-						<hr>
-						<h2 id="california">California</h2>
-						<p>
-							<a href="https://static1.squarespace.com/static/52b7d7a6e4b0b3e376ac8ea2/t/635830839d2601366841cfb4/1666723974882/AEMP_DensifyingBerkeleyReport_2022.pdf" target="_blank">
-								<b>Densifying Berkeley: Potential Impacts on Displacement and Equity</b>
-							</a>
-							<br>
-							<i>Anti-Eviction Project (2022)</i>
-						</p>
-						<p>
-							<a href="https://urbanfootprint.com/blog/in-the-news/eri-breakdown-california/" target="_blank">
-								<b>Eviction Risk Insights Breakdown for California</b>
-							</a>
-							<br>
-							<i>Urban Footprint (2021)</i>
-						</p>
-						<p>
-							<a href="https://jearcher.github.io/project-home/HTML/public/index.html" target="_blank">
-								<b>Project HOME: Modeling and Mapping Eviction rates in California
-								</b>
-							</a>
-							<br>
-							<i>Joshua Archer, Akaash Kambath, Swetha Pola, Yizi Zhou, School of Information, University of California, Berkeley (2021)</i>
-						</p>
-						<p>
-							<a href="https://sites.bu.edu/dome/2021/08/27/right-to-counsel-in-eviction-cases-a-california-case-study/" target="_blank">
-								<b>Right to Counsel in Eviction Cases: A California Case Study</b>
-							</a>
-							<br>
-							<i>School of Law, Boston University (2021)</i>
-						</p>
-						<p>
-							<a href="https://bayareaequityatlas.org/research/analyses/COVID-19-evictions-california" target="_blank">
-								<b>Fact Sheet: Preventing Eviction and Indebtedness in California</b>
-							</a>
-							<br>
-							<i>Bay Area Equity Atlas, Housing NOW! California (2021)</i>
-						</p>
-						<p>
-							<a href="https://static1.squarespace.com/static/52b7d7a6e4b0b3e376ac8ea2/t/5b1273ca0e2e72ec53ab0655/1527935949227/CA_Evictions_are_Fast_and_Frequent.pdf" target="_blank">
-								<b>California Evictions Are Fast and Frequent</b>
-							</a>
-							<br>
-							<i>Aimee Inglis, Dean Preston (2018)</i>
-						</p>
-						
-						<hr>
-						<h2 id="colorado">Colorado</h2>
-						<p>
-							<a href="https://www.enterprisecommunity.org/sites/default/files/2022-10/2022-006%20Denver%20White%20Paper%20%28A%20New%20Normal%29%20R7.pdf" target="_blank">
-								<b>A New Normal: How Eviction Court Filing Data Can Advance a More Stable Housing Ecosystem for all Coloradans</b>
-							</a>
-							<br>
-							<i>Enterprise Community Partners (2022)</i>
-						</p>
-						<p>
-							<a href="https://cedproject.org/research/" target="_blank">
-								<b>Community Economic Defense Project</b>
-							</a>
-							<br>
-							<i>Updated Frequently</i>
-						</p>
-						<p>
-							<a href="https://www.coloradocoalition.org/sites/default/files/2017-09/Facing%20Eviction%20Alone%209-11-17.pdf" target="_blank">
-								<b>Facing Eviction Alone</b>
-							</a>
-							<br>
-							<i>Aubrey Hasvold, Jack Regenbogen, Colorado Coalition for the Homeless, Colorado Center on Law and Policy (2017)</i>
-						</p>
-						
-						<hr>
-						<h2 id="connecticut">Connecticut</h2>
-						<p>
-							<a href="https://www.ctdata.org/evictions-report" target="_blank">
-								<b>Exposing Connecticut’s Eviction Crisis: Understanding The Intersection Of Race And Sex In Connecticut’s Eviction Crisis</b>
-							</a>
-							<br>
-							<i>CT Data Collaborative, Connecticut Fair Housing Center (2022)</i>
-						</p>
-						
-						<hr>
-						<h2 id="delaware">Delaware</h2>
-						<p>
-							<a href="https://www.homescampaignde.org/news-and-academic-articles" target="_blank">
-								<b>Housing Opportunity Mobility Equity Stability (H.O.M.E.S.) Campaign: List of Latest Stories and Research</b>
-							</a>
-							<br>
-							<i>(Updated frequently)</i>
-						</p>
-						<p>
-							<a href="https://djph.org/wp-content/uploads/2022/09/djph-83-009.pdf" target="_blank">
-								<b>Prior Evictions Among People Experiencing Homelessness in Delaware</b>
-							</a>
-							<br>
-							<i>Metraux S, Mwangi O, McGuire J, Prior Evictions Among People Experiencing Homelessness in Delaware. Dela J Public Health (2022)</i>
-						</p>
-						<p>
-							<a href="https://udspace.udel.edu/bitstream/handle/19716/25186/200330%20covid%20housing%20complete%20draft.pdf?sequence=1&isAllowed=y" target="_blank">
-								<b>Addressing the Threat of COVID-19 Related Housing Instability and Displacement in Delaware</b>
-							</a>
-							<br>
-							<i>Metraux S, Rayl M, O’Hanlon J, O’Neill S, Center for Community Research and Service & Institute for Public Administration, Joseph R. Biden, Jr. School of Policy and Public Administration, University of Delaware (2020)</i>
-						</p>
-						<p>
-							<a href="https://udspace.udel.edu/bitstream/handle/19716/26352/CCRS%20Eviction%20Brief%20final%20v2.pdf?sequence=5&isAllowed=y" target="_blank">
-								<b>Eviction and Legal Representation in Delaware - An Overview</b>
-							</a>
-							<br>
-							<i>Guterbock A, Metraux S, Biden School of Public Policy & Administration, University of Delaware (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="florida">Florida</h2>
-						<p>
-							<a href="https://floridataxwatch.org/Research/Full-Library/ArtMID/34407/ArticleID/19154/TOO-EXPENSIVE-TO-RENT-FLORIDA%E2%80%99S-RENTAL-MARKET-EVICTION-MORATORIUM" target="_blank">
-								<b>Too Expensive to Rent: Florida's Rental Market & Eviction Moratorium</b>
-							</a>
-							<br>
-							<i>Florida TaxWatch (2022)</i>
-						</p>
-						<p>
-							<a href="https://policiesforaction.org/project/tracking-fallout-impact-eviction-moratoriums-racialethnic-disparities-evictions-and" target="_blank">
-								<b>Tracking the Fallout: The Impact of Eviction Moratoriums on Racial/Ethnic Disparities in Evictions and Displacement Post-COVID-19</b>
-							</a>
-							<br>
-							<i>Zinzi Bailey, Alana Greer, Policies for Action: Policy and Law Research to Build a Culture of Health (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.aclu.org/report/no-eviction-without-representation" target="_blank">
-								<b>No Eviction Without Representation: Eviction's Disproportionate Harms and the Promise of Right to Counsel</b>
-							</a>
-							<br>
-							<i>American Civil Liberties Union, National Coalition for a Civil Right to Counsel</i>
-						</p>
-						<p>
-							<a href="http://www.shimberg.ufl.edu/research/preserving-rental-housing" target="_blank">
-								<b>Preserving Affordable Rental Housing</b>
-							</a>
-							<br>
-							<i>Shimberg Center for Housing Studies, University of Florida</i>
-						</p>
-						
-						<hr>
-						<h2 id="georgia">Georgia</h2>
-						<p>
-							<a href="https://sites.gatech.edu/planningproperty/" target="_blank">
-								<b>Planning and Property Lab</b>
-							</a>
-						</p>
-						<p>
-							<a href="https://metroatlhousing.org/atlanta-region-eviction-tracker/" target="_blank">
-								<b>Metro Atlanta Housing Strategy</b>
-							</a>
-						</p>
-						<p>
-							<a href="https://www.atlantafed.org/-/media/documents/community-development/publications/special/despite-cdc-moratorium-atlanta-area-eviction-filings-hit-low-income-minority-neighborhoods/5-county-eviction-brief-and-appendix.pdf" target="_blank">
-								<b>Special Briefing: Despite CDC Moratorium, Atlanta-Area Eviction Filings Hit Low-Income, Minority Neighborhoods</b>
-							</a>
-							<br>
-							<i>Center for Housing & Policy Community & Economic Development, Federal Reserve Bank of Atlanta</i>
-						</p>
-						<p>
-							<a href="https://www.nlihc.org/sites/default/files/HPD_Evictions_Atlanta.pdf" target="_blank">
-								<b>Housing Stability, Evictions, and Subsidized Rental Properties: Evidence From Metro Atlanta, Georgia</b>
-							</a>
-							<br>
-							<i>Austin Harrison, Dan Immergluck, Jeff Ernsthausen & Stephanie Earl (2021) Housing Stability, Evictions, and Subsidized Rental Properties: Evidence From Metro Atlanta, Georgia, Housing Policy Debate (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.tandfonline.com/doi/abs/10.1080/02673037.2019.1639635" target="_blank">
-								<b>Evictions, large owners, and serial filings: findings from Atlanta</b>
-							</a>
-							<br>
-							<i>Dan Immergluck, Jeff Ernsthausen, Stephanie Earl & Allison Powell (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol20num3/article9.html" target="_blank">
-								<b>From Foreclosure to Eviction: Housing Insecurity in Corporate-Owned Single-Family Rentals</b>
-							</a>
-							<br>
-							<i>Elora Lee Raymond, Richard Duckworth, Benjamin Miller, Michael Lucas, Shiraj Pokharel, Georgia Institute of Technology, U.S. Department of Agriculture, Emory University, Atlanta Volunteer Lawyers Foundation, Georgia State University</i>
-						</p>
-						
-						<hr>
-						<h2 id="hawaii">Hawaii</h2>
-						<p>
-							<a href="https://hiappleseed.org/publications/eviction-prevention-mediation-hawaii" target="_blank">
-								<b>Eviction Prevention Through Hawai‘i’s Tenant-Landlord Mediation Program</b>
-							</a>
-							<br>
-							<i>Hawaii Appleseed Center for Law and Economic Justice, Housing Crisis Research Collaborative (2022)</i>
-						</p>
-						
-						<hr>
-						<h2 id="idaho">Idaho</h2>
-						<p>
-							<a href="https://www.boisestate.edu/sps-ipi/evictions-in-idaho/" target="_blank">
-								<b>Evictions in Idaho</b>
-							</a>
-							<br>
-							<i>Boise State University, Idaho Policy Institute</i>
-						</p>
-						<p>
-							<a href="https://www.jsr.org/hs/index.php/path/article/view/2029" target="_blank">
-								<b>Out of Control: Growth and Indirect Discrimination in Ada and Canyon Counties' Rental Processes</b>
-							</a>
-							<br>
-							<i>Berit Shaus, Sharon Hanson, Tim Thomas, Journal of Student Research  (2021)</i>
-						</p>
-						<p>
-							<a href="https://scholarworks.boisestate.edu/cgi/viewcontent.cgi?article=1006&context=uar_2021" target="_blank">
-								<b>Despite Federal Moratorium, Eviction Rates Returning to Pre-Pandemic Levels</b>
-							</a>
-							<br>
-							<i>Benjamin Larsen, McAllister Hall, Boise State University (2021)</i>
-						</p>
-						<p>
-							<a href="https://npr.brightspotcdn.com/f7/bc/6a134e434141b21e129bb6cf1ef2/jesse-tree-eviction-report.pdf" target="_blank">
-								<b>Treasure Valley Eviction Report</b>
-							</a>
-							<br>
-							<i>Jesse Tree</i>
-						</p>
-						
-						<hr>
-						<h2 id="illinois">Illinois</h2>
-						<p>
-							<a href="https://eviction.lcbh.org/reports" target="_blank">
-								<b>Chicago Evictions</b>
-							</a>
-							<br>
-							<i>Lawyers’ Committee for Better Housing</i>
-						</p>
-						<p>
-							<a href="https://housingactionil.org/what-we-do/advocacy/eviction/" target="_blank">
-								<b>Addressing Eviction: Eviction in Illinois</b>
-							</a>
-							<br>
-							<i>Housing Action Illinois</i>
-						</p>
-						<p>
-							<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4247293" target="_blank">
-								<b>Race and Eviction During the Pandemic</b>
-							</a>
-							<br>
-							<i>Gaines, Brian J. and Mazzone, Jason and Mettler, Matthew and Wilson, Robin Fretwell - Race and Eviction During the Pandemic (2022)</i>
-						</p>
-						<p>
-							<a href="https://pubmed.ncbi.nlm.nih.gov/33533076/" target="_blank">
-								<b>Unhealthy Behaviors in Urban Illinois Communities Affected by Eviction: A Descriptive Analysis</b>
-							</a>
-							<br>
-							<i>Hazekamp C, Yousuf S, Khare M, MacDowell M. - Unhealthy behaviours in urban Illinois communities affected by eviction: A descriptive analysis (2021)</i>
-						</p>
-						<p>
-							<a href="https://publichealth.uic.edu/uic-covid-19-public-health-response/covid-19-maps-chicago-illinois/chicago-evictions-and-covid-19/" target="_blank">
-								<b>Chicago Evictions and COVID-19</b>
-							</a>
-							<br>
-							<i>University of Illinois Chicago, School of Public Health</i>
-						</p>
-						
-						<hr>
-						<h2 id="indiana">Indiana</h2>
-						<p>
-							<a href="https://policyinstitute.iu.edu/doc/Evictions-2020-Brief_CRISP_Feb.15.2021_ACCESSIBLE.pdf" target="_blank">
-								<b>Housing Instability in Marion County Evictions Before and During COVID-19</b>
-							</a>
-							<br>
-							<i>Indiana University, Public Policy Institute, Center for Research on Inclusion & Social Policy (2021)</i>
-						</p>
-						<p>
-							<a href="https://mckinneylaw.iu.edu/practice/clinics/_docs/Indiana_courts_prevent_evictions.pdf" target="_blank">
-								<b>How Indiana Courts Can Prevent Evictions: Responding to a Looming Public Health and Economic Crisis</b>
-							</a>
-							<br>
-							<i>Health and Human Rights Clinic, Indiana University, McKinney School of Law, The Indiana Justice Project, Notre Dame Clinical Law Center (2021)</i>
-						</p>
-						<p>
-							<a href="https://heinonline.org/HOL/Page?handle=hein.journals/indilr46&id=1383&collection=journals&index=" target="_blank">
-								<b>Insuring the Effectiveness of Indiana’s Landlord-Tenant Laws: The Necessity of Recognizing the Doctrine of Retaliatory Eviction In Indiana</b>
-							</a>
-							<br>
-							<i>Brian D. Casserly (2013)</i>
-						</p>
-						
-						<hr>
-						<h2 id="iowa">Iowa</h2>
-						<p>
-							<a href="https://www.unevictia.com/" target="_blank">
-								<b>UnevictIA</b>
-							</a>
-							<br>
-							<i>Updated Frequently</i>
-						</p>
-						
-						<hr>
-						<h2 id="kansas">Kansas</h2>
-						<p>
-							<a href="https://nlihc.org/housing-needs-by-state/kansas" target="_blank">
-								<b>Kansas - Housing Needs By State</b>
-							</a>
-							<br>
-							<i>National Low Income Housing Coalition</i>
-						</p>
-						<p>
-							<a href="http://www.derbyinformer.com/news/state/kansas-evictions-report-shows-ignorance-of-legal-system/article_863bb914-01fd-11ed-aabe-af15677e7c3c.html" target="_blank">
-								<b>Kansas Evictions Report Shows Ignorance of Legal System</b>
-							</a>
-							<br>
-							<i>Sherman Smith, Kansas Reflector, Derby Informer (2022)</i>
-						</p>
-						
-						<hr>
-						<h2 id="kentucky">Kentucky</h2>
-						<p>
-							<a href="https://www.rootcauseresearch.org/lel" target="_blank">
-								<b>Louisville Eviction Lab</b>
-							</a>
-							<br>
-							<i>Rootcause Research Center, Updated Frequently</i>
-						</p>
-						<p>
-							<a href="https://metropolitanhousing.org/wp-content/uploads/2022/11/MHC-Report.2022_LoRes.pdf" target="_blank">
-								<b>2021-2022 Evictions in Louisville: According to Property Owners</b>
-							</a>
-							<br>
-							<i>JP Morgan & Chase Co, Metropolitan Housing Coalition, Kiaspo (2022)</i>
-						</p>
-						<p>
-							<a href="https://metropolitanhousing.org/wp-content/uploads/2021/04/FINAL_MHC_2020-2021-SMHR_web.pdf" target="_blank">
-								<b>2020-2021 State of Metropolitan Housing Report: COVID-19 and the Struggle to Stay Safe at Home in Lousville, KY</b>
-							</a>
-							<br>
-							<i>Metropolitan Housing Coalition, University of Louisville Center for Environmental Policy & Management (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.sciencedirect.com/science/article/abs/pii/S0016718518302847" target="_blank">
-								<b>Mapping dispossession: Eviction, foreclosure and the multiple geographies of housing instability in Lexington, Kentucky</b>
-							</a>
-							<br>
-							<i>Taylor Shelton, Geoforum (2018)</i>
-						</p>
-						
-						<hr>
-						<h2 id="louisiana">Louisiana</h2>
-						<p>
-							<a href="https://digitalcommons.law.udc.edu/cgi/viewcontent.cgi?article=1003&context=udclr" target="_blank">
-								<b>The Eviction Geography of New Orleans: An Empirical Study to Further Housing Justice</b>
-							</a>
-							<br>
-							<i>Davida Finger, University of Columbia (2020)</i>
-						</p>
-						<p>
-							<a href="https://storage.googleapis.com/wzukusers/user-27881231/documents/5c95369d185a9kbj1pY4/JPNSI_Evictions_Final.pdf" target="_blank">
-								<b>New Orleans’ Eviction Geography: Results of an Increasingly Precarious Housing Market</b>
-							</a>
-							<br>
-							<i>Jane Place Neighborhood, Sustainability Initiative, Professor Davida Finger, Loyola University New Orleans, College of Law, Law Clinic (2019)</i>
-						</p>
-						
-						<hr>
-						<h2 id="maine">Maine</h2>
-						<p>
-							<a href="https://mainehousingcoalition.org/wp-content/uploads/2020/09/Maine-Eviction-Report-FINAL-September-2020.pdf" target="_blank">
-								<b>EVICTIONS IN MAINE: An Analysis of Eviction Filings and Outcomes as the COVID-19 Pandemic Threatens to Increase Rental Housing Instability</b>
-							</a>
-							<br>
-							<i>Maine Affordable Housing Coalition (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.bostonfed.org/publications/new-england-public-policy-center-regional-briefs/2022/evictions-in-new-england-and-the-impact-of-public-policy-during-the-covid19-pandemic" target="_blank">
-								<b>Evictions in New England and the Impact of Public Policy during the COVID-19 Pandemic</b>
-							</a>
-							<br>
-							<i>Nicholas Chiumenti, Federal Reserve Bank of Boston (2022)</i>
-						</p>
-						
-						<hr>
-						<h2 id="maryland">Maryland</h2>
-						<p>
-							<a href="https://www.montgomerycountymd.gov/OLO/Resources/Files/2018%20Reports/2018_10EvictionsMontgomeryCounty.pdf" target="_blank">
-								<b>Evictions in Montgomery County</b>
-							</a>
-							<br>
-							<i>Stephanie Bryant, Keili Robinson, Natalia Carrizosa, Office of Legislative Oversight (2018)</i>
-						</p>
-						
-						<hr>
-						<h2 id="massachusetts">Massachusetts</h2>
-						<p>
-							<a href="https://www.homesforallmass.org/covid-evictions-report/hfamass-covid-evictions-report-short-03-22-screen-rfs.pdf" target="_blank">
-								<b>Housing Justice Beyond the Emergency: An Analysis of Racial Inequity in Eviction Filings Across Massachusetts</b>
-							</a>
-							<br>
-							<i>Homes for All Massachusetts (2022)</i>
-						</p>
-						<p>
-							<a href="https://d3n8a8pro7vhmx.cloudfront.net/clvu/pages/2779/attachments/original/1618424939/COVID-19_eviction_report_April_2021.pdf?1618424939" target="_blank">
-								<b>Evictions in Boston's Communities of Color: The First Year of the Pandemic</b>
-							</a>
-							<br>
-							<i>City Life/Vida Urbana (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.bostonevictions.org/" target="_blank">
-								<b>Evictions in Boston: The Disproportionate Effects of Forced Moves on Communities of Color</b>
-							</a>
-							<br>
-							<i>Massachusetts Institute of Technology, City Life/Vida Urbana (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="michigan">Michigan</h2>
-						<p>
-							<a href="https://www.evictionmachine.org/home" target="_blank">
-								<b>The Eviction Machine</b>
-							</a>
-							<br>
-							<i>Urban Praxis Workshop</i>
-						</p>
-						<p>
-							<a href="https://sites.fordschool.umich.edu/poverty2021/files/2021/03/Michigan-Eviction-Project-working-paper-1.pdf" target="_blank">
-								<b>Michigan Evictions: Trends, Data Sources, and Neighborhood Determinants</b>
-							</a>
-							<br>
-							<i>Poverty Solutions University of Michigan, Michigan Poverty Law Program, Taubman College Architecture & Urban Planning University of Michigan (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="minnesota">Minnesota</h2>
-						<p>
-							<a href="https://evictions.cura.umn.edu/sites/evictions.cura.umn.edu/files/files/general/illusion-of-choice-full-report-web.pdf" target="_blank">
-								<b>The Illusion of Choice: Evictions and Profit in North Minneapolis</b>
-							</a>
-							<br>
-							<i>Dr. Lewis B, Calhoun M, Matthias C, Conception K, Reyes T, Szczepanski C, Norton G, Noble E, and Tisdale G, Center for Urban and Regional Affairs, University of Minnesota (2021)</i>
-						</p>
-						<p>
-							<a href="https://view.ckcest.cn/AllFiles/ZKBG/Pages/984/preventing-eviction-filings-piloting-a-pre-filing-eviction-prevention-clinic.pdf" target="_blank">
-								<b>Preventing Eviction Filing: Piloting a Pre-filing Eviction Prevention Clinic</b>
-							</a>
-							<br>
-							<i>Cohen M, Noble E, Metropolitan Housing and Communities Policy Center, Urban Institute (2020)</i>
-						</p>
-						<p>
-							<a href="https://scholarship.law.umn.edu/cgi/viewcontent.cgi?article=1620&context=lawineq" target="_blank">
-								<b>Mitigating Power Imbalance in Eviction Mediation: A Model for Minnesota</b>
-							</a>
-							<br>
-							<i>Hare R, Law & Ineq. 135 (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.mnhousing.gov/sites/np/research" target="_blank">
-								<b>Minnesota Housing: Research on Housing and Community Needs</b>
-							</a>
-							<br>
-							<i>(Last updated 2020)</i>
-						</p>
-						<p>
-							<a href="https://lims.minneapolismn.gov/Download/FileV2/21054/Renter-Protections-Ordinance---Eviction-Studies.pdf" target="_blank">
-								<b>Evictions in Minneapolis</b>
-							</a>
-							<br>
-							<i>Minneapolis Eviction Team (2016)</i>
-						</p>
-						
-						<hr>
-						<h2 id="mississippi">Mississippi</h2>
-						<p>
-							<a href="https://nlihc.org/housing-needs-by-state/mississippi" target="_blank">
-								<b>Housing Needs by State: Mississippi</b>
-							</a>
-							<br>
-							<i>National Low Income Housing Coalition (Updated frequently)</i>
-						</p>
-						<p>
-							<a href="https://www.mississippifreepress.org/13330/evicted-exhibit-at-margaret-walker-center-highlights-eviction-realities-disparities-in-mississippi-beyond" target="_blank">
-								<b>‘Evicted’ Exhibit At Margaret Walker Center Highlights Eviction Realities, Disparities In Mississippi, Beyond</b>
-							</a>
-							<br>
-							<i>Mississippi Free Press, Taylor McKay Hathorn (2021)</i>
-						</p>
-						
-						<hr>
-						<h2 id="missouri">Missouri</h2>
-						<p>
-							<a href="https://www.evictionkc.org/project" target="_blank">
-								<b>Kansas City Eviction Project </b>
-							</a>
-						</p>
-						<p>
-							<a href="https://www.stlouis-mo.gov/government/departments/mayor/initiatives/resilience/equity/justice/court-reform/evictions.cfm" target="_blank">
-								<b>St. Louis, Justice For All - Evictions</b>
-							</a>
-						</p>
-						<p>
-							<a href="https://openscholarship.wustl.edu/cgi/viewcontent.cgi?article=2170&context=law_journal_law_policy" target="_blank">
-								<b>Addressing the Eviction Crisis and Housing Instability Through Mediation </b>
-							</a>
-							<br>
-							<i>Karen Tokarz, Samuel Hoff Stragand, Michael Geigerman, and Wolf Smith (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.aspeninstitute.org/wp-content/uploads/2020/08/Evictions-Data-Update-August.pdf" target="_blank">
-								<b>National Eviction Risk Projections</b>
-							</a>
-							<br>
-							<i>COVID-19 Eviction Defense Project, The Aspen Institute Financial Security Program (2020)</i>
-						</p>
-						<p>
-							<a href="https://mffh.org/wp-content/uploads/2020/09/Housing.pdf" target="_blank">
-								<b>Navigating COVID-19: Health Policy Solutions Housing</b>
-							</a>
-							<br>
-							<i>Amy Siegler, Missouri Foundation for Health (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="montana">Montana</h2>
-						<p>
-							<a href="https://www.mtlsa.org/2023/10/23/beyond-housing-affordability-results-from-a-montana-evictions-project/" target="_blank">
-								<b>Beyond Housing Affordability: Results from a Montana Evictions Project</b>
-							</a>
-							<br>
-							<i>Montana Legal Services Association (2023)</i>
-						</p>
-						
-						<hr>
-						<h2 id="nebraska">Nebraska</h2>
-						<p>
-							<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4093257" target="_blank">
-								<b>Examination of Eviction Filings in Lancaster County, Nebraska, 2019–2021</b>
-							</a>
-							<br>
-							<i>Ryan Sullivan, University of Nebraska College of Law (2022)</i>
-						</p>
-						<p>
-							<a href="https://hazards.colorado.edu/quick-response-report/evictions-in-nebraska-during-the-covid-19-pandemic" target="_blank">
-								<b>Evictions in Nebraska During the COVID-19 Pandemic</b>
-							</a>
-							<br>
-							<i>Pierce Greenberg, Erin Feichtinger, Danni Smith, Emily Burke, Creighton University, Together (2021)</i>
-						</p>
-						<p>
-							<a href="https://storymaps.arcgis.com/stories/b839374e031d4ecfa21cb1fbaebbf31e" target="_blank">
-								<b>Understanding Evictions in Omaha</b>
-							</a>
-							<br>
-							<i>Pierce Greenberg, PhD, Gary Fischer, JD (2020)</i>
-						</p>
-						<p>
-							<a href="http://socialsciencedatalab.com/wp-content/uploads/2021/03/EvictionsInNebraskaDuringCOVID19.pdf" target="_blank">
-								<b>Evictions in Nebraska During Covid-19</b>
-							</a>
-							<br>
-							<i>Social Science Data Lab, Creighton University (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="nevada">Nevada</h2>
-						<p>
-							<a href="https://thenevadaindependent.com/article/judge-sees-the-raw-end-of-a-170-percent-eviction-increase-in-the-las-vegas-valley" target="_blank">
-								<b>Judge Sees the Raw End of a 170 Percent Eviction Increase in the Las Vegas Valley</b>
-							</a>
-							<br>
-							<i>Nevada Independent (2024)</i>
-						</p>
-						
-						<hr>
-						<h2 id="newhampshire">New Hampshire</h2>
-						<p>
-							<a href="https://www.nhhfa.org/wp-content/uploads/2021/04/2020-Analysis-Impediments-Fair-Housing-ChoiceNH.pdf" target="_blank">
-								<b>Analysis of Impediments to Fair Housing Choice in New Hampshire</b>
-							</a>
-							<br>
-							<i>New Hampshire Legal Assistance (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="newjersey">New Jersey</h2>
-						<p>
-							<a href="https://law.shu.edu/documents/Unjustified-Evictions-in-New-Jersey-10-29-24.pdf" target="_blank">
-								<b>Unjustified Residential Evictions in New Jersey</b>
-							</a>
-							<br>
-							<i>Lowenstein Center for the Public Interest, Rutgers Law School, Seton Hall Law, Volunteer Lawyers for Justice (2024)</i>
-						</p>
-						
-						<hr>
-						<h2 id="newmexico">New Mexico</h2>
-						<p>
-							<a href="https://www.nmevictions.org/" target="_blank">
-								<b>New Mexico Eviction Data</b>
-							</a>
-							<br>
-							<i>Samuel Taub, University of New Mexico School of Law (2022)</i>
-						</p>
-						<p>
-							<a href="https://humanimpact.org/wp-content/uploads/2020/12/Eviction-in-the-COVID-19-Era-A-Threat-to-Family-and-Community-Health-in-Santa-Fe-12.2020.HIP_.pdf" target="_blank">
-								<b>Evictions in the COVID-19 Era: A threat to family and community health in Santa Fe</b>
-							</a>
-							<br>
-							<i>Human Impact Partners (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="newyork">New York</h2>
-						<p>
-							<a href="https://www.robinhood.org/" target="_blank">
-								<b>Robin Hood</b>
-							</a>
-							<br>
-							<i>(Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://www.worstevictorsnyc.org/map" target="_blank">
-								<b>NYC Eviction Filings</b>
-							</a>
-							<br>
-							<i>Anti-Eviction Mapping Project, Right to Counsel NYC Coalition, JustFix.nyc, (Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://www.righttocounselnyc.org/evictioncrisismonitor" target="_blank">
-								<b>Active Eviction Cases in New York State</b>
-							</a>
-							<br>
-							<i>Right to Counsel NYC Coalition (2022)</i>
-						</p>
-						<p>
-							<a href="https://smhttp-ssl-58547.nexcesscdn.net/nycss/images/uploads/pubs/Eviction_Pressure_V2.pdf" target="_blank">
-								<b>Low-Income New Yorkers are an Inch Away from Eviction: How to Address Rent Debt and Eviction Pressure to Keep Them Housed</b>
-							</a>
-							<br>
-							<i>Oksana Mironova, Samuel Stein (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.law.nyu.edu/sites/default/files/upload_documents/evictions_collinson_reed.pdf" target="_blank">
-								<b>The Effects of Evictions on Low-Income Households</b>
-							</a>
-							<br>
-							<i>Robert Collinson, Davin Reed (2018)</i>
-						</p>
-						<p>
-							<a href="https://comptroller.nyc.gov/reports/evictions-up-representation-down/" target="_blank">
-								<b>Evictions Up, Representation Down</b>
-							</a>
-							<br>
-							<i>Office of the New York City Comptroller (2024)</i>
-						</p>
-						
-						<hr>
-						<h2 id="northcarolina">North Carolina</h2>
-						<p>
-							<a href="https://chcs.uncg.edu/wp-content/uploads/2018/08/Eviction-Interviews-Report-docx.pdf" target="_blank">
-								<b>GreensBoro's Eviction Crisis</b>
-							</a>
-							<br>
-							<i>Stephen J. Sills, Phillip Sheldon, Kelsi Hobbs, University of North Carolina Greensboro, Center for Housing and Community Studies</i>
-						</p>
-						<p>
-							<a href="https://dataworks-nc.org/evictions/" target="_blank">
-								<b>Evictions In Durham</b>
-							</a>
-							<br>
-							<i>Dataworks NC</i>
-						</p>
-						<p>
-							<a href="https://chcs.uncg.edu/eviction-diversion-program-edp/" target="_blank">
-								<b>Eviction Resolution Project</b>
-							</a>
-							<br>
-							<i>Center for Housing and Community Studies, University of North Carolina Greensboro</i>
-						</p>
-						<p>
-							<a href="https://bigdata.duke.edu/projects/durham-evictions/" target="_blank">
-								<b>Durham Evictions</b>
-							</a>
-							<br>
-							<i>Rhodes Information Initiative, Data+, Duke University, Ellis Ackerman, Rodrigo Araujo, Samantha Miezio  (2019)</i>
-						</p>
-						<p>
-							<a href="https://www.ncjustice.org/wp-content/uploads/2018/12/BTC-BRIEF-evictions-brief-dec2018.pdf" target="_blank">
-								<b>A Snapshot of Evictions in North Carolina</b>
-							</a>
-							<br>
-							<i>North Carolina Justice Center, Budget and Tax Center, Sydney Idzikowski (2018)</i>
-						</p>
-						<p>
-							<a href="https://mecklenburghousingdata.org/wp-content/uploads/2017/09/Charlotte-Mecklenburg-Evictions-Report-Part-1.pdf" target="_blank">
-								<b>Part 1: An Introduction to Evictions in Charlotte-Mecklenburg</b>
-							</a>
-							<br>
-							<i>University of North Carolina, Charlotte Urban Institute (2017)</i>
-						</p>
-						
-						<hr>
-						<h2 id="northdakota">North Dakota</h2>
-						<p>
-							<a href="https://commons.und.edu/cgi/viewcontent.cgi?article=1099&context=ndlr" target="_blank">
-								<b>North Dakota Case Study: The Eviction Mill's Fast Track to Homelessness</b>
-							</a>
-							<br>
-							<i>Schmidt, Breezy A. (2017)</i>
-						</p>
-						
-						<hr>
-						<h2 id="ohio">Ohio</h2>
-						<p>
-							<a href="https://journals.sagepub.com/doi/full/10.1177/0002716221991458" target="_blank">
-								<b>The Concentrated Geography of Eviction</b>
-							</a>
-							<br>
-							<i>Devin Rutan, Matthew Desmond (2021)</i>
-						</p>
-						<p>
-							<a href="https://cohhio.org/report-highlights-evictions-during-the-pandemic/" target="_blank">
-								<b>Advocates Warn of Post-Moratorium Spike</b>
-							</a>
-							<br>
-							<i>Coalition on Homelessness and Housing in Ohio</i>
-						</p>
-						<p>
-							<a href="https://www.clevelandfed.org/topics/housing/mmst-20210504-evictions" target="_blank">
-								<b>The Threat of Eviction during COVID-19: Perspectives from Cleveland’s Ohio City</b>
-							</a>
-							<br>
-							<i>Michelle Volpe-Kohler, Federal Reserve Bank of Cleveland</i>
-						</p>
-						<p>
-							<a href="https://case.edu/socialwork/povertycenter/sites/case.edu.povertycenter/files/2019-11/The%20Cleveland%20Eviction%20Study-10242019-fully%20accessible%28r%29.pdf" target="_blank">
-								<b>The Cleveland Eviction Study: Observations in Eviction Court and the Stories of Poeple Facing Eviction</b>
-							</a>
-							<br>
-							<i>April Hirsh Urban, Aleksandra Tyler, Francisca García-Cobián Richter, Claudia Coulton, Tsui Chan, Center on Urban Poverty and Community Development, Case Western Reserve University</i>
-						</p>
-						<p>
-							<a href="https://www.clevelandfed.org/publications/economic-commentary/2022/ec-202212-making-sense-of-eviction-trends-during-the-pandemic" target="_blank">
-								<b>Making Sense of Eviction Trends during the Pandemic</b>
-							</a>
-							<br>
-							<i>Hal Martin</i>
-						</p>
-						<p>
-							<a href="https://cincinnatilegalaid.net/wp-content/uploads/Eviction-Report_Final-1.pdf" target="_blank">
-								<b>"You are being asked to leave the premises": A Study of Eviction in Cincinatti and Hamilton County, Ohio 2014-2017 </b>
-							</a>
-							<br>
-							<i>Elaina Johns-Wolfe, M.A., Department of Sociology, University of Cincinnati (2018)</i>
-						</p>
-						
-						<hr>
-						<h2 id="oklahoma">Oklahoma</h2>
-						<p>
-							<a href="https://okpolicy.org/its-time-for-action-to-address-oklahomas-eviction-crisis/" target="_blank">
-								<b>It's Time for Action to Address Oklahoma's Eviction Crisis</b>
-							</a>
-							<br>
-							<i>OKPolicy, Oklahoma Policy Institute, Ryan Gentzler (2022)</i>
-						</p>
-						
-						<hr>
-						<h2 id="oregon">Oregon</h2>
-						<p>
-							<a href="https://www.evictedinoregon.com" target="_blank">
-								<b>Evicted in Oregon</b>
-							</a>
-							<br>
-						</p>
-						<p>
-							<a href="https://drive.google.com/file/d/1jOdm1WGgHwQs0zD3royowTIAmNJNJlIi/view" target="_blank">
-								<b>Comparisons of Eviction Data from SETA's Tenant Hotline and Court Records</b>
-							</a>
-							<br>
-							<i>Springfield Eugene Tenant Association (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.pdx.edu/homelessness/evaluating-oregons-safe-harbor-eviction-diversion" target="_blank">
-								<b>Evaluating Oregon’s Safe Harbor Eviction Diversion</b>
-							</a>
-							<br>
-							<i>Lisa K. Bates, Colleen Carroll, Minji Cho, Devin MacArthur, Homelessness Research & Action Collaborative, Portland State University</i>
-						</p>
-						<p>
-							<a href="https://www.pdx.edu/homelessness/sites/g/files/znldhr1791/files/2021-12/Bates-Oregon%20Safe%20Harbor%20early%20implementation.pdf" target="_blank">
-								<b>Oregon's Safe Harbor for Tenants: Rocky Shoals In Eviction Diversion</b>
-							</a>
-							<br>
-							<i>Lisa Bates, Housing Crisis Research Collaborative, Homelessness Research & Action Collaborative, Portland State University</i>
-						</p>
-						
-						<hr>
-						<h2 id="pennsylvania">Pennsylvania</h2>
-						<p>
-							<a href="https://housingalliancepa.org/wp-content/uploads/Statewide-Eviction-Analysis_Housing-Alliance-of-PA_Feb-2022.pdf" target="_blank">
-								<b>Revealing Opportunities and Challenges: An Analysis of Eviction Filings in Pennsylvania</b>
-							</a>
-							<br>
-							<i>The Housing Alliance of Pennsylvania (2022)</i>
-						</p>
-						<p>
-							<a href="https://deliverypdf.ssrn.com/delivery.php?ID=311071073029064105080104003081126120035055026027031023101089115109004115092127124009003043120052118045043115123094125092117031013080071041077124097093002077016019007019004095094096068025010029126067099075068071093001019007065065105080081013105070117&EXT=pdf&INDEX=TRUE" target="_blank">
-								<b>Longer Trips to Court Cause Evictions</b>
-							</a>
-							<br>
-							<i>Hoffman, David A. and Strezhnev, Anton - Longer Trips to Court Cause Evictions (2022)</i>
-						</p>
-						<p>
-							<a href="https://pittsburghfoundation.org/sites/default/files/Eviction%20in%20Allegheny%20County-a%20mixed%20methods%20study_0.pdf" target="_blank">
-								<b>Eviction In Allegheny County: A Mixed-Methods Study By The Pittsburgh Foundation</b>
-							</a>
-							<br>
-							<i>The Pittsburgh Foundation (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.huduser.gov/portal/periodicals/em/Summer21/highlight3.html#title" target="_blank">
-								<b>Affordable Housing, Eviction, and Health Prevalence and Impact of Evictions Eviction Prevention Initiatives</b>
-							</a>
-							<br>
-							<i>Office of Policy Development and Research, Evidence Matters: Transforming Knowledge Into Housing and Community Development Policy  (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.reinvestment.com/wp-content/uploads/2019/10/ReinvestmentFund__PHL-Evictions-Brief-Oct-2019.pdf" target="_blank">
-								<b>Evictions in Philadelphia: A Data & Policy Update</b>
-							</a>
-							<br>
-							<i>Ira Goldstein, Emily Dowdall, Colin Weidig, Janine Simmons, Brian Carney, Policy Solutions, Reinvestment Fund (2019)</i>
-						</p>
-						
-						<hr>
-						<h2 id="puertorico">Puerco Rico</h2>
-						<p>
-							<a href="https://grupocne.org/2022/12/12/the-impact-of-short-term-rentals-in-puerto-rico-2014-2020/#conclusion" target="_blank">
-								<b>The Impact of Short-Term Rentals in Puerto Rico: 2014-2020</b>
-							</a>
-							<br>
-							<i>Raúl Santiago-Bartolomei Ph.D., Deepak Lamba-Nieves Ph.D., Enrique A. Figueroa Grillasca, Ysatis A. Santiago Venegas, CNE Puerto Rico’s Think Tank (2022)</i>
-						</p>
-						<p>
-							<a href="https://hazards.colorado.edu/quick-response-report/exploring-the-experiences-of-university-students-evicted-from-campus-housing-during-the-covid-19-pandemic" target="_blank">
-								<b>Exploring the Experiences of University Students Evicted from Campus Housing During the COVID-19 Pandemic</b>
-							</a>
-							<br>
-							<i>Marla Perez-Lugo, Haorui Wu, Frances Gonzalez Crespo, Adriana Castillo, Cecilio Ortiz Garcia, Natural Hazards Center (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="rhodeisland">Rhode Island</h2>
-						<p>
-							<a href="http://evicted-in-ri.com/#/" target="_blank">
-								<b>Evicted Rhode Island: A Rodemap to Reforming the Rhode Island Eviction System</b>
-							</a>
-							<br>
-							<i>Updated Frequently</i>
-						</p>
-						
-						<hr>
-						<h2 id="southcarolina">South Carolina</h2>
-						<p>
-							<a href="https://scholarcommons.sc.edu/cgi/viewcontent.cgi?article=1404&context=senior_theses" target="_blank">
-								<b>The Eviction Landscape in South Carolina</b>
-							</a>
-							<br>
-							<i>Ethan Magnuson (2021)</i>
-						</p>
-						<p>
-							<a href="https://www.scjustice.org/home-is-where-the-heart-is/" target="_blank">
-								<b>Home is Where the Heart Is: On Evictions in South Carolina</b>
-							</a>
-							<br>
-							<i>South Carolina AppleSeed Legal Justice Center</i>
-						</p>
-						
-						<hr>
-						<h2 id="tennessee">Tennessee</h2>
-						<p>
-							<a href="https://blogs.memphis.edu/benhooksinstitute/2022/01/13/covid-19-and-evictions-in-memphis/" target="_blank">
-								<b>COVID-19 and Evictions in Memphis</b>
-							</a>
-							<br>
-							<i>Andrew Guthrie,  Courtnee Melton-Fant, Katherine Lambert-Pennington, University of Memphis (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.sciencedirect.com/science/article/pii/S2211335522000432" target="_blank">
-								<b>Race, mental health, and evictions filings in Memphis, TN, USA</b>
-							</a>
-							<br>
-							<i>Courtnee Melton-Fant, Austin Harrison, Katy Ramsey Mason (2022)</i>
-						</p>
-						<p>
-							<a href="https://trace.tennessee.edu/cgi/viewcontent.cgi?article=7908&context=utk_gradthes" target="_blank">
-								<b>COVID-19 Renters and Housing Instability: Combatting the
-								Eviction Epidemic during the COVID-19 Pandemic in Knox County, Tennessee</b>
-							</a>
-							<br>
-							<i>Samantha B. Myers-Miller, University of Tennessee (2022)</i>
-						</p>
-						<p>
-							<a href="https://repositories.lib.utexas.edu/bitstream/handle/2152/115223/UHLMANN-MASTERSREPORT-2020.pdf?sequence=1&isAllowed=y" target="_blank">
-								<b>The State of Evictions in Memphis, Tennessee</b>
-							</a>
-							<br>
-							<i>Alexander Martin Uhlmann, University of Texas at Austin (2020)</i>
-						</p>
-						
-						
-						<hr>
-						<h2 id="texas">Texas</h2>
-						<p>
-							<a href="https://urbanpolicyresearch.org/download/a-review-of-eviction-protections-in-dallas-texas/" target="_blank">
-								<b>A Review Of Eviction Protections In Dallas, Texas</b>
-							</a>
-							<br>
-							<i>Timothy Bray, The Institute for Urban Policy Research at the University of Texas at Dallas (2021)</i>
-						</p>
-						<p>
-							<a href="https://journals.sagepub.com/doi/abs/10.1177/0003122416688667" target="_blank">
-								<b>Displaced in Place: Manufactured Housing, Mass Eviction, and the Paradox of State Intervention</b>
-							</a>
-							<br>
-							<i>Esther Sullivan, Department of Sociology, University of Colorado Denver (2017)</i>
-						</p>
-						<p>
-							<a href="https://commons.stmarytx.edu/cgi/viewcontent.cgi?article=1574&context=thestmaryslawjournal" target="_blank">
-								<b>Retaliatory Eviction in Texas - An Analysis and a Proposal</b>
-							</a>
-							<br>
-							<i>Jane E. Bockus, St. Mary’s University (1978)</i>
-						</p>
-						
-						<hr>
-						<h2 id="virginia">Virginia</h2>
-						<p>
-							<a href="https://rampages.us/rvaevictionlab/" target="_blank">
-								<b>RVA Eviction Lab</b>
-							</a>
-						</p>
-						<p>
-							<a href="https://evictioninnovation.org/wp-content/uploads/2021/04/Richmond-GeographiesofEviction.pdf" target="_blank">
-								<b>The Geography of Eviction in Richmond: Beyond Poverty</b>
-							</a>
-							<br>
-							<i>Benjamin F. Teresa, PhD, RVA Eviction Lab</i>
-						</p>
-						<p>
-							<a href="https://www.dhcd.virginia.gov/sites/default/files/Docx/verp/VERP-2020-final-report.pdf" target="_blank">
-								<b>The Virginia Eviction Reduction Pilot Program: Final Report on Phase 1</b>
-							</a>
-							<br>
-							<i>Dr. Benjamin Teresa, Kathryn Howell, Ivan Duen, Hannah Woehrle, Connor White, Maria Tova Enriquez Dougherty, RVA Eviction Lab (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.richmondfed.org/research/regional_economy/regional_matters/2022/rm_09_29_2022_housing_insecurity" target="_blank">
-								<b>After the Eviction Moratorium: How Are Renters Faring?</b>
-							</a>
-							<br>
-							<i>Stephanie Norris, Federal Reserve Bank of Richmond (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.dhcd.virginia.gov/sites/default/files/Docx/verp/evictions-initial-analysis-and-recommendations.pdf" target="_blank">
-								<b>Initial Analysis and Recommendations to Reduce Evictions in Virginia </b>
-							</a>
-							<br>
-							<i>Department of Housing & Community Development (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="utah">Utah</h2>
-						<p>
-							<a href="https://multicultural.utah.gov/wp-content/uploads/2021/06/MCA-Evictions-Report-June-2021-FINAL-1.pdf" target="_blank">
-								<b>Utah Evictions & Connections To Racial Ethnic Disparities In Utah</b>
-							</a>
-							<br>
-							<i>Utah Division of Multicultural Affairs</i>
-						</p>
-						<p>
-							<a href="https://multicultural.utah.gov/race-eviction-rates/" target="_blank">
-								<b>Racial Disparities In Eviction Rates During COVID-19</b>
-							</a>
-							<br>
-							<i>Utah Division of Multicultural Affairs, Utah Department of Cultural & Community Engagement (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.utahhousing.org/uploads/2/6/4/4/26444747/housing_inequalities_eviction_patterns_in_salt_lake_county.pdf" target="_blank">
-								<b>Housing Inequalities: Eviction Patterns in Salt Lake County,Utah</b>
-							</a>
-							<br>
-							<i>Richard M. Medinaa, Kara Byrneb, Simon Brewera, Emily A. Nicolosia, University of Utah, Department of Geography, United States of America, University of Utah, College of Social Work (2020)</i>
-						</p>
-						<p>
-							<a href="https://www.evictedinutah.com/about-us/" target="_blank">
-								<b>Evicted in Utah</b>
-							</a>
-							<br>
-							<i>The Utah Investigative Journalism Project, The Salt Lake Tribune, The Economic Hardship Reporing Project (Updated Frequently)</i>
-						</p>
-						
-						<hr>
-						<h2 id="vermont">Vermont</h2>
-						<p>
-							<a href="https://www.vtlegalaid.org/sites/default/files/Eviction-Report-VLA-3.18.19-web.pdf" target="_blank">
-								<b>Eviction in Vermont: A Closer Look</b>
-							</a>
-							<br>
-							<i>Vermont Legal Aid (2019)</i>
-						</p>
-						
-						<hr>
-						<h2 id="washington">Washington</h2>
-						<p>
-							<a href="https://nap.nationalacademies.org/read/26106/chapter/1" target="_blank">
-								<b>Rental Eviction and the COVID-19 Pandemic: Averting a Looming Crisis</b>
-							</a>
-							<br>
-							<i>The National Academies of Sciences, Engineering,  Medicine (2022)</i>
-						</p>
-						<p>
-							<a href="https://www.wliha.org/sites/default/files/DrThomasStateofEvictions_slides_2-26LALwebinar.pdf" target="_blank">
-								<b>The State of Evictions Racial and Gender Disparities in Washington Evictions</b>
-							</a>
-							<br>
-							<i>Tim Thomas, eScience Institute & Sociology, University of Washington
-							</i>
-						</p>
-						<p>
-							<a href="https://www.rhawa.org/research-policy#Pandemic" target="_blank">
-								<b>Research/Policy Resources</b>
-							</a>
-							<br>
-							<i>Rental Housing Association of Washington (Updated Frequently)</i>
-						</p>
-						<p>
-							<a href="https://soc.washington.edu/research/graduate/forced-out-race-market-and-neighborhood-dynamics-evictions#" target="_blank">
-								<b>Forced Out: Race, Market, and Neighborhood Dynamics of Evictions</b>
-							</a>
-							<br>
-							<i>Thomas, Timothy A. Department of Sociology, University of Washington (2017)</i>
-						</p>
-						<p>
-							<a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank">
-								<b>Toward a National Eviction Data Collection Strategy Using Natural Language Processing</b>
-							</a>
-							<br>
-							<i>Tim Thomas, Alex Ramiller, Cheng Ren, Ott Toomet, Cityscape, HUD (2024)</i>
-						</p>
-						
-						<hr>
-						<h2 id="washingtondc">Washington D.C</h2>
-						<p>
-							<a href="https://academic.oup.com/aje/article/190/12/2503/6328194?login=false" target="_blank">
-								<b>Expiring Eviction Moratoriums and COVID-19 Incidence and Mortality
-								</b>
-							</a>
-							<br>
-							<i>Kathryn M Leifheit, Sabriya L Linton, Julia Raifman, Gabriel L Schwartz, Emily A Benfer, Frederick J Zimmerman, Craig Evan Pollack, Expiring Eviction Moratoriums and COVID-19 Incidence and Mortality, American Journal of Epidemiology (2021)</i>
-						</p>
-						<p>
-							<a href="https://georgetown.app.box.com/s/8cq4p8ap4nq5xm75b5mct0nz5002z3ap" target="_blank">
-								<b>Eviction in Washington, DC: Racial and Geographic Disparities in Housing Instability</b>
-							</a>
-							<br>
-							<i>Brian J. McCabe, Eva Rosen, Georgetown University, McCourt School of Public Policy (2020)</i>
-						</p>
-						
-						<hr>
-						<h2 id="wisconsin">Wisconsin</h2>
-						<p>
-							<a href="https://mke-evict.com/" target="_blank">
-								<b>Track Milwaukee Evictions</b>
-							</a>
-							<br>
-							<i>Medical College of Wisconsin Institute for Health Equity’s Division of Epidemiology, Legal Action of Wisconsin, Milwaukee City Attorney’s Office, Milwaukee Department of Neighborhood Services, Updated Frequently</i>
-						</p>
-						<p>
-							<a href="https://aasew.org/resources/Documents/AASEW_Eviction_Study_Dec_2019.pdf" target="_blank">
-								<b>Comprehensive Study of One Month of Evictions in Milkwaukee County, Wisconsin</b>
-							</a>
-							<br>
-							<i>Apartment Association of Southeastern Wisconsin Inc (2022)</i>
-						</p>
-						<p>
-							<a href="https://doa.wi.gov/Pages/Wisconsin-Eviction-Data-Project.aspx" target="_blank">
-								<b>Wisconsin Eviction Data Project</b>
-							</a>
-							<br>
-							<i>Interagency Council on Homelessness, State of Wisconsin Department of Administration, Updated Frequently</i>
-						</p>
-						<p>
-							<a href="https://wispolicyforum.org/wp-content/uploads/2018/12/Focus_18_25-1.pdf" target="_blank">
-								<b>Uprooted: Evictions in Wisconsin</b>
-							</a>
-							<br>
-							<i>Wisconsin Policy Forum (2018)</i>
-						</p>
+        <h1>Research &amp; evidence on evictions</h1>
+        <p class="lede">Evidence-based policies that measurably reduce evictions — for legislators, staff, and advocates — plus a searchable library of 160+ publications from ERN, affiliated scholars, and peer institutions.</p>
+        <div class="rh-tablinks">
+          <a class="rh-tablink" href="#policies-that-work"><i class="bi bi-clipboard-check" aria-hidden="true"></i>&nbsp; Policies That Work</a>
+          <a class="rh-tablink" href="#library"><i class="bi bi-journals" aria-hidden="true"></i>&nbsp; Research Library</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== POLICIES THAT WORK — Evidence Brief =================== -->
+    <section class="policies-intro" id="policies-that-work">
+      <div class="container">
+        <div class="pi-eyebrow">Evidence Brief for Policymakers</div>
+        <h2>Seven policies that measurably reduce evictions</h2>
+        <p class="lede">Every intervention below has been evaluated in at least one U.S. jurisdiction and shown to reduce eviction filings, default judgments, or displacement. Summaries cite peer-reviewed studies and independent program evaluations. This brief is designed for legislative staff — jurisdictions, effect sizes, and sources are condensed for quick reference.</p>
+        <div class="pi-actions">
+          <a class="pi-btn primary" href="mailto:evictions@berkeley.edu?Subject=Policy%20brief%20inquiry">Request a deep-dive briefing</a>
+          <a class="pi-btn ghost" href="#library">See the full evidence base ↓</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-list">
+      <div class="container">
+
+        <!-- Policy 1 -->
+        <div class="policy-card">
+          <div class="policy-number">1</div>
+          <div class="policy-body">
+            <h3>Right to Counsel in Eviction Cases</h3>
+            <p class="pc-what">Publicly funded legal representation for low-income tenants facing eviction. Typically phased in by income threshold and case type.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              In New York City's pilot ZIP codes (2017–2019), 84% of represented tenants remained housed vs. ~30% of unrepresented tenants; citywide evictions fell by 41% after universal implementation. San Francisco reported a 67% reduction in defaults. Similar gains documented in Cleveland and Philadelphia.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> New York City, San Francisco, Philadelphia, Cleveland, Washington State (2021, statewide), Connecticut, Maryland, Minnesota, Washington D.C., Boulder, Kansas City, Louisville, Toledo, Detroit.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> NYC Office of Civil Justice Annual Reports; Stout Risius Ross (2020) — Cost-Benefit Analysis of Right to Counsel; Seron et al. (2001) <em>Housing Policy Debate</em>; National Coalition for a Civil Right to Counsel.</div>
+          </div>
+        </div>
+
+        <!-- Policy 2 -->
+        <div class="policy-card">
+          <div class="policy-number">2</div>
+          <div class="policy-body">
+            <h3>Pre-Filing Eviction Diversion &amp; Mediation</h3>
+            <p class="pc-what">Programs that require (or strongly incentivize) landlord-tenant mediation <em>before</em> a case can be filed in court — often paired with rental assistance.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Philadelphia's Eviction Diversion Program cut filings by ~36% relative to counterfactual and resolved ~50% of mediated cases without judgment. Michigan's statewide Eviction Diversion Program (2020–2021) distributed $1.1B in rental assistance and kept ~87% of participants housed.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Philadelphia (mandatory), Michigan, Texas (Harris County), New Mexico, Hawaii (emergency rules), Northampton County PA.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> Reina, Aiken, et al. (2023) — Philadelphia Eviction Diversion Program evaluation; The Pew Charitable Trusts; National Center for State Courts.</div>
+          </div>
+        </div>
+
+        <!-- Policy 3 -->
+        <div class="policy-card">
+          <div class="policy-number">3</div>
+          <div class="policy-body">
+            <h3>Emergency Rental Assistance (ERA)</h3>
+            <p class="pc-what">Direct payment of arrears and forward rent to prevent eviction. Most effective when delivered rapidly (&lt;30 days), and when landlord participation is structurally encouraged.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Federal ERA1/ERA2 ($46.5B, 2021–2023) disbursed aid to ~10 million households and is credited by Treasury and the Urban Institute with preventing a post-moratorium eviction wave. State-level follow-ons (e.g., WA, OR, CA) show a 15–30% reduction in filings in jurisdictions with funded ERA vs. matched controls.
+            </div>
+            <div class="pc-jurisdictions"><strong>Active permanent programs:</strong> Washington State Eviction Rental Assistance Program (ERAP), California Housing is Key (archived), New York ERAP, Minnesota RentHelpMN.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> U.S. Treasury ERA Dashboard; Urban Institute (2022) — ERA Implementation Study; NLIHC ERA Tracker; ERN's own HUD-ERA evaluation with Housing Initiative at Penn (2026).</div>
+          </div>
+        </div>
+
+        <!-- Policy 4 -->
+        <div class="policy-card">
+          <div class="policy-number">4</div>
+          <div class="policy-body">
+            <h3>Just Cause Eviction Protections</h3>
+            <p class="pc-what">Require landlords to cite a specific, enumerated reason (nonpayment, lease violation, owner-move-in, etc.) before terminating a tenancy. Reduces no-fault displacement and retaliation.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Oregon's SB 608 (2019, nation's first statewide just-cause) was associated with a decline in no-cause terminations; California's AB 1482 (2019) extended protections to ~9M tenants. Quasi-experimental evidence from Seattle shows lower displacement rates for protected units.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> California, Oregon, Washington, New Jersey, New Hampshire, Washington D.C., Seattle, New York City, San Francisco, Los Angeles, Oakland, Portland (OR), and dozens of California municipalities. Currently moving: San Rafael, CA (Oct 2026).</div>
+            <div class="pc-cites"><strong>Key sources:</strong> Pastor, Carter &amp; Abood (2018) — USC Dornsife; Oregon Housing &amp; Community Services SB 608 Report; UC Berkeley Urban Displacement Project.</div>
+          </div>
+        </div>
+
+        <!-- Policy 5 -->
+        <div class="policy-card">
+          <div class="policy-number">5</div>
+          <div class="policy-body">
+            <h3>Sealing &amp; Expungement of Eviction Records</h3>
+            <p class="pc-what">Automatically seal or expunge eviction filings — especially dismissed or settled cases — so tenants are not screened out of future housing by the mere existence of a filing.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Research shows tenant-screening companies report even dismissed filings, generating a "Scarlet E" that persists for years. Minnesota's Statute 484.014 and Colorado's SB21-173 have reduced screening-based rejections; California SB 1100 (2023) sealed dismissed filings statewide.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Minnesota, Colorado, California (SB 1100), New York, New Jersey, Nevada, Illinois, Oregon, Washington. Considered: Arizona, Massachusetts.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> Eviction Lab — "The Scarlet E" Series; Sandefur (2014) <em>Indiana Law Review</em>; Kleysteuber (2007) <em>Yale Law Journal</em>; NLIHC Eviction Record Sealing Tracker.</div>
+          </div>
+        </div>
+
+        <!-- Policy 6 -->
+        <div class="policy-card">
+          <div class="policy-number">6</div>
+          <div class="policy-body">
+            <h3>Source-of-Income (SOI) Discrimination Protection</h3>
+            <p class="pc-what">Prohibit landlords from refusing to rent to Section 8 voucher holders or other lawful-source recipients. Expands housing choice and reduces concentration of voucher use in high-eviction neighborhoods.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Cunningham et al. (Urban Institute, 2018) paired-testing study: denial rates for voucher holders drop from 78% to 31% in SOI-protected jurisdictions. Voucher lease-up rates improve 10–20 percentage points.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> 22 states + D.C. including California, Washington, Oregon, Massachusetts, Minnesota, New York, New Jersey, Virginia, Illinois, Connecticut; 100+ municipalities.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> Cunningham et al. (2018) — Urban Institute; NYU Furman Center; Poverty &amp; Race Research Action Council SOI Tracker; HUD PD&amp;R Report (2022).</div>
+          </div>
+        </div>
+
+        <!-- Policy 7 -->
+        <div class="policy-card">
+          <div class="policy-number">7</div>
+          <div class="policy-body">
+            <h3>Extended Cure &amp; Notice Periods</h3>
+            <p class="pc-what">Lengthen statutory notice-to-quit, pay-or-quit, and cure periods (e.g., from 3 days to 14 days). Gives tenants time to access assistance, rectify the default, or find counsel.</p>
+            <div class="pc-evidence">
+              <strong>Evidence:</strong>
+              Washington's 2019 extension of the pay-or-quit period from 3 to 14 days, combined with standardized notice forms, was associated with a measurable decline in default judgments and a higher rate of tenant appearance in court. Similar findings in Oregon and Connecticut.
+            </div>
+            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Washington (14-day pay-or-quit, 2019), Oregon (10-day), Connecticut, Nevada, Arizona. Federal CARES Act 30-day notice remains in place for covered properties.</div>
+            <div class="pc-cites"><strong>Key sources:</strong> Washington State Supreme Court Gender &amp; Justice Commission; Seattle University Korematsu Center — <em>Losing Home</em> (2018); Oregon Law Center; ERN Washington state pipeline (evictionresearch.net/washington/).</div>
+          </div>
+        </div>
+
+        <!-- Caveats box -->
+        <div class="callout-why" style="margin-top:32px;">
+          <strong>Why these seven?</strong>
+          These are policies with direct, quantified evidence of reducing eviction filings, default judgments, or post-filing displacement — not merely improving tenants' legal rights in the abstract. Complementary interventions (rent stabilization, housing-first programs, tenant opportunity-to-purchase acts) also appear in the peer-reviewed literature but have more mixed or indirect evidence on eviction specifically and are covered in the full library below. For a tailored briefing on any of the above, <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request" style="color:#F9322B; font-weight:600;">contact ERN</a>.
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== BIBLIOGRAPHY LIBRARY =================== -->
+    <section class="bib-section" id="library">
+      <div class="container">
+
+        <div class="bib-header">
+          <h2>Eviction Research Library</h2>
+          <p>Peer-reviewed publications, reports, working papers, and datasets on eviction, displacement, and housing precarity — searchable by state, type, and keyword. Know of work that should be included? <a href="mailto:evictions@berkeley.edu?Subject=Library%20submission">Email us</a>.</p>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="filter-bar">
+          <div class="fb-search">
+            <input id="f-search" type="search" placeholder="Search by title, author, or keyword…" aria-label="Search publications">
+          </div>
+          <select id="f-state" aria-label="Filter by state">
+            <option value="">All states</option>
+          </select>
+        </div>
+
+        <!-- Type pills -->
+        <div class="type-pills" id="type-pills">
+          <button class="type-pill active" data-type="">All types</button>
+          <button class="type-pill" data-type="academic">Academic</button>
+          <button class="type-pill" data-type="report">Reports</button>
+          <button class="type-pill" data-type="working-paper">Working Papers</button>
+          <button class="type-pill" data-type="dataset">Datasets &amp; Trackers</button>
+          <button class="type-pill" data-type="news">News</button>
+        </div>
+
+        <div class="result-summary" id="result-summary">Loading library…</div>
+
+        <div class="bib-list" id="bib-list"></div>
+
+        <div class="bib-empty" id="bib-empty" style="display:none;">
+          <i class="bi bi-search" aria-hidden="true"></i>
+          No publications match your filters. Try broadening your search.
+        </div>
       </div>
     </section>
 
@@ -1450,37 +283,51 @@
 
 
   <footer id="footer" class="footer dark-background">
-
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-3 col-md-6 footer-about">
+
+        <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy">
+            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy" style="max-height:70px; width:auto;">
           </a>
-          <div class="social-links d-flex mt-4">
+          <p style="margin-top:14px; font-size:14px; line-height:1.55; color:#d5dde6;">Open-source eviction data and research for policy, journalism, and tenant advocacy. Housed in UC&nbsp;Berkeley's Department of Sociology.</p>
+          <div class="social-links d-flex mt-3">
             <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="bi bi-cloud"></i></a>
             <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
             <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email"><i class="bi bi-envelope"></i></a>
           </div>
         </div>
-        <div class="col-lg-2 col-md-4 footer-links">
-          <h4>Useful Links</h4>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Research</h4>
           <ul>
-            <li><a href="https://evictionresearch.net/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="resources.html">Resources</a></li>
             <li><a href="research.html">Other Eviction Research</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="news.html">News &amp; Press</a></li>
+            <li><a href="about.html#team">Team</a></li>
           </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">Eviction Help</a></li>
+            <li><a href="https://evictionresearch.net/hprm/" target="_blank">HPRM Dashboard</a></li>
+            <li><a href="https://github.com/EvictionResearch" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="mailto:evictions@berkeley.edu">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-links">
+          <h4>Affiliated With</h4>
+          <p style="font-size:13px; line-height:1.6; color:#d5dde6;">UC Berkeley Sociology · Institute of Governmental Studies · Berkeley Institute for Data Science · Division of Computing, Data Science &amp; Society · Urban Displacement Project</p>
+          <p style="font-size:12px; color:#9eabbd; margin-top:10px;">Research outputs are preserved and citable via Zenodo DOI.</p>
         </div>
       </div>
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p class="mb-1"><small>The Eviction Research Network is housed in UC Berkeley's Department of Sociology and affiliated with IGS, BIDS, CDSS, and the Urban Displacement Project.</small></p>
       <p>&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
     </div>
 
   </footer>
@@ -1491,11 +338,104 @@
   <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files (minimal — this page only needs Bootstrap; main.js is guarded for missing libs) -->
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-
-  <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
+
+  <!-- Research library filter / render -->
+  <script>
+    (function () {
+      var DATA_URL = 'assets/data/research.json';
+      var state = { items: [], q: '', st: '', tp: '' };
+
+      var listEl     = document.getElementById('bib-list');
+      var emptyEl    = document.getElementById('bib-empty');
+      var summaryEl  = document.getElementById('result-summary');
+      var searchEl   = document.getElementById('f-search');
+      var stateEl    = document.getElementById('f-state');
+      var pillsEl    = document.getElementById('type-pills');
+
+      function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+      function render() {
+        var q = state.q.trim().toLowerCase();
+        var matches = state.items.filter(function (it) {
+          if (state.tp && it.type !== state.tp) return false;
+          if (state.st && it.state !== state.st) return false;
+          if (q) {
+            var hay = ((it.title||'') + ' ' + (it.authors||'') + ' ' + (it.venue||'') + ' ' + (it.state||'')).toLowerCase();
+            if (hay.indexOf(q) === -1) return false;
+          }
+          return true;
+        });
+
+        summaryEl.innerHTML = 'Showing <strong>' + matches.length + '</strong> of ' + state.items.length + ' publications';
+
+        if (!matches.length) {
+          listEl.innerHTML = '';
+          emptyEl.style.display = 'block';
+          return;
+        }
+        emptyEl.style.display = 'none';
+
+        var html = matches.map(function (it) {
+          var meta = [];
+          if (it.authors) meta.push('<span class="bc-authors">' + esc(it.authors) + '</span>');
+          if (it.year)    meta.push(esc(it.year));
+          if (it.venue)   meta.push('<span class="bc-venue">' + esc(it.venue) + '</span>');
+          var metaStr = meta.join(' &middot; ');
+          var typeLabel = ({academic:'Academic', report:'Report', news:'News', dataset:'Dataset', 'working-paper':'Working Paper', book:'Book'})[it.type] || it.type;
+          var stateStr  = it.state && it.state !== 'national' ? '<span class="bc-state">' + esc(it.state) + '</span>' : (it.state === 'national' ? '<span class="bc-state">National</span>' : '');
+          return '<a class="bib-card" href="' + esc(it.url || '#') + '" target="_blank" rel="noopener">'
+               +   '<div class="bc-title">' + esc(it.title) + '</div>'
+               +   (metaStr ? '<div class="bc-meta">' + metaStr + '</div>' : '')
+               +   '<div class="bc-tags">'
+               +     '<span class="bc-type ' + esc(it.type) + '">' + esc(typeLabel) + '</span>'
+               +     stateStr
+               +   '</div>'
+               + '</a>';
+        }).join('');
+        listEl.innerHTML = html;
+      }
+
+      function populateStates() {
+        var states = {};
+        state.items.forEach(function (it) { if (it.state) states[it.state] = true; });
+        var keys = Object.keys(states).sort();
+        // Move "national" to top
+        keys = keys.filter(function (k) { return k !== 'national'; });
+        if (states.national) keys.unshift('national');
+        keys.forEach(function (k) {
+          var opt = document.createElement('option');
+          opt.value = k;
+          opt.textContent = k === 'national' ? 'National (not state-specific)' : k.charAt(0).toUpperCase() + k.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
+          stateEl.appendChild(opt);
+        });
+      }
+
+      searchEl.addEventListener('input', function (e) { state.q = e.target.value; render(); });
+      stateEl.addEventListener('change', function (e) { state.st = e.target.value; render(); });
+      pillsEl.addEventListener('click', function (e) {
+        var btn = e.target.closest('.type-pill');
+        if (!btn) return;
+        pillsEl.querySelectorAll('.type-pill').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state.tp = btn.getAttribute('data-type') || '';
+        render();
+      });
+
+      fetch(DATA_URL)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          state.items = data.items || [];
+          populateStates();
+          render();
+        })
+        .catch(function () {
+          summaryEl.textContent = 'Could not load publications library.';
+        });
+    })();
+  </script>
 
 </body>
 

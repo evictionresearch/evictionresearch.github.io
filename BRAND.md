@@ -28,10 +28,11 @@ Eviction Research Network (ERN) website and affiliated projects. Keep in sync wi
 | Role | Font | CSS Variable |
 |---|---|---|
 | Body / default | Open Sans | `--default-font` |
-| Headings | Roboto | `--heading-font` |
-| Navigation / labels | Poppins | `--nav-font` |
+| Headings, navigation, labels, pills | Roboto | `--heading-font`, `--nav-font` |
 
 All fonts loaded via Google Fonts CDN.
+
+> **2026-04-20:** Poppins dropped from ERN stack (was `--nav-font`). Roboto now drives nav/labels in addition to headings. Rationale: one fewer render-blocking font family for PageSpeed. CiDR Lab is separately on Poppins-only — no web-font overlap between the two brands.
 
 ---
 

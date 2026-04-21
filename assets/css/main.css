@@ -50,11 +50,15 @@
   --surface-color: #ffffff;
 }
 
+/* 2026-04-20: align .dark-background with ERN brand palette.
+   Previous values inherited from UpConstruction (#060606 / #252525) diverged from
+   BRAND.md — dark navy #19222C is canonical for dark surfaces (header, footer, hero).
+   Surface color set to medium blue #223754 for subtle card/inner-element contrast. */
 .dark-background {
-  --background-color: #060606;
+  --background-color: #19222C;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #252525;
+  --surface-color: #223754;
   --contrast-color: #ffffff;
 }
 
@@ -191,11 +195,13 @@ h6 {
 
 /* Global Header on Scroll
 ------------------------------*/
+/* 2026-04-20: scrolled header text uses brand navy (#19222C heading,
+   #223754 body) instead of generic #3c3c3c grey. */
 .scrolled .header {
   --background-color: rgba(255, 255, 255, 0.95);
-  --heading-color: #3c3c3c;
-  --nav-color: #3c3c3c;
-  --nav-hover-color: #3c3c3c;
+  --heading-color: #19222C;
+  --nav-color: #223754;
+  --nav-hover-color: #19222C;
 }
 
 /*--------------------------------------------------------------
@@ -466,8 +472,6 @@ h6 {
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
-  background: url("C:/Users/miasc/git/miaschwing/EN_newtemplate/images/seattle_air.png") center no-repeat;
-  background-size: cover;
   font-size: 14px;
   position: relative;
 }
@@ -476,12 +480,11 @@ h6 {
   position: relative;
 }
 
-.footer:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 40%);
-  position: absolute;
-  inset: 0;
-}
+/* 2026-04-20: removed broken Windows-absolute background image path
+   (url("C:/Users/miasc/...seattle_air.png")) and the translucent ::before overlay
+   that depended on it. Footer now uses the solid brand dark-navy #19222C from
+   .dark-background. If a textured hero-style footer is wanted again, reinstate
+   with a relative path like images/seattle_air.webp + 1x/2x srcset. */
 
 .footer .footer-top {
   padding-top: 50px;

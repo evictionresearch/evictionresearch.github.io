@@ -34,6 +34,14 @@
     .header .logo img{max-height:60px;width:auto}
     .page-title{padding:160px 0 60px;text-align:center;position:relative}
     .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
+    /* Skip link + a11y utilities (inlined so they work before main.css loads) */
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:var(--heading-color);padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+    .portfolio-filters li{cursor:pointer}
+    .portfolio-filters li[aria-pressed="true"]{background:var(--accent-color);color:#fff}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -143,58 +151,59 @@
 
 <body class="projects-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <!-- Skip link — jumps keyboard/screen-reader users past nav to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1><img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="The Eviction Research Network logo;"></h1> 
-        <!-- <h1 class="sitename">Eviction Research Network</h1> <span>.</span> -->
-        <!-- style="width: 200px; background-color:rgba(255, 255, 255, 0.8); border-radius: 10px -->
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Maps & Profiles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
-              <li><a href="https://evictionresearch.net/california/" target="_blank">California</a></li>
-              <li><a href="https://evictionresearch.net/delaware/" target="_blank">Delaware</a></li>
-              <li><a href="https://evictionresearch.net/indiana/" target="_blank">Indiana</a></li>
-              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank">Maryland</a></li>
-              <li><a href="https://evictionresearch.net/minnesota/" target="_blank">Minnesota</a></li>
-              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank">Ohio</a></li>
-              <li><a href="https://evictionresearch.net/oregon/" target="_blank">Oregon</a></li>
-              <li><a href="https://evictionresearch.net/washington/" target="_blank">Washington</a></li>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
             </ul>
           </li>
-          <li><a href="news.html" class="active">News</a></li>
+          <li><a href="news.html" aria-current="page" class="active">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
-              <li><a href="https://evictionresearch.net/research.html">Other Eviction Research</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
             </ul>
           </li>
-          <!--<li><a href="blog.html">Blog</a></li>-->
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
       </nav>
 
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" role="main">
 
     <!-- Page Title -->
     <div class="page-title dark-background" style="background-image: url('images/research&news/banner4.png'); background-size: cover; background-position: center;">
       <div class="container position-relative">
-        <h1>Research & News</h1>
-        <nav class="breadcrumbs">
+        <h1>Research &amp; News</h1>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
           <ol>
-            <li><a href="#">Resources</a></li>
-            <li class="current">Research & News</li>
+            <li><a href="index.html">Home</a></li>
+            <li aria-current="page" class="current">Research &amp; News</li>
           </ol>
         </nav>
       </div>
@@ -207,12 +216,11 @@
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-reports">Reports</li>
-            <li data-filter=".filter-articles">Articles</li>
-            <li data-filter=".filter-news">News</li>
-            <!-- <li data-filter=".filter-design">Design</li> -->
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100" role="toolbar" aria-label="Filter posts by type">
+            <li data-filter="*" class="filter-active" role="button" tabindex="0" aria-pressed="true">All</li>
+            <li data-filter=".filter-reports" role="button" tabindex="0" aria-pressed="false">Reports</li>
+            <li data-filter=".filter-articles" role="button" tabindex="0" aria-pressed="false">Articles</li>
+            <li data-filter=".filter-news" role="button" tabindex="0" aria-pressed="false">News</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -243,7 +251,7 @@
                   <br>
                   <p>Analyzes the efficacy of federal government eviction assistance during Covid-19. HUD (U.S. Department of Housing and Urban Development) funded. </p>
                   <hr>
-                  <a href="https://evictionresearch.net/hud-era/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/hud-era/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -255,7 +263,7 @@
                   <h3 class="post-title">Bay Area Housing Precarity Risk Model</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/2025_BAHPRM.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2025_BAHPRM.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2025</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -271,7 +279,7 @@
                   <br>
                   <p>Interactive mapping tool visualizing neighborhoods at highest risk of eviction and economic displacement in the Bay Area.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/hprm/bay/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/hprm/bay/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -283,7 +291,7 @@
                   <h3 class="post-title">What Lies Behind the Answers: Applying Machine Learning to Understand Tenants' Reaction to Eviction</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 18px;">
-                  <img src="images/research&news/2025_WLBtA.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2025_WLBtA.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2025</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -299,7 +307,7 @@
                   <br>
                   <p>Uses Large Language Models to extract and understand the reasons for eviction based on tennant testimonies.</p>
                   <hr>
-                  <a href="https://ideas.repec.org/p/osf/osfxxx/uscxh_v1.html" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://ideas.repec.org/p/osf/osfxxx/uscxh_v1.html" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -311,7 +319,7 @@
                   <h3 class="post-title">Domains of Housing Instability and Intimate Partner Violence Risk Among U.S. Tenants</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 8px;">
-                  <img src="images/research&news/2025_DoHIaIPVRAUST.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2025_DoHIaIPVRAUST.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2025</span> <!-- Jul 2025 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -327,7 +335,7 @@
                   <br>
                   <p>Finds housing instability may be a key risk factor rather than consequence of abuse. </p>
                   <hr>
-                  <a href="https://www.mdpi.com/1660-4601/22/8/1212" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.mdpi.com/1660-4601/22/8/1212" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -339,7 +347,7 @@
                   <h3 class="post-title">The Housing Precarity Risk Model: Forecasting Eviction Risk Post-Pandemic</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/urbandisplaceproject_image.png" class="img-fluid" alt="">
+                  <img src="images/research&news/urbandisplaceproject_image.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2025</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -355,7 +363,7 @@
                   <br>
                   <p>Shows a conservative estimate of which communities are at risk of post-pandemic eviction, displacement, and long-term poverty.</p>
                   <hr>
-                  <a href="https://www.evictionresearch.net/hprm" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.evictionresearch.net/hprm" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -367,7 +375,7 @@
                   <h3 class="post-title">Rooted In Marin: Strategies for Anti-Displacement</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/2025_RIM.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2025_RIM.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2025</span> <!-- May 2025 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -383,7 +391,7 @@
                   <br>
                   <p>Examines Marin County's housing crisis and recommends policies to prevent displacement and preserve displacement.</p>
                   <hr>
-                  <a href="https://www.rootedinmarin.org" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.rootedinmarin.org" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -421,7 +429,7 @@
                   <br>
                   <p>Film examining the structural causes and possible prevention of housing insecurity and homelessness.</p>
                   <hr>
-                  <a href="https://www.amazon.com/Evicting-American-Dream-David-Barnhart/dp/B0FSKZFKDT" class="readmore" target="_blank"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.amazon.com/Evicting-American-Dream-David-Barnhart/dp/B0FSKZFKDT" class="readmore" target="_blank" rel="noopener noreferrer"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -433,7 +441,7 @@
                   <h3 class="post-title">Evaluating tenant-landlord tensions using generative AI on online tenant forums</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 0px;">
-                  <img src="images/research&news/2025_ETLTUGAIoOTF.png" class="img-fluid" alt=""> <!-- Need to add a picture-->
+                  <img src="images/research&news/2025_ETLTUGAIoOTF.png" class="img-fluid" alt="" aria-hidden="true"> <!-- Need to add a picture-->
                   <span class="post-date">2025</span> <!-- Mar 2025 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -449,7 +457,7 @@
                   <br>
                   <p>Uses Reddit forums and generatuve AI to identify tennant-landlord conflicts, finding concerns over fees, utilities, and policy changes.</p>
                   <hr>
-                  <a href="https://link.springer.com/article/10.1007/s42001-025-00378-8" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://link.springer.com/article/10.1007/s42001-025-00378-8" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -461,7 +469,7 @@
                   <h3 class="post-title">Washington State Eviction Filings</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 2px;">
-                  <img src="images/research&news/2024_WSEF.png" class="img-fluid" alt="" style="border: #000000 2px outset">
+                  <img src="images/research&news/2024_WSEF.png" class="img-fluid" alt="" aria-hidden="true" style="border: #000000 2px outset">
                   <span class="post-date">2024</span> <!-- Dec 2024 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -477,7 +485,7 @@
                   <br>
                   <p>Analysis of Washington state evictions by county.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/washington" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/washington" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -489,7 +497,7 @@
                   <h3 class="post-title">Toward a National Eviction Data Collection Strategy Using Natural Language Processing</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 0px;">
-                  <img src="images/research&news/2024_TaNEDCSUNLP.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2024_TaNEDCSUNLP.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2024</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -505,7 +513,7 @@
                   <br>
                   <p>Explains the improvement of eviction data collection through the implementation of Natural Language Processing (NLP) to convert court records to more utilizable format</p>
                   <hr>
-                  <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -517,7 +525,7 @@
                   <h3 class="post-title">Will there be water? Climate change, housing needs, and future water demand in California</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 0px;">
-                  <img src="images/research&news/2024_WTBW.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2024_WTBW.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2024</span> <!-- Oct 2024 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -533,7 +541,7 @@
                   <br>
                   <p>Find climate change and agriculture will be the primary drivers of groundwater scarcity in California's Central Coast through 2060.</p>
                   <hr>
-                  <a href="https://doi.org/10.1016/j.jenvman.2024.122256" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://doi.org/10.1016/j.jenvman.2024.122256" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -545,7 +553,7 @@
                   <h3 class="post-title">Oregon Eviction Filings</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/2024_OEF.png" class="img-fluid" alt=""> <!-- Need to add a picture-->
+                  <img src="images/research&news/2024_OEF.png" class="img-fluid" alt="" aria-hidden="true"> <!-- Need to add a picture-->
                   <span class="post-date">2024</span> <!-- Jul 2024 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -561,7 +569,7 @@
                   <br>
                   <p>Analysis of Oregon state evictions by county. </p>
                   <hr>
-                  <a href="https://evictionresearch.net/oregon/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/oregon/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -573,7 +581,7 @@
                   <h3 class="post-title">Racial Disparities in Oregon State Eviction Filings: Quarter 1, 2024 Report</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/2024_RDiOSEF.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2024_RDiOSEF.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2024</span> <!-- May 2024 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -589,7 +597,7 @@
                   <br>
                   <p>Finds eviction filings in Oregon at historic high and racial disparities are the widest recorded, disproportionately affecting Black and Latinx renters. </p>
                   <hr>
-                  <a href="https://evictionresearch.net/oregon/reports/Oregon_Racial_Disparities_Report_2024_q1.pdf" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/oregon/reports/Oregon_Racial_Disparities_Report_2024_q1.pdf" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -601,7 +609,7 @@
                   <h3 class="post-title">Targeted, Harassed, and Displaced: The Role of Discrimination in Oregon Evictions</h3>
                 </div>
                 <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 5px;">
-                  <img src="images/research&news/2024_THaD.png" class="img-fluid" alt="">
+                  <img src="images/research&news/2024_THaD.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2024</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -617,7 +625,7 @@
                   <br>
                   <p>A conversation with marginalized Oregon tenants about their experiences of unfair, malicious, or prejudicial treatment during the eviction process. </p>
                   <hr>
-                  <a href="https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1387&context=usp_fac" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1387&context=usp_fac" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -629,7 +637,7 @@
                   <h3 class="post-title">Neighborhood gentrification, displacement, and severe maternal morbidity in California</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/neighborhood_gentrification.png" class="img-fluid" alt="">
+                  <img src="images/research&news/neighborhood_gentrification.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2023</span> <!-- Oct 2023 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -645,7 +653,7 @@
                   <br>
                   <p>Assess the association between various measures of genrification and severe maternal morbidity.</p>
                   <hr>
-                  <a href="https://doi.org/10.1016/j.socscimed.2023.116196" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://doi.org/10.1016/j.socscimed.2023.116196" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -657,7 +665,7 @@
                   <h3 class="post-title">Eviction for Children During the Pandemic</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/children_nat'l_academies.jpg.html.jpeg" class="img-fluid" alt="" style="border: #000000 2px outset">
+                  <img src="images/research&news/children_nat'l_academies.jpg.html.jpeg" class="img-fluid" alt="" aria-hidden="true" style="border: #000000 2px outset">
                   <span class="post-date">2023</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -673,7 +681,7 @@
                   <br>
                   <p>Contribution to an advisory report by the National Academies of Sciences, Engineering, Medicine addressing the multi-faceted impact of COVID-19 on children and families, housing precarity being a significant risk factor.</p>
                   <hr>
-                  <a href="https://www.nationalacademies.org/read/26809/chapter/1" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.nationalacademies.org/read/26809/chapter/1" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -685,7 +693,7 @@
                   <h3 class="post-title">San Diego Anti-Displacement Study Existing Conditions Report</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/sandiego_anti_disp.png" class="img-fluid" alt="">
+                  <img src="images/research&news/sandiego_anti_disp.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2023</span> <!-- Jun 2023-->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -701,7 +709,7 @@
                   <br>
                   <p>An application of modeling to understand degree of displacement risk in neighborhoods throughout San Diego.</p>
                   <hr>
-                  <a href="https://urban-displacement.github.io/edr-sandag/index.html#index" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://urban-displacement.github.io/edr-sandag/index.html#index" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -713,7 +721,7 @@
                   <h3 class="post-title">'Flood of evictions' looms in Los Angeles as pandemic tenant protections expire</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/flood_of_evictions.png" class="img-fluid" alt="" style="border: #df1529 2px outset">
+                  <img src="images/research&news/flood_of_evictions.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset">
                   <span class="post-date">2022</span> <!-- Dec 2022 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -729,7 +737,7 @@
                   <br>
                   <p>As pandemic-era tenant protections expire in Los Angeles, many low-income renters fallen behind on rent face a looming surge of evictions amid rising housing costs and insufficient aid.</p>
                   <hr>
-                  <a href="https://www.npr.org/2022/12/03/1140078409/flood-of-evictions-looms-in-los-angeles-as-pandemic-tenant-protections-expire" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.npr.org/2022/12/03/1140078409/flood-of-evictions-looms-in-los-angeles-as-pandemic-tenant-protections-expire" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -741,7 +749,7 @@
                   <h3 class="post-title">Urban Displacement Project’s Salt Lake City Displacement Data Analysis</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/urban_disp_saltlake.png" class="img-fluid" alt="" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
+                  <img src="images/research&news/urban_disp_saltlake.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
                   <span class="post-date">2022</span> <!-- Jul 2022 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -757,7 +765,7 @@
                   <br>
                   <p>Modeling application to understand degree of displacement risk in neighborhoods throughout Salt Lake City.</p>
                   <hr>
-                  <a href="https://urban-displacement.github.io/edr-ut/slc_edr_report/#index" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://urban-displacement.github.io/edr-ut/slc_edr_report/#index" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -769,7 +777,7 @@
                   <h3 class="post-title">Rental Eviction and the COVID-19 Pandemic: Averting a Looming Crisis</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/looming.png" class="img-fluid" alt="" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
+                  <img src="images/research&news/looming.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
                   <span class="post-date">2022</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -785,7 +793,7 @@
                   <br>
                   <p>Methods to reduce rental housing instability and evictions from the National Academies of Science, Engineering, and Medicine.</p>
                   <hr>
-                  <a href="https://www.nationalacademies.org/read/26106/chapter/1" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.nationalacademies.org/read/26106/chapter/1" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -797,7 +805,7 @@
                   <h3 class="post-title">Minnesota Eviction Filings</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/minnesota.png" class="img-fluid" alt="" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
+                  <img src="images/research&news/minnesota.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
                   <span class="post-date">2022</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -813,7 +821,7 @@
                   <br>
                   <p>Analysis of Minnesota state evictions.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/minnesota/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/minnesota/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -825,7 +833,7 @@
                   <h3 class="post-title">Indiana Eviction Filings</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/indiana.png" class="img-fluid" alt="" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
+                  <img src="images/research&news/indiana.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset"> <!-- Need to add a picture-->
                   <span class="post-date">2022</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -841,7 +849,7 @@
                   <br>
                   <p>Analysis of Indiana state evictions.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/indiana/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/indiana/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -853,7 +861,7 @@
                   <h3 class="post-title">Indiana had one of the highest eviction rates in the country before and during the pandemic</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/wfyi_article.png" class="img-fluid" alt="">
+                  <img src="images/research&news/wfyi_article.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2022</span> <!-- Oct 2022 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -869,7 +877,7 @@
                   <br>
                   <p>Indiana had persistently high eviction rates before and during the pandemic, filings remaining close to historic levels despite federal moratoriums; disproportionately impacting Black and low-income communities.</p>
                   <hr>
-                  <a href="https://www.wfyi.org/news/articles/indiana-had-one-of-the-highest-eviction-rates-in-the-country-before-and-during-the-pandemic-accordi" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.wfyi.org/news/articles/indiana-had-one-of-the-highest-eviction-rates-in-the-country-before-and-during-the-pandemic-accordi" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -881,7 +889,7 @@
                   <h3 class="post-title">Dayton, Ohio Eviction Filings</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/dayton.png" class="img-fluid" alt="" style="border: #df1529 2px outset">
+                  <img src="images/research&news/dayton.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset">
                   <span class="post-date">2022</span> <!-- Jul 2022 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -897,7 +905,7 @@
                   <br>
                   <p>Analysis of Dayton, Ohio evictions by census tract. </p>
                   <hr>
-                  <a href="https://evictionresearch.net/ohio/dayton" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/ohio/dayton" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -909,7 +917,7 @@
                   <h3 class="post-title">Delaware Eviction Filings</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/delaware.png" class="img-fluid" alt="" style="border: #df1529 2px outset">
+                  <img src="images/research&news/delaware.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset">
                   <span class="post-date">2022</span> <!-- Jul 2022 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -925,7 +933,7 @@
                   <br>
                   <p>Analysis of Delaware state evictions by census tract. </p>
                   <hr>
-                  <a href="https://evictionresearch.net/delaware/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/delaware/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -937,7 +945,7 @@
                   <h3 class="post-title">Facing Eviction with KQED's "SOLD OUT" Podcast</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/kqed_soldout.png" class="img-fluid" alt="" style="border: #df1529 2px outset">
+                  <img src="images/research&news/kqed_soldout.png" class="img-fluid" alt="" aria-hidden="true" style="border: #df1529 2px outset">
                   <span class="post-date">2021</span> <!-- Nov 2021 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -953,7 +961,7 @@
                   <br>
                   <p>The Housing Precarity Risk Model shows a conservative estimate of which communities are at risk of post-pandemic eviction, displacement, and long-term poverty.</p>
                   <hr>
-                  <a href="https://www.youtube.com/watch?v=NIwODvf3NkQ" class="readmore stretched-link" target="_blank"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.youtube.com/watch?v=NIwODvf3NkQ" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
                 </div> 
               </div>
             </div><!-- End Post Item -->
@@ -967,7 +975,7 @@
                   <h3 class="post-title">U.S. Eviction Filing Patterns in 2020</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/US_evic_filings2020.png" class="img-fluid" alt="">
+                  <img src="images/research&news/US_evic_filings2020.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2021</span> <!-- Apr 2021 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -983,7 +991,7 @@
                   <br>
                   <p>Analyzes U.S. eviction court records during 2020 to show that pandemic-era eviction moratoria significantly reduced filings, but that filings rebounded when protections lapsed, disproportionately affecting Black and female renters.</p>
                   <hr>
-                  <a href="https://journals.sagepub.com/doi/full/10.1177/23780231211009983" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://journals.sagepub.com/doi/full/10.1177/23780231211009983" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -995,7 +1003,7 @@
                   <h3 class="post-title">Uneven Evictions: Who gets evicted in Washington?</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/washington_news.PNG" class="img-fluid" alt="">
+                  <img src="images/research&news/washington_news.PNG" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2020</span> <!-- Jun 2020 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1011,7 +1019,7 @@
                   <br>
                   <p>Summarizes a study showing eviction patterns in Washington State are highly unequal: women, Black, and Latinx renters facing disproportionately high eviction rates shaped by broader racial and economic inequalities.</p>
                   <hr>
-                  <a href="https://magazine.washington.edu/feature/uneven-evictions/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://magazine.washington.edu/feature/uneven-evictions/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1023,7 +1031,7 @@
                   <h3 class="post-title">The Urban Displacement Replication Project</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/urban_disp_replication_proj.png" class="img-fluid" alt="">
+                  <img src="images/research&news/urban_disp_replication_proj.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2020</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1039,7 +1047,7 @@
                   <br>
                   <p>Presents a standardized methodolgy for analyzing urban displacement patterns, gentrification, and exclusion across U.S. cities, designed to be replicable. Incorperates more nuanced classification system and risk factors (such as housing costs, demographics, and market pressures).</p>
                   <hr>
-                  <a href="https://www.urbandisplacement.org/wp-content/uploads/2021/07/udp_replication_project_methodology_10.16.2020-converted.pdf" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.urbandisplacement.org/wp-content/uploads/2021/07/udp_replication_project_methodology_10.16.2020-converted.pdf" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1051,7 +1059,7 @@
                   <h3 class="post-title">Sensitive Communities in California: Mapping Vulnerability and Displacement Pressure</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/sensitive.png" class="img-fluid" alt="">
+                  <img src="images/research&news/sensitive.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2020</span> <!-- Jan 2020 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1067,7 +1075,7 @@
                   <br>
                   <p>Mapping tool identifing sensitive communities in California through a combination of social vulnerability (low-income, people of color, rent burden) and market pressures (rising rent and rent gaps) to spotlight areas at risk of displacesment. It finds roughly 27% of census tracts are sensitive, concentrated in communities of color and renter-heavy neighborhoods. </p>
                   <hr>
-                  <a href="https://www.urbandisplacement.org/blog/sensitive-communities-in-california-mapping-vulnerability-and-displacement-pressure/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.urbandisplacement.org/blog/sensitive-communities-in-california-mapping-vulnerability-and-displacement-pressure/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1079,7 +1087,7 @@
                   <h3 class="post-title">Baltimore Eviction Risk Map</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/baltimore.png" class="img-fluid" alt="">
+                  <img src="images/research&news/baltimore.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2020</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1095,7 +1103,7 @@
                   <br>
                   <p>Map of Baltimore, Maryland eviction risk by census tract.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/maryland/maps/baltimore.html" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/maryland/maps/baltimore.html" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1107,7 +1115,7 @@
                   <h3 class="post-title">The State of Evictions: Results from the University of Washington Evictions Project</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/UW_evictions_proj.PNG" class="img-fluid" alt="" style="border: #000000 2px outset">
+                  <img src="images/research&news/UW_evictions_proj.PNG" class="img-fluid" alt="" aria-hidden="true" style="border: #000000 2px outset">
                   <span class="post-date">2019</span>
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1123,7 +1131,7 @@
                   <br>
                   <p>Finds Washington evictions were widespread and racially unequal before the pandemic, Black renters and women disproportionately affected amid rising rents and declining affordable housing.</p>
                   <hr>
-                  <a href="https://evictionresearch.net/washington/report/State_of_Evictions_2020/" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://evictionresearch.net/washington/report/State_of_Evictions_2020/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1135,7 +1143,7 @@
                   <h3 class="post-title">Formal Social Control in Changing Neighborhoods: Racial Implications of Neighborhood Context on Reactive Policing</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/social_control.png" class="img-fluid" alt="">
+                  <img src="images/research&news/social_control.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2018</span> <!-- Dec 2018 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1151,7 +1159,7 @@
                   <br>
                   <p>Examines how neighborhood change and race shape police responses to incidents.</p>
                   <hr>
-                  <a href="https://journals.sagepub.com/doi/pdf/10.1111/cico.12346" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://journals.sagepub.com/doi/pdf/10.1111/cico.12346" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1163,7 +1171,7 @@
                   <h3 class="post-title">Measures of Human Mobility Using Mobile Phone Records Enhanced with GIS Data</h3>
                 </div>
                 <div class="post-img position-relative overflow-hidden">
-                  <img src="images/research&news/rwanda_mobile.png" class="img-fluid" alt="">
+                  <img src="images/research&news/rwanda_mobile.png" class="img-fluid" alt="" aria-hidden="true">
                   <span class="post-date">2015</span> <!-- Jul 2015 -->
                 </div>
                 <div class="post-content d-flex flex-column">
@@ -1179,7 +1187,7 @@
                   <br>
                   <p>Uses mobile phone data and GIS information to develop more accurate measures of human mobility for population behavior and spatial inequity research.</p>
                   <hr>
-                  <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0133630" class="readmore stretched-link" target="_blank"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0133630" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1194,47 +1202,81 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
-<div class="container footer-top">
+  <footer id="footer" class="footer dark-background" role="contentinfo">
+
+    <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-3 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy">
+
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
           </a>
-          <div class="social-links d-flex mt-4">
-            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="bi bi-cloud"></i></a>
-            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Institute of Governmental Studies (IGS), Berkeley Institute for Data Science (BIDS), and the Urban Displacement Project.</p>
+          <div class="social-links d-flex mt-3" aria-label="Social media">
+            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-4 footer-links">
-          <h4>Useful Links</h4>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Research</h4>
           <ul>
-            <li><a href="https://evictionresearch.net/">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="research.html">Other Eviction Research</a></li>
+            <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+            <li><a href="research.html">Publications</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="news.html">News &amp; Press</a></li>
           </ul>
         </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Maps &amp; Profiles</h4>
+          <ul>
+            <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+            <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+            <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+            <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+            <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+            <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+            <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+            <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="resources.html">Eviction Help</a></li>
+            <li><a href="research.html">Other Research</a></li>
+            <li><a href="about.html">About &amp; Team</a></li>
+            <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Affiliated With</h4>
+          <ul>
+            <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+            <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+            <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+            <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          </ul>
+        </div>
+
+      </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p class="mb-1"><small>The Eviction Research Network is housed in UC Berkeley's Department of Sociology and affiliated with IGS, BIDS, CDSS, and the Urban Displacement Project.</small></p>
-      <p>© <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    <div class="container">
+      <div class="footer-legal">
+        <p class="mb-1">&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong>. All rights reserved.</p>
+        <p class="mb-0">The Eviction Research Network is a project of UC Berkeley's Department of Sociology. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</p>
       </div>
     </div>
 
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>

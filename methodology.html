@@ -41,6 +41,12 @@
     .method-hero h1{color:#fff;font-size:48px;font-weight:700;margin:12px 0 18px}
     .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
     .section-eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-color);display:inline-block;margin-bottom:8px}
+    /* Skip link + a11y utilities (inlined so they work before main.css loads) */
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -59,32 +65,36 @@
 
 <body class="methodology-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <!-- Skip link — jumps keyboard/screen-reader users past nav to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="m-0"><img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="The Eviction Research Network logo"></h1>
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
-              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener">California</a></li>
-              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener">Delaware</a></li>
-              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener">Indiana</a></li>
-              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener">Maryland</a></li>
-              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener">Minnesota</a></li>
-              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener">Ohio</a></li>
-              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener">Oregon</a></li>
-              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener">Washington</a></li>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
             </ul>
           </li>
           <li><a href="news.html">News</a></li>
-          <li><a href="methodology.html" class="active">Methodology</a></li>
-          <li class="dropdown"><a href="#"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="methodology.html" aria-current="page" class="active">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
@@ -92,13 +102,13 @@
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
       </nav>
 
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" role="main">
 
     <!-- ======= Hero ======= -->
     <section class="method-hero">
@@ -144,27 +154,27 @@
 
         <ol class="pipeline-flow">
           <li class="pipeline-stage">
-            <i class="bi bi-inboxes"></i>
+            <i class="bi bi-inboxes" aria-hidden="true"></i>
             <h4>Acquisition</h4>
             <p>Partner with data providers &amp; court systems to obtain raw filings.</p>
           </li>
           <li class="pipeline-stage">
-            <i class="bi bi-geo-alt"></i>
+            <i class="bi bi-geo-alt" aria-hidden="true"></i>
             <h4>Geocoding</h4>
             <p>Address &rarr; latitude/longitude &rarr; census geography.</p>
           </li>
           <li class="pipeline-stage">
-            <i class="bi bi-person-vcard"></i>
+            <i class="bi bi-person-vcard" aria-hidden="true"></i>
             <h4>Name Cleaning</h4>
             <p>Extract first/last names; filter out businesses &amp; unnamed tenants.</p>
           </li>
           <li class="pipeline-stage">
-            <i class="bi bi-people"></i>
+            <i class="bi bi-people" aria-hidden="true"></i>
             <h4>Demographic Estimation</h4>
             <p>Bayesian imputation of race using surname + neighborhood.</p>
           </li>
           <li class="pipeline-stage">
-            <i class="bi bi-funnel"></i>
+            <i class="bi bi-funnel" aria-hidden="true"></i>
             <h4>Deduplication</h4>
             <p>Collapse repeat entries of the same case over time.</p>
           </li>
@@ -186,42 +196,42 @@
             <span class="stage-num">Stage 01</span>
             <h3>Data acquisition</h3>
             <p>Civil court records aren't centralized in the United States. We source them from five distinct partners covering 30+ states &mdash; each with a different data format and a different level of completeness.</p>
-            <a href="#acquisition" class="stage-link">Technical details <i class="bi bi-arrow-right"></i></a>
+            <a href="#acquisition" class="stage-link">Technical details <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="stage-card">
             <span class="stage-num">Stage 02</span>
             <h3>Geocoding &amp; redistribution</h3>
             <p>Raw addresses vary wildly in precision. We geocode to the highest feasible scale (tract &gt; ZIP &gt; county) and redistribute low-precision cases into the "primary geography" of their county.</p>
-            <a href="#geocoding" class="stage-link">Technical details <i class="bi bi-arrow-right"></i></a>
+            <a href="#geocoding" class="stage-link">Technical details <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="stage-card">
             <span class="stage-num">Stage 03</span>
             <h3>Defendant name cleaning</h3>
             <p>We use regular expressions and string cleaning to extract individual tenants and exclude commercial cases, so state profiles reflect household evictions only.</p>
-            <a href="#pii" class="stage-link">Technical details <i class="bi bi-arrow-right"></i></a>
+            <a href="#pii" class="stage-link">Technical details <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="stage-card">
             <span class="stage-num">Stage 04</span>
             <h3>Demographic estimation</h3>
             <p>Using Imai &amp; Khanna's Bayesian ecological inference, we combine surname and neighborhood racial composition to compute probabilistic race estimates for each tenant. We never assign race &mdash; we estimate group rates.</p>
-            <a href="#demographic" class="stage-link">Technical details <i class="bi bi-arrow-right"></i></a>
+            <a href="#demographic" class="stage-link">Technical details <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="stage-card">
             <span class="stage-num">Stage 05</span>
             <h3>Deduplication</h3>
             <p>Court systems often log the same case multiple times across different events. We collapse duplicates at the tract level by matching on name and address, keeping the earliest row.</p>
-            <a href="#deduplication" class="stage-link">Technical details <i class="bi bi-arrow-right"></i></a>
+            <a href="#deduplication" class="stage-link">Technical details <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
           <div class="stage-card">
             <span class="stage-num">Stage 06</span>
             <h3>Aggregation &amp; analysis</h3>
             <p>Clean records feed eviction-rate calculations by tract, county, state, race, and month &mdash; the backbone of every state profile, dashboard, and the Housing Precarity Risk Model.</p>
-            <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener" class="stage-link">Explore HPRM <i class="bi bi-arrow-right"></i></a>
+            <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer" class="stage-link">Explore HPRM <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
           </div>
 
         </div>
@@ -470,8 +480,8 @@
 }</code></pre>
 
             <div class="cite-actions">
-              <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener" class="btn-get-started"><span>Cityscape methodology paper</span> <i class="bi bi-file-earmark-pdf"></i></a>
-              <a href="mailto:evictions@berkeley.edu?Subject=Methodology%20question" class="btn-get-started"><span>Ask a methods question</span> <i class="bi bi-envelope"></i></a>
+              <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer" class="btn-get-started"><span>Cityscape methodology paper</span> <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i></a>
+              <a href="mailto:evictions@berkeley.edu?Subject=Methodology%20question" class="btn-get-started"><span>Ask a methods question</span> <i class="bi bi-envelope" aria-hidden="true"></i></a>
             </div>
           </div>
         </div>
@@ -483,37 +493,54 @@
       <div class="container text-center">
         <h2 style="color:#fff;">Want to stand up a new state pipeline?</h2>
         <p style="color:rgba(255,255,255,.8); max-width:720px; margin:0 auto 24px;">If you're a court administrator, researcher, or legal aid organization with access to eviction data in a state we haven't reached yet, we'd like to build with you.</p>
-        <a href="mailto:evictions@berkeley.edu?Subject=State%20pipeline%20partnership" class="btn-cta">Start a conversation <i class="bi bi-envelope"></i></a>
+        <a href="mailto:evictions@berkeley.edu?Subject=State%20pipeline%20partnership" class="btn-cta">Start a conversation <i class="bi bi-envelope" aria-hidden="true"></i></a>
       </div>
     </section>
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <footer id="footer" class="footer dark-background" role="contentinfo">
+
     <div class="container footer-top">
       <div class="row gy-4">
-        <div class="col-lg-3 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy">
+
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
           </a>
-          <div class="social-links d-flex mt-4">
-            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener" aria-label="Bluesky"><i class="bi bi-cloud"></i></a>
-            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Institute of Governmental Studies (IGS), Berkeley Institute for Data Science (BIDS), and the Urban Displacement Project.</p>
+          <div class="social-links d-flex mt-3" aria-label="Social media">
+            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
 
-        <div class="col-lg-2 col-md-4 footer-links">
+        <div class="col-lg-2 col-md-6 footer-links">
           <h4>Research</h4>
           <ul>
-            <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener">HPRM</a></li>
+            <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
             <li><a href="research.html">Publications</a></li>
             <li><a href="methodology.html">Methodology</a></li>
             <li><a href="news.html">News &amp; Press</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-2 col-md-4 footer-links">
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Maps &amp; Profiles</h4>
+          <ul>
+            <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+            <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+            <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+            <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+            <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+            <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+            <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+            <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
           <h4>Resources</h4>
           <ul>
             <li><a href="resources.html">Eviction Help</a></li>
@@ -523,30 +550,30 @@
           </ul>
         </div>
 
-        <div class="col-lg-3 col-md-6 footer-links">
+        <div class="col-lg-2 col-md-6 footer-links">
           <h4>Affiliated With</h4>
           <ul>
-            <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener">UC Berkeley Sociology</a></li>
-            <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener">IGS Berkeley</a></li>
-            <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener">BIDS</a></li>
-            <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener">Urban Displacement Project</a></li>
+            <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+            <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+            <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+            <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
           </ul>
         </div>
+
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p class="mb-1"><small>The Eviction Research Network is housed in UC Berkeley's Department of Sociology and affiliated with IGS, BIDS, CDSS, and the Urban Displacement Project.</small></p>
-      <p>© <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong> <span>All Rights Reserved</span></p>
+    <div class="container">
       <div class="footer-legal">
-        <p class="mb-0">Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener">Zenodo DOI</a>.</p>
+        <p class="mb-1">&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong>. All rights reserved.</p>
+        <p class="mb-0">The Eviction Research Network is a project of UC Berkeley's Department of Sociology. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</p>
       </div>
     </div>
 
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
   <!-- Preloader -->
   <div id="preloader"></div>

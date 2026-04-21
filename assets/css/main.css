@@ -204,6 +204,14 @@ h6 {
   --nav-hover-color: #19222C;
 }
 
+/* 2026-04-21: dual-logo swap for dark-vs-light header states.
+   Default (unscrolled) header bg is dark navy — show reversed logo (white text).
+   When body.scrolled applies translucent-white header — show the standard dark-text logo. */
+.header .logo .logo-dark-bg { display: block; }
+.header .logo .logo-light-bg { display: none; }
+.scrolled .header .logo .logo-dark-bg { display: none; }
+.scrolled .header .logo .logo-light-bg { display: block; }
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -4703,4 +4711,94 @@ section,
 
 @media (max-width: 640px) {
   .filter-bar { grid-template-columns: 1fr; }
+}
+
+/*--------------------------------------------------------------
+# Accessibility — WCAG 2.1 AA
+# Added 2026-04-21 as part of site-wide a11y + cohesion pass
+--------------------------------------------------------------*/
+
+/* Skip link — visible on focus, jumps to #main */
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  background: #ffffff;
+  color: var(--heading-color, #19222C);
+  padding: 10px 16px;
+  border-radius: 4px;
+  z-index: 10000;
+  font-weight: 600;
+  font-family: var(--heading-font, sans-serif);
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: top 0.15s ease-in-out;
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 8px;
+  outline: 3px solid var(--accent-color, #F9322B);
+  outline-offset: 2px;
+  color: var(--heading-color, #19222C);
+}
+
+/* Visually hidden utility (screen-reader only) */
+.visually-hidden,
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Consistent visible focus indicator on interactive elements */
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent-color, #F9322B);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Ensure header logo anchor has no outline-less "look" on focus */
+.header .logo:focus-visible {
+  outline: 3px solid var(--accent-color, #F9322B);
+  outline-offset: 4px;
+}
+
+/* Honor reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Guarantee touch-target size on nav/footer links (WCAG 2.5.5 AAA, best practice AA) */
+.navmenu a,
+.footer-links a,
+.social-links a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Make focus on nav dropdown toggles visible */
+.navmenu .dropdown > a:focus-visible {
+  outline: 3px solid var(--accent-color, #F9322B);
+  outline-offset: 2px;
 }

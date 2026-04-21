@@ -24,15 +24,30 @@
 
   /**
    * Mobile nav toggle
+   * Updated 2026-04-21: toggles aria-expanded for a11y; supports Escape to close.
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
   function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
+    const body = document.querySelector('body');
+    body.classList.toggle('mobile-nav-active');
+    if (mobileNavToggleBtn) {
+      mobileNavToggleBtn.classList.toggle('bi-list');
+      mobileNavToggleBtn.classList.toggle('bi-x');
+      const isOpen = body.classList.contains('mobile-nav-active');
+      mobileNavToggleBtn.setAttribute('aria-expanded', String(isOpen));
+    }
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+    // Close mobile nav on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+        mobileNavToggleBtn.focus();
+      }
+    });
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -48,12 +63,20 @@
 
   /**
    * Toggle mobile nav dropdowns
+   * Updated 2026-04-21: syncs aria-expanded on the parent <a>.
    */
   document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
     navmenu.addEventListener('click', function(e) {
       e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      const parentA = this.parentNode;          // <a>
+      parentA.classList.toggle('active');
+      if (parentA.nextElementSibling) {
+        parentA.nextElementSibling.classList.toggle('dropdown-active');
+      }
+      if (parentA && parentA.hasAttribute('aria-expanded')) {
+        const expanded = parentA.getAttribute('aria-expanded') === 'true';
+        parentA.setAttribute('aria-expanded', String(!expanded));
+      }
       e.stopImmediatePropagation();
     });
   });
@@ -133,14 +156,25 @@
       });
 
       isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-        filters.addEventListener('click', function() {
-          isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-          this.classList.add('filter-active');
-          initIsotope.arrange({
-            filter: this.getAttribute('data-filter')
-          });
-          if (typeof aosInit === 'function') {
-            aosInit();
+        function activate() {
+          const active = isotopeItem.querySelector('.isotope-filters .filter-active');
+          if (active) {
+            active.classList.remove('filter-active');
+            if (active.hasAttribute('aria-pressed')) active.setAttribute('aria-pressed', 'false');
+          }
+          filters.classList.add('filter-active');
+          if (filters.hasAttribute('aria-pressed')) filters.setAttribute('aria-pressed', 'true');
+          if (initIsotope) {
+            initIsotope.arrange({ filter: filters.getAttribute('data-filter') });
+          }
+          if (typeof aosInit === 'function') aosInit();
+        }
+        filters.addEventListener('click', activate, false);
+        // Keyboard support — Enter or Space activates the filter (since these are <li role="button">)
+        filters.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate();
           }
         }, false);
       });

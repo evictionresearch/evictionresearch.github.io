@@ -4,613 +4,2752 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Eviction Help & Resources — Eviction Research Network</title>
-  <meta name="description" content="Legal aid, rental assistance, housing counseling, and eviction-diversion programs for tenants facing eviction — organized by state. Compiled by the Eviction Research Network at UC Berkeley.">
-  <meta name="keywords" content="eviction help, tenant resources, legal aid, rental assistance, housing counseling, eviction defense, eviction diversion">
+  <title>Eviction Help — Eviction Research Network</title>
+  <meta name="description" content="Legal aid, rent assistance, and housing counseling for tenants facing eviction — organized by state. Compiled by the Eviction Research Network at UC Berkeley.">
+  <meta name="keywords" content="eviction help, tenant resources, legal aid, rental assistance, housing counseling, eviction defense">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
+  <meta name="theme-color" content="#19222C">
 
-  <!-- Open Graph / social -->
-  <meta property="og:title" content="Eviction Help & Resources — Eviction Research Network">
-  <meta property="og:description" content="Legal aid, rental assistance, and tenant resources by state, curated by the Eviction Research Network at UC Berkeley.">
+  <meta property="og:title" content="Eviction Help — Eviction Research Network">
+  <meta property="og:description" content="Legal aid, rent assistance, and housing counseling for tenants facing eviction, by state.">
   <meta property="og:url" content="https://evictionresearch.net/resources.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts — Open Sans (body) + Roboto (headings/nav). Async-loaded to avoid render-blocking. -->
+  <!-- Fonts — async -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
-  <!-- Critical above-the-fold CSS -->
-  <style>
-    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
-    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
-    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
-    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
-    .header{background-color:rgba(25,34,44,0.98);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
-    .header .logo img{max-height:60px;width:auto}
-    .resource-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);color:#fff;padding:130px 0 50px}
-    .resource-hero h1{color:#fff;font-size:44px;font-weight:700;letter-spacing:-0.02em;margin:0 0 12px;line-height:1.1}
-    .resource-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:720px;margin:0}
-  </style>
-
-  <!-- Bootstrap (sync for stable layout) -->
+  <!-- Bootstrap (sync) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Non-critical CSS (async) -->
+  <!-- Non-critical CSS -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
   </noscript>
+
+  <!-- Critical, self-contained page styles -->
+  <style>
+    :root{
+      --text:#1b2531;
+      --muted:#5a6b80;
+      --line:#e3e9ef;
+      --line-soft:#eef2f6;
+      --bg:#ffffff;
+      --bg-alt:#f5f7fa;
+      --brand:#F9322B;
+      --brand-dark:#d9241e;
+      --ink:#19222C;
+      --ink-2:#223754;
+      --heading-font:"Roboto",sans-serif;
+      --default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+    }
+    *,*::before,*::after{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font-family:var(--default-font); font-size:16px; line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3,h4{ font-family:var(--heading-font); color:var(--ink); margin:0; }
+
+    /* Skip link */
+    .skip-link{
+      position:absolute; left:8px; top:-40px;
+      background:#fff; color:var(--ink); padding:8px 14px;
+      border-radius:4px; z-index:9999; font-weight:600;
+      transition: top .15s;
+    }
+    .skip-link:focus{ top:8px; outline:2px solid var(--brand); outline-offset:2px; }
+
+    /* Header (matches other ERN pages) */
+    .header{
+      background:rgba(25,34,44,0.98); color:#fff; padding:20px 0;
+      z-index:997; position:fixed; top:0; left:0; right:0;
+    }
+    .header .logo img{ max-height:60px; width:auto; }
+
+    /* ======== Hero ======== */
+    .r-hero{
+      background:var(--ink); color:#fff;
+      padding:130px 0 48px;
+    }
+    .r-hero h1{
+      color:#fff; font-size:44px; font-weight:700;
+      letter-spacing:-0.02em; line-height:1.1;
+      margin:0 0 12px;
+    }
+    .r-hero p{
+      font-size:18px; line-height:1.55;
+      color:rgba(255,255,255,.85);
+      max-width:680px; margin:0;
+    }
+    @media (max-width:640px){
+      .r-hero{ padding:110px 0 36px; }
+      .r-hero h1{ font-size:30px; }
+      .r-hero p{ font-size:16px; }
+    }
+
+    /* ======== Page container ======== */
+    .r-main{ padding:40px 0 80px; }
+    .r-main .container{ max-width:860px; }
+
+    /* ======== Emergency callout ======== */
+    .r-alert{
+      background:#fff;
+      border:1px solid var(--line);
+      border-left:5px solid var(--brand);
+      padding:24px 28px;
+      border-radius:4px;
+      margin:0 0 40px;
+      box-shadow:0 2px 14px rgba(25,34,44,0.04);
+    }
+    .r-alert h2{
+      font-size:20px; font-weight:700; margin:0 0 8px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .r-alert h2 .bi{ color:var(--brand); }
+    .r-alert p{ margin:0 0 16px; color:#2e3a4b; }
+    .r-alert .r-note{
+      font-size:14px; color:var(--muted);
+      border-top:1px dashed var(--line);
+      padding-top:12px; margin-top:12px;
+    }
+    .r-btns{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn-primary-red, .btn-outline-slate{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:11px 20px; border-radius:4px;
+      font-family:var(--heading-font); font-weight:600; font-size:14px;
+      text-decoration:none; transition:all .15s;
+      border:1.5px solid transparent;
+      min-height:44px;
+    }
+    .btn-primary-red{ background:var(--brand); color:#fff; border-color:var(--brand); }
+    .btn-primary-red:hover, .btn-primary-red:focus{ background:var(--brand-dark); border-color:var(--brand-dark); color:#fff; }
+    .btn-outline-slate{ color:var(--ink-2); border-color:var(--ink-2); background:transparent; }
+    .btn-outline-slate:hover, .btn-outline-slate:focus{ background:var(--ink-2); color:#fff; }
+    a:focus-visible, button:focus-visible, summary:focus-visible{
+      outline:2px solid var(--brand); outline-offset:2px; border-radius:2px;
+    }
+
+    /* ======== Directory intro ======== */
+    .r-intro{ margin: 0 0 18px; }
+    .r-intro h2{
+      font-size:26px; font-weight:700;
+      letter-spacing:-0.01em; margin:0 0 6px;
+    }
+    .r-intro p{ color:var(--muted); margin:0; font-size:15px; }
+
+    /* ======== State drawers ======== */
+    .r-list{ display:flex; flex-direction:column; gap:10px; }
+
+    .r-state{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:6px;
+      overflow:hidden;
+    }
+    .r-state > summary{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 22px;
+      display:flex; align-items:center; gap:14px;
+      font-family:var(--heading-font);
+      font-size:19px; font-weight:600; color:var(--ink);
+      min-height:64px;
+      transition: background .12s;
+    }
+    .r-state > summary::-webkit-details-marker{ display:none; }
+    .r-state > summary:hover{ background:var(--bg-alt); }
+    .r-state[open] > summary{
+      background:var(--bg-alt);
+      border-bottom:1px solid var(--line);
+    }
+    .r-state > summary .r-state-name{ flex:1; }
+    .r-state > summary .r-count{
+      font-family:var(--default-font);
+      font-size:13px; font-weight:500; color:var(--muted);
+      background:#eaeef3;
+      padding:4px 11px; border-radius:999px;
+      white-space:nowrap;
+    }
+    .r-state > summary::after{
+      content:"+";
+      color:var(--brand);
+      font-size:22px; font-weight:500;
+      width:24px; text-align:center;
+      flex-shrink:0;
+    }
+    .r-state[open] > summary::after{ content:"−"; }
+
+    .r-body{ padding:6px 22px 22px; }
+    .r-group{ margin-top:18px; }
+    .r-group:first-child{ margin-top:12px; }
+    .r-group h3{
+      font-size:12px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.09em;
+      color:var(--brand);
+      margin:0 0 8px;
+      padding-bottom:6px;
+      border-bottom:1px dashed var(--line);
+    }
+    .r-group ul{
+      list-style:none; padding:0; margin:0;
+    }
+    .r-group li{
+      padding:7px 0;
+      border-bottom:1px solid var(--line-soft);
+      line-height:1.5;
+    }
+    .r-group li:last-child{ border-bottom:none; }
+    .r-group li a{
+      color:var(--ink-2);
+      font-weight:500;
+      text-decoration:none;
+      border-bottom:1px solid transparent;
+    }
+    .r-group li a:hover,
+    .r-group li a:focus-visible{
+      color:var(--brand);
+      border-bottom-color:var(--brand);
+    }
+    .r-group li a::after{
+      content:" ↗";
+      color:var(--brand);
+      opacity:.55; font-size:.85em;
+    }
+    .r-group li .r-where{
+      display:block;
+      font-size:13px; color:var(--muted);
+      margin-top:2px;
+    }
+    .r-inactive{
+      font-size:12px; color:var(--muted);
+      font-style:italic; margin-left:6px;
+    }
+
+    /* ======== Jump-to-state nav ======== */
+    .r-jump{
+      background:var(--bg-alt);
+      border:1px solid var(--line);
+      border-radius:6px;
+      padding:18px 20px;
+      margin:0 0 24px;
+    }
+    .r-jump-label{
+      font-family:var(--heading-font);
+      font-size:13px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.08em;
+      color:var(--muted);
+      margin:0 0 10px;
+    }
+    .r-jump-list{
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-wrap:wrap; gap:4px 10px;
+    }
+    .r-jump-list li{ margin:0; }
+    .r-jump-list a{
+      display:inline-block;
+      color:var(--ink-2);
+      font-size:14px; font-weight:500;
+      text-decoration:none;
+      padding:4px 8px; border-radius:3px;
+      border:1px solid transparent;
+      transition: background .12s, color .12s, border-color .12s;
+    }
+    .r-jump-list a:hover,
+    .r-jump-list a:focus-visible{
+      background:#fff;
+      color:var(--brand);
+      border-color:var(--line);
+    }
+
+    /* Smooth anchor scroll with sticky-header offset */
+    html{ scroll-padding-top:92px; }
+
+    /* ======== Footer callouts ======== */
+    .r-tail{
+      background:var(--bg-alt);
+      border-radius:6px;
+      padding:26px 28px;
+      margin-top:40px;
+    }
+    .r-tail h3{
+      font-size:19px; margin:0 0 8px; font-weight:700;
+    }
+    .r-tail p{ margin:0 0 14px; color:#2e3a4b; font-size:15px; }
+    .r-submit{
+      font-size:14px; color:var(--muted);
+      margin-top:28px;
+    }
+    .r-submit a{ color:var(--ink-2); font-weight:600; }
+
+    /* Visually hidden for screen readers */
+    .sr-only{
+      position:absolute !important;
+      width:1px; height:1px; padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+  </style>
 </head>
 
 <body class="resources-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1><img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="The Eviction Research Network logo"></h1>
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
       </a>
 
-      <nav id="navmenu" class="navmenu">
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
-              <li><a href="https://evictionresearch.net/california/" target="_blank">California</a></li>
-              <li><a href="https://evictionresearch.net/delaware/" target="_blank">Delaware</a></li>
-              <li><a href="https://evictionresearch.net/indiana/" target="_blank">Indiana</a></li>
-              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank">Maryland</a></li>
-              <li><a href="https://evictionresearch.net/minnesota/" target="_blank">Minnesota</a></li>
-              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank">Ohio</a></li>
-              <li><a href="https://evictionresearch.net/oregon/" target="_blank">Oregon</a></li>
-              <li><a href="https://evictionresearch.net/washington/" target="_blank">Washington</a></li>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
             </ul>
           </li>
           <li><a href="news.html">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#" class="active"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li class="dropdown"><a href="#" class="active" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
-              <li><a href="resources.html" class="active">Eviction Help</a></li>
+              <li><a href="resources.html" aria-current="page" class="active">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
       </nav>
 
     </div>
   </header>
 
-  <main class="main">
+  <main id="main" class="main" role="main">
 
-    <!-- =================== HERO =================== -->
-    <section class="resource-hero">
+    <!-- Hero -->
+    <section class="r-hero" aria-labelledby="r-hero-title">
       <div class="container">
-        <h1>Eviction help &amp; tenant resources</h1>
-        <p class="lede">Legal aid, rental assistance, and housing counseling for tenants facing eviction — organized by state. Listings cover regions where the Eviction Research Network has conducted active research.</p>
+        <h1 id="r-hero-title">Eviction help, by state</h1>
+        <p>Legal aid, rent assistance, and housing counseling for every U.S. state plus Washington, D.C. Tap a state to see local programs &mdash; with deeper coverage for the states where the Eviction Research Network conducts active research.</p>
       </div>
     </section>
 
-    <!-- =================== EMERGENCY BANNER =================== -->
-    <div class="emergency-banner" role="region" aria-label="Emergency resources">
+    <div class="r-main">
       <div class="container">
-        <div class="eb-icon"><i class="bi bi-telephone-fill" aria-hidden="true"></i></div>
-        <div class="eb-text">
-          <strong>If you need help right now</strong>
-          Dial <strong>2-1-1</strong> from any phone for immediate connection to rental assistance, shelter, and tenant-legal services in your area. If you've received court papers, contact a legal aid program <em>today</em> — response deadlines are often 5–10 days.
+
+        <!-- Emergency callout -->
+        <aside class="r-alert" aria-labelledby="r-alert-title">
+          <h2 id="r-alert-title"><i class="bi bi-telephone-fill" aria-hidden="true"></i> Need help right now?</h2>
+          <p>Dial <strong>2-1-1</strong> from any phone to reach a trained specialist who can connect you to rent assistance, shelter, and tenant-legal referrals in your area — any state, any time.</p>
+          <div class="r-btns">
+            <a class="btn-primary-red" href="tel:211" aria-label="Call 2-1-1">
+              <i class="bi bi-telephone" aria-hidden="true"></i> Call 2-1-1
+            </a>
+            <a class="btn-outline-slate" href="https://www.consumerfinance.gov/coronavirus/mortgage-and-housing-assistance/renter-protections/find-help-with-rent-and-utilities/" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-globe" aria-hidden="true"></i> National rent-relief directory
+            </a>
+          </div>
+          <p class="r-note"><strong>Got court papers?</strong> Contact a legal-aid program the same day. Response deadlines are often 5&ndash;10 days and missing them can lead to a default judgment.</p>
+        </aside>
+
+        <!-- Directory intro -->
+        <div class="r-intro">
+          <h2>Find help in your state</h2>
+          <p>All 50 states plus Washington, D.C. Listings include the state&rsquo;s Legal Services Corporation grantee, statewide rent and utility programs, and&mdash;for larger states&mdash;major city and county programs. Choose your state below or jump from the index.</p>
         </div>
-        <div class="eb-actions">
-          <a class="eb-btn" href="tel:211">Call 2-1-1</a>
-          <a class="eb-btn" href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener">National rent relief</a>
+
+        <!-- =================== STATE LIST =================== -->
+
+        <!-- Jump-to-state navigation -->
+        <nav class="r-jump" aria-label="Jump to state">
+            <p class="r-jump-label">Jump to state:</p>
+            <ul class="r-jump-list">
+              <li><a href="#alabama">Alabama</a></li>
+              <li><a href="#alaska">Alaska</a></li>
+              <li><a href="#arizona">Arizona</a></li>
+              <li><a href="#arkansas">Arkansas</a></li>
+              <li><a href="#california">California</a></li>
+              <li><a href="#colorado">Colorado</a></li>
+              <li><a href="#connecticut">Connecticut</a></li>
+              <li><a href="#delaware">Delaware</a></li>
+              <li><a href="#dc">D.C.</a></li>
+              <li><a href="#florida">Florida</a></li>
+              <li><a href="#georgia">Georgia</a></li>
+              <li><a href="#hawaii">Hawaii</a></li>
+              <li><a href="#idaho">Idaho</a></li>
+              <li><a href="#illinois">Illinois</a></li>
+              <li><a href="#indiana">Indiana</a></li>
+              <li><a href="#iowa">Iowa</a></li>
+              <li><a href="#kansas">Kansas</a></li>
+              <li><a href="#kentucky">Kentucky</a></li>
+              <li><a href="#louisiana">Louisiana</a></li>
+              <li><a href="#maine">Maine</a></li>
+              <li><a href="#maryland">Maryland</a></li>
+              <li><a href="#massachusetts">Massachusetts</a></li>
+              <li><a href="#michigan">Michigan</a></li>
+              <li><a href="#minnesota">Minnesota</a></li>
+              <li><a href="#mississippi">Mississippi</a></li>
+              <li><a href="#missouri">Missouri</a></li>
+              <li><a href="#montana">Montana</a></li>
+              <li><a href="#nebraska">Nebraska</a></li>
+              <li><a href="#nevada">Nevada</a></li>
+              <li><a href="#new-hampshire">New Hampshire</a></li>
+              <li><a href="#new-jersey">New Jersey</a></li>
+              <li><a href="#new-mexico">New Mexico</a></li>
+              <li><a href="#new-york">New York</a></li>
+              <li><a href="#north-carolina">North Carolina</a></li>
+              <li><a href="#north-dakota">North Dakota</a></li>
+              <li><a href="#ohio">Ohio</a></li>
+              <li><a href="#oklahoma">Oklahoma</a></li>
+              <li><a href="#oregon">Oregon</a></li>
+              <li><a href="#pennsylvania">Pennsylvania</a></li>
+              <li><a href="#rhode-island">Rhode Island</a></li>
+              <li><a href="#south-carolina">South Carolina</a></li>
+              <li><a href="#south-dakota">South Dakota</a></li>
+              <li><a href="#tennessee">Tennessee</a></li>
+              <li><a href="#texas">Texas</a></li>
+              <li><a href="#utah">Utah</a></li>
+              <li><a href="#vermont">Vermont</a></li>
+              <li><a href="#virginia">Virginia</a></li>
+              <li><a href="#washington">Washington</a></li>
+              <li><a href="#west-virginia">West Virginia</a></li>
+              <li><a href="#wisconsin">Wisconsin</a></li>
+              <li><a href="#wyoming">Wyoming</a></li>
+            </ul>
+          </nav>
+
+        <div class="r-list">
+
+          <!-- ALABAMA -->
+          <details class="r-state" id="alabama">
+  <summary>
+    <span class="r-state-name">Alabama</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.alabamalegalservices.org/" target="_blank" rel="noopener noreferrer">Legal Services Alabama</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction defense</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.alabamahousing.org/" target="_blank" rel="noopener noreferrer">Alabama Housing Finance Authority</a>
+          <span class="r-where">Statewide &middot; Housing programs &amp; rental assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Alabama 211</a>
+          <span class="r-where">Statewide &middot; Housing &amp; emergency assistance referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- ALASKA -->
+          <details class="r-state" id="alaska">
+  <summary>
+    <span class="r-state-name">Alaska</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.alaskalawhelp.org/" target="_blank" rel="noopener noreferrer">Alaska Legal Services Corporation</a>
+          <span class="r-where">Statewide &middot; LSC grantee; landlord-tenant &amp; housing</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.ahfc.us/" target="_blank" rel="noopener noreferrer">Alaska Housing Finance Corporation</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Alaska 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- ARIZONA -->
+          <details class="r-state" id="arizona">
+  <summary>
+    <span class="r-state-name">Arizona</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://clsaz.org/" target="_blank" rel="noopener noreferrer">Community Legal Services</a>
+          <span class="r-where">Statewide (Phoenix area focus) &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://azlawhelp.org/" target="_blank" rel="noopener noreferrer">Arizona Tenants Union</a>
+          <span class="r-where">Statewide &middot; Tenant rights &amp; advocacy</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://housing.az.gov/" target="_blank" rel="noopener noreferrer">Arizona Department of Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance programs</span>
+        </li>
+        <li>
+          <a href="https://www.phoenix.gov/housing" target="_blank" rel="noopener noreferrer">City of Phoenix Housing</a>
+          <span class="r-where">Phoenix &middot; Emergency assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://azlawhelp.org/" target="_blank" rel="noopener noreferrer">Arizona Tenant Advocacy &amp; Diversion</a>
+          <span class="r-where">Statewide &middot; Mediation &amp; prevention resources</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- ARKANSAS -->
+          <details class="r-state" id="arkansas">
+  <summary>
+    <span class="r-state-name">Arkansas</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.arlegalservices.org/" target="_blank" rel="noopener noreferrer">Arkansas Legal Services Partnership</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.ahfc.us/" target="_blank" rel="noopener noreferrer">Arkansas Housing Finance Corporation</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Arkansas 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- CALIFORNIA -->
+          <details class="r-state" id="california">
+  <summary>
+    <span class="r-state-name">California</span>
+    <span class="r-count">10 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://baylegal.org/" target="_blank" rel="noopener noreferrer">Bay Area Legal Aid</a>
+          <span class="r-where">Bay Area (Alameda, Contra Costa, San Mateo, Marin) &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://lafla.org/" target="_blank" rel="noopener noreferrer">Legal Aid Foundation of Los Angeles</a>
+          <span class="r-where">Los Angeles County &middot; Housing &amp; eviction defense</span>
+        </li>
+        <li>
+          <a href="https://www.lasd.org/" target="_blank" rel="noopener noreferrer">Legal Services San Diego</a>
+          <span class="r-where">San Diego County &middot; Housing &amp; tenant rights</span>
+        </li>
+        <li>
+          <a href="https://www.sf.gov/" target="_blank" rel="noopener noreferrer">Community Advocates &amp; Legal Services (San Francisco)</a>
+          <span class="r-where">San Francisco &middot; Tenant rights &amp; eviction defense</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.chfa.org/" target="_blank" rel="noopener noreferrer">California Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+        <li>
+          <a href="https://www.chfa.org/" target="_blank" rel="noopener noreferrer">California Emergency Rental Assistance Program</a>
+          <span class="r-where">Statewide &middot; State ERA program</span>
+        </li>
+        <li>
+          <a href="https://housing.sfgov.org/" target="_blank" rel="noopener noreferrer">San Francisco Housing Portal</a>
+          <span class="r-where">San Francisco &middot; Rental assistance &amp; emergency aid</span>
+        </li>
+        <li>
+          <a href="https://dpss.lacounty.gov/" target="_blank" rel="noopener noreferrer">LA County DHS Rental Assistance</a>
+          <span class="r-where">Los Angeles County &middot; Emergency rental assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://sf.gov/" target="_blank" rel="noopener noreferrer">San Francisco Eviction Prevention Program</a>
+          <span class="r-where">San Francisco &middot; Mandatory mediation &amp; prevention</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Know Your Rights</h3>
+      <ul>
+        <li>
+          <a href="https://www.nlihc.org/" target="_blank" rel="noopener noreferrer">National Low Income Housing Coalition (NLIHC) CA Resources</a>
+          <span class="r-where">Statewide &middot; Tenant rights guides &amp; advocacy</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- COLORADO -->
+          <details class="r-state" id="colorado">
+  <summary>
+    <span class="r-state-name">Colorado</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.coloradolegal.org/" target="_blank" rel="noopener noreferrer">Colorado Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://cdola.colorado.gov/" target="_blank" rel="noopener noreferrer">Colorado Division of Local Affairs</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+        <li>
+          <a href="https://chfainfo.com/" target="_blank" rel="noopener noreferrer">Denver Emergency Rental Assistance</a>
+          <span class="r-where">Denver &middot; City ERA program</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Colorado 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- CONNECTICUT -->
+          <details class="r-state" id="connecticut">
+  <summary>
+    <span class="r-state-name">Connecticut</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.ctlegal.org/" target="_blank" rel="noopener noreferrer">Connecticut Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://portal.ct.gov/DOAG/dha/rental-assistance" target="_blank" rel="noopener noreferrer">Connecticut Department of Housing Assistance</a>
+          <span class="r-where">Statewide &middot; Rental assistance programs</span>
+        </li>
+        <li>
+          <a href="https://portal.ct.gov/DOAG/" target="_blank" rel="noopener noreferrer">Connecticut Department of Administrative Services</a>
+          <span class="r-where">Statewide &middot; Housing &amp; utility assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://portal.ct.gov/DOAG/dha/eviction-prevention" target="_blank" rel="noopener noreferrer">Connecticut Eviction Prevention Program</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; mediation</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- DELAWARE -->
+          <details class="r-state" id="delaware">
+            <summary>
+              <span class="r-state-name">Delaware</span>
+              <span class="r-count">4 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Legal Help</h3>
+                <ul>
+                  <li><a href="https://www.declasi.org/" target="_blank" rel="noopener noreferrer">Community Legal Aid Society of Delaware (CLASI)</a></li>
+                  <li><a href="https://www.declasi.org/" target="_blank" rel="noopener noreferrer">CLASI &mdash; Eviction &amp; Landlord-Tenant Help</a></li>
+                  <li><a href="https://www.lscd.com/topics/401/housing" target="_blank" rel="noopener noreferrer">Legal Services Corporation of Delaware</a></li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Housing &amp; Rental Programs</h3>
+                <ul>
+                  <li><a href="https://www.destatehousing.com/" target="_blank" rel="noopener noreferrer">Delaware State Housing Authority</a></li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- DISTRICT OF COLUMBIA -->
+          <details class="r-state" id="dc">
+  <summary>
+    <span class="r-state-name">Washington, D.C.</span>
+    <span class="r-count">6 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaiddc.org/" target="_blank" rel="noopener noreferrer">Legal Aid DC</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://www.landlord-tenant.org/" target="_blank" rel="noopener noreferrer">Landlord &amp; Tenant Legal Assistance Network (LTLAN)</a>
+          <span class="r-where">DC &middot; Landlord-tenant disputes &amp; mediation</span>
+        </li>
+        <li>
+          <a href="https://www.aarp.org/lce" target="_blank" rel="noopener noreferrer">Legal Counsel for the Elderly</a>
+          <span class="r-where">DC &middot; Housing assistance for seniors</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://dhcd.dc.gov/service/emergency-rental-assistance-program" target="_blank" rel="noopener noreferrer">DC Emergency Rental Assistance Program</a>
+          <span class="r-where">DC &middot; State ERA program</span>
+        </li>
+        <li>
+          <a href="https://dhs.dc.gov/" target="_blank" rel="noopener noreferrer">DC Department of Human Services</a>
+          <span class="r-where">DC &middot; Housing &amp; emergency assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.breadforthecity.org/" target="_blank" rel="noopener noreferrer">Bread for the City</a>
+          <span class="r-where">DC &middot; Food &amp; emergency assistance</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- FLORIDA -->
+          <details class="r-state" id="florida">
+  <summary>
+    <span class="r-state-name">Florida</span>
+    <span class="r-count">6 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.floridalegal.org/" target="_blank" rel="noopener noreferrer">Florida Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; eviction prevention &amp; housing</span>
+        </li>
+        <li>
+          <a href="https://bals.org/" target="_blank" rel="noopener noreferrer">Bay Area Legal Services</a>
+          <span class="r-where">Tampa Bay &middot; Landlord-tenant &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://www.jaxlegalaid.org/" target="_blank" rel="noopener noreferrer">Jacksonville Area Legal Aid</a>
+          <span class="r-where">Jacksonville &middot; Eviction diversion &amp; housing</span>
+        </li>
+        <li>
+          <a href="https://www.legalservicesmiami.org/" target="_blank" rel="noopener noreferrer">Legal Services of Greater Miami</a>
+          <span class="r-where">Miami &middot; Housing &amp; tenant rights</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.flhousing.org/" target="_blank" rel="noopener noreferrer">Florida Housing Coalition</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.floridalawhelp.org/" target="_blank" rel="noopener noreferrer">Florida Law Help</a>
+          <span class="r-where">Statewide &middot; Resource directory &amp; tenant guides</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- GEORGIA -->
+          <details class="r-state" id="georgia">
+  <summary>
+    <span class="r-state-name">Georgia</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.glsp.org/" target="_blank" rel="noopener noreferrer">Georgia Legal Services Program</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://www.atlantalegalaid.org/" target="_blank" rel="noopener noreferrer">Atlanta Legal Aid Society</a>
+          <span class="r-where">Atlanta &middot; Housing &amp; tenant representation</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://dca.ga.gov/" target="_blank" rel="noopener noreferrer">Georgia Department of Community Affairs Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.glsp.org" target="_blank" rel="noopener noreferrer">Georgia Legal Services Program</a>
+          <span class="r-where">Statewide &middot; Eviction &amp; housing resources</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://avlf.org/programs/hcac/" target="_blank" rel="noopener noreferrer">Housing Court Assistance Center (HCAC)</a>
+          <span class="r-where">Atlanta &middot; Court assistance &amp; tenant advocacy</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- HAWAII -->
+          <details class="r-state" id="hawaii">
+  <summary>
+    <span class="r-state-name">Hawaii</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaidhawaii.org/" target="_blank" rel="noopener noreferrer">Legal Aid Society of Hawaii</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.hawaiihousing.org/" target="_blank" rel="noopener noreferrer">Hawaii Housing Finance &amp; Development Corporation</a>
+          <span class="r-where">Statewide &middot; Housing &amp; rental assistance programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Hawaii 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- IDAHO -->
+          <details class="r-state" id="idaho">
+  <summary>
+    <span class="r-state-name">Idaho</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.idaholegalaid.org/" target="_blank" rel="noopener noreferrer">Idaho Legal Aid Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.idahohousing.com/" target="_blank" rel="noopener noreferrer">Idaho Housing &amp; Finance Association</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Idaho 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- ILLINOIS -->
+          <details class="r-state" id="illinois">
+            <summary>
+              <span class="r-state-name">Illinois</span>
+              <span class="r-count">5 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Legal Help</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.cookcountylegalaid.org/" target="_blank" rel="noopener noreferrer">Cook County Legal Aid for Housing &amp; Debt</a>
+                    <span class="r-where">Cook County / Chicago area</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Rent &amp; Utility Assistance</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.dhs.state.il.us/page.aspx?item=134895" target="_blank" rel="noopener noreferrer">Emergency Rental &amp; Utility Assistance</a>
+                    <span class="r-where">Statewide &middot; Illinois DHS</span>
+                  </li>
+                  <li>
+                    <a href="https://www.chicago.gov/city/en/depts/fss/provdrs/serv/svcs/how_to_find_rentalassistanceinchicago.html" target="_blank" rel="noopener noreferrer">Chicago Rental Assistance Program</a>
+                    <span class="r-where">Chicago</span>
+                  </li>
+                  <li>
+                    <a href="https://chicookilrenthelp.org/" target="_blank" rel="noopener noreferrer">Emergency COVID-19 Rental Assistance Programs</a>
+                    <span class="r-where">Chicago &amp; Cook County</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Housing &amp; Shelter</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.dhs.state.il.us/page.aspx?item=30362" target="_blank" rel="noopener noreferrer">Emergency &amp; Transitional Housing Program</a>
+                    <span class="r-where">Statewide &middot; Illinois DHS</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- INDIANA -->
+          <details class="r-state" id="indiana">
+            <summary>
+              <span class="r-state-name">Indiana</span>
+              <span class="r-count">4 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Know Your Rights</h3>
+                <ul>
+                  <li>
+                    <a href="https://hepp.iuserveit.org/" target="_blank" rel="noopener noreferrer">Monroe County Eviction Prevention Project (HEPP)</a>
+                    <span class="r-where">Monroe County &middot; legal help &amp; mediation</span>
+                  </li>
+                  <li>
+                    <a href="https://www.cityofmuncie.com/egov/documents/1631286130_06113.pdf" target="_blank" rel="noopener noreferrer">Muncie's Renter's Book</a>
+                    <span class="r-where">Delaware County &middot; PDF</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Rent &amp; Housing Assistance</h3>
+                <ul>
+                  <li>
+                    <a href="https://in211.communityos.org/apssreadonly/render/id/5910/form/service/record_id/12182" target="_blank" rel="noopener noreferrer">Housing Payment Assistance (IN 2-1-1)</a>
+                    <span class="r-where">Lake County</span>
+                  </li>
+                  <li>
+                    <a href="https://bloomington.in.gov/node/4204" target="_blank" rel="noopener noreferrer">City of Bloomington HAND &mdash; Helping Bloomington Monroe</a>
+                    <span class="r-where">Monroe County</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- IOWA -->
+          <details class="r-state" id="iowa">
+  <summary>
+    <span class="r-state-name">Iowa</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.iowalegalaid.org/" target="_blank" rel="noopener noreferrer">Iowa Legal Aid</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://opportunityiowa.gov/housing" target="_blank" rel="noopener noreferrer">Iowa Housing Finance Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Iowa 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- KANSAS -->
+          <details class="r-state" id="kansas">
+  <summary>
+    <span class="r-state-name">Kansas</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://kansaslegalservices.org/" target="_blank" rel="noopener noreferrer">Kansas Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://kansaslegalservices.org/" target="_blank" rel="noopener noreferrer">Kansas Housing Data Portal</a>
+          <span class="r-where">Statewide &middot; Rental assistance resources</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Kansas 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- KENTUCKY -->
+          <details class="r-state" id="kentucky">
+  <summary>
+    <span class="r-state-name">Kentucky</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.kyequaljustice.org" target="_blank" rel="noopener noreferrer">Kentucky Equal Justice Center</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.kyhousing.org/" target="_blank" rel="noopener noreferrer">Kentucky Housing Corporation</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Kentucky 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- LOUISIANA -->
+          <details class="r-state" id="louisiana">
+  <summary>
+    <span class="r-state-name">Louisiana</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.la-law.org" target="_blank" rel="noopener noreferrer">Acadiana Legal Service Corp</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.lahousing.org/" target="_blank" rel="noopener noreferrer">Louisiana Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Louisiana 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MAINE -->
+          <details class="r-state" id="maine">
+  <summary>
+    <span class="r-state-name">Maine</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.ptla.org/" target="_blank" rel="noopener noreferrer">Maine Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://mainehousing.org/" target="_blank" rel="noopener noreferrer">Maine Office of Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Maine 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MARYLAND -->
+          <details class="r-state" id="maryland">
+  <summary>
+    <span class="r-state-name">Maryland</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://mdlab.org/" target="_blank" rel="noopener noreferrer">Maryland Legal Aid</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://dhcd.maryland.gov/" target="_blank" rel="noopener noreferrer">Maryland Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+        <li>
+          <a href="https://dhcd.maryland.gov/" target="_blank" rel="noopener noreferrer">Maryland Department of Housing Rental Assistance</a>
+          <span class="r-where">Statewide &middot; Emergency rental assistance programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Maryland 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MASSACHUSETTS -->
+          <details class="r-state" id="massachusetts">
+  <summary>
+    <span class="r-state-name">Massachusetts</span>
+    <span class="r-count">6 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.gbls.org/" target="_blank" rel="noopener noreferrer">Greater Boston Legal Services</a>
+          <span class="r-where">Boston area &middot; LSC grantee; eviction &amp; housing</span>
+        </li>
+        <li>
+          <a href="https://www.communitylegal.org" target="_blank" rel="noopener noreferrer">Community Legal Aid</a>
+          <span class="r-where">Western Massachusetts &middot; Housing &amp; tenants' rights</span>
+        </li>
+        <li>
+          <a href="https://www.nhelp.org/" target="_blank" rel="noopener noreferrer">New England Legal Foundation</a>
+          <span class="r-where">Statewide &middot; Tenant &amp; housing advocacy</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.mass.gov/emergency-assistance" target="_blank" rel="noopener noreferrer">Massachusetts Emergency Rental Assistance Program</a>
+          <span class="r-where">Statewide &middot; State ERA program</span>
+        </li>
+        <li>
+          <a href="https://www.mass.gov/boston-rental-assistance" target="_blank" rel="noopener noreferrer">City of Boston Rental Assistance</a>
+          <span class="r-where">Boston &middot; City ERA program</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://www.mass.gov/service-details/eviction-diversion" target="_blank" rel="noopener noreferrer">Massachusetts Eviction Diversion Program</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; mediation</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MICHIGAN -->
+          <details class="r-state" id="michigan">
+  <summary>
+    <span class="r-state-name">Michigan</span>
+    <span class="r-count">6 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.milegalservices.org/" target="_blank" rel="noopener noreferrer">Michigan Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://www.lsm.org/" target="_blank" rel="noopener noreferrer">Detroit Legal Aid</a>
+          <span class="r-where">Detroit &middot; Landlord-tenant &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://www.uchcdetroit.org/" target="_blank" rel="noopener noreferrer">University Community Health Center (UCHC)</a>
+          <span class="r-where">Detroit &middot; Eviction defense &amp; legal services</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.michigan.gov/mshda" target="_blank" rel="noopener noreferrer">Michigan State Housing Development Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://www.michigan.gov/mdhhs" target="_blank" rel="noopener noreferrer">Michigan Eviction Diversion Program</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; mediation</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://detroitmi.gov/departments/housing-and-revitalization-department/renters" target="_blank" rel="noopener noreferrer">City of Detroit Renters Resources</a>
+          <span class="r-where">Detroit &middot; Right to Counsel &amp; tenant information</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MINNESOTA -->
+          <details class="r-state" id="minnesota">
+            <summary>
+              <span class="r-state-name">Minnesota</span>
+              <span class="r-count">6 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Rent &amp; Emergency Assistance</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.olmstedcounty.gov/residents/services-individuals-families/financial-assistance/emergency-assistance" target="_blank" rel="noopener noreferrer">Emergency Cash Assistance</a>
+                    <span class="r-where">Olmsted County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.olmstedcounty.gov/residents/services-individuals-families/housing/rental-assistance" target="_blank" rel="noopener noreferrer">Olmsted County Rental Assistance</a>
+                    <span class="r-where">Olmsted County</span>
+                  </li>
+                  <li>
+                    <a href="http://www.koochhra.com/bridgeshousing.htm" target="_blank" rel="noopener noreferrer">Bridges Rental Assistance</a>
+                    <span class="r-where">Koochiching County &middot; Housing &amp; Redevelopment Authority</span>
+                  </li>
+                  <li>
+                    <a href="https://www.kootasca.org/programs/renters/" target="_blank" rel="noopener noreferrer">Kootasca Community Actions &mdash; Renter Programs</a>
+                    <span class="r-where">Koochiching County</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Housing &amp; Counseling</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.ramseycounty.us/residents/assistance-support/assistance/housing-services-support" target="_blank" rel="noopener noreferrer">Ramsey County Housing Services &amp; Support</a>
+                    <span class="r-where">Ramsey County / St. Paul area</span>
+                  </li>
+                  <li>
+                    <a href="https://www.olmstedcounty.gov/residents/services-individuals-families/crisis/resources-community#other-housingassistance15" target="_blank" rel="noopener noreferrer">Resources in the Community</a>
+                    <span class="r-where">Olmsted County</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- MISSISSIPPI -->
+          <details class="r-state" id="mississippi">
+  <summary>
+    <span class="r-state-name">Mississippi</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.mslegal.org/" target="_blank" rel="noopener noreferrer">Mississippi Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://mshc.com/" target="_blank" rel="noopener noreferrer">Mississippi Home Corporation</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Mississippi 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- MISSOURI -->
+          <details class="r-state" id="missouri">
+            <summary>
+              <span class="r-state-name">Missouri</span>
+              <span class="r-count">12 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Rent &amp; Utility Assistance</h3>
+                <ul>
+                  <li>
+                    <a href="https://dmh.mo.gov/housing/unit/rental-assistance" target="_blank" rel="noopener noreferrer">MO Dept. of Mental Health &mdash; Rental Assistance (RAP)</a>
+                    <span class="r-where">Statewide</span>
+                  </li>
+                  <li>
+                    <a href="https://claycountymo.gov/382/Emergency-Rental-Assistance-Program" target="_blank" rel="noopener noreferrer">Clay County Emergency Rental Assistance</a>
+                    <span class="r-where">Clay County</span>
+                  </li>
+                  <li>
+                    <a href="https://gkcassistanceprogram.org/" target="_blank" rel="noopener noreferrer">Greater Kansas City Assistance Program (Jackson County ERA)</a>
+                    <span class="r-where">Jackson County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.jfcac.org/housing.html" target="_blank" rel="noopener noreferrer">Jefferson Franklin Community Action Corp. &mdash; Housing Programs</a>
+                    <span class="r-where">Jefferson County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.communitybuildersstl.org/" target="_blank" rel="noopener noreferrer">Community Builders STL &mdash; Rental &amp; Utility Assistance</a>
+                    <span class="r-where">St. Louis County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.kcmo.gov/city-hall/housing/emergency-rental-and-utilities-assistance" target="_blank" rel="noopener noreferrer">Kansas City Emergency Rental Assistance</a>
+                    <span class="r-where">Kansas City</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="r-group">
+                <h3>Housing &amp; Community Support</h3>
+                <ul>
+                  <li>
+                    <a href="http://www.communityaction.org/wp-content/uploads/2019/02/MCAN-Statewide-AgencyInfo.pdf" target="_blank" rel="noopener noreferrer">Community Action Agencies &mdash; Statewide Directory</a>
+                    <span class="r-where">Statewide &middot; PDF</span>
+                  </li>
+                  <li>
+                    <a href="https://www.stjosephmo.gov/341/Housing-Authority" target="_blank" rel="noopener noreferrer">St. Louis Housing Authority</a>
+                    <span class="r-where">St. Louis County</span>
+                  </li>
+                  <li>
+                    <a href="https://ccsomo.org/" target="_blank" rel="noopener noreferrer">Catholic Charities of Southern Missouri</a>
+                    <span class="r-where">Jasper County / Joplin</span>
+                  </li>
+                  <li>
+                    <a href="https://www.crosslinesjoplin.org/" target="_blank" rel="noopener noreferrer">Crosslines Ministries</a>
+                    <span class="r-where">Jasper County / Joplin</span>
+                  </li>
+                  <li>
+                    <a href="https://www.escswa.org/housingassistance/" target="_blank" rel="noopener noreferrer">Economic Security Corp. of Southwest Area &mdash; Housing Assistance</a>
+                    <span class="r-where">Jasper County / Joplin</span>
+                  </li>
+                  <li>
+                    <a href="https://www.springfieldmo.gov/2387/Housing-Assistance-Programs" target="_blank" rel="noopener noreferrer">Springfield Housing Assistance Programs</a>
+                    <span class="r-where">Greene County / Springfield</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- MONTANA -->
+          <details class="r-state" id="montana">
+  <summary>
+    <span class="r-state-name">Montana</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.mtlsa.org/" target="_blank" rel="noopener noreferrer">Montana Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://housing.mt.gov" target="_blank" rel="noopener noreferrer">Montana Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Montana 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEBRASKA -->
+          <details class="r-state" id="nebraska">
+  <summary>
+    <span class="r-state-name">Nebraska</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaidofnebraska.org" target="_blank" rel="noopener noreferrer">Legal Aid of Nebraska</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.nifa.org" target="_blank" rel="noopener noreferrer">Nebraska Investment Finance Authority</a>
+          <span class="r-where">Statewide &middot; Housing &amp; rental assistance programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Nebraska 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEVADA -->
+          <details class="r-state" id="nevada">
+  <summary>
+    <span class="r-state-name">Nevada</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.nlv.org/" target="_blank" rel="noopener noreferrer">Nevada Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://housing.nv.gov/" target="_blank" rel="noopener noreferrer">Nevada Division of Veteran Services Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance programs</span>
+        </li>
+        <li>
+          <a href="https://www.clarkcountynv.us/community-services/" target="_blank" rel="noopener noreferrer">Clark County (Las Vegas) Community Services</a>
+          <span class="r-where">Las Vegas &middot; Emergency assistance &amp; housing</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Nevada 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEW HAMPSHIRE -->
+          <details class="r-state" id="new-hampshire">
+  <summary>
+    <span class="r-state-name">New Hampshire</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.nhls.org/" target="_blank" rel="noopener noreferrer">Legal Advice &amp; Referral Center (LARC)</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.nhhfa.org/" target="_blank" rel="noopener noreferrer">New Hampshire Housing Finance Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">New Hampshire 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEW JERSEY -->
+          <details class="r-state" id="new-jersey">
+  <summary>
+    <span class="r-state-name">New Jersey</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lsnj.org/" target="_blank" rel="noopener noreferrer">Legal Services of New Jersey</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://nj.gov/dca/hmfa/" target="_blank" rel="noopener noreferrer">New Jersey Emergency Rental Assistance Program</a>
+          <span class="r-where">Statewide &middot; State ERA program</span>
+        </li>
+        <li>
+          <a href="https://nj.gov/dca/hmfa/" target="_blank" rel="noopener noreferrer">New Jersey Housing Mortgage Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://njcourts.gov/self-help/landlord-tenant" target="_blank" rel="noopener noreferrer">NJ Court Eviction Diversion</a>
+          <span class="r-where">Statewide &middot; Court-ordered mediation &amp; assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">New Jersey 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEW MEXICO -->
+          <details class="r-state" id="new-mexico">
+  <summary>
+    <span class="r-state-name">New Mexico</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.newmexicolegalaid.org" target="_blank" rel="noopener noreferrer">New Mexico Legal Aid</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.housingnm.org" target="_blank" rel="noopener noreferrer">New Mexico Mortgage Finance Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">New Mexico 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NEW YORK -->
+          <details class="r-state" id="new-york">
+  <summary>
+    <span class="r-state-name">New York</span>
+    <span class="r-count">7 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://legalaidnyc.org/" target="_blank" rel="noopener noreferrer">The Legal Aid Society</a>
+          <span class="r-where">New York City &middot; Housing &amp; eviction representation</span>
+        </li>
+        <li>
+          <a href="https://www.legalservicesnyc.org/" target="_blank" rel="noopener noreferrer">Legal Services New York City</a>
+          <span class="r-where">New York City &middot; LSC grantee; housing &amp; foreclosure</span>
+        </li>
+        <li>
+          <a href="https://nylag.org/" target="_blank" rel="noopener noreferrer">New York Legal Assistance Group</a>
+          <span class="r-where">New York City &middot; Tenants' rights &amp; housing</span>
+        </li>
+        <li>
+          <a href="https://www.nysba.org/" target="_blank" rel="noopener noreferrer">New York State Bar Association Legal Resources</a>
+          <span class="r-where">Statewide &middot; Lawyer referrals &amp; resources</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.dec.ny.gov/" target="_blank" rel="noopener noreferrer">New York Emergency Rental Assistance Program</a>
+          <span class="r-where">Statewide &middot; State ERA program</span>
+        </li>
+        <li>
+          <a href="https://www.nyc.gov/" target="_blank" rel="noopener noreferrer">NYC Emergency Rental Assistance</a>
+          <span class="r-where">New York City &middot; City ERA program</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://hcr.ny.gov" target="_blank" rel="noopener noreferrer">NY Homes &amp; Community Renewal</a>
+          <span class="r-where">Statewide &middot; Housing programs &amp; assistance</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NORTH CAROLINA -->
+          <details class="r-state" id="north-carolina">
+  <summary>
+    <span class="r-state-name">North Carolina</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://legalaidnc.org/" target="_blank" rel="noopener noreferrer">Legal Aid of North Carolina</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://ncequaljusticealliance.org/" target="_blank" rel="noopener noreferrer">North Carolina Equal Justice Alliance</a>
+          <span class="r-where">Statewide &middot; Tenant &amp; housing advocacy</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.nchfa.com/" target="_blank" rel="noopener noreferrer">North Carolina Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://legalaidnc.org/project/durham-eviction-diversion-program/" target="_blank" rel="noopener noreferrer">Durham Eviction Diversion Program</a>
+          <span class="r-where">Durham &middot; Prevention &amp; mediation</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaidnc.org/" target="_blank" rel="noopener noreferrer">LawHelpNC.org</a>
+          <span class="r-where">Statewide &middot; Free legal aid &amp; housing resources</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- NORTH DAKOTA -->
+          <details class="r-state" id="north-dakota">
+  <summary>
+    <span class="r-state-name">North Dakota</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://lsnd.org" target="_blank" rel="noopener noreferrer">Legal Services of North Dakota</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.ndhfa.org" target="_blank" rel="noopener noreferrer">North Dakota Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">North Dakota 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- OHIO -->
+          <details class="r-state" id="ohio">
+  <summary>
+    <span class="r-state-name">Ohio</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lasco.org/" target="_blank" rel="noopener noreferrer">Legal Aid Society of Columbus</a>
+          <span class="r-where">Columbus &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://lasclev.org/" target="_blank" rel="noopener noreferrer">Legal Aid Society of Cleveland</a>
+          <span class="r-where">Cleveland area &middot; Housing &amp; eviction defense</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.ohiohome.org/" target="_blank" rel="noopener noreferrer">Ohio Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.ohiolegalhelp.org/" target="_blank" rel="noopener noreferrer">Ohio Legal Help</a>
+          <span class="r-where">Statewide &middot; Eviction &amp; tenant resources</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Know Your Rights</h3>
+      <ul>
+        <li>
+          <a href="https://cohhio.org/support/tenant-rights/" target="_blank" rel="noopener noreferrer">Coalition on Homelessness &amp; Housing (COHHIO)</a>
+          <span class="r-where">Statewide &middot; Tenant rights &amp; advocacy</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- OKLAHOMA -->
+          <details class="r-state" id="oklahoma">
+  <summary>
+    <span class="r-state-name">Oklahoma</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaidok.org" target="_blank" rel="noopener noreferrer">Legal Aid Services of Oklahoma</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.okhousing.org/" target="_blank" rel="noopener noreferrer">Oklahoma Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Oklahoma 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- OREGON -->
+          <details class="r-state" id="oregon">
+  <summary>
+    <span class="r-state-name">Oregon</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.oregonlawhelp.org/" target="_blank" rel="noopener noreferrer">Oregon Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+        <li>
+          <a href="https://tenants.org/" target="_blank" rel="noopener noreferrer">Oregon Tenants Union</a>
+          <span class="r-where">Statewide &middot; Tenant rights &amp; advocacy</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.oregon.gov/ohcs/Pages/index.aspx" target="_blank" rel="noopener noreferrer">Oregon Housing &amp; Community Services</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://www.oregon.gov/oweb/pages/index.aspx" target="_blank" rel="noopener noreferrer">Oregon Eviction Prevention Program</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; mediation</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Oregon 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- PENNSYLVANIA -->
+          <details class="r-state" id="pennsylvania">
+            <summary>
+              <span class="r-state-name">Pennsylvania</span>
+              <span class="r-count">24 programs</span>
+            </summary>
+            <div class="r-body">
+              <div class="r-group">
+                <h3>Rent &amp; Utility Assistance</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.berksha.org/" target="_blank" rel="noopener noreferrer">Berks County Housing Authority</a>
+                    <span class="r-where">Berks County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.buckscounty.gov/828/Emergency-Rental-Assistance-BERA" target="_blank" rel="noopener noreferrer">Bucks County Emergency Rental Assistance (BERA)</a>
+                    <span class="r-where">Bucks County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.chesco.org/1544/Human-Services" target="_blank" rel="noopener noreferrer">Chester County Department of Human Services</a>
+                    <span class="r-where">Chester County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.delco-era.com/" target="_blank" rel="noopener noreferrer">Delaware County Emergency Rental Assistance (DELCO ERA)</a>
+                    <span class="r-where">Delaware County</span>
+                  </li>
+                  <li>
+                    <a href="https://lchra.com/our-organizations/housing-authority/our-programs/" target="_blank" rel="noopener noreferrer">Lancaster County Housing &amp; Redevelopment Authority &mdash; Programs</a>
+                    <span class="r-where">Lancaster County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.montcopa.org/housing" target="_blank" rel="noopener noreferrer">Montgomery County Housing &amp; Community Development</a>
+                    <span class="r-where">Montgomery County</span>
+                  </li>
+                  <li>
+                    <a href="https://myblueprints.org/services/home/rental-assistance/" target="_blank" rel="noopener noreferrer">Washington County Emergency Rental Assistance</a>
+                    <span class="r-where">Washington County</span>
+                  </li>
+                  <li>
+                    <a href="https://erapwestmoreland.org/" target="_blank" rel="noopener noreferrer">Westmoreland County ERAP</a>
+                    <span class="r-where">Westmoreland County</span>
+                  </li>
+                  <li>
+                    <a href="https://cchra.com/program/individual/Emergency-rental-assistance-program" target="_blank" rel="noopener noreferrer">Cumberland County ERAP</a>
+                    <span class="r-where">Cumberland County <span class="r-inactive">(currently inactive)</span></span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="r-group">
+                <h3>Eviction Diversion &amp; Mediation</h3>
+                <ul>
+                  <li>
+                    <a href="https://eviction-diversion.phila.gov/#/" target="_blank" rel="noopener noreferrer">Philadelphia Eviction Diversion Program</a>
+                    <span class="r-where">Philadelphia &middot; mandatory pre-filing mediation</span>
+                  </li>
+                  <li>
+                    <a href="https://www.nccpa.org/geninfo/mortgage-foreclosure-diversion-program" target="_blank" rel="noopener noreferrer">Northampton County Court Diversion Program</a>
+                    <span class="r-where">Northampton County</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="r-group">
+                <h3>Housing &amp; Community Support</h3>
+                <ul>
+                  <li>
+                    <a href="https://www.dhs.pa.gov/Services/Assistance/Pages/Housing-Resources.aspx" target="_blank" rel="noopener noreferrer">PA Dept. of Human Services &mdash; Housing Resources</a>
+                    <span class="r-where">Statewide</span>
+                  </li>
+                  <li>
+                    <a href="https://www.thecaap.org/findanagency" target="_blank" rel="noopener noreferrer">PA Community Action Agencies &mdash; Find an Agency</a>
+                    <span class="r-where">Statewide</span>
+                  </li>
+                  <li>
+                    <a href="https://www.eccm.org/services/mental-health/coordinated-entry" target="_blank" rel="noopener noreferrer">Erie County Coordinated Care Program</a>
+                    <span class="r-where">Erie County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.hace.org/" target="_blank" rel="noopener noreferrer">Housing Authority of the City of Erie</a>
+                    <span class="r-where">Erie County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.catherinemcauleycenter.org/housing" target="_blank" rel="noopener noreferrer">Catherine McAuley Center</a>
+                    <span class="r-where">Lackawanna County / Scranton</span>
+                  </li>
+                  <li>
+                    <a href="https://www.lasp.org/" target="_blank" rel="noopener noreferrer">Legal Aid of Southeastern Pennsylvania (serves Scranton area)</a>
+                    <span class="r-where">Lackawanna County / Scranton</span>
+                  </li>
+                  <li>
+                    <a href="https://www.wilkesbarrehousing.org/" target="_blank" rel="noopener noreferrer">Wilkes-Barre Housing Authority</a>
+                    <span class="r-where">Luzerne County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.statecollegepa.us/185/Housing-Assistance-Programs" target="_blank" rel="noopener noreferrer">State College Housing Assistance Programs</a>
+                    <span class="r-where">Centre County</span>
+                  </li>
+                  <li>
+                    <a href="https://pittsburghpa.gov/harp/" target="_blank" rel="noopener noreferrer">Pittsburgh Housing Assistance Resources Portal (HARP)</a>
+                    <span class="r-where">Allegheny County / Pittsburgh</span>
+                  </li>
+                  <li>
+                    <a href="https://harrisburghousing.org/contact-us" target="_blank" rel="noopener noreferrer">Harrisburg Housing Authority</a>
+                    <span class="r-where">Dauphin County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.yorkcpc.org/program-overview/" target="_blank" rel="noopener noreferrer">York Community Progress Council</a>
+                    <span class="r-where">York County</span>
+                  </li>
+                  <li>
+                    <a href="https://www.phila.gov/departments/office-of-community-empowerment-and-opportunity/" target="_blank" rel="noopener noreferrer">Philadelphia Office of Community Empowerment &amp; Opportunity</a>
+                    <span class="r-where">Philadelphia</span>
+                  </li>
+                  <li>
+                    <a href="https://www.communityactionlv.org/" target="_blank" rel="noopener noreferrer">Lehigh County Community Action Agency</a>
+                    <span class="r-where">Lehigh County / Lehigh Valley</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- RHODE ISLAND -->
+          <details class="r-state" id="rhode-island">
+  <summary>
+    <span class="r-state-name">Rhode Island</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lsri.org/" target="_blank" rel="noopener noreferrer">Legal Services for Rhode Island</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://dem.ri.gov/environmental-protection-bureau" target="_blank" rel="noopener noreferrer">Rhode Island DEM Housing</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Rhode Island 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- SOUTH CAROLINA -->
+          <details class="r-state" id="south-carolina">
+  <summary>
+    <span class="r-state-name">South Carolina</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://sclegal.org/" target="_blank" rel="noopener noreferrer">South Carolina Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.schousing.com" target="_blank" rel="noopener noreferrer">South Carolina State Housing Finance Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">South Carolina 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- SOUTH DAKOTA -->
+          <details class="r-state" id="south-dakota">
+  <summary>
+    <span class="r-state-name">South Dakota</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.erls.org" target="_blank" rel="noopener noreferrer">East River Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://dlr.sd.gov/" target="_blank" rel="noopener noreferrer">South Dakota Housing Development Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">South Dakota 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- TENNESSEE -->
+          <details class="r-state" id="tennessee">
+  <summary>
+    <span class="r-state-name">Tennessee</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://las.org/" target="_blank" rel="noopener noreferrer">Tennessee Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://chfainfo.com/" target="_blank" rel="noopener noreferrer">Tennessee Housing Development Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Tennessee 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- TEXAS -->
+          <details class="r-state" id="texas">
+  <summary>
+    <span class="r-state-name">Texas</span>
+    <span class="r-count">6 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lonestarlegal.org/" target="_blank" rel="noopener noreferrer">Lone Star Legal Aid</a>
+          <span class="r-where">Houston &amp; East Texas &middot; Eviction prevention &amp; housing</span>
+        </li>
+        
+        <li>
+          <a href="https://www.trla.org/" target="_blank" rel="noopener noreferrer">Texas RioGrande Legal Aid</a>
+          <span class="r-where">South Texas &middot; Housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.tdhca.texas.gov/" target="_blank" rel="noopener noreferrer">Texas Department of Housing &amp; Community Affairs</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+        <li>
+          <a href="https://www.houstontx.gov/" target="_blank" rel="noopener noreferrer">City of Houston Emergency Rental Assistance</a>
+          <span class="r-where">Houston &middot; City ERA program</span>
+        </li>
+        <li>
+          <a href="https://chfainfo.com/" target="_blank" rel="noopener noreferrer">City of Dallas Housing &amp; Emergency Assistance</a>
+          <span class="r-where">Dallas &middot; Emergency assistance programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://texaslawhelp.org/" target="_blank" rel="noopener noreferrer">Texas Law Help</a>
+          <span class="r-where">Statewide &middot; Housing &amp; tenant resources</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- UTAH -->
+          <details class="r-state" id="utah">
+  <summary>
+    <span class="r-state-name">Utah</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lonestarlegal.org" target="_blank" rel="noopener noreferrer">Lone Star Legal Aid</a>
+          <span class="r-where">Statewide &middot; Legal services for low-income; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.hfutah.org/" target="_blank" rel="noopener noreferrer">Utah Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Utah 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- VERMONT -->
+          <details class="r-state" id="vermont">
+  <summary>
+    <span class="r-state-name">Vermont</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.vtlawhelp.org/" target="_blank" rel="noopener noreferrer">Vermont Legal Aid</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.vhfa.org/" target="_blank" rel="noopener noreferrer">Vermont Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Vermont 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- VIRGINIA -->
+          <details class="r-state" id="virginia">
+  <summary>
+    <span class="r-state-name">Virginia</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.vlas.org" target="_blank" rel="noopener noreferrer">Virginia Legal Aid Society</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.dhcd.virginia.gov/" target="_blank" rel="noopener noreferrer">Virginia Department of Housing &amp; Community Development</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+        <li>
+          <a href="https://www.arlingtonva.us/government/emergency-assistance" target="_blank" rel="noopener noreferrer">Arlington County Emergency Assistance</a>
+          <span class="r-where">Arlington &middot; Rental &amp; emergency assistance</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Virginia 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- WASHINGTON -->
+          <details class="r-state" id="washington">
+  <summary>
+    <span class="r-state-name">Washington</span>
+    <span class="r-count">5 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.nwjustice.org/" target="_blank" rel="noopener noreferrer">Northwest Justice Project</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.dshs.wa.gov/housing-assistance" target="_blank" rel="noopener noreferrer">Washington State Rental Assistance Program</a>
+          <span class="r-where">Statewide &middot; Emergency rental assistance</span>
+        </li>
+        <li>
+          <a href="https://www.seattle.gov/" target="_blank" rel="noopener noreferrer">City of Seattle Housing &amp; Emergency Assistance</a>
+          <span class="r-where">Seattle &middot; Emergency &amp; eviction prevention programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://www.nwjustice.org/get-help/housing" target="_blank" rel="noopener noreferrer">NJP Eviction Prevention &amp; Diversion</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; mediation services</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Washington 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- WEST VIRGINIA -->
+          <details class="r-state" id="west-virginia">
+  <summary>
+    <span class="r-state-name">West Virginia</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://lawv.net/" target="_blank" rel="noopener noreferrer">West Virginia Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://www.wvhdf.com" target="_blank" rel="noopener noreferrer">West Virginia Housing Development Fund</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">West Virginia 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- WISCONSIN -->
+          <details class="r-state" id="wisconsin">
+  <summary>
+    <span class="r-state-name">Wisconsin</span>
+    <span class="r-count">4 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.legalaction.org" target="_blank" rel="noopener noreferrer">Legal Action of Wisconsin</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://wheda.com/" target="_blank" rel="noopener noreferrer">Wisconsin Housing &amp; Economic Development Authority</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Eviction Diversion</h3>
+      <ul>
+        <li>
+          <a href="https://www.tenantresourcecenter.org" target="_blank" rel="noopener noreferrer">Tenant Resource Center</a>
+          <span class="r-where">Statewide &middot; Prevention &amp; tenant resources</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Wisconsin 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+          <!-- WYOMING -->
+          <details class="r-state" id="wyoming">
+  <summary>
+    <span class="r-state-name">Wyoming</span>
+    <span class="r-count">3 programs</span>
+  </summary>
+  <div class="r-body">
+    <div class="r-group">
+      <h3>Legal Help</h3>
+      <ul>
+        <li>
+          <a href="https://www.lawyoming.org/" target="_blank" rel="noopener noreferrer">Wyoming Legal Services</a>
+          <span class="r-where">Statewide &middot; LSC grantee; housing &amp; eviction</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Rent &amp; Utility Assistance</h3>
+      <ul>
+        <li>
+          <a href="https://wyomingcda.com/" target="_blank" rel="noopener noreferrer">Wyoming Housing Finance Agency</a>
+          <span class="r-where">Statewide &middot; Rental assistance &amp; housing programs</span>
+        </li>
+      </ul>
+    </div>
+    <div class="r-group">
+      <h3>Housing &amp; Shelter</h3>
+      <ul>
+        <li>
+          <a href="https://www.211.org/" target="_blank" rel="noopener noreferrer">Wyoming 211</a>
+          <span class="r-where">Statewide &middot; Resource referrals</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+        </div><!-- /.r-list -->
+
+        <!-- National resources (cross-cutting) -->
+        <div class="r-tail">
+          <h3>National resources</h3>
+          <p>If you need to compare programs across states, or if your local listing above is outdated, the federal Consumer Financial Protection Bureau maintains a national directory of rent and utility assistance programs. 2-1-1 is a free, confidential helpline that connects callers in any U.S. state to local social services, including housing and homelessness prevention.</p>
+          <div class="r-btns">
+            <a class="btn-primary-red" href="https://www.consumerfinance.gov/coronavirus/mortgage-and-housing-assistance/renter-protections/find-help-with-rent-and-utilities/" target="_blank" rel="noopener noreferrer">CFPB national directory</a>
+            <a class="btn-outline-slate" href="tel:211">Call 2-1-1</a>
+          </div>
         </div>
+
+        <p class="r-submit">
+          Know of a program that should be listed? Email
+          <a href="mailto:evictions@berkeley.edu?Subject=Resource%20to%20add%20to%20Eviction%20Help%20page">evictions@berkeley.edu</a>
+          with the organization name and a link.
+          <br>
+          <span style="color:#9eabbd;">Page last reviewed
+            <script>document.write(new Date().toLocaleDateString('en-US', {month:'long', year:'numeric'}));</script>.
+          </span>
+        </p>
+
       </div>
     </div>
 
-    <!-- =================== STATE JUMP BAR =================== -->
-    <nav class="state-jumpbar" aria-label="Jump to state">
-      <div class="container">
-        <div class="sj-inner">
-          <span class="sj-label">Jump to state:</span>
-          <div class="sj-pills">
-            <a class="sj-pill" href="#delaware">Delaware</a>
-            <a class="sj-pill" href="#illinois">Illinois</a>
-            <a class="sj-pill" href="#indiana">Indiana</a>
-            <a class="sj-pill" href="#minnesota">Minnesota</a>
-            <a class="sj-pill" href="#missouri">Missouri</a>
-            <a class="sj-pill" href="#pennsylvania">Pennsylvania</a>
-            <a class="sj-pill" href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener">National ↗</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- =================== DIRECTORY =================== -->
-    <section class="section">
-      <div class="container">
-
-        <!-- Legend -->
-        <div class="tag-legend" role="region" aria-label="Service category legend">
-          <h4>Service Categories</h4>
-          <div class="tl-items">
-            <span><span class="tag-pill t-legal">Legal Aid</span> Free eviction defense &amp; tenant-rights attorneys</span>
-            <span><span class="tag-pill t-rental">Rental Assistance</span> Direct payment of back / ongoing rent</span>
-            <span><span class="tag-pill t-counseling">Housing Counseling</span> Case management &amp; referrals</span>
-            <span><span class="tag-pill t-mediation">Mediation / Diversion</span> Pre-filing settlement programs</span>
-            <span><span class="tag-pill t-crisis">Crisis / Shelter</span> Emergency shelter &amp; transitional housing</span>
-            <span><span class="tag-pill t-info">Tenant Info</span> Know-your-rights guides &amp; forms</span>
-          </div>
-        </div>
-
-        <p style="color:#5a6b80; font-size:14px; margin-bottom:32px;">
-          <i class="bi bi-info-circle" aria-hidden="true"></i>
-          Listings were last audited <script>document.write(new Date().toLocaleDateString());</script>. Program availability and funding change frequently — call before visiting. See one that's missing? <a href="mailto:evictions@berkeley.edu?Subject=Resource%20to%20add%20to%20Eviction%20Help%20page">Email us</a>.
-        </p>
-
-        <!-- ============ DELAWARE ============ -->
-        <div class="state-block" id="delaware">
-          <div class="state-block-header">
-            <h2>Delaware</h2>
-            <span class="state-count">4 programs · statewide</span>
-          </div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://delegalhelplink.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Delaware Legal Help Link</div>
-              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span><span class="tag-pill t-info">Tenant Info</span></div>
-            </a>
-            <a class="resource-card" href="https://delegalhelplink.org/dehousing-1" target="_blank" rel="noopener">
-              <div class="rc-name">Delaware Legal Help Link — Eviction Help</div>
-              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
-            </a>
-            <a class="resource-card" href="https://www.lscd.com/topics/401/housing" target="_blank" rel="noopener">
-              <div class="rc-name">Legal Services Corporation of Delaware, Inc.</div>
-              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
-            </a>
-            <a class="resource-card" href="http://www.destatehousing.com/Renters/renters.php" target="_blank" rel="noopener">
-              <div class="rc-name">Delaware State Housing Authority — Renters</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- ============ ILLINOIS ============ -->
-        <div class="state-block" id="illinois">
-          <div class="state-block-header">
-            <h2>Illinois</h2>
-            <span class="state-count">5 programs · state + Cook County</span>
-          </div>
-
-          <div class="state-subregion">Illinois Dept. of Human Services (statewide)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.dhs.state.il.us/page.aspx?item=30362" target="_blank" rel="noopener">
-              <div class="rc-name">Emergency &amp; Transitional Housing Program</div>
-              <div class="rc-tags"><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
-            </a>
-            <a class="resource-card" href="https://www.dhs.state.il.us/page.aspx?item=134895" target="_blank" rel="noopener">
-              <div class="rc-name">Emergency Rental &amp; Utility Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Cook County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.chicago.gov/city/en/depts/fss/provdrs/serv/svcs/how_to_find_rentalassistanceinchicago.html" target="_blank" rel="noopener">
-              <div class="rc-name">Chicago Rental Assistance Program</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="https://www.cookcountylegalaid.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Cook County Legal Aid for Housing &amp; Debt</div>
-              <div class="rc-tags"><span class="tag-pill t-legal">Legal Aid</span></div>
-            </a>
-            <a class="resource-card" href="https://chicookilrenthelp.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Emergency COVID-19 Rental Assistance Programs</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- ============ INDIANA ============ -->
-        <div class="state-block" id="indiana">
-          <div class="state-block-header">
-            <h2>Indiana</h2>
-            <span class="state-count">4 programs · Lake, Owen, Delaware counties</span>
-          </div>
-
-          <div class="state-subregion">Lake County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://in211.communityos.org/apssreadonly/render/id/5910/form/service/record_id/12182" target="_blank" rel="noopener">
-              <div class="rc-name">Housing Payment Assistance (IN 2-1-1)</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Owen / Monroe County (Bloomington)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://bloomington.in.gov/sites/default/files/2021-09/Help%20for%20Homeowners%20and%20Renters%20with%20links.pdf" target="_blank" rel="noopener">
-              <div class="rc-name">City of Bloomington HAND — Help for Homeowners &amp; Renters</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-info">Tenant Info</span></div>
-            </a>
-            <a class="resource-card" href="https://bloomington.in.gov/sites/default/files/2021-09/Monroe%20Co.%20Summons%20Packet%20for%20Evictions_2_2021.pdf" target="_blank" rel="noopener">
-              <div class="rc-name">Monroe County Summons Packet for Evictions</div>
-              <div class="rc-tags"><span class="tag-pill t-info">Tenant Info</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Delaware County (Muncie)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.cityofmuncie.com/egov/documents/1631286130_06113.pdf" target="_blank" rel="noopener">
-              <div class="rc-name">Muncie's Rental Advocacy Book — THE RENTER'S BOOK</div>
-              <div class="rc-tags"><span class="tag-pill t-info">Tenant Info</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- ============ MINNESOTA ============ -->
-        <div class="state-block" id="minnesota">
-          <div class="state-block-header">
-            <h2>Minnesota</h2>
-            <span class="state-count">6 programs · Olmsted, Ramsey, Koochiching counties</span>
-          </div>
-
-          <div class="state-subregion">Olmsted County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/financial-assistance/emergency-assistance" target="_blank" rel="noopener">
-              <div class="rc-name">County Emergency Cash Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
-            </a>
-            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/housing/rental-assistance" target="_blank" rel="noopener">
-              <div class="rc-name">Olmsted County Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="https://www.olmstedcounty.gov/residents/services-individuals-families/crisis/resources-community#other-housingassistance15" target="_blank" rel="noopener">
-              <div class="rc-name">Resources in the Community</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Ramsey County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.ramseycounty.us/residents/assistance-support/assistance/housing-services-support" target="_blank" rel="noopener">
-              <div class="rc-name">Ramsey County Housing Services &amp; Support</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Koochiching County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="http://www.koochhra.com/bridgeshousing.htm" target="_blank" rel="noopener">
-              <div class="rc-name">Housing &amp; Redevelopment Authority — Bridges Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="https://www.kootasca.org/programs/renters/" target="_blank" rel="noopener">
-              <div class="rc-name">Kootasca Community Actions — Renter Programs</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- ============ MISSOURI ============ -->
-        <div class="state-block" id="missouri">
-          <div class="state-block-header">
-            <h2>Missouri</h2>
-            <span class="state-count">13 programs · statewide + 8 counties</span>
-          </div>
-
-          <div class="state-subregion">Statewide</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://dmh.mo.gov/housing/unit/rental-assistance" target="_blank" rel="noopener">
-              <div class="rc-name">MO Dept. of Mental Health — Rental Assistance Program (RAP)</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="http://www.communityaction.org/wp-content/uploads/2019/02/MCAN-Statewide-AgencyInfo.pdf" target="_blank" rel="noopener">
-              <div class="rc-name">Community Action Agencies — Contact Directory</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Clay County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.claycountymo.gov/transparency/erap" target="_blank" rel="noopener">
-              <div class="rc-name">Clay County Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Jackson County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.jacksoncountyerap.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Jackson County Rental Assistance Program</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Jefferson County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.jfcac.org/erap.html" target="_blank" rel="noopener">
-              <div class="rc-name">Jefferson County Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">St. Louis County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://stlouisco.onlinepha.com/" target="_blank" rel="noopener">
-              <div class="rc-name">St. Louis County Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="https://www.stjosephmo.gov/341/Housing-Authority" target="_blank" rel="noopener">
-              <div class="rc-name">St. Louis Housing Authority</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Jasper County (Joplin)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://ccsomo.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Catholic Charities of Southern Missouri</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-            <a class="resource-card" href="https://www.crosslinesjoplin.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Crosslines Ministries</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
-            </a>
-            <a class="resource-card" href="https://www.joplinmo.org/1079/Community-Resources" target="_blank" rel="noopener">
-              <div class="rc-name">Joplin Community Resources</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Greene County (Springfield)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.springfieldmo.gov/2387/Housing-Assistance-Programs" target="_blank" rel="noopener">
-              <div class="rc-name">Springfield Housing Assistance Programs</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Kansas City</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.kcmo.gov/city-hall/housing/emergency-rental-and-utilities-assistance" target="_blank" rel="noopener">
-              <div class="rc-name">Kansas City Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- ============ PENNSYLVANIA ============ -->
-        <div class="state-block" id="pennsylvania">
-          <div class="state-block-header">
-            <h2>Pennsylvania</h2>
-            <span class="state-count">23 programs · statewide + 17 counties</span>
-          </div>
-
-          <div class="state-subregion">Statewide</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.dhs.pa.gov/Services/Assistance/Pages/Housing-Resources.aspx" target="_blank" rel="noopener">
-              <div class="rc-name">PA Dept. of Human Services — Housing Resources</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-            <a class="resource-card" href="https://www.thecaap.org/findanagency" target="_blank" rel="noopener">
-              <div class="rc-name">PA Community Action Agencies — Find an Agency</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Berks County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.doyourpartberks.com/rental-assistance" target="_blank" rel="noopener">
-              <div class="rc-name">Berks County Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Bucks County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.buckscounty.gov/828/Emergency-Rental-Assistance-BERA" target="_blank" rel="noopener">
-              <div class="rc-name">Bucks Emergency Rental Assistance (BERA)</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Chester County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.chesco.org/4905/Rent-Assistance" target="_blank" rel="noopener">
-              <div class="rc-name">Chester County Emergency Rent &amp; Utility Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Cumberland County</div>
-          <div class="resource-grid">
-            <a class="resource-card inactive" href="https://cchra.com/program/individual/Emergency-rental-assistance-program" target="_blank" rel="noopener">
-              <div class="rc-name">Cumberland County ERAP <span style="font-weight:400; color:#888;">(inactive)</span></div>
-              <div class="rc-tags"><span class="tag-pill t-inactive">Inactive</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Delaware County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.delco-era.com/" target="_blank" rel="noopener">
-              <div class="rc-name">Delaware County Emergency Rental Assistance (DELCO ERA)</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Lancaster County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.lchra.com/rent/" target="_blank" rel="noopener">
-              <div class="rc-name">Lancaster County COVID-19 Emergency Rental &amp; Utility Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Montgomery County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://yourwayhome.org/eruc" target="_blank" rel="noopener">
-              <div class="rc-name">Montgomery County Rent &amp; Utility Relief Program</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Northampton County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.northamptoncounty.org/CMTYECDV/Pages/Housing-and-Community-Resources.aspx" target="_blank" rel="noopener">
-              <div class="rc-name">Northampton County Community Mediation &amp; Eviction Diversion</div>
-              <div class="rc-tags"><span class="tag-pill t-mediation">Mediation / Diversion</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Washington County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://myblueprints.org/services/home/rental-assistance/" target="_blank" rel="noopener">
-              <div class="rc-name">Washington County Emergency Rental Assistance</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Westmoreland County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://erapwestmoreland.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Westmoreland County ERAP</div>
-              <div class="rc-tags"><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Erie County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.eccm.org/services/mental-health/coordinated-entry" target="_blank" rel="noopener">
-              <div class="rc-name">Erie County Coordinated Care Program</div>
-              <div class="rc-tags"><span class="tag-pill t-crisis">Crisis / Shelter</span><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-            <a class="resource-card" href="https://www.hace.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Housing Authority of the City of Erie</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Lackawanna County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.catherinemcauleycenter.org/housing" target="_blank" rel="noopener">
-              <div class="rc-name">Catherine McAuley Center</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-crisis">Crisis / Shelter</span></div>
-            </a>
-            <a class="resource-card" href="https://scrantonpa.gov/your-government/department-of-community-development/community-development/community-resources/" target="_blank" rel="noopener">
-              <div class="rc-name">Scranton Community Development Resources</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Luzerne County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.wilkesbarrehousing.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Wilkes-Barre Housing Authority</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Centre County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.statecollegepa.us/185/Housing-Assistance-Programs" target="_blank" rel="noopener">
-              <div class="rc-name">State College Housing Assistance Programs</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Allegheny County (Pittsburgh)</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://pittsburghpa.gov/harp/" target="_blank" rel="noopener">
-              <div class="rc-name">Pittsburgh Housing Assistance Resources Portal (HARP)</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Dauphin County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://harrisburghousing.org/contact-us" target="_blank" rel="noopener">
-              <div class="rc-name">Harrisburg Housing Authority</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">York County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.yorkcpc.org/program-overview/" target="_blank" rel="noopener">
-              <div class="rc-name">York Community Progress Council</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Philadelphia County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://eviction-diversion.phila.gov/#/" target="_blank" rel="noopener">
-              <div class="rc-name">City of Philadelphia Eviction Diversion Program</div>
-              <div class="rc-tags"><span class="tag-pill t-mediation">Mediation / Diversion</span></div>
-            </a>
-            <a class="resource-card" href="https://www.phila.gov/departments/office-of-community-empowerment-and-opportunity/" target="_blank" rel="noopener">
-              <div class="rc-name">Philadelphia Office of Community Empowerment &amp; Opportunity</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span></div>
-            </a>
-          </div>
-
-          <div class="state-subregion">Lehigh County</div>
-          <div class="resource-grid">
-            <a class="resource-card" href="https://www.communityactionlv.org/" target="_blank" rel="noopener">
-              <div class="rc-name">Lehigh County Community Action Agency</div>
-              <div class="rc-tags"><span class="tag-pill t-counseling">Housing Counseling</span><span class="tag-pill t-rental">Rental Assistance</span></div>
-            </a>
-          </div>
-        </div>
-
-        <!-- Not listed CTA -->
-        <div class="not-listed-cta">
-          <h3>Don't see your state or county?</h3>
-          <p>Our listings cover regions where ERN has conducted active research. For areas outside our coverage, try the national rent-relief directory, or 2-1-1 (dial from any phone).</p>
-          <a href="https://ipropertymanagement.com/guides/rent-relief-programs" target="_blank" rel="noopener" class="cta-btn" style="display:inline-block; padding:10px 22px; background:#F9322B; color:#fff; border-radius:4px; font-weight:600; text-decoration:none;">National rent-relief directory →</a>
-        </div>
-
-        <p style="margin-top:36px; font-size:14px; color:#5a6b80;">
-          Know of a program that should be listed? Email <a href="mailto:evictions@berkeley.edu?Subject=Resource%20to%20add%20to%20Eviction%20Help%20page"><b>evictions@berkeley.edu</b></a> with the organization name, service type, and a link.
-        </p>
-      </div>
-    </section>
-
   </main>
 
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="footer" class="footer dark-background" role="contentinfo">
 
-  <footer id="footer" class="footer dark-background">
     <div class="container footer-top">
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="The Eviction Research Network logo" loading="lazy" style="max-height:70px; width:auto;">
+          <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
           </a>
-          <p style="margin-top:14px; font-size:14px; line-height:1.55; color:#d5dde6;">Open-source eviction data and research for policy, journalism, and tenant advocacy. Housed in UC&nbsp;Berkeley's Department of Sociology.</p>
-          <div class="social-links d-flex mt-3">
-            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Bluesky"><i class="bi bi-cloud"></i></a>
-            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email"><i class="bi bi-envelope"></i></a>
+          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Institute of Governmental Studies (IGS), Berkeley Institute for Data Science (BIDS), and the Urban Displacement Project.</p>
+          <div class="social-links d-flex mt-3" aria-label="Social media">
+            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
 
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Research</h4>
           <ul>
-            <li><a href="research.html">Other Eviction Research</a></li>
+            <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+            <li><a href="research.html">Publications</a></li>
             <li><a href="methodology.html">Methodology</a></li>
             <li><a href="news.html">News &amp; Press</a></li>
-            <li><a href="about.html#team">Team</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>Maps &amp; Profiles</h4>
+          <ul>
+            <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+            <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+            <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+            <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+            <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+            <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+            <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+            <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
           </ul>
         </div>
 
@@ -618,37 +2757,54 @@
           <h4>Resources</h4>
           <ul>
             <li><a href="resources.html">Eviction Help</a></li>
-            <li><a href="https://evictionresearch.net/hprm/" target="_blank">HPRM Dashboard</a></li>
-            <li><a href="https://github.com/EvictionResearch" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a href="mailto:evictions@berkeley.edu">Contact</a></li>
+            <li><a href="research.html">Other Research</a></li>
+            <li><a href="about.html">About &amp; Team</a></li>
+            <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-6 footer-links">
+        <div class="col-lg-2 col-md-6 footer-links">
           <h4>Affiliated With</h4>
-          <p style="font-size:13px; line-height:1.6; color:#d5dde6;">UC Berkeley Sociology · Institute of Governmental Studies · Berkeley Institute for Data Science · Division of Computing, Data Science &amp; Society · Urban Displacement Project</p>
-          <p style="font-size:12px; color:#9eabbd; margin-top:10px;">Research outputs are preserved and citable via Zenodo DOI.</p>
+          <ul>
+            <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+            <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+            <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+            <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          </ul>
         </div>
+
       </div>
     </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong> <span>All Rights Reserved</span></p>
+    <div class="container">
+      <div class="footer-legal">
+        <p class="mb-1">&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong>. All rights reserved.</p>
+        <p class="mb-0">The Eviction Research Network is a project of UC Berkeley's Department of Sociology. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</p>
+      </div>
     </div>
 
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
 
-  <!-- Preloader -->
   <div id="preloader"></div>
 
-  <!-- Vendor JS (minimal — only bootstrap needed) -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-
-  <!-- Main JS File -->
   <script src="assets/js/main.js" defer></script>
+
+  <!-- If the URL contains a state hash, auto-open that drawer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var hash = (location.hash || '').replace('#','').toLowerCase();
+      if (!hash) return;
+      var el = document.getElementById(hash);
+      if (el && el.tagName === 'DETAILS') {
+        el.open = true;
+        // ensure scroll lands below the sticky header
+        setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'start'}); }, 60);
+      }
+    });
+  </script>
 
 </body>
 

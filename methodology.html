@@ -47,6 +47,11 @@
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
     a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -179,6 +184,12 @@
             <p>Collapse repeat entries of the same case over time.</p>
           </li>
         </ol>
+
+        <div class="callout-why mt-5" style="max-width: 920px; margin-left: auto; margin-right: auto;">
+          <span class="callout-label">Baseline reference</span>
+          <p class="mb-2">The full pipeline &mdash; from raw court records, through OCR and address geocoding, to Bayesian demographic estimation and validation &mdash; is documented as a general methodology in Thomas, Hepburn, Graetz, and Desmond, <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer"><strong>"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</strong></a>. It is the baseline reference for applying this approach to any jurisdiction's court data, in any format.</p>
+          <p class="mb-0"><a href="cityscape-2024.html" class="stage-link">Read the ERN summary of the Cityscape paper <i class="bi bi-arrow-right" aria-hidden="true"></i></a></p>
+        </div>
       </div>
     </section>
 
@@ -310,6 +321,7 @@
             <p>After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants. The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person.</p>
 
             <h2 id="demographic">Demographic Estimation</h2>
+            <p class="text-muted small mb-3"><em>The canonical write-up of this stage, including accuracy validation against legal-aid intake data, is Thomas et al., <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</a> &mdash; see our <a href="cityscape-2024.html">ERN summary</a>.</em></p>
             <p>Using the surname extracted from the defendant name field, we estimated the race of each defendant with a valid human name using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses Bayes' rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.</p>
 
             <div class="callout-why">
@@ -505,11 +517,11 @@
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6 footer-about">
-          <div class="footer-logos d-flex align-items-center flex-wrap" style="gap: 18px;">
+          <div class="footer-logos d-flex align-items-center flex-wrap">
             <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
               <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
             </a>
-            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2);"></span>
+            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
             <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
               <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
             </a>

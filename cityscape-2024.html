@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Toward a National Eviction Data Collection Strategy — Thomas et al. in Cityscape (2024)</title>
+  <meta name="description" content="A UC Berkeley / UW team mined 111,740 eviction court records across four Washington counties using natural language processing to uncover racial and gender disparities that structured data could not see. Published in Cityscape (HUD, 2024), this paper is the baseline methodology for working with any jurisdiction's court data.">
+  <meta name="keywords" content="eviction data, natural language processing, NLP, court records, Washington State evictions, Cityscape, HUD, racial disparity, gender disparity, Bayesian race estimation, demographic estimation, Tim Thomas, Eviction Research Network, UC Berkeley">
+  <meta name="author" content="Eviction Research Network, UC Berkeley">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#19222C">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Toward a National Eviction Data Collection Strategy Using NLP — Cityscape 2024">
+  <meta property="og:description" content="How the Eviction Research Network built a natural-language-processing pipeline to mine 111,740 Washington court records — the baseline methodology for working with any jurisdiction's eviction data.">
+  <meta property="og:url" content="https://evictionresearch.net/cityscape-2024.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts — Open Sans (body) + Roboto (headings/nav). Async-loaded to avoid render-blocking. -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical above-the-fold CSS -->
+  <style>
+    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
+    .light-background{--background-color:#e8eef4;--surface-color:#fff}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;line-height:1.75}
+    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
+    .header{background-color:rgba(25,34,44,.85);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0;transition:background-color .3s,box-shadow .3s}
+    .header .logo img{max-height:60px;width:auto}
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:var(--heading-color);padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+    /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
+  </style>
+
+  <!-- Bootstrap (sync for stable layout) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Non-critical CSS -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+  </noscript>
+
+  <!-- Page-specific article CSS — mirrors the hud-era landing page treatment.
+       Canonical brand spec: evictionresearch/library/BRAND.md
+       Colors also deployed at: assets/css/main.css
+       Accent #F9322B · Dark navy #19222C · Medium blue #223754 · Light blue #e8eef4 -->
+  <style>
+    :root {
+      --accent:       #F9322B;
+      --dark-blue:    #19222C;
+      --medium-blue:  #223754;
+      --light-gray:   #e8eef4;
+      --text-color:   #1e2a22;
+    }
+
+    /* ── Hero ── */
+    .article-hero {
+      background: linear-gradient(135deg, var(--medium-blue) 0%, #19222C 60%, #111820 100%);
+      color: #fff;
+      padding: 140px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .article-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="60" fill="rgba(249,50,43,0.06)"/><circle cx="10" cy="80" r="40" fill="rgba(255,255,255,0.03)"/></svg>') no-repeat center/cover;
+    }
+    .article-hero .container { position: relative; }
+    .article-hero .label {
+      display: inline-block;
+      background-color: var(--accent);
+      color: #fff;
+      font-family: var(--nav-font);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 18px;
+    }
+    .article-hero h1 {
+      font-family: var(--heading-font);
+      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .article-hero .subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 720px;
+      margin-bottom: 26px;
+    }
+    .article-hero .authors {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 6px;
+    }
+    .article-hero .authors strong { color: #fff; }
+    .article-hero .pub-date {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 30px;
+    }
+    .btn-primary-ern {
+      background-color: var(--accent);
+      border: none;
+      color: #fff;
+      font-family: var(--nav-font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 11px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary-ern:hover { background-color: #d42420; color: #fff; transform: translateY(-1px); }
+    .btn-outline-ern {
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.92);
+      font-family: var(--nav-font);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline-ern:hover { border-color: rgba(255,255,255,0.9); color: #fff; }
+
+    /* ── Stats Bar ── */
+    .stats-bar {
+      background-color: #fff;
+      border-top: 3px solid var(--accent);
+      border-bottom: 1px solid #e2ddd8;
+      padding: 32px 0;
+    }
+    .stats-bar .stat-item {
+      border-left: 3px solid var(--accent);
+      padding: 4px 0 4px 18px;
+    }
+    .stats-bar .stat-num {
+      font-family: var(--heading-font);
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stats-bar .stat-label {
+      font-size: 0.78rem;
+      color: var(--dark-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* ── Article sections ── */
+    .section-article { padding: 64px 0; background: #fff; }
+    .section-article.tinted { background: var(--light-gray); }
+    .section-label {
+      font-family: var(--nav-font);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: var(--heading-font);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--medium-blue);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-body { font-size: 1.0rem; color: #4a5568; line-height: 1.8; }
+
+    /* Findings cards */
+    .finding-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 28px 28px 24px;
+      height: 100%;
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.15s;
+    }
+    .finding-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+    .finding-card .icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 14px; }
+    .finding-card h5 { font-family: var(--heading-font); font-size: 1.0rem; font-weight: 700; color: var(--medium-blue); margin-bottom: 10px; }
+    .finding-card p { font-size: 0.93rem; color: #4a5568; line-height: 1.7; margin-bottom: 0; }
+
+    /* Method pipeline (numbered steps) */
+    .method-item { display: flex; gap: 16px; margin-bottom: 24px; }
+    .method-num {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background-color: var(--accent);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .method-body h6 {
+      font-family: var(--heading-font);
+      font-weight: 700;
+      color: var(--medium-blue);
+      margin-bottom: 4px;
+    }
+    .method-body p { font-size: 0.93rem; color: #4a5568; margin-bottom: 0; }
+    .scope-pill {
+      display: inline-block;
+      background: #edf2f7;
+      color: var(--dark-blue);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin: 4px 4px 4px 0;
+    }
+
+    /* Narrative / In-depth */
+    .section-narrative p { font-size: 1.05rem; line-height: 1.8; color: #374151; margin-bottom: 1.1rem; }
+    .section-narrative h3 {
+      font-family: var(--heading-font);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-top: 2.2rem;
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .pull-quote {
+      border-left: 4px solid var(--accent);
+      background: var(--light-gray);
+      margin: 1.75rem 0;
+      padding: 1.1rem 1.4rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      line-height: 1.5;
+    }
+
+    /* Findings table */
+    .findings-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      background: #fff;
+      margin-top: 0.75rem;
+    }
+    .findings-table th, .findings-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #e6ecf1;
+      text-align: left;
+    }
+    .findings-table thead th {
+      background: var(--medium-blue);
+      color: #fff;
+      font-family: var(--heading-font);
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .findings-table tbody tr:nth-child(even) { background: #f7fafc; }
+    .findings-table td.num { font-variant-numeric: tabular-nums; text-align: right; }
+    .findings-table caption {
+      caption-side: bottom;
+      font-size: 0.82rem;
+      color: #6c757d;
+      text-align: left;
+      padding-top: 8px;
+    }
+
+    /* Authors list */
+    .author-row { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #edf1f5; }
+    .author-row:last-child { border-bottom: none; }
+    .author-row .name { font-family: var(--heading-font); font-weight: 700; color: var(--dark-blue); font-size: 1rem; }
+    .author-row .affiliation { color: #6c757d; font-size: 0.9rem; }
+
+    /* Final CTA / full paper */
+    .section-fullpaper { background: var(--medium-blue); padding: 52px 0; color: #fff; text-align: center; }
+    .section-fullpaper h3 { font-family: var(--heading-font); font-size: 1.55rem; font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .section-fullpaper p { color: rgba(255,255,255,0.78); font-size: 0.97rem; max-width: 640px; margin: 0 auto 26px; }
+    .btn-full-report {
+      background-color: #fff;
+      color: var(--medium-blue);
+      font-family: var(--nav-font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 12px 26px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-full-report:hover { background-color: #f0f0f0; color: var(--medium-blue); transform: translateY(-2px); }
+    .btn-full-report--outline {
+      background-color: transparent;
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.8);
+    }
+    .btn-full-report--outline:hover { background-color: rgba(255,255,255,0.08); color: #fff; border-color: #fff; }
+
+    /* Breadcrumb just below header */
+    .article-breadcrumb {
+      padding-top: 100px;
+      padding-bottom: 6px;
+      background: linear-gradient(135deg, var(--medium-blue) 0%, #19222C 100%);
+    }
+    .article-breadcrumb ol {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0;
+      margin: 0;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .article-breadcrumb li + li::before { content: "›"; margin-right: 8px; opacity: 0.6; }
+    .article-breadcrumb a { color: rgba(255,255,255,0.78); text-decoration: none; }
+    .article-breadcrumb a:hover { color: #fff; text-decoration: underline; }
+    .article-breadcrumb li[aria-current="page"] { color: #fff; }
+    /* When breadcrumb is present, the hero section collapses its top padding */
+    .article-breadcrumb + .article-hero { padding-top: 24px; }
+  </style>
+</head>
+
+<body class="cityscape-page">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+      </a>
+
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html" aria-current="page" class="active">News</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="resources.html">Eviction Help</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
+            </ul>
+          </li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+
+    <!-- Breadcrumb -->
+    <nav class="article-breadcrumb" aria-label="Breadcrumb">
+      <div class="container">
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li aria-current="page">Toward a National Eviction Data Collection Strategy</li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="article-hero" aria-labelledby="article-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 col-xl-9">
+            <div class="label">Peer-Reviewed Article &nbsp;·&nbsp; Cityscape · HUD PD&amp;R</div>
+            <h1 id="article-title">Toward a National Eviction Data Collection Strategy Using Natural Language Processing</h1>
+            <p class="subtitle">
+              How the Eviction Research Network mined 111,740 Washington court records — buried in scanned PDFs and handwritten paper — to expose the racial and gender disparities that structured data could not see. The paper is the baseline methodology for working with any jurisdiction's eviction data, in any format.
+            </p>
+            <p class="authors">
+              <strong>Tim Thomas</strong> &amp; Alex Ramiller &nbsp;·&nbsp; UC Berkeley<br>
+              Cheng Ren &nbsp;·&nbsp; SUNY Albany &nbsp;&middot;&nbsp; Ott Toomet &nbsp;·&nbsp; University of Washington
+            </p>
+            <p class="pub-date">
+              <i class="bi bi-calendar3" aria-hidden="true"></i> Published 2024
+              &nbsp;&nbsp;<i class="bi bi-journal-bookmark ms-2" aria-hidden="true"></i>
+              <em>Cityscape</em> vol. 26, no. 1 (HUD Office of Policy Development &amp; Research)
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="btn-primary-ern" target="_blank" rel="noopener noreferrer">
+                <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> Read the paper (PDF)
+              </a>
+              <a href="#in-depth" class="btn-outline-ern">
+                <i class="bi bi-book" aria-hidden="true"></i> Read the summary
+              </a>
+              <a href="maps.html" class="btn-outline-ern">
+                <i class="bi bi-archive" aria-hidden="true"></i> 2019 Washington archive
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── STATS BAR ────────────────────────────────────── -->
+    <div class="stats-bar">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-num">111,740</div>
+              <div class="stat-label">Court Records Processed</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-num">4</div>
+              <div class="stat-label">Washington Counties</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-num">2004 – 2017</div>
+              <div class="stat-label">Years Of Filings</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="stat-item">
+              <div class="stat-num">93 %</div>
+              <div class="stat-label">Rooftop-To-Block Geocoded</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ABOUT / THE PROBLEM ─────────────────────────── -->
+    <section class="section-article">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7">
+            <div class="section-label">About this paper</div>
+            <h2 class="section-title">Most of the country's eviction data is unreadable. We wrote the pipeline to change that.</h2>
+            <div class="section-body">
+              <p>
+                Eviction is the most common civil legal action in the United States, and the data it generates is the baseline on which every downstream question — racial disparity, cost of displacement, program evaluation — depends. Yet in most states, that data is trapped in scanned court images, inconsistent portals, and paper-based case management systems. When researchers can't read the records, the disparities stay invisible.
+              </p>
+              <p>
+                The Eviction Research Network's 2024 <em>Cityscape</em> paper, "Toward a National Eviction Data Collection Strategy Using Natural Language Processing," lays out the pipeline we built to solve this problem in Washington State — and argues it is the template for collecting comparable eviction data anywhere in the country. We downloaded 111,740 court record images across Pierce, Snohomish, Whatcom, and King counties, digitized the text with OCR, extracted defendant addresses using a rule-based and neural-network (spaCy) named-entity recognizer, geocoded to the rooftop where possible, and estimated race and gender using published Bayesian packages validated against legal-aid intake data.
+              </p>
+              <p>
+                What we found was not marginal. In Pierce County, <strong>one in five</strong> Black female-headed households was named in an eviction filing between 2013 and 2017. In King County, it was one in nine. These numbers existed in the court files the whole time — no one had the tools to read them at scale.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 offset-lg-1">
+            <div style="background:var(--light-gray); border-radius:10px; padding:28px;">
+              <div class="section-label mb-3">Paper at a glance</div>
+              <div class="method-item">
+                <div class="method-num">1</div>
+                <div class="method-body">
+                  <h6>Background</h6>
+                  <p>Why structured eviction data misses most of the country</p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-num">2</div>
+                <div class="method-body">
+                  <h6>The pipeline</h6>
+                  <p>OCR → address extraction → geocoding → validation → demographics</p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-num">3</div>
+                <div class="method-body">
+                  <h6>Case study</h6>
+                  <p>Four western Washington counties, 2004–2017</p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-num">4</div>
+                <div class="method-body">
+                  <h6>Findings</h6>
+                  <p>Sizable racial and gender disparities invisible in structured data</p>
+                </div>
+              </div>
+              <div class="method-item" style="margin-bottom:0;">
+                <div class="method-num">5</div>
+                <div class="method-body">
+                  <h6>Future strategies</h6>
+                  <p>Document layout analysis, LLM-assisted extraction, and a national roadmap</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WHY IT MATTERS / KEY CONTRIBUTIONS ──────────── -->
+    <section class="section-article tinted">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="section-label">Why this paper is the baseline</div>
+          <h2 class="section-title">If you are working with court data in any jurisdiction, start here</h2>
+          <p class="section-body mx-auto" style="max-width:660px;">
+            The paper is cited — and used — as the reference methodology for demographic estimation and court-record work across the Eviction Research Network's state portfolio. Five things it settles.
+          </p>
+        </div>
+        <div class="row gy-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-filetype-pdf" aria-hidden="true"></i></div>
+              <h5>You can extract structured data from scanned court records at scale</h5>
+              <p>A two-step pipeline — Tesseract OCR, then rule-based plus spaCy neural-network NER — pulled defendant addresses out of 111,740 PDF and TIFF images with 98% confidence in the correct address on the Naive Bayes classifier.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
+              <h5>Geocoding platforms differ. Use more than one.</h5>
+              <p>We benchmarked OSM, Census, Google, Azure, and Esri Business Analyst. Azure returned the highest raw success rate; Esri BA had the highest replicable rate. 93% of records were geocoded to rooftop-to-block accuracy — the threshold for trustworthy tract-level analysis.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+              <h5>Bayesian race estimation works — with known limits</h5>
+              <p>Imai &amp; Khanna's <code>wru</code> package, backstopped by Xie's <code>rethnicity</code> Bi-LSTM model, yielded race estimates within a few percentage points of actual King County legal-aid intake data. Training data were voter files (largely Southern), so we document where this pipeline is likely to drift outside the South.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-bar-chart" aria-hidden="true"></i></div>
+              <h5>Racial disparities are larger than structured data suggest</h5>
+              <p>Structured county-level filings hid what neighborhood-level, demographic-estimated records exposed: Black female-headed households were filed against at 3–5× the rate of White-headed households across the four Washington counties in the study.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-bank" aria-hidden="true"></i></div>
+              <h5>Court cooperation is the hardest problem, not the code</h5>
+              <p>One county clerk wanted $350,000 in per-page fees for 14 years of records. Others were enthusiastic. The technical pipeline is portable; the access strategy — mandates, grant support, legal-aid partnerships — is the scarce resource. The paper documents what worked and what didn't.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="finding-card">
+              <div class="icon"><i class="bi bi-arrow-right-circle" aria-hidden="true"></i></div>
+              <h5>What's next: document layout analysis and LLM-assisted extraction</h5>
+              <p>The paper tests ChatGPT-class LLMs on court documents and flags the obvious privacy problems alongside the accuracy gaps. It points to document-layout models (computer vision + NLP) as the next generation of extraction — a lower-skill-barrier approach that could further democratize this kind of research.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── METHOD PIPELINE ─────────────────────────────── -->
+    <section class="section-article" id="pipeline">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-5">
+            <div class="section-label">The pipeline</div>
+            <h2 class="section-title">Five steps from a scanned court record to a demographically estimated filing</h2>
+            <p class="section-body">
+              Each stage was benchmarked, validated, and documented so that other teams could reproduce the pipeline — or adapt it to their jurisdiction's quirks — without starting from scratch.
+            </p>
+            <div class="mt-4">
+              <div class="section-label mb-2">Case study area</div>
+              <div>
+                <span class="scope-pill">King County</span>
+                <span class="scope-pill">Pierce County</span>
+                <span class="scope-pill">Snohomish County</span>
+                <span class="scope-pill">Whatcom County</span>
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="section-label mb-2">Tools</div>
+              <div>
+                <span class="scope-pill">Tesseract OCR</span>
+                <span class="scope-pill">spaCy NER</span>
+                <span class="scope-pill">Azure Maps</span>
+                <span class="scope-pill">Esri Business Analyst</span>
+                <span class="scope-pill">wru (R)</span>
+                <span class="scope-pill">rethnicity (R)</span>
+                <span class="scope-pill">gender (R)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+            <div class="method-item">
+              <div class="method-num">1</div>
+              <div class="method-body">
+                <h6>Access &amp; download</h6>
+                <p>111,740 eviction case images pulled from three separate Washington court portals via a throttled HTML scraper, using case numbers obtained from a state records request in partnership with the Washington Office of Civil Legal Aid.</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <div class="method-num">2</div>
+              <div class="method-body">
+                <h6>OCR &amp; text cleaning</h6>
+                <p>Tesseract OCR converted scanned PDF and TIFF summons into text. Common error patterns ("1" → "|", "th" → straight quote, row numbers embedded in addresses) were identified and handled in post-processing.</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <div class="method-num">3</div>
+              <div class="method-body">
+                <h6>Address extraction</h6>
+                <p>Two-pass extraction: rule-based regex (house number + street type + ZIP patterns) followed by spaCy neural-network Named Entity Recognition. A Naive Bayes classifier distinguished defendant addresses from attorney and court addresses with 98% confidence.</p>
+              </div>
+            </div>
+            <div class="method-item">
+              <div class="method-num">4</div>
+              <div class="method-body">
+                <h6>Geocoding &amp; validation</h6>
+                <p>Extracted addresses ran through Azure and Esri BA; 93% resolved to rooftop-to-block accuracy. Addresses resolving only to street or county centroid were dropped. Against manually extracted 2013 addresses, the algorithmic output achieved an average Levenshtein ratio of 0.82.</p>
+              </div>
+            </div>
+            <div class="method-item" style="margin-bottom:0;">
+              <div class="method-num">5</div>
+              <div class="method-body">
+                <h6>Race &amp; gender estimation</h6>
+                <p>The R package <code>wru</code> (Imai &amp; Khanna) estimated race by Bayesian inference from surname and tract composition; <code>rethnicity</code> (Xie) handled residual names via a Bi-LSTM model. Gender was inferred via the <code>gender</code> package (Mullen et al.) cross-validating first names against SSA and IPUMS registries. Estimates were cross-checked against King County Bar Housing Justice Project intake data and agreed within a few percentage points.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FINDINGS TABLE ──────────────────────────────── -->
+    <section class="section-article tinted" id="findings">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <div class="section-label">Washington findings</div>
+            <h2 class="section-title">What structured data missed</h2>
+            <p class="section-body">
+              The 2013–2017 five-year eviction rates below are the central empirical contribution: neighborhood-level filings divided by the estimated number of renter households in that demographic. Pierce County absorbed a disproportionate share of displaced Black households from Seattle's gentrifying King County, and the filing rate among Black female-headed renter households there was 19%.
+            </p>
+            <div class="table-responsive mt-3">
+              <table class="findings-table" aria-describedby="exhibit-source">
+                <caption id="exhibit-source">Source: Thomas, Ramiller, Ren, and Toomet (2024), Exhibit A.1. Five-year eviction rates by race and gender of householder, Puget Sound region, 2013–2017. Denominators are estimated renter households from ACS 5-year estimates; numerators are unique evicted householders identified via the NLP pipeline.</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Householder group</th>
+                    <th scope="col" class="num">King</th>
+                    <th scope="col" class="num">Pierce</th>
+                    <th scope="col" class="num">Snohomish</th>
+                    <th scope="col" class="num">Whatcom</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Black female</th><td class="num">11%</td><td class="num"><strong>19%</strong></td><td class="num">12%</td><td class="num">26%*</td></tr>
+                  <tr><th scope="row">Black male</th>  <td class="num">8%</td> <td class="num">15%</td><td class="num">7%</td> <td class="num">6%</td></tr>
+                  <tr><th scope="row">Asian female</th><td class="num">6%</td> <td class="num">16%</td><td class="num">10%</td><td class="num">5%</td></tr>
+                  <tr><th scope="row">Asian male</th>  <td class="num">4%</td> <td class="num">16%</td><td class="num">9%</td> <td class="num">6%</td></tr>
+                  <tr><th scope="row">Latinx female</th><td class="num">8%</td><td class="num">14%</td><td class="num">8%</td> <td class="num">5%</td></tr>
+                  <tr><th scope="row">Latinx male</th>  <td class="num">8%</td><td class="num">12%</td><td class="num">10%</td><td class="num">4%</td></tr>
+                  <tr><th scope="row">White female</th><td class="num">6%</td> <td class="num">13%</td><td class="num">8%</td> <td class="num">5%</td></tr>
+                  <tr><th scope="row">White male</th>  <td class="num">7%</td> <td class="num">16%</td><td class="num">N/A</td><td class="num">N/A</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="section-body mt-3" style="font-size:0.9rem;">
+              * The Whatcom County Black-female rate reflects a very small sample (n=15 named defendants). The Pierce County rate is the paper's headline — it is based on 1,392 filings against an estimated 7,233 Black female-headed renter households.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── IN-DEPTH NARRATIVE ──────────────────────────── -->
+    <section class="section-article section-narrative" id="in-depth">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+
+            <div class="section-label">In depth</div>
+            <h2 class="section-title">What 111,740 court records told us that structured data couldn't</h2>
+
+            <p>Every serious eviction study in the past decade has had to answer the same procurement question: where does the data come from? The national-scale answers — Eviction Lab's third-party purchases, Legal Services Corporation's partnership scrapes — are powerful, but they cover what is already structured. The jurisdictions that print their filings onto paper, scan them, and call that the public record have stayed dark. And those dark jurisdictions are where many of the racial and gender disparities live.</p>
+
+            <p>Washington State was a deliberate test case. It is moderately large, moderately cooperative, and — crucially — has no centralized digital eviction record system. The 39 county court clerks operate on three different web portals. Records are held at the clerk's discretion. One clerk wanted $0.25 per downloaded page, which at 14 years of filings came out to roughly $350,000. That is a reasonable proxy for the friction a research team should expect when attempting this work in any state with a fragmented court system — and it is why a portable, inexpensive technical pipeline matters.</p>
+
+            <h3>The pipeline, in one paragraph</h3>
+            <p>Once case numbers were obtained from a state records request, a throttled HTML scraper pulled 111,740 PDF and TIFF images from the three portals. Tesseract OCR converted the scans to text. A regex-first, spaCy-NER-second extractor pulled candidate addresses; a Naive Bayes classifier distinguished the defendant's address from the attorney's and the courthouse's. Azure and Esri Business Analyst geocoded the addresses — Azure for raw success rate, Esri BA for reproducibility. Ninety-three percent resolved to rooftop-to-block accuracy; the rest were dropped rather than trusted at the tract level. Then the <code>wru</code> package estimated race from surname and tract composition; <code>rethnicity</code> handled the residual names via a Bi-LSTM neural network; <code>gender</code> cross-referenced first names against SSA and IPUMS. Estimates were validated against King County legal-aid intake data and held within a few percentage points.</p>
+
+            <div class="pull-quote">
+              "Combining data science tools with existing eviction data collection efforts can fill in massive gaps. The NLP approach can extract addresses from court record images, creating the opportunity to analyze demographic disparities… and create a clearer picture of who was being evicted and from where."
+            </div>
+
+            <h3>Findings, and why they moved policy</h3>
+            <p>The numbers did not stay on the page. In Pierce County, 19% of Black female-headed renter households were named in an eviction filing from 2013 to 2017. In King County — home of gentrified Seattle, where the bulk of evictions concentrated in the historically diverse south-county neighborhoods that have long been the displacement destination for Black households pushed out of the central city — it was 11%. At the neighborhood level, the highest filing rates tracked the region's lowest rents and highest racial diversity. These were not marginal disparities; they were the basic structure of who was losing housing in the Puget Sound during the mid-2010s.</p>
+
+            <p>That evidence fed directly into two Washington State policy wins: the 2019 extension of the pay-or-vacate notice period from 3 to 14 days (ESSB 5600), and the adoption of just-cause eviction protections. A statewide right-to-counsel program followed in 2021. None of these policies required the NLP pipeline to exist; but the demographic visibility it produced made the case for them far harder to ignore.</p>
+
+            <h3>What this means for other jurisdictions</h3>
+            <p>The case study is Washington, but the paper's actual contribution is the recipe: a scalable, technically modest, ethically auditable pipeline for taking any jurisdiction's court data — in whatever format it happens to exist — and producing structured, demographically estimated eviction records. For research teams in states where the Eviction Lab and LSC do not yet have complete coverage, this is the reference implementation. For policymakers and legal-aid organizations wondering whether their own state's filing data is worth the engineering cost of extraction, the answer from Washington is yes, and the effort is compressible.</p>
+
+            <p>The concluding section of the paper lays out future technical directions — document layout analysis, LLM-assisted extraction, hybrid pipelines — and flags the ethical considerations around privacy and data integrity that any interdisciplinary team entering this space needs to plan for. These are not afterthoughts; they are part of the method.</p>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── POLICY IMPACT ──────────────────────────────── -->
+    <section class="section-article tinted" id="policy-impact">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6">
+            <div class="section-label">Policy impact</div>
+            <h2 class="section-title">From court-record image to Olympia</h2>
+            <div class="section-body">
+              <p>
+                The estimates produced by the pipeline were used in legislative testimony and in coalition work with the Washington Office of Civil Legal Aid, the King County Bar Housing Justice Project, and tenant attorneys across the four counties in the study. Several policy changes followed.
+              </p>
+              <p>
+                None of these reforms is attributable to a single study. But the paper documents the direct channel between reading previously unreadable data and changing who gets to stay housed.
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-5 offset-lg-1">
+            <div style="background:#fff; border-radius:10px; padding:28px; border-left:4px solid var(--accent);">
+              <div class="method-item">
+                <div class="method-num"><i class="bi bi-calendar-check" aria-hidden="true"></i></div>
+                <div class="method-body">
+                  <h6>Pay-or-vacate extended 3 → 14 days</h6>
+                  <p>ESSB 5600 (2019). Gives tenants meaningful time to access rental-assistance funds before a filing is initiated.</p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-num"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+                <div class="method-body">
+                  <h6>Just-cause eviction statewide</h6>
+                  <p>Removes no-cause termination of long-term tenancies — the mechanism through which many of the filings in the study began.</p>
+                </div>
+              </div>
+              <div class="method-item" style="margin-bottom:0;">
+                <div class="method-num"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
+                <div class="method-body">
+                  <h6>Right to counsel for low-income tenants</h6>
+                  <p>2021. Washington becomes one of the first states in the country to guarantee legal representation in eviction proceedings.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── AUTHORS ────────────────────────────────────── -->
+    <section class="section-article" id="authors">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+            <div class="section-label">Authors</div>
+            <h2 class="section-title">The research team</h2>
+            <div class="author-row">
+              <div>
+                <div class="name">Tim Thomas, Ph.D.</div>
+                <div class="affiliation">Research Director, UC Berkeley Urban Displacement Project &middot; Director, Eviction Research Network</div>
+              </div>
+            </div>
+            <div class="author-row">
+              <div>
+                <div class="name">Alex Ramiller</div>
+                <div class="affiliation">Ph.D. candidate, City &amp; Regional Planning, UC Berkeley</div>
+              </div>
+            </div>
+            <div class="author-row">
+              <div>
+                <div class="name">Cheng Ren</div>
+                <div class="affiliation">Ph.D. candidate, UC Berkeley Department of Social Welfare &middot; Lecturer, University at Albany, SUNY</div>
+              </div>
+            </div>
+            <div class="author-row">
+              <div>
+                <div class="name">Ott Toomet, Ph.D.</div>
+                <div class="affiliation">Assistant Teaching Professor, University of Washington</div>
+              </div>
+            </div>
+            <p class="section-body mt-4" style="font-size:0.92rem;">
+              The work was funded in part by the Moore/Sloan Foundation, the Bill &amp; Melinda Gates Foundation, and the MacArthur Foundation. The authors thank the King, Pierce, Snohomish, and Whatcom county court clerks; the King County Bar Association (Edmund Whitter); Washington State Representative Nicole Macri; Jim Bamberger and the Washington Office of Civil Legal Aid; the University of Washington eScience Institute, iSchool, Department of Sociology, and Center for Studies in Demography and Ecology; UC Berkeley's Institute of Governmental Studies, D-Lab, and BIDS; and Karen Chapple and the Urban Displacement Project.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA / FULL PAPER ───────────────────────────── -->
+    <section class="section-fullpaper">
+      <div class="container">
+        <h3>Read the full paper</h3>
+        <p>
+          The 19-page article is published open-access by HUD's Office of Policy Development &amp; Research in <em>Cityscape</em> vol. 26, no. 1 (2024), "Local Data for Local Action" issue.
+        </p>
+        <div class="d-flex flex-wrap gap-3 justify-content-center">
+          <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf"
+             class="btn-full-report" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> Full paper (PDF)
+          </a>
+          <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/index.html"
+             class="btn-full-report btn-full-report--outline" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-journal-bookmark" aria-hidden="true"></i> <em>Cityscape</em> 26(1) issue
+          </a>
+          <a href="methodology.html" class="btn-full-report btn-full-report--outline">
+            <i class="bi bi-diagram-3" aria-hidden="true"></i> ERN's current methodology
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer (matches other ERN pages) ──────────────────── -->
+  <footer id="footer" class="footer dark-background">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <div class="footer-logos d-flex align-items-center flex-wrap">
+            <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+              <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
+            </a>
+            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
+            <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+              <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
+            </a>
+          </div>
+          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+          <div class="social-links d-flex mt-3" aria-label="Social media"></div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="methodology.html">Methodology</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4 col-md-6 footer-contact">
+          <h4>Contact</h4>
+          <p>
+            <a href="mailto:evictions@berkeley.edu">evictions@berkeley.edu</a><br>
+            University of California, Berkeley<br>
+            Department of Sociology
+          </p>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <p>© 2026 Eviction Research Network, UC Berkeley. All findings, interpretations, and conclusions presented on this page are those of the authors and do not necessarily reflect the official positions of HUD, the U.S. government, or any funder.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS (async) -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+</html>

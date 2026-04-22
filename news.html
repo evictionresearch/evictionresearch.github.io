@@ -42,6 +42,11 @@
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
     .portfolio-filters li{cursor:pointer}
     .portfolio-filters li[aria-pressed="true"]{background:var(--accent-color);color:#fff}
+      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -511,9 +516,10 @@
                     </div>
                   </div>
                   <br>
-                  <p>Explains the improvement of eviction data collection through the implementation of Natural Language Processing (NLP) to convert court records to more utilizable format</p>
+                  <p>The ERN baseline for working with raw court records: an NLP + demographic-estimation pipeline that turned 111,740 Washington eviction filings into research-ready data. Cited site-wide as the reference methodology for eviction-data collection.</p>
                   <hr>
-                  <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="readmore stretched-link" target="_blank" rel="noopener noreferrer"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="cityscape-2024.html" class="readmore stretched-link"><span>Read summary</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="small text-muted mt-2" target="_blank" rel="noopener noreferrer" style="position: relative; z-index: 2;"><i class="bi bi-file-earmark-pdf"></i> Full PDF (Cityscape · HUD PD&amp;R)</a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1208,11 +1214,11 @@
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6 footer-about">
-          <div class="footer-logos d-flex align-items-center flex-wrap" style="gap: 18px;">
+          <div class="footer-logos d-flex align-items-center flex-wrap">
             <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
               <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
             </a>
-            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2);"></span>
+            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
             <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
               <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
             </a>

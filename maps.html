@@ -91,6 +91,11 @@
       .section{padding:40px 0}
       .section h2{font-size:24px}
     }
+      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -152,8 +157,7 @@
 
   <!-- Archive banner — this page is a preserved 2019 Washington State edition -->
   <div class="archive-banner" role="note" aria-label="Archive notice">
-    <strong>Archive:</strong> This page is the 2019 Washington State edition of the Evictions Study, preserved for historical reference.
-    For current Washington research and statewide dashboards, see
+    <strong>Archive:</strong> This page preserves the 2019 Washington State findings of The Evictions Study. The interactive Shiny map has been retired; the methodology behind it is documented in our 2024 <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer"><em>Cityscape</em> paper</a>, and current Washington work lives at
     <a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">evictionresearch.net/washington</a>.
   </div>
 
@@ -163,11 +167,11 @@
     <section class="maps-hero" aria-labelledby="maps-hero-title">
       <div class="container">
         <span class="eyebrow">2019 Washington Archive</span>
-        <h1 id="maps-hero-title">Washington Eviction Maps</h1>
-        <p class="lede">An interactive map of eviction filings across four western Washington counties — King, Pierce, Snohomish, and Whatcom — by year and by race, at multiple geographic scales. Originally released by The Evictions Study in 2019.</p>
+        <h1 id="maps-hero-title">Washington Eviction Maps (2019)</h1>
+        <p class="lede">Between 2019 and the retirement of its Shiny host, The Evictions Study maintained an interactive map of eviction filings across four western Washington counties — King, Pierce, Snohomish, and Whatcom — by year and by race, at multiple geographic scales. The map is no longer live; its methodology is the baseline documented in our 2024 <em>Cityscape</em> paper, and the underlying findings are preserved on this page.</p>
         <div class="hero-actions">
-          <a class="btn-primary-red" href="https://tesseract.csde.washington.edu:8080/shiny/evictionmaps/" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-map" aria-hidden="true"></i> See the Washington Map
+          <a class="btn-primary-red" href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-journal-text" aria-hidden="true"></i> Read the <em>Cityscape</em> methodology paper
           </a>
           <a class="btn-outline-light" href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-arrow-right-circle" aria-hidden="true"></i> Current Washington research
@@ -180,9 +184,9 @@
     <section class="section" id="overview">
       <div class="container">
         <span class="eyebrow">Overview</span>
-        <h2>What the map shows</h2>
-        <p>The Evictions Study Map showcases data collected by our team as a dynamic and interactive visualization, showing the prevalence of eviction filings across four western Washington counties (King, Pierce, Snohomish, and Whatcom) by year and by race at multiple geographic scales. Demographic, income, and rent characteristics are also included to provide context and highlight the attributes of places where evictions tend to occur. Our demographic estimates show <a href="https://evictions.study/washington/results.html#race-of-the-evicted" target="_blank" rel="noopener noreferrer">a massive racial disparity making evictions a civil rights issue</a> related to contemporary <a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol17num3/ch1.pdf" target="_blank" rel="noopener noreferrer">discrimination in housing access</a> and economic inequality linked to the <a href="https://www.epi.org/publication/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america/" target="_blank" rel="noopener noreferrer">legacies of segregation, policies, and practices directed against persons of color</a>.</p>
-        <p><em>Note that data are not available for every county in every year, and estimates may slightly change as we process more data.</em></p>
+        <h2>What the map showed</h2>
+        <p>The Evictions Study Map presented team-collected data as a dynamic, interactive visualization — the prevalence of eviction filings across four western Washington counties (King, Pierce, Snohomish, and Whatcom) by year and by race at multiple geographic scales. Demographic, income, and rent characteristics were layered on to highlight where evictions tend to occur. Our demographic estimates showed <a href="https://evictions.study/washington/results.html#race-of-the-evicted" target="_blank" rel="noopener noreferrer">a massive racial disparity making evictions a civil rights issue</a> related to contemporary <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol17num3/ch1.pdf" target="_blank" rel="noopener noreferrer">discrimination in housing access</a> and economic inequality linked to the <a href="https://www.epi.org/publication/the-color-of-law-a-forgotten-history-of-how-our-government-segregated-america/" target="_blank" rel="noopener noreferrer">legacies of segregation, policies, and practices directed against persons of color</a>. The end-to-end data pipeline behind these estimates — court-record scraping, address geocoding, Bayesian race imputation, and validation against legal-aid intake data — is documented as a general methodology in Thomas et al., <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</a>, and is the baseline reference for working with heterogeneous court data in any jurisdiction.</p>
+        <p><em>Data were not available for every county in every year; estimates were refined as additional records were processed.</em></p>
       </div>
     </section>
 
@@ -195,9 +199,9 @@
 
         <p>Based on our race estimates, we find that eviction disparately impacts households of color, particularly adults who are Black. In Pierce County, about 7% of the population is Black. However, <a href="https://evictions.study/washington/results.html#race-of-the-evicted" target="_blank" rel="noopener noreferrer">1 in 6 Black adults (18% of the Black adult population) were named in an eviction filing</a> from 2013 to 2017. One in eleven Black adults were named in King County.</p>
 
-        <h3>What this map offers</h3>
-        <p>This map shows the relative risk of an eviction for different racial groups within various neighborhoods in Whatcom, Snohomish, King, and Pierce counties. At the county level the map features all eviction filing counts for the entire state (race estimates are not available at the county level). Note that King County tract- and municipality-level data is limited to the years 2006, 2010, 2011, 2013, and 2017, and Snohomish County tract and municipality data is missing for 2011 and 2012 due to limited access to these records. For each year, our tract-level eviction data covers an average of 85% of all eviction filings — a sample size large enough to provide a realistic estimate of eviction risks and rates.</p>
-        <p>We also provide overlays for state legislative districts, historical redlining zones, and other census variables related to evictions and housing.</p>
+        <h3>What this map offered</h3>
+        <p>The map showed the relative risk of an eviction for different racial groups within neighborhoods in Whatcom, Snohomish, King, and Pierce counties. At the county level it featured all eviction filing counts for the entire state (race estimates were not available at the county level). King County tract- and municipality-level data were limited to 2006, 2010, 2011, 2013, and 2017; Snohomish County tract and municipality data were missing for 2011 and 2012 due to limited access to those records. For each year, tract-level eviction data covered an average of 85% of all eviction filings — a sample size large enough to provide a realistic estimate of eviction risks and rates.</p>
+        <p>Overlays for state legislative districts, historical redlining zones, and other census variables related to evictions and housing were also provided.</p>
       </div>
     </section>
 
@@ -252,13 +256,13 @@
       <div class="container">
         <span class="eyebrow">Data &amp; Methods</span>
         <h2>How the map was built</h2>
-        <p>This map uses data on eviction filings in Washington State collected by The Evictions Study. Filings were downloaded from the respective County Court Clerk's online portals covering a majority of the years 2004 to 2017. We then used Optical Character Recognition (OCR) software to scrape addresses and other information from PDF and TIF versions of court records and geolocated them using ESRI and SmartyStreets. For each year, we were able to geolocate about 85% of all files except for several missing years in King County. Eviction data for counties where less than 60% of all eviction cases have been geocoded are not included in this display.</p>
-        <p>Tenant race estimates are calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="_blank" rel="noopener noreferrer">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. These imputed estimates produce some possible uncertainty. However, we compared our estimates to actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="_blank" rel="noopener noreferrer">King County Bar Housing Justice Project</a> (HJP) and find our rates are within a few percentage points.</p>
-        <p>All other data — including renting population, median household income, median rent, rent burden, and poverty rate — originates from the 5-Year American Community Survey (ACS) conducted by the US Census Bureau. This map displays the five-year estimates ending in the selected year (i.e., 2013–2017 estimates are used for the 2017 display). These estimates are not available for all years; 2006–2010 estimates are used for selections before 2010, while 2013–2017 estimates are used when 2018 is selected.</p>
-        <p>Eviction rate and relative-risk estimates for a given race are calculated using the estimated number of renting households recorded in the ACS. If fewer than 100 renting households are recorded within any given census geography, or if the margin of error for the estimated population of renting households is larger than the estimate itself, these estimates are labeled "N/A." Eviction rate represents the number of evictions within a given census geography divided by the estimated number of renting households. For any given race, the relative risk of eviction is based on the rate of evictions among renting households within each census geography divided by the rate of evictions across the entire study area.</p>
+        <p>The map used data on eviction filings in Washington State collected by The Evictions Study. Filings were downloaded from the respective County Court Clerk's online portals covering a majority of the years 2004 to 2017. Optical Character Recognition (OCR) software was used to scrape addresses and other information from PDF and TIF versions of court records, which were then geolocated using ESRI and SmartyStreets. For each year, about 85% of all files were geolocated except for several missing years in King County. Counties where less than 60% of all eviction cases were geocoded were not included in the display.</p>
+        <p>Tenant race estimates were calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="_blank" rel="noopener noreferrer">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. These imputed estimates produce some uncertainty; our estimates were validated against actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="_blank" rel="noopener noreferrer">King County Bar Housing Justice Project</a> (HJP) and agreed within a few percentage points.</p>
+        <p>All other data — including renting population, median household income, median rent, rent burden, and poverty rate — originated from the 5-Year American Community Survey (ACS) conducted by the US Census Bureau. The map displayed the five-year estimates ending in the selected year (e.g., 2013–2017 for the 2017 display). 2006–2010 estimates were used for selections before 2010; 2013–2017 estimates were used for 2018.</p>
+        <p>Eviction rate and relative-risk estimates for a given race were calculated using the estimated number of renting households recorded in the ACS. If fewer than 100 renting households were recorded within any given census geography, or if the margin of error for that estimate was larger than the estimate itself, these values were labeled "N/A." Eviction rate = number of evictions within a census geography divided by the estimated number of renting households. Relative risk of eviction for a given race = the rate of evictions among renting households within each census geography divided by the rate of evictions across the entire study area.</p>
         <div class="callout">
-          <h4>For current methodology</h4>
-          <p>ERN's present-day methodology — five-stage pipeline from court filing to research-ready dataset, including updates to the demographic-estimation and deduplication steps since 2019 — is documented on the <a href="methodology.html">methodology page</a>.</p>
+          <h4>The general methodology</h4>
+          <p>The full, generalized pipeline — from raw court records, through OCR and address geocoding, to Bayesian demographic estimation and validation — is the subject of Thomas, Hepburn, Graetz, and Desmond, <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</a>. It is the baseline reference for applying this approach to any jurisdiction's court data, in any format. ERN's present-day five-stage pipeline — including updates to the demographic-estimation and deduplication steps since 2019 — is documented on the <a href="methodology.html">methodology page</a>.</p>
         </div>
       </div>
     </section>
@@ -268,8 +272,8 @@
       <div class="container">
         <span class="eyebrow">Acknowledgments</span>
         <h2>People and institutions behind the 2019 release</h2>
-        <p>This interactive map interface was created by Alex Ramiller with app development and web-hosting support by Ott Toomet. Data development and feedback was provided by Tim Thomas, Ian Kennedy, and Jose Hernandez. The Evictions Study would not be possible without the generous support of Bill Howe and the Cascadia Urban Analytic Cooperative, the University of Washington eScience Institute, the University of Washington Center for Studies in Demography and Ecology, The University of California at Berkeley Center for Community Innovation and the Urban Displacement Project, Enterprise Community Partners, The King and Snohomish County Bar Association Housing Justice Project, The Washington State Office of Civil Legal Aid, The Law Advocates of Whatcom County, John Stovall, The Public Justice Center in Baltimore, The Baltimore City Sheriff's Department, Professor Malcom Drewery at Coppin State University, Professor Meredith Greif at Johns Hopkins University, and Linda Morris at the ACLU.</p>
-        <p>This application was built using <a href="https://shiny.rstudio.com/" target="_blank" rel="noopener noreferrer">Shiny</a> and <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>.</p>
+        <p>The interactive map interface was created by Alex Ramiller, with app development and web-hosting support by Ott Toomet. Data development and feedback were provided by Tim Thomas, Ian Kennedy, and Jose Hernandez. The Evictions Study would not have been possible without the generous support of Bill Howe and the Cascadia Urban Analytic Cooperative, the University of Washington eScience Institute, the University of Washington Center for Studies in Demography and Ecology, the UC Berkeley Center for Community Innovation and the Urban Displacement Project, Enterprise Community Partners, the King and Snohomish County Bar Association Housing Justice Project, the Washington State Office of Civil Legal Aid, the Law Advocates of Whatcom County, John Stovall, the Public Justice Center in Baltimore, the Baltimore City Sheriff's Department, Professor Malcom Drewery at Coppin State University, Professor Meredith Greif at Johns Hopkins University, and Linda Morris at the ACLU.</p>
+        <p>The application was built using <a href="https://shiny.rstudio.com/" target="_blank" rel="noopener noreferrer">Shiny</a> and <a href="https://leafletjs.com/" target="_blank" rel="noopener noreferrer">Leaflet</a>, originally hosted on the University of Washington Center for Studies in Demography and Ecology (CSDE) Shiny server. That server is no longer active; the findings on this page are preserved as the 2019 archive, and the methodology is carried forward in the <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">2024 <em>Cityscape</em> paper</a>.</p>
       </div>
     </section>
 
@@ -281,11 +285,11 @@
       <div class="row gy-4">
 
         <div class="col-lg-4 col-md-6 footer-about">
-          <div class="footer-logos d-flex align-items-center flex-wrap" style="gap: 18px;">
+          <div class="footer-logos d-flex align-items-center flex-wrap">
             <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
               <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
             </a>
-            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2);"></span>
+            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
             <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
               <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
             </a>

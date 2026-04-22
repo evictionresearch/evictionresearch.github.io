@@ -43,6 +43,10 @@
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
     a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+    /* Name chip lists — semantic replacement for pipe-separated roster paragraphs */
+    .name-chip-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px 12px;justify-content:center}
+    .name-chip-list li{background:#e8eef4;color:#223754;padding:8px 16px;border-radius:999px;font-size:.9rem;line-height:1.3;font-family:var(--heading-font);font-weight:500}
+    .name-chip-list li strong{font-weight:700;color:#19222C}
   </style>
 
   <!-- Bootstrap (sync for stable layout) -->
@@ -122,16 +126,21 @@
         <div class="row position-relative">
 
           <div class="col-12">
-            <h2 class="inner-title">We make things that can’t be unseen</h2>
+            <h2 class="inner-title">We make things that can't be unseen</h2>
             <div class="our-story">
               <p class="eyebrow">Est 2018</p>
               <h3>Mission</h3>
-              <img src="images/about_page/blackandwhitezone.jpeg" alt="" class="about-img-float" loading="lazy" aria-hidden="true">
-              <p>It started with a mother who was served an eviction notice, settled out of court, and continued to live in the residence for 2 more years. But the filing followed her—ultimately leading to denial of future housing. With support from the American Civil Liberties Union, her case exposed deep racial and gender disparities embedded in eviction practices.</p>
+              <img src="images/about_page/blackandwhitezone.jpeg" alt="Redlined neighborhood zone map — a reminder of how historical housing policy shaped today's eviction patterns" class="about-img-float" loading="lazy">
 
-              <p>Research in King County, Washington found that Black households were four times more likely than White households to receive eviction notices, and that Black women were five times more likely than White men to have an eviction case filed against them. Building on this work, founder Tim Thomas began examining local eviction data and later expanded this analysis across Washington State and other regions. These findings have informed the development of state and local policies, including Washington State’s extension of the eviction notice period from 3 to 14 days and the establishment of Right to Counsel in Baltimore City, with the goal of reducing preventable evictions and supporting fairer processes.</p>
+              <p>It started with a mother who was served an eviction notice, settled out of court, and continued to live in the residence for two more years. But the filing followed her&mdash;ultimately leading to denial of future housing. With support from the American Civil Liberties Union, her case exposed deep racial and gender disparities embedded in eviction practices.</p>
 
-              <p>The Eviction Research Network (ERN) specializes in making housing and eviction dynamics measurable and understandable. Through open-source tools, academic research, and collaboration with a wide range of partners—including community organizations, service providers, and public agencies—ERN develops accessible data that clarifies where and for whom evictions are most likely to occur. Similar patterns to those observed in Washington appear across many jurisdictions and reflect the long-term effects of historical housing policies and practices. Because stable housing underpins health, education, and overall well-being, these patterns have significant implications for communities’ long-term outcomes. By identifying populations and neighborhoods at elevated risk of eviction at the local level, the Eviction Research Network supports data-informed strategies aimed at preventing displacement and strengthening housing stability.</p>
+              <p>Research in King County, Washington found that Black households were four times more likely than White households to receive eviction notices, and that Black women were five times more likely than White men to have an eviction case filed against them.</p>
+
+              <p>Building on this work, founder Tim Thomas began examining local eviction data and later expanded the analysis across Washington State and other regions. These findings have informed state and local policy, including Washington's extension of the eviction notice period from 3 to 14 days and the establishment of Right to Counsel in Baltimore City&mdash;reforms aimed at reducing preventable evictions and supporting fairer processes.</p>
+
+              <p>The Eviction Research Network (ERN) specializes in making housing and eviction dynamics measurable and understandable. Through open-source tools, academic research, and collaboration with community organizations, service providers, and public agencies, ERN develops accessible data that clarifies where and for whom evictions are most likely to occur.</p>
+
+              <p>Similar patterns to those observed in Washington appear across many jurisdictions and reflect the long-term effects of historical housing policies and practices. Because stable housing underpins health, education, and overall well-being, these patterns have significant implications for communities' long-term outcomes. By identifying populations and neighborhoods at elevated risk of eviction at the local level, ERN supports data-informed strategies aimed at preventing displacement and strengthening housing stability.</p>
 
               </div>
             </div>
@@ -144,25 +153,30 @@
    
 
 
-    <!-- Alt Services 2 Section -->
-    <section id="alt-services-2" class="alt-services-2 section">
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="alt-services-2 section">
+
+      <!-- Section Title -->
+      <div class="container section-title">
+        <h2>What We Do</h2>
+        <p>We collect, analyze, and visualize eviction data to put numbers to disparities left in the wake of historical injustice.</p>
+      </div><!-- End Section Title -->
 
       <div class="container">
 
         <div class="row justify-content-around gy-4">
 
           <div class="features-image col-lg-5 order-1 order-lg-2">
-            <img src="images/about_page/gimmeshelter.jpeg" alt="" aria-hidden="true" loading="lazy">
+            <img src="images/about_page/gimmeshelter.jpeg" alt="Fair-housing demonstrators holding signs calling for shelter as a human right" loading="lazy">
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center order-2 order-lg-1">
-            <h3>What We Do</h3>
-            <p>We collect, analyze, and visualize eviction data to put numbers to disparities left in the wake of historical injustice.</p>
+            <h3 class="visually-hidden">Our Services</h3>
 
             <div class="row">
 
               <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-layers flex-shrink-0"></i>
+                <i class="bi bi-layers flex-shrink-0" aria-hidden="true"></i>
                 <div>
                   <h4>Data Preparation</h4>
                   <p>We provide data and research expertise to collect, prepare, and process eviction data for sources who may not have the means to do so.</p>
@@ -170,7 +184,7 @@
               </div><!-- End Icon Box -->
 
               <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-map flex-shrink-0"></i>
+                <i class="bi bi-map flex-shrink-0" aria-hidden="true"></i>
                 <div>
                   <h4>Maps and Analysis</h4>
                   <p>We analyze the data we have collected and help other partners analyze data for disparities based on race, sex, and other factors. We then integrate that information into maps of the state that show disparities by region.</p>
@@ -178,7 +192,7 @@
               </div><!-- End Icon Box -->
 
               <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-people flex-shrink-0"></i>
+                <i class="bi bi-people flex-shrink-0" aria-hidden="true"></i>
                 <div>
                   <h4>Network</h4>
                   <p>We create relationships and work alongside partners to help understand their data, share our analysis, and otherwise interact in order to create a force for advocacy, made exponentially more powerful through the mutual amplicification of our collective voices.</p>
@@ -186,7 +200,7 @@
               </div><!-- End Icon Box -->
 
               <div class="col-lg-6 icon-box d-flex">
-                <i class="bi bi-megaphone flex-shrink-0"></i>
+                <i class="bi bi-megaphone flex-shrink-0" aria-hidden="true"></i>
                 <div>
                   <h4>Advocacy</h4>
                   <p>Equipped with undeniable statistics, we advise and champion policies aimed to address disproportionate impact of evictions on vulnerable populations and communities. </p>
@@ -225,15 +239,14 @@
                 <img src="images/team/timthomas.jpeg" class="img-fluid" alt="Portrait of Tim Thomas" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://bids.berkeley.edu/people/tim-thomas" aria-label="Website profile for Tim Thomas"><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/drtthomas" aria-label="LinkedIn profile for Tim Thomas"><i class="bi bi-linkedin"></i></a>
+                <a href="https://bids.berkeley.edu/people/tim-thomas" aria-label="Website profile for Tim Thomas"><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/drtthomas" aria-label="LinkedIn profile for Tim Thomas"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Tim Thomas</h4>
               <span>Executive Director</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -243,15 +256,14 @@
                 <img src="images/team/aaronculich.jpg" class="img-fluid" alt="Portrait of Aaron Culich" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://cidrlab.org" aria-label="Website profile for Aaron Culich"><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/aaron-culich" aria-label="LinkedIn profile for Aaron Culich"><i class="bi bi-linkedin"></i></a>
+                <a href="https://cidrlab.org" aria-label="Website profile for Aaron Culich"><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/aaron-culich" aria-label="LinkedIn profile for Aaron Culich"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Aaron Culich</h4>
               <span>Director of Data Science</span>
-              <p></p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -261,14 +273,13 @@
                 <img src="images/team/miaschwinghammer.jpg" class="img-fluid" alt="Portrait of Mia Schwinghammer" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/miaschwing" aria-label="LinkedIn profile for Mia Schwinghammer"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/miaschwing" aria-label="LinkedIn profile for Mia Schwinghammer"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Mia Schwinghammer</h4>
               <span>Data Project Manager</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -278,14 +289,13 @@
                 <img src="images/team/minamohebbi.jpg" class="img-fluid" alt="Portrait of Mina Mohebbi" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/mina-mohebbi00" aria-label="LinkedIn profile for Mina Mohebbi"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/mina-mohebbi00" aria-label="LinkedIn profile for Mina Mohebbi"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Mina Mohebbi</h4>
               <span>Project Specialist</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -295,14 +305,13 @@
                 <img src="images/team/reilyfairchild.png" class="img-fluid" alt="Portrait of Reily Fairchild" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/reily-fairchild" aria-label="LinkedIn profile for Reily Fairchild"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/reily-fairchild" aria-label="LinkedIn profile for Reily Fairchild"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Reily Fairchild</h4>
               <span>Project Specialist</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -312,14 +321,13 @@
                 <img src="images/team/elizabethfiske.jpg" class="img-fluid" alt="Portrait of Elizabeth Kirkpatrick Fiske" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/ekfiske" aria-label="LinkedIn profile for Elizabeth Kirkpatrick Fiske"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/ekfiske" aria-label="LinkedIn profile for Elizabeth Kirkpatrick Fiske"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Elizabeth Kirkpatrick Fiske</h4>
               <span>Project Specialist</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -329,14 +337,13 @@
                 <img src="images/team/evawinter.jpg" class="img-fluid" alt="Portrait of Eva Winter" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/evalwinter" aria-label="LinkedIn profile for Eva Winter"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/evalwinter" aria-label="LinkedIn profile for Eva Winter"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Eva Winter</h4>
               <span>Project Specialist</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -346,14 +353,13 @@
                 <img src="images/team/willvongeldern.jpg" class="img-fluid" alt="Portrait of Will von Geldern" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/willvongeldern/" aria-label="LinkedIn profile for Will von Geldern"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/willvongeldern/" aria-label="LinkedIn profile for Will von Geldern"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Will von Geldern</h4>
               <span>Research Associate, University of Washington</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
 
@@ -382,15 +388,14 @@
                 <img src="images/photos/LisaBates.jpeg" class="img-fluid" alt="Portrait of Lisa Bates Ph. D." loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.pdx.edu/profile/lisa-bates" aria-label="Website profile for Lisa Bates Ph. D."><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/lisa-k-bates-69ab27298/" aria-label="LinkedIn profile for Lisa Bates Ph. D."><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.pdx.edu/profile/lisa-bates" aria-label="Website profile for Lisa Bates Ph. D."><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/lisa-k-bates-69ab27298/" aria-label="LinkedIn profile for Lisa Bates Ph. D."><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Lisa Bates Ph. D.</h4>
               <span>Oregon Project Director, Portland State University</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -400,14 +405,13 @@
                 <img src="images/photos/malcolmdrewery.jpeg" class="img-fluid" alt="Portrait of Malcolm Drewery, Ph. D." loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.morgan.edu/sociology-and-anthropology/faculty/malcolm-drewery" aria-label="Website profile for Malcolm Drewery, Ph. D."><i class="bi bi-globe"></i></a>
+                <a href="https://www.morgan.edu/sociology-and-anthropology/faculty/malcolm-drewery" aria-label="Website profile for Malcolm Drewery, Ph. D."><i class="bi bi-globe" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Malcolm Drewery, Ph. D.</h4>
               <span>Baltimore Collaborator, Morgan State University</span>
-              <p></p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -417,15 +421,14 @@
                 <img src="images/photos/ChengRen4.jpg" class="img-fluid" alt="Portrait of Cheng Ren" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.albany.edu/cihs/faculty/cheng-ren" aria-label="Website profile for Cheng Ren"><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/cheng-ren-48283491/" aria-label="LinkedIn profile for Cheng Ren"><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.albany.edu/cihs/faculty/cheng-ren" aria-label="Website profile for Cheng Ren"><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/cheng-ren-48283491/" aria-label="LinkedIn profile for Cheng Ren"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Cheng Ren</h4>
               <span>New York Collaborator, University of Albany, SUNY</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -435,14 +438,13 @@
                 <img src="images/photos/kathyrowell.jpg" class="img-fluid" alt="Portrait of Kathy Rowell, Ph.D." loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://www.linkedin.com/in/katherine-rowell/" aria-label="LinkedIn profile for Kathy Rowell, Ph.D."><i class="bi bi-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/katherine-rowell/" aria-label="LinkedIn profile for Kathy Rowell, Ph.D."><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Kathy Rowell, Ph.D.</h4>
               <span>Ohio Collaborator, Sinclair Community College</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -452,15 +454,14 @@
                 <img src="images/photos/ott.jpg" class="img-fluid" alt="Portrait of Ott Toomet, Ph.D." loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://ischool.uw.edu/people/faculty/profile/otoomet" aria-label="Website profile for Ott Toomet, Ph.D."><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/ott-toomet-5882827/" aria-label="LinkedIn profile for Ott Toomet, Ph.D."><i class="bi bi-linkedin"></i></a>
+                <a href="https://ischool.uw.edu/people/faculty/profile/otoomet" aria-label="Website profile for Ott Toomet, Ph.D."><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/ott-toomet-5882827/" aria-label="LinkedIn profile for Ott Toomet, Ph.D."><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Ott Toomet, Ph.D.</h4>
               <span>Washington State Collaborator, University of Washington</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
           <div class="col-lg-4 col-md-6 member">
@@ -470,15 +471,14 @@
                 <img src="images/photos/x_jose.jpg" class="img-fluid" alt="Portrait of Jose Hernandez, Ph.D" loading="lazy">
               </picture>
               <div class="social">
-                <a href="https://csde.washington.edu/affiliates/hernandez-jose/" aria-label="Website profile for Jose Hernandez, Ph.D"><i class="bi bi-globe"></i></a>
-                <a href="https://www.linkedin.com/in/josemhe/" aria-label="LinkedIn profile for Jose Hernandez, Ph.D"><i class="bi bi-linkedin"></i></a>
+                <a href="https://csde.washington.edu/affiliates/hernandez-jose/" aria-label="Website profile for Jose Hernandez, Ph.D"><i class="bi bi-globe" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/josemhe/" aria-label="LinkedIn profile for Jose Hernandez, Ph.D"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
               </div>
             </div>
             <div class="member-info text-center">
               <h4>Jose Hernandez, Ph.D</h4>
               <span>Washington State Collaborator, Microsoft</span>
-              <p> </p>
-            </div>
+              </div>
           </div><!-- End Team Member -->
 
         </div>
@@ -487,25 +487,57 @@
 
     </section><!-- /Research Collaborators Section -->
 
-     <!--Expert Collaborators Section -->
-    <section id="expert-collaborators" class="testimonials section">
+    <!-- Expert Collaborators Section -->
+    <section id="expert-collaborators" class="section">
 
-      <!-- Section Title -->
       <div class="container section-title">
         <h2>Expert Collaborators</h2>
-        <p>Edmund Witter - Housing Justice Project Washington | Scott Crain - Northwest Justice Project | Matt Hill - Public Justice Center Maryland | Eric Dunn - National Housing Law Project Virginia | Sandra Park - ACLU New York</p>
       </div><!-- End Section Title -->
+
+      <div class="container">
+        <ul class="name-chip-list" aria-label="Expert Collaborators">
+          <li><strong>Edmund Witter</strong> &mdash; Housing Justice Project, Washington</li>
+          <li><strong>Scott Crain</strong> &mdash; Northwest Justice Project</li>
+          <li><strong>Matt Hill</strong> &mdash; Public Justice Center, Maryland</li>
+          <li><strong>Eric Dunn</strong> &mdash; National Housing Law Project, Virginia</li>
+          <li><strong>Sandra Park</strong> &mdash; ACLU, New York</li>
+        </ul>
+      </div>
 
     </section><!-- /Expert Collaborators Section -->
 
-    <!--Alumni Section -->
-    <section id="student-alumni" class="testimonials section" style="padding-top: 20px;">
+    <!-- Student Alumni Section -->
+    <section id="student-alumni" class="section" style="padding-top: 20px;">
 
-      <!-- Section Title -->
       <div class="container section-title">
         <h2>Student Alumni</h2>
-        <p>Kasey Zapatka, Ph.D. | Pia Deshpande | Ángel Mendiola Ross | Alex Ramiller, Ph.D. | HC Moore | Violet Davis | Miller Jacquet | Riya Rupen Patwa | Pedro Ochoa Navarrete | Jennifer Chen | Ian Kennedy Ph.D. | Anisha Keshavan Ph.D. | Yohan Min Ph.D | Max McDonald | Lucero Mejia | Avery Richards Ph.D. | Amit Cohen | Ashley Santos | Emely Ramirez | Aniket Rahane </p>
+        <p>Graduate and undergraduate researchers who have contributed to ERN projects.</p>
       </div><!-- End Section Title -->
+
+      <div class="container">
+        <ul class="name-chip-list" aria-label="Student Alumni">
+          <li>Kasey Zapatka, Ph.D.</li>
+          <li>Pia Deshpande</li>
+          <li>&Aacute;ngel Mendiola Ross</li>
+          <li>Alex Ramiller, Ph.D.</li>
+          <li>HC Moore</li>
+          <li>Violet Davis</li>
+          <li>Miller Jacquet</li>
+          <li>Riya Rupen Patwa</li>
+          <li>Pedro Ochoa Navarrete</li>
+          <li>Jennifer Chen</li>
+          <li>Ian Kennedy, Ph.D.</li>
+          <li>Anisha Keshavan, Ph.D.</li>
+          <li>Yohan Min, Ph.D.</li>
+          <li>Max McDonald</li>
+          <li>Lucero Mejia</li>
+          <li>Avery Richards, Ph.D.</li>
+          <li>Amit Cohen</li>
+          <li>Ashley Santos</li>
+          <li>Emely Ramirez</li>
+          <li>Aniket Rahane</li>
+        </ul>
+      </div>
 
     </section><!-- /Student Alumni Section -->
 
@@ -619,9 +651,8 @@
     </div>
 
     <div class="container">
-      <div class="footer-legal">
-        <p class="mb-1">&copy; <span>Copyright</span> <strong class="sitename">Eviction Research Network</strong>. All rights reserved.</p>
-        <p class="mb-0">The Eviction Research Network is a project of UC Berkeley's Department of Sociology. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</p>
+      <div class="footer-copyright" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36px; padding-top: 20px; text-align: center; font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.6);">
+        <p class="mb-0">&copy; 2026 <strong class="sitename" style="font-weight: 600; color: rgba(255,255,255,0.85);">Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: underline;">Zenodo DOI</a>.</p>
       </div>
     </div>
 

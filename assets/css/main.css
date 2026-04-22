@@ -566,7 +566,7 @@ h6 {
 }
 
 .footer .footer-links ul li {
-  padding: 10px 0;
+  padding: 0;
   display: flex;
   align-items: center;
 }
@@ -958,7 +958,7 @@ section,
 
 .hero .carousel-item::before {
   content: "";
-  background-color: color-mix(in srgb, var(--background-color), transparent 55%);
+  background-color: color-mix(in srgb, var(--background-color), transparent 32%);
   position: absolute;
   inset: 0;
   z-index: 2;
@@ -4790,9 +4790,16 @@ summary:focus-visible,
 
 /* Guarantee touch-target size on nav/footer links (WCAG 2.5.5 AAA, best practice AA) */
 .navmenu a,
-.footer-links a,
 .social-links a {
   min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Footer links: tight vertical rhythm; tap target 28px per row meets WCAG 2.2 AA
+   (24x24) with spacing exception. */
+.footer-links a {
+  min-height: 28px;
   display: inline-flex;
   align-items: center;
 }

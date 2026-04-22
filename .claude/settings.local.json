@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(python3:*)",
+      "WebFetch(domain:evictionlab.org)",
+      "WebFetch(domain:civilcourtdata.lsc.gov)",
+      "WebFetch(domain:pmc.ncbi.nlm.nih.gov)",
+      "WebFetch(domain:onlinelibrary.wiley.com)",
+      "WebFetch(domain:www.gao.gov)",
+      "WebFetch(domain:www.pnas.org)",
+      "WebFetch(domain:sociologicalscience.com)",
+      "WebFetch(domain:www.mtlsa.org)",
+      "WebFetch(domain:law.shu.edu)",
+      "WebFetch(domain:comptroller.nyc.gov)",
+      "WebFetch(domain:thenevadaindependent.com)",
+      "WebFetch(domain:www.huduser.gov)"
+    ]
+  }
+}

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Eviction Research Network — UC Berkeley · v1 prototype</title>
+  <meta name="description" content="A research network producing eviction data, methodologies, and infrastructure for researchers, agencies, and advocates. UC Berkeley, with 27+ partner organizations.">
+
+  <!-- v1 prototype: differentiation from Eviction Lab while preserving palette.
+       Changes vs. production:
+       - Roboto Slab as display face for h1/h2 (was: all Roboto)
+       - Hero: methodology stack diagram, no photo-overlay
+       - Mono metadata strip replaces the .section-eyebrow red ALL-CAPS kicker
+       - Stat numbers default to navy, red reserved for direction (▲▼)
+       - .ern-frame device on chart frames, callouts, and partner index
+       - Methodology metadata band above footer (DATA · METHODS · CODE · CITE · NETWORK)
+       - Multi-institution author bylines on every research card
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Roboto+Slab:wght@500;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Palette — UNCHANGED from production */
+      --accent:    #F9322B;
+      --navy:      #19222C;
+      --blue:      #223754;
+      --steel:     #8BA3BE;
+      --light-bg:  #e8eef4;
+      --cream:     #f7f4ee;       /* new: working-paper warmth, used sparingly */
+      --rule:      #d8d8d8;
+      --muted:     #6c7a89;
+      --text:      #1e2a22;
+
+      /* Type stack — slab serif added for display; mono for technical metadata */
+      --font-display: "Roboto Slab", "Roboto", Georgia, serif;
+      --font-body:    "Open Sans", system-ui, -apple-system, sans-serif;
+      --font-ui:      "Roboto", system-ui, -apple-system, sans-serif;
+      --font-mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 16px; line-height: 1.6;
+      color: var(--blue);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    h1, h2, h3, .display {
+      font-family: var(--font-display);
+      color: var(--navy);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin: 0 0 12px;
+    }
+    h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 800; }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    h3 { font-size: 1.15rem; font-weight: 700; }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+    @media (max-width: 720px) { .container { padding: 0 18px; } }
+
+    /* ─── Header ─────────────────────────────── */
+    header.site {
+      background: var(--navy);
+      color: #fff;
+      padding: 18px 0;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header.site .container {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    header.site .logo img { height: 36px; width: auto; display: block; }
+    header.site nav ul {
+      list-style: none; display: flex; gap: 26px;
+      margin: 0; padding: 0;
+      font-family: var(--font-ui);
+      font-size: 14px; font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    header.site nav a {
+      color: rgba(255,255,255,.85);
+      text-transform: lowercase;   /* matches the wordmark style */
+    }
+    header.site nav a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ─── Hero ─────────────────────────────────
+       NO photo. NO red pill. Slab serif headline.
+       Background: a methodology stack diagram in pure SVG. */
+    .hero {
+      background: var(--cream);
+      padding: 88px 0 96px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    @media (max-width: 900px) {
+      .hero .container { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .hero .meta-line {
+      font-family: var(--font-mono);
+      font-size: 12px; letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 22px;
+      display: flex; gap: 24px; flex-wrap: wrap;
+    }
+    .hero .meta-line span { white-space: nowrap; }
+    .hero .meta-line .label { color: var(--accent); }
+    .hero h1 { color: var(--navy); }
+    .hero .lede {
+      font-size: 18px; line-height: 1.55;
+      color: var(--blue);
+      margin: 18px 0 28px;
+      max-width: 540px;
+    }
+    .hero .actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--navy); color: #fff;
+      padding: 12px 22px; border-radius: 2px;
+      font-family: var(--font-ui); font-weight: 600; font-size: 14px;
+      letter-spacing: 0.03em;
+      border: 1.5px solid var(--navy);
+    }
+    .btn-primary:hover { background: var(--accent); border-color: var(--accent); text-decoration: none; }
+    .btn-ghost {
+      background: transparent; color: var(--navy);
+      padding: 12px 22px; border-radius: 2px;
+      font-family: var(--font-ui); font-weight: 600; font-size: 14px;
+      letter-spacing: 0.03em;
+      border: 1.5px solid var(--navy);
+    }
+    .btn-ghost:hover { background: var(--navy); color: #fff; text-decoration: none; }
+
+    /* Hero diagram — methodology stack as the visual */
+    .hero-diagram { width: 100%; max-width: 460px; justify-self: end; }
+    @media (max-width: 900px) { .hero-diagram { justify-self: start; } }
+
+    /* ─── ERN frame system device ────────────── */
+    .ern-frame {
+      border: 1.5px solid var(--accent);
+      border-radius: 2px;
+      padding: 22px 26px;
+    }
+
+    /* ─── Section ─────────────────────────────── */
+    section.block {
+      padding: 88px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section.block.tinted { background: var(--light-bg); }
+
+    .section-rule {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin-bottom: 28px;
+    }
+    .section-rule h2 { margin-bottom: 4px; }
+    .section-rule .kicker {
+      font-family: var(--font-mono);
+      font-size: 12px; letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: lowercase;
+    }
+
+    .lede-prose { max-width: 720px; font-size: 17px; line-height: 1.65; }
+
+    /* Stats — navy by default, red ONLY for direction */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      margin-top: 44px;
+    }
+    @media (max-width: 900px) {
+      .stat-row { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    }
+    .stat {
+      border-left: 2px solid var(--rule);
+      padding-left: 18px;
+    }
+    .stat--focal { border-left-color: var(--accent); }
+    .stat .num {
+      font-family: var(--font-display);
+      font-size: 2.4rem; font-weight: 700;
+      color: var(--navy);                       /* default navy */
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      margin-bottom: 6px;
+    }
+    .stat--focal .num { color: var(--accent); }   /* opt-in, max one per row */
+    .stat .delta { color: var(--accent); font-size: 1.1rem; margin-right: 4px; }
+    .stat .label {
+      font-family: var(--font-ui);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    /* Method cards */
+    .method-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin-top: 44px;
+    }
+    @media (max-width: 900px) { .method-grid { grid-template-columns: 1fr; } }
+    .method {
+      border: 1px solid var(--rule);
+      padding: 26px 28px;
+      transition: border-color .15s;
+      background: #fff;
+    }
+    .method:hover { border-color: var(--navy); }
+    .method .id {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+    .method h3 { margin-bottom: 8px; }
+    .method p { font-size: 14px; color: var(--blue); margin: 0 0 12px; }
+    .method .ref {
+      font-family: var(--font-mono);
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* Network band — partner logos belt */
+    .network-band {
+      background: var(--cream);
+      padding: 56px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-align: center;
+    }
+    .network-band .label {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: lowercase;
+      margin-bottom: 18px;
+    }
+    .network-band .logos {
+      display: flex; justify-content: center; gap: 36px;
+      flex-wrap: wrap; align-items: center;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .network-band .logos span {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+    }
+    .network-band .logos span::after {
+      content: "·";
+      margin-left: 36px;
+      color: var(--muted);
+    }
+    .network-band .logos span:last-child::after { content: ""; margin: 0; }
+
+    /* Research card grid */
+    .research-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 36px; margin-top: 44px;
+    }
+    @media (max-width: 900px) { .research-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .research-card {
+      display: flex; flex-direction: column;
+      border-top: 1px solid var(--rule);
+      padding-top: 22px;
+    }
+    .research-card .meta {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-bottom: 12px;
+      display: flex; gap: 14px;
+    }
+    .research-card .meta .type { color: var(--accent); }
+    .research-card h3 {
+      font-size: 1.1rem;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .research-card .byline {
+      font-size: 13px; color: var(--blue); margin-bottom: 6px;
+    }
+    .research-card .affil {
+      font-family: var(--font-mono);
+      font-size: 11px; color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .research-card p {
+      font-size: 14px; color: var(--blue);
+      flex: 1;
+      margin: 0 0 16px;
+    }
+    .research-card .cite {
+      font-family: var(--font-mono);
+      font-size: 11px; color: var(--muted);
+      letter-spacing: 0.02em;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+    }
+    .research-card .cite a { color: var(--navy); }
+    .research-card .cite a:hover { color: var(--accent); }
+
+    /* Methodology metadata band — the page-level signature */
+    .meta-band {
+      background: var(--navy);
+      color: #fff;
+      padding: 44px 0;
+      border-top: 3px solid var(--accent);
+    }
+    .meta-band .container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 32px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 900px) {
+      .meta-band .container { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    }
+    .meta-band .label {
+      display: block;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      margin-bottom: 6px;
+    }
+    .meta-band a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+    .meta-band a:hover { color: var(--accent); }
+
+    /* Footer */
+    footer.site {
+      background: var(--navy);
+      color: rgba(255,255,255,.7);
+      padding: 56px 0 32px;
+    }
+    footer.site .container {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 32px; align-items: center;
+    }
+    @media (max-width: 720px) {
+      footer.site .container { grid-template-columns: 1fr; }
+    }
+    footer.site .logos {
+      display: flex; gap: 22px; align-items: center;
+    }
+    footer.site .logos img { height: 56px; width: auto; }
+    footer.site .logos .berkeley { height: 32px; }
+    footer.site .logos .rule {
+      width: 1px; height: 40px; background: rgba(255,255,255,.2);
+    }
+    footer.site .copyright {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.04em;
+      color: rgba(255,255,255,.5);
+    }
+  </style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <a class="logo" href="https://evictionresearch.net/" aria-label="Eviction Research Network — Home">
+      <img src="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#methods">methods</a></li>
+        <li><a href="#network">network</a></li>
+        <li><a href="#data">data</a></li>
+        <li><a href="#research">research</a></li>
+        <li><a href="#about">about</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ─── HERO ──────────────────────────────────────────
+     No photo, no red pill. Mono metadata, slab headline,
+     methodology stack diagram on the right. -->
+<section class="hero">
+  <div class="container">
+    <div>
+      <div class="meta-line">
+        <span><span class="label">›</span> uc berkeley sociology</span>
+        <span><span class="label">›</span> 27 partner orgs</span>
+        <span><span class="label">›</span> 50 states + dc</span>
+      </div>
+      <h1>A research network for the eviction system.</h1>
+      <p class="lede">
+        ERN builds and stewards eviction data, methodologies, and reproducible infrastructure for researchers, agencies, advocates, and courts. Methods of record. Code on GitHub. Citations with DOIs.
+      </p>
+      <div class="actions">
+        <a href="#methods" class="btn-primary">View methodologies</a>
+        <a href="#network" class="btn-ghost">Network members</a>
+      </div>
+    </div>
+
+    <!-- Methodology stack diagram. SVG, single color, no photography. -->
+    <svg class="hero-diagram" viewBox="0 0 460 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <style>
+        .stk-rect { fill: none; stroke: #19222C; stroke-width: 1.5; }
+        .stk-accent { fill: none; stroke: #F9322B; stroke-width: 1.5; }
+        .stk-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: #6c7a89; letter-spacing: 0.04em; }
+        .stk-title { font-family: 'Roboto Slab', serif; font-size: 13px; font-weight: 700; fill: #19222C; }
+        .stk-dot { fill: #F9322B; }
+      </style>
+      <!-- Layer 5: HPRM -->
+      <rect class="stk-accent" x="40" y="20" width="380" height="50"/>
+      <circle class="stk-dot" cx="56" cy="45" r="3"/>
+      <text class="stk-title" x="68" y="40">HPRM</text>
+      <text class="stk-label" x="68" y="58">housing precarity risk model · national</text>
+      <!-- Layer 4: EDR -->
+      <rect class="stk-rect" x="40" y="80" width="380" height="50"/>
+      <circle class="stk-dot" cx="56" cy="105" r="3"/>
+      <text class="stk-title" x="68" y="100">EDR</text>
+      <text class="stk-label" x="68" y="118">estimated displacement risk · ca · ut · sd</text>
+      <!-- Layer 3: Typologies -->
+      <rect class="stk-rect" x="40" y="140" width="380" height="50"/>
+      <circle class="stk-dot" cx="56" cy="165" r="3"/>
+      <text class="stk-title" x="68" y="160">Displacement typologies</text>
+      <text class="stk-label" x="68" y="178">8-category neighborhood framework · 9 metros</text>
+      <!-- Layer 2: State pipelines -->
+      <rect class="stk-rect" x="40" y="200" width="380" height="50"/>
+      <circle class="stk-dot" cx="56" cy="225" r="3"/>
+      <text class="stk-title" x="68" y="220">State pipelines</text>
+      <text class="stk-label" x="68" y="238">37 active · ocr · nlp · geocoding · bisg</text>
+      <!-- Layer 1: Foundational data -->
+      <rect class="stk-rect" x="40" y="260" width="380" height="50"/>
+      <circle class="stk-dot" cx="56" cy="285" r="3"/>
+      <text class="stk-title" x="68" y="280">DataAxle migration panel</text>
+      <text class="stk-label" x="68" y="298">individual household moves · 2010–present</text>
+      <!-- Connectors between layers -->
+      <line class="stk-rect" x1="60" y1="70" x2="60" y2="80"/>
+      <line class="stk-rect" x1="60" y1="130" x2="60" y2="140"/>
+      <line class="stk-rect" x1="60" y1="190" x2="60" y2="200"/>
+      <line class="stk-rect" x1="60" y1="250" x2="60" y2="260"/>
+      <!-- Bottom label -->
+      <text class="stk-label" x="40" y="335">methodology stack · ern + udp + cidr lab</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ─── METHODS ──────────────────────────────────────── -->
+<section class="block" id="methods">
+  <div class="container">
+    <div class="section-rule">
+      <div class="kicker">methodologies</div>
+      <h2>What we build, what we publish, what we maintain.</h2>
+    </div>
+    <p class="lede-prose">
+      Each of these is a method of record — versioned, citable, reproducible. Code on GitHub; data on Zenodo with a DOI; lineage from the Urban Displacement Project at UC Berkeley to ERN and CiDR Lab.
+    </p>
+    <div class="method-grid">
+      <div class="method">
+        <div class="id">m01 · hprm 2.0</div>
+        <h3>Housing Precarity Risk Model</h3>
+        <p>National forecast of where renters face the greatest combined risk of eviction, displacement, and long-term poverty. BART models on 200+ tract-level features.</p>
+        <div class="ref">doi · code · data · paper</div>
+      </div>
+      <div class="method">
+        <div class="id">m02 · edr</div>
+        <h3>Estimated Displacement Risk</h3>
+        <p>Tract-level displacement risk by income tier (ELI, VLI, LI) using BART. Deployed for California, Salt Lake City, San Diego.</p>
+        <div class="ref">doi · code · data · paper</div>
+      </div>
+      <div class="method">
+        <div class="id">m03 · typologies</div>
+        <h3>Displacement Typologies</h3>
+        <p>Eight-category neighborhood-change framework covering nine U.S. metros. 48★ 39🍴 on GitHub, the most-cited shared method.</p>
+        <div class="ref">doi · code · geopackage · paper</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NETWORK BAND ─────────────────────────────────── -->
+<section class="network-band" id="network">
+  <div class="container">
+    <div class="label">research network · 27 partner organizations</div>
+    <div class="logos">
+      <span>UC Berkeley</span>
+      <span>UDP</span>
+      <span>Penn (HIP)</span>
+      <span>UCLA</span>
+      <span>UC Davis</span>
+      <span>PSU</span>
+      <span>BIDS</span>
+      <span>PolicyLink</span>
+      <span>ACLU</span>
+      <span>NHLP</span>
+      <span>Legal Aid Chicago</span>
+      <span>KQED</span>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HPRM SPOTLIGHT ─────────────────────────────────
+     Replaces production's photo+text spotlight with a
+     methodology card framed in .ern-frame. -->
+<section class="block tinted">
+  <div class="container">
+    <div class="section-rule">
+      <div class="kicker">flagship · seeking anchor funding</div>
+      <h2>The Housing Precarity Risk Model.</h2>
+    </div>
+    <div class="ern-frame" style="margin-top: 28px;">
+      <p class="lede-prose" style="margin: 0 0 18px;">
+        HPRM 2.0 is a national tract-level forecast of where renters face the greatest combined risk of eviction, displacement, and long-term poverty. Originated at the Urban Displacement Project (UC Berkeley, 2020); now stewarded by ERN and CiDR Lab.
+      </p>
+      <div class="stat-row" style="margin-top: 22px;">
+        <div class="stat"><div class="num">73,000+</div><div class="label">census tracts</div></div>
+        <div class="stat"><div class="num">50</div><div class="label">states + dc</div></div>
+        <div class="stat"><div class="num">2010–25</div><div class="label">data window</div></div>
+        <div class="stat stat--focal"><div class="num"><span class="delta">▲</span>v2.0</div><div class="label">latest release</div></div>
+      </div>
+      <div style="margin-top: 28px;"><a href="https://evictionresearch.net/hprm/" class="btn-primary">Explore the model</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RECENT RESEARCH ──────────────────────────────── -->
+<section class="block" id="research">
+  <div class="container">
+    <div class="section-rule">
+      <div class="kicker">recent research</div>
+      <h2>Working papers, reports, and published methods.</h2>
+    </div>
+    <div class="research-grid">
+      <article class="research-card">
+        <div class="meta">
+          <span class="type">working paper</span>
+          <span>2026</span>
+        </div>
+        <h3>Keeping People in Their Homes: The Impact of Emergency Rental Assistance on Evictions</h3>
+        <div class="byline">Deshpande, Moore, Reid, Thomas, Zapatka, Kim, Nelson, Reina, Yae</div>
+        <div class="affil">uc berkeley · upenn · funded by hud</div>
+        <p>$46.6 billion across 700+ counties and 12,000+ neighborhoods in 22 states. Did Emergency Rental Assistance reduce eviction filings?</p>
+        <div class="cite"><a href="https://evictionresearch.net/hud-era/">→ read the report</a></div>
+      </article>
+      <article class="research-card">
+        <div class="meta">
+          <span class="type">methodology</span>
+          <span>2025</span>
+        </div>
+        <h3>Bay Area Housing Precarity Risk Model</h3>
+        <div class="byline">Thomas, Culich, Dolgoff, Driskell</div>
+        <div class="affil">ern · cidr lab · udp</div>
+        <p>Interactive mapping tool visualizing neighborhoods at highest risk of eviction and economic displacement in the Bay Area.</p>
+        <div class="cite"><a href="https://evictionresearch.net/hprm/bay/">→ explore the model</a></div>
+      </article>
+      <article class="research-card">
+        <div class="meta">
+          <span class="type">peer review</span>
+          <span>2025</span>
+        </div>
+        <h3>What Lies Behind the Answers: Applying Machine Learning to Understand Tenants' Reaction to Eviction</h3>
+        <div class="byline">Thomas, et al.</div>
+        <div class="affil">socius · open access</div>
+        <p>Topic modeling and sentiment analysis on tenant testimonies. Methodology and code released under MIT license.</p>
+        <div class="cite"><a href="#">→ read the paper</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ─── METADATA BAND — page-level signature ─────────── -->
+<section class="meta-band" id="data">
+  <div class="container">
+    <div>
+      <span class="label">data</span>
+      LSC court records · ACS · DataAxle migration panel
+    </div>
+    <div>
+      <span class="label">methods</span>
+      <a href="https://evictionresearch.net/methodology.html">WRU v2.0 · ESRI · BART</a>
+    </div>
+    <div>
+      <span class="label">code</span>
+      <a href="https://github.com/evictionresearch">github.com/evictionresearch</a>
+    </div>
+    <div>
+      <span class="label">cite</span>
+      <a href="#">DOI · BibTeX · APA</a>
+    </div>
+    <div>
+      <span class="label">network</span>
+      27 organizations · <a href="#network">members →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="about">
+  <div class="container">
+    <div class="logos">
+      <a href="https://evictionresearch.net/" aria-label="ERN — Home">
+        <img src="https://evictionresearch.net/images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="Eviction Research Network">
+      </a>
+      <span class="rule" aria-hidden="true"></span>
+      <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="UC Berkeley">
+        <img class="berkeley" src="https://evictionresearch.net/images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley">
+      </a>
+    </div>
+    <div class="copyright">© 2026 ERN · UC Berkeley Sociology · prototype v1</div>
+  </div>
+</footer>
+
+</body>
+</html>

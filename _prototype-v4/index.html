@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Eviction Research Network — v4 prototype</title>
+
+  <!-- v4 prototype: Lars Müller monograph aesthetic.
+       Single typeface (Inter), strict 12-col grid, page numbers in margins,
+       full-bleed B&W photography, restrained color use. More serious than
+       v2/v3 — book-grade, not editorial-magazine. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:        #111111;
+      --ink-soft:   #555555;
+      --ink-mute:   #999999;
+      --paper:      #f4f1ea;          /* Müller-style off-white book paper */
+      --paper-deep: #ece8df;
+      --rule:       #111111;
+      --rule-fine:  rgba(17,17,17,.16);
+      --accent:     #F9322B;          /* used only for active/hover */
+
+      --sans: "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+
+      --gutter: 24px;
+      --transition: 250ms ease;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      font-feature-settings: "ss01", "cv11", "tnum" 0;
+    }
+
+    /* Links — restrained. Black underline by default; red only on hover. */
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      transition: color var(--transition), border-color var(--transition);
+    }
+    a:hover, a:focus {
+      color: var(--accent);
+      border-color: var(--accent);
+      outline: none;
+    }
+    a.unstyled { border: none; }
+    a.unstyled:hover { color: var(--accent); }
+
+    /* ───────────────────────────────────────────
+       Page frame — strict 12-column grid
+       ─────────────────────────────────────────── */
+    .page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+    }
+    @media (max-width: 720px) { .page { padding: 0 20px; } }
+
+    .grid-12 {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gutter);
+    }
+
+    /* ───────────────────────────────────────────
+       Running header — like a book's running head
+       ─────────────────────────────────────────── */
+    .running-header {
+      padding: 18px 0;
+      border-bottom: 0.5px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--gutter);
+      align-items: baseline;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+    }
+    .running-header .left  { text-align: left;  color: var(--ink); }
+    .running-header .center { text-align: center; color: var(--ink-soft); }
+    .running-header .right { text-align: right; color: var(--ink-soft); }
+    .running-header nav {
+      display: flex; gap: 16px; justify-content: flex-end;
+    }
+    .running-header nav a { border: none; }
+    .running-header nav a:hover { border-bottom: 1px solid var(--accent); }
+
+    /* ───────────────────────────────────────────
+       Folio — page number / section number, in the margin
+       ─────────────────────────────────────────── */
+    .folio {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ink-mute);
+      text-transform: lowercase;
+    }
+
+    /* ───────────────────────────────────────────
+       Cover / title page
+       ─────────────────────────────────────────── */
+    .cover {
+      padding: 18vh 0 14vh;
+    }
+    .cover .grid-12 { row-gap: 36px; }
+    .cover .imprint {
+      grid-column: 1 / 3;
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.06em; text-transform: lowercase;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 720px) { .cover .imprint { grid-column: 1 / -1; } }
+    .cover h1 {
+      grid-column: 3 / 12;
+      font-weight: 200;
+      font-size: clamp(2.6rem, 6vw, 5.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .cover h1 .light { font-weight: 200; }
+    @media (max-width: 720px) { .cover h1 { grid-column: 1 / -1; } }
+    .cover .subtitle {
+      grid-column: 3 / 11;
+      font-size: 16px;
+      line-height: 1.55;
+      max-width: 56ch;
+      margin: 0;
+      color: var(--ink);
+      font-weight: 400;
+    }
+    @media (max-width: 720px) { .cover .subtitle { grid-column: 1 / -1; } }
+    .cover .meta-strip {
+      grid-column: 3 / 12;
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 0.5px solid var(--rule);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--gutter);
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+    }
+    @media (max-width: 720px) {
+      .cover .meta-strip { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+    }
+    .cover .meta-strip .label {
+      display: block; color: var(--ink-mute);
+      margin-bottom: 4px;
+    }
+
+    /* ───────────────────────────────────────────
+       Plate — full-bleed B&W photograph
+       The plate is sacred. No interactivity, no
+       overlay, no caption-on-image. Just the image.
+       ─────────────────────────────────────────── */
+    .plate {
+      margin: 80px 0 16px;
+    }
+    .plate .image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--paper-deep);
+      overflow: hidden;
+      position: relative;
+    }
+    .plate .image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.05);
+      display: block;
+    }
+    /* Placeholder when the image file is missing — shows expected filename.
+       Replace by dropping the file at the path below. */
+    .plate .image[data-placeholder]::before {
+      content: attr(data-placeholder);
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.04em; color: var(--ink-mute);
+      text-transform: lowercase; text-align: center;
+      padding: 24px;
+    }
+    .plate .image[data-placeholder]::after {
+      content: "";
+      position: absolute; inset: 12px;
+      border: 0.5px solid var(--rule-fine);
+    }
+    .plate .image[data-placeholder] img { display: none; }
+
+    .plate-tall .image { aspect-ratio: 3 / 4; }
+    .plate-wide .image { aspect-ratio: 16 / 9; }
+
+    .plate-caption {
+      display: grid;
+      grid-template-columns: 60px 1fr 200px;
+      gap: var(--gutter);
+      padding-top: 12px;
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 720px) {
+      .plate-caption { grid-template-columns: 60px 1fr; }
+      .plate-caption .credit { grid-column: 2; margin-top: 6px; }
+    }
+    .plate-caption .figure {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ink-mute);
+      text-transform: lowercase;
+    }
+    .plate-caption .desc {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .plate-caption .credit {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--ink-mute);
+      text-align: right;
+      text-transform: lowercase;
+    }
+    @media (max-width: 720px) { .plate-caption .credit { text-align: left; } }
+
+    /* ───────────────────────────────────────────
+       Section — book chapter
+       ─────────────────────────────────────────── */
+    section.chapter {
+      padding: 96px 0;
+      border-top: 0.5px solid var(--rule);
+    }
+    section.chapter:first-of-type { border-top: 1px solid var(--rule); }
+
+    .chapter-head {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--gutter);
+      margin-bottom: 56px;
+    }
+    .chapter-head .folio { grid-column: 1 / 3; }
+    @media (max-width: 720px) {
+      .chapter-head .folio { grid-column: 1 / -1; margin-bottom: 12px; }
+    }
+    .chapter-head h2 {
+      grid-column: 3 / 11;
+      font-weight: 300;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      line-height: 1.15;
+      letter-spacing: -0.018em;
+      margin: 0;
+      color: var(--ink);
+    }
+    @media (max-width: 720px) { .chapter-head h2 { grid-column: 1 / -1; } }
+
+    .chapter-body { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); }
+    .chapter-body .col-prose {
+      grid-column: 3 / 9;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 60ch;
+    }
+    .chapter-body .col-prose p { margin: 0 0 16px; }
+    .chapter-body .col-prose p:last-child { margin-bottom: 0; }
+    .chapter-body .col-prose strong { font-weight: 500; }
+    @media (max-width: 720px) { .chapter-body .col-prose { grid-column: 1 / -1; } }
+
+    /* Sidebar (right margin) — for footnote-style annotations */
+    .chapter-body .col-side {
+      grid-column: 10 / 13;
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.55;
+      letter-spacing: 0.02em;
+      color: var(--ink-soft);
+      padding-top: 4px;
+      border-top: 0.5px solid var(--rule);
+    }
+    .chapter-body .col-side .label {
+      display: block; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--ink);
+      text-transform: lowercase;
+      margin-bottom: 8px; padding-top: 8px;
+    }
+    @media (max-width: 720px) { .chapter-body .col-side { grid-column: 1 / -1; margin-top: 24px; } }
+
+    /* ───────────────────────────────────────────
+       Numbered list — Müller-style ledger
+       ─────────────────────────────────────────── */
+    .numlist {
+      grid-column: 3 / 13;
+      margin-top: 48px;
+    }
+    @media (max-width: 720px) { .numlist { grid-column: 1 / -1; } }
+    .numlist .row {
+      display: grid;
+      grid-template-columns: 60px 280px 1fr 160px;
+      gap: var(--gutter);
+      padding: 22px 0;
+      border-top: 0.5px solid var(--rule-fine);
+      align-items: baseline;
+    }
+    .numlist .row:last-child { border-bottom: 0.5px solid var(--rule-fine); }
+    @media (max-width: 900px) {
+      .numlist .row {
+        grid-template-columns: 50px 1fr;
+      }
+      .numlist .row .desc, .numlist .row .meta {
+        grid-column: 2;
+        margin-top: 4px;
+      }
+    }
+    .numlist .num {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--ink-mute);
+    }
+    .numlist .name {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .numlist .desc {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 50ch;
+    }
+    .numlist .meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--ink-mute);
+      text-align: right;
+      text-transform: lowercase;
+    }
+    @media (max-width: 900px) { .numlist .meta { text-align: left; } }
+
+    /* ───────────────────────────────────────────
+       Tabular figures — for stats
+       ─────────────────────────────────────────── */
+    .figures-table {
+      grid-column: 3 / 13;
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 0.5px solid var(--rule);
+    }
+    @media (max-width: 720px) { .figures-table { grid-template-columns: repeat(2, 1fr); } }
+    .figures-table .cell {
+      padding: 28px 18px 24px 0;
+      border-right: 0.5px solid var(--rule-fine);
+    }
+    .figures-table .cell:last-child { border-right: 0; }
+    @media (max-width: 720px) {
+      .figures-table .cell:nth-child(2n) { border-right: 0; }
+      .figures-table .cell:nth-child(-n+2) { border-bottom: 0.5px solid var(--rule-fine); }
+    }
+    .figures-table .num {
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      font-weight: 300;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .figures-table .num .small { font-size: 0.55em; }
+    .figures-table .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      color: var(--ink-mute);
+      line-height: 1.5;
+    }
+
+    /* ───────────────────────────────────────────
+       Tuftean chart — even barer than v3
+       ─────────────────────────────────────────── */
+    .chart-bare {
+      grid-column: 3 / 13;
+      margin-top: 56px;
+    }
+    @media (max-width: 720px) { .chart-bare { grid-column: 1 / -1; } }
+    .chart-bare svg { width: 100%; height: auto; display: block; }
+
+    /* ───────────────────────────────────────────
+       Colophon — back of the book
+       ─────────────────────────────────────────── */
+    footer.colophon {
+      padding: 96px 0 48px;
+      border-top: 1px solid var(--rule);
+      margin-top: 80px;
+    }
+    footer.colophon .grid-12 { row-gap: 28px; }
+    footer.colophon .col {
+      grid-column: span 3;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+      color: var(--ink-soft);
+    }
+    @media (max-width: 720px) { footer.colophon .col { grid-column: span 6; } }
+    footer.colophon .col .label {
+      display: block; color: var(--ink);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      margin-bottom: 6px;
+    }
+    footer.colophon .imprint {
+      grid-column: 1 / -1;
+      margin-top: 36px;
+      padding-top: 16px;
+      border-top: 0.5px solid var(--rule-fine);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      color: var(--ink-mute);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- Running header — book-style folio -->
+  <div class="running-header">
+    <div class="left">eviction research network</div>
+    <div class="center">research network · uc berkeley sociology</div>
+    <div class="right">
+      <nav>
+        <a href="#methods">methods</a>
+        <a href="#network">network</a>
+        <a href="#research">research</a>
+        <a href="#data">data</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ─── Cover / title page ─── -->
+  <section class="cover">
+    <div class="grid-12">
+      <div class="imprint">
+        eviction research network<br>
+        uc berkeley · 2018–<br>
+        ─────<br>
+        issue 04 · 2026.04
+      </div>
+      <h1>
+        <span class="light">A research network<br>for the eviction system.</span>
+      </h1>
+      <p class="subtitle">
+        Eviction data, methodologies, and reproducible infrastructure for researchers, agencies, advocates, and courts. Twenty-seven partner organizations across academic research, legal advocacy, government, and media. Housed at UC Berkeley Sociology.
+      </p>
+      <div class="meta-strip">
+        <div><span class="label">est.</span>2018</div>
+        <div><span class="label">network</span>27 partners</div>
+        <div><span class="label">coverage</span>50 states + dc</div>
+        <div><span class="label">issue</span>04 / 2026.04</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Plate I — Door 410 ─── -->
+  <figure class="plate">
+    <div class="image">
+      <img src="../images/archivephoto/full_banner.jpg" alt="Sheriff's eviction warning posted on apartment door 410, King County, Washington" />
+    </div>
+    <figcaption class="plate-caption">
+      <span class="figure">Plate i</span>
+      <span class="desc">A sheriff's notice taped to apartment door 410. The number, the door, the typography of state authority — every household in our dataset is one of these.</span>
+      <span class="credit">photograph<br>Tim Thomas<br>King County, 2017</span>
+    </figcaption>
+  </figure>
+
+  <!-- ─── Chapter 01 · About ─── -->
+  <section class="chapter" id="about">
+    <div class="chapter-head">
+      <div class="folio">§ 01 · about</div>
+      <h2>What ERN is, and what it is not.</h2>
+    </div>
+    <div class="chapter-body">
+      <div class="col-prose">
+        <p>
+          The Eviction Research Network is a <strong>distributed research infrastructure</strong>. It is housed at UC Berkeley Sociology and confederated across twenty-seven partner organizations — universities, legal-aid offices, county agencies, and media. It is plural by design.
+        </p>
+        <p>
+          We build state-level eviction data pipelines. We publish open-source methodologies with DOIs and replication code. We steward flagship products like the Housing Precarity Risk Model and the Displacement Typologies, which originated at the Urban Displacement Project and now travel under our care.
+        </p>
+        <p>
+          We are not a publication. We are not an advocacy organization. We are the infrastructure underneath them.
+        </p>
+      </div>
+      <div class="col-side">
+        <span class="label">at a glance</span>
+        Active state pipelines: 37<br>
+        Network institutions: 27<br>
+        Methods of record: 5<br>
+        Public repositories: 37<br>
+        License: MIT<br>
+        Contact: evictions@berkeley.edu
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Chapter 02 · Methods ─── -->
+  <section class="chapter" id="methods">
+    <div class="chapter-head">
+      <div class="folio">§ 02 · methods</div>
+      <h2>Methods of record.</h2>
+    </div>
+    <div class="chapter-body">
+      <div class="col-prose">
+        <p>
+          Each item below is a method of record — versioned, citable, reproducible. Each carries a DOI, a code repository, and a lineage statement back to its institutional origin.
+        </p>
+      </div>
+      <div class="col-side">
+        <span class="label">apparatus</span>
+        WRU v2.0 BISG<br>
+        ESRI geocoding<br>
+        BART (Bayesian additive regression trees)<br>
+        Synthetic-control<br>
+        DataAxle migration panel
+      </div>
+
+      <div class="numlist">
+        <div class="row">
+          <div class="num">m·01</div>
+          <div class="name">Housing Precarity Risk Model</div>
+          <div class="desc">National tract-level forecast of combined risk: eviction, displacement, long-term poverty. Stewarded with UDP.</div>
+          <div class="meta">v2.0 · 2025<br>doi · code</div>
+        </div>
+        <div class="row">
+          <div class="num">m·02</div>
+          <div class="name">Estimated Displacement Risk</div>
+          <div class="desc">Tract-level displacement risk by income tier (ELI · VLI · LI). Deployed CA · UT · SD.</div>
+          <div class="meta">v1.4 · 2024<br>doi · code</div>
+        </div>
+        <div class="row">
+          <div class="num">m·03</div>
+          <div class="name">Displacement Typologies</div>
+          <div class="desc">Eight-category neighborhood-change framework. Nine U.S. metros. The most-cited shared method in the network.</div>
+          <div class="meta">v3.1 · 2023<br>doi · code</div>
+        </div>
+        <div class="row">
+          <div class="num">m·04</div>
+          <div class="name">State eviction pipelines</div>
+          <div class="desc">Thirty-seven active state-level data pipelines. OCR · NLP · geocoding · BISG.</div>
+          <div class="meta">ongoing<br>code</div>
+        </div>
+        <div class="row">
+          <div class="num">m·05</div>
+          <div class="name">Climate displacement forecast</div>
+          <div class="desc">Migration response to climate hazards using the DataAxle individual-mover panel.</div>
+          <div class="meta">beta · 2026</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Plate II — MLK mural ─── -->
+  <figure class="plate plate-wide">
+    <div class="image">
+      <img src="../images/archivephoto/full_pic02.jpg" alt="Keep the Dream Alive mural, Baltimore — Martin Luther King Jr. portrait surrounded by hand-lettered repetition of the phrase" />
+    </div>
+    <figcaption class="plate-caption">
+      <span class="figure">Plate ii</span>
+      <span class="desc">"Keep the Dream Alive," Baltimore. The phrase repeats by hand across brick — incantation as preservation. Documented while consulting with Baltimore on the city's eviction crisis.</span>
+      <span class="credit">photograph<br>Tim Thomas<br>Baltimore</span>
+    </figcaption>
+  </figure>
+
+  <!-- ─── Chapter 03 · Stats and chart ─── -->
+  <section class="chapter">
+    <div class="chapter-head">
+      <div class="folio">§ 03 · the system</div>
+      <h2>What the system produces, monthly, at scale.</h2>
+    </div>
+    <div class="chapter-body">
+      <div class="col-prose">
+        <p>
+          Across the fifty states, the eviction system produces filings on roughly the same scale every month — a constant background level interrupted only briefly by pandemic-era moratoria, then returning.
+        </p>
+        <p>
+          The figures below are drawn from the case-level court records the network maintains, harmonized to a comparable monthly denominator: filings per 1,000 renter households.
+        </p>
+      </div>
+
+      <div class="figures-table">
+        <div class="cell">
+          <div class="num">2.7<span class="small">m</span></div>
+          <div class="label">unique households<br>filed against · 2018</div>
+        </div>
+        <div class="cell">
+          <div class="num">3.6<span class="small">m</span></div>
+          <div class="label">filings per year<br>typical year</div>
+        </div>
+        <div class="cell">
+          <div class="num">37</div>
+          <div class="label">state pipelines<br>active</div>
+        </div>
+        <div class="cell">
+          <div class="num">1.45<span class="small">×</span></div>
+          <div class="label">black-vs-white<br>filing-rate ratio</div>
+        </div>
+      </div>
+
+      <div class="chart-bare">
+        <svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <style>
+            .v4-axis-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #999999; letter-spacing: 0.04em; }
+            .v4-line { fill: none; stroke: #111111; stroke-width: 1.25; stroke-linejoin: round; }
+            .v4-baseline { stroke: #999999; stroke-width: 0.5; stroke-dasharray: 1 3; }
+            .v4-dot { fill: #111111; }
+          </style>
+          <line class="v4-baseline" x1="0" y1="160" x2="1000" y2="160"/>
+          <text class="v4-axis-text" x="0" y="155">avg. monthly · pre-pandemic</text>
+          <path class="v4-line" d="M 0 160 L 60 158 L 120 162 L 180 159 L 240 156 L 300 162 L 360 159 L 420 156
+            L 460 250 L 480 260 L 500 255 L 520 245 L 540 220 L 560 195 L 580 175 L 600 155
+            L 620 130 L 640 115 L 660 125 L 680 140 L 700 150 L 720 158 L 740 162 L 760 156
+            L 800 152 L 840 158 L 880 150 L 920 154 L 960 148 L 1000 145" />
+          <circle class="v4-dot" cx="1000" cy="145" r="2.5"/>
+          <text class="v4-axis-text" x="0"    y="278">2017</text>
+          <text class="v4-axis-text" x="500"  y="278" text-anchor="middle">2021</text>
+          <text class="v4-axis-text" x="1000" y="278" text-anchor="end">2025</text>
+        </svg>
+        <div class="plate-caption" style="grid-template-columns: 60px 1fr 200px;">
+          <span class="figure">Fig. 01</span>
+          <span class="desc">National monthly eviction filings, 2017 – October 2025. Pandemic moratoria visible as the trough; the post-program overshoot and subsequent cooling visible as the mid-period peak and decline.</span>
+          <span class="credit">source<br>legal services corp.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Plate III — HPRM map (the work itself) ─── -->
+  <figure class="plate plate-wide">
+    <div class="image">
+      <img src="../images/archivephoto/full_pic03.jpg" alt="Housing Precarity Risk Model — tract-level displacement and eviction-risk choropleth, Seattle / Tacoma region" />
+    </div>
+    <figcaption class="plate-caption">
+      <span class="figure">Plate iii</span>
+      <span class="desc">The Housing Precarity Risk Model rendered at tract resolution across the Seattle–Tacoma corridor. Red where combined eviction, displacement, and economic risk are highest; blue where lowest. The work that the network produces.</span>
+      <span class="credit">cartography<br>Eviction Research Network<br>2024</span>
+    </figcaption>
+  </figure>
+
+  <!-- ─── Chapter 04 · Network ─── -->
+  <section class="chapter" id="network">
+    <div class="chapter-head">
+      <div class="folio">§ 04 · network</div>
+      <h2>Twenty-seven partner organizations.</h2>
+    </div>
+    <div class="chapter-body">
+      <div class="col-prose">
+        <p>
+          ERN's flagship methods are co-authored across at least three institutions. This is not affiliation; it is operational distribution. The network is the infrastructure.
+        </p>
+      </div>
+      <div class="col-side">
+        <span class="label">categories</span>
+        Academic research<br>
+        Legal advocacy<br>
+        Government partner<br>
+        Media partner
+      </div>
+
+      <div class="numlist">
+        <div class="row">
+          <div class="num">01</div>
+          <div class="name">UC Berkeley Sociology</div>
+          <div class="desc">Institutional home of ERN.</div>
+          <div class="meta">academic</div>
+        </div>
+        <div class="row">
+          <div class="num">02</div>
+          <div class="name">Urban Displacement Project</div>
+          <div class="desc">Methodological lineage; HPRM and EDR originated here.</div>
+          <div class="meta">academic</div>
+        </div>
+        <div class="row">
+          <div class="num">03</div>
+          <div class="name">Housing Initiative at Penn</div>
+          <div class="desc">Co-PI on HUD ERA evaluation; ongoing methodology partnership.</div>
+          <div class="meta">academic</div>
+        </div>
+        <div class="row">
+          <div class="num">04</div>
+          <div class="name">UCLA · UC Davis · Portland State</div>
+          <div class="desc">Research collaborators across state-level pipelines.</div>
+          <div class="meta">academic</div>
+        </div>
+        <div class="row">
+          <div class="num">05</div>
+          <div class="name">Berkeley Institute for Data Science (BIDS)</div>
+          <div class="desc">Computational infrastructure and methods development.</div>
+          <div class="meta">academic</div>
+        </div>
+        <div class="row">
+          <div class="num">06</div>
+          <div class="name">PolicyLink · ACLU · NHLP · Legal Aid Chicago</div>
+          <div class="desc">Legal and advocacy partners; policy translation.</div>
+          <div class="meta">advocacy</div>
+        </div>
+        <div class="row">
+          <div class="num">07</div>
+          <div class="name">KQED</div>
+          <div class="desc">Public-media partner.</div>
+          <div class="meta">media</div>
+        </div>
+        <div class="row">
+          <div class="num">+15</div>
+          <div class="name">Other partners</div>
+          <div class="desc">Full directory available at evictionresearch.net/network.</div>
+          <div class="meta">→</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Chapter 05 · Recent work ─── -->
+  <section class="chapter" id="research">
+    <div class="chapter-head">
+      <div class="folio">§ 05 · recent work</div>
+      <h2>Working papers and published methods.</h2>
+    </div>
+    <div class="chapter-body">
+      <div class="numlist">
+        <div class="row">
+          <div class="num">2026.04</div>
+          <div class="name">Keeping People in Their Homes: The Impact of Emergency Rental Assistance on Evictions</div>
+          <div class="desc">Deshpande · Moore · Reid · Thomas · Zapatka · Kim · Nelson · Reina · Yae</div>
+          <div class="meta">working paper<br>uc berkeley · upenn</div>
+        </div>
+        <div class="row">
+          <div class="num">2025.11</div>
+          <div class="name">Bay Area Housing Precarity Risk Model</div>
+          <div class="desc">Thomas · Culich · Dolgoff · Driskell</div>
+          <div class="meta">methodology<br>ern · cidr · udp</div>
+        </div>
+        <div class="row">
+          <div class="num">2025.09</div>
+          <div class="name">What Lies Behind the Answers: ML to Understand Tenants' Reaction to Eviction</div>
+          <div class="desc">Thomas et al.</div>
+          <div class="meta">peer-reviewed<br>socius</div>
+        </div>
+        <div class="row">
+          <div class="num">2024</div>
+          <div class="name">Building eviction-data pipelines under heterogeneous court infrastructure</div>
+          <div class="desc">Thomas · Ramiller</div>
+          <div class="meta">peer-reviewed<br>cityscape · hud</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Colophon ─── -->
+  <footer class="colophon" id="data">
+    <div class="grid-12">
+      <div class="col">
+        <span class="label">data</span>
+        Legal Services Corp.<br>
+        ACS · 2010–<br>
+        DataAxle migration panel
+      </div>
+      <div class="col">
+        <span class="label">methods</span>
+        WRU v2.0 BISG<br>
+        ESRI geocoding<br>
+        BART · synth-control
+      </div>
+      <div class="col">
+        <span class="label">code</span>
+        <a href="https://github.com/evictionresearch">github · evictionresearch</a><br>
+        37 public repos<br>
+        MIT licensed
+      </div>
+      <div class="col">
+        <span class="label">cite</span>
+        DOI · BibTeX · APA<br>
+        Zenodo deposits
+      </div>
+
+      <div class="imprint">
+        <span>eviction research network · uc berkeley sociology · 2018–2026</span>
+        <span>set in inter · prototype v4 · 04/2026</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

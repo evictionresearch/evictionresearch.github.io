@@ -1,0 +1,574 @@
+/*!
+ * v5b.css — shared v5b primitives for the Eviction Research Network site.
+ *
+ * Brand spec: https://github.com/cidrlab/library/blob/main/brand/BRAND.md
+ * Colors:    accent #F9322B · navy #19222C · medium-blue #223754 · light-blue #e8eef4
+ * Fonts:     Open Sans (body) + Roboto (headings, nav, labels, pills)
+ *            (decided 2026-04-20; Poppins removed from ERN stack)
+ *
+ * Lineage:   Originated in the v5b prototype (sticky logo header, white
+ * background, red pill primaries, navy hairline rules, restrained sans
+ * typography). First production deployment: hud-era/index.html.
+ *
+ * Usage:     Link AFTER main.css so v5b primitives layer on top of the
+ * legacy stylesheet. Apply v5b classes to opt sections in. Hero and
+ * navigation remain on main.css until the site-wide migration completes.
+ */
+
+/* Local CSS variables — namespaced so they don't collide with main.css's
+   --accent-color / --heading-color / --default-color etc. The names match
+   the canonical hud-era.css for direct portability.
+   Display headlines use hairline Open Sans Light (300) — universal across
+   Apple/PC as a Google webfont, same rendering on every platform. Body,
+   nav, labels, pills, kickers, buttons stay on Roboto/Open Sans regular. */
+.v5b-section,
+.v5b-page {
+  --paper:        #ffffff;
+  --tint:         rgba(232, 238, 244, 0.45);
+  --tint-solid:   #e8eef4;
+  --navy:         #19222C;
+  --navy-soft:    #223754;
+  --steel:        #8BA3BE;
+  --accent:       #F9322B;
+  --accent-deep:  #D6231C;
+  --rule:         rgba(25, 34, 44, 0.18);
+  --rule-fine:    rgba(25, 34, 44, 0.10);
+  --muted:        #6c7a89;
+  --sans:         "Open Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display:      "Roboto", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --transition:   220ms ease;
+}
+
+/* ─── Section + page wrappers ─── */
+.v5b-section {
+  padding: 96px 0;
+  background: var(--paper);
+  color: var(--navy);
+  font-family: var(--sans);
+  position: relative;
+}
+.v5b-section + .v5b-section { border-top: 1px solid var(--rule-fine); }
+
+/* Tinted accent strip (light-blue, full-bleed inner padding bumps) */
+.v5b-section.tinted {
+  background: var(--tint-solid);
+  border-top: none;
+}
+.v5b-section.tinted + .v5b-section { border-top: none; }
+.v5b-section.dark {
+  background: var(--navy);
+  color: #fff;
+  border-top: none;
+}
+.v5b-section.dark .kicker { color: #ff706a; }
+.v5b-section.dark .section-title,
+.v5b-section.dark h2,
+.v5b-section.dark h3,
+.v5b-section.dark h4 { color: #fff; }
+.v5b-section.dark p { color: rgba(255,255,255,0.86); }
+.v5b-section.dark a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); }
+.v5b-section.dark a:hover { color: #ff706a; border-color: #ff706a; }
+.v5b-section.dark .btn-ghost { color: #fff; border-color: #fff; background: transparent; }
+.v5b-section.dark .btn-ghost:hover { color: #fff; background: rgba(255,255,255,0.1); border-color: #fff; }
+
+.v5b-page {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+@media (max-width: 720px) { .v5b-page { padding: 0 20px; } }
+
+/* ─── Kicker (small uppercase red label above section titles) ─── */
+.v5b-section .kicker,
+.v5b-page .kicker {
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+/* ─── Section title (large display headline with em-italic red emphasis).
+   Hairline Open Sans Light (300) — the v5a aesthetic. The thin display
+   weight is the typographic anchor that distances ERN from Eviction Lab's
+   bold-sans data-journalism register. Bold red em provides the contrast
+   beat. Universal across Apple/PC via Google Fonts. */
+.v5b-section .section-title,
+.v5b-page .section-title {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin: 0 0 24px;
+  color: var(--navy);
+  max-width: 22ch;
+}
+.v5b-section .section-title em,
+.v5b-page .section-title em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ─── Lead paragraph (slightly larger, used under section titles) ─── */
+.v5b-section .lead-paragraph,
+.v5b-page .lead-paragraph {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  max-width: 56ch;
+  color: var(--navy);
+  margin: 0 0 24px;
+}
+.v5b-section .lead-paragraph em,
+.v5b-page .lead-paragraph em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ─── Body paragraphs inside v5b sections ─── */
+.v5b-section p { font-size: 16px; line-height: 1.7; color: var(--navy); margin: 0 0 18px; }
+.v5b-section p:last-child { margin-bottom: 0; }
+
+/* ─── Two-column layout ─── */
+.v5b-section .two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.v5b-section .two-col.tight { gap: 56px; }
+.v5b-section .two-col.text-narrow { grid-template-columns: 1fr 1.1fr; }
+.v5b-section .two-col.media-narrow { grid-template-columns: 1.2fr 1fr; }
+.v5b-section .two-col.reverse > :first-child { order: 2; }
+.v5b-section .two-col.reverse > :last-child { order: 1; }
+@media (max-width: 900px) {
+  .v5b-section .two-col,
+  .v5b-section .two-col.text-narrow,
+  .v5b-section .two-col.media-narrow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .v5b-section .two-col.reverse > :first-child { order: 1; }
+  .v5b-section .two-col.reverse > :last-child { order: 2; }
+}
+
+.v5b-section .two-col img,
+.v5b-section .two-col picture { width: 100%; height: auto; display: block; border-radius: 4px; }
+
+/* ─── Buttons (red pill primary + ghost secondary) ─── */
+.v5b-section .btn,
+.v5b-page .btn {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border: 1.5px solid transparent;
+}
+.v5b-section .btn::after,
+.v5b-page .btn::after {
+  content: "→";
+  font-size: 15px;
+  letter-spacing: 0;
+  transition: transform var(--transition);
+}
+.v5b-section .btn:hover::after,
+.v5b-page .btn:hover::after { transform: translateX(4px); }
+
+/* Envelope variant — swap the trailing arrow for an envelope glyph
+   (used on contact / mailto buttons like the "Get in Touch" CTA). */
+.v5b-section .btn-envelope::after,
+.v5b-page .btn-envelope::after {
+  content: "\2709";  /* ✉ envelope */
+  font-size: 16px;
+}
+.v5b-section .btn-envelope:hover::after,
+.v5b-page .btn-envelope:hover::after { transform: none; }
+.v5b-section .btn-red,
+.v5b-page .btn-red {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+.v5b-section .btn-red:hover,
+.v5b-page .btn-red:hover {
+  background: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: #fff;
+}
+.v5b-section .btn-ghost,
+.v5b-page .btn-ghost {
+  background: transparent;
+  color: var(--navy);
+  border-color: var(--navy);
+}
+.v5b-section .btn-ghost:hover,
+.v5b-page .btn-ghost:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ─── Scope pills (state chips, study period chips) ─── */
+.v5b-section .scope-pill {
+  font-family: var(--display);
+  display: inline-block;
+  background: var(--tint);
+  color: var(--navy);
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin: 4px 4px 4px 0;
+}
+
+/* ─── Paper-card (for publication / chapter cards) ─── */
+.v5b-section .paper-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: 0 4px 16px rgba(25,34,44,0.06);
+  border-top: 4px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.v5b-section .paper-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(25,34,44,0.10);
+}
+.v5b-section .paper-card .chapter-tag {
+  font-family: var(--display);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.v5b-section .paper-card h4,
+.v5b-section .paper-card h3 {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+  margin: 0 0 12px;
+  color: var(--navy);
+}
+.v5b-section .paper-card .post-img {
+  margin: 0 -28px 18px;
+  overflow: hidden;
+}
+.v5b-section .paper-card .post-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  transition: transform 600ms ease;
+}
+.v5b-section .paper-card:hover .post-img img { transform: scale(1.04); }
+.v5b-section .paper-card .post-img.padded { padding: 18px; background: var(--tint-solid); }
+.v5b-section .paper-card .post-img.padded img { object-fit: contain; height: 180px; background: #fff; }
+.v5b-section .paper-card .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.v5b-section .paper-card .meta .sep { opacity: 0.4; }
+.v5b-section .paper-card .meta i { margin-right: 4px; }
+.v5b-section .paper-card .post-date {
+  font-family: var(--display);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.v5b-section .paper-card p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--navy);
+  margin: 0 0 18px;
+  flex-grow: 1;
+}
+.v5b-section .paper-card .readmore {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: auto;
+}
+.v5b-section .paper-card .readmore::after {
+  content: "→";
+  transition: transform var(--transition);
+}
+.v5b-section .paper-card .readmore:hover {
+  color: var(--accent-deep);
+}
+.v5b-section .paper-card .readmore:hover::after { transform: translateX(4px); }
+
+/* ─── Card grid (3-up at desktop, 2-up at tablet, 1-up mobile) ─── */
+.v5b-section .card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+@media (max-width: 1100px) { .v5b-section .card-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .v5b-section .card-grid { grid-template-columns: 1fr; } }
+
+/* ─── Map container (for state-coverage iframe) ─── */
+.v5b-section .map-container {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--rule-fine);
+  background: var(--tint-solid);
+  aspect-ratio: 4 / 3;
+}
+.v5b-section .map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.v5b-section .map-overlay {
+  position: absolute;
+  bottom: 14px; left: 14px;
+  background: rgba(255,255,255,0.94);
+  border-left: 3px solid var(--accent);
+  padding: 8px 14px;
+  font-family: var(--display);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--navy);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(25,34,44,0.10);
+}
+
+/* ─── Centered CTA section (for "Partner with ERN" band) ─── */
+.v5b-section .center-cta {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.v5b-section .center-cta .section-title {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 14px;
+}
+.v5b-section .center-cta p { max-width: 60ch; margin: 0 auto 28px; }
+
+/* CTA band — solid navy. The MLK mural background was removed 2026-04-29
+   per the EL-differentiation pass: human-centered photography is Eviction
+   Lab's lane, so the closing CTA stays clean and typographic. */
+
+/* ─── Accent (red) section variant — used for the v5a-style "Partner with
+   ERN" CTA. Solid accent red, white type, light-weight Open Sans display,
+   white pill button that flips to navy on hover. ─── */
+.v5b-section.accent {
+  background: var(--accent);
+  color: #fff;
+  border-top: none;
+}
+.v5b-section.accent + .v5b-section { border-top: none; }
+.v5b-section.accent .kicker { color: rgba(255,255,255,0.85); }
+.v5b-section.accent .section-title,
+.v5b-section.accent h2 {
+  /* On the red CTA, white text inherits the same hairline Open Sans Light
+     weight as the white-section titles — just override color. */
+  color: #fff;
+  letter-spacing: -0.018em;
+}
+.v5b-section.accent .section-title em,
+.v5b-section.accent h2 em {
+  font-style: normal;
+  font-weight: 600;
+  color: #fff;
+}
+.v5b-section.accent p { color: rgba(255,255,255,0.94); }
+.v5b-section.accent a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.5); }
+.v5b-section.accent a:hover { color: #fff; border-color: #fff; }
+
+/* White-on-red pill button (v5a CTA pattern). Uses .btn-cta hook so
+   .btn-red on the home CTA continues to work — but the .btn-cta variant
+   reads white-on-red rather than red-on-white. */
+.v5b-section.accent .btn,
+.v5b-section.accent .btn-red,
+.v5b-section.accent .btn-cta {
+  background: #fff;
+  color: var(--accent);
+  border-color: #fff;
+}
+.v5b-section.accent .btn:hover,
+.v5b-section.accent .btn-red:hover,
+.v5b-section.accent .btn-cta:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+/* ─── Footer (v5a/v5b — white background, hairline rule, 5-col grid) ─── */
+footer.site {
+  --paper:        #ffffff;
+  --tint:         rgba(232, 238, 244, 0.45);
+  --tint-solid:   #e8eef4;
+  --navy:         #19222C;
+  --navy-soft:    #223754;
+  --accent:       #F9322B;
+  --rule:         rgba(25, 34, 44, 0.18);
+  --rule-fine:    rgba(25, 34, 44, 0.10);
+  --muted:        #6c7a89;
+  --sans:         "Open Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display:      "Roboto", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --transition:   220ms ease;
+  background: var(--paper);
+  color: var(--navy);
+  font-family: var(--sans);
+  padding: 64px 0 32px;
+  border-top: 1px solid var(--rule-fine);
+}
+footer.site .v5b-page { /* respect the page-width constraint */ }
+footer.site .grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr 1.1fr;
+  gap: 36px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+@media (max-width: 1100px) {
+  footer.site .grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+  footer.site .col.about { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  footer.site .grid { grid-template-columns: 1fr 1fr; padding: 0 20px; }
+  footer.site .col.about { grid-column: 1 / -1; }
+}
+
+footer.site .col h4 {
+  font-family: var(--display);
+  font-size: 13px; font-weight: 500; margin: 0 0 14px;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+footer.site .col ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 8px;
+  font-size: 14px;
+}
+footer.site .col ul a {
+  border: none;
+  color: var(--navy-soft);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+footer.site .col ul a:hover { color: var(--accent); }
+
+/* About column — dual-logo row, paragraph, social-links circles */
+footer.site .about p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 18px 0 0;
+  max-width: 36ch;
+}
+footer.site .footer-logos {
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: 18px;
+}
+footer.site .footer-logos a {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+footer.site .footer-logos img {
+  max-height: 36px;
+  width: auto;
+  display: block;
+}
+/* Berkeley wordmark on the main site is rendered for dark backgrounds
+   (white pixels). Invert + darken so it reads navy on the white footer
+   without re-rendering a separate asset. */
+footer.site .footer-logos .berkeley-mark {
+  max-height: 26px;
+  filter: invert(1) brightness(0.15);
+}
+footer.site .footer-logo-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--rule-fine);
+  margin: 4px 0;
+}
+footer.site .social-links {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+  align-items: center;
+}
+footer.site .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-soft);
+  font-size: 20px;
+  line-height: 1;
+  border: none;
+  padding: 4px;
+  transition: color var(--transition), transform var(--transition);
+}
+footer.site .social-links a:hover,
+footer.site .social-links a:focus {
+  color: var(--accent);
+  transform: translateY(-2px);
+  background: transparent;
+  outline: none;
+}
+
+/* Bottom imprint row — full-width, centered, hairline-separated */
+footer.site .imprint {
+  grid-column: 1 / -1;
+  margin-top: 36px;
+  padding-top: 22px;
+  border-top: 1px solid var(--rule-fine);
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+footer.site .imprint strong { font-weight: 600; color: var(--navy); }
+footer.site .imprint a {
+  color: var(--navy-soft);
+  border-bottom: 1px solid var(--rule-fine);
+  text-decoration: none;
+}
+footer.site .imprint a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}

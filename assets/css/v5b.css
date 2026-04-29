@@ -3,8 +3,11 @@
  *
  * Brand spec: https://github.com/cidrlab/library/blob/main/brand/BRAND.md
  * Colors:    accent #F9322B · navy #19222C · medium-blue #223754 · light-blue #e8eef4
- * Fonts:     Open Sans (body) + Roboto (headings, nav, labels, pills)
- *            (decided 2026-04-20; Poppins removed from ERN stack)
+ * Fonts:     Inter — single canonical brand family.
+ *            Display headlines: Inter 200 (Extra Light, hairline aesthetic)
+ *            Body / nav / pills: Inter 400/500/600/700
+ *            OpenType features ss01 + cv11 active for modern alternates.
+ *            (decided 2026-04-29; superseded earlier Open Sans + Roboto stack)
  *
  * Lineage:   Originated in the v5b prototype (sticky logo header, white
  * background, red pill primaries, navy hairline rules, restrained sans
@@ -18,9 +21,10 @@
 /* Local CSS variables — namespaced so they don't collide with main.css's
    --accent-color / --heading-color / --default-color etc. The names match
    the canonical hud-era.css for direct portability.
-   Display headlines use hairline Open Sans Light (300) — universal across
-   Apple/PC as a Google webfont, same rendering on every platform. Body,
-   nav, labels, pills, kickers, buttons stay on Roboto/Open Sans regular. */
+   2026-04-29: Inter is the canonical ERN brand font. --sans and --display
+   are aliases of the same family; the visual hierarchy comes from weight
+   axis, not family switching. Hairline display headlines use Inter 200
+   (Extra Light) — a real designed weight, not browser-faked. */
 .v5b-section,
 .v5b-page {
   --paper:        #ffffff;
@@ -34,9 +38,18 @@
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);
   --muted:        #6c7a89;
-  --sans:         "Open Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --display:      "Roboto", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans:         "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display:      "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --transition:   220ms ease;
+}
+
+/* Inter OpenType features — modern alternate glyphs (single-storey "a" via
+   ss01, curved variants via cv11). Apply once on the section/page wrapper
+   so every descendant inherits. */
+.v5b-section,
+.v5b-page,
+footer.site {
+  font-feature-settings: "ss01", "cv11";
 }
 
 /* ─── Section + page wrappers ─── */
@@ -91,16 +104,16 @@
 }
 
 /* ─── Section title (large display headline with em-italic red emphasis).
-   Hairline Open Sans Light (300) — the v5a aesthetic. The thin display
-   weight is the typographic anchor that distances ERN from Eviction Lab's
+   Hairline Inter Extra Light (200) — a real designed weight in Inter.
+   This is the typographic anchor that distances ERN from Eviction Lab's
    bold-sans data-journalism register. Bold red em provides the contrast
    beat. Universal across Apple/PC via Google Fonts. */
 .v5b-section .section-title,
 .v5b-page .section-title {
   font-family: var(--sans);
-  font-weight: 300;
+  font-weight: 200;
   font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.022em;
   margin: 0 0 24px;
   color: var(--navy);
@@ -444,8 +457,8 @@ footer.site {
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);
   --muted:        #6c7a89;
-  --sans:         "Open Sans", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --display:      "Roboto", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --sans:         "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display:      "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --transition:   220ms ease;
   background: var(--paper);
   color: var(--navy);

@@ -9,37 +9,68 @@
   <meta name="keywords" content="eviction research, housing precarity, displacement, gentrification, eviction data, housing policy, Housing Precarity Risk Model, HPRM, UC Berkeley, Department of Sociology, Urban Displacement Project">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
 
+  <link rel="canonical" href="https://evictionresearch.net/">
+
   <!-- Open Graph / social -->
   <meta property="og:title" content="Eviction Research Network — UC Berkeley">
   <meta property="og:description" content="Eviction data, displacement research, and the Housing Precarity Risk Model from UC Berkeley's Eviction Research Network.">
   <meta property="og:url" content="https://evictionresearch.net/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eviction Research Network — UC Berkeley">
+  <meta name="twitter:description" content="Eviction data, displacement research, and the Housing Precarity Risk Model from UC Berkeley's Eviction Research Network.">
+  <meta name="twitter:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+
+  <!-- Organization structured data — helps Google generate a richer search snippet -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eviction Research Network",
+    "alternateName": "ERN",
+    "url": "https://evictionresearch.net/",
+    "logo": "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png",
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "University of California, Berkeley · Department of Sociology",
+      "url": "https://sociology.berkeley.edu"
+    },
+    "sameAs": [
+      "https://bsky.app/profile/evictionresearch.bsky.social",
+      "https://twitter.com/EvictionNet",
+      "https://www.linkedin.com/company/evictionresearch/"
+    ]
+  }
+  </script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts — Open Sans (body + hairline display) + Roboto (UI/nav/labels).
-       2026-04-29: Hairline Open Sans Light (300) used for major display
-       headlines, matching the v5a aesthetic. Universal across Apple/PC
-       since both fonts are loaded as Google webfonts (same render on every
-       platform). Async-loaded to avoid render-blocking. -->
+  <!-- Fonts — Inter (single family, all weights). 2026-04-29: switched
+       from Open Sans + Roboto to Inter as the canonical ERN brand font.
+       Inter renders identically on Apple/PC/Linux/iOS/Android since it's
+       a Google webfont. ss01 + cv11 OpenType features applied via CSS to
+       activate Inter's modern alternate glyphs. Async-loaded to avoid
+       render-blocking. See BRAND.md for the brand decision rationale. -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="images/seattle_air.webp" type="image/webp">
 
   <!-- Critical above-the-fold CSS (inlined to avoid render-blocking main.css) -->
   <style>
-    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
     .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
     .light-background{--background-color:#e8eef4;--surface-color:#fff}
-    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;font-feature-settings:"ss01","cv11"}
     h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
     .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0;transition:background-color .3s,box-shadow .3s}
     .header.scrolled{background-color:rgba(25,34,44,.95);box-shadow:0 2px 12px rgba(0,0,0,.15)}

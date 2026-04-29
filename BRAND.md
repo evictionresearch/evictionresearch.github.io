@@ -27,12 +27,34 @@ Eviction Research Network (ERN) website and affiliated projects. Keep in sync wi
 
 | Role | Font | CSS Variable |
 |---|---|---|
-| Body / default | Open Sans | `--default-font` |
-| Headings, navigation, labels, pills | Roboto | `--heading-font`, `--nav-font` |
+| Body, headings, navigation, labels, pills | **Inter** | `--sans` (canonical); `--display` aliases to same |
 
-All fonts loaded via Google Fonts CDN.
+All fonts loaded via Google Fonts CDN. Inter renders identically across Apple, PC, Linux, iOS, and Android because the browser fetches the same `.woff2` file regardless of OS.
 
-> **2026-04-20:** Poppins dropped from ERN stack (was `--nav-font`). Roboto now drives nav/labels in addition to headings. Rationale: one fewer render-blocking font family for PageSpeed. CiDR Lab is separately on Poppins-only — no web-font overlap between the two brands.
+### Weights in use
+- **200 (Extra Light)** — major display headlines (h1, h2.section-title) — the hairline aesthetic
+- **400 (Regular)** — body copy
+- **500 (Medium)** — kickers, navigation, scope pills
+- **600 (Semi Bold)** — buttons, paper-card readmore, em emphasis
+- **700 (Bold)** — paper-card titles, strong emphasis, footer h4s
+
+### OpenType features
+Inter ships designed alternates that are part of its visual signature:
+
+- `ss01` — single-storey "a" (more modern, geometric)
+- `cv11` — curved style alternates
+
+Apply via `font-feature-settings: "ss01", "cv11";` on `body` so the whole site picks them up.
+
+> **2026-04-29:** Switched to Inter as the single brand family. Replaced the prior Open Sans (body) + Roboto (headings) stack. Rationale:
+> 1. **Differentiation.** Eviction Lab and similar civic-data orgs lean on data-journalism fonts (Roboto, Helvetica-flavored families). Inter pulls ERN into the design-forward technical register (Vercel, Stripe, Figma, GitHub) — a meaningful brand pivot away from the EL collision space.
+> 2. **One family.** Inter alone replaces two prior families, lowering render-blocking weight while expanding the available weight axis (true 200 Extra Light is not available in Open Sans).
+> 3. **Hairline aesthetic.** Inter 200 is a real designed weight; Open Sans floors at 300, Roboto skips from 500 to 700. The v5b prototype hairline look originated as Inter 200 — switching back makes that aesthetic native rather than approximated.
+> 4. **Cross-platform parity.** Loaded as a Google webfont, Inter renders identically on every platform.
+>
+> **2026-04-20:** (historical) Poppins dropped from ERN stack; Open Sans + Roboto adopted. Superseded by the 2026-04-29 Inter switch.
+
+CiDR Lab remains on Poppins separately — the two brands do not share a webfont family.
 
 ---
 
@@ -53,13 +75,12 @@ Favicon: `https://evictionresearch.net/archive/png/ern_favicon.png`
 
 ## CSS Implementation
 
-In `assets/css/main.css`:
+In `assets/css/main.css` and `assets/css/v5b.css`:
 
 ```css
 :root {
-  --default-font:   "Open Sans", system-ui, sans-serif;
-  --heading-font:   "Roboto", sans-serif;
-  --nav-font:       "Poppins", sans-serif;
+  --sans:    "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --display: "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --background-color: #ffffff;
   --default-color:    #223754;   /* medium blue */
@@ -67,6 +88,11 @@ In `assets/css/main.css`:
   --accent-color:     #F9322B;   /* accent red  */
   --surface-color:    #ffffff;
   --contrast-color:   #ffffff;
+}
+
+body {
+  font-family: var(--sans);
+  font-feature-settings: "ss01", "cv11";  /* Inter alternates */
 }
 
 .light-background {

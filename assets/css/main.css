@@ -10,11 +10,14 @@
 # Font & Color Variables
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
-/* Fonts */
+/* Fonts — Inter is the canonical ERN brand font (2026-04-29).
+   See library/BRAND.md and evictionresearch.github.io/BRAND.md for spec.
+   Loaded once via Google Fonts; ss01 + cv11 OpenType features are applied
+   in the body rule below for Inter's modern alternate glyphs. */
 :root {
-  --default-font: "Open Sans",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Roboto",  sans-serif;
-  --nav-font: "Roboto",  sans-serif; /* 2026-04-20: Poppins dropped from ERN stack — see library/BRAND.md */
+  --default-font: "Inter", -apple-system, system-ui, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Inter", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -75,6 +78,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  font-feature-settings: "ss01", "cv11";  /* Inter modern alternates — see BRAND.md */
 }
 
 a {

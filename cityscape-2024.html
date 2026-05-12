@@ -23,15 +23,15 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts — Open Sans (body) + Roboto (headings/nav). Async-loaded to avoid render-blocking. -->
+  <!-- Font — Inter (single canonical ERN brand family, see BRAND.md). Async-loaded to avoid render-blocking. -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Critical above-the-fold CSS -->
   <style>
-    :root{--default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Roboto",sans-serif;--nav-font:"Roboto",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
     .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
     .light-background{--background-color:#e8eef4;--surface-color:#fff}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;line-height:1.75}
@@ -57,10 +57,12 @@
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/v5b.css" rel="stylesheet">
   </noscript>
 
   <!-- Page-specific article CSS — mirrors the hud-era landing page treatment.
@@ -417,90 +419,67 @@
 
   <main id="main" class="main" role="main">
 
-    <!-- Breadcrumb -->
-    <nav class="article-breadcrumb" aria-label="Breadcrumb">
-      <div class="container">
-        <ol>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="news.html">News</a></li>
-          <li aria-current="page">Toward a National Eviction Data Collection Strategy</li>
-        </ol>
+    <!-- ── HERO (v5b — matches hud-era pattern) ─────────────────── -->
+    <section class="v5b-section" aria-labelledby="article-title">
+      <div class="v5b-page" style="padding-top: 60px;">
+        <nav aria-label="Breadcrumb" style="margin-bottom: 24px;">
+          <ol style="list-style: none; padding: 0; margin: 0; display: flex; gap: 10px; font-size: 13px; color: var(--muted);">
+            <li><a href="index.html" style="color: var(--navy-soft); text-decoration: none;">Home</a></li>
+            <li>·</li>
+            <li><a href="news.html" style="color: var(--navy-soft); text-decoration: none;">News</a></li>
+            <li>·</li>
+            <li aria-current="page">Cityscape 2024</li>
+          </ol>
+        </nav>
+        <p class="kicker">Peer-Reviewed Article · Cityscape · HUD PD&amp;R</p>
+        <h1 id="article-title" class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 30ch;">Toward a National Eviction Data Collection Strategy <em>Using Natural Language Processing</em>.</h1>
+        <p class="lead-paragraph">How the Eviction Research Network mined 111,740 Washington court records — buried in scanned PDFs and handwritten paper — to expose the racial and gender disparities that structured data could not see. The paper is the baseline methodology for working with any jurisdiction's eviction data, in any format.</p>
+        <p style="font-size: 15px; line-height: 1.7; color: var(--navy); margin: 0 0 8px;">
+          <strong>Tim Thomas</strong> &amp; Alex Ramiller · UC Berkeley<br>
+          Cheng Ren · SUNY Albany · Ott Toomet · University of Washington
+        </p>
+        <p style="font-size: 14px; color: var(--muted); margin: 0 0 28px;">
+          <i class="bi bi-calendar3" aria-hidden="true"></i> Published 2024 &nbsp;·&nbsp;
+          <i class="bi bi-journal-bookmark" aria-hidden="true"></i> <em>Cityscape</em> vol. 26, no. 1 (HUD Office of Policy Development &amp; Research)
+        </p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="btn btn-red" target="_blank" rel="noopener noreferrer">Read the Paper (PDF)</a>
+          <a href="#in-depth" class="btn btn-ghost">Read the Summary</a>
+          <a href="maps.html" class="btn btn-ghost">2019 Washington Archive</a>
+        </div>
       </div>
-    </nav>
+    </section>
 
-    <!-- ── HERO ─────────────────────────────────────────── -->
-    <section class="article-hero" aria-labelledby="article-title">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 col-xl-9">
-            <div class="label">Peer-Reviewed Article &nbsp;·&nbsp; Cityscape · HUD PD&amp;R</div>
-            <h1 id="article-title">Toward a National Eviction Data Collection Strategy Using Natural Language Processing</h1>
-            <p class="subtitle">
-              How the Eviction Research Network mined 111,740 Washington court records — buried in scanned PDFs and handwritten paper — to expose the racial and gender disparities that structured data could not see. The paper is the baseline methodology for working with any jurisdiction's eviction data, in any format.
-            </p>
-            <p class="authors">
-              <strong>Tim Thomas</strong> &amp; Alex Ramiller &nbsp;·&nbsp; UC Berkeley<br>
-              Cheng Ren &nbsp;·&nbsp; SUNY Albany &nbsp;&middot;&nbsp; Ott Toomet &nbsp;·&nbsp; University of Washington
-            </p>
-            <p class="pub-date">
-              <i class="bi bi-calendar3" aria-hidden="true"></i> Published 2024
-              &nbsp;&nbsp;<i class="bi bi-journal-bookmark ms-2" aria-hidden="true"></i>
-              <em>Cityscape</em> vol. 26, no. 1 (HUD Office of Policy Development &amp; Research)
-            </p>
-            <div class="d-flex flex-wrap gap-3">
-              <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="btn-primary-ern" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> Read the paper (PDF)
-              </a>
-              <a href="#in-depth" class="btn-outline-ern">
-                <i class="bi bi-book" aria-hidden="true"></i> Read the summary
-              </a>
-              <a href="maps.html" class="btn-outline-ern">
-                <i class="bi bi-archive" aria-hidden="true"></i> 2019 Washington archive
-              </a>
-            </div>
+    <!-- ── STATS BAR (v5b stats row, hairline Inter) ───────────── -->
+    <section class="v5b-section" style="padding: 48px 0; border-top: 1px solid var(--rule-fine); border-bottom: 1px solid var(--rule-fine);">
+      <div class="v5b-page">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;">
+          <div>
+            <div style="font-weight: 200; font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.025em; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums;">111,740</div>
+            <div style="font-size: 12px; line-height: 1.5; color: var(--muted); margin-top: 8px;">court records processed</div>
+          </div>
+          <div>
+            <div style="font-weight: 200; font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.025em; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums;">4</div>
+            <div style="font-size: 12px; line-height: 1.5; color: var(--muted); margin-top: 8px;">Washington counties</div>
+          </div>
+          <div>
+            <div style="font-weight: 200; font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.025em; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums;">2004&ndash;2017</div>
+            <div style="font-size: 12px; line-height: 1.5; color: var(--muted); margin-top: 8px;">years of filings</div>
+          </div>
+          <div>
+            <div style="font-weight: 200; font-size: clamp(1.8rem, 3.2vw, 2.6rem); letter-spacing: -0.025em; line-height: 1; color: var(--navy); font-variant-numeric: tabular-nums;">93<span style="font-size: 0.55em; font-weight: 200;">%</span></div>
+            <div style="font-size: 12px; line-height: 1.5; color: var(--muted); margin-top: 8px;">rooftop-to-block geocoded</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ── STATS BAR ────────────────────────────────────── -->
-    <div class="stats-bar">
-      <div class="container">
-        <div class="row gy-4 align-items-center">
-          <div class="col-6 col-md-3">
-            <div class="stat-item">
-              <div class="stat-num">111,740</div>
-              <div class="stat-label">Court Records Processed</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-item">
-              <div class="stat-num">4</div>
-              <div class="stat-label">Washington Counties</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-item">
-              <div class="stat-num">2004 – 2017</div>
-              <div class="stat-label">Years Of Filings</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-item">
-              <div class="stat-num">93 %</div>
-              <div class="stat-label">Rooftop-To-Block Geocoded</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- ── ABOUT / THE PROBLEM ─────────────────────────── -->
-    <section class="section-article">
-      <div class="container">
+    <section class="v5b-section">
+      <div class="v5b-page">
         <div class="row align-items-center gy-5">
           <div class="col-lg-7">
-            <div class="section-label">About this paper</div>
+            <p class="kicker">About this paper</p>
             <h2 class="section-title">Most of the country's eviction data is unreadable. We wrote the pipeline to change that.</h2>
             <div class="section-body">
               <p>
@@ -516,7 +495,7 @@
           </div>
           <div class="col-lg-4 offset-lg-1">
             <div style="background:var(--light-gray); border-radius:10px; padding:28px;">
-              <div class="section-label mb-3">Paper at a glance</div>
+              <p class="kicker">Paper at a glance</p>
               <div class="method-item">
                 <div class="method-num">1</div>
                 <div class="method-body">
@@ -559,10 +538,10 @@
     </section>
 
     <!-- ── WHY IT MATTERS / KEY CONTRIBUTIONS ──────────── -->
-    <section class="section-article tinted">
-      <div class="container">
+    <section class="v5b-section tinted">
+      <div class="v5b-page">
         <div class="text-center mb-5">
-          <div class="section-label">Why this paper is the baseline</div>
+          <p class="kicker">Why this paper is the baseline</p>
           <h2 class="section-title">If you are working with court data in any jurisdiction, start here</h2>
           <p class="section-body mx-auto" style="max-width:660px;">
             The paper is cited — and used — as the reference methodology for demographic estimation and court-record work across the Eviction Research Network's state portfolio. Five things it settles.
@@ -616,17 +595,17 @@
     </section>
 
     <!-- ── METHOD PIPELINE ─────────────────────────────── -->
-    <section class="section-article" id="pipeline">
-      <div class="container">
+    <section class="v5b-section" id="pipeline">
+      <div class="v5b-page">
         <div class="row gy-5">
           <div class="col-lg-5">
-            <div class="section-label">The pipeline</div>
+            <p class="kicker">The pipeline</p>
             <h2 class="section-title">Five steps from a scanned court record to a demographically estimated filing</h2>
             <p class="section-body">
               Each stage was benchmarked, validated, and documented so that other teams could reproduce the pipeline — or adapt it to their jurisdiction's quirks — without starting from scratch.
             </p>
             <div class="mt-4">
-              <div class="section-label mb-2">Case study area</div>
+              <p class="kicker" style="margin-bottom: 8px;">Case study area</p>
               <div>
                 <span class="scope-pill">King County</span>
                 <span class="scope-pill">Pierce County</span>
@@ -635,7 +614,7 @@
               </div>
             </div>
             <div class="mt-3">
-              <div class="section-label mb-2">Tools</div>
+              <p class="kicker" style="margin-bottom: 8px;">Tools</p>
               <div>
                 <span class="scope-pill">Tesseract OCR</span>
                 <span class="scope-pill">spaCy NER</span>
@@ -689,11 +668,11 @@
     </section>
 
     <!-- ── FINDINGS TABLE ──────────────────────────────── -->
-    <section class="section-article tinted" id="findings">
-      <div class="container">
+    <section class="v5b-section tinted" id="findings">
+      <div class="v5b-page">
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <div class="section-label">Washington findings</div>
+            <p class="kicker">Washington findings</p>
             <h2 class="section-title">What structured data missed</h2>
             <p class="section-body">
               The 2013–2017 five-year eviction rates below are the central empirical contribution: neighborhood-level filings divided by the estimated number of renter households in that demographic. Pierce County absorbed a disproportionate share of displaced Black households from Seattle's gentrifying King County, and the filing rate among Black female-headed renter households there was 19%.
@@ -731,12 +710,12 @@
     </section>
 
     <!-- ── IN-DEPTH NARRATIVE ──────────────────────────── -->
-    <section class="section-article section-narrative" id="in-depth">
-      <div class="container">
+    <section class="v5b-section" id="in-depth">
+      <div class="v5b-page">
         <div class="row justify-content-center">
           <div class="col-lg-8">
 
-            <div class="section-label">In depth</div>
+            <p class="kicker">In depth</p>
             <h2 class="section-title">What 111,740 court records told us that structured data couldn't</h2>
 
             <p>Every serious eviction study in the past decade has had to answer the same procurement question: where does the data come from? The national-scale answers — Eviction Lab's third-party purchases, Legal Services Corporation's partnership scrapes — are powerful, but they cover what is already structured. The jurisdictions that print their filings onto paper, scan them, and call that the public record have stayed dark. And those dark jurisdictions are where many of the racial and gender disparities live.</p>
@@ -766,11 +745,11 @@
     </section>
 
     <!-- ── POLICY IMPACT ──────────────────────────────── -->
-    <section class="section-article tinted" id="policy-impact">
-      <div class="container">
+    <section class="v5b-section tinted" id="policy-impact">
+      <div class="v5b-page">
         <div class="row align-items-center gy-5">
           <div class="col-lg-6">
-            <div class="section-label">Policy impact</div>
+            <p class="kicker">Policy impact</p>
             <h2 class="section-title">From court-record image to Olympia</h2>
             <div class="section-body">
               <p>
@@ -811,11 +790,11 @@
     </section>
 
     <!-- ── AUTHORS ────────────────────────────────────── -->
-    <section class="section-article" id="authors">
-      <div class="container">
+    <section class="v5b-section" id="authors">
+      <div class="v5b-page">
         <div class="row justify-content-center">
           <div class="col-lg-9">
-            <div class="section-label">Authors</div>
+            <p class="kicker">Authors</p>
             <h2 class="section-title">The research team</h2>
             <div class="author-row">
               <div>
@@ -849,73 +828,91 @@
       </div>
     </section>
 
-    <!-- ── CTA / FULL PAPER ───────────────────────────── -->
-    <section class="section-fullpaper">
-      <div class="container">
-        <h3>Read the full paper</h3>
-        <p>
-          The 19-page article is published open-access by HUD's Office of Policy Development &amp; Research in <em>Cityscape</em> vol. 26, no. 1 (2024), "Local Data for Local Action" issue.
-        </p>
-        <div class="d-flex flex-wrap gap-3 justify-content-center">
-          <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf"
-             class="btn-full-report" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-file-earmark-pdf" aria-hidden="true"></i> Full paper (PDF)
-          </a>
-          <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/index.html"
-             class="btn-full-report btn-full-report--outline" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-journal-bookmark" aria-hidden="true"></i> <em>Cityscape</em> 26(1) issue
-          </a>
-          <a href="methodology.html" class="btn-full-report btn-full-report--outline">
-            <i class="bi bi-diagram-3" aria-hidden="true"></i> ERN's current methodology
-          </a>
+    <!-- ── CTA / FULL PAPER (v5a aesthetic — red band) ──────────── -->
+    <section class="v5b-section accent">
+      <div class="v5b-page">
+        <div class="center-cta">
+          <h2 class="section-title">Read the <em>full paper</em>.</h2>
+          <p>The 19-page article is published open-access by HUD's Office of Policy Development &amp; Research in <em>Cityscape</em> vol. 26, no. 1 (2024), "Local Data for Local Action" issue.</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+            <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" class="btn btn-cta" target="_blank" rel="noopener noreferrer">Full paper (PDF)</a>
+            <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/index.html" class="btn btn-cta" target="_blank" rel="noopener noreferrer"><em>Cityscape</em> 26(1) issue</a>
+            <a href="methodology.html" class="btn btn-cta">ERN's current methodology</a>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ── Footer (matches other ERN pages) ──────────────────── -->
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-lg-5">
-          <div class="footer-logos d-flex align-items-center flex-wrap">
-            <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
-              <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
-            </a>
-            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
-            <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
-              <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
-            </a>
-          </div>
-          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
-          <div class="social-links d-flex mt-3" aria-label="Social media"></div>
+  <!-- ── Footer (v5b — matches other ERN pages) ──────────────────── -->
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="index.html" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
         </div>
-
-        <div class="col-lg-3 col-md-6 footer-links">
-          <h4>Explore</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="methodology.html">Methodology</a></li>
-            <li><a href="research.html">Research</a></li>
-            <li><a href="resources.html">Resources</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-4 col-md-6 footer-contact">
-          <h4>Contact</h4>
-          <p>
-            <a href="mailto:evictions@berkeley.edu">evictions@berkeley.edu</a><br>
-            University of California, Berkeley<br>
-            Department of Sociology
-          </p>
+        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
         </div>
       </div>
 
-      <div class="copyright">
-        <p>© 2026 Eviction Research Network, UC Berkeley. All findings, interpretations, and conclusions presented on this page are those of the authors and do not necessarily reflect the official positions of HUD, the U.S. government, or any funder.</p>
+      <div class="col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="research.html">Publications</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Maps &amp; Profiles</h4>
+        <ul>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="resources.html">Eviction Help</a></li>
+          <li><a href="research.html">Other Research</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h4>Affiliated With</h4>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+        </ul>
+      </div>
+
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
       </div>
     </div>
   </footer>

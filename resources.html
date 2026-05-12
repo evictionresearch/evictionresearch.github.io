@@ -23,8 +23,8 @@
   <!-- Fonts — async -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Bootstrap (sync) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -32,9 +32,11 @@
   <!-- Non-critical CSS -->
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
   <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/v5b.css" rel="stylesheet">
   </noscript>
 
   <!-- Critical, self-contained page styles -->
@@ -50,8 +52,8 @@
       --brand-dark:#F9322B;
       --ink:#19222C;
       --ink-2:#223754;
-      --heading-font:"Roboto",sans-serif;
-      --default-font:"Open Sans",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      --heading-font:"Inter",sans-serif;
+      --default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;
     }
     *,*::before,*::after{ box-sizing:border-box; }
     html{ scroll-behavior:smooth; }
@@ -354,11 +356,12 @@
 
   <main id="main" class="main" role="main">
 
-    <!-- Hero -->
-    <section class="r-hero" aria-labelledby="r-hero-title">
-      <div class="container">
-        <h1 id="r-hero-title">Eviction help, by state</h1>
-        <p>Legal aid, rent assistance, and housing counseling for every U.S. state plus Washington, D.C. Tap a state to see local programs &mdash; with deeper coverage for the states where the Eviction Research Network conducts active research.</p>
+    <!-- Hero (v5b) -->
+    <section class="v5b-section" aria-labelledby="r-hero-title">
+      <div class="v5b-page" style="padding-top: 60px;">
+        <p class="kicker">Resources</p>
+        <h1 id="r-hero-title" class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 28ch;">Eviction help, <em>by state</em>.</h1>
+        <p class="lead-paragraph">Legal aid, rent assistance, and housing counseling for every U.S. state plus Washington, D.C. Tap a state to see local programs &mdash; with deeper coverage for the states where the Eviction Research Network conducts active research.</p>
       </div>
     </section>
 
@@ -2717,82 +2720,75 @@
   </main>
 
   <!-- ==================== FOOTER ==================== -->
-  <footer id="footer" class="footer dark-background" role="contentinfo">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-
-        <div class="col-lg-4 col-md-6 footer-about">
-          <div class="footer-logos d-flex align-items-center flex-wrap">
-            <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
-              <img src="images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" loading="lazy" style="max-height: 80px; width: auto;">
-            </a>
-            <span aria-hidden="true" style="width:1px; align-self:stretch; background:rgba(255,255,255,.2); margin:0 32px 0 14px;"></span>
-            <a href="https://www.berkeley.edu" class="logo d-flex align-items-center" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
-              <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" style="max-height: 40px; width: auto;">
-            </a>
-          </div>
-          <p class="mt-3" style="font-size: 14px; line-height: 1.6; opacity: 0.85;">Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
-          <div class="social-links d-flex mt-3" aria-label="Social media">
-            <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
-            <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-            <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
-          </div>
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="index.html" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
         </div>
-
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Research</h4>
-          <ul>
-            <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
-            <li><a href="research.html">Publications</a></li>
-            <li><a href="methodology.html">Methodology</a></li>
-            <li><a href="news.html">News &amp; Press</a></li>
-          </ul>
+        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
         </div>
+      </div>
 
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Maps &amp; Profiles</h4>
-          <ul>
-            <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
-            <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
-            <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
-            <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
-            <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
-            <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
-            <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
-            <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
-          </ul>
-        </div>
+      <div class="col">
+        <h4>Research</h4>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="research.html">Publications</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
 
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="resources.html">Eviction Help</a></li>
-            <li><a href="research.html">Other Research</a></li>
-            <li><a href="about.html">About &amp; Team</a></li>
-            <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
-          </ul>
-        </div>
+      <div class="col">
+        <h4>Maps &amp; Profiles</h4>
+        <ul>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
 
-        <div class="col-lg-2 col-md-6 footer-links">
-          <h4>Affiliated With</h4>
-          <ul>
-            <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
-            <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
-            <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
-            <li style="margin-top: 10px;"><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
-          </ul>
-        </div>
+      <div class="col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="resources.html">Eviction Help</a></li>
+          <li><a href="research.html">Other Research</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+        </ul>
+      </div>
 
+      <div class="col">
+        <h4>Affiliated With</h4>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+        </ul>
+      </div>
+
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
       </div>
     </div>
-
-    <div class="container">
-      <div class="footer-copyright" style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 36px; padding-top: 20px; text-align: center; font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.6);">
-        <p class="mb-0">&copy; 2026 <strong class="sitename" style="font-weight: 600; color: rgba(255,255,255,0.85);">Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.85); text-decoration: underline;">Zenodo DOI</a>.</p>
-      </div>
-    </div>
-
   </footer>
 
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>

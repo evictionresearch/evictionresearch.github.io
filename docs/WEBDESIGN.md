@@ -21,9 +21,8 @@ The landing page (`index.html`) was migrated from HTML5 UP Spectral to UpConstru
 | Counter | PureCounter | Animated number counters (available, not currently used) |
 | Icons | Font Awesome 6 (Free) | Loaded via `assets/vendor/fontawesome-free/` |
 | Icons (nav) | Bootstrap Icons | `bi-chevron-down`, `bi-list`, `bi-arrow-right`, etc. |
-| Typography | Google Fonts | Roboto, Open Sans, Poppins |
+| Typography | Google Fonts | Inter (200/300/400/500/600/700) |
 | Hosting | GitHub Pages | Static HTML, no build step required |
-| Previous template | HTML5 UP Spectral | Backed up in `assetsx/`; still used by content pages |
 
 ---
 
@@ -58,7 +57,7 @@ The landing page uses the UpConstruction template with Bootstrap 5 grid layout. 
 |    - Mobile: hamburger toggle (bi-list icon)              |
 +----------------------------------------------------------+
 |  #hero (full-viewport, dark background, carousel)         |
-|    - Stacked logo (from assetsx/ern_logo/)                |
+|    - Stacked logo (from images/ern_logo/1Av2/)            |
 |    - "University of California, Berkeley"                 |
 |    - Bluesky link                                         |
 |    - "Learn More" button -> #get-started                  |
@@ -117,7 +116,7 @@ The landing page uses the UpConstruction template with Bootstrap 5 grid layout. 
 
 - **Classes**: `.hero.section.dark-background`
 - **Layout**: Full viewport, centered content over carousel background
-- **Content**: Stacked logo (400px, from `assetsx/ern_logo/`), university tagline, Bluesky link, "Learn More" button
+- **Content**: Stacked logo (400px, from `images/ern_logo/1Av2/`), university tagline, Bluesky link, "Learn More" button
 - **Carousel**: Bootstrap carousel (`#hero-carousel`) with `data-bs-ride="carousel"` and 5s interval; currently one slide (`images/seattle_air.png`)
 - **"Learn More"**: `.btn-get-started` linking to `#get-started`
 
@@ -247,16 +246,20 @@ Consistent heading across sections:
 
 ## Color Palette
 
-Source: `assets/css/main.css` CSS custom properties (`:root` variables)
+Brand colors are maintained centrally in the [CiDR Lab / ERN library](https://github.com/cidrlab/library):
 
-### Global Colors
+- ERN brand guide: https://github.com/cidrlab/library/blob/main/brand/ern/BRAND.md
+- Semantic colors (category tags, breadcrumb types): https://github.com/cidrlab/library/blob/main/brand/semantic-palette.md
+
+### Source of truth: `assets/css/main.css` (`:root` variables)
 
 | Variable | Value | Usage |
 |----------|-------|-------|
 | `--background-color` | `#ffffff` | Page background |
-| `--default-color` | `#364d59` | Body text (dark blue-gray) |
-| `--heading-color` | `#52565e` | Headings and subheadings |
-| `--accent-color` | `#ee3029` | Brand color -- buttons, links, CTAs (red) |
+| `--default-color` | `#223754` | Body text (blue navy) |
+| `--heading-color` | `#19222C` | Headings, header/footer backgrounds (dark navy) |
+| `--accent-color` | `#F9322B` | Brand color — buttons, links, CTAs (red) |
+| `--accent-deep` (v5b.css) | `#D6231C` | Hover/active state of accent red |
 | `--surface-color` | `#ffffff` | Card and element backgrounds |
 | `--contrast-color` | `#ffffff` | Text on accent/dark backgrounds |
 
@@ -269,30 +272,45 @@ Source: `assets/css/main.css` CSS custom properties (`:root` variables)
 | `--nav-mobile-background-color` | `#ffffff` | Mobile menu background |
 | `--nav-dropdown-background-color` | `#ffffff` | Dropdown menu background |
 | `--nav-dropdown-color` | `#212529` | Dropdown link text |
-| `--nav-dropdown-hover-color` | `#ee3029` | Dropdown link hover (matches accent) |
+| `--nav-dropdown-hover-color` | `#F9322B` | Dropdown link hover (matches accent) |
 
 ### Section Presets
 
 | Class | Background | Text | Usage |
 |-------|-----------|------|-------|
-| (default) | `#ffffff` | `#364d59` | Most sections (get-started, HPRM, constructions, blog posts) |
-| `.dark-background` | `#060606` | `#ffffff` | Hero section, footer |
-| `.light-background` | `#f4f7f6` | (inherits) | Alternate section backgrounds |
+| (default) | `#ffffff` | `#223754` | Most sections (get-started, HPRM, constructions, blog posts) |
+| `.dark-background` | `#19222C` | `#ffffff` | Hero section, footer |
+| `.light-background` | `#e8eef4` | (inherits) | Alternate section backgrounds (cool blue tint) |
+
+### Semantic / category colors
+
+Tag pills (`.tag-pill.t-*`) and breadcrumb types (`.bc-type.*`) use a controlled 7-family palette (red, blue, green, amber, purple, brown, neutral). See [`brand/semantic-palette.md`](https://github.com/cidrlab/library/blob/main/brand/semantic-palette.md) for the canonical pairs.
+
+### Deprecated values (do not use)
+
+`#ee3029`, `#364d59`, `#52565e`, `#df1529`, `#d9241e`, `#f4f7f6` (old light-background) — all replaced by the values in the table above.
 
 ---
 
 ## Typography
 
-Source: `assets/css/main.css` CSS custom properties
+ERN brand font: **Inter** (single family, Google Fonts CDN). Decided 2026-04-29 — replaces the prior Open Sans + Roboto stack.
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+```
+
+Source: `assets/css/main.css` and `assets/css/v5b.css` CSS custom properties.
 
 | Property | Value |
 |----------|-------|
-| Default font (`--default-font`) | `"Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif` |
-| Heading font (`--heading-font`) | `"Roboto", sans-serif` |
-| Nav font (`--nav-font`) | `"Poppins", sans-serif` |
-| Google Fonts loaded | Roboto (100--900), Open Sans (300--800), Poppins (100--900) |
-| Body text color | `#364d59` (dark blue-gray) |
-| Heading text color | `#52565e` (medium gray) |
+| Body / heading / nav (`--sans`, `--display`) | `"Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif` |
+| Body weight | 400 (regular) |
+| Heading display weight | 200 (Extra Light — hairline aesthetic) |
+| Strong / emphasis | 600 (Semi Bold) — 700 (Bold) for paper-card titles, footer h4s |
+| Body text color | `#223754` (blue navy) |
+| Heading text color | `#19222C` (dark navy) |
+| OpenType features | `font-feature-settings: "ss01", "cv11"` (Inter alternates) |
 
 ---
 
@@ -352,7 +370,7 @@ The content pages (`methodology.html`, `resources.html`, `research.html`, `news.
 
 - HTML comments say "Spectral by HTML5 UP" and the markup uses Spectral conventions (`.is-preload`, `#page-wrapper`, Spectral navigation)
 - CSS loaded is the UpConstruction stylesheet, not the original Spectral one
-- The old Spectral CSS (`assetsx/css/main.css`) and JS (`assetsx/js/`) are preserved but not referenced by these pages
+- The old Spectral CSS and JS have been removed from this repo as of the 2026-05 library consolidation
 - Visual appearance may differ from the original Spectral styling since the CSS classes no longer match
 
 ### Content Page Structure (Legacy Spectral HTML)
@@ -420,13 +438,9 @@ evictionresearch.github.io/
 │       ├── imagesloaded/      # imagesLoaded utility
 │       ├── purecounter/       # PureCounter
 │       └── php-email-form/    # Form validation
-├── assetsx/                   # Backup of old Spectral template assets
-│   ├── css/                   # Old Spectral main.css + noscript.css
-│   ├── js/                    # jQuery, scrollex, scrolly, etc.
-│   ├── sass/                  # SASS source (vars, mixins, etc.)
-│   ├── ern_logo/              # Logo variations
-│   └── webfonts/              # Font Awesome 5 webfonts
 ├── images/                    # Content images
+│   ├── ern_logo/              # Deployed ERN logo (sync from library/brand/logos/ern_logo/)
+│   ├── logos/                 # Berkeley wordmark, partner marks used inline
 │   ├── photos/                # Team member headshots (legacy)
 │   ├── logos/                 # Partner/funder organization logos
 │   ├── ern_logo/              # ERN logo variations (1A, 1Av2)

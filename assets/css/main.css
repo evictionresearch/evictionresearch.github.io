@@ -106,7 +106,7 @@ h6 {
 ------------------------------*/
 .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #F9322B; /* brand accent red (was #df1529, bootstrap-template default) */
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -4426,7 +4426,7 @@ section,
   background: #F9322B;
   color: #fff;
 }
-.policies-intro .pi-btn.primary:hover { background: #d9241e; color: #fff; }
+.policies-intro .pi-btn.primary:hover { background: #D6231C; color: #fff; } /* --accent-deep, was #d9241e */
 .policies-intro .pi-btn.ghost {
   border: 1.5px solid #223754;
   color: #223754;

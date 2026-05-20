@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Eviction Research Network · v3 prototype</title>
+
+  <!-- v3 prototype: documentary minimalism, color emerges on hover.
+       Influenced by:
+         - Tim's eviction warning photograph (door 410, King County)
+         - "Keep the Dream Alive" Baltimore mural (repetition as incantation)
+       Aesthetic: black on warm paper. Photographs in B&W (filter: grayscale).
+       Color appears slowly on hover. Charts dissolve into the page.
+       Newsreader display + Inter body + Special Elite typewriter accents
+       + JetBrains Mono technical metadata. -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,200;1,6..72,400&family=Inter:wght@300;400;500;600&family=Special+Elite&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink:        #0a0a0a;
+      --ink-soft:   #2a2a2a;
+      --paper:      #f5f1e8;          /* aged paper warmth */
+      --paper-dark: #ebe6d9;
+      --rule:       #1a1a1a;
+      --rule-soft:  rgba(10,10,10,.18);
+      --accent:     #F9322B;
+      --muted:      #6a6760;
+
+      --display: "Newsreader", "Times New Roman", serif;
+      --body:    "Inter", -apple-system, system-ui, sans-serif;
+      --doc:     "Special Elite", "Courier New", monospace;
+      --mono:    "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+      /* Hover transition — slow and deliberate. The point is restraint. */
+      --reveal: 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--body);
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--paper);
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Hover-color system ────────────────────
+       Default: pure B&W. On hover or focus, color
+       emerges. This is the design's central metaphor. */
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 1px;
+      transition: color var(--reveal), border-color var(--reveal);
+    }
+    a:hover, a:focus {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    /* Photographs — B&W by default, color reveals on hover. */
+    figure.photo img,
+    .photo-bw {
+      filter: grayscale(100%) contrast(1.05);
+      transition: filter var(--reveal);
+    }
+    figure.photo:hover img,
+    .photo-bw:hover { filter: grayscale(0%) contrast(1); }
+
+    /* ─── Page frame ───────────────────────────── */
+    .frame {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    @media (max-width: 720px) { .frame { padding: 0 20px; } }
+
+    /* ─── Masthead — almost invisible ─────────── */
+    .masthead {
+      padding: 28px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .masthead .mark {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      color: var(--ink);
+    }
+    .masthead .mark .sub {
+      color: var(--muted);
+    }
+    .masthead nav {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      display: flex; gap: 22px;
+    }
+    .masthead nav a { border: none; padding: 0; }
+    .masthead nav a:hover { border-bottom: 1px solid var(--accent); }
+
+    /* ─── HERO — single statement ───────────── */
+    .hero {
+      padding: 14vh 0 16vh;
+      max-width: 1000px;
+    }
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 200;
+      font-size: clamp(3.4rem, 8vw, 7rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--ink);
+      font-variation-settings: "opsz" 72, "wght" 200;
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 200;
+    }
+    .hero h1 .reveal {
+      color: var(--ink);
+      transition: color var(--reveal);
+      cursor: default;
+    }
+    .hero h1 .reveal:hover { color: var(--accent); }
+    .hero .lede {
+      margin-top: 64px;
+      max-width: 56ch;
+      font-family: var(--display);
+      font-weight: 300;
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+    }
+    .hero .lede em { font-style: italic; }
+
+    /* ─── Document block — court-paper aesthetic ───
+         The "what we are" block is set as if it were
+         a typed document or court filing. */
+    .document {
+      padding: 96px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .document .container {
+      display: grid;
+      grid-template-columns: 220px 1fr 220px;
+      gap: 56px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .document .container { grid-template-columns: 1fr; gap: 24px; }
+    }
+    .document .stamp {
+      font-family: var(--doc);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+    .document .stamp .seal {
+      display: inline-block;
+      border: 1.5px solid var(--ink);
+      padding: 4px 8px;
+      margin-bottom: 12px;
+      letter-spacing: 0.08em;
+    }
+    .document .body {
+      font-family: var(--display);
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .document .body p { margin: 0 0 18px; }
+    .document .body p:last-child { margin-bottom: 0; }
+    .document .body em { font-style: italic; }
+    .document .body strong {
+      font-weight: 500;
+      transition: color var(--reveal);
+    }
+    .document .body strong:hover { color: var(--accent); cursor: default; }
+
+    /* ─── Section ─────────────────────────────── */
+    section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--rule-soft);
+    }
+    section.no-line { border-bottom: none; }
+
+    h2 {
+      font-family: var(--display);
+      font-weight: 200;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0;
+      font-variation-settings: "opsz" 72, "wght" 200;
+    }
+    h2 em { font-style: italic; }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+    }
+    @media (max-width: 900px) { .section-grid { grid-template-columns: 1fr; gap: 32px; } }
+    .section-grid .label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      text-transform: lowercase;
+      color: var(--muted);
+    }
+
+    .prose {
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 56ch;
+      font-weight: 400;
+    }
+    .prose p { margin: 0 0 16px; }
+
+    /* ─── Stats — repetition as incantation ─────
+         The focal stat is set massive, with echoes
+         of the same number behind it in fading weights —
+         the "KEEP THE DREAM ALIVE" treatment. */
+    .stat-monolith {
+      padding: 80px 0;
+      text-align: left;
+    }
+    .stat-monolith .echo {
+      position: relative;
+      display: inline-block;
+      line-height: 1;
+    }
+    .stat-monolith .echo .num {
+      position: relative;
+      z-index: 5;
+      font-family: var(--display);
+      font-weight: 200;
+      font-size: clamp(6rem, 18vw, 14rem);
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-variation-settings: "opsz" 72, "wght" 200;
+      transition: color var(--reveal);
+      cursor: default;
+    }
+    .stat-monolith .echo:hover .num { color: var(--accent); }
+    .stat-monolith .echo .ghost {
+      position: absolute;
+      top: 0;
+      font-family: var(--display);
+      font-weight: 200;
+      font-size: clamp(6rem, 18vw, 14rem);
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-variation-settings: "opsz" 72, "wght" 200;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .stat-monolith .echo .ghost--1 { left: -16px; opacity: 0.06; }
+    .stat-monolith .echo .ghost--2 { left: -32px; opacity: 0.03; }
+    .stat-monolith .echo .ghost--3 { left: -48px; opacity: 0.015; }
+
+    .stat-monolith .gloss {
+      font-family: var(--display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+      max-width: 32ch;
+      margin-top: 24px;
+      line-height: 1.4;
+      color: var(--ink);
+    }
+    .stat-monolith .source {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-top: 24px;
+      text-transform: lowercase;
+    }
+
+    /* ─── Methods ledger ──────────────────────── */
+    .ledger {
+      margin-top: 48px;
+    }
+    .ledger .row {
+      display: grid;
+      grid-template-columns: 80px 1fr 200px;
+      gap: 32px;
+      padding: 32px 0;
+      border-top: 1px solid var(--rule-soft);
+      align-items: baseline;
+      transition: background-color var(--reveal);
+    }
+    .ledger .row:last-child { border-bottom: 1px solid var(--rule-soft); }
+    .ledger .row:hover { background-color: rgba(249,50,43,0.04); }
+    @media (max-width: 720px) {
+      .ledger .row { grid-template-columns: 60px 1fr; gap: 12px; }
+      .ledger .row .meta { grid-column: 2; }
+    }
+    .ledger .id {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .ledger .name {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: -0.012em;
+      line-height: 1.3;
+    }
+    .ledger .name em { font-style: italic; font-weight: 300; }
+    .ledger .desc {
+      font-family: var(--body);
+      font-size: 14px;
+      line-height: 1.55;
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+    .ledger .meta {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-align: right;
+      text-transform: lowercase;
+    }
+    @media (max-width: 720px) { .ledger .meta { text-align: left; } }
+
+    /* ─── Documentary figure — placeholder for B&W photos ─── */
+    figure.photo {
+      margin: 0;
+      cursor: default;
+    }
+    figure.photo .placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--paper-dark);
+      border: 1px solid var(--rule-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--doc);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+      transition: filter var(--reveal);
+    }
+    figure.photo .door-svg {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: block;
+    }
+    figure.photo:hover .door-svg .stamp {
+      fill: var(--accent);
+      transition: fill var(--reveal);
+    }
+    figure.photo figcaption {
+      font-family: var(--doc);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 14px;
+      line-height: 1.5;
+    }
+
+    /* ─── Chart that dissolves into the page ─────
+         No card, no border, no background fill.
+         Just data marks drawn on the paper. */
+    .chart-bare {
+      width: 100%;
+      max-width: 800px;
+      margin: 56px auto 0;
+    }
+    .chart-bare svg { width: 100%; height: auto; display: block; }
+    .chart-caption {
+      font-family: var(--doc);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      text-transform: uppercase;
+      margin-top: 18px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .chart-caption .src {
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    /* ─── Recent work — list, not cards ─────── */
+    .work {
+      margin-top: 48px;
+    }
+    .work .row {
+      display: grid;
+      grid-template-columns: 80px 1fr 220px;
+      gap: 32px;
+      padding: 36px 0;
+      border-top: 1px solid var(--rule-soft);
+      align-items: baseline;
+    }
+    .work .row:last-child { border-bottom: 1px solid var(--rule-soft); }
+    @media (max-width: 720px) {
+      .work .row { grid-template-columns: 60px 1fr; gap: 12px; }
+      .work .row .meta { grid-column: 2; margin-top: 8px; }
+    }
+    .work .when {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .work .title {
+      font-family: var(--display);
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.012em;
+      transition: color var(--reveal);
+      cursor: default;
+    }
+    .work .title:hover { color: var(--accent); }
+    .work .title em { font-style: italic; font-weight: 300; }
+    .work .byline {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      margin-top: 6px;
+    }
+    .work .meta {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-align: right;
+      text-transform: lowercase;
+      line-height: 1.7;
+    }
+    @media (max-width: 720px) { .work .meta { text-align: left; } }
+
+    /* ─── Colophon ────────────────────────── */
+    footer.colophon {
+      padding: 96px 0 48px;
+      border-top: 1px solid var(--rule);
+      margin-top: 80px;
+    }
+    footer.colophon .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 720px) {
+      footer.colophon .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    footer.colophon .col {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.04em;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+    footer.colophon .col .label {
+      display: block;
+      color: var(--muted);
+      margin-bottom: 6px;
+      text-transform: lowercase;
+    }
+    footer.colophon .imprint {
+      font-family: var(--doc);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-top: 64px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule-soft);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="frame">
+
+  <div class="masthead">
+    <div class="mark">
+      eviction research network
+      <span class="sub">  ·  uc berkeley sociology  ·  est. 2018</span>
+    </div>
+    <nav>
+      <a href="#what">what</a>
+      <a href="#methods">methods</a>
+      <a href="#work">work</a>
+      <a href="#data">data</a>
+    </nav>
+  </div>
+
+  <!-- ─── HERO — a single statement, the whole page ─── -->
+  <section class="hero no-line">
+    <h1>
+      <em>410.</em><br>
+      A door, a number,<br>
+      and a <span class="reveal">notice</span>.
+    </h1>
+    <p class="lede">
+      The Eviction Research Network builds the apparatus people who fight evictions depend on. <em>We do not write to tenants.</em> We build the data, the models, and the methods that researchers, agencies, and courts use.
+    </p>
+  </section>
+
+  <!-- ─── DOCUMENT — court-paper aesthetic ─── -->
+  <section class="document" id="what">
+    <div class="container">
+      <div class="stamp">
+        <span class="seal">ERN · Form 01</span>
+        <p>What this is.</p>
+        <p>Plain language.</p>
+        <p>For researchers, agencies, and courts.</p>
+      </div>
+      <div class="body">
+        <p>
+          ERN is a research <strong>network</strong>, not a research center. It is housed at <strong>UC Berkeley Sociology</strong> and confederated across <strong>twenty-seven partner organizations</strong> — universities, legal-aid offices, county agencies, and media. It is plural by design.
+        </p>
+        <p>
+          We build state-level eviction data <em>pipelines</em>. We publish open-source <em>methodologies</em> with DOIs and replication code. We steward flagship products like the <strong>Housing Precarity Risk Model</strong> and the <strong>Displacement Typologies</strong>, which originated at the Urban Displacement Project and now travel under our care.
+        </p>
+        <p>
+          We are not a publication. We are not an advocacy organization. We are the infrastructure underneath them.
+        </p>
+      </div>
+      <div class="stamp" style="text-align: right;">
+        <p>UC Berkeley</p>
+        <p>27 partners</p>
+        <p>50 states + DC</p>
+        <p>Issue v3 · 2026.04</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── STAT MONOLITH — repetition as incantation ─── -->
+  <section class="stat-monolith no-line">
+    <div class="echo">
+      <span class="ghost ghost--3">1.45×</span>
+      <span class="ghost ghost--2">1.45×</span>
+      <span class="ghost ghost--1">1.45×</span>
+      <span class="num">1.45×</span>
+    </div>
+    <p class="gloss">
+      The Black-vs-white eviction-filing-rate ratio in <em>Minnesota</em>, 2025. Unchanged since pre-pandemic. Hover the figure.
+    </p>
+    <p class="source">source — legal services corporation · ern · 2026</p>
+  </section>
+
+  <!-- ─── DOCUMENTARY FIGURE — door 410 evocation ─── -->
+  <section class="no-line" style="padding: 80px 0; border-bottom: 1px solid var(--rule-soft);">
+    <div class="section-grid">
+      <div class="label">
+        figure 01<br>
+        documentary<br>
+        evidence
+      </div>
+      <div>
+        <figure class="photo" style="max-width: 540px;">
+          <svg class="door-svg" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <style>
+              .door { fill: #f5f1e8; stroke: #0a0a0a; stroke-width: 1.5; }
+              .panel { fill: none; stroke: #0a0a0a; stroke-width: 1; }
+              .number { font-family: 'Newsreader', serif; font-size: 38px; font-weight: 700; fill: #0a0a0a; }
+              .stamp-paper { fill: #fafaf7; stroke: #0a0a0a; stroke-width: 1; }
+              .stamp { fill: #0a0a0a; transition: fill 600ms; }
+              .stamp-line { stroke: #0a0a0a; stroke-width: 0.5; }
+              .stamp-text { font-family: 'Special Elite', monospace; font-size: 7px; fill: #0a0a0a; letter-spacing: 0.04em; }
+            </style>
+            <!-- door background -->
+            <rect class="door" x="20" y="0" width="360" height="320"/>
+            <!-- top panels -->
+            <rect class="panel" x="60"  y="40" width="120" height="60"/>
+            <rect class="panel" x="220" y="40" width="120" height="60"/>
+            <!-- bottom panels -->
+            <rect class="panel" x="60"  y="180" width="120" height="120"/>
+            <rect class="panel" x="220" y="180" width="120" height="120"/>
+            <!-- door number 410 -->
+            <text class="number" x="200" y="146" text-anchor="middle">410</text>
+            <!-- sheriff notice taped -->
+            <g transform="translate(160, 160)">
+              <rect class="stamp-paper" x="0" y="0" width="80" height="100"/>
+              <rect class="stamp" x="14" y="6" width="52" height="9"/>
+              <text x="40" y="13" text-anchor="middle" class="stamp-text" style="fill: #f5f1e8;">SHERIFF</text>
+              <text x="40" y="24" text-anchor="middle" class="stamp-text" style="font-weight: 700;">WARNING!</text>
+              <line class="stamp-line" x1="8" y1="32" x2="72" y2="32"/>
+              <text x="40" y="40" text-anchor="middle" class="stamp-text">to whom it may concern</text>
+              <line class="stamp-line" x1="8" y1="48" x2="72" y2="48"/>
+              <line class="stamp-line" x1="8" y1="56" x2="72" y2="56"/>
+              <line class="stamp-line" x1="8" y1="64" x2="72" y2="64"/>
+              <line class="stamp-line" x1="8" y1="72" x2="72" y2="72"/>
+              <text x="40" y="84" text-anchor="middle" class="stamp-text" style="font-weight: 700; font-size: 11px;">911</text>
+              <line class="stamp-line" x1="8" y1="92" x2="72" y2="92"/>
+            </g>
+          </svg>
+          <figcaption>
+            apt 410 · sheriff's notice · king county, washington · 2017<br>
+            photograph by tim thomas · hover to reveal
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── METHODS — bibliographic ledger ─── -->
+  <section id="methods">
+    <div class="section-grid">
+      <div>
+        <div class="label">§ 02 · methods</div>
+        <h2 style="margin-top: 18px;">Methods of <em>record</em>.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          Each item below is a <em>method of record</em> — versioned, citable, reproducible. Each carries a DOI, a code repository, and a lineage statement back to its institutional origin. None of them are journalism. All of them have replication kits.
+        </p>
+      </div>
+    </div>
+
+    <div class="ledger">
+      <div class="row">
+        <div class="id">m·01</div>
+        <div>
+          <div class="name">Housing Precarity Risk <em>Model</em></div>
+          <div class="desc">National tract-level forecast of combined risk. BART models on 200+ features. Stewarded with UDP.</div>
+        </div>
+        <div class="meta">v2.0 · 2025<br>doi · code</div>
+      </div>
+      <div class="row">
+        <div class="id">m·02</div>
+        <div>
+          <div class="name">Estimated Displacement <em>Risk</em></div>
+          <div class="desc">Tract-level displacement risk by income tier (ELI · VLI · LI). Deployed CA · UT · SD.</div>
+        </div>
+        <div class="meta">v1.4 · 2024<br>doi · code</div>
+      </div>
+      <div class="row">
+        <div class="id">m·03</div>
+        <div>
+          <div class="name">Displacement <em>Typologies</em></div>
+          <div class="desc">Eight-category neighborhood-change framework. Nine U.S. metros. The most-cited shared method.</div>
+        </div>
+        <div class="meta">v3.1 · 2023<br>doi · code</div>
+      </div>
+      <div class="row">
+        <div class="id">m·04</div>
+        <div>
+          <div class="name">State eviction <em>pipelines</em></div>
+          <div class="desc">37 active state-level data pipelines. OCR · NLP · geocoding · BISG.</div>
+        </div>
+        <div class="meta">ongoing<br>code</div>
+      </div>
+      <div class="row">
+        <div class="id">m·05</div>
+        <div>
+          <div class="name">Climate displacement <em>forecast</em></div>
+          <div class="desc">Migration response to climate hazards using the DataAxle individual-mover panel.</div>
+        </div>
+        <div class="meta">beta · 2026<br>in development</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CHART THAT DISSOLVES INTO THE PAGE ─── -->
+  <section>
+    <div class="section-grid">
+      <div>
+        <div class="label">§ 03 · figure</div>
+        <h2 style="margin-top: 18px;">National filing <em>recovery</em>, 2017–2025.</h2>
+      </div>
+      <div class="prose">
+        <p>The pandemic's eviction trough; the recovery's overshoot; the cooling that followed. No card. No grid. Just the line.</p>
+      </div>
+    </div>
+
+    <div class="chart-bare">
+      <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <style>
+          .axis-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: #6a6760; letter-spacing: 0.04em; }
+          .data-line { fill: none; stroke: #0a0a0a; stroke-width: 1.5; stroke-linejoin: round; }
+          .data-dot { fill: #0a0a0a; }
+          .data-dot--focal { fill: #F9322B; }
+          .annot { font-family: 'Newsreader', serif; font-size: 12px; font-style: italic; fill: #0a0a0a; }
+          .annot-line { stroke: #0a0a0a; stroke-width: 0.5; stroke-dasharray: 2 3; }
+          .baseline { stroke: #6a6760; stroke-width: 0.5; stroke-dasharray: 2 4; }
+        </style>
+        <!-- pre-pandemic baseline -->
+        <line class="baseline" x1="40" y1="180" x2="780" y2="180"/>
+        <text class="axis-text" x="40" y="174">2017–2019 baseline</text>
+        <!-- the line itself: rough monthly trajectory -->
+        <path class="data-line" d="M 40 175
+          L 80 178 L 120 173 L 160 180 L 200 175 L 240 182 L 280 178 L 320 175
+          L 360 270 L 380 290 L 400 285 L 420 275 L 440 280 L 460 240 L 480 220
+          L 500 190 L 520 170 L 540 140 L 560 120 L 580 130 L 600 145 L 620 155
+          L 640 170 L 660 178 L 680 175 L 700 172 L 720 168 L 740 175 L 760 170 L 780 168" />
+        <!-- recent data dot -->
+        <circle class="data-dot--focal" cx="780" cy="168" r="4"/>
+        <text class="annot" x="744" y="158" text-anchor="end">most recent month</text>
+        <line class="annot-line" x1="744" y1="160" x2="772" y2="166"/>
+        <!-- moratorium annotation -->
+        <text class="annot" x="380" y="310" text-anchor="middle" style="font-size: 11px;">pandemic moratoria</text>
+        <line class="annot-line" x1="360" y1="295" x2="380" y2="305"/>
+        <!-- x-axis ticks -->
+        <text class="axis-text" x="40"  y="316">2017</text>
+        <text class="axis-text" x="200" y="316">2019</text>
+        <text class="axis-text" x="380" y="316">2021</text>
+        <text class="axis-text" x="560" y="316">2023</text>
+        <text class="axis-text" x="780" y="316" text-anchor="end">2025</text>
+      </svg>
+    </div>
+    <p class="chart-caption">
+      figure 03 · monthly eviction filings, national, 2017 – oct 2025 · per 1,000 renter households.
+      <span class="src">source — legal services corporation · n = 2,847 counties · ern · 2026</span>
+    </p>
+  </section>
+
+  <!-- ─── WORK ─── -->
+  <section id="work">
+    <div class="section-grid">
+      <div>
+        <div class="label">§ 04 · recent work</div>
+        <h2 style="margin-top: 18px;">Working papers, peer-reviewed publications, and methodology releases.</h2>
+      </div>
+      <div class="prose">
+        <p>Most recent first. Each entry carries its institutional affiliations and a citation handle.</p>
+      </div>
+    </div>
+
+    <div class="work">
+      <div class="row">
+        <div class="when">2026 ·  apr</div>
+        <div>
+          <div class="title">Keeping People in Their <em>Homes</em>: The Impact of Emergency Rental Assistance on Evictions</div>
+          <div class="byline">Deshpande · Moore · Reid · Thomas · Zapatka · Kim · Nelson · Reina · Yae</div>
+        </div>
+        <div class="meta">working paper<br>uc berkeley · upenn · hud<br><a href="#">read →</a></div>
+      </div>
+      <div class="row">
+        <div class="when">2025 ·  nov</div>
+        <div>
+          <div class="title">Bay Area Housing Precarity Risk <em>Model</em></div>
+          <div class="byline">Thomas · Culich · Dolgoff · Driskell</div>
+        </div>
+        <div class="meta">methodology<br>ern · cidr lab · udp<br><a href="#">explore →</a></div>
+      </div>
+      <div class="row">
+        <div class="when">2025 ·  sep</div>
+        <div>
+          <div class="title">What Lies Behind the <em>Answers</em>: Applying Machine Learning to Understand Tenants' Reaction to Eviction</div>
+          <div class="byline">Thomas et al.</div>
+        </div>
+        <div class="meta">peer-reviewed<br>socius<br><a href="#">read →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLOPHON ─── -->
+  <footer class="colophon" id="data">
+    <div class="grid">
+      <div class="col">
+        <span class="label">data</span>
+        Legal Services Corp.<br>
+        ACS · 2010–<br>
+        DataAxle panel
+      </div>
+      <div class="col">
+        <span class="label">methods</span>
+        WRU v2.0 BISG<br>
+        ESRI geocoding<br>
+        BART · synth control
+      </div>
+      <div class="col">
+        <span class="label">code</span>
+        <a href="https://github.com/evictionresearch">github · evictionresearch</a><br>
+        37 public repos<br>
+        MIT licensed
+      </div>
+      <div class="col">
+        <span class="label">cite</span>
+        DOI · BibTeX · APA<br>
+        Zenodo deposits
+      </div>
+    </div>
+    <div class="imprint">
+      <span>eviction research network · uc berkeley sociology · 2018–2026</span>
+      <span>set in newsreader, special elite &amp; inter · prototype v3</span>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

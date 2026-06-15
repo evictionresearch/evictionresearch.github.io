@@ -446,6 +446,342 @@ footer.site {
   border-color: var(--navy);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════
+   Du-Bois-lineage primitives (Volume I)
+
+   Adopted from the state-profile spec (washington/minnesota/assets/css/
+   minnesota.css) so the main ERN site carries the same plate convention:
+   each major section gets a Plate number, a claim-sentence title, and a
+   short interpretive description. See [[design-dubois-lineage]] memory
+   for the philosophy; spirit, not surface. Single typeface (Inter); the
+   display register comes from weight + tracked all-caps, not from a
+   companion display font.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ─── Plate eyebrow (Plate I · Trends) ─── */
+.v5b-section .plate-num,
+.v5b-page .plate-num {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+/* ─── Plate claim sentence (replaces a neutral heading). Inter 700,
+   tracked all-caps, with em-red emphasis for the load-bearing phrase. */
+.v5b-section .plate-claim,
+.v5b-page .plate-claim {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  line-height: 1.32;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin: 0 0 14px;
+  max-width: 52ch;
+}
+.v5b-section .plate-claim em,
+.v5b-page .plate-claim em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+/* ─── Plate description (1–2 sentence interpretive caption). ─── */
+.v5b-section .plate-desc,
+.v5b-page .plate-desc {
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--navy);
+  margin: 0 0 22px;
+  max-width: 66ch;
+}
+.v5b-section .plate-desc strong { font-weight: 600; }
+.v5b-section .plate-desc em { font-style: italic; }
+
+/* On accent (red) sections, invert plate colors for contrast. */
+.v5b-section.accent .plate-num { color: rgba(255,255,255,0.92); }
+.v5b-section.accent .plate-claim { color: #fff; }
+.v5b-section.accent .plate-claim em { color: #fff; }
+.v5b-section.accent .plate-desc { color: rgba(255,255,255,0.94); }
+
+/* ─── Action list (Plate VII "what can be done" grid).
+   Numbered grid of evidence-based actions; same restrained Inter palette. */
+.v5b-section .action-list {
+  list-style: none;
+  padding: 0;
+  margin: 36px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 56px;
+}
+@media (max-width: 800px) {
+  .v5b-section .action-list { grid-template-columns: 1fr; gap: 28px; }
+}
+.v5b-section .action-list li {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.v5b-section .action-list .action-num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  line-height: 1;
+  margin-top: 2px;
+}
+.v5b-section .action-list h4 {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15.5px;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 0 0 6px;
+}
+.v5b-section .action-list p {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+.v5b-section .action-list .readmore {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: none;
+  text-decoration: none;
+}
+.v5b-section .action-list .readmore:hover { color: var(--accent-deep); }
+
+/* ─── Plate hero (Volume I cover plate) ─── */
+.v5b-section.hero-plate {
+  padding: 56px 0 96px;
+  position: relative;
+}
+.v5b-section.hero-plate::before {
+  content: ""; position: absolute; top: 0; right: 0;
+  width: 75%; height: 1px; background: var(--navy);
+}
+.hero-plate-row {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 72px;
+  align-items: center;
+  padding-top: 72px;
+}
+@media (max-width: 900px) {
+  .hero-plate-row { grid-template-columns: 1fr; gap: 40px; padding-top: 40px; }
+}
+.hero-plate-text { display: flex; flex-direction: column; gap: 22px; }
+.hero-plate-text .kicker { margin-bottom: 0; }
+.v5b-section.hero-plate .hero-plate-title {
+  font-weight: 200;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  margin: 0;
+  max-width: 14ch;
+}
+.v5b-section.hero-plate .hero-plate-title em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--accent);
+}
+.v5b-section.hero-plate .lead-paragraph {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 56ch;
+  margin: 0;
+}
+.hero-byline {
+  margin-top: 4px; padding-top: 14px;
+  border-top: 1px solid var(--rule-fine);
+  font-size: 13px; color: var(--muted);
+  display: flex; gap: 24px; flex-wrap: wrap;
+}
+.hero-byline strong { color: var(--navy); font-weight: 600; }
+.hero-byline a { color: var(--navy-soft); border-bottom: 1px solid var(--rule-fine); }
+.hero-byline a:hover { color: var(--accent); border-color: var(--accent); }
+.hero-actions {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* ─── Rotating image panel (4 candidate hero treatments, fade-cycled) ─── */
+.hero-plate-image {
+  position: relative;
+  min-height: 360px;
+}
+.hero-rotator {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  background: var(--tint-solid);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.hero-rotator-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 700ms ease;
+  display: flex;
+  flex-direction: column;
+}
+.hero-rotator-slide.active { opacity: 1; }
+.hero-rotator-slide img,
+.hero-rotator-slide picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-rotator-slide svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.hero-rotator-slide figcaption {
+  position: absolute;
+  bottom: 12px; left: 12px;
+  background: rgba(255,255,255,0.94);
+  border-left: 3px solid var(--accent);
+  padding: 8px 14px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+.hero-rotator-dots {
+  position: absolute;
+  bottom: 12px; right: 12px;
+  display: flex; gap: 6px;
+  z-index: 4;
+}
+.hero-rotator-dots button {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: rgba(255,255,255,0.7);
+  padding: 0;
+  cursor: pointer;
+  transition: background 220ms ease;
+}
+.hero-rotator-dots button[aria-current="true"] { background: var(--accent); }
+.hero-rotator-dots button:hover { background: var(--accent); }
+
+/* Coverage SVG inside rotator: navy hairlines + red fills for covered states */
+.hero-rotator-slide.coverage-slide { background: #fff; }
+.hero-rotator-slide .coverage-state {
+  fill: none; stroke: var(--navy); stroke-width: 0.8;
+  stroke-linejoin: round; stroke-linecap: round;
+}
+.hero-rotator-slide .coverage-state.is-covered { fill: var(--accent); fill-opacity: 0.85; stroke: var(--accent-deep); }
+
+/* ─── Dual-arm CTA (Plate VI — ERN + CiDR Lab side-by-side) ─── */
+.v5b-section .dual-arm-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 800px) {
+  .v5b-section .dual-arm-row { grid-template-columns: 1fr; gap: 20px; }
+}
+.v5b-section .dual-arm-card {
+  background: #fff;
+  border: 1px solid var(--rule-fine);
+  border-top: 4px solid var(--accent);
+  border-radius: 4px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.v5b-section .dual-arm-card .kicker { margin: 0; }
+.v5b-section .dual-arm-card h3 {
+  font-family: var(--sans);
+  font-weight: 200;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  letter-spacing: -0.018em;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--navy);
+}
+.v5b-section .dual-arm-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 4px;
+}
+.v5b-section .dual-arm-card .btn { align-self: flex-start; margin-top: auto; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   Sticky-white-blur header (Du-Bois-lineage migration)
+
+   Overrides the legacy "fixed-transparent → goes dark on scroll" pattern
+   defined in main.css. Adopt only on pages that opt in by adding
+   `data-header-style="plate"` to the <html> element. Other pages keep the
+   legacy header until the migration completes.
+   ═══════════════════════════════════════════════════════════════════════ */
+/* Keep Bootstrap's fixed-top positioning (so we don't fight specificity)
+   but re-skin the surface to the sticky-white-blur look, and reserve
+   header-height padding on <body> so the first plate isn't covered. */
+html[data-header-style="plate"] body { padding-top: 88px; }
+html[data-header-style="plate"] .header {
+  padding: 14px 0;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  color: #19222C;
+  border-bottom: 1px solid transparent;
+  box-shadow: none;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+/* main.js puts `.scrolled` on <body>, not on the header — so the shadow
+   selector lives on `body.scrolled .header`. */
+html[data-header-style="plate"] body.scrolled .header {
+  background: rgba(255,255,255,0.94);
+  border-bottom-color: rgba(25,34,44,0.10);
+  box-shadow: 0 4px 14px rgba(25,34,44,0.04);
+}
+/* Always render the light-bg (navy on white) logo. */
+html[data-header-style="plate"] .header .logo .logo-dark-bg { display: none !important; }
+html[data-header-style="plate"] .header .logo .logo-light-bg { display: block !important; }
+html[data-header-style="plate"] body.scrolled .header .logo .logo-dark-bg { display: none !important; }
+html[data-header-style="plate"] body.scrolled .header .logo .logo-light-bg { display: block !important; }
+html[data-header-style="plate"] .header .logo img { max-height: 44px; }
+/* Nav links: navy, no underline, red on hover. */
+html[data-header-style="plate"] .header .navmenu ul a,
+html[data-header-style="plate"] .header .navmenu > ul > li > a {
+  color: #19222C;
+  font-family: "Inter", -apple-system, system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+html[data-header-style="plate"] .header .navmenu ul a:hover,
+html[data-header-style="plate"] .header .navmenu ul li.active > a,
+html[data-header-style="plate"] .header .navmenu ul a[aria-current="page"] {
+  color: #F9322B;
+}
+html[data-header-style="plate"] .header .mobile-nav-toggle { color: #19222C; }
+
 /* ─── Footer (v5a/v5b — white background, hairline rule, 5-col grid) ─── */
 footer.site {
   --paper:        #ffffff;

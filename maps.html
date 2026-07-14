@@ -39,9 +39,9 @@
 
     /* Skip link + a11y utilities (inlined so they work before main.css loads) */
     .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
 
     /* Header — transparent at top, solid when scrolled */
@@ -49,20 +49,20 @@
     .header .logo img{max-height:60px;width:auto}
 
     /* Archive banner — sits just below the fixed header */
-    .archive-banner{background:var(--accent-color);color:#fff;padding:12px 16px;text-align:center;font-family:var(--default-font);font-size:14px;line-height:1.45;margin-top:92px}
+    .archive-banner{background:var(--accent-deep);color:#fff;padding:12px 16px;text-align:center;font-family:var(--default-font);font-size:14px;line-height:1.45;margin-top:92px}
     .archive-banner strong{font-family:var(--heading-font);letter-spacing:.02em}
     .archive-banner a{color:#fff;text-decoration:underline;text-underline-offset:2px}
     .archive-banner a:hover,.archive-banner a:focus{text-decoration-thickness:2px}
 
     /* Hero */
     .maps-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);color:#fff;padding:56px 0 48px}
-    .maps-hero .eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-color);display:inline-block;margin-bottom:10px}
+    .maps-hero .eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);display:inline-block;margin-bottom:10px}
     .maps-hero h1{color:#fff;font-size:44px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin:0 0 14px}
     .maps-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0 0 22px}
     .maps-hero .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
     .btn-primary-red,.btn-outline-light{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:4px;font-family:var(--heading-font);font-weight:600;font-size:15px;text-decoration:none;transition:all .15s;border:1.5px solid transparent;min-height:44px}
-    .btn-primary-red{background:var(--accent-color);color:#fff;border-color:var(--accent-color)}
-    .btn-primary-red:hover,.btn-primary-red:focus{background:#F9322B;border-color:#F9322B;color:#fff}
+    .btn-primary-red{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
+    .btn-primary-red:hover,.btn-primary-red:focus{background:#CC2118;border-color:#CC2118;color:#fff}
     .btn-outline-light{color:#fff;border-color:rgba(255,255,255,0.6);background:transparent}
     .btn-outline-light:hover,.btn-outline-light:focus{background:rgba(255,255,255,0.1);color:#fff;border-color:#fff}
 
@@ -75,9 +75,9 @@
     .section p{margin:0 0 14px}
     .section ul{margin:0 0 14px 22px;padding:0}
     .section ul li{margin:6px 0}
-    .eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-color);display:inline-block;margin-bottom:8px}
+    .eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);display:inline-block;margin-bottom:8px}
 
-    .callout{background:#fff;border:1px solid #e3e9ef;border-left:5px solid var(--accent-color);padding:20px 24px;border-radius:4px;margin:22px 0;box-shadow:0 2px 14px rgba(25,34,44,0.04)}
+    .callout{background:#fff;border:1px solid #e3e9ef;border-left:5px solid var(--accent-deep);padding:20px 24px;border-radius:4px;margin:22px 0;box-shadow:0 2px 14px rgba(25,34,44,0.04)}
     .callout h4{margin-top:0}
 
     .fig{margin:20px 0;text-align:center}
@@ -147,6 +147,7 @@
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -236,6 +237,7 @@
       <div class="container">
         <span class="eyebrow">Policy Recommendations</span>
         <h2>What should be done</h2>
+        <h3 class="visually-hidden">Recent developments</h3>
         <p>Given the severe racial disparity in evictions, the consequences of losing your home, rapidly rising rents, and the growing economic divide, we believe several policies should be enacted to protect citizens. Based on our observations of what works in other states, here is a short list to consider:</p>
         <ul>
           <li>Remove no-cause terminations.</li>
@@ -258,6 +260,7 @@
       <div class="container">
         <span class="eyebrow">Data &amp; Methods</span>
         <h2>How the map was built</h2>
+        <h3 class="visually-hidden">Methodology</h3>
         <p>The map used data on eviction filings in Washington State collected by The Evictions Study. Filings were downloaded from the respective County Court Clerk's online portals covering a majority of the years 2004 to 2017. Optical Character Recognition (OCR) software was used to scrape addresses and other information from PDF and TIF versions of court records, which were then geolocated using ESRI and SmartyStreets. For each year, about 85% of all files were geolocated except for several missing years in King County. Counties where less than 60% of all eviction cases were geocoded were not included in the display.</p>
         <p>Tenant race estimates were calculated using a Bayesian prediction model developed by <a href="https://github.com/kosukeimai/wru" target="_blank" rel="noopener noreferrer">Kosuke Imai and Kabir Khanna</a> using the surname and geolocation of the tenant. These imputed estimates produce some uncertainty; our estimates were validated against actual intake data from the <a href="https://www.kcba.org/For-the-Public/Free-Legal-Assistance/Housing-Justice-Project" target="_blank" rel="noopener noreferrer">King County Bar Housing Justice Project</a> (HJP) and agreed within a few percentage points.</p>
         <p>All other data — including renting population, median household income, median rent, rent burden, and poverty rate — originated from the 5-Year American Community Survey (ACS) conducted by the US Census Bureau. The map displayed the five-year estimates ending in the selected year (e.g., 2013–2017 for the 2017 display). 2006–2010 estimates were used for selections before 2010; 2013–2017 estimates were used for 2018.</p>
@@ -303,7 +306,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -313,7 +316,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -327,17 +330,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -348,6 +352,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

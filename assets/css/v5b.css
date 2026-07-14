@@ -33,11 +33,12 @@
   --navy:         #19222C;
   --navy-soft:    #223754;
   --steel:        #8BA3BE;
-  --accent:       #F9322B;
-  --accent-deep:  #D6231C;
+  --accent:       #F9322B;  /* decorative/large/graphic only — fails 1.4.3 as small text */
+  --accent-deep:  #CC2118;  /* contrast-safe red for text/links/buttons — 5.5:1 white, 4.7:1 on tint */
+  --accent-deeper:#B01D16;  /* hover/active for red text and buttons */
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);
-  --muted:        #6c7a89;
+  --muted:        #586573;  /* secondary text — 6.0:1 on white, 5.1:1 on tint (was #6c7a89, failed) */
   --sans:         "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --display:      "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --transition:   220ms ease;
@@ -99,7 +100,7 @@ footer.site {
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
   margin: 0 0 14px;
 }
 
@@ -123,7 +124,7 @@ footer.site {
 .v5b-page .section-title em {
   font-style: normal;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* ─── Lead paragraph (slightly larger, used under section titles) ─── */
@@ -141,7 +142,7 @@ footer.site {
 .v5b-page .lead-paragraph em {
   font-style: normal;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* ─── Body paragraphs inside v5b sections ─── */
@@ -212,14 +213,14 @@ footer.site {
 .v5b-page .btn-envelope:hover::after { transform: none; }
 .v5b-section .btn-red,
 .v5b-page .btn-red {
-  background: var(--accent);
+  background: var(--accent-deep);
   color: #fff;
-  border-color: var(--accent);
+  border-color: var(--accent-deep);
 }
 .v5b-section .btn-red:hover,
 .v5b-page .btn-red:hover {
-  background: var(--accent-deep);
-  border-color: var(--accent-deep);
+  background: var(--accent-deeper);
+  border-color: var(--accent-deeper);
   color: #fff;
 }
 .v5b-section .btn-ghost,
@@ -230,8 +231,8 @@ footer.site {
 }
 .v5b-section .btn-ghost:hover,
 .v5b-page .btn-ghost:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-deep);
+  border-color: var(--accent-deep);
 }
 
 /* ─── Scope pills (state chips, study period chips) ─── */
@@ -269,7 +270,7 @@ footer.site {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
   margin-bottom: 14px;
 }
 .v5b-section .paper-card h4,
@@ -313,7 +314,7 @@ footer.site {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 .v5b-section .paper-card p {
   font-size: 14.5px;
@@ -328,7 +329,7 @@ footer.site {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
   text-decoration: none;
   border: none;
   display: inline-flex;
@@ -435,7 +436,7 @@ footer.site {
 .v5b-section.accent .btn-red,
 .v5b-section.accent .btn-cta {
   background: #fff;
-  color: var(--accent);
+  color: var(--accent-deep);
   border-color: #fff;
 }
 .v5b-section.accent .btn:hover,
@@ -467,7 +468,7 @@ footer.site {
   font-size: 11px;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
   margin: 0 0 10px;
 }
 
@@ -488,7 +489,7 @@ footer.site {
 .v5b-section .plate-claim em,
 .v5b-page .plate-claim em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 
 /* ─── Plate description (1–2 sentence interpretive caption). ─── */
@@ -535,7 +536,7 @@ footer.site {
   font-weight: 800;
   font-size: 28px;
   letter-spacing: 0.02em;
-  color: var(--accent);
+  color: var(--accent-deep);
   line-height: 1;
   margin-top: 2px;
 }
@@ -560,7 +561,7 @@ footer.site {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-deep);
   border: none;
   text-decoration: none;
 }
@@ -598,7 +599,7 @@ footer.site {
 .v5b-section.hero-plate .hero-plate-title em {
   font-style: normal;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--accent-deep);
 }
 .v5b-section.hero-plate .lead-paragraph {
   font-size: 18px;
@@ -614,7 +615,7 @@ footer.site {
 }
 .hero-byline strong { color: var(--navy); font-weight: 600; }
 .hero-byline a { color: var(--navy-soft); border-bottom: 1px solid var(--rule-fine); }
-.hero-byline a:hover { color: var(--accent); border-color: var(--accent); }
+.hero-byline a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
 .hero-actions {
   display: flex; gap: 14px; flex-wrap: wrap;
   margin-top: 4px;
@@ -778,7 +779,7 @@ html[data-header-style="plate"] .header .navmenu > ul > li > a {
 html[data-header-style="plate"] .header .navmenu ul a:hover,
 html[data-header-style="plate"] .header .navmenu ul li.active > a,
 html[data-header-style="plate"] .header .navmenu ul a[aria-current="page"] {
-  color: #F9322B;
+  color: #CC2118;
 }
 html[data-header-style="plate"] .header .mobile-nav-toggle { color: #19222C; }
 
@@ -820,7 +821,7 @@ footer.site .grid {
   footer.site .col.about { grid-column: 1 / -1; }
 }
 
-footer.site .col h4 {
+footer.site .col h3 {
   font-family: var(--display);
   font-size: 13px; font-weight: 500; margin: 0 0 14px;
   color: var(--navy);
@@ -838,7 +839,7 @@ footer.site .col ul a {
   text-decoration: none;
   transition: color var(--transition);
 }
-footer.site .col ul a:hover { color: var(--accent); }
+footer.site .col ul a:hover { color: var(--accent-deep); }
 
 /* About column — dual-logo row, paragraph, social-links circles */
 footer.site .about p {
@@ -894,7 +895,7 @@ footer.site .social-links a {
 }
 footer.site .social-links a:hover,
 footer.site .social-links a:focus {
-  color: var(--accent);
+  color: var(--accent-deep);
   transform: translateY(-2px);
   background: transparent;
   outline: none;
@@ -918,6 +919,6 @@ footer.site .imprint a {
   text-decoration: none;
 }
 footer.site .imprint a:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent-deep);
 }

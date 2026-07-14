@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-header-style="plate">
+
+<!--
+  glossary.template.html — Eviction Research Network
+  -----------------------------------------------------------------------------
+  Page chrome for glossary.html. The render script (code/render_glossary.R)
+  reads docs/glossary.md, substitutes the double-brace page tokens below, and
+  swaps the body-placeholder comment for the generated A-Z term list.
+
+  DO NOT hand-edit glossary.html — edit this template or glossary.md and rerun:
+      Rscript code/render_glossary.R
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="keywords" content="{{KEYWORDS}}">
+  <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="https://evictionresearch.net/glossary.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Font — Inter (single canonical ERN brand family, see BRAND.md). Async-loaded to avoid render-blocking. -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical above-the-fold CSS -->
+  <style>
+    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;--accent:#F9322B;--accent-deep:#CC2118;--accent-deeper:#B01D16;--muted:#586573;scroll-behavior:smooth}
+    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
+    .light-background{--background-color:#f4f7f6;--surface-color:#fff;--default-color:#223754;--heading-color:#223754}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
+    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
+    .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
+    .header.scrolled{background-color:rgba(25,34,44,.95);backdrop-filter:blur(6px)}
+    .header .logo img{max-height:60px;width:auto}
+    /* Skip link + a11y utilities (inlined so they work before main.css loads) */
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
+
+    /* ===== Glossary-specific (scoped). Colors use the v5b brand tokens
+       (--accent-deep #CC2118 for text/links per WCAG 1.4.3; --muted #586573),
+       with literal fallbacks so they hold before v5b.css loads async. ===== */
+    .glossary-wrap{padding:0 0 8px}
+    .glossary-updated{font-size:14px;color:var(--muted,#586573);margin:6px 0 0}
+    .glossary-controls{margin:0 0 14px}
+    .glossary-filter{width:100%;max-width:440px;padding:12px 16px;font:inherit;font-size:16px;border:1px solid #c7d2dd;border-radius:8px;background:#fff;color:#19222C}
+    .glossary-filter:focus{outline:3px solid var(--accent-deep,#CC2118);outline-offset:2px;border-color:var(--accent-deep,#CC2118)}
+    .glossary-az{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px;padding:12px 0;border-top:1px solid rgba(25,34,44,.12);border-bottom:1px solid rgba(25,34,44,.12);position:sticky;top:76px;background:#fff;z-index:5}
+    .glossary-az a,.glossary-az span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none}
+    .glossary-az a{color:var(--accent-deep,#CC2118)}
+    .glossary-az a:hover{background:var(--accent-deep,#CC2118);color:#fff}
+    .glossary-az span{color:#b6c2cf;pointer-events:none}
+    .glossary-letter{font-family:"Inter",sans-serif;font-size:22px;font-weight:700;color:var(--accent-deep,#CC2118);border-bottom:2px solid rgba(25,34,44,.10);padding-bottom:6px;margin:30px 0 14px;scroll-margin-top:150px}
+    .glossary-term{padding:18px 0;border-bottom:1px solid rgba(25,34,44,.10);scroll-margin-top:150px}
+    .glossary-term .term-name{font-size:20px;font-weight:700;color:#19222C;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+    .term-anchor{opacity:0;font-weight:400;color:var(--accent-deep,#CC2118);text-decoration:none;font-size:16px;transition:opacity .12s}
+    .glossary-term:hover .term-anchor,.term-anchor:focus{opacity:1}
+    .term-cat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted,#586573);background:#e8eef4;border-radius:999px;padding:3px 10px;margin:0 0 10px}
+    .term-def{font-size:16px;line-height:1.62;color:#223754;max-width:72ch}
+    .term-def p{margin:0 0 8px}
+    .term-def p:last-child{margin-bottom:0}
+    .term-def a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
+    .term-def a:hover{color:var(--accent-deeper,#B01D16)}
+    .term-def code{background:#eef2f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+    .term-see{font-size:14px;color:var(--muted,#586573);margin:12px 0 0;max-width:72ch}
+    .term-see .see-label{font-weight:600;color:var(--muted,#586573)}
+    .term-see a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
+    .term-see a:hover{color:var(--accent-deeper,#B01D16)}
+    .glossary-noresults{font-size:16px;color:var(--muted,#586573);padding:24px 0}
+    @media (max-width:768px){.glossary-az{top:64px}}
+  </style>
+
+  <!-- Bootstrap (sync for stable layout) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Non-critical CSS (async; glossary page does not use glightbox/swiper/aos) -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/v5b.css" rel="stylesheet">
+  </noscript>
+</head>
+
+<body class="glossary-page">
+
+  <!-- Skip link — jumps keyboard/screen-reader users past nav to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+      </a>
+
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="resources.html">Eviction Help</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html" aria-current="page" class="active">Glossary</a></li>
+            </ul>
+          </li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+
+    <!-- ======= Hero (v5b light section — matches methodology/index) ======= -->
+    <section class="v5b-section">
+      <div class="v5b-page" style="padding-top: 60px; padding-bottom: 8px;">
+        <p class="kicker">{{KICKER}}</p>
+        <h1 class="section-title" style="max-width: 24ch;">{{H1}}</h1>
+        <p class="lead-paragraph">{{LEAD}}</p>
+        <p class="glossary-updated">Last updated {{UPDATED}} · {{N_TERMS}} terms</p>
+      </div>
+    </section>
+
+    <!-- ======= Glossary body (generated from glossary.md) ======= -->
+    <section class="v5b-section" style="padding-top: 16px;">
+      <div class="v5b-page glossary-wrap">
+        <!--GLOSSARY_BODY-->
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="index.html" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
+        </div>
+        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="research.html">Publications</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Maps &amp; Profiles</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources.html">Eviction Help</a></li>
+          <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Affiliated With</h3>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+        </ul>
+      </div>
+
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS (minimal — only Bootstrap + main.js) -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Glossary filter (lightweight, no dependencies; progressive enhancement) -->
+  <script>
+  (function () {
+    var input = document.getElementById('glossary-filter');
+    if (!input) return;
+    var terms   = [].slice.call(document.querySelectorAll('.glossary-term'));
+    var letters = [].slice.call(document.querySelectorAll('.glossary-letter'));
+    var none    = document.querySelector('.glossary-noresults');
+    function norm(s) { return (s || '').toLowerCase(); }
+    input.addEventListener('input', function () {
+      var q = norm(input.value).trim();
+      var any = false;
+      terms.forEach(function (t) {
+        var hit = q === '' || norm(t.getAttribute('data-term')).indexOf(q) > -1;
+        t.hidden = !hit;
+        if (hit) any = true;
+      });
+      letters.forEach(function (h) {
+        var vis = false, n = h.nextElementSibling;
+        while (n && n.classList.contains('glossary-term')) {
+          if (!n.hidden) { vis = true; break; }
+          n = n.nextElementSibling;
+        }
+        h.hidden = !vis;
+      });
+      if (none) none.hidden = any;
+    });
+  })();
+  </script>
+
+</body>
+
+</html>

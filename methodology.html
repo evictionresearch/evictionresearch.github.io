@@ -40,12 +40,12 @@
     .method-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);padding:140px 0 80px;color:#fff}
     .method-hero h1{color:#fff;font-size:48px;font-weight:700;margin:12px 0 18px}
     .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
-    .section-eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-color);display:inline-block;margin-bottom:8px}
+    .section-eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);display:inline-block;margin-bottom:8px}
     /* Skip link + a11y utilities (inlined so they work before main.css loads) */
     .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
       /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
     .header .logo .logo-dark-bg{display:block}
@@ -105,6 +105,7 @@
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -156,6 +157,7 @@
         <div class="text-center mb-5">
           <p class="kicker">The Pipeline</p>
           <h2>Five stages, court filing to research-ready dataset</h2>
+        <h3 class="visually-hidden">Pipeline stages</h3>
           <p class="lead mx-auto" style="max-width:760px;">Every ERN state profile follows the same five-stage pipeline. The steps below link to the technical details further down the page.</p>
         </div>
 
@@ -373,6 +375,7 @@
         <div class="text-center mb-5">
           <p class="kicker">Data Partners</p>
           <h2>The organizations that make this research possible</h2>
+        <h3 class="visually-hidden">Partner organizations</h3>
         </div>
 
         <div class="partner-cards">
@@ -563,7 +566,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -573,7 +576,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -587,17 +590,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -608,6 +612,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

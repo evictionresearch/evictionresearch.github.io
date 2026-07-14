@@ -10,16 +10,21 @@ Eviction Research Network (ERN) website and affiliated projects. Keep in sync wi
 
 | Role | Hex | CSS Variable | Usage |
 |---|---|---|---|
-| Accent red | `#F9322B` | `--accent-color` | Buttons, links, highlights, borders, icon accents |
+| Accent red — **graphics** | `#F9322B` | `--accent-color` / `--accent` | **Decorative graphics only** (map fills, markers, washes). Fails WCAG AA as small text (3.8:1) — never use for text, links, or button labels. |
+| Accent red — **text / UI** | `#CC2118` | `--accent-deep` | Links, buttons, kickers, labels. Contrast-safe (5.5:1 white, 4.7:1 tint). Default red for anything readable. |
+| Accent red — hover | `#B01D16` | `--accent-deeper` | Hover / active for red text and buttons. |
 | Dark navy | `#19222C` | `--heading-color` | Page headings, header/footer backgrounds, dark surfaces |
 | Medium blue | `#223754` | `--default-color` | Body text, secondary headings, nav surfaces |
+| Muted slate | `#586573` | `--muted` | Secondary / caption text on light bg (6.0:1 white, 5.1:1 tint). Replaces `#6c7a89` (failed AA). |
 | Light blue | `#e8eef4` | `--background-color` (`.light-background`) | Alternating section backgrounds |
 | White | `#ffffff` | `--background-color`, `--surface-color` | Default page background, cards |
 
 ### Notes
-- The accent red `#F9322B` is the canonical value. Earlier ERN templates used `#ee3029` — **do not use the old value**.
+- **Accessibility (WCAG 2.1 AA / Berkeley).** The brand red splits by use: `#F9322B` for *graphics only*; **`#CC2118` (`--accent-deep`) for all text, links, and buttons** (the bright red fails contrast as text at 3.8:1). Muted text is `#586573`, not `#6c7a89`. In-content links are underlined (1.4.1); no heading-level skips (1.3.1); shared-text card CTAs get a unique `aria-label`. Full rules + rationale: canonical guide → [`cidrlab/library/brand/ern/BRAND.md`](https://github.com/cidrlab/library/blob/main/brand/ern/BRAND.md) (Accessibility section).
+- The accent red `#F9322B` is canonical **for graphics**. Earlier ERN templates used `#ee3029` — **do not use the old value**.
 - The dark navy `#19222C` is used for `.dark-background` elements (header, footer). Earlier templates used `#364d59` for default text — **do not use the old value**.
 - The light blue `#e8eef4` is a cool tint derived from the medium blue, used to visually distinguish alternating content sections without clashing with the red accent.
+- **Deprecated:** `#6c7a89` (old muted, fails AA) → `#586573`; `#F9322B` *as text* → `#CC2118`.
 
 ---
 
@@ -83,9 +88,12 @@ In `assets/css/main.css` and `assets/css/v5b.css`:
   --display: "Inter", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --background-color: #ffffff;
-  --default-color:    #223754;   /* medium blue */
-  --heading-color:    #19222C;   /* dark navy   */
-  --accent-color:     #F9322B;   /* accent red  */
+  --default-color:    #223754;   /* medium blue                       */
+  --heading-color:    #19222C;   /* dark navy                         */
+  --accent-color:     #F9322B;   /* accent red — GRAPHICS only        */
+  --accent-deep:      #CC2118;   /* accent red — text/links/buttons (WCAG-safe) */
+  --accent-deeper:    #B01D16;   /* accent red — hover/active         */
+  --muted:            #586573;   /* secondary / caption text          */
   --surface-color:    #ffffff;
   --contrast-color:   #ffffff;
 }

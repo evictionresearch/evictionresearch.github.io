@@ -1,3 +1,4 @@
+# [qs->parquet migration] read_data()/write_data() — see library/code/io_helpers.R
 # ==========================================================================
 # Identify the number of evictions that we have across different data sources
 # Tim Thomas - timthomas@berkeley.edu
@@ -8,7 +9,8 @@
 # Packages and options
 # ==========================================================================
 
-pacman::p_load(qs, data.table, tidyverse, sf, googledrive, lubridate, bit64)
+pacman::p_load(data.table, tidyverse, sf, googledrive, lubridate, bit64)
+if (!exists("read_data")) for (.p in c("~/git/evictionresearch/library/code/io_helpers.R","~/users/timthomas/git/evictionresearch/library/code/io_helpers.R","/accounts/projects/timthomas/git/evictionresearch/library/code/io_helpers.R")) if (file.exists(.p)) { source(.p); break }
 options(scipen=10, width=system("tput cols", intern=TRUE), tigris_use_cache = TRUE) # avoid scientific notation
 
 # ==========================================================================

@@ -41,6 +41,17 @@ header.site .logo img{display:block;height:40px;width:auto;}
 header.site nav{font-size:14px;display:flex;gap:26px;font-weight:500;}
 header.site nav a{border:none;color:var(--navy);}
 header.site nav a:hover{color:var(--accent);}
+.read-progress{position:absolute;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:60;}
+.toc-dd{position:relative;}
+.toc-dd .toc-toggle{border:none;color:var(--navy);font-weight:600;}
+.toc-dd .toc-now{color:var(--accent-deep);font-weight:700;}
+.toc-dd .toc-now:not(:empty)::before{content:"· ";color:var(--muted);font-weight:500;}
+.toc-panel{display:none;position:absolute;top:100%;left:0;min-width:250px;background:#fff;border:1px solid var(--rule-fine);
+  border-radius:10px;box-shadow:0 12px 34px rgba(25,34,44,.12);padding:8px;z-index:70;}
+.toc-dd:hover .toc-panel,.toc-dd:focus-within .toc-panel{display:block;}
+.toc-panel a{display:block;border:none;padding:8px 12px;border-radius:6px;font-size:13.5px;color:var(--navy);}
+.toc-panel a:hover{background:var(--tint);color:var(--accent-deep);}
+.toc-panel a[aria-current="true"]{font-weight:700;color:var(--accent-deep);}
 @media(max-width:720px){header.site nav{display:none;}}
 /* ── hero ── */
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent-deep);}
@@ -137,11 +148,22 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
 </head>
 <body>
 <header class="site">
+  <div class="read-progress" aria-hidden="true"></div>
   <div class="inner">
     <a class="logo" href="https://evictionresearch.net/" aria-label="Eviction Research Network — Home">
       <img src="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network">
     </a>
     <nav aria-label="Primary">
+      <div class="toc-dd">
+        <a href="#" class="toc-toggle" aria-haspopup="true" aria-expanded="false">Contents <span class="toc-now"></span> ▾</a>
+        <div class="toc-panel" role="menu" aria-label="Page sections">
+          <a class="toc-spy" role="menuitem" href="#process">01 · The four clocks</a>
+          <a class="toc-spy" role="menuitem" href="#chart-section">02 · The chart</a>
+          <a class="toc-spy" role="menuitem" href="#table-section">03 · State by state</a>
+          <a class="toc-spy" role="menuitem" href="#bridge">04 · Beyond the clock</a>
+          <a class="toc-spy" role="menuitem" href="#method">05 · Methodology</a>
+        </div>
+      </div>
       <a href="https://evictionresearch.net/">Home</a>
       <a href="https://evictionresearch.net/about.html">About</a>
       <a href="https://evictionresearch.net/news.html">News</a>
@@ -175,7 +197,7 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
   </section>
 
   <!-- FIGURE I -->
-  <section class="figure">
+  <section class="figure" id="process">
     <div class="fig-num">Figure I</div>
     <h2 class="fig-title">An eviction runs four clocks in sequence.</h2>
     <p class="fig-desc">Every eviction moves through the same four stages. The clock in this analysis starts when rent is missed and ends when the tenant must be out. Each stage adds days; the state's total is the sum.</p>
@@ -200,7 +222,7 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
   </section>
 
   <!-- FIGURE II -->
-  <section class="figure">
+  <section class="figure" id="chart-section">
     <div class="fig-num">Figure II</div>
     <h2 class="fig-title">The fastest lawful eviction ranges from 5 to 56 days across states.</h2>
     <p class="fig-desc">Each bar is a state's <strong>verified statutory floor</strong> — the fastest a nonpayment eviction can lawfully move from missed rent to removal — broken into the four stages, every element traced to its statute or court rule. Where the law also sets a ceiling, a pale extension shows it; a fade means the law sets <strong>no ceiling</strong>. A degree mark (°) flags states where a stage has no statutory timing and counts zero toward the floor. Ranked fastest floor to slowest.</p>
@@ -223,7 +245,7 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
   </section>
 
   <!-- STATE TABLE -->
-  <section class="figure">
+  <section class="figure" id="table-section">
     <div class="fig-num">Figure III · State by state</div>
     <h2 class="fig-title">Every state's floor, ceiling, and the nuance behind it.</h2>
     <p class="fig-desc">The single number hides how each state gets there. Sort or search below. Each row carries its controlling nonpayment-notice law and effective date; the chips grade each stage's legal anchoring — in order <em>grace · notice · court · removal</em>: <strong style="color:var(--navy)">✓</strong> fully statutory, <strong style="color:var(--muted)">△</strong> partial anchors, <strong style="color:var(--steel)">○</strong> no statutory timing (counts zero toward the floor). Full pinpoint citations for every stage are in the downloadable data and the verification memos.</p>
@@ -246,8 +268,15 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
     </table>
   </section>
 
+  <!-- BRIDGE -->
+  <section class="figure" id="bridge">
+    <div class="fig-num">Beyond the Clock</div>
+    <h2 class="fig-title">The clock is only part of the story.</h2>
+    <p class="fig-desc">These timeframes are one instrument in a larger system. How evictions actually move — on and off this ladder — why counts can't be compared across states, and who is building the data: <strong><a href="https://evictionresearch.net/understanding-eviction.html">What You Should Know About Eviction</a></strong>, ERN's primer and research treatment. And the clock is not just a survival window: in ERN's <a href="https://evictionresearch.net/hprm/">Housing Precarity Risk Model</a>, two time-to-evict variables — the notice period and the post-judgment window — rank among the top five predictors of neighborhood eviction risk. The speed of the process shapes the counts themselves.</p>
+  </section>
+
   <!-- METHODOLOGY -->
-  <section class="method">
+  <section class="method" id="method">
     <h2>Methodology &amp; sources</h2>
     <p>This page presents the Eviction Research Network's state <em>time-to-evict</em> dataset, <strong>rebuilt element-by-element from primary law</strong> — each state's current statutes and court rules — and verified in July 2026. It follows the <strong>nonpayment track</strong>, the modal eviction. It supersedes both the 2019 attorney-survey compilation first visualized by the <em>Las Vegas Review-Journal</em> and the commercial timeline tables that a stage-by-stage audit showed to be unreliable (see Verification below).</p>
     <h3>How the numbers are built</h3>
@@ -266,9 +295,9 @@ footer.site a{color:var(--muted);border-color:var(--rule);}
     <p class="src-list"><strong>Primary sources:</strong> each state's controlling statutes and court rules, cited per stage in Figure III and the downloadable data; pinpoint URLs in the verification memos shipped with the dataset. <strong>Structure discovery (comparison layer):</strong> <a href="https://ipropertymanagement.com/laws/landlord-tenant-rights">iPropertyManagement, Landlord–Tenant Laws</a> (2026). <strong>Lineage:</strong> <a href="https://www.reviewjournal.com/local/local-nevada/despite-changes-nevada-eviction-law-still-favors-landlords-1697301/">Las Vegas Review-Journal</a>, "Nevada eviction law still favors landlords" (2019). <strong>Validation sources:</strong> <a href="https://www.lsc.gov/initiatives/effect-state-local-laws-evictions/lsc-eviction-laws-database">LSC Eviction Laws Database</a> (statutory notice periods, current to Jan 1, 2021); state judicial-branch self-help centers (e.g., <a href="https://guides.sll.texas.gov/landlord-tenant-law/eviction-process">Texas State Law Library</a>, <a href="https://selfhelp.courts.ca.gov/eviction-tenant">California Courts</a>, <a href="https://www.njcourts.gov/self-help/landlord-tenant">New Jersey Courts</a>); controlling statutes via FindLaw; and legal-aid organizations. Note: the <a href="https://evictionlab.org/">Eviction Lab</a> measures eviction <em>filings</em>, not process duration, and is not a timeline source. <strong>Related work:</strong> the only other stage-decomposed 50-state timeline build is the <em>Review-Journal</em>'s 2019 attorney survey (floors only, no D.C.); the LSC/Temple database codes statutory stages categorically as of Jan.&nbsp;1, 2021, and its study closed in 2026; Nolo's 50-state charts cover the notice stage only. No current source publishes stage-decomposed floor-and-ceiling ranges for all 51 jurisdictions.</p>
     <h3>Cite this work</h3>
     <p class="src-list">Download the dataset: <a href="#" id="dl2">ern_time_to_evict_verified_2026-07.csv</a> (or the button above the state table) — per-stage minimums, ceilings, citations, effective dates, and anchoring grades. Before relying on these figures in published research, validate the current timelines against each state's cited statute — and if you find an error or a law change we've missed, email <a href="mailto:evictions@berkeley.edu?Subject=State%20Eviction%20Timeframes%20correction">evictions@berkeley.edu</a> so we can correct the dataset. Suggested citation:</p>
-    <p class="src-list" style="border-left:2px solid var(--rule);padding-left:14px;">Eviction Research Network. (2026). <em>Time to evict: State statutory eviction timelines</em> (verified edition, July 2026) [Data set]. Eviction Research Network, University of California, Berkeley.</p>
+    <p class="src-list" style="border-left:2px solid var(--rule);padding-left:14px;">Thomas, Tim, and the Eviction Research Network. (2026). <em>Time to evict: State statutory eviction timelines</em> (verified edition, July 2026) [Data set]. Eviction Research Network, University of California, Berkeley.</p>
     <pre style="font-size:12px;line-height:1.5;background:var(--tint);padding:14px 16px;border-radius:8px;overflow-x:auto;">@misc{ern_time_to_evict_2026,
-  author = {{Eviction Research Network}},
+  author = {Thomas, Tim and {Eviction Research Network}},
   title  = {Time to Evict: State Statutory Eviction Timelines},
   year   = {2026},
   note   = {Verified edition, July 2026. Stage-level figures rebuilt from
@@ -476,6 +505,30 @@ function dlCSV(){
 }
 document.getElementById('dlbtn').addEventListener('click',dlCSV);
 const dl2=document.getElementById('dl2'); if(dl2) dl2.addEventListener('click',e=>{e.preventDefault();dlCSV();});
+
+// ---- reading progress + Contents scroll-spy ----
+(function(){
+  const bar=document.querySelector('.read-progress');
+  if(bar){const upd=()=>{const d=document.documentElement;const max=d.scrollHeight-innerHeight;
+    bar.style.width=(max>0?Math.min(100,100*scrollY/max):0)+'%';};
+    addEventListener('scroll',upd,{passive:true});upd();}
+  const links=[...document.querySelectorAll('a.toc-spy')];
+  const now=document.querySelector('.toc-now');
+  if(!links.length||!('IntersectionObserver' in window))return;
+  const byId={},order=[];
+  links.forEach(a=>{const id=(a.getAttribute('href')||'').slice(1);const el=document.getElementById(id);
+    if(el){byId[id]=a;order.push(id);}});
+  const vis={};
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>vis[e.target.id]=e.isIntersecting);
+    let act=null;for(const id of order){if(vis[id]){act=id;break;}}
+    links.forEach(a=>a.removeAttribute('aria-current'));
+    if(act){byId[act].setAttribute('aria-current','true');
+      if(now)now.textContent=byId[act].textContent.replace(/^\d+ · /,'');}
+    else if(now)now.textContent='';
+  },{rootMargin:'-80px 0px -60% 0px',threshold:0});
+  order.forEach(id=>io.observe(document.getElementById(id)));
+})();
 </script>
 </body>
 </html>

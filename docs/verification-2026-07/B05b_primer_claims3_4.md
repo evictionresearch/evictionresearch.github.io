@@ -1,0 +1,11 @@
+# Primer fact-check — CLAIMS 3 & 4 (verified 2026-07-14)
+
+## CLAIM 3 — Graetz, Gershenson, Hepburn, Porter, Sandler & Desmond, "A comprehensive demographic profile of the US evicted population," PNAS 120(41) e2305860120 (10/2/2023), doi:10.1073/pnas.2305860120. CONFIRMED. (PNAS correction 120(49) e2319069120 is cosmetic — fixed one reference only.) Text via Europe PMC XML + PMC (pnas.org 403'd).
+(a) CONFIRMED verbatim: "Despite making up only 18.6% of all renters, Black Americans account for 51.1% of those affected by eviction filings and 43.4% of those evicted." Annual average 2007-2016; affected population INCLUDES children + unlisted household adults.
+(b) PARTIAL: "Roughly one in five Black Americans living in a renter household is threatened with eviction annually, while one in ten is evicted" — CONFIRMED verbatim. "1 in 24" appears NOWHERE — it's a correct conversion of the paper's WHITE ADULT FILING RATE 4.2% (evictions 2.5%). Prefer citing 4.2%/2.5%. Do NOT source 1-in-24 to Hepburn 2020 (their "one in 25" = ALL renters).
+(c) CONFIRMED w/ mandatory caveat: "Eviction filing and eviction rates for Hispanic adult renters were comparable to those for White renters." Paper says "Hispanic" (never "Latino"). Carry the paper's own footnote: Hispanic/Asian rates "may be more subject to downward bias from subpopulations without a Social Security Number who are unable to be assigned a PIK."
+
+## CLAIM 4 — Hepburn, Louis & Desmond 2020, "Racial and Gender Disparities among Evicted Americans," Sociological Science 7:649-662, doi:10.15195/v7.a27 (12/16/2020). CONFIRMED (full PDF read: https://sociologicalscience.com/download/vol-7/december/SocSci_v7_649to662.pdf).
+(a) CONFIRMED — and they are FILING rates (annual avg 2012-2016, adult renters, serial-adjusted): Black women 6.4% vs white women 3.4% (men 5.9%/3.3%); EVICTION (judgment) rates: Black 3.5% (women)/3.3% (men) vs white 2.0%/2.0%.
+(b) CONFIRMED: 1,195 counties, 39 states, 3,663 county-years, 37.5% of US renter households.
+Caveats to carry: race/gender Bayesian-imputed from names+geolocation; in-sample counties slightly whiter w/ lower filing rates (79.3% vs 77.1% white; 4.44% vs 5.23%); rates count listed defendants only (understates people affected).

@@ -540,7 +540,11 @@ footer.site {
   line-height: 1;
   margin-top: 2px;
 }
-.v5b-section .action-list h4 {
+/* h3 and h4 both styled: the correct level depends on the enclosing section's
+   heading depth (WCAG 1.3.1 forbids skipping a level), so pages pick whichever
+   keeps their outline contiguous and get identical presentation either way. */
+.v5b-section .action-list h4,
+.v5b-section .action-list h3 {
   font-family: var(--sans);
   font-weight: 700;
   font-size: 15.5px;

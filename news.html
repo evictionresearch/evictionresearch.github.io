@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-header-style="plate">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>News &amp; Press - Eviction Research Network</title>
+  <link rel="canonical" href="https://evictionresearch.net/news.html">
   <meta name="description" content="Recent research, publications, and press from the Eviction Research Network — a UC Berkeley team studying eviction, displacement, and housing precarity.">
   <meta name="keywords" content="eviction research, housing precarity, displacement, UC Berkeley, HUD ERA, research news">
 
@@ -36,12 +37,12 @@
     .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
     /* Skip link + a11y utilities (inlined so they work before main.css loads) */
     .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:var(--heading-color);padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
     .portfolio-filters li{cursor:pointer}
-    .portfolio-filters li[aria-pressed="true"]{background:var(--accent-color);color:#fff}
+    .portfolio-filters li[aria-pressed="true"]{background:var(--accent-deep);color:#fff}
       /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
     .header .logo .logo-dark-bg{display:block}
     .header .logo .logo-light-bg{display:none}
@@ -118,7 +119,7 @@
       position: absolute;
       right: 0;
       bottom: 0;
-      background-color: var(--accent-color);
+      background-color: var(--accent-deep);
       color: var(--contrast-color);
       text-transform: uppercase;
       font-size: 13px;
@@ -143,7 +144,7 @@
     }
 
     .post-item.video-link-card:hover .readmore {
-      color: var(--accent-color);
+      color: var(--accent-deep);
     }
   </style>
 
@@ -187,10 +188,18 @@
           </li>
           <li><a href="news.html" aria-current="page" class="active">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
           <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -215,6 +224,7 @@
         </nav>
         <p class="kicker">Output</p>
         <h1 class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 28ch;">Research <em>&amp; News</em>.</h1>
+        <h2 class="visually-hidden">Publications and news</h2>
       </div>
     </section>
 
@@ -234,6 +244,66 @@
             <!-- Post Item Format -->
 
             <!-- All ERN News listed in this spreadhseet (as of 03/24/2026): https://docs.google.com/spreadsheets/d/1c6pdH-PVephpqMhD48eim6uvSuCkgYsYLGd6_L3fUtw/edit?usp=sharing-->
+
+            <!-- #itemEDRN · Washington joins EDRN (2026-07)
+                 Image is shared with #item "Toward a National Eviction Data Collection Strategy"
+                 (2024_TaNEDCSUNLP.png): the NLP pipeline it depicts is the method being scaled
+                 for Washington, and the alt text says so. Swap if a dedicated EDRN/HFC graphic
+                 becomes available. -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-news recent-blog-posts">
+              <div class="post-item position-relative h-100">
+                <div class="post-content d-flex flex-column">
+                  <h3 class="post-title">Washington Joins the Eviction Data Response Network</h3>
+                </div>
+                <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 18px;">
+                  <img src="images/research&news/2024_TaNEDCSUNLP.png" class="img-fluid" alt="ERN's NLP data-collection pipeline underpinning the Washington statewide eviction-data effort">
+                  <span class="post-date">2026</span>
+                </div>
+                <div class="post-content d-flex flex-column">
+                  <div class="meta d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-person"></i> <span class="ps-2">Eviction Research Network, <br>UW Housing Futures Center</span>
+                    </div>
+                    <span class="px-3 text-black-50">/</span>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-folder2"></i> <span class="ps-2">News</span>
+                    </div>
+                  </div>
+                  <br>
+                  <p>Washington has been selected for New America's Eviction Data Response Network (EDRN) 2026&ndash;2028 cohort. ERN is partnering with the University of Washington's Housing Futures Center to build comprehensive, statewide eviction data capacity across Washington's 39-county court system &mdash; scaling the address-level data collection behind ERN's <em>Cityscape</em> study toward at least 80% of the state's renter population.</p>
+                  <hr>
+                  <a href="https://www.newamerica.org/insights/state-partners-join-eviction-data-response-network/" class="readmore stretched-link" target="_blank" rel="noopener noreferrer" aria-label="Read New America's announcement of the EDRN 2026 state partners"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div><!-- End Post Item -->
+
+            <!-- #item0 · State Eviction Timeframes (2026-07) -->
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reports recent-blog-posts">
+              <div class="post-item position-relative h-100">
+                <div class="post-content d-flex flex-column">
+                  <h3 class="post-title">State Eviction Timeframes: How Fast Each State's Eviction Clock Runs</h3>
+                </div>
+                <div class="post-img white-border position-relative overflow-hidden" style="--img-padding: 18px;">
+                  <img src="images/research&news/2026_SET.png" class="img-fluid" alt="Chart: the fastest lawful eviction runs 5 to 56 days depending on the state">
+                  <span class="post-date">2026</span>
+                </div>
+                <div class="post-content d-flex flex-column">
+                  <div class="meta d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-person"></i> <span class="ps-2">Eviction Research Network</span>
+                    </div>
+                    <span class="px-3 text-black-50">/</span>
+                    <div class="d-flex align-items-center">
+                      <i class="bi bi-folder2"></i> <span class="ps-2">Report</span>
+                    </div>
+                  </div>
+                  <br>
+                  <p>Statutory eviction clocks for all 50 states and D.C., rebuilt element-by-element from each state's current statutes and court rules and verified against primary law. The fastest lawful nonpayment eviction runs 5 to 56 days depending on the state — and 34 jurisdictions set no ceiling at all. Sortable by stage, with per-element citations, effective dates, and a downloadable dataset.</p>
+                  <hr>
+                  <a href="state-eviction-timeframes/" class="readmore stretched-link"><span>Explore the report</span><i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div><!-- End Post Item -->
 
             <!-- #item1 -->
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reports recent-blog-posts">
@@ -376,7 +446,7 @@
             </div><!-- End Post Item -->
 
             <!-- #item5 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-report recent-blog-posts">
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-reports recent-blog-posts">
               <div class="post-item position-relative h-100">
                 <div class="post-content d-flex flex-column">
                   <h3 class="post-title">Rooted In Marin: Strategies for Anti-Displacement</h3>
@@ -436,7 +506,7 @@
                   <br>
                   <p>Film examining the structural causes and possible prevention of housing insecurity and homelessness.</p>
                   <hr>
-                  <a href="https://www.amazon.com/Evicting-American-Dream-David-Barnhart/dp/B0FSKZFKDT" class="readmore" target="_blank" rel="noopener noreferrer"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="https://www.amazon.com/Evicting-American-Dream-David-Barnhart/dp/B0FSKZFKDT" class="readmore" target="_blank" rel="noopener noreferrer" aria-label="Watch the documentary Evicting the American Dream on Amazon"><span>Watch Here</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div><!-- End Post Item -->
@@ -1232,7 +1302,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -1242,7 +1312,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -1256,17 +1326,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -1277,6 +1348,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

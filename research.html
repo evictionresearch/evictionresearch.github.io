@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-header-style="plate">
 
 <head>
   <meta charset="utf-8">
@@ -8,6 +8,8 @@
   <meta name="description" content="Evidence-based eviction-prevention policies for legislators, plus a searchable library of 270+ peer-reviewed publications, reports, and datasets on eviction, displacement, and housing precarity.">
   <meta name="keywords" content="eviction prevention policy, right to counsel, eviction diversion, rental assistance, just cause eviction, eviction record sealing, housing research, displacement, Eviction Research Network">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <link rel="canonical" href="https://evictionresearch.net/research.html">
 
   <!-- Open Graph / social -->
   <meta property="og:title" content="Research & Publications — Eviction Research Network">
@@ -40,14 +42,14 @@
     .research-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0}
     .research-hero .rh-tablinks{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
     .research-hero .rh-tablink{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.12);color:#fff;font-family:var(--heading-font);font-size:14px;text-decoration:none;border-radius:4px;border:1px solid rgba(255,255,255,0.2);transition:all .15s}
-    .research-hero .rh-tablink:hover{background:#F9322B;border-color:#F9322B;color:#fff}
+    .research-hero .rh-tablink:hover{background:#CC2118;border-color:#CC2118;color:#fff}
     /* Skip link + a11y utilities (inlined so they work before main.css loads) */
     .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
-    .type-pill[aria-pressed="true"]{background:var(--accent-color);color:#fff;border-color:var(--accent-color)}
+    .type-pill[aria-pressed="true"]{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
       /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
     .header .logo .logo-dark-bg{display:block}
     .header .logo .logo-light-bg{display:none}
@@ -100,10 +102,18 @@
           </li>
           <li><a href="news.html">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
           <li class="dropdown"><a href="#" class="active" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html" aria-current="page" class="active">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -253,7 +263,7 @@
         <!-- Caveats box -->
         <div class="callout-why" style="margin-top:32px;">
           <strong>Why these seven?</strong>
-          These are policies with direct, quantified evidence of reducing eviction filings, default judgments, or post-filing displacement — not merely improving tenants' legal rights in the abstract. Complementary interventions (rent stabilization, housing-first programs, tenant opportunity-to-purchase acts) also appear in the peer-reviewed literature but have more mixed or indirect evidence on eviction specifically and are covered in the full library below. For a tailored briefing on any of the above, <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request" style="color:#F9322B; font-weight:600;">contact ERN</a>.
+          These are policies with direct, quantified evidence of reducing eviction filings, default judgments, or post-filing displacement — not merely improving tenants' legal rights in the abstract. Complementary interventions (rent stabilization, housing-first programs, tenant opportunity-to-purchase acts) also appear in the peer-reviewed literature but have more mixed or indirect evidence on eviction specifically and are covered in the full library below. For a tailored briefing on any of the above, <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request" style="color:#CC2118; font-weight:600;">contact ERN</a>.
         </div>
       </div>
     </section>
@@ -323,7 +333,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -333,7 +343,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -347,17 +357,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -368,6 +379,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

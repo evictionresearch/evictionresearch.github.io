@@ -14,7 +14,26 @@
       "WebFetch(domain:law.shu.edu)",
       "WebFetch(domain:comptroller.nyc.gov)",
       "WebFetch(domain:thenevadaindependent.com)",
-      "WebFetch(domain:www.huduser.gov)"
+      "WebFetch(domain:www.huduser.gov)",
+      "Bash(git checkout *)",
+      "Bash(python3 -m http.server 4567)",
+      "Bash(echo \"server-pid:$!\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} · %{size_download} bytes\\\\n\" http://localhost:4567/index.html)",
+      "Bash(curl -s http://localhost:4567/index.html)",
+      "Bash(curl -s -o /dev/null -w \"v5b.css HTTP %{http_code}\\\\n\" http://localhost:4567/assets/css/v5b.css)",
+      "Bash(curl -s http://localhost:4567/assets/css/v5b.css)",
+      "Bash(curl -s -o /dev/null -w \"index.html %{http_code} · %{size_download}b\\\\n\" http://localhost:4567/index.html)",
+      "Bash(curl -s -o /dev/null -w \"about.html %{http_code} · %{size_download}b\\\\n\" http://localhost:4567/about.html)",
+      "Bash(curl -s -o /dev/null -w \"methodology.html %{http_code} · %{size_download}b\\\\n\" http://localhost:4567/methodology.html)",
+      "Bash(curl -s -o /dev/null -w \"research.html %{http_code} · %{size_download}b\\\\n\" http://localhost:4567/research.html)",
+      "Bash(curl -s -o /dev/null -w \"news.html %{http_code} · %{size_download}b\\\\n\" http://localhost:4567/news.html)",
+      "Bash(open *)",
+      "Bash(curl -s -o /dev/null -w \"bay_hprm.webp %{http_code}\\\\n\" \"http://localhost:4567/images/bay_hprm.webp\")",
+      "Bash(curl -s -o /dev/null -w \"housekeys&notice.webp %{http_code}\\\\n\" \"http://localhost:4567/images/research&news/housekeys&notice.webp\")",
+      "Bash(curl -s -o /dev/null -w \"seattle_air.webp %{http_code}\\\\n\" \"http://localhost:4567/images/seattle_air.webp\")",
+      "Bash(curl -s -o /dev/null -w \"v5b.css %{http_code}\\\\n\" \"http://localhost:4567/assets/css/v5b.css\")",
+      "Bash(curl -s -o /dev/null -w \"main.css %{http_code}\\\\n\" \"http://localhost:4567/assets/css/main.css\")",
+      "Bash(curl -s http://localhost:4567/methodology.html)"
     ]
   }
 }

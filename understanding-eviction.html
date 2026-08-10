@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en" data-header-style="plate">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>What You Should Know About Eviction — Eviction Research Network</title>
+  <meta name="description" content="A research primer from UC Berkeley's Eviction Research Network: what an eviction record does and doesn't tell you, why people fall behind, who bears the burden, how the eviction clock runs differently in every state, what an eviction costs, and what works to prevent it.">
+  <meta name="keywords" content="eviction, what is eviction, eviction process by state, informal eviction, eviction notice period, racial disparities eviction, right to counsel, rental assistance, eviction consequences, Eviction Research Network, UC Berkeley">
+  <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <link rel="canonical" href="https://evictionresearch.net/understanding-eviction.html">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="What You Should Know About Eviction">
+  <meta property="og:description" content="An eviction record tells you a household almost lost its home. It rarely tells you what happened next. A research primer from UC Berkeley's Eviction Research Network.">
+  <meta property="og:url" content="https://evictionresearch.net/understanding-eviction.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What You Should Know About Eviction">
+  <meta name="twitter:description" content="An eviction record tells you a household almost lost its home. It rarely tells you what happened next.">
+  <meta name="twitter:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+
+  <!-- Article structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What You Should Know About Eviction",
+    "description": "A research primer on the realities of eviction in the United States — measurement, causes, disparities, state-by-state process, consequences, and what works.",
+    "author": { "@type": "Organization", "name": "Eviction Research Network" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Eviction Research Network",
+      "logo": { "@type": "ImageObject", "url": "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" }
+    },
+    "isPartOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of California, Berkeley · Department of Sociology"
+    }
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts — Inter (single canonical ERN family). -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical above-the-fold CSS (inlined so the fixed header + first plate
+       render correctly before main.css / v5b.css load). -->
+  <style>
+    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;scroll-behavior:smooth}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;font-feature-settings:"ss01","cv11"}
+    h1,h2,h3,h4,h5,h6{color:var(--heading-color)}
+    html[data-header-style="plate"] body{padding-top:88px}
+    .header{padding:14px 0;z-index:997;position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,.94);backdrop-filter:saturate(180%) blur(12px);-webkit-backdrop-filter:saturate(180%) blur(12px);color:#19222C;transition:border-color .22s,box-shadow .22s;border-bottom:1px solid transparent}
+    .header .logo img{max-height:44px;width:auto}
+    .header .logo .logo-dark-bg{display:none}
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:var(--heading-color);padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+  </style>
+
+  <!-- Bootstrap + site CSS (sync for stable layout on this content-heavy page) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/v5b.css" rel="stylesheet">
+  <noscript>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  </noscript>
+
+  <!-- ───────────────────────────────────────────────────────────────────
+       Page-specific primitives for the eviction primer.
+       Scoped under .primer so they never leak into other pages. Reuses the
+       v5b tokens (--navy / --accent / --accent-deep / --muted / --tint-solid).
+       Red (#F9322B) is used only for graphic fills, rules, and markers;
+       all readable text uses navy, muted, or the WCAG-safe red #CC2118.
+       ─────────────────────────────────────────────────────────────────── -->
+  <style>
+    .primer { --navy:#19222C; --navy-soft:#223754; --accent:#F9322B; --accent-deep:#CC2118; --muted:#586573; --tint:#e8eef4; --steel:#8BA3BE; --rule:rgba(25,34,44,.14); --rule-fine:rgba(25,34,44,.08); }
+
+    /* Table of contents rail under the hero */
+    .primer .toc-rail { border-top:1px solid var(--rule-fine); border-bottom:1px solid var(--rule-fine); }
+    .primer .toc-rail ol { list-style:none; margin:0; padding:18px 0; display:flex; flex-wrap:wrap; gap:6px 26px; counter-reset:toc; }
+    .primer .toc-rail a { font-size:13px; color:var(--navy-soft); text-decoration:none; border:none; display:inline-flex; gap:8px; align-items:baseline; }
+    .primer .toc-rail a::before { content:counter(toc, upper-roman); counter-increment:toc; font-weight:800; font-size:10px; letter-spacing:.1em; color:var(--accent-deep); }
+    .primer .toc-rail a:hover { color:var(--accent-deep); }
+
+    /* Long-form prose width inside plates */
+    .primer .plate-body { max-width:68ch; }
+    .primer .plate-body p { font-size:16.5px; line-height:1.72; color:var(--navy); margin:0 0 18px; }
+    .primer .plate-body p a { color:var(--accent-deep); text-decoration:underline; text-underline-offset:2px; }
+    .primer .plate-body strong { font-weight:600; }
+
+    /* Figure shell — the ERN red-frame device */
+    .primer figure.plate-figure { margin:34px 0 10px; }
+    .primer .fig-frame { border:1px solid var(--rule-fine); border-top:4px solid var(--accent); border-radius:5px; padding:30px 30px 24px; background:#fff; box-shadow:0 4px 18px rgba(25,34,44,.05); }
+    .primer .fig-frame.wide { padding:30px 24px; }
+    .primer .fig-title { font-size:11px; font-weight:800; letter-spacing:.18em; text-transform:uppercase; color:var(--accent-deep); margin:0 0 4px; }
+    .primer .fig-head { font-size:18px; font-weight:700; line-height:1.34; color:var(--navy); margin:0 0 20px; max-width:46ch; }
+    .primer figcaption { font-size:12.5px; color:var(--muted); margin-top:16px; line-height:1.55; }
+    .primer figcaption strong { color:var(--navy); font-weight:600; }
+    .primer .source-note { font-size:12px; color:var(--muted); line-height:1.5; }
+    .primer .source-note a { color:var(--navy-soft); }
+    .primer svg { width:100%; height:auto; display:block; }
+
+    /* Stat strip — navy numerals, red rule (red reserved for direction/accent) */
+    .primer .stat-row { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:26px; margin:30px 0; }
+    .primer .stat-cell { border-left:3px solid var(--accent); padding:2px 0 2px 16px; }
+    .primer .stat-num { font-size:clamp(30px,4.4vw,40px); font-weight:200; color:var(--navy); line-height:1; letter-spacing:-.02em; }
+    .primer .stat-num em { font-style:normal; font-weight:600; color:var(--accent-deep); }
+    .primer .stat-label { font-size:13px; color:var(--muted); margin-top:9px; line-height:1.5; }
+    .primer .stat-label strong { color:var(--navy); font-weight:600; }
+
+    /* Callout box */
+    .primer .callout { border-left:3px solid var(--accent); background:var(--tint); padding:20px 24px; border-radius:0 5px 5px 0; margin:26px 0; font-size:15.5px; line-height:1.65; color:var(--navy); }
+    .primer .callout .callout-k { display:block; font-size:11px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-deep); margin-bottom:8px; }
+    .primer .callout strong { color:var(--navy); font-weight:600; }
+
+    /* Pull quote (Tim's framing devices) */
+    .primer .pull-quote { font-size:clamp(19px,2.6vw,24px); font-weight:200; line-height:1.42; color:var(--navy); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:26px 0; margin:34px 0; max-width:30ch; letter-spacing:-.01em; }
+    .primer .pull-quote em { font-style:normal; font-weight:600; color:var(--accent-deep); }
+
+    /* Iceberg + thermometer SVGs inherit .primer svg sizing */
+
+    /* The three-data-points funnel (HTML/CSS) */
+    .primer .funnel { margin:8px 0 0; display:flex; flex-direction:column; gap:14px; }
+    .primer .funnel-row { display:grid; grid-template-columns:minmax(0,1fr) minmax(160px,260px); gap:20px; align-items:center; }
+    .primer .funnel-bar { color:#fff; padding:15px 20px; border-radius:4px; font-weight:600; font-size:14.5px; line-height:1.3; }
+    .primer .funnel-bar small { display:block; font-weight:400; font-size:12.5px; opacity:.82; margin-top:3px; }
+    .primer .funnel-meta { font-size:13px; color:var(--muted); line-height:1.5; }
+    .primer .funnel-meta b { color:var(--navy); font-weight:600; }
+    .primer .tag-rec { display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:999px; margin-bottom:6px; }
+    .primer .tag-no { color:#fff; background:var(--accent-deep); }
+    .primer .tag-yes { color:var(--navy); background:var(--tint); border:1px solid var(--rule); }
+    .primer .funnel-exit { display:block; margin-top:7px; font-size:12px; font-weight:600; color:var(--accent-deep); }
+    .primer .funnel-stat { margin:0 0 18px; padding:14px 18px; border-left:3px solid var(--accent); background:var(--tint); border-radius:0 4px 4px 0; font-size:14px; line-height:1.55; color:var(--navy); }
+    .primer .funnel-stat b { font-weight:700; }
+    @media (max-width:680px){ .primer .funnel-row{ grid-template-columns:1fr; gap:8px; } }
+
+    /* Time-to-eviction timeline (Figure 4) — legend reuses .chart-legend */
+    .primer .tl-legend { display:flex; flex-wrap:wrap; gap:8px 22px; font-size:12.5px; color:var(--muted); margin-top:16px; align-items:center; }
+    .primer .tl-legend .lg { display:inline-flex; align-items:center; gap:7px; }
+    .primer .tl-legend .sw { width:13px; height:13px; border-radius:3px; display:inline-block; }
+    .primer .tl-legend .sw-act { background:var(--accent); }
+    .primer .tl-legend .sw-auto { background:var(--navy); }
+
+    /* Four-P ladder */
+    .primer .p-scale { display:flex; align-items:center; justify-content:space-between; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin:6px 2px 14px; }
+    .primer .p-scale span:nth-child(2){ flex:1; height:3px; margin:0 14px; background:linear-gradient(90deg,var(--accent),var(--steel)); border-radius:2px; }
+    .primer .four-p { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    @media (max-width:820px){ .primer .four-p{ grid-template-columns:1fr 1fr; } }
+    @media (max-width:480px){ .primer .four-p{ grid-template-columns:1fr; } }
+    .primer .p-card { border:1px solid var(--rule-fine); border-top:3px solid var(--accent); border-radius:5px; padding:18px 18px 16px; background:#fff; }
+    .primer .p-card .p-letter { font-size:30px; font-weight:200; color:var(--accent-deep); line-height:1; }
+    .primer .p-card h3 { font-size:15px; font-weight:700; color:var(--navy); margin:8px 0 4px; }
+    .primer .p-card .p-tier { font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .primer .p-card ul { margin:0; padding-left:16px; font-size:13px; line-height:1.5; color:var(--navy-soft); }
+    .primer .p-card li { margin-bottom:4px; }
+
+    /* Two-up figure row (Figures 6-7: mortality + thermometer) */
+    .primer .vi-cols { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+    @media (max-width:760px){ .primer .vi-cols{ grid-template-columns:1fr; gap:10px; } }
+
+    /* Two-up compare (ERN difference) */
+    .primer .compare { display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--rule-fine); border-radius:5px; overflow:hidden; margin-top:8px; }
+    @media (max-width:680px){ .primer .compare{ grid-template-columns:1fr; } }
+    .primer .compare > div { padding:24px; }
+    .primer .compare .c-center { background:#fff; border-right:1px solid var(--rule-fine); }
+    .primer .compare .c-network { background:var(--navy); color:#fff; }
+    .primer .compare h3 { font-size:12px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; margin:0 0 14px; }
+    .primer .compare .c-center h3 { color:var(--muted); }
+    .primer .compare .c-network h3 { color:#ff706a; }
+    .primer .compare ul { list-style:none; margin:0; padding:0; }
+    .primer .compare li { font-size:14px; line-height:1.5; padding:9px 0; border-top:1px solid var(--rule-fine); }
+    .primer .compare .c-network li { border-top-color:rgba(255,255,255,.12); }
+    .primer .compare .c-center li { color:var(--navy-soft); }
+    @media (max-width:680px){ .primer .compare .c-center{ border-right:none; border-bottom:1px solid var(--rule-fine); } }
+
+    /* Notice-period state chart legend */
+    .primer .chart-legend { display:flex; flex-wrap:wrap; gap:8px 22px; font-size:12.5px; color:var(--muted); margin-top:18px; align-items:center; }
+    .primer .chart-legend .lg { display:inline-flex; align-items:center; gap:7px; }
+    .primer .chart-legend .dot { width:11px; height:11px; border-radius:50%; background:var(--accent); display:inline-block; }
+    .primer .chart-legend .ring { width:11px; height:11px; border-radius:50%; background:#fff; border:2px solid var(--accent-deep); display:inline-block; }
+
+    /* Sources list */
+    .primer .sources { columns:2; column-gap:48px; font-size:13px; line-height:1.55; color:var(--muted); }
+    @media (max-width:760px){ .primer .sources{ columns:1; } }
+    .primer .sources li { break-inside:avoid; margin-bottom:12px; padding-left:2px; }
+    .primer .sources a { color:var(--navy-soft); }
+    .primer .sources b { color:var(--navy); font-weight:600; }
+  </style>
+</head>
+
+<body class="primer-page primer">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+      </a>
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
+        <ul>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Contents</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a class="toc-spy" href="#measure">I·1 What a record is</a></li>
+              <li><a class="toc-spy" href="#iceberg">I·2 The iceberg</a></li>
+              <li><a class="toc-spy" href="#why">I·3 Why people fall behind</a></li>
+              <li><a class="toc-spy" href="#who">I·4 Who bears the burden</a></li>
+              <li><a class="toc-spy" href="#clock">I·5 The clock, state by state</a></li>
+              <li><a class="toc-spy" href="#cost">I·6 What an eviction costs</a></li>
+              <li><a class="toc-spy" href="#works">I·7 What works</a></li>
+              <li><a class="toc-spy" href="#ern">I·8 How ERN reads this</a></li>
+              <li><a class="toc-spy" href="#ladder">II·1 The ladder, measured</a></li>
+              <li><a class="toc-spy" href="#compare">II·2 Incomparable counts</a></li>
+              <li><a class="toc-spy" href="#noticegap">II·3 The notice gap</a></li>
+              <li><a class="toc-spy" href="#markmove">II·4 The mark &amp; the move</a></li>
+              <li><a class="toc-spy" href="#displacement">II·5 Inside displacement</a></li>
+              <li><a class="toc-spy" href="#datawork">II·6 Who builds the data</a></li>
+              <li><a class="toc-spy" href="#sources">Sources &amp; notes</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html" aria-current="page">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="resources.html">Eviction Help</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
+            </ul>
+          </li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Hero — primer cover
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="v5b-section" style="padding-bottom:48px;">
+      <div class="v5b-page">
+        <p class="kicker">ERN · A Research Primer</p>
+        <h1 class="section-title" style="max-width:20ch;">What you should know about <em>eviction.</em></h1>
+        <p class="lead-paragraph" style="max-width:62ch;">An eviction record marks the moment a household nearly lost one of its most basic protections: a place to live. It rarely tells you what happened next — whether the family stayed or was pushed out, where they went, or what it cost them. This primer assembles what the research does establish: how eviction is measured, why people fall behind, who carries the burden, how the clock runs differently in every state, what an eviction does to the people who live through it, and what is shown to work.</p>
+        <div class="hero-byline" style="margin-top:8px;">
+          <span><strong>Eviction Research Network</strong> · UC&nbsp;Berkeley Sociology</span>
+          <span>Every figure cited and dated below</span>
+          <span>Updated July 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contents rail -->
+    <nav class="toc-rail" aria-label="Sections of this primer">
+      <div class="v5b-page">
+        <ol>
+          <li><a href="#measure">What an eviction record is</a></li>
+          <li><a href="#iceberg">The part that isn't counted</a></li>
+          <li><a href="#why">Why people fall behind</a></li>
+          <li><a href="#who">Who bears the burden</a></li>
+          <li><a href="#clock">The clock, state by state</a></li>
+          <li><a href="#cost">What an eviction costs</a></li>
+          <li><a href="#works">What works</a></li>
+          <li><a href="#ern">How ERN reads this</a></li>
+          <li><a href="#ladder">The ladder, measured</a></li>
+          <li><a href="#compare">Incomparable counts</a></li>
+          <li><a href="#noticegap">The notice gap</a></li>
+          <li><a href="#markmove">The mark &amp; the move</a></li>
+          <li><a href="#displacement">Inside displacement</a></li>
+          <li><a href="#datawork">Who builds the data</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section I — What an eviction record is
+         ═══════════════════════════════════════════════════════════════════ -->
+    <aside role="note" style="max-width:1080px;margin:26px auto 0;padding:18px 22px;border:1px solid rgba(204,33,24,.30);border-left:4px solid #CC2118;border-radius:0 8px 8px 0;background:rgba(249,50,43,.04);font-size:15px;line-height:1.65;">
+      <strong>Read this first.</strong> This page pairs a plain-language primer (Part&nbsp;I) with the research behind it (Part&nbsp;II). Every figure is cited in the <a href="#sources">sources</a>, was checked against its original source in July 2026, and carries its caveats in place. Statutory clocks are legal minimums, not typical cases; court counts are floors, not censuses of displacement. If you use this page for research, validate against the cited originals — and if you find an error, email <a href="mailto:evictions@berkeley.edu?Subject=Understanding%20Eviction%20correction">evictions@berkeley.edu</a>. Research, not legal advice.
+    </aside>
+
+    <section id="measure" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Record</p>
+        <h2 class="plate-claim">An eviction record says a household almost lost its home. <em>It rarely says what happened next.</em></h2>
+        <div class="plate-body">
+          <p>An eviction is, at bottom, the legal removal of a renter from their home. But the word covers a much wider event than the court case that carries its name. The case begins when a renter falls behind: the typical case is filed for nonpayment of rent, and <strong>90% of evicted tenants owe at least a month of rent</strong> when they are removed. What it does <em>not</em> record is the question that matters most for the family: did they manage to stay, or were they displaced?</p>
+          <p>Two households with identical court records can live completely different lives afterward. One negotiates, pays what they can, and keeps the apartment. The other packs up — sometimes before a judge ever rules — and begins the search for somewhere they can afford, near work, near a child's school. The record looks the same. The outcome does not. Eviction data tells you that a household reached the edge of losing a fundamental need. It does not tell you whether they fell.</p>
+          <p>That gap is the first thing to understand about eviction numbers, and it shapes everything that follows. The figures on this page describe a system under enormous strain. They cannot, on their own, describe the life of any one family inside it.</p>
+          <blockquote class="pull-quote">The reason a case is recorded — nonpayment — is almost never the whole reason. <em>It is the charge that stuck.</em></blockquote>
+          <p>A nonpayment filing records the most easily proven fact — money owed — but rarely the full context around it. Behind a single filing can sit a rent increase, a change in management, an unresolved repair request, a dispute, a new child, a disability, a building-code complaint. The court writes down only the dollars.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section II — The iceberg / informal evictions
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="iceberg" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">The Iceberg</p>
+        <h2 class="plate-claim">For every eviction a court records, <em>several more happen off the books.</em></h2>
+        <div class="plate-body">
+          <p>The court filing is the tip of the iceberg. Most forced moves never reach a courtroom at all. Nationally, researchers estimate roughly <strong>5.5 informal, forced moves for every formal court eviction</strong> — landlords who change the locks, refuse to renew, raise the rent past reach, threaten, or simply tell a tenant to leave before any paperwork is filed. An earlier study in Milwaukee put the ratio at about 2 to 1. The true figure varies by place, but the direction is settled: what the courts capture is a fraction of what actually happens.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="fig-frame">
+            <p class="fig-title">Figure 1</p>
+            <p class="fig-head">Court records capture the visible tip. Most forced moves stay below the surface.</p>
+            <svg viewBox="0 0 720 420" role="img" aria-labelledby="ice-t ice-d" preserveAspectRatio="xMidYMid meet">
+              <title id="ice-t">An iceberg diagram of eviction</title>
+              <desc id="ice-d">A small tip above the waterline represents formal court evictions — about 3.6 million cases filed and roughly 1 million eviction judgments each year. A much larger mass below the waterline represents informal and forced moves, estimated at about 5.5 times as many, most of which are never recorded.</desc>
+              <!-- sky -->
+              <rect x="0" y="0" width="720" height="150" fill="#ffffff"/>
+              <!-- water -->
+              <rect x="0" y="150" width="720" height="270" fill="#e8eef4"/>
+              <!-- waterline -->
+              <line x1="0" y1="150" x2="720" y2="150" stroke="#19222C" stroke-width="1.2" stroke-dasharray="2 5"/>
+              <text x="12" y="143" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT COURT RECORDS SEE</text>
+              <text x="708" y="170" text-anchor="end" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT THEY MISS</text>
+              <!-- tip -->
+              <polygon points="360,40 300,150 420,150" fill="#F9322B"/>
+              <!-- submerged mass -->
+              <polygon points="300,150 420,150 470,250 405,360 315,360 250,250" fill="#CC2118" fill-opacity="0.30" stroke="#CC2118" stroke-opacity="0.5" stroke-width="1"/>
+              <!-- tip labels (upper-right, clear of the triangle) -->
+              <line x1="520" y1="84" x2="400" y2="108" stroke="#19222C" stroke-width="1"/>
+              <text x="704" y="66" text-anchor="end" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#19222C">Formal court eviction</text>
+              <text x="704" y="86" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" fill="#586573">~3.6M filings · ≈1M judgments / year</text>
+              <!-- submerged labels -->
+              <text x="360" y="250" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#19222C">Informal &amp; forced moves</text>
+              <text x="360" y="272" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#19222C" fill-opacity="0.78">lockouts · non-renewals · threats · "voluntary" exits</text>
+              <text x="360" y="300" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#CC2118">about 5.5× as many — mostly unrecorded</text>
+            </svg>
+            <figcaption>
+              <strong>The ratio is a range, not a constant.</strong> 5.5 informal moves per formal eviction is the national estimate from the 2017 American Housing Survey; the 2:1 figure is from Milwaukee. Both count <em>forced</em> moves — not voluntary ones.
+              <span class="source-note"><br>Sources: Gromis &amp; Desmond, <em>Cityscape</em> 23(2), 2021 (national, 5.5:1); Desmond &amp; Shollenberger, <em>Demography</em> 52(5), 2015 (Milwaukee, 2:1); national filing/removal counts from Gromis et&nbsp;al., <em>PNAS</em> 2022 and the Eviction Lab.</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="plate-body">
+          <p>There is a second reason the count runs low: an eviction is not a single event but a chain of <strong>data points</strong>, and the public record only begins partway down it. A renter first gets a <strong>notice</strong>; if they don't pay or leave, the landlord files an <strong>unlawful-detainer</strong> case; if the renter doesn't respond or loses, the court enters a <strong>judgment</strong> and issues a <strong>writ</strong>, and a sheriff carries out the lockout. The crucial fact: a renter can move, pay, or settle at <em>any</em> of these points — and most do, well before the end. So each data point captures fewer people than the one above it.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="fig-frame wide">
+            <p class="fig-title">Figure 2</p>
+            <p class="fig-head">The data points of an eviction — what each one is, whether it's counted, and where renters leave.</p>
+            <p class="funnel-stat">In New York City in 2017, owners filed <b>230,071</b> eviction cases — but city marshals carried out <b>20,804</b> lockouts. That is roughly <b>11 filings for every removal</b>: most cases end somewhere in between.</p>
+            <div class="funnel">
+              <div class="funnel-row">
+                <div class="funnel-bar" style="background:#586573;width:100%;">Informal moves &amp; non-renewals
+                  <small>No court case at all — the largest, most invisible exit.</small></div>
+                <div class="funnel-meta"><span class="tag-rec tag-no">Not recorded</span><br>Most displacement happens here, before any paperwork.<span class="funnel-exit">↘ renters move before a record ever starts</span></div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-bar" style="background:#46566a;width:82%;">Notice to pay or quit
+                  <small>The landlord's written demand. Starts the legal clock.</small></div>
+                <div class="funnel-meta"><span class="tag-rec tag-no">Rarely recorded</span><br>Almost no jurisdiction logs notices. Los Angeles (since 2023) and San Francisco run rare public registries; Washington counted notices statewide in a 2021–23 pilot.<span class="funnel-exit">↘ renters pay, negotiate, or move out</span></div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-bar" style="background:#2f4156;width:60%;">Court filing — unlawful detainer
+                  <small>The landlord sues. ~3.6M cases a year. The public record begins.</small></div>
+                <div class="funnel-meta"><span class="tag-rec tag-yes">Recorded</span><br>The data most research relies on — though some states (e.g., California) seal it.<span class="funnel-exit">↘ renters settle, move, or never respond</span></div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-bar" style="background:#223754;width:42%;">Judgment
+                  <small>The court grants the landlord possession — roughly 1M a year in court-record estimates.</small></div>
+                <div class="funnel-meta"><span class="tag-rec tag-yes">Recorded</span><br>Many judgments are never carried out — the renter has already gone.<span class="funnel-exit">↘ renters vacate before a forced removal</span></div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-bar" style="background:#CC2118;width:26%;">Writ &amp; lockout
+                  <small>A sheriff removes the household. No national count exists.</small></div>
+                <div class="funnel-meta"><span class="tag-rec tag-yes">Smallest · last</span><br>The most concrete number — and the smallest. It misses everyone who left earlier.<span class="funnel-exit">▪ the end of the line — most cases never reach it</span></div>
+              </div>
+            </div>
+            <figcaption>
+              Renters move at every stage, so the last, smallest number — sheriff lockouts — is the bottom of a funnel that has already shed people at every step above it. Reading it as "the number of evictions" undercounts displacement many times over.
+              <span class="source-note"><br>Sources: filing/removal counts from Gromis et&nbsp;al., <em>PNAS</em> 2022 and the Eviction&nbsp;Lab; 11:1 filing-to-lockout ratio computed by the NYC&nbsp;Council Data Team from Office of Civil Justice filings and Department of Investigation marshal data (2017); notice-registry and record-sealing detail from ERN field research and state statutes.</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="plate-body">
+          <p>One more dynamic hides cases from view: the same household is often filed against again and again. For many landlords, an eviction filing is a routine rent-collection tool, not a final decision to remove anyone. Most filings never end in a lockout. This is why a single year's filings and a single year's removals describe different things — and why the threat of eviction reaches far more families than the eviction itself.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section III — Why people fall behind
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="why" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Trigger</p>
+        <h2 class="plate-claim">Nine in ten evicted tenants owe back rent. <em>The trigger is usually one bad month.</em></h2>
+        <div class="plate-body">
+          <p>It is tempting to imagine the evicted tenant as careless. The data describes someone else: a working household one shock away from the edge. About <strong>90% of evicted tenants owe at least a month of rent</strong> when they are removed, and the typical amount owed at move-out is around <strong>$1,250 — roughly one and a quarter months' rent</strong>. People are not evicted because they stopped trying. They are evicted because a thin margin gave way.</p>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="stat-num">~<em>90%</em></div>
+            <div class="stat-label">of evicted tenants owe at least one month of back rent at move-out <span style="opacity:.7">(NBER, 2024)</span></div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num">$<em>1,252</em></div>
+            <div class="stat-label">typical back rent owed at move-out — about 1.25 months' rent <span style="opacity:.7">(NBER, 2024)</span></div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-num"><em>37%</em></div>
+            <div class="stat-label">of U.S. adults could not cover a <strong>$400</strong> emergency with cash on hand <span style="opacity:.7">(Federal Reserve, 2024)</span></div>
+          </div>
+        </div>
+
+        <div class="plate-body">
+          <p>That last number is the engine. When more than a third of adults cannot absorb a $400 surprise, the distance between "current on rent" and "in eviction court" is a single car repair, a cut shift, an emergency-room bill. In one ERN study of tenants in eviction, a large share carried recent medical debt. The causes stack: income that swings week to week, a layoff six months earlier, a health crisis. The rent is simply the bill that comes due first and most visibly.</p>
+          <p>And the sums are often smaller than people assume. Many eviction cases are filed over modest amounts — sometimes a fraction of a month's rent — even though missed months can compound the total by the time a household is removed. Sometimes the unpaid rent is itself tied to the condition of the home: mold, a broken furnace, an air-conditioner that can't keep up with a Central Valley summer, a repair left undone. The ledger records none of that. It records the shortfall.</p>
+          <div class="callout">
+            <span class="callout-k">The point</span>
+            Eviction is, first and most reliably, a measure of poverty — of incomes that no longer reach rents. It rises and falls with the gap between what households earn and what housing costs, the gap that decides who has a cushion and who does not.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section IV — Who bears the burden (racial disparity chart)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="who" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">The Burden</p>
+        <h2 class="plate-claim">Black renters are 19% of renters and <em>51% of those threatened with eviction.</em></h2>
+        <div class="plate-body">
+          <p>Eviction does not fall evenly. In the first study to link eviction cases to individual Census records nationwide, Black renters made up <strong>18.6% of all renters but 51.1% of everyone threatened with eviction</strong>, and 43.4% of those actually removed. About <strong>1 in 5 Black renters</strong> is threatened with eviction in a given year, and roughly 1 in 10 is evicted; for white adult renters, the same study puts the annual filing rate at <strong>4.2%</strong> (about 1&nbsp;in&nbsp;24) and the eviction rate at 2.5%.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="fig-frame">
+            <p class="fig-title">Figure 3</p>
+            <p class="fig-head">The same group, two denominators: a share of renters, a majority of those filed against.</p>
+            <svg id="chart-disparity" viewBox="0 0 720 300" role="img" aria-labelledby="disp-t disp-d">
+              <title id="disp-t">Black renters' share of renters versus share of those threatened with eviction</title>
+              <desc id="disp-d">Black renters are 18.6 percent of all renters but 51.1 percent of those threatened with eviction and 43.4 percent of those evicted. Source: Graetz and colleagues, PNAS, 2023.</desc>
+            </svg>
+            <div class="visually-hidden">
+              <table>
+                <caption>Black renters by measure, United States, eviction cases 2007–2016</caption>
+                <tr><th>Measure</th><th>Black share</th></tr>
+                <tr><td>Share of all renters</td><td>18.6%</td></tr>
+                <tr><td>Share of those threatened with eviction (filed against)</td><td>51.1%</td></tr>
+                <tr><td>Share of those evicted (removed)</td><td>43.4%</td></tr>
+              </table>
+            </div>
+            <figcaption>
+              <strong>Read it as a gap.</strong> If eviction fell evenly, all three bars would sit near 19%. The filing and removal bars climb far above the renter share — the disparity is in who the system pulls in.
+              <span class="source-note"><br>Source: Graetz, Gershenson, Hepburn, Porter, Sandler &amp; Desmond, "A comprehensive demographic profile of the US evicted population," <em>PNAS</em> 120(41), 2023 — ~38&nbsp;million cases linked to Census records.</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="plate-body">
+          <p>The disparity sharpens at the intersection of race and gender. In a study of nearly 1,200 counties, Black women faced an eviction-filing rate of <strong>6.4%</strong> — nearly double the 3.4% rate for white women. The sociologist Matthew Desmond's summary has become the standard shorthand: in disadvantaged neighborhoods, <em>eviction is to women what incarceration is to men — incarceration locks men up, while eviction locks women out.</em></p>
+          <p>Two cautions keep the picture honest. First, court records measure only <em>formal</em> eviction. For Latino renters — including many immigrant families — the national filing rate looks close to that of white renters, but court data cannot capture informal moves that never reach a courtroom — and the study itself cautions that rates for Hispanic and Asian renters may be biased downward because households without Social Security numbers cannot be linked to court records. Second, eviction is no longer only an urban story: the suburban share of evictions rose in <strong>59 of 74 large metros</strong> between 2000 and 2016. The map of risk is shifting outward.</p>
+          <blockquote class="pull-quote">Where ERN can see addresses, the pattern holds: <em>filings concentrate in rent-burdened, highly segregated neighborhoods.</em></blockquote>
+          <p>Where states let us geocode cases — Oregon, Minnesota, Indiana and others — the filings cluster in the same places each time: neighborhoods that are historically Black and Latino, carry high rent burden, and remain residentially segregated. Where records are sealed or addresses withheld, we cannot see it directly. But the consistency of the pattern everywhere else is itself evidence of where the burden is most likely landing.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section V — The clock, state by state (time-to-evict chart)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="clock" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Clock</p>
+        <h2 class="plate-claim">From overdue rent to a lockout runs about a week in the fastest state and two months in the slowest. <em>And it's built differently in every one.</em></h2>
+        <div class="plate-body">
+          <p>"Eviction" is not one process — it is four phases that every state assembles in its own way: a <strong>grace</strong> period (in a few states), a <strong>notice</strong> period, a <strong>court</strong> phase from filing to judgment, and a <strong>post-judgment</strong> window from the judgment to the sheriff's lockout. ERN compiled the typical clock for all fifty states and the District of Columbia. End to end it runs from under a week to about two months — but two states with the same total can get there by very different routes.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="fig-frame wide">
+            <p class="fig-title">Figure 4</p>
+            <p class="fig-head">The anatomy of an eviction: four phases, six moments, one shrinking window for the renter to act.</p>
+            <svg viewBox="0 0 1000 432" role="img" aria-labelledby="tl-t tl-d" preserveAspectRatio="xMidYMid meet">
+              <title id="tl-t">The four phases of an eviction, from overdue rent to lockout</title>
+              <desc id="tl-d">A horizontal timeline of an eviction's four phases. A grace period (0 to 15 days, in a few states) and a nonpayment notice period (0 to 14 days) make up the renter's window to pay, cure, or move. Then the court phase from filing to judgment (statutory minimums of 0 to 30 days), and the post-judgment phase from judgment to the sheriff's lockout (0 to 23 days). Key moments along the way: rent due, notice served, landlord files, hearing or answer deadline, judgment, and lockout. The renter can pay, settle, or move at any point, but the window narrows as the case advances.</desc>
+
+              <!-- Headline -->
+              <text x="80" y="32" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" letter-spacing=".14em" fill="#586573">RENT DUE → LOCKED OUT · THE FOUR PHASES</text>
+              <text x="80" y="74" font-family="Inter,sans-serif" font-size="31" font-weight="200" fill="#19222C">About <tspan font-weight="600" fill="#CC2118">5 to 56 days,</tspan> end to end.</text>
+
+              <!-- Event connectors + labels (above the bar) -->
+              <line x1="130" y1="232" x2="130" y2="176" stroke="#19222C" stroke-width=".8"/>
+              <text x="130" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#19222C">Notice served</text>
+              <text x="130" y="151" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">pay · cure · move</text>
+
+              <line x1="380" y1="232" x2="380" y2="140" stroke="#19222C" stroke-width=".8"/>
+              <text x="380" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#19222C">Landlord files</text>
+              <text x="380" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">case opens in court</text>
+
+              <line x1="540" y1="232" x2="540" y2="182" stroke="#19222C" stroke-width=".8"/>
+              <text x="540" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" font-weight="600" fill="#586573">Hearing / answer due</text>
+
+              <line x1="700" y1="232" x2="700" y2="140" stroke="#19222C" stroke-width=".8"/>
+              <text x="700" y="130" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#19222C">Judgment</text>
+              <text x="700" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">order of possession</text>
+
+              <line x1="920" y1="232" x2="920" y2="176" stroke="#19222C" stroke-width=".8"/>
+              <text x="920" y="166" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#CC2118">Lockout</text>
+              <text x="920" y="151" text-anchor="end" font-family="Inter,sans-serif" font-size="11" fill="#586573">sheriff removes; locks change</text>
+
+              <!-- Rent due marker (start) -->
+              <text x="80" y="300" text-anchor="start" font-family="Inter,sans-serif" font-size="11" fill="#586573">Rent due · day 0</text>
+
+              <!-- The four-phase bar -->
+              <rect x="80"  y="234" width="50"  height="44" fill="#8BA3BE"/>
+              <rect x="130" y="234" width="250" height="44" fill="#F9322B"/>
+              <rect x="380" y="234" width="320" height="44" fill="#3a5a7a"/>
+              <rect x="700" y="234" width="220" height="44" fill="#19222C"/>
+              <!-- event dots on the bar's top edge -->
+              <circle cx="130" cy="234" r="5" fill="#19222C"/>
+              <circle cx="380" cy="234" r="5" fill="#19222C"/>
+              <circle cx="540" cy="234" r="4" fill="#ffffff" stroke="#19222C" stroke-width="1.5"/>
+              <circle cx="700" cy="234" r="5" fill="#19222C"/>
+              <circle cx="920" cy="234" r="6" fill="#CC2118"/>
+
+              <!-- Phase labels + data-driven ranges (below the bar) -->
+              <text x="105" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#586573">GRACE</text>
+              <text x="105" y="339" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#586573">0–15d · few states</text>
+
+              <text x="255" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#CC2118">NOTICE</text>
+              <text x="255" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">0–30 days</text>
+
+              <text x="540" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#223754">COURT · filing → judgment</text>
+              <text x="540" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">0–23 days</text>
+
+              <text x="810" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#19222C">POST-JUDGMENT · → lockout</text>
+              <text x="810" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">0–22 days</text>
+
+              <!-- Renter window vs automatic bracket -->
+              <line x1="80" y1="364" x2="496" y2="364" stroke="#CC2118" stroke-width="1.4"/>
+              <line x1="80" y1="360" x2="80" y2="368" stroke="#CC2118" stroke-width="1.4"/>
+              <line x1="496" y1="360" x2="496" y2="368" stroke="#CC2118" stroke-width="1.4"/>
+              <text x="288" y="382" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#CC2118">The renter can pay, cure, or move — and respond in court</text>
+              <line x1="504" y1="364" x2="920" y2="364" stroke="#19222C" stroke-width="1.4"/>
+              <line x1="504" y1="360" x2="504" y2="368" stroke="#19222C" stroke-width="1.4"/>
+              <line x1="920" y1="360" x2="920" y2="368" stroke="#19222C" stroke-width="1.4"/>
+              <text x="712" y="382" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#19222C">After judgment, removal proceeds automatically</text>
+
+              <!-- "move at any point" note -->
+              <text x="500" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#586573"><tspan font-weight="700" fill="#CC2118">↘</tspan> A renter can move, pay, or settle at any point — most leave well before the lockout.</text>
+            </svg>
+            <div class="tl-legend">
+              <span class="lg"><span class="sw" style="background:#8BA3BE"></span> Grace</span>
+              <span class="lg"><span class="sw" style="background:#F9322B"></span> Notice</span>
+              <span class="lg"><span class="sw" style="background:#3a5a7a"></span> Court (filing→judgment)</span>
+              <span class="lg"><span class="sw" style="background:#19222C"></span> Post-judgment (→lockout)</span>
+            </div>
+            <div class="visually-hidden">
+              <table>
+                <caption>The four phases of an eviction and the day-range each spans across U.S. states, from the ERN time-to-evict dataset.</caption>
+                <tr><th>Phase</th><th>From → to</th><th>Range (days)</th><th>Recorded in data?</th></tr>
+                <tr><td>Grace</td><td>Rent due → notice</td><td>0–15 (few states)</td><td>No</td></tr>
+                <tr><td>Notice</td><td>Notice served → filing</td><td>0–14</td><td>Rarely</td></tr>
+                <tr><td>Court</td><td>Filing → judgment</td><td>0–30</td><td>Yes</td></tr>
+                <tr><td>Post-judgment</td><td>Judgment → lockout</td><td>0–23</td><td>Yes</td></tr>
+              </table>
+            </div>
+            <figcaption>
+              <strong>Every eviction runs through the same four phases — but the lengths differ enormously by state.</strong> The renter's clearest window to act is early (grace and notice); during the court phase they can still respond, settle, or move; after judgment, the removal proceeds on its own. The next figure shows how each state assembles these phases.
+              <span class="source-note"><br>Phase ranges are statutory minimums from the ERN <em>verified</em> time-to-evict dataset (rebuilt from each state's statutes and court rules, July 2026), cross-referenced with the LSC × Temple <em>Eviction Laws Database</em>. In 34 of 51 jurisdictions the law sets no upper limit.</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="plate-body">
+          <p>How a state spends those days varies as much as the total. Some front-load the <strong>notice</strong> period; Massachusetts, Oregon, and Vermont have the longest <strong>court</strong> phases; Pennsylvania and D.C. pile most of the days <em>after</em> the judgment, in the wait for the sheriff. The full state-by-state chart — every phase, every citation, every effective date, sortable — lives on its own page:</p>
+          <p style="margin:20px 0;padding:20px 22px;border:1px solid rgba(25,34,44,.14);border-radius:10px;background:rgba(232,238,244,.35);">
+            <strong style="font-size:17px;">→ <a href="state-eviction-timeframes/">State Eviction Timeframes</a></strong><br>
+            The verified statutory clock for all 50 states and D.C.: floors of 5–56 days, ceilings only where the law sets one, per-stage citations and effective dates, and a downloadable dataset. Louisiana and West Virginia can lawfully reach a lockout in about five days; Massachusetts takes about two months.
+          </p>
+        </div>
+
+
+        <div class="plate-body">
+          <p>A renter's odds depend enormously on which of these fifty-one clocks they happen to live under — and on how the days are arranged within it. A long notice period is time to find rent or a lawyer; a long post-judgment window is time to plan a move. The same total can be far more, or far less, survivable depending on where the days fall.</p>
+          <div class="callout">
+            <span class="callout-k">A research-network footnote</span>
+            One caution: these are <strong>typical, statutory clocks</strong> — what the law and common practice allow. What courts actually do, with backlogs, continuances, and re-filings, runs longer and is largely unmeasured. No federal agency publishes national eviction statistics, and the field's leading datasets capture filing and judgment <em>counts</em>, not elapsed <em>time</em> (Gromis et&nbsp;al., <em>PNAS</em> 2022; Thomas et&nbsp;al., <em>Cityscape</em> 2024). Building the instrument to measure the real clock is exactly the gap ERN exists to close.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section VI — What an eviction costs (consequences)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="cost" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">The Cost</p>
+        <h2 class="plate-claim">An eviction filing raises a tenant's risk of death by 19%. <em>A judgment raises it by 40%.</em></h2>
+        <div class="plate-body">
+          <p>The harm of an eviction is not confined to the day of the move. Linking renters from the 2000 Census to 38&nbsp;million eviction court records and administrative death records, researchers found that simply having an eviction <em>filed</em> against you was associated with a <strong>19% higher risk of death</strong> in the following years; having a judgment entered against you, with a <strong>40% higher risk</strong>. Eviction does not just follow hardship — it deepens it.</p>
+        </div>
+
+        <div class="vi-cols">
+          <figure class="plate-figure" style="margin-top:8px;">
+            <div class="fig-frame">
+              <p class="fig-title">Figure 6</p>
+              <p class="fig-head">Mortality risk rises with each step deeper into the process.</p>
+              <svg id="chart-mortality" viewBox="0 0 420 300" role="img" aria-labelledby="mort-t mort-d"></svg>
+              <p class="visually-hidden" id="mort-t">Increase in mortality risk associated with eviction</p>
+              <div class="visually-hidden" id="mort-d">
+                <table>
+                  <caption>Increase in mortality risk relative to comparable renters. Source: Graetz and colleagues, Social Science &amp; Medicine, 2024.</caption>
+                  <tr><th>Stage</th><th>Increase in mortality risk</th></tr>
+                  <tr><td>Eviction filing (no judgment)</td><td>+19%</td></tr>
+                  <tr><td>Eviction judgment</td><td>+40%</td></tr>
+                </table>
+              </div>
+              <figcaption>
+                <span class="source-note">Source: Graetz et&nbsp;al., "The impacts of rent burden and eviction on mortality in the United States, 2000–2019," <em>Social Science &amp; Medicine</em> 340, 2024.</span>
+              </figcaption>
+            </div>
+          </figure>
+
+          <figure class="plate-figure" style="margin-top:8px;">
+            <div class="fig-frame">
+              <p class="fig-title">Figure 7</p>
+              <p class="fig-head">Think of it as a stress thermometer — each stage adds load.</p>
+              <svg viewBox="0 0 420 360" role="img" aria-labelledby="therm-t therm-d">
+                <title id="therm-t">An eviction stress thermometer</title>
+                <desc id="therm-d">A vertical scale showing how stress and disruption accumulate through the eviction process: a notice arrives, a case is filed, a judgment is entered, a lockout is carried out, and the household is forced to move — each stage adding new burdens.</desc>
+                <!-- track -->
+                <rect x="48" y="24" width="14" height="284" rx="7" fill="#e8eef4" stroke="rgba(25,34,44,.14)"/>
+                <!-- fill gradient via stacked rects (red intensifies upward) -->
+                <rect x="48" y="250" width="14" height="58" rx="7" fill="#8BA3BE"/>
+                <rect x="48" y="192" width="14" height="64" fill="#9aa0a8"/>
+                <rect x="48" y="134" width="14" height="62" fill="#d76a55"/>
+                <rect x="48" y="76" width="14" height="62" fill="#F9322B"/>
+                <rect x="48" y="24" width="14" height="58" rx="7" fill="#CC2118"/>
+                <circle cx="55" cy="320" r="20" fill="#CC2118"/>
+                <!-- stage rows -->
+                <g font-family="Inter,sans-serif">
+                  <circle cx="55" cy="279" r="4.5" fill="#586573"/>
+                  <text x="86" y="276" font-size="13.5" font-weight="700" fill="#19222C">Notice arrives</text>
+                  <text x="86" y="293" font-size="12" fill="#586573">Time and attention pulled from work, kids, rest.</text>
+
+                  <circle cx="55" cy="221" r="4.5" fill="#586573"/>
+                  <text x="86" y="218" font-size="13.5" font-weight="700" fill="#19222C">Case filed</text>
+                  <text x="86" y="235" font-size="12" fill="#586573">A public record begins — the "Scarlet&nbsp;E."</text>
+
+                  <circle cx="55" cy="163" r="4.5" fill="#CC2118"/>
+                  <text x="86" y="160" font-size="13.5" font-weight="700" fill="#19222C">Judgment</text>
+                  <text x="86" y="177" font-size="12" fill="#586573">Hearing, possible loss, mounting debt.</text>
+
+                  <circle cx="55" cy="105" r="4.5" fill="#CC2118"/>
+                  <text x="86" y="102" font-size="13.5" font-weight="700" fill="#19222C">Lockout</text>
+                  <text x="86" y="119" font-size="12" fill="#586573">Removal by the sheriff; belongings out.</text>
+
+                  <circle cx="55" cy="47" r="4.5" fill="#CC2118"/>
+                  <text x="86" y="44" font-size="13.5" font-weight="700" fill="#19222C">Forced move</text>
+                  <text x="86" y="61" font-size="12" fill="#586573">New home, new school, lost network — at once.</text>
+                </g>
+              </svg>
+              <figcaption>An eviction can set off three or four major life events at the same time — a move, a school change, a lost job, a severed support network — each compounding the next.</figcaption>
+            </div>
+          </figure>
+        </div>
+
+        <div class="plate-body" style="margin-top:8px;">
+          <p>Beyond health, the record itself becomes a barrier. Tenant-screening companies scrape court files and flag anyone named as a defendant — <strong>even tenants who won their case or had it dismissed</strong>. Roughly one in five eviction records carries ambiguous or misleading outcome information, and these flags can follow a renter for up to seven years. Researchers call it the <em>Scarlet E</em>: a single filing can quietly block the next apartment, long after the dispute is over. California seals eviction records partly to prevent exactly this — but sealing cannot erase the stress already absorbed.</p>
+          <p>The downstream costs ripple outward: eviction is a leading pathway into homelessness; it is associated with job loss; it pushes families into higher-poverty, higher-crime neighborhoods than they would otherwise choose; and the presence of children, rather than protecting a household, is associated with <em>higher</em> odds of an eviction judgment. The move is rarely just a move.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section VII — What works (interventions)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="works" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">What Works</p>
+        <h2 class="plate-claim">Where tenants get a lawyer, most stay housed. <em>Nationally, almost none have one.</em></h2>
+        <div class="plate-body">
+          <p>This is the part the data is most hopeful about: evictions are not weather. They respond to policy, and several interventions have a measurable record. Start with representation. In eviction court, the sides are profoundly unequal — nationally only about <strong>4% of tenants have a lawyer, against 84% of landlords</strong> — the National Coalition for a Civil Right to Counsel's average across roughly forty local studies, absent a right to counsel. The gap shapes outcomes before a word is spoken.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="fig-frame">
+            <p class="fig-title">Figure 8</p>
+            <p class="fig-head">In eviction court, one side almost always has a lawyer. The other almost never does.</p>
+            <svg id="chart-counsel" viewBox="0 0 720 220" role="img" aria-labelledby="cou-t cou-d"></svg>
+            <p class="visually-hidden" id="cou-t">Share of landlords versus tenants with legal representation in eviction cases, nationally</p>
+            <div class="visually-hidden" id="cou-d">
+              <table>
+                <caption>Legal representation in U.S. eviction cases, absent a right to counsel. Source: National Coalition for a Civil Right to Counsel.</caption>
+                <tr><th>Party</th><th>Represented</th></tr>
+                <tr><td>Landlords</td><td>84%</td></tr>
+                <tr><td>Tenants</td><td>4%</td></tr>
+              </table>
+            </div>
+            <figcaption>
+              <strong>Closing that gap changes outcomes.</strong> After New York City became the first U.S. city to guarantee tenants a lawyer (2017), <em>84% of represented tenants stayed in their homes</em> in the program's early years (72–93% by borough since). Washington became the first state to do the same in 2021.
+              <span class="source-note"><br>Sources: National Coalition for a Civil Right to Counsel (representation gap, 2026); NYC Office of Civil Justice via NCCRC (84% remained housed).</span>
+            </figcaption>
+          </div>
+        </figure>
+
+        <div class="plate-body">
+          <p>A lawyer is not magic — it is navigation. Eviction is a civil case, so there is no public defender; a renter facing a seasoned landlord attorney is usually negotiating alone, often without understanding the process. Many never appear at all: across New York State courts, <strong>54% of nonpayment filings went unanswered</strong> by the tenant (2016–mid-2022) — and while a default judgment requires the landlord's request rather than following automatically, defaults account for a full 40% of the eviction warrants the state issues. Representation closes that gap, and where tenants get it, large majorities reach a favorable outcome and most keep their homes.</p>
+          <p>The largest test of the money side is now published. ERN and the Housing Initiative at Penn evaluated the pandemic's $46.55&nbsp;billion Emergency Rental Assistance program for HUD — <em><a href="https://evictionresearch.net/hud-era/">Keeping People in Their Homes</a></em> (2026) — using filing records, Treasury payment data, and household surveys across 16 states. Counties that received more ERA saw fewer filings, especially where unemployment and rent burden ran high, and <strong>fact-based proxy</strong> rules that cut application paperwork amplified the effect. In the case-study cities, Los Angeles delivered nearly $2.4&nbsp;billion to 181,117 households and Philadelphia over $235&nbsp;million to 31,335; assisted tenants had <strong>53% lower odds of moving</strong> (Los Angeles) and about <strong>65% lower odds of street homelessness</strong>. One finding reaches beneath the court data entirely: assisted households had <strong>45% lower odds of a forced move with no court process</strong> — rental assistance suppresses the informal evictions of Figure&nbsp;1, not just the filings. Across the study counties, filings from March 2020 to early 2022 ran about 45% below pre-pandemic forecasts — roughly 673,000 fewer — the combined force of moratoriums, state protections, and ERA together.</p>
+          <p>But a lawyer alone leaves the underlying problem — the unpaid rent — in place. The most effective combination pairs counsel with <strong>money</strong>. In Phase 2 of Philadelphia's pre-filing diversion program, just <strong>4.2%</strong> of cases that reached a mediated agreement and received rental assistance went on to face an eviction filing within six months, against 42.2% without assistance — though over 21 months the assisted rate rises to 33.3%, a sign assistance sometimes delays rather than fully prevents. Prevention beats litigation: the gold standard is stopping an eviction before it is ever filed.</p>
+          <p>ERN organizes the evidence as <strong>four P's</strong>, ordered from fastest-acting to slowest:</p>
+        </div>
+
+        <div class="p-scale" aria-hidden="true"><span>Acts fastest</span><span></span><span>Acts slowest</span></div>
+        <div class="four-p">
+          <div class="p-card">
+            <div class="p-letter">P</div>
+            <h3>Prevent</h3>
+            <div class="p-tier">Tier 1 · most immediate</div>
+            <ul>
+              <li>Emergency rental assistance</li>
+              <li>Pre-filing mediation / diversion</li>
+              <li>Right to cure (pay and stay)</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <div class="p-letter">P</div>
+            <h3>Protect</h3>
+            <div class="p-tier">Tier 1–2</div>
+            <ul>
+              <li>Right to counsel</li>
+              <li>Just-cause eviction rules</li>
+              <li>Source-of-income &amp; record-sealing protections</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <div class="p-letter">P</div>
+            <h3>Preserve</h3>
+            <div class="p-tier">Tier 2–3 · slower</div>
+            <ul>
+              <li>Keep existing affordable units affordable</li>
+              <li>Anti-displacement zoning</li>
+              <li>Acquisition of at-risk housing</li>
+            </ul>
+          </div>
+          <div class="p-card">
+            <div class="p-letter">P</div>
+            <h3>Produce</h3>
+            <div class="p-tier">Tier 3 · longest horizon</div>
+            <ul>
+              <li>Build new affordable housing</li>
+              <li>Expand subsidized supply</li>
+              <li>Sustained public investment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout" style="margin-top:34px;">
+          <span class="callout-k">What we know</span>
+          <strong>What works is no longer the open question.</strong> A decade of evaluations points the same way — legal representation, rental assistance, diversion, and fair-screening rules all show measurable results, and several return far more than they cost: a 2018 Stout analysis for Philadelphia projected roughly <strong>$12.74 returned for every $1</strong> spent on tenant counsel. The unsettled question is implementation — whether a given state or city is <em>willing and able</em> to adopt and fund them. A statewide right to counsel, for instance, is proven; as of 2026 it exists in roughly five states and about two dozen cities. The evidence is not the constraint. Capacity, cost, and political will are.
+        </div>
+        <p class="source-note" style="margin-top:16px;">The strongest single combination on the evidence is a <em>Prevent</em> tool (rental assistance) paired with a <em>Protect</em> tool (right to counsel). While pandemic protections were in force, filings across the 6 states and 31 cities the Eviction Lab tracked fell to less than half of normal — 65% below average from March 15 to December 31, 2020 — bolstered by the $46.5&nbsp;billion in emergency rental assistance Congress appropriated; when that one-time money lapsed, filings climbed back toward, and in some places past, pre-pandemic levels. Sources: Reinvestment Fund (Philadelphia diversion, 2023); Eviction Lab (COVID-era policy, 2023; 2024 filing patterns); Stout (right-to-counsel cost-benefit, 2018); NCCRC (jurisdiction counts, 2026); U.S. Treasury / GAO (ERA). The four-P framing is ERN's; see our <a href="research.html">policy brief</a> for the full evidence base.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Section VIII — How ERN reads this differently
+         ═══════════════════════════════════════════════════════════════════ -->
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         PART II — The research treatment (added July 2026; every figure
+         verified against its original source; see #sources)
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="part2" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">Part II · The Research</p>
+        <h2 class="plate-claim">The primer above is what we know. <em>This is how we know it — and where the data breaks.</em></h2>
+        <div class="plate-body">
+          <p>Part I describes the eviction system in plain terms. Part II is for readers who work with the numbers: how households actually move through — and off — the legal ladder, why counts cannot be compared across states, what the record marks and what it misses, how eviction sits inside displacement at large, and who is building the data infrastructure to fix all of it. Every claim carries its citation in the <a href="#sources">sources</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ladder" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Ladder, Measured</p>
+        <h2 class="plate-claim">Two-thirds of Chicago filings end in an eviction order. <em>Barely a quarter of those orders end with a sheriff at the door.</em></h2>
+        <div class="plate-body">
+          <p>The funnel in Figure&nbsp;2 is not hypothetical. Where researchers have linked court records to what actually happened, the attrition is dramatic: in Cook County, about <strong>65% of eviction cases end with an eviction order, and the Sheriff's Office executes about 26% of those orders</strong> — roughly 17 filings in 100 end with a forced removal. In New York City, about 35% of nonpayment cases end in an order and 31% of orders are enforced by a marshal — roughly 11 in 100, with around 64% of non-order cases ending in settlement (Collinson et&nbsp;al., <em>Quarterly Journal of Economics</em>, 2024). Baltimore is the extreme: a rent court processing roughly 150,000 complaints a year produced about 6,500–6,900 completed evictions — <strong>under 5% of filings</strong> (<em>Justice Diverted</em>, 2015).</p>
+          <p>The harm does not wait for the sheriff. The same linked-records research finds an eviction <em>order</em> raises the probability of emergency-shelter use by 3.4 percentage points and of appearing at a new address by 8.2 points within a year, with effects concentrated among Black and female tenants — and long-run damage to credit and debt that outlasts the case.</p>
+          <blockquote class="pull-quote">A filing is a threat recorded; a judgment is a loss recorded; a lockout is a removal recorded. <em>Three different measures of three different things.</em></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="compare" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">Incomparable Counts</p>
+        <h2 class="plate-claim">Baltimore City logged 144,058 filings the same year King County logged 4,788. <em>Baltimore did not have thirty times the eviction problem.</em></h2>
+        <div class="plate-body">
+          <p>In fiscal 2017, Maryland's courts recorded <strong>144,058</strong> landlord–tenant filings in Baltimore City (Maryland Judiciary). In calendar 2017, all of King County, Washington — Seattle included, with a far larger population — recorded <strong>4,788</strong> unlawful detainers (<em>Losing Home</em>, 2018). The 30× gap is not a gap in hardship; it is a gap in <em>process</em>. For decades Maryland required no notice before filing, charged $15 to file, and set trial for the fifth day — the court filing <em>was</em> the late-rent notice, refiled monthly as routine rent collection, a practice landlords themselves describe as working "by redefining renters as debtors" (Garboden &amp; Rosen, 2019). Nationally, <strong>44.6% of filings in 2014 were serial refilings</strong> against the same household; in Maryland, 57.4% (Leung, Hepburn &amp; Desmond, 2021; Gromis et&nbsp;al., 2022). Maryland added a 10-day pre-filing notice in October 2021, and statewide filings fell by more than half.</p>
+          <p>This is why the <a href="state-eviction-timeframes/">state timeframes table</a> is the decoder ring for any eviction count: <strong>where the count is taken in each state's process determines what the count means</strong>. A "filing" in pre-2021 Baltimore is roughly what a pay-or-quit notice is in Seattle — and notices are exactly what most states never record.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="noticegap" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Notice Gap</p>
+        <h2 class="plate-claim">Where notices are actually counted, they outrun filings <em>at least two to one.</em></h2>
+        <div class="plate-body">
+          <p>Only a handful of places count eviction notices at all. Los Angeles has required landlords to file every notice with the city since February 2023: <strong>290,560 notices in its first three years and two months</strong> — roughly double the county's unlawful-detainer filings over the same window, and a hard floor, since the notices cover only the city while the filings cover the county (LA Controller; Judicial Council of California). Washington ran the only statewide notice census to date, a 2021–23 pilot that logged <strong>158,251 pay-or-vacate notices — more than 7,000 a month</strong> in a state that filed 15,000–20,000 eviction cases a year before the pandemic; the courts' own report called the volume "significantly higher... than anyone understood." San Francisco is the caution: its registry <em>excludes</em> nonpayment notices, so filings there exceed registered notices — registry design decides what you see.</p>
+          <p>Set against Figure&nbsp;1's estimate of 5.5 informal forced moves per formal eviction, the arithmetic compounds: filings sit midway down a ladder most displacement never touches. They are also not harmless paperwork. A one-point rise in a county's filing rate predicts a measurable rise in sheltered homelessness the following year — an association that holds for <em>filings</em> even where judgments show none (Treglia, Byrne &amp; Rai, 2023).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="markmove" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">The Mark &amp; the Move</p>
+        <h2 class="plate-claim">The record marks people the courts never evicted. <em>And the people it displaces, the data can barely follow.</em></h2>
+        <div class="plate-body">
+          <p><strong>The mark.</strong> Screening reports "recite any eviction action filed, regardless of whether it is still pending or who prevailed" (Kleysteuber, <em>Yale Law Journal</em>, 2007), and roughly 22% of eviction records carry ambiguous or false outcome information (Porton, Gromis &amp; Desmond, 2021). Nine in ten landlords screen through an industry that grew from $1&nbsp;billion to <strong>$4.5&nbsp;billion</strong> between 2020 and 2024; the filing attaches its "Scarlet&nbsp;E" even when the case was dismissed (Benfer, 2025). The disparity data makes the mark's reach visible: Black renters face a 6.2% filing rate against a 3.4% judgment rate — the space between those numbers is a population marked by screens without ever being evicted by a court. Twenty states and D.C. have passed record-sealing laws in response.</p>
+          <p><strong>The move.</strong> Court records end at the courtroom door: they "do not capture whether a tenant ultimately vacated the property" (Gromis et&nbsp;al., 2022). Following families afterward means linking records to address histories — and the best tools systematically miss the people most affected. Consumer-reference data can track moves nationwide (Phillips, 2020), but in King County it captures roughly 760,000 adults of the 2.2&nbsp;million the Census sees, codes over 97% of households as white, and finds renters at 15% in a county that is 39% renter (Ramiller et&nbsp;al., 2024). Doubling up and homelessness — the destinations that matter most — are largely invisible to every address-based method. Qualitative work fills part of the gap: displaced families move reactively, fast, into whatever will take them (DeLuca &amp; Rosen, 2022). ERN's current panel work links filings to consumer address histories to map post-eviction destinations, with those biases stated rather than smoothed.</p>
+          <p><strong>The health frontier.</strong> The newest work follows the harm itself. An NIH-funded team led by Daphne Hernandez (UTHealth Houston), with ERN as co-investigator, is comparing tenant health under strong versus weak local eviction moratoria (<em>HOPE-M</em>) and studying "invisible evictions" — tenants never evicted but pressured out by their landlords. Its first published study, surveying 1,085 tenants in Harris and Travis Counties drawn from court filings <em>and</em> at-risk households with no filing, finds that homelessness, economic hardship, and substandard housing each predict elevated risk of intimate-partner violence (Zapata et&nbsp;al., 2025). In King County, ERN-affiliated work finds unhoused adults with a prior eviction fare measurably worse on general health and substance-use disorder than unhoused adults without one (Kahveci et&nbsp;al., 2026).</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="displacement" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">Inside Displacement</p>
+        <h2 class="plate-claim">Eviction is one instrument of displacement. <em>Neighborhood change plays the others.</em></h2>
+        <div class="plate-body">
+          <p>ERN distinguishes <strong>hard displacement</strong> — a formal, involuntary event, proxied by eviction filings — from <strong>soft displacement</strong>: the market pressure of rising rents and neighborhood change that pushes low-income households out with no legal event at all. The two substitute for each other. Where tenant protections are strong, formal filings are suppressed while displacement reroutes through non-renewals, buyouts, and owner move-ins — San Francisco's pattern. Where protections are minimal and market pressure low, eviction operates as the primary displacement mechanism — the pattern across much of the South.</p>
+          <p>This is the problem the <a href="https://evictionresearch.net/hprm/">Housing Precarity Risk Model</a> exists to solve. Its eviction sub-model (<strong>EER</strong>) measures a neighborhood's filing rate <em>relative to its own state's average</em> and models it nationally — the standardization raw counts cannot give — while its displacement sub-model (<strong>EDR</strong>) estimates the net out-migration of low-income renters that filings never see. One model result belongs on this page: among the EER's 184 predictors, <strong>two time-to-evict variables — the notice period and the post-judgment window — rank in the top five</strong>. The speed of a state's legal process shapes its filing rate independent of its housing market: fast, cheap process invites filing; slow process deters it. The clock in Part&nbsp;I is not just a tenant's survival window — it is a cause of the counts themselves.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="datawork" class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">Who Builds the Data</p>
+        <h2 class="plate-claim">No federal agency counts evictions. <em>A network of researchers, courts, and advocates is building the count themselves.</em></h2>
+        <div class="plate-body">
+          <p>Everything above depends on data nobody is required to collect. ERN's contribution is a method: a pipeline that mines scanned court records with natural-language processing, geocodes them, and estimates the demographics the records omit — built in Washington, documented for any jurisdiction, and offered as the backbone of a national collection strategy (<a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf">Thomas, Ramiller, Ren &amp; Toomet, <em>Cityscape</em>, 2024</a>): "continuing the practice of collecting structured data where available and then gathering court records for text mining in regions with lesser-known trends... a comprehensive database now seems like a realistic goal."</p>
+          <p>The field is bigger than any one team — and the breadth is the point. As of July 2026, all of these are live:</p>
+          <p><strong>National infrastructure.</strong> The Legal Services Corporation's <a href="https://civilcourtdata.lsc.gov/">Civil Court Data Initiative</a> tracks eviction filings across 1,250 counties in 30 states, updated continuously. New America's <a href="https://www.newamerica.org/projects/eviction-data-response-network/">Eviction Data Response Network</a> (launched October 2024) funds and coordinates state data systems — its 2026–28 cohort spans eleven states and 26&nbsp;million renters: Colorado, Delaware, Georgia, Indiana, Maryland, New Jersey, New Mexico, New York, Oklahoma, Pennsylvania, and Washington. Princeton's Eviction Lab publishes national filing counts and city-level tracking. Stanford's Legal Design Lab maintains <a href="https://evictioninnovation.org/landscape/data/">a catalog of the whole landscape</a>.</p>
+          <p><strong>Statewide.</strong> Portland State University's <a href="https://evictedinoregon.com/">Evicted in Oregon</a> (led by Lisa Bates): filings, notice causes, representation, and outcomes for the whole state. The <a href="https://rvaevictionlab.org/">RVA Eviction Lab</a> at VCU for Virginia. The <a href="https://housingalliancepa.org/interactive-web-report-update-2025/">Housing Alliance of Pennsylvania</a> (115,619 filings statewide in 2024). The Massachusetts Housing Partnership's <a href="https://prod.mhp.net/news/2026/housing-stability-monitor">Housing Stability Monitor</a>. <a href="https://www.ctdata.org/evictions-report-2024">CTData</a> with the Connecticut Fair Housing Center. <a href="https://homelinemn.org/">HOME Line</a>'s monthly Minnesota updates. <a href="https://openjustice.okpolicy.org/">Open Justice Oklahoma</a>.</p>
+          <p><strong>Metro and local.</strong> The Atlanta Regional Commission's <a href="https://atlregional.github.io/eviction-tracker/">eviction tracker</a> (with Georgia Tech, the Atlanta Fed, and Neighborhood Nexus) and Georgia Tech's Southeastern Evictions Data Collective. <a href="https://www.januaryadvisors.com/evictions/">January Advisors</a>' daily Harris County dashboard. The <a href="https://www.righttocounselnyc.org/evictioncrisismonitor">Right to Counsel NYC Coalition's crisis monitors</a> (with JustFix and the OCA Data Collective). The <a href="https://antievictionmap.com/">Anti-Eviction Mapping Project</a>. Case Western's weekly Cleveland scrape, Milwaukee's parcel-level tracker, Michigan's Poverty Solutions study, Chicago's Law Center for Better Housing archive, and Georgetown's Civil Justice Data Commons for secure researcher access.</p>
+          <p>Each exists because the official count didn't. Together they are the closest thing the country has to eviction statistics — and the reason a national strategy, stitched from structured data where it exists and text-mined records where it doesn't, is now realistic rather than utopian.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="ern" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">The Difference</p>
+        <h2 class="plate-claim">We don't just count evictions. <em>We build the instrument that measures where they fall.</em></h2>
+        <div class="plate-body">
+          <p>Most of what you have just read rests on data that does not collect itself. Eviction records arrive as a mess — sealed in one state, address-free in another, sitting as scanned images in a third. The Eviction Research Network exists to turn that mess into something a researcher, an agency, or an advocate can actually use, and to do it the same way in every state so the numbers can be compared.</p>
+        </div>
+
+        <figure class="plate-figure">
+          <div class="compare">
+            <div class="c-center">
+              <h3>A research center</h3>
+              <ul>
+                <li>One institution, one editorial voice</li>
+                <li>Publishes <em>for</em> a public audience</li>
+                <li>Leads with a headline number</li>
+                <li>Flagship product: a dataset</li>
+              </ul>
+            </div>
+            <div class="c-network">
+              <h3>ERN — a research network</h3>
+              <ul>
+                <li>A confederation of researchers, agencies &amp; legal partners</li>
+                <li>Publishes <em>with</em> the people doing the work</li>
+                <li>Leads with a method you can reproduce</li>
+                <li>Flagship products: the pipeline, the risk model, the network</li>
+              </ul>
+            </div>
+          </div>
+          <figcaption>ERN is housed in UC&nbsp;Berkeley's Department of Sociology; its applied arm, <a href="https://cidrlab.org" target="_blank" rel="noopener noreferrer">CiDR&nbsp;Lab</a>, delivers the same methods under contract to governments, courts, and nonprofits.</figcaption>
+        </figure>
+
+        <div class="plate-body">
+          <p>Three things make ERN's reading of eviction different in practice:</p>
+        </div>
+        <ol class="action-list">
+          <li>
+            <span class="action-num">1</span>
+            <div>
+              <h3>We measure where the record runs out</h3>
+              <p>The Housing Precarity Risk Model forecasts eviction and displacement risk down to the neighborhood — including places with no usable court data at all. Where records are sparse, the model fills them in; where they are dense, it ranks severity.</p>
+              <a href="https://evictionresearch.net/hprm/" class="readmore" target="_blank" rel="noopener noreferrer">Explore the HPRM →</a>
+            </div>
+          </li>
+          <li>
+            <span class="action-num">2</span>
+            <div>
+              <h3>One method, every state</h3>
+              <p>Court records → census tract → demographic estimate, by Bayesian inference on surname and neighborhood. Race is never assigned to a person, only estimated as a group rate. The same pipeline runs in every state, so a profile in Oregon is comparable to one in Maryland.</p>
+              <a href="methodology.html" class="readmore">Read the methodology →</a>
+            </div>
+          </li>
+          <li>
+            <span class="action-num">3</span>
+            <div>
+              <h3>Displacement, not just eviction</h3>
+              <p>Eviction is the entry point; the real subject is where housing, health, criminal-justice contact, and climate exposure intersect. We study the whole displacement system, and we publish the code and citations so the work can be checked and reused.</p>
+              <a href="research.html" class="readmore">See the research →</a>
+            </div>
+          </li>
+        </ol>
+
+        <blockquote class="pull-quote" style="max-width:42ch;">The goal of all of it is the same: <em>build things about eviction that can't be unseen — and that hold up when someone checks the math.</em></blockquote>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Close — what can be done / get help
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section class="v5b-section tinted">
+      <div class="v5b-page">
+        <p class="plate-num">If this is happening to you — or your community</p>
+        <h2 class="plate-claim">Find help. Cite the data. <em>Bring the method to your jurisdiction.</em></h2>
+        <ol class="action-list">
+          <li>
+            <span class="action-num">1</span>
+            <div>
+              <h3>If you're facing eviction</h3>
+              <p>Time matters — the clock above is real. Find tenant-help and legal-aid resources, and look up whether your area has a right to counsel.</p>
+              <a href="resources.html" class="readmore">Eviction help by state →</a>
+            </div>
+          </li>
+          <li>
+            <span class="action-num">2</span>
+            <div>
+              <h3>If you're a reporter or researcher</h3>
+              <p>Every figure on this page is sourced below. State profiles, methods, and code are open and citable.</p>
+              <a href="#sources" class="readmore">Jump to sources →</a>
+            </div>
+          </li>
+          <li>
+            <span class="action-num">3</span>
+            <div>
+              <h3>If you're an agency or legal partner</h3>
+              <p>We build pipelines for jurisdictions that don't have one — court records to research-ready data.</p>
+              <a href="mailto:evictions@berkeley.edu?Subject=Start%20a%20state%20profile" class="readmore">Start a profile →</a>
+            </div>
+          </li>
+          <li>
+            <span class="action-num">4</span>
+            <div>
+              <h3>If you hold court records</h3>
+              <p>Help close the coverage gaps this primer describes. ERN ingests messy formats and credits every source.</p>
+              <a href="mailto:evictions@berkeley.edu?Subject=Contribute%20court%20data" class="readmore">Contribute data →</a>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         Sources
+         ═══════════════════════════════════════════════════════════════════ -->
+    <section id="sources" class="v5b-section">
+      <div class="v5b-page">
+        <p class="plate-num">Sources &amp; notes</p>
+        <h2 class="plate-claim">Every number above, <em>where it comes from.</em></h2>
+        <p class="plate-desc">Figures are drawn from peer-reviewed research, federal data, and ERN's own analyses. Where a statistic carries an important caveat — a single jurisdiction, a method limit, a contested estimate — we note it rather than smooth it over.</p>
+        <ul class="sources" style="list-style:none;padding:0;margin-top:24px;">
+          <li><b>Informal vs. formal eviction (5.5:1; 2:1).</b> Gromis &amp; Desmond, "Estimating the Prevalence of Eviction in the United States," <em>Cityscape</em> 23(2), 2021; Desmond &amp; Shollenberger, <em>Demography</em> 52(5), 2015 (Milwaukee).</li>
+          <li><b>National filings (~3.6M cases) &amp; ~7% filing rate.</b> Gromis, Fellows, Hendrickson, et&nbsp;al., "Estimating eviction prevalence across the United States," <em>PNAS</em> 119(21), 2022 (3.6M cases / 2.7M households a year); removals (~1M/yr) from the Eviction Lab, <em>National Estimates</em> (2000–2016, an undercount).</li>
+          <li><b>The filing-to-lockout funnel (≈11:1).</b> NYC Council Data Team pairing of NYC Office of Civil Justice filings (230,071; OCJ Annual Reports 2017–18) with Department of Investigation marshal data (20,804 residential executions, NYC Open Data; the City's own OCJ figure is 21,074); serial filings 44.6% of 2014 cases (Leung, Hepburn &amp; Desmond, <em>Social Forces</em> 100(1), 2021).</li>
+          <li><b>Ladder attrition (Cook County 65%→26%; NYC 35%→31%; settlements; shelter +3.4pp; new address +8.2pp).</b> Collinson, Humphries, Mader, Reed, Tannenbaum &amp; van Dijk, "Eviction and Poverty in American Cities," <em>QJE</em> 139(1), 2024 (Census WP CES-23-37).</li>
+          <li><b>Baltimore vs King County (144,058 vs 4,788, 2017).</b> Maryland Judiciary FY2017 Statistical Abstract, Table DC-2; Seattle Women's Commission &amp; KCBA Housing Justice Project, <em>Losing Home</em>, 2018, p.&nbsp;15; process mechanics from <em>Justice Diverted</em> (Public Justice Center, 2015) and Gromis et&nbsp;al., <em>PNAS</em> 2022 ("no prior notice is required"; 57.4% serial in Maryland); Md. HB&nbsp;18 (Ch.&nbsp;746, 2021), eff. Oct.&nbsp;1, 2021.</li>
+          <li><b>Serial filing as rent collection.</b> Garboden &amp; Rosen, "Serial Filing: How Landlords Use the Threat of Eviction," <em>City &amp; Community</em> 18(2), 2019.</li>
+          <li><b>Notice registries (LA 290,560; WA pilot 158,251; SF exclusion).</b> LA City Controller eviction-notices dashboard (Feb 2023–Apr 2026); Judicial Council of California Court Statistics Reports (LA County UD filings); Washington E2SSB 5160 §7(4) pilot — Resolution Washington summary and AOC legislative report; SF Rent Board annual eviction reports and SF BLA (2014).</li>
+          <li><b>Filings predict homelessness.</b> Treglia, Byrne &amp; Rai, "Quantifying the Impact of Evictions and Eviction Filings on Homelessness Rates," <em>Housing Policy Debate</em>, 2023.</li>
+          <li><b>Record inaccuracies (22%).</b> Porton, Gromis &amp; Desmond, "Inaccuracies in Eviction Records," <em>Housing Policy Debate</em> 31(3–5), 2021. <b>Screening industry ($4.5B; sealing counts).</b> Benfer, "Dismantling the 'Scarlet E,'" 86 <em>Ohio St. L.J.</em> 1081 (2025). <b>Filing-vs-judgment gap (6.2%/3.4%).</b> Hepburn, Louis &amp; Desmond, <em>Sociological Science</em> 7, 2020.</li>
+          <li><b>Tracking the move.</b> Phillips, "Measuring Housing Stability With Consumer Reference Data," <em>Demography</em> 57(4), 2020; Ramiller, Song, Parker &amp; Chapple, "Residential Mobility and Big Data," <em>Cityscape</em> 26(3), 2024 (King County coverage/bias figures); DeLuca &amp; Rosen, <em>Annual Review of Sociology</em> 48, 2022.</li>
+          <li><b>Health frontier.</b> Hernandez (PI), HOPE-M (NINR) and "Invisible Evictions" supplement, UTHealth Houston; Zapata et&nbsp;al., "Domains of Housing Instability and Intimate Partner Violence Risk Among U.S. Tenants," <em>IJERPH</em> 22(8), 2025; Kahveci et&nbsp;al., arXiv:2604.15504, 2026.</li>
+          <li><b>ERA at scale.</b> Kim, Nelson, Reina, Yae, Thomas, Zapatka, Deshpande, Moore &amp; Reid, <em>Keeping People in Their Homes: The Impact of Emergency Rental Assistance on Evictions</em>, HUD, 2026 (LA/Philadelphia figures; fact-based proxy; 53%/65%/45% odds reductions; combined-forces filing gap ≈673,000). U.S. Treasury (ERA1 $25B + ERA2 $21.55B).</li>
+          <li><b>Data-collection landscape.</b> LSC Civil Court Data Initiative; New America Eviction Data Response Network (launch Oct.&nbsp;9, 2024; 2026–28 cohort announced June&nbsp;1, 2026); Evicted in Oregon (PSU); RVA Eviction Lab (VCU); and the efforts linked in Part&nbsp;II — inventory verified July&nbsp;14, 2026; Stanford Legal Design Lab's Eviction Innovation catalog.</li>
+          <li><b>National strategy.</b> Thomas, Ramiller, Ren &amp; Toomet, "Toward a National Eviction Data Collection Strategy Using Natural Language Processing," <em>Cityscape</em> 26(1): 241–259, 2024.</li>
+          <li><b>Nonpayment &amp; amount owed ($1,252; ~90% owe ≥1 month).</b> Humphries et&nbsp;al., "Nonpayment and Eviction in the Rental Housing Market," NBER WP 33155, 2024.</li>
+          <li><b>$400 emergency (37%).</b> Federal Reserve, <em>Economic Well-Being of U.S. Households in 2024</em> (May 2025).</li>
+          <li><b>Racial disparity (18.6% / 51.1% / 43.4%).</b> Graetz, Gershenson, Hepburn, Porter, Sandler &amp; Desmond, "A comprehensive demographic profile of the US evicted population," <em>PNAS</em> 120(41), 2023.</li>
+          <li><b>Black women filing rate (6.4% vs 3.4%); "locked out."</b> Hepburn, Louis &amp; Desmond, "Racial and Gender Disparities among Evicted Americans," <em>Sociological Science</em> 7, 2020 (1,195 counties); Desmond, MacArthur Foundation brief, 2014.</li>
+          <li><b>Suburbanization (~1 in 6 metros).</b> Hepburn, Rutan &amp; Desmond, "The Suburbanization of Eviction," <em>RSF Journal</em> 9(1), 2022/23.</li>
+          <li><b>Time-to-evict, all four phases (Figures 4–5).</b> ERN <em>time-to-evict</em> dataset — typical/statutory days by phase, compiled 2023; D.C. from iPropertyManagement — cross-referenced with the <b>LSC × Temple Eviction Laws Database</b> (lsc.gov / lawatlas.org; state laws as of Jan&nbsp;1,&nbsp;2021). Notice-period cross-check: Nolo. Process anatomy modeled on Nevada's summary eviction (Nevada Legal Services; NRS ch.&nbsp;40).</li>
+          <li><b>No standardized national duration data.</b> U.S. GAO, "Evictions: National Data Are Limited and Challenging to Collect," GAO-24-106637, 2024.</li>
+          <li><b>Mortality (+19% filing / +40% judgment).</b> Graetz et&nbsp;al., "The impacts of rent burden and eviction on mortality in the United States, 2000–2019," <em>Social Science &amp; Medicine</em> 340, 2024.</li>
+          <li><b>Health &amp; hardship.</b> Desmond &amp; Kimbro, "Eviction's Fallout," <em>Social Forces</em> 94(1), 2015. <b>Job loss:</b> Desmond &amp; Gershenson, <em>Social Problems</em> 63(1), 2016. <b>Neighborhoods:</b> Desmond, <em>AJS</em> 118(1), 2012. <b>Children:</b> Desmond et&nbsp;al., "Evicting Children," <em>Social Forces</em>, 2013.</li>
+          <li><b>"Scarlet E" / screening (~1 in 5 records ambiguous; 7-year retention).</b> Urban Institute, "Masking the Scarlet 'E,'" 2023; Kleysteuber, <em>Yale Law Journal</em> 116(6), 2007; FCRA / CFPB.</li>
+          <li><b>Representation gap (84% / 4%); right to counsel.</b> National Coalition for a Civil Right to Counsel (<a href="https://civilrighttocounsel.org" target="_blank" rel="noopener noreferrer">NCCRC</a>); NYC (84% stayed) via NYC Office of Civil Justice; Washington first state, 2021. Enacted in ≈5 states and ~2 dozen cities as of 2026 (NCCRC); ROI ≈ $12 per $1 (Stout, Philadelphia, 2018).</li>
+          <li><b>Default judgments (54% unanswered, NY).</b> NYU Furman Center, "Half the Battle is Just Showing Up," 2023 (New York State).</li>
+          <li><b>Diversion + assistance (4.2% re-file).</b> Dowdall &amp; Goldstein, "Eviction Diversion in Philadelphia," Reinvestment Fund, 2023.</li>
+          <li><b>COVID-era policy (&gt;50% drop; $46.5B ERA).</b> Eviction Lab, "COVID-era policies cut eviction filings by more than half," 2023 (31 cities, combined policy); U.S. Treasury / GAO-23-105410 (ERA).</li>
+          <li><b>2024 filings above pre-pandemic baseline.</b> Eviction Lab, <em>Eviction Tracking System</em>, 2024 report.</li>
+          <li><b>ERN method &amp; figures.</b> Eviction Research Network, <a href="methodology.html">Methodology</a> and <a href="cityscape-2024.html">Cityscape</a> (2024); ERN state analyses.</li>
+        </ul>
+        <p class="source-note" style="margin-top:28px;">This primer is a synthesis for the public and the press. It is not legal advice. If you are facing eviction, contact a local legal-aid provider as early as possible — outcomes improve sharply with representation, and the timelines above leave little room to wait. Figures presented in the spirit of <a href="methodology.html">W.&nbsp;E.&nbsp;B.&nbsp;Du&nbsp;Bois's data plates for the 1900 Paris Exposition</a>.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="index.html" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
+        </div>
+        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="col">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="research.html">Publications</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Maps &amp; Profiles</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+          <li><a href="resources.html">Eviction Help</a></li>
+          <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>Affiliated With</h3>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+        </ul>
+      </div>
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+  <div id="preloader"></div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- ───────────────────────────────────────────────────────────────────
+       Chart rendering — vanilla SVG drawn from data arrays. Each chart has
+       a visually-hidden <table> fallback already in the markup for screen
+       readers and no-JS users; this script only adds the visual layer.
+       Brand discipline: #F9322B for fills/markers only; #19222C / #586573
+       for any readable text; #CC2118 where small red text is unavoidable.
+       ─────────────────────────────────────────────────────────────────── -->
+  <script>
+  (function () {
+    var SVGNS = "http://www.w3.org/2000/svg";
+    var RED = "#F9322B", REDTXT = "#CC2118", NAVY = "#19222C", MUTED = "#586573", STEEL = "#8BA3BE", RULE = "rgba(25,34,44,.16)";
+    function el(name, attrs) {
+      var n = document.createElementNS(SVGNS, name);
+      for (var k in attrs) n.setAttribute(k, attrs[k]);
+      return n;
+    }
+    function txt(x, y, s, attrs) {
+      var t = el("text", Object.assign({ x: x, y: y, "font-family": "Inter,system-ui,sans-serif" }, attrs || {}));
+      t.textContent = s;
+      return t;
+    }
+
+    /* ── Chart 1 · Racial disparity (3 bars, share of group) ── */
+    (function () {
+      var svg = document.getElementById("chart-disparity");
+      if (!svg) return;
+      var data = [
+        { label: "Share of all renters", v: 18.6, focal: false },
+        { label: "Share threatened with eviction", v: 51.1, focal: true },
+        { label: "Share of those evicted", v: 43.4, focal: true }
+      ];
+      var W = 720, x0 = 30, top = 28, rowH = 64, gap = 22, maxV = 60;
+      var barX = 30, barMax = W - 60 - 70; // leave room for value labels
+      // reference line at 18.6 (even share)
+      var evenX = barX + (18.6 / maxV) * barMax;
+      svg.appendChild(el("line", { x1: evenX, y1: 12, x2: evenX, y2: top + data.length * (rowH) - 18, stroke: NAVY, "stroke-width": 1, "stroke-dasharray": "2 4", "stroke-opacity": ".5" }));
+      svg.appendChild(txt(evenX, 12, "even share, 18.6%", { "font-size": 11, fill: MUTED, "text-anchor": "middle" }));
+      data.forEach(function (d, i) {
+        var y = top + i * rowH;
+        svg.appendChild(txt(barX, y - 6, d.label, { "font-size": 13.5, fill: NAVY, "font-weight": 600 }));
+        var w = (d.v / maxV) * barMax;
+        svg.appendChild(el("rect", { x: barX, y: y, width: barMax, height: 22, rx: 3, fill: "#e8eef4" }));
+        svg.appendChild(el("rect", { x: barX, y: y, width: w, height: 22, rx: 3, fill: d.focal ? RED : STEEL }));
+        svg.appendChild(txt(barX + w + 10, y + 17, d.v.toFixed(1) + "%", { "font-size": 15, fill: NAVY, "font-weight": 700 }));
+      });
+    })();
+
+    /* ── Chart 2 · Mortality (2 bars vs baseline) ── */
+    (function () {
+      var svg = document.getElementById("chart-mortality");
+      if (!svg) return;
+      var data = [
+        { label: "Baseline", pct: 0, lab: "comparable renter" },
+        { label: "Eviction filed", pct: 19, lab: "+19% mortality risk" },
+        { label: "Eviction judgment", pct: 40, lab: "+40% mortality risk" }
+      ];
+      var baseY = 250, x0 = 40, bw = 84, gap = 40, maxPct = 50, scale = 200 / maxPct;
+      // baseline rule
+      svg.appendChild(el("line", { x1: 20, y1: baseY, x2: 400, y2: baseY, stroke: RULE, "stroke-width": 1 }));
+      data.forEach(function (d, i) {
+        var x = x0 + i * (bw + gap);
+        var h = d.pct * scale;
+        var fill = i === 0 ? STEEL : RED;
+        if (i === 0) h = 14;
+        svg.appendChild(el("rect", { x: x, y: baseY - h, width: bw, height: h, rx: 2, fill: fill }));
+        if (i > 0) svg.appendChild(txt(x + bw / 2, baseY - h - 10, "+" + d.pct + "%", { "font-size": 17, "font-weight": 700, fill: NAVY, "text-anchor": "middle" }));
+        svg.appendChild(txt(x + bw / 2, baseY + 20, d.label, { "font-size": 12.5, fill: NAVY, "text-anchor": "middle", "font-weight": 600 }));
+      });
+      svg.appendChild(txt(40, 28, "Increase in risk of death vs. comparable renters", { "font-size": 12, fill: MUTED }));
+    })();
+
+    /* ── Chart 3 · Representation gap (2 horizontal bars) ── */
+    (function () {
+      var svg = document.getElementById("chart-counsel");
+      if (!svg) return;
+      var data = [
+        { label: "Landlords with a lawyer", v: 84, focal: false },
+        { label: "Tenants with a lawyer", v: 4, focal: true }
+      ];
+      var barX = 220, barMax = 420, top = 40, rowH = 80;
+      data.forEach(function (d, i) {
+        var y = top + i * rowH;
+        svg.appendChild(txt(barX - 16, y + 22, d.label, { "font-size": 14, fill: NAVY, "font-weight": 600, "text-anchor": "end" }));
+        svg.appendChild(el("rect", { x: barX, y: y, width: barMax, height: 34, rx: 4, fill: "#e8eef4" }));
+        var w = (d.v / 100) * barMax;
+        svg.appendChild(el("rect", { x: barX, y: y, width: w, height: 34, rx: 4, fill: d.focal ? RED : STEEL }));
+        svg.appendChild(txt(barX + w + 12, y + 24, d.v + "%", { "font-size": 18, fill: NAVY, "font-weight": 700 }));
+      });
+      svg.appendChild(txt(barX, top - 14, "Share represented in eviction court — national, absent a right to counsel", { "font-size": 11.5, fill: MUTED }));
+    })();
+
+    /* ── Chart 5 · Time-to-evict, all four phases, every state (stacked) ── */
+    (function () {
+      var svg = document.getElementById("chart-tte");
+      if (!svg) return;
+      // Phase colors: grace, notice, court (filing→judgment), post-judgment (→lockout)
+      var PH = [
+        { key: "grace",  color: "#8BA3BE", label: "Grace" },
+        { key: "notice", color: "#F9322B", label: "Notice" },
+        { key: "court",  color: "#3a5a7a", label: "Court (filing→judgment)" },
+        { key: "post",   color: "#19222C", label: "Post-judgment (→lockout)" }
+      ];
+      // [state, grace, notice, court, post]  — ERN time-to-evict dataset, sorted by total
+      var raw = [
+        ["Louisiana",0,1,2,1],["Wyoming",0,3,1,0],["Kansas",0,3,4,0],["North Dakota",0,4,3,0],["West Virginia",0,0,7,0],
+        ["Georgia",0,0,8,0],["Iowa",0,4,4,0],["Minnesota",0,0,7,1],["Idaho",0,4,5,0],["Oklahoma",0,0,7,2],
+        ["Mississippi",0,3,7,0],["Utah",0,4,6,0],["Alaska",0,7,2,2],["Arkansas",0,3,7,1],["Ohio",0,4,7,0],
+        ["Illinois",0,7,7,0],["Indiana",0,0,11,3],["Nevada",0,10,4,0],["Wisconsin",0,7,7,0],["Florida",0,4,10,1],
+        ["Hawaii",0,8,7,0],["New Mexico",0,4,7,4],["Arizona",0,7,3,6],["Colorado",0,7,7,2],["South Dakota",3,6,7,0],
+        ["Kentucky",0,8,1,8],["Texas",0,4,6,7],["Missouri",0,0,7,11],["Nebraska",0,8,10,0],["North Carolina",0,0,3,15],
+        ["Maine",0,2,8,9],["South Carolina",0,7,11,1],["California",0,4,10,7],["Michigan",0,7,3,11],["Montana",0,4,0,17],
+        ["New Jersey",0,0,10,11],["Tennessee",4,6,0,11],["Delaware",0,8,1,13],["Oregon",7,3,8,5],["Maryland",0,4,0,20],
+        ["New Hampshire",0,8,8,8],["Virginia",0,7,7,11],["Alabama",0,10,8,10],["Washington",0,15,8,5],["Pennsylvania",0,0,7,22],
+        ["Connecticut",9,5,15,8],["Rhode Island",15,7,9,6],["New York",0,14,10,14],["Vermont",0,15,21,6],["Massachusetts",0,15,23,14],
+        ["District of Columbia",5,30,21,5]
+      ];
+      var leftLab = 150, rightPad = 56, top = 64, rowH = 21.4, barH = 11;
+      var x0 = leftLab, maxTotal = 61, barMax = 840 - leftLab - rightPad;
+      var scale = barMax / maxTotal;
+      // gridlines + day axis
+      [0,7,14,21,30,45,60].forEach(function (g) {
+        var gx = x0 + g * scale;
+        svg.appendChild(el("line", { x1: gx, y1: top - 8, x2: gx, y2: top + raw.length * rowH + 2, stroke: RULE, "stroke-width": g === 0 ? 1.2 : 0.8, "stroke-dasharray": g === 0 ? "" : "1 4" }));
+        svg.appendChild(txt(gx, top - 16, g === 0 ? "0" : g + "d", { "font-size": 11, fill: MUTED, "text-anchor": "middle" }));
+      });
+      svg.appendChild(txt(x0, top - 34, "TYPICAL DAYS FROM RENT DUE TO LOCKOUT", { "font-size": 11, fill: NAVY, "font-weight": 700, "letter-spacing": ".06em" }));
+      raw.forEach(function (d, i) {
+        var name = d[0], total = d[1] + d[2] + d[3] + d[4];
+        var y = top + i * rowH + rowH / 2;
+        var slow = total >= 38, fast = total <= 5;
+        svg.appendChild(txt(x0 - 12, y + 4, name, { "font-size": 11.5, fill: NAVY, "text-anchor": "end", "font-weight": (slow || fast) ? 700 : 400 }));
+        var cursor = x0;
+        for (var p = 0; p < 4; p++) {
+          var v = d[p + 1];
+          if (v <= 0) continue;
+          var w = v * scale;
+          svg.appendChild(el("rect", { x: cursor, y: y - barH / 2, width: Math.max(w, 1.2), height: barH, fill: PH[p].color }));
+          cursor += w;
+        }
+        svg.appendChild(txt(cursor + 8, y + 4, total + "", { "font-size": 11, fill: NAVY, "font-weight": 700 }));
+      });
+      // annotations
+      var annY = top + raw.length * rowH + 24;
+      svg.appendChild(txt(x0, annY, "Fastest: Louisiana — under a week, start to finish.", { "font-size": 11.5, fill: MUTED }));
+      svg.appendChild(txt(x0, annY + 18, "Slowest: Washington, D.C. — about two months (61 days).", { "font-size": 11.5, fill: MUTED }));
+
+      // Legend (HTML)
+      var lg = document.getElementById("tte-legend");
+      if (lg) {
+        PH.forEach(function (p) {
+          var span = document.createElement("span");
+          span.className = "lg";
+          var sw = document.createElement("span");
+          sw.className = "sw";
+          sw.style.cssText = "display:inline-block;width:13px;height:13px;border-radius:3px;background:" + p.color;
+          span.appendChild(sw);
+          span.appendChild(document.createTextNode(" " + p.label));
+          lg.appendChild(span);
+        });
+      }
+      // Accessible data table (HTML)
+      var host = document.getElementById("tte-d");
+      if (host) {
+        var html = '<table><caption>Typical days in the eviction process by U.S. state and DC, split into grace, notice, court (filing to judgment), and post-judgment (judgment to lockout) phases. Eviction Research Network time-to-evict dataset.</caption>';
+        html += '<tr><th>State</th><th>Grace</th><th>Notice</th><th>Court</th><th>Post-judgment</th><th>Total</th></tr>';
+        raw.forEach(function (d) {
+          html += '<tr><td>' + d[0] + '</td><td>' + d[1] + '</td><td>' + d[2] + '</td><td>' + d[3] + '</td><td>' + d[4] + '</td><td>' + (d[1]+d[2]+d[3]+d[4]) + '</td></tr>';
+        });
+        host.innerHTML = html + '</table>';
+      }
+    })();
+  })();
+  </script>
+
+
+  <!-- Contents scroll-spy: marks the section in view inside the header dropdown -->
+  <script>
+  (function(){
+    var links=[].slice.call(document.querySelectorAll('a.toc-spy'));
+    if(!links.length||!('IntersectionObserver' in window))return;
+    var byId={};links.forEach(function(a){var id=(a.getAttribute('href')||'').slice(1);var el=document.getElementById(id);if(el)byId[id]=a;});
+    var vis={},order=Object.keys(byId);
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){vis[e.target.id]=e.isIntersecting;});
+      var act=null;for(var i=0;i<order.length;i++){if(vis[order[i]]){act=order[i];break;}}
+      links.forEach(function(a){a.removeAttribute('aria-current');a.style.fontWeight='';});
+      if(act){byId[act].setAttribute('aria-current','true');byId[act].style.fontWeight='700';}
+    },{rootMargin:'-90px 0px -65% 0px',threshold:0});
+    order.forEach(function(id){io.observe(document.getElementById(id));});
+  })();
+  </script>
+</body>
+
+</html>

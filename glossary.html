@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-header-style="plate">
+
+<!--
+  glossary.template.html — Eviction Research Network
+  -----------------------------------------------------------------------------
+  Page chrome for glossary.html. The render script (code/render_glossary.R)
+  reads docs/glossary.md, substitutes the double-brace page tokens below, and
+  swaps the body-placeholder comment for the generated A-Z term list.
+
+  DO NOT hand-edit glossary.html — edit this template or glossary.md and rerun:
+      Rscript code/render_glossary.R
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Glossary — Eviction Research Network</title>
+  <meta name="description" content="Plain-language definitions of the housing, eviction, and displacement terms used across Eviction Research Network maps, reports, and data products.">
+  <meta name="keywords" content="eviction glossary, displacement terms, housing precarity definitions, HPRM glossary, EDR, EER, area median income, unlawful detainer">
+  <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <link rel="canonical" href="https://evictionresearch.net/glossary.html">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="Glossary — Eviction Research Network">
+  <meta property="og:description" content="Plain-language definitions of the housing, eviction, and displacement terms used across Eviction Research Network maps, reports, and data products.">
+  <meta property="og:url" content="https://evictionresearch.net/glossary.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Font — Inter (single canonical ERN brand family, see BRAND.md). Async-loaded to avoid render-blocking. -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical above-the-fold CSS -->
+  <style>
+    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;--accent:#F9322B;--accent-deep:#CC2118;--accent-deeper:#B01D16;--muted:#586573;scroll-behavior:smooth}
+    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
+    .light-background{--background-color:#f4f7f6;--surface-color:#fff;--default-color:#223754;--heading-color:#223754}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
+    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
+    .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
+    .header.scrolled{background-color:rgba(25,34,44,.95);backdrop-filter:blur(6px)}
+    .header .logo img{max-height:60px;width:auto}
+    /* Skip link + a11y utilities (inlined so they work before main.css loads) */
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
+
+    /* ===== Glossary-specific (scoped). Colors use the v5b brand tokens
+       (--accent-deep #CC2118 for text/links per WCAG 1.4.3; --muted #586573),
+       with literal fallbacks so they hold before v5b.css loads async. ===== */
+    .glossary-wrap{padding:0 0 8px}
+    .glossary-updated{font-size:14px;color:var(--muted,#586573);margin:6px 0 0}
+    .glossary-controls{margin:0 0 14px}
+    .glossary-filter{width:100%;max-width:440px;padding:12px 16px;font:inherit;font-size:16px;border:1px solid #c7d2dd;border-radius:8px;background:#fff;color:#19222C}
+    .glossary-filter:focus{outline:3px solid var(--accent-deep,#CC2118);outline-offset:2px;border-color:var(--accent-deep,#CC2118)}
+    .glossary-az{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px;padding:12px 0;border-top:1px solid rgba(25,34,44,.12);border-bottom:1px solid rgba(25,34,44,.12);position:sticky;top:76px;background:#fff;z-index:5}
+    .glossary-az a,.glossary-az span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none}
+    .glossary-az a{color:var(--accent-deep,#CC2118)}
+    .glossary-az a:hover{background:var(--accent-deep,#CC2118);color:#fff}
+    .glossary-az span{color:#b6c2cf;pointer-events:none}
+    .glossary-letter{font-family:"Inter",sans-serif;font-size:22px;font-weight:700;color:var(--accent-deep,#CC2118);border-bottom:2px solid rgba(25,34,44,.10);padding-bottom:6px;margin:30px 0 14px;scroll-margin-top:150px}
+    .glossary-term{padding:18px 0;border-bottom:1px solid rgba(25,34,44,.10);scroll-margin-top:150px}
+    .glossary-term .term-name{font-size:20px;font-weight:700;color:#19222C;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+    .term-anchor{opacity:0;font-weight:400;color:var(--accent-deep,#CC2118);text-decoration:none;font-size:16px;transition:opacity .12s}
+    .glossary-term:hover .term-anchor,.term-anchor:focus{opacity:1}
+    .term-cat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted,#586573);background:#e8eef4;border-radius:999px;padding:3px 10px;margin:0 0 10px}
+    .term-def{font-size:16px;line-height:1.62;color:#223754;max-width:72ch}
+    .term-def p{margin:0 0 8px}
+    .term-def p:last-child{margin-bottom:0}
+    .term-def a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
+    .term-def a:hover{color:var(--accent-deeper,#B01D16)}
+    .term-def code{background:#eef2f6;padding:1px 5px;border-radius:4px;font-size:.92em}
+    .term-see{font-size:14px;color:var(--muted,#586573);margin:12px 0 0;max-width:72ch}
+    .term-see .see-label{font-weight:600;color:var(--muted,#586573)}
+    .term-see a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
+    .term-see a:hover{color:var(--accent-deeper,#B01D16)}
+    .glossary-noresults{font-size:16px;color:var(--muted,#586573);padding:24px 0}
+    @media (max-width:768px){.glossary-az{top:64px}}
+  </style>
+
+  <!-- Bootstrap (sync for stable layout) -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Non-critical CSS (async; glossary page does not use glightbox/swiper/aos) -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/v5b.css" rel="stylesheet">
+  </noscript>
+</head>
+
+<body class="glossary-page">
+
+  <!-- Skip link — jumps keyboard/screen-reader users past nav to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+      </a>
+
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="resources.html">Eviction Help</a></li>
+              <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html" aria-current="page" class="active">Glossary</a></li>
+            </ul>
+          </li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+
+    <!-- ======= Hero (v5b light section — matches methodology/index) ======= -->
+    <section class="v5b-section">
+      <div class="v5b-page" style="padding-top: 60px; padding-bottom: 8px;">
+        <p class="kicker">Reference</p>
+        <h1 class="section-title" style="max-width: 24ch;">A glossary of <em>eviction &amp; displacement</em> terms.</h1>
+        <p class="lead-paragraph">The words behind the data. These are the terms that recur across our maps, reports, and risk models — written to be read without a subscription or a statistics degree. Use the A–Z jumps or the filter box to find one.</p>
+        <p class="glossary-updated">Last updated 2026-06-22 · 34 terms</p>
+      </div>
+    </section>
+
+    <!-- ======= Glossary body (generated from glossary.md) ======= -->
+    <section class="v5b-section" style="padding-top: 16px;">
+      <div class="v5b-page glossary-wrap">
+        <div class="glossary-controls">
+          <label class="visually-hidden" for="glossary-filter">Filter glossary terms</label>
+          <input type="search" id="glossary-filter" class="glossary-filter" placeholder="Filter terms…" autocomplete="off" spellcheck="false">
+        </div>
+        <nav class="glossary-az" aria-label="Jump to letter">
+          <a href="#letter-A">A</a>
+          <a href="#letter-B">B</a>
+          <a href="#letter-C">C</a>
+          <a href="#letter-D">D</a>
+          <a href="#letter-E">E</a>
+          <span aria-hidden="true">F</span>
+          <a href="#letter-G">G</a>
+          <a href="#letter-H">H</a>
+          <span aria-hidden="true">I</span>
+          <a href="#letter-J">J</a>
+          <span aria-hidden="true">K</span>
+          <span aria-hidden="true">L</span>
+          <span aria-hidden="true">M</span>
+          <a href="#letter-N">N</a>
+          <span aria-hidden="true">O</span>
+          <a href="#letter-P">P</a>
+          <span aria-hidden="true">Q</span>
+          <a href="#letter-R">R</a>
+          <a href="#letter-S">S</a>
+          <a href="#letter-T">T</a>
+          <a href="#letter-U">U</a>
+          <span aria-hidden="true">V</span>
+          <span aria-hidden="true">W</span>
+          <span aria-hidden="true">X</span>
+          <span aria-hidden="true">Y</span>
+          <span aria-hidden="true">Z</span>
+        </nav>
+        <div class="glossary-list">
+          <h2 id="letter-A" class="glossary-letter">A</h2>
+          <article class="glossary-term" id="american-community-survey" data-term="american community survey (acs) american community survey acs">
+            <h3 class="term-name">American Community Survey (ACS) <a class="term-anchor" href="#american-community-survey" aria-label="Permalink to American Community Survey (ACS)">#</a></h3>
+            <span class="term-cat">Geography &amp; data</span>
+            <div class="term-def"><p>The U.S. Census Bureau's ongoing survey of households. ERN draws most of its demographic, income, and housing inputs from the ACS <strong>5-year estimates</strong>, which pool five years of responses to produce reliable figures for small areas such as census tracts.</p></div>
+          </article>
+          <article class="glossary-term" id="ami-tiers" data-term="ami tiers (eli, vli, li) ami tiers eli, vli, li">
+            <h3 class="term-name">AMI tiers (ELI, VLI, LI) <a class="term-anchor" href="#ami-tiers" aria-label="Permalink to AMI tiers (ELI, VLI, LI)">#</a></h3>
+            <span class="term-cat">Income &amp; housing</span>
+            <div class="term-def"><p>Standard income bands used to target housing need: <strong>Extremely Low Income</strong> (ELI, 0–30% of AMI), <strong>Very Low Income</strong> (VLI, 30–50%), and <strong>Low Income</strong> (LI, 50–80%). The HPRM models displacement risk separately for each tier.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#area-median-income">Area Median Income</a>, <a href="#estimated-displacement-risk">Estimated Displacement Risk</a></p>
+          </article>
+          <article class="glossary-term" id="area-median-income" data-term="area median income (ami) area median income ami">
+            <h3 class="term-name">Area Median Income (AMI) <a class="term-anchor" href="#area-median-income" aria-label="Permalink to Area Median Income (AMI)">#</a></h3>
+            <span class="term-cat">Income &amp; housing</span>
+            <div class="term-def"><p>The midpoint of household income for a county or metropolitan area, published each year by HUD. Affordability and program-eligibility thresholds are usually written as a share of AMI — for example, a unit "affordable at 50% of AMI."</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#ami-tiers">AMI tiers</a>, <a href="#cost-burden">Cost burden</a></p>
+          </article>
+          <h2 id="letter-B" class="glossary-letter">B</h2>
+          <article class="glossary-term" id="bayesian-additive-regression-trees" data-term="bayesian additive regression trees (bart) bayesian additive regression trees bart">
+            <h3 class="term-name">Bayesian Additive Regression Trees (BART) <a class="term-anchor" href="#bayesian-additive-regression-trees" aria-label="Permalink to Bayesian Additive Regression Trees (BART)">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>A machine-learning method that sums many small regression trees to predict an outcome flexibly while quantifying uncertainty. ERN uses BART to estimate both displacement (EDR) and eviction (EER) risk from census predictors.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#housing-precarity-risk-model">Housing Precarity Risk Model</a>, <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#estimated-eviction-risk">Estimated Eviction Risk</a></p>
+          </article>
+          <h2 id="letter-C" class="glossary-letter">C</h2>
+          <article class="glossary-term" id="census-tract" data-term="census tract">
+            <h3 class="term-name">Census tract <a class="term-anchor" href="#census-tract" aria-label="Permalink to Census tract">#</a></h3>
+            <span class="term-cat">Geography &amp; data</span>
+            <div class="term-def"><p>A small, relatively stable geographic unit defined by the Census Bureau, typically holding 1,200–8,000 people. Tracts are the primary unit of analysis for ERN's national models — roughly 83,500 of them cover the contiguous United States.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#geoid">GEOID</a></p>
+          </article>
+          <article class="glossary-term" id="choropleth" data-term="choropleth">
+            <h3 class="term-name">Choropleth <a class="term-anchor" href="#choropleth" aria-label="Permalink to Choropleth">#</a></h3>
+            <span class="term-cat">Geography &amp; data</span>
+            <div class="term-def"><p>A thematic map that shades areas by the value of a variable (darker usually meaning higher). ERN's interactive risk maps are choropleths of census tracts or counties.</p></div>
+          </article>
+          <article class="glossary-term" id="composite-hprm-score" data-term="composite hprm score">
+            <h3 class="term-name">Composite HPRM score <a class="term-anchor" href="#composite-hprm-score" aria-label="Permalink to Composite HPRM score">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>The combined Housing Precarity Risk Model score: the sum of the displacement (EDR) and eviction (EER) sub-scores. It runs from <strong>0</strong> (no measured risk) to <strong>8</strong> (extreme risk on both dimensions).</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#housing-precarity-risk-model">Housing Precarity Risk Model</a>, <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#estimated-eviction-risk">Estimated Eviction Risk</a>, <a href="#divergence">Divergence</a></p>
+          </article>
+          <article class="glossary-term" id="cost-burden" data-term="cost burden (rent burden) cost burden rent burden">
+            <h3 class="term-name">Cost burden (rent burden) <a class="term-anchor" href="#cost-burden" aria-label="Permalink to Cost burden (rent burden)">#</a></h3>
+            <span class="term-cat">Income &amp; housing</span>
+            <div class="term-def"><p>Spending more than 30% of household income on housing; spending more than 50% is <strong>severe</strong> cost burden. Cost-burdened renters have little cushion against a rent increase, which raises their exposure to displacement and eviction.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#renter-household">Renter household</a></p>
+          </article>
+          <h2 id="letter-D" class="glossary-letter">D</h2>
+          <article class="glossary-term" id="displacement" data-term="displacement">
+            <h3 class="term-name">Displacement <a class="term-anchor" href="#displacement" aria-label="Permalink to Displacement">#</a></h3>
+            <span class="term-cat">Displacement &amp; neighborhood change</span>
+            <div class="term-def"><p>The involuntary movement of residents out of their home or neighborhood because of forces they cannot control — rising rents, eviction, redevelopment, or the loss of affordable units. ERN distinguishes <strong>hard</strong> and <strong>soft</strong> displacement.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#hard-displacement">Hard displacement</a>, <a href="#soft-displacement">Soft displacement</a>, <a href="#gentrification">Gentrification</a></p>
+          </article>
+          <article class="glossary-term" id="divergence" data-term="divergence">
+            <h3 class="term-name">Divergence <a class="term-anchor" href="#divergence" aria-label="Permalink to Divergence">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>An HPRM classification of how a neighborhood's two risks line up: <strong>Convergent</strong> (both displacement and eviction risk present), <strong>EDR-Dominant</strong> (market displacement without much formal eviction), <strong>EER-Dominant</strong> (formal eviction without measured out-migration), or <strong>Neither</strong>.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#composite-hprm-score">Composite HPRM score</a>, <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#estimated-eviction-risk">Estimated Eviction Risk</a></p>
+          </article>
+          <h2 id="letter-E" class="glossary-letter">E</h2>
+          <article class="glossary-term" id="estimated-displacement-risk" data-term="estimated displacement risk (edr) estimated displacement risk edr">
+            <h3 class="term-name">Estimated Displacement Risk (EDR) <a class="term-anchor" href="#estimated-displacement-risk" aria-label="Permalink to Estimated Displacement Risk (EDR)">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>The HPRM sub-model for <strong>soft</strong> displacement: the predicted net out-migration of low-income renter households driven by market pressure such as rising rents and neighborhood change. It is estimated with BART across three AMI tiers and binned into At Risk, Elevated, High, and Extreme.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#soft-displacement">Soft displacement</a>, <a href="#housing-precarity-risk-model">Housing Precarity Risk Model</a>, <a href="#bayesian-additive-regression-trees">Bayesian Additive Regression Trees</a>, <a href="#ami-tiers">AMI tiers</a></p>
+          </article>
+          <article class="glossary-term" id="estimated-eviction-risk" data-term="estimated eviction risk (eer) estimated eviction risk eer">
+            <h3 class="term-name">Estimated Eviction Risk (EER) <a class="term-anchor" href="#estimated-eviction-risk" aria-label="Permalink to Estimated Eviction Risk (EER)">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>The HPRM sub-model for <strong>hard</strong> displacement: a neighborhood's formal eviction pressure, measured as its eviction filing rate relative to the state average and modeled nationally with BART. It is binned into At Risk, Elevated, High, and Extreme.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#hard-displacement">Hard displacement</a>, <a href="#eviction-filing-rate-ratio">Eviction filing rate ratio</a>, <a href="#housing-precarity-risk-model">Housing Precarity Risk Model</a></p>
+          </article>
+          <article class="glossary-term" id="eviction" data-term="eviction">
+            <h3 class="term-name">Eviction <a class="term-anchor" href="#eviction" aria-label="Permalink to Eviction">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>The legal process by which a landlord removes a tenant from a rental unit. In data terms ERN usually measures eviction through <strong>court records</strong>, which capture formal filings and judgments but not informal ("self-help" or off-the-books) removals.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction-filing">Eviction filing</a>, <a href="#unlawful-detainer">Unlawful detainer</a></p>
+          </article>
+          <article class="glossary-term" id="eviction-filing" data-term="eviction filing">
+            <h3 class="term-name">Eviction filing <a class="term-anchor" href="#eviction-filing" aria-label="Permalink to Eviction filing">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>A landlord's formal start of an eviction case in court. A filing is not the same as a removal — many are dismissed, settled, or used as a debt-collection tactic — but filings are the most consistently recorded signal of eviction pressure.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction">Eviction</a>, <a href="#eviction-filing-rate">Eviction filing rate</a>, <a href="#serial-filing">Serial filing</a></p>
+          </article>
+          <article class="glossary-term" id="eviction-filing-rate" data-term="eviction filing rate">
+            <h3 class="term-name">Eviction filing rate <a class="term-anchor" href="#eviction-filing-rate" aria-label="Permalink to Eviction filing rate">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>The number of eviction cases filed per 100 (or per 1,000) renter households in an area over a period. Dividing by renter households makes filing activity comparable across places of different size.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction-filing">Eviction filing</a>, <a href="#renter-household">Renter household</a></p>
+          </article>
+          <article class="glossary-term" id="eviction-filing-rate-ratio" data-term="eviction filing rate ratio">
+            <h3 class="term-name">Eviction filing rate ratio <a class="term-anchor" href="#eviction-filing-rate-ratio" aria-label="Permalink to Eviction filing rate ratio">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>A tract's eviction filing rate divided by its state's average rate, so <strong>1.0</strong> means "typical for the state" and <strong>2.0</strong> means "twice the state average." The EER model predicts this ratio to keep eviction risk comparable across states.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#estimated-eviction-risk">Estimated Eviction Risk</a>, <a href="#eviction-filing-rate">Eviction filing rate</a></p>
+          </article>
+          <article class="glossary-term" id="eviction-record" data-term="eviction record (sealing) eviction record sealing">
+            <h3 class="term-name">Eviction record (sealing) <a class="term-anchor" href="#eviction-record" aria-label="Permalink to Eviction record (sealing)">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>The court record an eviction filing creates, which tenant-screening companies use to deny future housing — even when the case was dismissed or the tenant won. <strong>Sealing</strong> laws hide or expunge these records so a single filing doesn't follow a tenant for years.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#serial-filing">Serial filing</a>, <a href="#tenant-protection">Tenant protection</a></p>
+          </article>
+          <h2 id="letter-G" class="glossary-letter">G</h2>
+          <article class="glossary-term" id="gentrification" data-term="gentrification">
+            <h3 class="term-name">Gentrification <a class="term-anchor" href="#gentrification" aria-label="Permalink to Gentrification">#</a></h3>
+            <span class="term-cat">Displacement &amp; neighborhood change</span>
+            <div class="term-def"><p>The process by which an influx of higher-income residents and investment raises property values and rents in a historically lower-income neighborhood, often pricing out long-term residents. Gentrification is <em>one driver</em> of displacement, not a synonym for it.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#displacement">Displacement</a>, <a href="#soft-displacement">Soft displacement</a>, <a href="#neighborhood-typology">Neighborhood typology</a></p>
+          </article>
+          <article class="glossary-term" id="geoid" data-term="geoid">
+            <h3 class="term-name">GEOID <a class="term-anchor" href="#geoid" aria-label="Permalink to GEOID">#</a></h3>
+            <span class="term-cat">Geography &amp; data</span>
+            <div class="term-def"><p>The unique identifier for a Census geography. A tract GEOID is an 11-digit FIPS code — 2 digits of state, 3 of county, 6 of tract. It is the key used to join ERN model output to other datasets.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#census-tract">Census tract</a></p>
+          </article>
+          <h2 id="letter-H" class="glossary-letter">H</h2>
+          <article class="glossary-term" id="hard-displacement" data-term="hard displacement">
+            <h3 class="term-name">Hard displacement <a class="term-anchor" href="#hard-displacement" aria-label="Permalink to Hard displacement">#</a></h3>
+            <span class="term-cat">Displacement &amp; neighborhood change</span>
+            <div class="term-def"><p>Displacement through a formal, involuntary event — most often eviction, but also condemnation or the expiration of an affordability agreement. ERN proxies hard displacement with eviction filings, via the EER model.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#soft-displacement">Soft displacement</a>, <a href="#estimated-eviction-risk">Estimated Eviction Risk</a>, <a href="#eviction">Eviction</a></p>
+          </article>
+          <article class="glossary-term" id="housing-choice-voucher" data-term="housing choice voucher (section 8) housing choice voucher section 8">
+            <h3 class="term-name">Housing Choice Voucher (Section 8) <a class="term-anchor" href="#housing-choice-voucher" aria-label="Permalink to Housing Choice Voucher (Section 8)">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>The largest federal rental-assistance program, which pays part of a low-income household's rent directly to a private landlord. Voucher holders can still face displacement when landlords refuse vouchers or when local rents exceed the program's payment standards.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#cost-burden">Cost burden</a>, <a href="#renter-household">Renter household</a></p>
+          </article>
+          <article class="glossary-term" id="housing-precarity-risk-model" data-term="housing precarity risk model (hprm) housing precarity risk model hprm">
+            <h3 class="term-name">Housing Precarity Risk Model (HPRM) <a class="term-anchor" href="#housing-precarity-risk-model" aria-label="Permalink to Housing Precarity Risk Model (HPRM)">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>ERN's national, census-tract index of housing instability. It combines a displacement sub-model (EDR) and an eviction sub-model (EER) into a single 0–8 score that flags where low-income renters face the greatest risk. See <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">the live model</a>.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#estimated-eviction-risk">Estimated Eviction Risk</a>, <a href="#composite-hprm-score">Composite HPRM score</a></p>
+          </article>
+          <h2 id="letter-J" class="glossary-letter">J</h2>
+          <article class="glossary-term" id="just-cause-eviction" data-term="just cause eviction">
+            <h3 class="term-name">Just cause eviction <a class="term-anchor" href="#just-cause-eviction" aria-label="Permalink to Just cause eviction">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>A protection that lets landlords end a tenancy only for specified, legitimate reasons — such as nonpayment or a lease violation — rather than arbitrarily. Just-cause laws curb no-fault and retaliatory evictions.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#notice-to-vacate">Notice to vacate</a>, <a href="#tenant-protection">Tenant protection</a></p>
+          </article>
+          <h2 id="letter-N" class="glossary-letter">N</h2>
+          <article class="glossary-term" id="neighborhood-typology" data-term="neighborhood typology">
+            <h3 class="term-name">Neighborhood typology <a class="term-anchor" href="#neighborhood-typology" aria-label="Permalink to Neighborhood typology">#</a></h3>
+            <span class="term-cat">Displacement &amp; neighborhood change</span>
+            <div class="term-def"><p>A classification of neighborhoods by their stage of housing-market and socioeconomic change — for example, stable, at-risk, actively gentrifying, or advanced gentrification. Typologies help match the right intervention to the right stage.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#gentrification">Gentrification</a>, <a href="#displacement">Displacement</a></p>
+          </article>
+          <article class="glossary-term" id="net-migration-rate" data-term="net migration rate (nmr) net migration rate nmr">
+            <h3 class="term-name">Net migration rate (NMR) <a class="term-anchor" href="#net-migration-rate" aria-label="Permalink to Net migration rate (NMR)">#</a></h3>
+            <span class="term-cat">Risk model</span>
+            <div class="term-def"><p>Predicted in-migration minus out-migration of households for a tract — the raw quantity behind the EDR model. A strongly negative NMR for low-income renters signals the out-flow consistent with displacement.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#soft-displacement">Soft displacement</a>, <a href="#ami-tiers">AMI tiers</a></p>
+          </article>
+          <article class="glossary-term" id="notice-to-vacate" data-term="notice to vacate (notice period) notice to vacate notice period">
+            <h3 class="term-name">Notice to vacate (notice period) <a class="term-anchor" href="#notice-to-vacate" aria-label="Permalink to Notice to vacate (notice period)">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>The written notice a landlord must give before filing to evict, and the minimum number of days a tenant has to respond. Length is set by state law — Washington, for example, expanded its pay-or-vacate notice from <strong>3 to 14 days</strong>, a change ERN's disparity analysis helped support.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#just-cause-eviction">Just cause eviction</a>, <a href="#eviction-filing">Eviction filing</a></p>
+          </article>
+          <h2 id="letter-P" class="glossary-letter">P</h2>
+          <article class="glossary-term" id="permanent-supportive-housing" data-term="permanent supportive housing (psh) permanent supportive housing psh">
+            <h3 class="term-name">Permanent supportive housing (PSH) <a class="term-anchor" href="#permanent-supportive-housing" aria-label="Permalink to Permanent supportive housing (PSH)">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>Long-term, affordable housing paired with voluntary services — case management, health care — for people with disabilities or histories of homelessness, with no requirement to "earn" housing through treatment compliance. A core <strong>Housing First</strong> model.</p></div>
+          </article>
+          <h2 id="letter-R" class="glossary-letter">R</h2>
+          <article class="glossary-term" id="redlining" data-term="redlining">
+            <h3 class="term-name">Redlining <a class="term-anchor" href="#redlining" aria-label="Permalink to Redlining">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>The federally backed 1930s practice of grading neighborhoods for mortgage risk and denying credit to areas with Black and immigrant residents. Its maps drove decades of disinvestment; ERN research links historic redlining to present-day eviction and displacement patterns.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#gentrification">Gentrification</a>, <a href="#displacement">Displacement</a></p>
+          </article>
+          <article class="glossary-term" id="renter-household" data-term="renter household">
+            <h3 class="term-name">Renter household <a class="term-anchor" href="#renter-household" aria-label="Permalink to Renter household">#</a></h3>
+            <span class="term-cat">Income &amp; housing</span>
+            <div class="term-def"><p>A household that rents rather than owns its home — the population at risk of eviction, and the denominator for filing-rate measures. The HPRM only maps tracts with at least one renter household.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction-filing-rate">Eviction filing rate</a></p>
+          </article>
+          <article class="glossary-term" id="right-to-counsel" data-term="right to counsel">
+            <h3 class="term-name">Right to counsel <a class="term-anchor" href="#right-to-counsel" aria-label="Permalink to Right to counsel">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>A policy guaranteeing tenants legal representation in eviction proceedings, where landlords are usually represented and tenants usually are not. Jurisdictions that adopt it see markedly higher rates of tenants staying housed.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction">Eviction</a>, <a href="#just-cause-eviction">Just cause eviction</a></p>
+          </article>
+          <h2 id="letter-S" class="glossary-letter">S</h2>
+          <article class="glossary-term" id="serial-filing" data-term="serial filing (repeat filing) serial filing repeat filing">
+            <h3 class="term-name">Serial filing (repeat filing) <a class="term-anchor" href="#serial-filing" aria-label="Permalink to Serial filing (repeat filing)">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>Repeated eviction filings against the same tenant at the same address, often month after month, used by some landlords as a routine rent-collection tool. Serial filings inflate filing counts and expose tenants to court costs and record damage even without a removal.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction-filing">Eviction filing</a>, <a href="#eviction-record">Eviction record</a></p>
+          </article>
+          <article class="glossary-term" id="soft-displacement" data-term="soft displacement">
+            <h3 class="term-name">Soft displacement <a class="term-anchor" href="#soft-displacement" aria-label="Permalink to Soft displacement">#</a></h3>
+            <span class="term-cat">Displacement &amp; neighborhood change</span>
+            <div class="term-def"><p>Displacement through market pressure rather than a single legal event — when rising rents and neighborhood change push low-income households to leave or keep them from moving in. ERN models soft displacement with the EDR.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#hard-displacement">Hard displacement</a>, <a href="#estimated-displacement-risk">Estimated Displacement Risk</a>, <a href="#gentrification">Gentrification</a></p>
+          </article>
+          <h2 id="letter-T" class="glossary-letter">T</h2>
+          <article class="glossary-term" id="tenant-protection" data-term="tenant protection">
+            <h3 class="term-name">Tenant protection <a class="term-anchor" href="#tenant-protection" aria-label="Permalink to Tenant protection">#</a></h3>
+            <span class="term-cat">Policy &amp; protections</span>
+            <div class="term-def"><p>The body of laws and policies that shift bargaining power toward renters — rent regulation, just-cause rules, right to counsel, record sealing, and longer notice periods. ERN evaluates where such protections are strongest and weakest.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#just-cause-eviction">Just cause eviction</a>, <a href="#right-to-counsel">Right to counsel</a>, <a href="#notice-to-vacate">Notice to vacate</a></p>
+          </article>
+          <h2 id="letter-U" class="glossary-letter">U</h2>
+          <article class="glossary-term" id="unlawful-detainer" data-term="unlawful detainer (ud) unlawful detainer ud">
+            <h3 class="term-name">Unlawful detainer (UD) <a class="term-anchor" href="#unlawful-detainer" aria-label="Permalink to Unlawful detainer (UD)">#</a></h3>
+            <span class="term-cat">Eviction &amp; court process</span>
+            <div class="term-def"><p>The formal legal term, in many states, for an eviction lawsuit — a landlord's court action to recover possession of a property. Court "UD" records are a primary raw source for ERN's eviction data.</p></div>
+            <p class="term-see"><span class="see-label">See also:</span> <a href="#eviction-filing">Eviction filing</a>, <a href="#eviction">Eviction</a></p>
+          </article>
+        </div>
+        <p class="glossary-noresults" hidden>No terms match your filter.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="index.html" aria-label="Eviction Research Network — Home">
+            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
+        </div>
+        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="research.html">Publications</a></li>
+          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Maps &amp; Profiles</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="resources.html">Eviction Help</a></li>
+          <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
+          <li><a href="about.html">About &amp; Team</a></li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Affiliated With</h3>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
+        </ul>
+      </div>
+
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS (minimal — only Bootstrap + main.js) -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- Glossary filter (lightweight, no dependencies; progressive enhancement) -->
+  <script>
+  (function () {
+    var input = document.getElementById('glossary-filter');
+    if (!input) return;
+    var terms   = [].slice.call(document.querySelectorAll('.glossary-term'));
+    var letters = [].slice.call(document.querySelectorAll('.glossary-letter'));
+    var none    = document.querySelector('.glossary-noresults');
+    function norm(s) { return (s || '').toLowerCase(); }
+    input.addEventListener('input', function () {
+      var q = norm(input.value).trim();
+      var any = false;
+      terms.forEach(function (t) {
+        var hit = q === '' || norm(t.getAttribute('data-term')).indexOf(q) > -1;
+        t.hidden = !hit;
+        if (hit) any = true;
+      });
+      letters.forEach(function (h) {
+        var vis = false, n = h.nextElementSibling;
+        while (n && n.classList.contains('glossary-term')) {
+          if (!n.hidden) { vis = true; break; }
+          n = n.nextElementSibling;
+        }
+        h.hidden = !vis;
+      });
+      if (none) none.hidden = any;
+    });
+  })();
+  </script>
+
+</body>
+
+</html>

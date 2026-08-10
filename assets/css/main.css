@@ -31,7 +31,9 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #223754; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #19222C; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #F9322B; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #F9322B; /* Brand red — decorative use only: large fills, borders, backgrounds, graphics. NOT contrast-safe as small text on white (3.8:1, fails WCAG 1.4.3 AA). */
+  --accent-deep: #CC2118; /* Contrast-safe brand red for text, links, and button labels — 5.5:1 on white, 4.7:1 on the #e8eef4 tint (clears WCAG 1.4.3 AA on both). Use anywhere red is text. */
+  --accent-deeper: #B01D16; /* Darker red for hover/active states of red text and buttons. */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -82,13 +84,13 @@ body {
 }
 
 a {
-  color: var(--accent-color);
+  color: var(--accent-deep);
   text-decoration: none;
   transition: 0.3s;
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: var(--accent-deeper);
   text-decoration: none;
 }
 
@@ -106,7 +108,7 @@ h6 {
 ------------------------------*/
 .php-email-form .error-message {
   display: none;
-  background: #df1529;
+  background: #F9322B; /* brand accent red (was #df1529, bootstrap-template default) */
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -1179,7 +1181,7 @@ section,
 }
 
 .constructions .card-item h4 a:hover {
-  color: var(--accent-color);
+  color: var(--accent-deep);
 }
 
 .constructions .card-item p {
@@ -4426,7 +4428,7 @@ section,
   background: #F9322B;
   color: #fff;
 }
-.policies-intro .pi-btn.primary:hover { background: #d9241e; color: #fff; }
+.policies-intro .pi-btn.primary:hover { background: #CC2118; color: #fff; } /* --accent-deep */
 .policies-intro .pi-btn.ghost {
   border: 1.5px solid #223754;
   color: #223754;
@@ -4812,4 +4814,25 @@ summary:focus-visible,
 .navmenu .dropdown > a:focus-visible {
   outline: 3px solid var(--accent-color, #F9322B);
   outline-offset: 2px;
+}
+
+/* WCAG 1.4.1 (Use of Color) — links inside running text must be distinguished
+   by more than color, so underline in-content prose/list links. Buttons, pills,
+   tabs, card CTAs, nav and footer links all carry a class, so :not([class])
+   scopes this to genuine content links and leaves the styled UI links alone. */
+main p a:not([class]),
+main li a:not([class]),
+main dd a:not([class]),
+main blockquote a:not([class]),
+.v5b-page p a:not([class]),
+.v5b-page li a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+}
+main p a:not([class]):hover,
+main li a:not([class]):hover,
+.v5b-page p a:not([class]):hover,
+.v5b-page li a:not([class]):hover {
+  text-decoration-thickness: 2px;
 }

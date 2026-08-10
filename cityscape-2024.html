@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-header-style="plate">
 
 <head>
   <meta charset="utf-8">
@@ -8,6 +8,8 @@
   <meta name="description" content="A UC Berkeley / UW team mined 111,740 eviction court records across four Washington counties using natural language processing to uncover racial and gender disparities that structured data could not see. Published in Cityscape (HUD, 2024), this paper is the baseline methodology for working with any jurisdiction's court data.">
   <meta name="keywords" content="eviction data, natural language processing, NLP, court records, Washington State evictions, Cityscape, HUD, racial disparity, gender disparity, Bayesian race estimation, demographic estimation, Tim Thomas, Eviction Research Network, UC Berkeley">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <link rel="canonical" href="https://evictionresearch.net/cityscape-2024.html">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#19222C">
 
@@ -71,7 +73,7 @@
        Accent #F9322B · Dark navy #19222C · Medium blue #223754 · Light blue #e8eef4 -->
   <style>
     :root {
-      --accent:       #F9322B;
+      --accent:       #CC2118;
       --dark-blue:    #19222C;
       --medium-blue:  #223754;
       --light-gray:   #e8eef4;
@@ -225,7 +227,7 @@
     }
     .finding-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
     .finding-card .icon { font-size: 1.6rem; color: var(--accent); margin-bottom: 14px; }
-    .finding-card h5 { font-family: var(--heading-font); font-size: 1.0rem; font-weight: 700; color: var(--medium-blue); margin-bottom: 10px; }
+    .finding-card h3 { font-family: var(--heading-font); font-size: 1.0rem; font-weight: 700; color: var(--medium-blue); margin-bottom: 10px; }
     .finding-card p { font-size: 0.93rem; color: #4a5568; line-height: 1.7; margin-bottom: 0; }
 
     /* Method pipeline (numbered steps) */
@@ -244,7 +246,7 @@
       justify-content: center;
       margin-top: 2px;
     }
-    .method-body h6 {
+    .method-body h3 {
       font-family: var(--heading-font);
       font-weight: 700;
       color: var(--medium-blue);
@@ -403,10 +405,18 @@
           </li>
           <li><a href="news.html" aria-current="page" class="active">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
           <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -499,35 +509,35 @@
               <div class="method-item">
                 <div class="method-num">1</div>
                 <div class="method-body">
-                  <h6>Background</h6>
+                  <h3>Background</h3>
                   <p>Why structured eviction data misses most of the country</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-num">2</div>
                 <div class="method-body">
-                  <h6>The pipeline</h6>
+                  <h3>The pipeline</h3>
                   <p>OCR → address extraction → geocoding → validation → demographics</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-num">3</div>
                 <div class="method-body">
-                  <h6>Case study</h6>
+                  <h3>Case study</h3>
                   <p>Four western Washington counties, 2004–2017</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-num">4</div>
                 <div class="method-body">
-                  <h6>Findings</h6>
+                  <h3>Findings</h3>
                   <p>Sizable racial and gender disparities invisible in structured data</p>
                 </div>
               </div>
               <div class="method-item" style="margin-bottom:0;">
                 <div class="method-num">5</div>
                 <div class="method-body">
-                  <h6>Future strategies</h6>
+                  <h3>Future strategies</h3>
                   <p>Document layout analysis, LLM-assisted extraction, and a national roadmap</p>
                 </div>
               </div>
@@ -551,42 +561,42 @@
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-filetype-pdf" aria-hidden="true"></i></div>
-              <h5>You can extract structured data from scanned court records at scale</h5>
+              <h3>You can extract structured data from scanned court records at scale</h3>
               <p>A two-step pipeline — Tesseract OCR, then rule-based plus spaCy neural-network NER — pulled defendant addresses out of 111,740 PDF and TIFF images with 98% confidence in the correct address on the Naive Bayes classifier.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-geo-alt" aria-hidden="true"></i></div>
-              <h5>Geocoding platforms differ. Use more than one.</h5>
+              <h3>Geocoding platforms differ. Use more than one.</h3>
               <p>We benchmarked OSM, Census, Google, Azure, and Esri Business Analyst. Azure returned the highest raw success rate; Esri BA had the highest replicable rate. 93% of records were geocoded to rooftop-to-block accuracy — the threshold for trustworthy tract-level analysis.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-people" aria-hidden="true"></i></div>
-              <h5>Bayesian race estimation works — with known limits</h5>
+              <h3>Bayesian race estimation works — with known limits</h3>
               <p>Imai &amp; Khanna's <code>wru</code> package, backstopped by Xie's <code>rethnicity</code> Bi-LSTM model, yielded race estimates within a few percentage points of actual King County legal-aid intake data. Training data were voter files (largely Southern), so we document where this pipeline is likely to drift outside the South.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-bar-chart" aria-hidden="true"></i></div>
-              <h5>Racial disparities are larger than structured data suggest</h5>
+              <h3>Racial disparities are larger than structured data suggest</h3>
               <p>Structured county-level filings hid what neighborhood-level, demographic-estimated records exposed: Black female-headed households were filed against at 3–5× the rate of White-headed households across the four Washington counties in the study.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-bank" aria-hidden="true"></i></div>
-              <h5>Court cooperation is the hardest problem, not the code</h5>
+              <h3>Court cooperation is the hardest problem, not the code</h3>
               <p>One county clerk wanted $350,000 in per-page fees for 14 years of records. Others were enthusiastic. The technical pipeline is portable; the access strategy — mandates, grant support, legal-aid partnerships — is the scarce resource. The paper documents what worked and what didn't.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
             <div class="finding-card">
               <div class="icon"><i class="bi bi-arrow-right-circle" aria-hidden="true"></i></div>
-              <h5>What's next: document layout analysis and LLM-assisted extraction</h5>
+              <h3>What's next: document layout analysis and LLM-assisted extraction</h3>
               <p>The paper tests ChatGPT-class LLMs on court documents and flags the obvious privacy problems alongside the accuracy gaps. It points to document-layout models (computer vision + NLP) as the next generation of extraction — a lower-skill-barrier approach that could further democratize this kind of research.</p>
             </div>
           </div>
@@ -630,35 +640,35 @@
             <div class="method-item">
               <div class="method-num">1</div>
               <div class="method-body">
-                <h6>Access &amp; download</h6>
+                <h3>Access &amp; download</h3>
                 <p>111,740 eviction case images pulled from three separate Washington court portals via a throttled HTML scraper, using case numbers obtained from a state records request in partnership with the Washington Office of Civil Legal Aid.</p>
               </div>
             </div>
             <div class="method-item">
               <div class="method-num">2</div>
               <div class="method-body">
-                <h6>OCR &amp; text cleaning</h6>
+                <h3>OCR &amp; text cleaning</h3>
                 <p>Tesseract OCR converted scanned PDF and TIFF summons into text. Common error patterns ("1" → "|", "th" → straight quote, row numbers embedded in addresses) were identified and handled in post-processing.</p>
               </div>
             </div>
             <div class="method-item">
               <div class="method-num">3</div>
               <div class="method-body">
-                <h6>Address extraction</h6>
+                <h3>Address extraction</h3>
                 <p>Two-pass extraction: rule-based regex (house number + street type + ZIP patterns) followed by spaCy neural-network Named Entity Recognition. A Naive Bayes classifier distinguished defendant addresses from attorney and court addresses with 98% confidence.</p>
               </div>
             </div>
             <div class="method-item">
               <div class="method-num">4</div>
               <div class="method-body">
-                <h6>Geocoding &amp; validation</h6>
+                <h3>Geocoding &amp; validation</h3>
                 <p>Extracted addresses ran through Azure and Esri BA; 93% resolved to rooftop-to-block accuracy. Addresses resolving only to street or county centroid were dropped. Against manually extracted 2013 addresses, the algorithmic output achieved an average Levenshtein ratio of 0.82.</p>
               </div>
             </div>
             <div class="method-item" style="margin-bottom:0;">
               <div class="method-num">5</div>
               <div class="method-body">
-                <h6>Race &amp; gender estimation</h6>
+                <h3>Race &amp; gender estimation</h3>
                 <p>The R package <code>wru</code> (Imai &amp; Khanna) estimated race by Bayesian inference from surname and tract composition; <code>rethnicity</code> (Xie) handled residual names via a Bi-LSTM model. Gender was inferred via the <code>gender</code> package (Mullen et al.) cross-validating first names against SSA and IPUMS registries. Estimates were cross-checked against King County Bar Housing Justice Project intake data and agreed within a few percentage points.</p>
               </div>
             </div>
@@ -765,21 +775,21 @@
               <div class="method-item">
                 <div class="method-num"><i class="bi bi-calendar-check" aria-hidden="true"></i></div>
                 <div class="method-body">
-                  <h6>Pay-or-vacate extended 3 → 14 days</h6>
+                  <h3>Pay-or-vacate extended 3 → 14 days</h3>
                   <p>ESSB 5600 (2019). Gives tenants meaningful time to access rental-assistance funds before a filing is initiated.</p>
                 </div>
               </div>
               <div class="method-item">
                 <div class="method-num"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
                 <div class="method-body">
-                  <h6>Just-cause eviction statewide</h6>
+                  <h3>Just-cause eviction statewide</h3>
                   <p>Removes no-cause termination of long-term tenancies — the mechanism through which many of the filings in the study began.</p>
                 </div>
               </div>
               <div class="method-item" style="margin-bottom:0;">
                 <div class="method-num"><i class="bi bi-person-workspace" aria-hidden="true"></i></div>
                 <div class="method-body">
-                  <h6>Right to counsel for low-income tenants</h6>
+                  <h3>Right to counsel for low-income tenants</h3>
                   <p>2021. Washington becomes one of the first states in the country to guarantee legal representation in eviction proceedings.</p>
                 </div>
               </div>
@@ -868,7 +878,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -878,7 +888,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -892,17 +902,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -913,6 +924,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

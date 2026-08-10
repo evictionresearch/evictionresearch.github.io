@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-header-style="plate">
 
 <head>
   <meta charset="utf-8">
@@ -8,6 +8,8 @@
   <meta name="description" content="How the Eviction Research Network collects, cleans, and analyzes eviction court records. Methodology for natural-language processing of filings, racial/gender disparity analysis, and the Housing Precarity Risk Model.">
   <meta name="keywords" content="eviction methodology, NLP eviction records, court records analysis, HPRM methodology, Bayesian Additive Regression Trees, BART, displacement risk methodology, UC Berkeley">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
+
+  <link rel="canonical" href="https://evictionresearch.net/methodology.html">
 
   <!-- Open Graph / social -->
   <meta property="og:title" content="Methodology — Eviction Research Network">
@@ -40,12 +42,12 @@
     .method-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);padding:140px 0 80px;color:#fff}
     .method-hero h1{color:#fff;font-size:48px;font-weight:700;margin:12px 0 18px}
     .section{padding:60px 0;scroll-margin-top:92px;overflow:clip}
-    .section-eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-color);display:inline-block;margin-bottom:8px}
+    .section-eyebrow{font-family:var(--heading-font);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-deep);display:inline-block;margin-bottom:8px}
     /* Skip link + a11y utilities (inlined so they work before main.css loads) */
     .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
     .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
     .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
       /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
     .header .logo .logo-dark-bg{display:block}
@@ -101,10 +103,18 @@
           </li>
           <li><a href="news.html">News</a></li>
           <li><a href="methodology.html" aria-current="page" class="active">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
           <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
+              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -156,6 +166,7 @@
         <div class="text-center mb-5">
           <p class="kicker">The Pipeline</p>
           <h2>Five stages, court filing to research-ready dataset</h2>
+        <h3 class="visually-hidden">Pipeline stages</h3>
           <p class="lead mx-auto" style="max-width:760px;">Every ERN state profile follows the same five-stage pipeline. The steps below link to the technical details further down the page.</p>
         </div>
 
@@ -189,7 +200,7 @@
 
         <div class="callout-why mt-5" style="max-width: 920px; margin-left: auto; margin-right: auto;">
           <span class="callout-label">Baseline reference</span>
-          <p class="mb-2">The full pipeline &mdash; from raw court records, through OCR and address geocoding, to Bayesian demographic estimation and validation &mdash; is documented as a general methodology in Thomas, Hepburn, Graetz, and Desmond, <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer"><strong>"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</strong></a>. It is the baseline reference for applying this approach to any jurisdiction's court data, in any format.</p>
+          <p class="mb-2">The full pipeline &mdash; from raw court records, through OCR and address geocoding, to Bayesian demographic estimation and validation &mdash; is documented as a general methodology in Thomas, Ramiller, Ren, and Toomet, <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer"><strong>"Toward a National Eviction Data Collection Strategy Using Natural Language Processing" (<em>Cityscape</em>, 2024)</strong></a>. It is the baseline reference for applying this approach to any jurisdiction's court data, in any format.</p>
           <p class="mb-0"><a href="cityscape-2024.html" class="stage-link">Read the ERN summary of the Cityscape paper <i class="bi bi-arrow-right" aria-hidden="true"></i></a></p>
         </div>
       </div>
@@ -323,7 +334,7 @@
             <p>After geocoding, we used regular expressions and other string manipulation methods to clean and extract the first and last names of individual defendants. The data include information about eviction filings among (1) individual households with first and last names, (2) businesses, and (3) unnamed tenants. For these state profiles, we are only interested in analyzing evictions of individual households, not commercial evictions, so we filtered out cases where the name suggested the defendant was a business rather than a person.</p>
 
             <h2 id="demographic">Demographic Estimation</h2>
-            <p class="text-muted small mb-3"><em>The canonical write-up of this stage, including accuracy validation against legal-aid intake data, is Thomas et al., <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">"Estimating Eviction Prevalence Across the United States" (<em>Cityscape</em>, 2024)</a> &mdash; see our <a href="cityscape-2024.html">ERN summary</a>.</em></p>
+            <p class="text-muted small mb-3"><em>The canonical write-up of this stage, including accuracy validation against legal-aid intake data, is Thomas et al., <a href="https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/ch12.pdf" target="_blank" rel="noopener noreferrer">"Toward a National Eviction Data Collection Strategy Using Natural Language Processing" (<em>Cityscape</em>, 2024)</a> &mdash; see our <a href="cityscape-2024.html">ERN summary</a>.</em></p>
             <p>Using the surname extracted from the defendant name field, we estimated the race of each defendant with a valid human name using a Bayesian prediction model. This ecological inference method developed by Imai and Khanna uses Bayes' rule to examine the racial likelihood of frequently occurring surnames within Census name data and the racial composition for each neighborhood (tract data) where the evicted defendant lived. Using these two pieces of information, we computed the predicted probability of each racial category (White, Black, Latine, Asian, or other) for any given individual. For example, a person with the last name Jackson, a common Black surname, living in a neighborhood where a large share of the population is Black would have a higher likelihood of being estimated as Black compared to a person living in a neighborhood where a smaller share of the population is Black. Neighborhood racial composition is defined by the 2020 Decennial Census tract geography.</p>
 
             <div class="callout-why">
@@ -373,6 +384,7 @@
         <div class="text-center mb-5">
           <p class="kicker">Data Partners</p>
           <h2>The organizations that make this research possible</h2>
+        <h3 class="visually-hidden">Partner organizations</h3>
         </div>
 
         <div class="partner-cards">
@@ -502,6 +514,32 @@
       </div>
     </section>
 
+    <!-- ═════════════════════════════════════════════════════════════════════
+         Lineage · The Du Bois reference
+
+         ERN's "plate" convention — claim-titled charts, plate-numbered
+         sequencing, interpretive captions — borrows the spirit of W. E. B.
+         Du Bois's data plates from the 1900 Paris Exposition. We cite the
+         debt explicitly. Surface treatment (cream paper, hand-drawn lines,
+         sepia) is intentionally NOT copied; only the argumentative posture.
+         ═════════════════════════════════════════════════════════════════════ -->
+    <section class="v5b-section" id="lineage">
+      <div class="v5b-page">
+        <div style="max-width: 760px;">
+          <p class="plate-num">Lineage</p>
+          <h2 class="plate-claim">Our plates carry the spirit of <em>W. E. B. Du Bois.</em></h2>
+          <p class="plate-desc">ERN's state profiles are organized as numbered <strong>Plates</strong>, each carrying a claim-sentence title and a one-or-two-sentence interpretive description. The convention borrows from W. E. B. Du Bois's data plates for the 1900 Paris Exposition — among the earliest demonstrations that statistical charts could function as a sustained argument rather than a neutral display.</p>
+          <p>We adopt the <em>posture</em>: each plate is an argument, each title is a claim. We do not imitate the <em>surface</em>: ERN plates render on white, in a single modern typeface (Inter), with the brand red as the focal accent. The aim is research clarity, not historical pastiche.</p>
+          <p style="font-size: 14px; color: var(--muted);">
+            Further reading on Du Bois's data work, via <em>Nightingale</em> (the journal of the Data Visualization Society):
+            <a href="https://nightingaledvs.com/" target="_blank" rel="noopener noreferrer"><em>W. E. B. Du Bois &amp; the Data Visualization of Race</em></a>
+            <!-- TODO: replace the two anchors above with the exact part-1 and part-3 Nightingale URLs Tim referenced
+                 (part-1 on dvsnightingale.wpenginepowered.com; part-3 on nightingaledvs.com). Verify slugs before publish. -->
+          </p>
+        </div>
+      </div>
+    </section><!-- /Lineage -->
+
     <!-- ======= CTA (v5a aesthetic — solid red, hairline white type) ======= -->
     <section class="v5b-section accent">
       <div class="v5b-page">
@@ -537,7 +575,7 @@
       </div>
 
       <div class="col">
-        <h4>Research</h4>
+        <h3>Research</h3>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -547,7 +585,7 @@
       </div>
 
       <div class="col">
-        <h4>Maps &amp; Profiles</h4>
+        <h3>Maps &amp; Profiles</h3>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -561,17 +599,18 @@
       </div>
 
       <div class="col">
-        <h4>Resources</h4>
+        <h3>Resources</h3>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
+          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h4>Affiliated With</h4>
+        <h3>Affiliated With</h3>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -582,6 +621,8 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+      
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>

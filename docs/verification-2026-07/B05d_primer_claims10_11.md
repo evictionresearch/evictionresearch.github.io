@@ -1,0 +1,17 @@
+# Primer fact-check — CLAIMS 10 & 11 (verified 2026-07-14)
+
+## CLAIM 10 — Philly diversion "4.2% vs >40%". PARTIAL: figures real; verb + scope wrong.
+Source (fetched, pdftotext): Dowdall & Goldstein, "Eviction Diversion in Philadelphia: Evaluation of Efforts to Reduce Eviction Filings in Two Program Phases," Reinvestment Fund, Nov 2023. https://www.reinvestment.com/wp-content/uploads/2023/11/Eviction-Diversion-Brief-11.29.23.pdf
+- p.6: "4.2% of cases with rental assistance and mediation that led to the agreement (5 of 119 cases)"; 1.8% assistance+agreement w/o mediation; "7.4% for the group that received rental assistance compared to 42.2% for the group that did not."
+- p.10: no mediation/agreement/assistance -> 47.7% (highest Phase 2 rate); Fig 3: no mediation+no agreement -> 41.8%.
+- CORRECTIONS: (a) NOT "re-filed" — EDP is PRE-filing diversion; outcome = first court filing within 6 months of enrollment; (b) 34.7%/55.6% = Phase 2 vs Phase 3 OVERALL rates (p.5), not agreement splits; (c) Phase 2-only result, 5-case numerator; (d) 21-month caveat (p.11 fn12): assisted-case filing rate rises to 33.3% — "rental assistance may have delayed rather than fully prevented"; (e) associational, inside pandemic-era protections.
+- CORRECTED LANGUAGE: "In Phase 2 of Philadelphia's pre-filing eviction diversion program (Apr–Dec 2021), just 4.2% of cases that reached a mediated agreement and received rental assistance faced an eviction filing within six months (5 of 119), versus 42.2% of cases without rental assistance — and 47.7% with no mediation, agreement, or assistance."
+
+## CLAIM 11 — COVID moratoria + ERA. (a) PARTIAL, (b) CONFIRMED.
+(a) Filing reductions (Eviction Lab, all fetched + curl-verified):
+- 2020 (3/15–12/31): "eviction filings were 65% below historical average in the sites we tracked"; ">=1.55 million fewer" cases 2020; ETS then covered ~1 in 5 renter households. https://evictionlab.org/us-eviction-filing-patterns-2020/ (peer-reviewed: Hepburn et al., Socius 2021, doi:10.1177/23780231211009983 — Tim among authors)
+- CDC moratorium (9/4/2020–7/31/2021): "368,398 eviction filings ... less than half as many (47.2%) as we would expect"; ">=1.55 million" prevented; "The ETS collects data from 31 cities and six full states, home to one in every four renter households." https://evictionlab.org/eleven-months-cdc/
+- CY2021: 434,304 filings = "50.3% of historical average" (just UNDER half); >=1.36M prevented; filings did not revert post-moratorium. https://evictionlab.org/us-eviction-filing-patterns-2021/
+- FIXES: scope = "6 states and 31 cities" tracked (not "31 cities"); "more than half" true for in-force windows, not CY2021; descriptive not causal; most in-force window predates bulk ERA spending (ERA1 12/27/2020). Current ETS = 10 states + 41 cities.
+(b) ERA total CONFIRMED: Treasury "over $46 billion"; ERA1 $25B (Consolidated Appropriations Act 2021) + ERA2 $21.55B (ARPA) = $46.55B. https://home.treasury.gov/policy-issues/coronavirus/assistance-for-state-local-and-tribal-governments/emergency-rental-assistance-program ("provided" = made available, not all spent on rent relief).
+- CORRECTED LANGUAGE: "While pandemic protections were in force, filings across the 6 states and 31 cities the Eviction Lab tracked fell to less than half of normal — 65% below average from March 15 to December 31, 2020, and 47.2% of expected during the CDC moratorium — a period bolstered by the more than $46 billion in emergency rental assistance Congress appropriated."

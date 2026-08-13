@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-header-style="plate">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -151,18 +151,10 @@
           </li>
           <li><a href="news.html">News</a></li>
           <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
-              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
-              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
-            </ul>
-          </li>
           <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
             <ul>
               <li><a href="resources.html">Eviction Help</a></li>
               <li><a href="research.html">Other Eviction Research</a></li>
-              <li><a href="glossary.html">Glossary</a></li>
             </ul>
           </li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
@@ -175,157 +167,90 @@
 
   <main id="main" class="main" role="main">
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Hero · Volume I cover plate
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="hero section dark-background">
 
-         Du-Bois-lineage hero: text-led claim sentence on the left,
-         rotating "candidate plate" image on the right. The rotator cycles
-         four hero treatments (HPRM map, national coverage outline, eviction-
-         notice artifact, Seattle aerial) so the team can pick the final
-         hero image after seeing each one in context.
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="hero" class="v5b-section hero-plate">
-      <div class="v5b-page">
-        <div class="hero-plate-row">
-          <div class="hero-plate-text">
-            <p class="kicker">ERN · Volume I 2026</p>
-            <h1 class="section-title hero-plate-title">Displacement is rarely one event. <em>We measure it.</em></h1>
-            <p class="lead-paragraph">The Eviction Research Network is the academic arm of CiDR Lab, housed in UC&nbsp;Berkeley's Department of Sociology. We study what happens where <em>housing, health, criminal-justice contact, and climate exposure</em> meet — and build the open data infrastructure that lets researchers, agencies, and advocates act on it.</p>
-            <div class="hero-byline">
-              <span><strong>UC Berkeley · Sociology</strong></span>
-              <span>Applied work via <a href="https://cidrlab.org" target="_blank" rel="noopener noreferrer">CiDR Lab</a></span>
-              <span>Volume I · Updated May 2026</span>
-            </div>
-            <div class="hero-actions">
-              <a href="#hprm" class="btn btn-red">Explore HPRM</a>
-              <a href="#data" class="btn btn-ghost">The Apparatus</a>
-            </div>
-          </div>
-
-          <div class="hero-plate-image">
-            <!-- Rotating candidate hero plates. The active class is moved between
-                 slides every 5 s by hero-rotator.js; dot buttons let the user pin
-                 a slide. -->
-            <div class="hero-rotator" data-interval="5500" role="group" aria-roledescription="Carousel of candidate hero plates" aria-label="Candidate hero treatments">
-              <figure class="hero-rotator-slide active" data-label="HPRM · Risk Forecast">
-                <picture>
-                  <source srcset="images/bay_hprm.webp" type="image/webp">
-                  <img src="images/bay_hprm.png" alt="Housing Precarity Risk Model — Bay Area sample">
-                </picture>
-                <figcaption>Plate A · HPRM (Bay Area sample)</figcaption>
-              </figure>
-              <figure class="hero-rotator-slide coverage-slide" data-label="State Coverage">
-                <svg id="hero-coverage-svg" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of the United States with the eight states currently published by ERN highlighted in red">
-                  <title>ERN state coverage — Volume I 2026</title>
-                  <!-- D3 + topojson populate the state paths at runtime;
-                       see the inline script near the bottom of this page. -->
-                </svg>
-                <figcaption>Plate B · State coverage (Vol. I)</figcaption>
-              </figure>
-              <figure class="hero-rotator-slide" data-label="Eviction Notice Artifact">
-                <picture>
-                  <img src="images/research&news/housekeys&notice.webp" alt="Eviction notice with house keys — artifact of the system">
-                </picture>
-                <figcaption>Plate C · The notice as artifact</figcaption>
-              </figure>
-              <figure class="hero-rotator-slide" data-label="Urban Infrastructure">
-                <picture>
-                  <source srcset="images/seattle_air.webp" type="image/webp">
-                  <img src="images/seattle_air.png" alt="Aerial photograph of Seattle — urban displacement context">
-                </picture>
-                <figcaption>Plate D · Seattle, 2024</figcaption>
-              </figure>
-              <div class="hero-rotator-dots" role="tablist" aria-label="Choose a hero plate"></div>
+      <div class="info d-flex align-items-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6 text-center" style="display: flex; flex-direction: column; align-items: center;">
+              <!-- Visually hidden page h1 for a11y (logo image provides visual heading) -->
+              <h1 class="visually-hidden">Eviction Research Network</h1>
+              <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png" alt="" aria-hidden="true" style="width: 400px; max-width: 100%; height: auto;">
+              <p>University of California, Berkeley</p>
+              <p>Follow us on <b><a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></b> for new releases &amp; updates</p>
+              <a href="#get-started" class="btn-get-started">Learn More</a>
             </div>
           </div>
         </div>
       </div>
-    </section><!-- /Hero -->
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate I · The Risk Model (HPRM) — lead value prop
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="hprm" class="v5b-section tinted">
+      <div id="hero-carousel" class="carousel slide">
+        <div class="carousel-item active">
+          <picture>
+            <source srcset="images/seattle_air.webp" type="image/webp">
+            <img src="images/seattle_air.png" alt="" fetchpriority="high">
+          </picture>
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <!-- ======= Mission Section (v5b) ======= -->
+    <section id="get-started" class="v5b-section">
+      <div class="v5b-page">
+        <div class="two-col">
+          <div>
+            <p class="kicker">Our Mission</p>
+            <h2 class="section-title">Research for <em>social good.</em></h2>
+            <p>We create things that can't be unseen. The Eviction Research Network collects, analyzes, and maps eviction data while helping other researchers do the same. We specialize in using social and data science to analyze racial and gender disparities in eviction &mdash; and urban theory to help explain our findings.</p>
+            <p>Our goal is to expand public and scholarly knowledge on the prevalence and drivers of evictions in under-studied regions, highlight work from scholars in the field, and provide evidence-based research that legislatures, practitioners, and advocates can use to inform policy.</p>
+            <a href="about.html" class="btn btn-ghost">More about ERN</a>
+          </div>
+          <div>
+            <picture>
+              <source srcset="images/bannersmall.webp" type="image/webp">
+              <img src="images/bannersmall.jpg" alt="Eviction research team working with data" loading="lazy">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Mission Section -->
+
+    <!-- ======= HPRM Spotlight (v5b — tinted feature strip) ======= -->
+    <section class="v5b-section tinted hprm-spotlight">
       <div class="v5b-page">
         <div class="two-col reverse">
           <div>
             <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer" style="display: block;">
               <picture>
                 <source srcset="images/bay_hprm.webp" type="image/webp">
-                <img src="images/bay_hprm.png" alt="Housing Precarity Risk Model — Bay Area sample" loading="lazy">
+                <img src="images/bay_hprm.png" alt="Housing Precarity Risk Model map of the San Francisco Bay Area" loading="lazy">
               </picture>
             </a>
           </div>
           <div>
-            <p class="plate-num">Plate I · The Risk Model</p>
-            <h2 class="plate-claim">Risk, mapped to neighborhoods <em>where no data exists.</em></h2>
-            <p class="plate-desc">The Housing Precarity Risk Model is a national forecast of where renters face the greatest combined risk of eviction, displacement, and long-term poverty. Where court records are sparse, the model fills them in; where they are dense, it ranks neighborhoods by severity.</p>
-            <p>HPRM v2.0 is stewarded by ERN and CiDR Lab, dual-branded with the Urban Displacement Project. Policymakers, legal-aid providers, and government agencies use it to target rental assistance, design anti-displacement zoning, and prioritize eviction-defense resources.</p>
+            <p class="kicker">Policy Tools</p>
+            <h2 class="section-title">The Housing Precarity <em>Risk Model.</em></h2>
+            <p class="lead-paragraph">A national forecast of where renters face the greatest combined risk of eviction, displacement, and long-term poverty.</p>
+            <p>HPRM integrates estimates of eviction risk with indicators of displacement vulnerability and pandemic-era unemployment to highlight neighborhoods where housing precarity is most severe. Policymakers, advocates, and service providers can use it to target resources, design anti-displacement strategies, and advance housing equity.</p>
             <a href="https://evictionresearch.net/hprm/" class="btn btn-red" target="_blank" rel="noopener noreferrer">Explore the Model</a>
           </div>
         </div>
       </div>
-    </section><!-- /Plate I · HPRM -->
+    </section><!-- /HPRM Spotlight -->
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate II · The Apparatus — data + methodology
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="data" class="v5b-section">
-      <div class="v5b-page">
-        <div style="max-width: 760px; margin-bottom: 36px;">
-          <p class="plate-num">Plate II · The Apparatus</p>
-          <h2 class="plate-claim">Court records → tracts → demographics. <em>One method, 37 states.</em></h2>
-        <h3 class="visually-hidden">Pipeline stages</h3>
-          <p class="plate-desc">Every ERN state profile runs the same pipeline. Civil-court records are sourced from five data partnerships, geocoded to census tract, name-cleaned to exclude businesses, demographically estimated by Bayesian inference, and deduplicated. The full method is documented in the 2024 <em>Cityscape</em> paper and reproducible from open code.</p>
-        </div>
-        <ol class="action-list" style="margin-top: 12px;">
-          <li>
-            <span class="action-num">1</span>
-            <div>
-              <h4>Acquisition</h4>
-              <p>Partner with five data sources covering 30+ states — LSC, PSU, Chicago Legal Aid/ACLU, Baltimore Sheriff, WA OCLA.</p>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">2</span>
-            <div>
-              <h4>Geocoding</h4>
-              <p>Address → latitude/longitude → census tract, with controlled redistribution for low-precision rows.</p>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">3</span>
-            <div>
-              <h4>Demographic estimation</h4>
-              <p>Bayesian ecological inference (BISG / fBISG / birdie) on surname + neighborhood — never assigned, always estimated.</p>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">4</span>
-            <div>
-              <h4>Aggregation</h4>
-              <p>Deduplicated case counts aggregated to tract, county, state, race, and month — backbone of every profile and the HPRM.</p>
-            </div>
-          </li>
-        </ol>
-        <div style="margin-top: 36px;">
-          <a href="methodology.html" class="btn btn-ghost">Full Methodology</a>
-          <a href="cityscape-2024.html" class="btn btn-ghost" style="margin-left: 12px;">Cityscape (2024)</a>
-        </div>
-      </div>
-    </section><!-- /Plate II · The Apparatus -->
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate III · The Index — state coverage map
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="coverage" class="v5b-section tinted">
+    <!-- ======= State Coverage Map (v5b) ======= -->
+    <section id="coverage" class="v5b-section">
       <div class="v5b-page">
         <div class="two-col text-narrow">
           <div>
-            <p class="plate-num">Plate III · The Index</p>
-            <h2 class="plate-claim">Where ERN profiles <em>live.</em></h2>
-            <p class="plate-desc">State profiles are chapters of an annual Volume. Each chapter runs the same pipeline against the same template; each plate within a chapter is a claim sentence backed by the data. Click a state to read its current chapter.</p>
-            <p style="font-size: 14px; color: var(--muted);"><em>Volume I (2026) is the first compilation; subsequent years extend coverage.</em></p>
+            <p class="kicker">State Coverage</p>
+            <h2 class="section-title">State eviction data <em>&amp; profiles.</em></h2>
+            <p>The Eviction Research Network builds eviction data pipelines in under-studied regions to illuminate disparities by race, gender, and geography.</p>
+            <p>Post-pandemic eviction trends are reaching alarming levels in many states. Our state profiles, dashboards, and reports arm advocates and policymakers with the evidence they need to act.</p>
+            <p style="font-size: 14px; color: var(--muted);"><em>Our baseline methodology for working with heterogeneous court data &mdash; OCR, NLP extraction, geocoding, Bayesian demographic estimation &mdash; is documented in the <a href="cityscape-2024.html">2024 <em>Cityscape</em> paper</a>.</em></p>
+            <p style="font-size: 14px; color: var(--muted);"><em>Click a state to reach its best available eviction data. <span style="color:#CC2118; font-weight:600;">Red</span> states have ERN profiles. <span style="color:#001F60; font-weight:600;">Navy</span> states link to the Legal Services Corporation&rsquo;s <a href="https://civilcourtdata.lsc.gov/">Civil Court Data Initiative</a>. <span style="color:#1F6764; font-weight:600;">Teal</span> states link to a state court, university, or partner source. White states have no public eviction data. Every state and source is listed in the <a href="https://evictionresearch.net/all_states/">U.S. Eviction Data Directory</a>. Links verified August 13, 2026.</em></p>
           </div>
           <div>
             <div class="map-container">
@@ -335,16 +260,14 @@
           </div>
         </div>
       </div>
-    </section><!-- /Plate III · The Index -->
+    </section><!-- /State Coverage Map -->
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate IV · Recent Work — featured research
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="recent-blog-posts" class="v5b-section recent-blog-posts">
+    <!-- ======= Recent Publications (v5b paper-cards) ======= -->
+    <section id="recent-blog-posts" class="v5b-section tinted recent-blog-posts">
       <div class="v5b-page">
         <div style="text-align: center; margin-bottom: 56px;">
-          <p class="plate-num">Plate IV · Recent Work</p>
-          <h2 class="plate-claim" style="margin: 0 auto; max-width: 32ch;">Featured plates from <em>the network.</em></h2>
+          <p class="kicker">Recent Output</p>
+          <h2 class="section-title" style="margin: 0 auto; max-width: 28ch;">Recent research <em>&amp; news.</em></h2>
         </div>
 
         <div class="card-grid">
@@ -361,7 +284,7 @@
               <span><i class="bi bi-folder2" aria-hidden="true"></i>HUD-funded</span>
             </div>
             <p>Analyzes the efficacy of federal eviction assistance during COVID-19. Funded by HUD.</p>
-            <a href="https://evictionresearch.net/hud-era/" class="readmore" target="_blank" rel="noopener noreferrer" aria-label="Read more about Keeping People in Their Homes: the impact of emergency rental assistance on evictions">Read More</a>
+            <a href="https://evictionresearch.net/hud-era/" class="readmore" target="_blank" rel="noopener noreferrer">Read More</a>
           </article>
 
           <!-- Bay Area HPRM -->
@@ -377,7 +300,7 @@
               <span><i class="bi bi-folder2" aria-hidden="true"></i>Interactive Map</span>
             </div>
             <p>Interactive mapping tool visualizing neighborhoods at highest risk of eviction and economic displacement in the Bay Area.</p>
-            <a href="https://evictionresearch.net/hprm/bay/" class="readmore" target="_blank" rel="noopener noreferrer" aria-label="Explore the Bay Area Housing Precarity Risk Model">Explore</a>
+            <a href="https://evictionresearch.net/hprm/bay/" class="readmore" target="_blank" rel="noopener noreferrer">Explore</a>
           </article>
 
           <!-- What Lies Behind the Answers -->
@@ -393,7 +316,7 @@
               <span><i class="bi bi-folder2" aria-hidden="true"></i>Working Paper</span>
             </div>
             <p>Uses large language models to extract and understand the reasons for eviction from tenant testimonies.</p>
-            <a href="https://ideas.repec.org/p/osf/osfxxx/uscxh_v1.html" class="readmore" target="_blank" rel="noopener noreferrer" aria-label="Read more about What Lies Behind the Answers: applying machine learning to U.S. eviction records">Read More</a>
+            <a href="https://ideas.repec.org/p/osf/osfxxx/uscxh_v1.html" class="readmore" target="_blank" rel="noopener noreferrer">Read More</a>
           </article>
         </div>
 
@@ -401,173 +324,20 @@
           <a href="news.html" class="btn btn-ghost">All Research &amp; News</a>
         </div>
       </div>
-    </section><!-- /Plate IV · Recent Work -->
+    </section><!-- /Recent Publications -->
 
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate V · What can be done — forward-looking action list
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="action" class="v5b-section tinted">
+    <!-- ======= CTA Band (v5a aesthetic — solid red, light-weight white type) ======= -->
+    <section class="v5b-section accent">
       <div class="v5b-page">
-        <div style="max-width: 760px; margin-bottom: 24px;">
-          <p class="plate-num">Plate V · What can be done</p>
-          <h2 class="plate-claim">Find help. Cite the data. <em>Bring ERN to your jurisdiction.</em></h2>
-        <h3 class="visually-hidden">Who we serve</h3>
-          <p class="plate-desc">ERN's outputs are tools, not destinations. The data is open, the code is documented, and the methodology is reproducible. Four ways to act on what you see here:</p>
-        </div>
-        <ol class="action-list">
-          <li>
-            <span class="action-num">1</span>
-            <div>
-              <h4>If you're facing eviction</h4>
-              <p>Tenant-help resources by state, curated by ERN and legal-aid partners.</p>
-              <a href="resources.html" class="readmore">Help by state →</a>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">2</span>
-            <div>
-              <h4>If you're a researcher</h4>
-              <p>Methods, code, and DOI-stamped citations for every dataset.</p>
-              <a href="methodology.html" class="readmore">Cite the data →</a>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">3</span>
-            <div>
-              <h4>If you're an agency or legal partner</h4>
-              <p>We build pipelines for jurisdictions without one — court records to research-ready data.</p>
-              <a href="mailto:evictions@berkeley.edu?Subject=Start%20a%20state%20profile" class="readmore">Start a profile →</a>
-            </div>
-          </li>
-          <li>
-            <span class="action-num">4</span>
-            <div>
-              <h4>If you hold court records</h4>
-              <p>Help us close coverage gaps. ERN ingests heterogeneous data formats and credits sources on every plate.</p>
-              <a href="mailto:evictions@berkeley.edu?Subject=Contribute%20court%20data" class="readmore">Contribute data →</a>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section><!-- /Plate V · What can be done -->
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         Plate VI · Work with us — dual-arm CTA (ERN + CiDR Lab)
-         ═══════════════════════════════════════════════════════════════════ -->
-    <section id="partner" class="v5b-section">
-      <div class="v5b-page">
-        <div style="text-align: center; margin-bottom: 36px; max-width: 760px; margin-left: auto; margin-right: auto;">
-          <p class="plate-num">Plate VI · Work with us</p>
-          <h2 class="plate-claim" style="margin-left: auto; margin-right: auto;">Two arms. <em>One method.</em></h2>
-          <p class="plate-desc" style="margin-left: auto; margin-right: auto;">ERN and CiDR Lab share personnel, brand, and methodology. They differ in what they can sign. Choose the right door for the kind of work you're commissioning.</p>
-        </div>
-        <div class="dual-arm-row">
-          <div class="dual-arm-card">
-            <p class="kicker">Academic Arm</p>
-            <h3>Eviction Research Network</h3>
-            <p>For federal grants, peer-reviewed research, foundation funding, and joint publications. Housed in UC Berkeley's Department of Sociology; affiliated with BIDS, IGS, CDSS, and the Urban Displacement Project.</p>
-            <a href="mailto:evictions@berkeley.edu?Subject=ERN%20academic%20partnership" class="btn btn-ghost">Partner with ERN</a>
-          </div>
-          <div class="dual-arm-card">
-            <p class="kicker">Applied Arm</p>
-            <h3>CiDR Lab</h3>
-            <p>For government agencies, legal organizations, and nonprofits commissioning applied data work — eviction, displacement, climate-migration, and criminal-justice contact. Independent of UC Berkeley; signs contracts.</p>
-            <a href="https://cidrlab.org" target="_blank" rel="noopener noreferrer" class="btn btn-red">Commission CiDR Lab</a>
-          </div>
+        <div class="center-cta">
+          <h2 class="section-title">Partner with <em>ERN.</em></h2>
+          <p>Are you a researcher, legal aid provider, or policymaker working on eviction data in your region? We build data pipelines, train collaborators, and co-author research across the United States.</p>
+          <a href="mailto:evictions@berkeley.edu?Subject=Partnership%20inquiry%20via%20ERN%20website" class="btn btn-cta btn-envelope">Get in Touch</a>
         </div>
       </div>
-    </section><!-- /Plate VI · Work with us -->
+    </section><!-- /CTA Band -->
 
   </main>
-
-  <!-- Hero-rotator behavior. Cycles the 4 hero-rotator-slide figures via
-       opacity transitions and renders dot buttons for manual selection.
-       Auto-rotation pauses on hover and on user click. -->
-  <script>
-    (function () {
-      var rot = document.querySelector('.hero-rotator');
-      if (!rot) return;
-      var slides = Array.prototype.slice.call(rot.querySelectorAll('.hero-rotator-slide'));
-      var dotsHost = rot.querySelector('.hero-rotator-dots');
-      var interval = parseInt(rot.getAttribute('data-interval'), 10) || 5000;
-      var idx = 0;
-      var timer = null;
-      var paused = false;
-
-      slides.forEach(function (s, i) {
-        var b = document.createElement('button');
-        b.type = 'button';
-        b.setAttribute('role', 'tab');
-        b.setAttribute('aria-label', s.dataset.label || ('Plate ' + (i + 1)));
-        b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
-        b.addEventListener('click', function () { go(i, /*manual*/ true); });
-        dotsHost.appendChild(b);
-      });
-
-      function go(n, manual) {
-        slides[idx].classList.remove('active');
-        dotsHost.children[idx].setAttribute('aria-current', 'false');
-        idx = (n + slides.length) % slides.length;
-        slides[idx].classList.add('active');
-        dotsHost.children[idx].setAttribute('aria-current', 'true');
-        if (manual) { paused = true; stop(); }
-      }
-      function tick() { if (!paused) go(idx + 1); }
-      function start() { stop(); timer = window.setInterval(tick, interval); }
-      function stop() { if (timer) { window.clearInterval(timer); timer = null; } }
-      rot.addEventListener('mouseenter', stop);
-      rot.addEventListener('mouseleave', function () { if (!paused) start(); });
-      start();
-    })();
-  </script>
-
-  <!-- National state-coverage SVG (Plate B of the hero rotator).
-       Loads D3 + topojson on demand and paints the covered states red. -->
-  <script>
-    (function () {
-      var svg = document.getElementById('hero-coverage-svg');
-      if (!svg) return;
-      var COVERED = new Set([
-        '06', // California
-        '10', // Delaware
-        '18', // Indiana
-        '24', // Maryland
-        '27', // Minnesota
-        '39', // Ohio
-        '41', // Oregon
-        '53'  // Washington
-      ]);
-      function load(src) {
-        return new Promise(function (resolve, reject) {
-          var s = document.createElement('script');
-          s.src = src; s.async = true; s.onload = resolve; s.onerror = reject;
-          document.head.appendChild(s);
-        });
-      }
-      Promise.all([
-        load('https://cdn.jsdelivr.net/npm/d3@7'),
-        load('https://cdn.jsdelivr.net/npm/topojson-client@3')
-      ]).then(function () {
-        return fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json')
-          .then(function (r) { return r.json(); });
-      }).then(function (us) {
-        var states = topojson.feature(us, us.objects.states);
-        var width = 960, height = 600;
-        var proj = d3.geoAlbersUsa().fitSize([width - 40, height - 40], states);
-        var path = d3.geoPath(proj);
-        var ns = 'http://www.w3.org/2000/svg';
-        var g = document.createElementNS(ns, 'g');
-        g.setAttribute('transform', 'translate(20,20)');
-        states.features.forEach(function (f) {
-          var p = document.createElementNS(ns, 'path');
-          p.setAttribute('d', path(f));
-          p.setAttribute('class', 'coverage-state' + (COVERED.has(f.id) ? ' is-covered' : ''));
-          g.appendChild(p);
-        });
-        svg.appendChild(g);
-      }).catch(function () { /* Silent — slide falls back to empty plate frame. */ });
-    })();
-  </script>
 
 
   <footer id="footer" class="site" role="contentinfo">
@@ -593,7 +363,7 @@
       </div>
 
       <div class="col">
-        <h3>Research</h3>
+        <h4>Research</h4>
         <ul>
           <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
           <li><a href="research.html">Publications</a></li>
@@ -603,7 +373,7 @@
       </div>
 
       <div class="col">
-        <h3>Maps &amp; Profiles</h3>
+        <h4>Maps &amp; Profiles</h4>
         <ul>
           <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
           <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
@@ -617,18 +387,17 @@
       </div>
 
       <div class="col">
-        <h3>Resources</h3>
+        <h4>Resources</h4>
         <ul>
           <li><a href="resources.html">Eviction Help</a></li>
           <li><a href="research.html">Other Research</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
           <li><a href="about.html">About &amp; Team</a></li>
           <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
         </ul>
       </div>
 
       <div class="col">
-        <h3>Affiliated With</h3>
+        <h4>Affiliated With</h4>
         <ul>
           <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
           <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
@@ -639,8 +408,6 @@
 
       <div class="imprint">
         <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
-      
-        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
 
     </div>

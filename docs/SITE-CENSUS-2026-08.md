@@ -242,7 +242,8 @@ rough working sessions, not hours.
 **Status of #0946, verified from email 2026-08-10.** The request is stalled, not
 approved and not denied. Timeline: on 2026-05-20 Caitlin Conway of Brand
 Protection replied asking three clarifying questions. Tim answered on 2026-06-09
-with Chair David Harding's endorsement letter attached. One minute later the same
+with the endorsement letter from David Harding, then Chair of Sociology,
+attached. One minute later the same
 mailbox sent an automated notice that, effective 2026-05-01, BCBP had become the
 Business Contracts Office, that Caitlin Conway and Eryn Hong had **moved to
 Marketing and Brand in the Office of Strategic Communications**, and that

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-header-style="plate">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>U.S. Eviction Data Directory — Eviction Research Network</title>
+  <meta name="description" content="The best available public eviction data in every U.S. state and the District of Columbia: ERN state profiles, the Legal Services Corporation's Civil Court Data Initiative, state court dashboards, and university and nonprofit trackers. Links checked August 13, 2026.">
+  <meta name="author" content="Eviction Research Network">
+
+  <link rel="canonical" href="https://evictionresearch.net/all_states/">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="U.S. Eviction Data Directory — Eviction Research Network">
+  <meta property="og:description" content="Where every state's public eviction data lives. ERN profiles, LSC's Civil Court Data Initiative, state courts, universities, and nonprofits.">
+  <meta property="og:url" content="https://evictionresearch.net/all_states/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicons -->
+  <link href="/assets/img/favicon.png" rel="icon">
+  <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Font — Inter (single canonical ERN brand family, see BRAND.md). Async-loaded to avoid render-blocking. -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Critical above-the-fold CSS (matches sitewide inline block) -->
+  <style>
+    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
+    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
+    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
+    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
+    .header{background-color:rgba(255,255,255,0);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
+    .header .logo img{max-height:60px;width:auto}
+    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:var(--heading-color);padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
+    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-color);outline-offset:2px}
+    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--accent-color);outline-offset:2px}
+    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
+    .header .logo .logo-dark-bg{display:block}
+    .header .logo .logo-light-bg{display:none}
+    .scrolled .header .logo .logo-dark-bg{display:none}
+    .scrolled .header .logo .logo-light-bg{display:block}
+
+    /* Directory-specific styles */
+    .dir-legend{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.95rem}
+    .dir-legend li{display:flex;align-items:center;gap:8px}
+    .dot{display:inline-block;width:12px;height:12px;border-radius:50%;flex:none}
+    .dot-ern{background:#F9322B}
+    .dot-lsc{background:#001F60}
+    .dot-other{background:#2A8A86}
+    .dot-none{background:#ffffff;border:1px solid #9aa4ae}
+    .dir-table-wrap{overflow-x:auto;margin-top:32px}
+    table.dir-table{border-collapse:collapse;width:100%;max-width:900px;font-size:.95rem}
+    .dir-table caption{text-align:left;font-size:.85rem;color:#586573;caption-side:bottom;padding:12px 0}
+    .dir-table th,.dir-table td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(25,34,44,.14);vertical-align:top}
+    .dir-table thead th{border-bottom:2px solid #19222C;font-weight:700}
+    .dir-table th[scope=row]{font-weight:600;white-space:nowrap}
+    .dir-table a{color:#CC2118;text-decoration:underline;text-underline-offset:2px}
+    .dir-table a:hover{color:#B01D16}
+    .dir-note{max-width:70ch;margin-top:28px;font-size:.95rem;color:#586573}
+  </style>
+
+  <!-- Bootstrap (sync for stable layout) -->
+  <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Non-critical CSS -->
+  <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="/assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/css/main.css" rel="stylesheet">
+    <link href="/assets/css/v5b.css" rel="stylesheet">
+  </noscript>
+</head>
+
+<body class="all-states-page">
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="/index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
+        <img src="/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
+        <img src="/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+      </a>
+
+      <nav id="navmenu" class="navmenu" aria-label="Primary">
+        <ul>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/about.html">About</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+            </ul>
+          </li>
+          <li><a href="/news.html">News</a></li>
+          <li><a href="/methodology.html">Methodology</a></li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="/state-eviction-timeframes/">State Eviction Timeframes</a></li>
+              <li><a href="/understanding-eviction.html">Understanding Eviction</a></li>
+              <li><a href="/cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
+            <ul>
+              <li><a href="/resources.html">Eviction Help</a></li>
+              <li><a href="/research.html">Other Eviction Research</a></li>
+              <li><a href="/glossary.html">Glossary</a></li>
+            </ul>
+          </li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      </nav>
+
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+
+    <!-- ======= Directory intro =======
+         This page mirrors the homepage map. Keep the roster in lockstep with
+         code/us_state_map_urls.r (same four categories, same links, same
+         verification date). Hand-built 2026-08-14 from that file's tables; the
+         R header anticipates a generator at all_states/code/o2_data_directory.r
+         if this list starts changing often. Tier strategy behind the roster:
+         library/docs/state_profile_expansion.md. -->
+    <section class="v5b-section">
+      <div class="v5b-page" style="padding-top: 60px;">
+        <div style="max-width: 760px;">
+          <p class="kicker">U.S. Eviction Data Directory</p>
+          <h1 class="section-title" style="font-size: clamp(2.2rem, 4.5vw, 3.2rem); max-width: 28ch;">Every state's best available <em>eviction data.</em></h1>
+          <p class="lead-paragraph">No federal agency counts evictions, so the public record is scattered across state courts, legal aid organizations, universities, and research groups. This page lists the best public source of eviction data we know of in each state and the District of Columbia. Where ERN has built a profile, we link our own work. Where another group already publishes reliable data, we link theirs and credit them. Every link was checked on August&nbsp;13,&nbsp;2026.</p>
+          <ul class="dir-legend" aria-label="Source categories">
+            <li><span class="dot dot-ern" aria-hidden="true"></span> ERN state profile</li>
+            <li><span class="dot dot-lsc" aria-hidden="true"></span> Legal Services Corporation, Civil Court Data Initiative</li>
+            <li><span class="dot dot-other" aria-hidden="true"></span> State court, university, or partner source</li>
+            <li><span class="dot dot-none" aria-hidden="true"></span> No public data</li>
+          </ul>
+        </div>
+
+        <div class="dir-table-wrap">
+          <table class="dir-table">
+            <caption>Sources current as of August 13, 2026. This table and the homepage map are maintained together.</caption>
+            <thead>
+              <tr>
+                <th scope="col">State</th>
+                <th scope="col">Best available source</th>
+                <th scope="col">Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Alabama</th><td>None public</td><td><span class="dot dot-none" aria-hidden="true"></span> No public data</td></tr>
+              <tr><th scope="row">Alaska</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/alaska" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Arizona</th><td><a href="https://www.azcourts.gov/statistics/Interactive-Data-Dashboards/Justice-Court-Evictions" target="_blank" rel="noopener noreferrer">Arizona courts dashboard</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Arkansas</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/arkansas" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">California</th><td><a href="https://evictionresearch.net/california/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Colorado</th><td><a href="https://coloradojudicial.gov/eviction-filings" target="_blank" rel="noopener noreferrer">Colorado Judicial dashboard</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Connecticut</th><td><a href="https://evictionmap.ctdata.org/" target="_blank" rel="noopener noreferrer">CTData eviction map</a></td><td><span class="dot dot-other" aria-hidden="true"></span> Partner source</td></tr>
+              <tr><th scope="row">Delaware</th><td><a href="https://evictionresearch.net/delaware/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">District of Columbia</th><td><a href="https://ota.dc.gov/page/monthly-eviction-data" target="_blank" rel="noopener noreferrer">Office of the Tenant Advocate</a></td><td><span class="dot dot-other" aria-hidden="true"></span> Government source</td></tr>
+              <tr><th scope="row">Florida</th><td><a href="https://flhousingdata.shimberg.ufl.edu/eviction-foreclosure" target="_blank" rel="noopener noreferrer">Shimberg Center (University of Florida)</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">Georgia</th><td><a href="https://atlregional.github.io/eviction-tracker/" target="_blank" rel="noopener noreferrer">Metro Atlanta eviction tracker (ARC)</a></td><td><span class="dot dot-other" aria-hidden="true"></span> Regional agency</td></tr>
+              <tr><th scope="row">Hawaii</th><td><a href="https://www.courts.state.hi.us/wp-content/uploads/2026/02/FY2025_annual_report_statistical_supplement_Final_Draft-2.pdf" target="_blank" rel="noopener noreferrer">Hawaii Judiciary annual report (PDF)</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Idaho</th><td><a href="https://www.boisestate.edu/sps-ipi/evictions-in-idaho/evictions-in-idaho-2/" target="_blank" rel="noopener noreferrer">Idaho Policy Institute (Boise State)</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">Illinois</th><td><a href="https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/" target="_blank" rel="noopener noreferrer">Illinois courts statistical reports</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Indiana</th><td><a href="https://evictionresearch.net/indiana/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Iowa</th><td>None public</td><td><span class="dot dot-none" aria-hidden="true"></span> No public data</td></tr>
+              <tr><th scope="row">Kansas</th><td>None public</td><td><span class="dot dot-none" aria-hidden="true"></span> No public data</td></tr>
+              <tr><th scope="row">Kentucky</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/kentucky" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Louisiana</th><td><a href="https://evictionlab.org/eviction-tracking/new-orleans-la/" target="_blank" rel="noopener noreferrer">Eviction Lab, New Orleans tracking</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">Maine</th><td><a href="https://www.courts.maine.gov/about/reports/fed-monthly15yr-report.pdf" target="_blank" rel="noopener noreferrer">Maine Judicial FED report (PDF)</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Maryland</th><td><a href="https://evictionresearch.net/maryland/report/baltimore.html">ERN profile (Baltimore)</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Massachusetts</th><td><a href="https://public.tableau.com/app/profile/drap4687/viz/MassachusettsTrialCourtSummaryProcess/SummaryProcess" target="_blank" rel="noopener noreferrer">Massachusetts Trial Court dashboard</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Michigan</th><td><a href="https://app.powerbigov.us/view?r=eyJrIjoiZGE3NzljYmItYTBmZC00OGI2LTliYTgtYzY5ZjI0N2U0MWYxIiwidCI6IjM0NTZmZTkyLWNiZDEtNDA2ZC1iNWEzLTUzNjRiZWMwYTgzMyJ9" target="_blank" rel="noopener noreferrer">Michigan SCAO dashboard</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Minnesota</th><td><a href="https://evictionresearch.net/minnesota/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Mississippi</th><td>None public</td><td><span class="dot dot-none" aria-hidden="true"></span> No public data</td></tr>
+              <tr><th scope="row">Missouri</th><td><a href="https://evictionlab.org/eviction-tracking/missouri/" target="_blank" rel="noopener noreferrer">Eviction Lab tracking</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">Montana</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/montana" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Nebraska</th><td><a href="https://nebraskajudicial.gov/administration/publications-reports" target="_blank" rel="noopener noreferrer">Nebraska courts eviction report</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Nevada</th><td><a href="https://nvcourts.gov/supreme/reports/annual_reports" target="_blank" rel="noopener noreferrer">Nevada courts annual reports</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">New Hampshire</th><td><a href="https://www.courts.nh.gov/media/data-reports" target="_blank" rel="noopener noreferrer">New Hampshire courts data reports</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">New Jersey</th><td><a href="https://www.njcourts.gov/public/statistics/fil-res-current" target="_blank" rel="noopener noreferrer">New Jersey Judiciary statistics</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">New Mexico</th><td><a href="https://evictionlab.org/eviction-tracking/new-mexico/" target="_blank" rel="noopener noreferrer">Eviction Lab tracking</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">New York</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/new-york" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">North Carolina</th><td><a href="https://www.nccourts.gov/data" target="_blank" rel="noopener noreferrer">North Carolina courts data</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">North Dakota</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/north-dakota" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Ohio</th><td><a href="https://evictionresearch.net/ohio/dayton.html">ERN profile (Dayton)</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Oklahoma</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/oklahoma" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Oregon</th><td><a href="https://evictionresearch.net/oregon/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">Pennsylvania</th><td><a href="https://evictionlab.org/eviction-tracking/pennsylvania/" target="_blank" rel="noopener noreferrer">Eviction Lab tracking</a></td><td><span class="dot dot-other" aria-hidden="true"></span> University</td></tr>
+              <tr><th scope="row">Rhode Island</th><td><a href="https://www.rihousing.com/evictions-dashboard/" target="_blank" rel="noopener noreferrer">RIHousing evictions dashboard</a></td><td><span class="dot dot-other" aria-hidden="true"></span> Government source</td></tr>
+              <tr><th scope="row">South Carolina</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/south-carolina" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">South Dakota</th><td>None public</td><td><span class="dot dot-none" aria-hidden="true"></span> No public data</td></tr>
+              <tr><th scope="row">Tennessee</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/tennessee" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Texas</th><td><a href="https://card.txcourts.gov/" target="_blank" rel="noopener noreferrer">Texas Office of Court Administration</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+              <tr><th scope="row">Utah</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/utah" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Vermont</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/vermont" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Virginia</th><td><a href="https://virginiacourtdata.org/" target="_blank" rel="noopener noreferrer">virginiacourtdata.org</a></td><td><span class="dot dot-other" aria-hidden="true"></span> Partner source</td></tr>
+              <tr><th scope="row">Washington</th><td><a href="https://evictionresearch.net/washington/">ERN state profile</a></td><td><span class="dot dot-ern" aria-hidden="true"></span> ERN</td></tr>
+              <tr><th scope="row">West Virginia</th><td><a href="https://civilcourtdata.lsc.gov/data/eviction/west-virginia" target="_blank" rel="noopener noreferrer">LSC Civil Court Data Initiative</a></td><td><span class="dot dot-lsc" aria-hidden="true"></span> LSC</td></tr>
+              <tr><th scope="row">Wisconsin</th><td><a href="https://doa.wi.gov/Pages/Wisconsin-Eviction-Data-Project.aspx" target="_blank" rel="noopener noreferrer">Wisconsin Eviction Data Project</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State agency</td></tr>
+              <tr><th scope="row">Wyoming</th><td><a href="https://www.wyocourts.gov/circuit-courts/" target="_blank" rel="noopener noreferrer">Wyoming circuit courts</a></td><td><span class="dot dot-other" aria-hidden="true"></span> State courts</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="dir-note">Five states have no public eviction data that we can find. In Alabama, Iowa, Kansas, Mississippi, and South Dakota, eviction filings exist in court records but no court, agency, university, or research group publishes them. If a public source is missing from this list, or a link has broken, email <a href="mailto:evictions@berkeley.edu?Subject=Eviction%20Data%20Directory" style="color:#CC2118;">evictions@berkeley.edu</a>.</p>
+        <p class="dir-note">The <a href="/index.html#maps" style="color:#CC2118;">map on our homepage</a> shows this same directory geographically. Sources on this page describe filings and case counts; coverage, update cadence, and detail vary by source.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="footer" class="site" role="contentinfo">
+    <div class="grid">
+      <div class="col about">
+        <div class="footer-logos">
+          <a href="/index.html" aria-label="Eviction Research Network — Home">
+            <img src="/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
+          </a>
+          <span class="footer-logo-divider" aria-hidden="true"></span>
+          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
+            <img src="/images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
+          </a>
+        </div>
+        <!-- Canonical affiliation line per docs/SITE-DEFINITION-2026-08.md §7.
+             This page shipped with it; the item-1 footer sweep brings the
+             other pages to match. -->
+        <p>A research program of the UC Berkeley Department of Sociology.</p>
+        <div class="social-links" aria-label="Social media">
+          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
+          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3>Research</h3>
+        <ul>
+          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
+          <li><a href="/research.html">Publications</a></li>
+          <li><a href="/methodology.html">Methodology</a></li>
+          <li><a href="/news.html">News &amp; Press</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Maps &amp; Profiles</h3>
+        <ul>
+          <li><a href="/all_states/">U.S. Eviction Data Directory</a></li>
+          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
+          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
+          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
+          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
+          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
+          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
+          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
+          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/resources.html">Eviction Help</a></li>
+          <li><a href="/research.html">Other Research</a></li>
+          <li><a href="/glossary.html">Glossary</a></li>
+          <li><a href="/about.html">About &amp; Team</a></li>
+          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="col">
+        <h3>Academic Home</h3>
+        <ul>
+          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
+          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
+        </ul>
+      </div>
+
+      <div class="imprint">
+        <span>&copy; 2026 <strong>Eviction Research Network</strong>. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
+
+        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
+
+  <!-- Vendor + main JS (nav toggle, scroll behavior) -->
+  <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+
+</body>
+
+</html>

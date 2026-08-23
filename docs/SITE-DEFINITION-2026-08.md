@@ -387,27 +387,41 @@ role is to be the public proof that the machine exists and works: the method
 three, institutionalization, is where the new thread points.
 
 **The Berkeley Law clinic thread.** The draft Tim remembered exists and is
-substantial: `~/git/evictionresearch/law/`, seven documents, built 2026-08-07,
-private repo. Core concept, a housing justice clinic at Berkeley Law that
+substantial: `~/git/evictionresearch/law/`, private repo, seven documents built
+2026-08-07 and an eighth added 2026-08-14 (`07_timeline.md`, the dated gates and
+dependencies; start there). Committed and pushed 2026-08-14. Core concept, a
+housing justice clinic at Berkeley Law that
 trains students to build and defend quantitative evidence in eviction cases,
 with EBCLC as the defense arm, ERN as the records infrastructure, and
-Sociology's CRELS trainees as the computational pipeline. Ariella Stefanson
+Sociology's CRELS trainees as the computational pipeline. Ariella Stafanson
 (Bay Area Legal Aid) independently proposed the same clinic and is a
-practitioner co-founder in waiting; the meeting record is
-`library/sensitive_project_docs/california/2026-08-03_bay-legal-ariella.md`.
+practitioner co-founder in waiting; the running record is
+`library/sensitive_project_docs/california/bay_area_legal_aid.md`, with dated
+meeting notes alongside it.
 
-**Live deadlines in that thread** (from `law/README.md`, written Aug 7):
-the next Ariella meeting is **Friday August 14, 11:00**, pitch-deck
-brainstorm, Tim brings example figures. Then her supervisor meeting ~Aug 21,
-and the DC PolicyLink summit Aug 24 to 28 overlaps the pitch window.
+**Live deadlines in that thread** (updated 2026-08-14, superseding
+`law/README.md` as written Aug 7): the August 14 pitch-deck meeting **has
+happened**. Ariella meets her housing supervisors **August 21, 11:00**, then
+pitches Bay Legal's head of legal counsel. The DC PolicyLink summit August 24
+to 28 overlaps that window, so async only that week.
 
 **How the website serves the strategy without mentioning it.** The clinic
 pitch's "proof the method works" section cites exactly the litigation and
 policy record the Impact page publishes (§8). A dean, a funder, or Bay Legal's
-executive director will visit the site as due diligence; what they need to
-find is the record, the method, the affiliation stated correctly, and no
+leadership will visit the site as due diligence; what they need to find is the
+record, the method, the affiliation stated correctly, and no
 conflict-of-interest loose ends. Items 0, 1, 2, and 6 of §9 are, not
-coincidentally, the pre-August-21 shortlist.
+coincidentally, the pre-August-21 shortlist. (Bay Legal's Executive Director
+went out unexpectedly for a year as of August 2026, so the due-diligence
+reader is now the head of legal counsel, who is described as risk- and
+confidentiality-focused. Weight the site's data-handling and affiliation
+clarity accordingly.)
+
+**Standing constraint on this site.** Tim committed on 2026-08-14 to not
+listing Bay Legal as a collaborator or partner anywhere on the rebuilt site
+until their internal approval lands. Their existing appearance in the
+California legal-help directory on `resources.html` is a public tenant
+resource listing, not a partnership claim, and is fine to keep.
 
 **Verification discipline for that thread.** The Ariella note and law repo
 carry their own unverified-claims registers (FEHA case-law gap, RTC pilot

@@ -58,7 +58,7 @@
   <!-- Critical above-the-fold CSS (inlined so the fixed header + first plate
        render correctly before main.css / v5b.css load). -->
   <style>
-    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;scroll-behavior:smooth}
+    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#E00E06;scroll-behavior:smooth}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;font-feature-settings:"ss01","cv11"}
     h1,h2,h3,h4,h5,h6{color:var(--heading-color)}
     html[data-header-style="plate"] body{padding-top:88px}
@@ -85,11 +85,11 @@
        Page-specific primitives for the eviction primer.
        Scoped under .primer so they never leak into other pages. Reuses the
        v5b tokens (--navy / --accent / --accent-deep / --muted / --tint-solid).
-       Red (#F9322B) is used only for graphic fills, rules, and markers;
+       Red (#E00E06) is one value for fills, rules, markers and text;
        all readable text uses navy, muted, or the WCAG-safe red #E00E06.
        ─────────────────────────────────────────────────────────────────── -->
   <style>
-    .primer { --navy:#19222C; --navy-soft:#223754; --accent:#F9322B; --accent-deep:#E00E06; --muted:#586573; --tint:#e8eef4; --steel:#8BA3BE; --rule:rgba(25,34,44,.14); --rule-fine:rgba(25,34,44,.08); }
+    .primer { --navy:#19222C; --navy-soft:#223754; --accent:#E00E06; --accent-deep:#E00E06; --muted:#586573; --tint:#e8eef4; --steel:#8BA3BE; --rule:rgba(25,34,44,.14); --rule-fine:rgba(25,34,44,.08); }
 
     /* Table of contents rail under the hero */
     .primer .toc-rail { border-top:1px solid var(--rule-fine); border-bottom:1px solid var(--rule-fine); }
@@ -360,7 +360,7 @@
               <text x="12" y="143" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT COURT RECORDS SEE</text>
               <text x="708" y="170" text-anchor="end" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT THEY MISS</text>
               <!-- tip -->
-              <polygon points="360,40 300,150 420,150" fill="#F9322B"/>
+              <polygon points="360,40 300,150 420,150" fill="#E00E06"/>
               <!-- submerged mass -->
               <polygon points="300,150 420,150 470,250 405,360 315,360 250,250" fill="#E00E06" fill-opacity="0.30" stroke="#E00E06" stroke-opacity="0.5" stroke-width="1"/>
               <!-- tip labels (upper-right, clear of the triangle) -->
@@ -557,7 +557,7 @@
 
               <!-- The four-phase bar -->
               <rect x="80"  y="234" width="50"  height="44" fill="#8BA3BE"/>
-              <rect x="130" y="234" width="250" height="44" fill="#F9322B"/>
+              <rect x="130" y="234" width="250" height="44" fill="#E00E06"/>
               <rect x="380" y="234" width="320" height="44" fill="#3a5a7a"/>
               <rect x="700" y="234" width="220" height="44" fill="#19222C"/>
               <!-- event dots on the bar's top edge -->
@@ -595,7 +595,7 @@
             </svg>
             <div class="tl-legend">
               <span class="lg"><span class="sw" style="background:#8BA3BE"></span> Grace</span>
-              <span class="lg"><span class="sw" style="background:#F9322B"></span> Notice</span>
+              <span class="lg"><span class="sw" style="background:#E00E06"></span> Notice</span>
               <span class="lg"><span class="sw" style="background:#3a5a7a"></span> Court (filing→judgment)</span>
               <span class="lg"><span class="sw" style="background:#19222C"></span> Post-judgment (→lockout)</span>
             </div>
@@ -680,7 +680,7 @@
                 <rect x="48" y="250" width="14" height="58" rx="7" fill="#8BA3BE"/>
                 <rect x="48" y="192" width="14" height="64" fill="#9aa0a8"/>
                 <rect x="48" y="134" width="14" height="62" fill="#d76a55"/>
-                <rect x="48" y="76" width="14" height="62" fill="#F9322B"/>
+                <rect x="48" y="76" width="14" height="62" fill="#E00E06"/>
                 <rect x="48" y="24" width="14" height="58" rx="7" fill="#E00E06"/>
                 <circle cx="55" cy="320" r="20" fill="#E00E06"/>
                 <!-- stage rows -->
@@ -1128,13 +1128,13 @@
        Chart rendering — vanilla SVG drawn from data arrays. Each chart has
        a visually-hidden <table> fallback already in the markup for screen
        readers and no-JS users; this script only adds the visual layer.
-       Brand discipline: #F9322B for fills/markers only; #19222C / #586573
+       Brand discipline: #E00E06 for fills/markers and text; #19222C / #586573
        for any readable text; #E00E06 where small red text is unavoidable.
        ─────────────────────────────────────────────────────────────────── -->
   <script>
   (function () {
     var SVGNS = "http://www.w3.org/2000/svg";
-    var RED = "#F9322B", REDTXT = "#E00E06", NAVY = "#19222C", MUTED = "#586573", STEEL = "#8BA3BE", RULE = "rgba(25,34,44,.16)";
+    var RED = "#E00E06", REDTXT = "#E00E06", NAVY = "#19222C", MUTED = "#586573", STEEL = "#8BA3BE", RULE = "rgba(25,34,44,.16)";
     function el(name, attrs) {
       var n = document.createElementNS(SVGNS, name);
       for (var k in attrs) n.setAttribute(k, attrs[k]);
@@ -1222,7 +1222,7 @@
       // Phase colors: grace, notice, court (filing→judgment), post-judgment (→lockout)
       var PH = [
         { key: "grace",  color: "#8BA3BE", label: "Grace" },
-        { key: "notice", color: "#F9322B", label: "Notice" },
+        { key: "notice", color: "#E00E06", label: "Notice" },
         { key: "court",  color: "#3a5a7a", label: "Court (filing→judgment)" },
         { key: "post",   color: "#19222C", label: "Post-judgment (→lockout)" }
       ];

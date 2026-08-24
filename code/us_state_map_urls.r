@@ -43,7 +43,9 @@ jsCode <- paste0('
  }
 ')
 
-ern_red   <- '#F9322B'   # ERN brand red
+ern_red   <- '#E00E06'   # ERN red (2026-08-24: readable red, AA-safe;
+                         # was #F9322B, which fails AA as text and now
+                         # appears nowhere on the site)
 lsc_navy  <- '#001F60'   # LSC brand navy, from civilcourtdata.lsc.gov styles
 part_teal <- '#2A8A86'   # ERN qualitative teal, for non-LSC sources
 

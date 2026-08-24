@@ -24,14 +24,14 @@
 /* ERN Brand Colors (canonical) — keep in sync with cidrlab.github.io/assets/css/main.css
    Dark navy:    #19222C  — dark backgrounds, header, footer
    Medium blue:  #223754  — default text, headings, secondary surfaces
-   Accent red:   #F9322B  — buttons, links, highlights
+   Accent red:   #E00E06  — buttons, links, highlights
    Light blue:   #e8eef4  — alternating section backgrounds
    See: evictionresearch.github.io/BRAND.md */
 :root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #223754; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #19222C; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #F9322B; /* Brand red — decorative use only: large fills, borders, backgrounds, graphics. NOT contrast-safe as small text on white (3.8:1, fails WCAG 1.4.3 AA). */
+  --accent-color: #E00E06; /* ERN red for graphics: fills, borders, backgrounds. Same value as --accent-deep since 2026-08-24, when the site retired the brighter #F9322B that could not be used as text. */
   --accent-deep: #E00E06; /* Contrast-safe brand red for text, links, and button labels — 5.0:1 on white, 4.6:1 on the #e8eef4 tint (clears WCAG 1.4.3 AA on both). Use anywhere red is text. */
   --accent-deeper: #C20C05; /* Darker red for hover/active states of red text and buttons. */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
@@ -45,7 +45,7 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #F9322B; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #E00E06; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -108,7 +108,7 @@ h6 {
 ------------------------------*/
 .php-email-form .error-message {
   display: none;
-  background: #F9322B; /* brand accent red (was #df1529, bootstrap-template default) */
+  background: #E00E06; /* brand accent red (was #df1529, bootstrap-template default) */
   color: #ffffff;
   text-align: left;
   padding: 15px;
@@ -4124,7 +4124,7 @@ section,
 
 /* Emergency banner */
 .emergency-banner {
-  background: #F9322B;
+  background: #E00E06;
   color: #fff;
   padding: 22px 0;
   font-family: var(--heading-font);
@@ -4158,7 +4158,7 @@ section,
 .emergency-banner .eb-btn {
   display: inline-block;
   background: #fff;
-  color: #F9322B;
+  color: #E00E06;
   padding: 10px 18px;
   font-size: 14px;
   font-weight: 600;
@@ -4167,7 +4167,7 @@ section,
   transition: transform .15s, box-shadow .15s;
 }
 .emergency-banner .eb-btn:hover {
-  color: #F9322B;
+  color: #E00E06;
   transform: translateY(-1px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
@@ -4213,8 +4213,8 @@ section,
   transition: all .15s;
 }
 .state-jumpbar .sj-pill:hover {
-  background: #F9322B;
-  border-color: #F9322B;
+  background: #E00E06;
+  border-color: #E00E06;
   color: #fff;
 }
 
@@ -4272,7 +4272,7 @@ section,
   justify-content: space-between;
   background: #fff;
   border: 1px solid #e8eef4;
-  border-left: 3px solid #F9322B;
+  border-left: 3px solid #E00E06;
   border-radius: 4px;
   padding: 18px 20px;
   transition: box-shadow .15s, transform .15s;
@@ -4299,7 +4299,7 @@ section,
 }
 .resource-card .rc-name::after {
   content: " ↗";
-  color: #F9322B;
+  color: #E00E06;
   font-weight: 400;
   opacity: 0.7;
 }
@@ -4382,7 +4382,7 @@ section,
 .policies-intro {
   background: #f4f7f6;
   padding: 48px 0;
-  border-top: 4px solid #F9322B;
+  border-top: 4px solid #E00E06;
 }
 .policies-intro .pi-eyebrow {
   font-family: var(--heading-font);
@@ -4390,7 +4390,7 @@ section,
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #F9322B;
+  color: #E00E06;
   margin-bottom: 10px;
 }
 .policies-intro h2 {
@@ -4425,7 +4425,7 @@ section,
   transition: all .15s;
 }
 .policies-intro .pi-btn.primary {
-  background: #F9322B;
+  background: #E00E06;
   color: #fff;
 }
 .policies-intro .pi-btn.primary:hover { background: #E00E06; color: #fff; } /* --accent-deep */
@@ -4452,7 +4452,7 @@ section,
   font-family: var(--heading-font);
   font-size: 40px;
   font-weight: 700;
-  color: #F9322B;
+  color: #E00E06;
   line-height: 1;
   letter-spacing: -0.03em;
 }
@@ -4572,7 +4572,7 @@ section,
 }
 .filter-bar .fb-search input:focus {
   outline: none;
-  border-color: #F9322B;
+  border-color: #E00E06;
   background: #fff;
 }
 .filter-bar .fb-search::before {
@@ -4594,7 +4594,7 @@ section,
   border-radius: 4px;
   background: #f4f7f6;
 }
-.filter-bar select:focus { outline: none; border-color: #F9322B; }
+.filter-bar select:focus { outline: none; border-color: #E00E06; }
 
 .type-pills {
   display: flex;
@@ -4614,10 +4614,10 @@ section,
   cursor: pointer;
   transition: all .15s;
 }
-.type-pill:hover { border-color: #F9322B; color: #F9322B; }
+.type-pill:hover { border-color: #E00E06; color: #E00E06; }
 .type-pill.active {
-  background: #F9322B;
-  border-color: #F9322B;
+  background: #E00E06;
+  border-color: #E00E06;
   color: #fff;
 }
 
@@ -4661,7 +4661,7 @@ section,
 }
 .bib-card .bc-title::after {
   content: " ↗";
-  color: #F9322B;
+  color: #E00E06;
   font-weight: 400;
   opacity: 0.6;
 }
@@ -4743,7 +4743,7 @@ section,
 .skip-link:focus,
 .skip-link:focus-visible {
   top: 8px;
-  outline: 3px solid var(--accent-color, #F9322B);
+  outline: 3px solid var(--accent-color, #E00E06);
   outline-offset: 2px;
   color: var(--heading-color, #19222C);
 }
@@ -4771,14 +4771,14 @@ select:focus-visible,
 textarea:focus-visible,
 summary:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--accent-color, #F9322B);
+  outline: 3px solid var(--accent-color, #E00E06);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
 /* Ensure header logo anchor has no outline-less "look" on focus */
 .header .logo:focus-visible {
-  outline: 3px solid var(--accent-color, #F9322B);
+  outline: 3px solid var(--accent-color, #E00E06);
   outline-offset: 4px;
 }
 
@@ -4812,7 +4812,7 @@ summary:focus-visible,
 
 /* Make focus on nav dropdown toggles visible */
 .navmenu .dropdown > a:focus-visible {
-  outline: 3px solid var(--accent-color, #F9322B);
+  outline: 3px solid var(--accent-color, #E00E06);
   outline-offset: 2px;
 }
 

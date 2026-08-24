@@ -2,7 +2,7 @@
  * v5b.css — shared v5b primitives for the Eviction Research Network site.
  *
  * Brand spec: https://github.com/cidrlab/library/blob/main/brand/BRAND.md
- * Colors:    accent #F9322B · navy #19222C · medium-blue #223754 · light-blue #e8eef4
+ * Colors:    accent #E00E06 · navy #19222C · medium-blue #223754 · light-blue #e8eef4
  * Fonts:     Inter — single canonical brand family.
  *            Display headlines: Inter 200 (Extra Light, hairline aesthetic)
  *            Body / nav / pills: Inter 400/500/600/700
@@ -33,7 +33,7 @@
   --navy:         #19222C;
   --navy-soft:    #223754;
   --steel:        #8BA3BE;
-  --accent:       #F9322B;  /* decorative/large/graphic only — fails 1.4.3 as small text */
+  --accent:       #E00E06;  /* graphics — same red as text since 2026-08-24 */
   --accent-deep:  #E00E06;  /* contrast-safe red for text/links/buttons — 5.0:1 white, 4.6:1 on tint */
   --accent-deeper:#C20C05;  /* hover/active for red text and buttons */
   --rule:         rgba(25, 34, 44, 0.18);
@@ -794,7 +794,7 @@ footer.site {
   --tint-solid:   #e8eef4;
   --navy:         #19222C;
   --navy-soft:    #223754;
-  --accent:       #F9322B;
+  --accent:       #E00E06;
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);
   --muted:        #6c7a89;

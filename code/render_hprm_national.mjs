@@ -18,7 +18,7 @@
 //   # the vote), which would leave the map disagreeing with its own key.
 //   magick -size 1x1 xc:'#FFFFFF' xc:'#F1F4F7' xc:'#DBE4EE' xc:'#B3C4D6' \
 //     xc:'#8BA3BE' xc:'#647E9F' xc:'#415A7C' xc:'#223754' xc:'#7D2C31' \
-//     xc:'#C0231C' xc:'#F9322B' +append palette.png
+//     xc:'#B8120C' xc:'#E00E06' +append palette.png
 //   magick raw.png +dither -remap palette.png -depth 8 \
 //     PNG8:<repo>/assets/img/hprm-tracts-2022.png
 //   cp metros.json <repo>/assets/data/hprm-metros.json
@@ -66,7 +66,7 @@ const proj = geoAlbers().fitSize([W, H], conus);
 // produces: hprm_score = edr (0-4) + eer (0-4), so the surface is ordinal.
 const ramp = scaleLinear()
   .domain([0, 2, 3.6, 5, 6.2, 7.2, 8])
-  .range(['#dbe4ee', '#8BA3BE', '#4d688c', '#223754', '#8f2a2a', '#CC2118', '#F9322B'])
+  .range(['#dbe4ee', '#8BA3BE', '#4d688c', '#223754', '#8f2a2a', '#C20C05', '#E00E06'])
   .clamp(true);
 const STEPS = Array.from({ length: 9 }, (_, i) => ramp(i));
 

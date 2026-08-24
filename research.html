@@ -1,499 +1,382 @@
 <!DOCTYPE html>
-<html lang="en" data-header-style="plate">
-
-<head>
-  <meta charset="utf-8">
+<html lang="en"><head><meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Research & Publications — Eviction Research Network</title>
-  <meta name="description" content="Evidence-based eviction-prevention policies for legislators, plus a searchable library of 270+ peer-reviewed publications, reports, and datasets on eviction, displacement, and housing precarity.">
-  <meta name="keywords" content="eviction prevention policy, right to counsel, eviction diversion, rental assistance, just cause eviction, eviction record sealing, housing research, displacement, Eviction Research Network">
+  <title>Research and evidence on eviction — Eviction Research Network</title>
+  <meta name="description" content="Seven eviction-prevention policies with measured effects, written for legislators and their staff, plus a searchable library of 162 publications, reports, and datasets on eviction, displacement, and housing precarity from researchers across the field.">
+  <meta name="keywords" content="eviction prevention policy, right to counsel, eviction diversion, rental assistance, just cause eviction, eviction record sealing, source of income discrimination, housing research, displacement, Eviction Research Network">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
 
   <link rel="canonical" href="https://evictionresearch.net/research.html">
 
   <!-- Open Graph / social -->
-  <meta property="og:title" content="Research & Publications — Eviction Research Network">
-  <meta property="og:description" content="Evidence-based policies that prevent evictions + a searchable library of 270+ publications. For legislators, journalists, and researchers.">
+  <meta property="og:title" content="Research and evidence on eviction — Eviction Research Network">
+  <meta property="og:description" content="Seven eviction-prevention policies with measured effects, and a searchable library of 162 publications on eviction and displacement.">
   <meta property="og:url" content="https://evictionresearch.net/research.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Research and evidence on eviction — Eviction Research Network">
+  <meta name="twitter:description" content="Seven eviction-prevention policies with measured effects, and a searchable library of 162 publications on eviction and displacement.">
+  <meta name="twitter:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Font — Inter (single canonical ERN brand family, see BRAND.md). Async-loaded to avoid render-blocking. -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
 
-  <!-- Critical above-the-fold CSS -->
-  <style>
-    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;scroll-behavior:smooth}
-    .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
-    body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
-    h1,h2,h3,h4,h5,h6{color:var(--heading-color);font-family:var(--heading-font)}
-    .header{background-color:rgba(25,34,44,0.98);color:#fff;padding:20px 0;z-index:997;position:fixed;top:0;left:0;right:0}
-    .header .logo img{max-height:60px;width:auto}
-    .research-hero{background:linear-gradient(135deg,#19222C 0%,#223754 100%);color:#fff;padding:130px 0 50px}
-    .research-hero h1{color:#fff;font-size:44px;font-weight:700;letter-spacing:-0.02em;margin:0 0 12px;line-height:1.1}
-    .research-hero .lede{font-size:18px;line-height:1.55;color:rgba(255,255,255,.88);max-width:760px;margin:0}
-    .research-hero .rh-tablinks{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
-    .research-hero .rh-tablink{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.12);color:#fff;font-family:var(--heading-font);font-size:14px;text-decoration:none;border-radius:4px;border:1px solid rgba(255,255,255,0.2);transition:all .15s}
-    .research-hero .rh-tablink:hover{background:#F9322B;border-color:#F9322B;color:#fff}
-    /* Skip link + a11y utilities (inlined so they work before main.css loads) */
-    .skip-link{position:absolute;left:8px;top:-48px;background:#fff;color:#19222C;padding:10px 16px;border-radius:4px;z-index:10000;font-weight:600;font-family:var(--heading-font);text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:top .15s}
-    .skip-link:focus,.skip-link:focus-visible{top:8px;outline:3px solid var(--accent-deep);outline-offset:2px}
-    .visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-    a:focus-visible,button:focus-visible,[role="button"]:focus-visible{outline:3px solid var(--accent-deep);outline-offset:2px}
-    .mobile-nav-toggle{background:transparent;border:0;color:inherit;font-size:28px;padding:8px;cursor:pointer}
-    .type-pill[aria-pressed="true"]{background:var(--accent-deep);color:#fff;border-color:var(--accent-deep)}
-      /* 2026-04-22: inline logo-swap rules so reversed logo renders before main.css loads async. */
-    .header .logo .logo-dark-bg{display:block}
-    .header .logo .logo-light-bg{display:none}
-    .scrolled .header .logo .logo-dark-bg{display:none}
-    .scrolled .header .logo .logo-light-bg{display:block}
-  </style>
-
-  <!-- Bootstrap (sync for stable layout) -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Non-critical CSS (async) -->
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="assets/css/main.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <link href="assets/css/v5b.css" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/css/main.css" rel="stylesheet">
-    <link href="assets/css/v5b.css" rel="stylesheet">
-  </noscript>
+  <link href="assets/css/ern-2026.css" rel="stylesheet">
+  <link href="assets/css/research-2026.css" rel="stylesheet">
 </head>
 
-<body class="research-page">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Skip link — jumps keyboard/screen-reader users past nav to main content -->
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <header id="header" class="header d-flex align-items-center fixed-top" role="banner">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center" aria-label="Eviction Research Network — Home">
-        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network" class="logo-dark-bg">
-        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="" aria-hidden="true" class="logo-light-bg">
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="index.html" aria-label="Eviction Research Network — home">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network">
       </a>
-
-      <nav id="navmenu" class="navmenu" aria-label="Primary">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Maps &amp; Profiles</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
-              <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
-              <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
-              <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
-              <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
-              <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
-              <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
-              <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
-            </ul>
-          </li>
-          <li><a href="news.html">News</a></li>
-          <li><a href="methodology.html">Methodology</a></li>
-          <li class="dropdown"><a href="#" aria-haspopup="true" aria-expanded="false"><span>Reports</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="state-eviction-timeframes/">State Eviction Timeframes</a></li>
-              <li><a href="understanding-eviction.html">Understanding Eviction</a></li>
-              <li><a href="cityscape-2024.html">Data Methodology (Cityscape 2024)</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#" class="active" aria-haspopup="true" aria-expanded="false"><span>Resources</span> <i class="bi bi-chevron-down toggle-dropdown" aria-hidden="true"></i></a>
-            <ul>
-              <li><a href="resources.html">Eviction Help</a></li>
-              <li><a href="research.html" aria-current="page" class="active">Other Eviction Research</a></li>
-              <li><a href="glossary.html">Glossary</a></li>
-            </ul>
-          </li>
-          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20Evictions%20Study%20website">Contact</a></li>
-        </ul>
-        <button class="mobile-nav-toggle d-xl-none bi bi-list" type="button" aria-label="Toggle navigation menu" aria-controls="navmenu" aria-expanded="false"></button>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#atlas">Maps &amp; Profiles</a>
+        <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a>
+        <a href="research.html" aria-current="page">Research</a>
+        <a href="about.html">About</a>
+        <a class="btn sm" href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a>
       </nav>
-
     </div>
   </header>
 
-  <main id="main" class="main" role="main">
+  <main id="main">
 
-    <!-- =================== HERO (v5b) =================== -->
-    <section class="v5b-section">
-      <div class="v5b-page" style="padding-top: 60px;">
-        <p class="kicker">Research</p>
-        <h1 class="section-title" style="font-size: clamp(2.4rem, 5vw, 3.6rem); max-width: 28ch;">Research &amp; evidence <em>on evictions</em>.</h1>
-        <p class="lead-paragraph">Evidence-based policies that measurably reduce evictions — for legislators, staff, and advocates — plus a searchable library of 160+ publications from ERN, affiliated scholars, and peer institutions.</p>
-        <div class="rh-tablinks" style="margin-top: 24px;">
-          <a class="rh-tablink" href="#policies-that-work"><i class="bi bi-clipboard-check" aria-hidden="true"></i>&nbsp; Policies That Work</a>
-          <a class="rh-tablink" href="#library"><i class="bi bi-journals" aria-hidden="true"></i>&nbsp; Research Library</a>
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="wrap sec-hero">
+      <div class="hero-in">
+        <p class="eyebrow">Research</p>
+        <h1>Research and evidence <em>on eviction.</em></h1>
+        <p class="lede">Policies with measured effects on eviction, written for legislators and the staff who draft the bills, and a searchable library of everything we can find on eviction, displacement, and housing precarity.</p>
+        <!-- The count is rendered from library.count_in_prose so the number
+             lives in exactly one place; code/build_research_data.py checks it
+             against the bibliography on every run. -->
+        <p class="meta"><strong>162</strong> entries in the library · Library last updated April 2026</p>
+        <div class="jump">
+          <a class="btn ghost" href="#brief">Policies that work</a>
+          <a class="btn ghost" href="#library">Research library</a>
         </div>
       </div>
     </section>
 
-    <!-- =================== POLICIES THAT WORK — Evidence Brief (v5b) =================== -->
-    <section class="v5b-section tinted policies-intro" id="policies-that-work">
-      <div class="v5b-page">
-        <p class="kicker">Evidence Brief for Policymakers</p>
-        <h2 class="section-title">Seven policies that <em>measurably reduce</em> evictions.</h2>
-        <p class="lead-paragraph">Every intervention below has been evaluated in at least one U.S. jurisdiction and shown to reduce eviction filings, default judgments, or displacement. Summaries cite peer-reviewed studies and independent program evaluations. This brief is designed for legislative staff — jurisdictions, effect sizes, and sources are condensed for quick reference.</p>
-        <div class="pi-actions" style="margin-top: 24px;">
-          <a class="btn btn-red" href="mailto:evictions@berkeley.edu?Subject=Policy%20brief%20inquiry">Request a Deep-Dive Briefing</a>
-          <a class="btn btn-ghost" href="#library" style="margin-left: 12px;">See the full evidence base</a>
+    <!-- ─────────── ERN's own work ─────────── -->
+    <!-- The home page's "All research" button lands on this page, so ERN's own
+         output has to be reachable from here. The library below indexes the
+         field's published work, four Tim Thomas papers among it, but it is not
+         a catalogue of ERN's own projects and datasets. -->
+    <section id="ern-work" class="wrap sec">
+      <h2>From <em>ERN.</em></h2>
+      <p class="sub">What we have published, built, or evaluated ourselves.</p>
+      <div class="cards">
+        <a class="card" href="https://evictionresearch.net/hud-era/" target="_blank" rel="noopener noreferrer">
+          <span class="kicker">Working paper · 2026</span>
+          <h3>Keeping People in Their Homes: the impact of emergency rental assistance on evictions</h3>
+          <p>A neighborhood-level evaluation of whether $46.6 billion in emergency rental assistance reduced eviction filings, across 700+ counties and 12,000+ census tracts in 22 states.</p>
+          <span class="more">Read more →</span>
+        </a>
+        <a class="card" href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">
+          <span class="kicker">State profile · 2026</span>
+          <h3>Washington eviction filings, 2016–2026</h3>
+          <p>Over the past 36 months, 1 in 45 renter households faced an eviction filing, roughly 49% above the pre-pandemic normal. Seven of 39 counties exceed the state rate.</p>
+          <span class="more">Read more →</span>
+        </a>
+        <a class="card" href="cityscape-2024.html" target="_blank" rel="noopener noreferrer">
+          <span class="kicker">Cityscape (HUD) · 2024</span>
+          <h3>Toward a national eviction data collection strategy using natural language processing</h3>
+          <p>How ERN mined 111,740 Washington court records buried in scanned PDFs and handwritten paper to expose the racial and gender disparities structured data could not see.</p>
+          <span class="more">Read more →</span>
+        </a>
+      </div>
+      <a class="btn ghost" href="all_states/" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">Every state's data →</a>
+    </section>
+
+    <!-- ─────────── Evidence brief ─────────── -->
+    <section id="brief" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">Evidence brief for policymakers</p>
+        <h2>Seven policies that <em>reduce evictions.</em></h2>
+        <p class="sub">Every intervention below has been evaluated in at least one U.S. jurisdiction and shown to reduce eviction filings, default judgments, or displacement. Summaries cite peer-reviewed studies and independent program evaluations, condensed for quick reference by legislative staff.</p>
+        <div class="actions" style="margin-bottom: 12px;">
+          <a class="btn" href="mailto:evictions@berkeley.edu?Subject=Policy%20brief%20inquiry">Request a briefing →</a>
+          <a class="btn ghost" href="#library">See the full evidence base →</a>
+        </div>
+
+        <div class="pol">
+          <p class="pol-num">01</p>
+          <div>
+            <h3>Right to counsel in eviction cases</h3>
+            <p class="pol-what">Publicly funded legal representation for low-income tenants facing eviction. Typically phased in by income threshold and case type.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>In New York City's pilot ZIP codes (2017–2019), 84% of represented tenants remained housed against roughly 30% of unrepresented tenants, and citywide evictions fell by 41% after universal implementation. San Francisco reported a 67% reduction in defaults. Similar gains are documented in Cleveland and Philadelphia.</dd></div>
+              <div><dt>Enacted in</dt><dd>New York City, San Francisco, Philadelphia, Cleveland, Washington State (2021, statewide), Connecticut, Maryland, Minnesota, Washington D.C., Boulder, Kansas City, Louisville, Toledo, Detroit.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>NYC Office of Civil Justice annual reports; Stout Risius Ross (2020), Cost-Benefit Analysis of Right to Counsel; Seron et al.&nbsp;(2001), <em>Housing Policy Debate</em>; National Coalition for a Civil Right to Counsel.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">02</p>
+          <div>
+            <h3>Pre-filing eviction diversion and mediation</h3>
+            <p class="pol-what">Programs that require, or strongly incentivize, landlord-tenant mediation before a case can be filed in court. Often paired with rental assistance.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>Philadelphia's Eviction Diversion Program cut filings by roughly 36% relative to counterfactual and resolved about half of mediated cases without judgment. Michigan's statewide Eviction Diversion Program (2020–2021) distributed $1.1 billion in rental assistance and kept about 87% of participants housed.</dd></div>
+              <div><dt>Enacted in</dt><dd>Philadelphia (mandatory), Michigan, Texas (Harris County), New Mexico, Hawaii (emergency rules), Northampton County, Pennsylvania.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>Reina, Aiken, et al.&nbsp;(2023), Philadelphia Eviction Diversion Program evaluation; The Pew Charitable Trusts; National Center for State Courts.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">03</p>
+          <div>
+            <h3>Emergency rental assistance</h3>
+            <p class="pol-what">Direct payment of arrears and forward rent to prevent eviction. Most effective when delivered within 30 days, and when landlord participation is structurally encouraged.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>Federal ERA1 and ERA2 ($46.5 billion, 2021–2023) disbursed aid to about 10 million households and is credited by Treasury and the Urban Institute with preventing a post-moratorium eviction wave. State-level follow-ons in Washington, Oregon, and California show a 15% to 30% reduction in filings against matched controls.</dd></div>
+              <div><dt>Enacted in</dt><dd>Washington State Eviction Rental Assistance Program, California Housing is Key (archived), New York ERAP, Minnesota RentHelpMN.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>U.S. Treasury ERA dashboard; Urban Institute (2022), ERA Implementation Study; NLIHC ERA tracker; ERN's HUD-ERA evaluation with the Housing Initiative at Penn (2026).</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">04</p>
+          <div>
+            <h3>Just cause eviction protections</h3>
+            <p class="pol-what">Require landlords to cite a specific, enumerated reason (nonpayment, lease violation, owner move-in) before terminating a tenancy. Reduces no-fault displacement and retaliation.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>Oregon's SB 608 (2019), the first statewide just-cause law, was associated with a decline in no-cause terminations. California's AB 1482 (2019) extended protections to roughly 9 million tenants. Quasi-experimental evidence from Seattle shows lower displacement rates for protected units.</dd></div>
+              <div><dt>Enacted in</dt><dd>California, Oregon, Washington, New Jersey, New Hampshire, Washington D.C., Seattle, New York City, San Francisco, Los Angeles, Oakland, Portland, and dozens of California municipalities.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>Pastor, Carter and Abood (2018), USC Dornsife; Oregon Housing and Community Services SB 608 report; UC Berkeley Urban Displacement Project.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">05</p>
+          <div>
+            <h3>Sealing and expungement of eviction records</h3>
+            <p class="pol-what">Automatically seal or expunge eviction filings, especially dismissed or settled cases, so tenants are not screened out of future housing by the mere existence of a filing.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>Tenant-screening companies report even dismissed filings, generating a mark that follows a tenant for years. Minnesota's Statute 484.014 and Colorado's SB21-173 have reduced screening-based rejections, and California SB 1100 (2023) sealed dismissed filings statewide.</dd></div>
+              <div><dt>Enacted in</dt><dd>Minnesota, Colorado, California, New York, New Jersey, Nevada, Illinois, Oregon, Washington. Under consideration in Arizona and Massachusetts.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>Eviction Lab, The Scarlet E series; Sandefur (2014), <em>Indiana Law Review</em>; Kleysteuber (2007), <em>Yale Law Journal</em>; NLIHC eviction record sealing tracker.</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">06</p>
+          <div>
+            <h3>Source-of-income discrimination protection</h3>
+            <p class="pol-what">Prohibit landlords from refusing to rent to Section 8 voucher holders or other lawful-source recipients. Expands housing choice and reduces the concentration of voucher use in high-eviction neighborhoods.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>In the Urban Institute's paired-testing study (Cunningham et al., 2018), denial rates for voucher holders fall from 78% to 31% in protected jurisdictions, and voucher lease-up rates improve by 10 to 20 percentage points.</dd></div>
+              <div><dt>Enacted in</dt><dd>22 states and D.C., including California, Washington, Oregon, Massachusetts, Minnesota, New York, New Jersey, Virginia, Illinois, and Connecticut, plus more than 100 municipalities.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>Cunningham et al.&nbsp;(2018), Urban Institute; NYU Furman Center; Poverty and Race Research Action Council source-of-income tracker; HUD PD&amp;R report (2022).</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="pol">
+          <p class="pol-num">07</p>
+          <div>
+            <h3>Extended cure and notice periods</h3>
+            <p class="pol-what">Lengthen statutory notice-to-quit, pay-or-quit, and cure periods, for example from 3 days to 14. Gives tenants time to access assistance, rectify the default, or find counsel.</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>Washington's 2019 extension of the pay-or-quit period from 3 to 14 days, combined with standardized notice forms, was associated with a measurable decline in default judgments and a higher rate of tenant appearance in court. Similar findings in Oregon and Connecticut.</dd></div>
+              <div><dt>Enacted in</dt><dd>Washington (14-day pay-or-quit, 2019), Oregon (10-day), Connecticut, Nevada, Arizona. The federal CARES Act 30-day notice remains in place for covered properties.</dd></div>
+              <div class="src"><dt>Sources</dt><dd>Washington State Supreme Court Gender and Justice Commission; Seattle University Korematsu Center, <em>Losing Home</em> (2018); Oregon Law Center; ERN's Washington state pipeline.</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="callout">
+          <h3>Why these seven</h3>
+          <p>These are the policies with direct, quantified evidence of reducing eviction filings, default judgments, or post-filing displacement, rather than policies that improve tenants' legal rights in the abstract. Complementary interventions such as rent stabilization, housing-first programs, and tenant opportunity-to-purchase acts also appear in the peer-reviewed literature, but their evidence on eviction specifically is more mixed or more indirect. They are covered in the library below. For a tailored briefing on any of the seven, <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request">contact ERN</a>.</p>
         </div>
       </div>
     </section>
 
-    <section class="v5b-section tinted policy-list">
-      <div class="v5b-page">
+    <!-- ─────────── Library ─────────── -->
+    <section id="library" class="wrap sec">
+      <p class="eyebrow">Research library</p>
+      <h2>Everything we can find <em>on eviction.</em></h2>
+      <p class="sub">Peer-reviewed publications, reports, working papers, and datasets on eviction, displacement, and housing precarity, from researchers, courts, agencies, and advocacy organizations across the field. Searchable by state, type, and keyword. Know of work that belongs here? <a href="mailto:evictions@berkeley.edu?Subject=Library%20submission">Send it to us</a>.</p>
 
-        <!-- Policy 1 -->
-        <div class="policy-card">
-          <div class="policy-number">1</div>
-          <div class="policy-body">
-            <h3>Right to Counsel in Eviction Cases</h3>
-            <p class="pc-what">Publicly funded legal representation for low-income tenants facing eviction. Typically phased in by income threshold and case type.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              In New York City's pilot ZIP codes (2017–2019), 84% of represented tenants remained housed vs. ~30% of unrepresented tenants; citywide evictions fell by 41% after universal implementation. San Francisco reported a 67% reduction in defaults. Similar gains documented in Cleveland and Philadelphia.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> New York City, San Francisco, Philadelphia, Cleveland, Washington State (2021, statewide), Connecticut, Maryland, Minnesota, Washington D.C., Boulder, Kansas City, Louisville, Toledo, Detroit.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> NYC Office of Civil Justice Annual Reports; Stout Risius Ross (2020) — Cost-Benefit Analysis of Right to Counsel; Seron et al. (2001) <em>Housing Policy Debate</em>; National Coalition for a Civil Right to Counsel.</div>
-          </div>
+      <div class="filters">
+        <input id="f-q" type="search" placeholder="Search by title, author, or publisher" aria-label="Search the library by title, author, or publisher">
+        <select id="f-state" aria-label="Filter the library by state">
+          <option value="">All states</option>
+        </select>
+      </div>
+
+      <div class="pills" id="f-types" role="group" aria-label="Filter the library by publication type">
+        <button class="pill" type="button" data-type="" aria-pressed="true">All types</button>
+      </div>
+
+      <p class="count" id="bib-count" role="status" aria-live="polite" aria-atomic="true">Loading the library…</p>
+      <div class="bib" id="bib"></div>
+      <p class="empty" id="bib-empty" hidden="">No publications match those filters. Try broadening the search.</p>
+    </section>
+
+    <!-- ─────────── Contribute ─────────── -->
+    <section id="contribute" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">Add to the record</p>
+          <h2 class="on-dark">Know eviction work that is missing here?</h2>
+          <p class="body">The library is hand-maintained and it is incomplete by definition. If you have published research, run a court data project, or maintain a tracker we have not indexed, send it over and we will add it. If you need a policy briefing for a hearing or a bill, we write those too.</p>
         </div>
-
-        <!-- Policy 2 -->
-        <div class="policy-card">
-          <div class="policy-number">2</div>
-          <div class="policy-body">
-            <h3>Pre-Filing Eviction Diversion &amp; Mediation</h3>
-            <p class="pc-what">Programs that require (or strongly incentivize) landlord-tenant mediation <em>before</em> a case can be filed in court — often paired with rental assistance.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Philadelphia's Eviction Diversion Program cut filings by ~36% relative to counterfactual and resolved ~50% of mediated cases without judgment. Michigan's statewide Eviction Diversion Program (2020–2021) distributed $1.1B in rental assistance and kept ~87% of participants housed.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Philadelphia (mandatory), Michigan, Texas (Harris County), New Mexico, Hawaii (emergency rules), Northampton County PA.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> Reina, Aiken, et al. (2023) — Philadelphia Eviction Diversion Program evaluation; The Pew Charitable Trusts; National Center for State Courts.</div>
-          </div>
-        </div>
-
-        <!-- Policy 3 -->
-        <div class="policy-card">
-          <div class="policy-number">3</div>
-          <div class="policy-body">
-            <h3>Emergency Rental Assistance (ERA)</h3>
-            <p class="pc-what">Direct payment of arrears and forward rent to prevent eviction. Most effective when delivered rapidly (&lt;30 days), and when landlord participation is structurally encouraged.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Federal ERA1/ERA2 ($46.5B, 2021–2023) disbursed aid to ~10 million households and is credited by Treasury and the Urban Institute with preventing a post-moratorium eviction wave. State-level follow-ons (e.g., WA, OR, CA) show a 15–30% reduction in filings in jurisdictions with funded ERA vs. matched controls.
-            </div>
-            <div class="pc-jurisdictions"><strong>Active permanent programs:</strong> Washington State Eviction Rental Assistance Program (ERAP), California Housing is Key (archived), New York ERAP, Minnesota RentHelpMN.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> U.S. Treasury ERA Dashboard; Urban Institute (2022) — ERA Implementation Study; NLIHC ERA Tracker; ERN's own HUD-ERA evaluation with Housing Initiative at Penn (2026).</div>
-          </div>
-        </div>
-
-        <!-- Policy 4 -->
-        <div class="policy-card">
-          <div class="policy-number">4</div>
-          <div class="policy-body">
-            <h3>Just Cause Eviction Protections</h3>
-            <p class="pc-what">Require landlords to cite a specific, enumerated reason (nonpayment, lease violation, owner-move-in, etc.) before terminating a tenancy. Reduces no-fault displacement and retaliation.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Oregon's SB 608 (2019, nation's first statewide just-cause) was associated with a decline in no-cause terminations; California's AB 1482 (2019) extended protections to ~9M tenants. Quasi-experimental evidence from Seattle shows lower displacement rates for protected units.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> California, Oregon, Washington, New Jersey, New Hampshire, Washington D.C., Seattle, New York City, San Francisco, Los Angeles, Oakland, Portland (OR), and dozens of California municipalities. Currently moving: San Rafael, CA (Oct 2026).</div>
-            <div class="pc-cites"><strong>Key sources:</strong> Pastor, Carter &amp; Abood (2018) — USC Dornsife; Oregon Housing &amp; Community Services SB 608 Report; UC Berkeley Urban Displacement Project.</div>
-          </div>
-        </div>
-
-        <!-- Policy 5 -->
-        <div class="policy-card">
-          <div class="policy-number">5</div>
-          <div class="policy-body">
-            <h3>Sealing &amp; Expungement of Eviction Records</h3>
-            <p class="pc-what">Automatically seal or expunge eviction filings — especially dismissed or settled cases — so tenants are not screened out of future housing by the mere existence of a filing.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Research shows tenant-screening companies report even dismissed filings, generating a "Scarlet E" that persists for years. Minnesota's Statute 484.014 and Colorado's SB21-173 have reduced screening-based rejections; California SB 1100 (2023) sealed dismissed filings statewide.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Minnesota, Colorado, California (SB 1100), New York, New Jersey, Nevada, Illinois, Oregon, Washington. Considered: Arizona, Massachusetts.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> Eviction Lab — "The Scarlet E" Series; Sandefur (2014) <em>Indiana Law Review</em>; Kleysteuber (2007) <em>Yale Law Journal</em>; NLIHC Eviction Record Sealing Tracker.</div>
-          </div>
-        </div>
-
-        <!-- Policy 6 -->
-        <div class="policy-card">
-          <div class="policy-number">6</div>
-          <div class="policy-body">
-            <h3>Source-of-Income (SOI) Discrimination Protection</h3>
-            <p class="pc-what">Prohibit landlords from refusing to rent to Section 8 voucher holders or other lawful-source recipients. Expands housing choice and reduces concentration of voucher use in high-eviction neighborhoods.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Cunningham et al. (Urban Institute, 2018) paired-testing study: denial rates for voucher holders drop from 78% to 31% in SOI-protected jurisdictions. Voucher lease-up rates improve 10–20 percentage points.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> 22 states + D.C. including California, Washington, Oregon, Massachusetts, Minnesota, New York, New Jersey, Virginia, Illinois, Connecticut; 100+ municipalities.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> Cunningham et al. (2018) — Urban Institute; NYU Furman Center; Poverty &amp; Race Research Action Council SOI Tracker; HUD PD&amp;R Report (2022).</div>
-          </div>
-        </div>
-
-        <!-- Policy 7 -->
-        <div class="policy-card">
-          <div class="policy-number">7</div>
-          <div class="policy-body">
-            <h3>Extended Cure &amp; Notice Periods</h3>
-            <p class="pc-what">Lengthen statutory notice-to-quit, pay-or-quit, and cure periods (e.g., from 3 days to 14 days). Gives tenants time to access assistance, rectify the default, or find counsel.</p>
-            <div class="pc-evidence">
-              <strong>Evidence:</strong>
-              Washington's 2019 extension of the pay-or-quit period from 3 to 14 days, combined with standardized notice forms, was associated with a measurable decline in default judgments and a higher rate of tenant appearance in court. Similar findings in Oregon and Connecticut.
-            </div>
-            <div class="pc-jurisdictions"><strong>Enacted in:</strong> Washington (14-day pay-or-quit, 2019), Oregon (10-day), Connecticut, Nevada, Arizona. Federal CARES Act 30-day notice remains in place for covered properties.</div>
-            <div class="pc-cites"><strong>Key sources:</strong> Washington State Supreme Court Gender &amp; Justice Commission; Seattle University Korematsu Center — <em>Losing Home</em> (2018); Oregon Law Center; ERN Washington state pipeline (evictionresearch.net/washington/).</div>
-          </div>
-        </div>
-
-        <!-- Caveats box -->
-        <div class="callout-why" style="margin-top:32px;">
-          <strong>Why these seven?</strong>
-          These are policies with direct, quantified evidence of reducing eviction filings, default judgments, or post-filing displacement — not merely improving tenants' legal rights in the abstract. Complementary interventions (rent stabilization, housing-first programs, tenant opportunity-to-purchase acts) also appear in the peer-reviewed literature but have more mixed or indirect evidence on eviction specifically and are covered in the full library below. For a tailored briefing on any of the above, <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request" style="color:#F9322B; font-weight:600;">contact ERN</a>.
+        <div class="actions">
+          <a class="btn" href="mailto:evictions@berkeley.edu?Subject=Library%20submission">Submit a publication →</a>
+          <a class="btn on-dark" href="methodology.html" target="_blank" rel="noopener noreferrer">See how we work →</a>
         </div>
       </div>
     </section>
 
-    <!-- =================== BIBLIOGRAPHY LIBRARY (v5b) =================== -->
-    <section class="v5b-section bib-section" id="library">
-      <div class="v5b-page">
-
-        <div class="bib-header">
-          <h2>Eviction Research Library</h2>
-          <p>Peer-reviewed publications, reports, working papers, and datasets on eviction, displacement, and housing precarity — searchable by state, type, and keyword. Know of work that should be included? <a href="mailto:evictions@berkeley.edu?Subject=Library%20submission">Email us</a>.</p>
-        </div>
-
-        <!-- Filter bar -->
-        <div class="filter-bar">
-          <div class="fb-search">
-            <input id="f-search" type="search" placeholder="Search by title, author, or keyword…" aria-label="Search publications">
-          </div>
-          <select id="f-state" aria-label="Filter by state">
-            <option value="">All states</option>
-          </select>
-        </div>
-
-        <!-- Type pills -->
-        <div class="type-pills" id="type-pills" role="toolbar" aria-label="Filter publications by type" aria-controls="bib-list">
-          <button class="type-pill active" type="button" data-type="" aria-pressed="true">All types</button>
-          <button class="type-pill" type="button" data-type="academic" aria-pressed="false">Academic</button>
-          <button class="type-pill" type="button" data-type="report" aria-pressed="false">Reports</button>
-          <button class="type-pill" type="button" data-type="working-paper" aria-pressed="false">Working Papers</button>
-          <button class="type-pill" type="button" data-type="dataset" aria-pressed="false">Datasets &amp; Trackers</button>
-          <button class="type-pill" type="button" data-type="news" aria-pressed="false">News</button>
-        </div>
-
-        <div class="result-summary" id="result-summary" role="status" aria-live="polite" aria-atomic="true">Loading library…</div>
-
-        <div class="bib-list" id="bib-list" aria-label="Publications results"></div>
-
-        <div class="bib-empty" id="bib-empty" style="display:none;" role="status">
-          <i class="bi bi-search" aria-hidden="true"></i>
-          No publications match your filters. Try broadening your search.
-        </div>
-      </div>
-    </section>
 
   </main>
 
-
-  <footer id="footer" class="site" role="contentinfo">
-    <div class="grid">
-      <div class="col about">
-        <div class="footer-logos">
-          <a href="index.html" aria-label="Eviction Research Network — Home">
-            <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png" alt="Eviction Research Network" loading="lazy">
-          </a>
-          <span class="footer-logo-divider" aria-hidden="true"></span>
-          <a href="https://www.berkeley.edu" target="_blank" rel="noopener noreferrer" aria-label="University of California, Berkeley">
-            <img src="images/logos/Berkeley_wordmark_white.png" alt="UC Berkeley" loading="lazy" class="berkeley-mark">
-          </a>
-        </div>
-        <p>Housed in UC Berkeley's Department of Sociology. Affiliated with the Berkeley Institute for Data Science (BIDS) and the Urban Displacement Project.</p>
-        <div class="social-links" aria-label="Social media">
-          <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer" aria-label="Follow on Bluesky"><i class="bi bi-cloud" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/EvictionNet" target="_blank" rel="noopener noreferrer" aria-label="Follow on X (Twitter)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer" aria-label="Follow on LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>
-          <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website" aria-label="Email us"><i class="bi bi-envelope" aria-hidden="true"></i></a>
-        </div>
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png" alt="Eviction Research Network">
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations;
+             UDP appears only in the collaborator line below. -->
+        <p>A research program led by Dr.&nbsp;Tim Thomas, Assistant Researcher in the UC Berkeley Department of Sociology, which serves as its academic home. Affiliated with the Berkeley Institute for Data Science.</p>
+        <p>Collaborators: Housing Initiative at Penn · Urban Displacement Project · Legal Services Corporation.</p>
       </div>
-
-      <div class="col">
-        <h3>Research</h3>
-        <ul>
-          <li><a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM</a></li>
-          <li><a href="research.html">Publications</a></li>
-          <li><a href="methodology.html">Methodology</a></li>
-          <li><a href="news.html">News &amp; Press</a></li>
-        </ul>
+      <div class="foot-col">
+        <span>Data</span>
+        <a href="index.html#atlas">Maps &amp; profiles</a>
+        <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM risk maps</a>
+        <a href="all_states/" target="_blank" rel="noopener noreferrer">U.S. Eviction Data Directory</a>
       </div>
-
-      <div class="col">
-        <h3>Maps &amp; Profiles</h3>
-        <ul>
-          <li><a href="https://evictionresearch.net/california/" target="_blank" rel="noopener noreferrer">California</a></li>
-          <li><a href="https://evictionresearch.net/delaware/" target="_blank" rel="noopener noreferrer">Delaware</a></li>
-          <li><a href="https://evictionresearch.net/indiana/" target="_blank" rel="noopener noreferrer">Indiana</a></li>
-          <li><a href="https://evictionresearch.net/maryland/report/baltimore.html" target="_blank" rel="noopener noreferrer">Maryland</a></li>
-          <li><a href="https://evictionresearch.net/minnesota/" target="_blank" rel="noopener noreferrer">Minnesota</a></li>
-          <li><a href="https://evictionresearch.net/ohio/dayton.html" target="_blank" rel="noopener noreferrer">Ohio</a></li>
-          <li><a href="https://evictionresearch.net/oregon/" target="_blank" rel="noopener noreferrer">Oregon</a></li>
-          <li><a href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">Washington</a></li>
-        </ul>
+      <div class="foot-col">
+        <span>Research</span>
+        <a href="research.html">Publications</a>
+        <a href="methodology.html" target="_blank" rel="noopener noreferrer">Methodology</a>
+        <a href="understanding-eviction.html" target="_blank" rel="noopener noreferrer">Understanding eviction</a>
+        <a href="news.html" target="_blank" rel="noopener noreferrer">News &amp; press</a>
       </div>
-
-      <div class="col">
-        <h3>Resources</h3>
-        <ul>
-          <li><a href="resources.html">Eviction Help</a></li>
-          <li><a href="research.html">Other Research</a></li>
-          <li><a href="glossary.html">Glossary</a></li>
-          <li><a href="about.html">About &amp; Team</a></li>
-          <li><a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">Contact</a></li>
-        </ul>
+      <div class="foot-col">
+        <span>Contact</span>
+        <a href="mailto:evictions@berkeley.edu?Subject=Contact%20through%20website">evictions@berkeley.edu</a>
+        <a href="https://bsky.app/profile/evictionresearch.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a>
+        <a href="https://www.linkedin.com/company/evictionresearch/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/evictionresearch" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
-
-      <div class="col">
-        <h3>Affiliated With</h3>
-        <ul>
-          <li><a href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer">UC Berkeley Sociology</a></li>
-          <li><a href="https://bids.berkeley.edu" target="_blank" rel="noopener noreferrer">BIDS</a></li>
-          <li><a href="https://www.urbandisplacement.org" target="_blank" rel="noopener noreferrer">Urban Displacement Project</a></li>
-          <li><a href="https://igs.berkeley.edu" target="_blank" rel="noopener noreferrer">IGS Berkeley</a></li>
-        </ul>
-      </div>
-
-      <div class="imprint">
-        <span>&copy; 2026 <strong>Eviction Research Network</strong>, UC Berkeley Department of Sociology. All rights reserved. Citations archived via <a href="https://zenodo.org/" target="_blank" rel="noopener noreferrer">Zenodo DOI</a>.</span>
-      
-        <span class="footer-a11y" style="display:block;margin-top:8px"><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
+    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>© 2026 Eviction Research Network · University of California, Berkeley</span>
+        <span><a href="https://dap.berkeley.edu/get-help/report-web-accessibility-issue" target="_blank" rel="noopener noreferrer">Report a web accessibility issue</a></span>
       </div>
     </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short" aria-hidden="true"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-  <script src="assets/js/main.js" defer></script>
-
-  <!-- Research library filter / render -->
+  <!-- The bibliography is a plain script, not fetched JSON: a browser gives
+       every file:// document its own opaque origin and blocks same-directory
+       fetches, which would leave the library empty whenever the page is
+       opened straight off disk. Built by code/build_research_data.py. -->
+  <script src="assets/data/research-data.js"></script>
   <script>
     (function () {
-      var DATA_URL = 'assets/data/research.json';
-      var state = { items: [], q: '', st: '', tp: '' };
+      var DATA = window.ERN_RESEARCH;
+      var list = document.getElementById('bib');
+      var empty = document.getElementById('bib-empty');
+      var count = document.getElementById('bib-count');
+      var queryEl = document.getElementById('f-q');
+      var stateEl = document.getElementById('f-state');
+      var pills = document.getElementById('f-types');
+      if (!DATA || !DATA.items || !list) {
+        if (count) count.textContent = 'The publications library could not be loaded.';
+        return;
+      }
 
-      var listEl     = document.getElementById('bib-list');
-      var emptyEl    = document.getElementById('bib-empty');
-      var summaryEl  = document.getElementById('result-summary');
-      var searchEl   = document.getElementById('f-search');
-      var stateEl    = document.getElementById('f-state');
-      var pillsEl    = document.getElementById('type-pills');
+      var filt = { q: '', state: '', type: '' };
 
-      function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      DATA.states.forEach(function (s) {
+        var o = document.createElement('option');
+        o.value = s.value;
+        o.textContent = s.label;
+        stateEl.appendChild(o);
+      });
+
+      // Type filters come from the data so a new kind of entry cannot appear in
+      // the library without a pill to find it by.
+      DATA.types.forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'pill';
+        b.type = 'button';
+        b.setAttribute('data-type', t.value);
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = t.label;
+        pills.appendChild(b);
+      });
+
+      function row(it) {
+        var meta = [];
+        if (it.authors) meta.push('<span class="who">' + esc(it.authors) + '</span>');
+        if (it.year) meta.push(esc(it.year));
+        if (it.venue) meta.push(esc(it.venue));
+        return '<a class="bib-item" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">'
+          + '<span class="bi-title">' + esc(it.title) + '</span>'
+          + (meta.length ? '<span class="bi-meta">' + meta.join(' &middot; ') + '</span>' : '')
+          + '<span class="bi-tags">'
+          + (it.typeLabel ? '<span class="tag kind">' + esc(it.typeLabel) + '</span>' : '')
+          + (it.stateLabel ? '<span class="tag where">' + esc(it.stateLabel) + '</span>' : '')
+          + '</span></a>';
+      }
 
       function render() {
-        var q = state.q.trim().toLowerCase();
-        var matches = state.items.filter(function (it) {
-          if (state.tp && it.type !== state.tp) return false;
-          if (state.st && it.state !== state.st) return false;
-          if (q) {
-            var hay = ((it.title||'') + ' ' + (it.authors||'') + ' ' + (it.venue||'') + ' ' + (it.state||'')).toLowerCase();
-            if (hay.indexOf(q) === -1) return false;
-          }
-          return true;
+        var needle = filt.q.trim().toLowerCase();
+        var hits = DATA.items.filter(function (it) {
+          if (filt.type && it.type !== filt.type) return false;
+          if (filt.state && it.state !== filt.state) return false;
+          if (!needle) return true;
+          var hay = (it.title + ' ' + it.authors + ' ' + it.venue + ' ' + it.stateLabel).toLowerCase();
+          return hay.indexOf(needle) !== -1;
         });
-
-        summaryEl.innerHTML = 'Showing <strong>' + matches.length + '</strong> of ' + state.items.length + ' publications';
-
-        if (!matches.length) {
-          listEl.innerHTML = '';
-          emptyEl.style.display = 'block';
-          return;
-        }
-        emptyEl.style.display = 'none';
-
-        var html = matches.map(function (it) {
-          var meta = [];
-          if (it.authors) meta.push('<span class="bc-authors">' + esc(it.authors) + '</span>');
-          if (it.year)    meta.push(esc(it.year));
-          if (it.venue)   meta.push('<span class="bc-venue">' + esc(it.venue) + '</span>');
-          var metaStr = meta.join(' &middot; ');
-          var typeLabel = ({academic:'Academic', report:'Report', news:'News', dataset:'Dataset', 'working-paper':'Working Paper', book:'Book'})[it.type] || it.type;
-          var stateStr  = it.state && it.state !== 'national' ? '<span class="bc-state">' + esc(it.state) + '</span>' : (it.state === 'national' ? '<span class="bc-state">National</span>' : '');
-          return '<a class="bib-card" href="' + esc(it.url || '#') + '" target="_blank" rel="noopener noreferrer">'
-               +   '<div class="bc-title">' + esc(it.title) + '</div>'
-               +   (metaStr ? '<div class="bc-meta">' + metaStr + '</div>' : '')
-               +   '<div class="bc-tags">'
-               +     '<span class="bc-type ' + esc(it.type) + '">' + esc(typeLabel) + '</span>'
-               +     stateStr
-               +   '</div>'
-               + '</a>';
-        }).join('');
-        listEl.innerHTML = html;
+        count.innerHTML = 'Showing <strong>' + hits.length + '</strong> of ' + DATA.items.length + ' publications';
+        list.innerHTML = hits.map(row).join('');
+        empty.hidden = hits.length > 0;
       }
 
-      function populateStates() {
-        var states = {};
-        state.items.forEach(function (it) { if (it.state) states[it.state] = true; });
-        var keys = Object.keys(states).sort();
-        // Move "national" to top
-        keys = keys.filter(function (k) { return k !== 'national'; });
-        if (states.national) keys.unshift('national');
-        keys.forEach(function (k) {
-          var opt = document.createElement('option');
-          opt.value = k;
-          opt.textContent = k === 'national' ? 'National (not state-specific)' : k.charAt(0).toUpperCase() + k.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
-          stateEl.appendChild(opt);
-        });
-      }
-
-      searchEl.addEventListener('input', function (e) { state.q = e.target.value; render(); });
-      stateEl.addEventListener('change', function (e) { state.st = e.target.value; render(); });
-      pillsEl.addEventListener('click', function (e) {
-        var btn = e.target.closest('.type-pill');
-        if (!btn) return;
-        pillsEl.querySelectorAll('.type-pill').forEach(function (b) {
-          b.classList.remove('active');
-          b.setAttribute('aria-pressed', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-pressed', 'true');
-        state.tp = btn.getAttribute('data-type') || '';
+      queryEl.addEventListener('input', function (e) { filt.q = e.target.value; render(); });
+      stateEl.addEventListener('change', function (e) { filt.state = e.target.value; render(); });
+      pills.addEventListener('click', function (e) {
+        var b = e.target.closest('.pill');
+        if (!b) return;
+        pills.querySelectorAll('.pill').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        filt.type = b.getAttribute('data-type') || '';
         render();
       });
 
-      fetch(DATA_URL)
-        .then(function (r) { return r.json(); })
-        .then(function (data) {
-          state.items = data.items || [];
-          populateStates();
-          render();
-        })
-        .catch(function () {
-          summaryEl.textContent = 'Could not load publications library.';
-        });
+      render();
     })();
   </script>
 
-</body>
 
-</html>
+
+</body></html>

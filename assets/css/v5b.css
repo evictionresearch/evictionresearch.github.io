@@ -34,7 +34,7 @@
   --navy-soft:    #223754;
   --steel:        #8BA3BE;
   --accent:       #F9322B;  /* graphics — same red as text since 2026-08-24 */
-  --accent-deep:  #F9322B;  /* same red as graphics — 3.80:1 white, under AA (see home-2026.css) */
+  --accent-deep:  #F9322B;  /* same red as graphics — 3.80:1 white, under AA (see ern-2026.css) */
   --accent-deeper:#CC2118;  /* hover/active — a darker brand red */
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);

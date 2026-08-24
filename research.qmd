@@ -1,0 +1,374 @@
+---
+# ============================================================================
+# ERN research page. Edit the copy here, then rebuild:
+#
+#     python3 code/build_research_data.py    # only when the bibliography changes
+#     quarto render research.qmd
+#
+# That overwrites research.html in place. git is the safety net — review
+# `git diff research.html` before committing.
+#
+# The page chrome lives in _extensions/ern/research/template.html. Everything
+# a person normally wants to change (headings, blurbs, the seven policies,
+# links, footer) is a field below, so the template should rarely need touching.
+#
+# NOTE: values here are parsed as Markdown. Write &#39; for a straight
+# apostrophe, which is what the rest of the site uses. Do not backslash-escape:
+# inside a folded block scalar (>-) YAML keeps the backslash and it lands on
+# the page. Colons and URLs need no escaping.
+#
+# The library&#39;s 162 entries are NOT in this file. They live in
+# assets/data/research.json and are compiled to assets/data/research-data.js.
+# ============================================================================
+
+title: "Research and evidence on eviction — Eviction Research Network"
+
+meta:
+  canonical: "https://evictionresearch.net/research.html"
+  author: "Eviction Research Network, UC Berkeley"
+  og_title: "Research and evidence on eviction — Eviction Research Network"
+  og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  description: >-
+    Seven eviction-prevention policies with measured effects, written for
+    legislators and their staff, plus a searchable library of 162 publications,
+    reports, and datasets on eviction, displacement, and housing precarity from
+    researchers across the field.
+  short_description: >-
+    Seven eviction-prevention policies with measured effects, and a searchable
+    library of 162 publications on eviction and displacement.
+  keywords: >-
+    eviction prevention policy, right to counsel, eviction diversion, rental
+    assistance, just cause eviction, eviction record sealing, source of income
+    discrimination, housing research, displacement, Eviction Research Network
+
+logos:
+  logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+
+# newtab: true on anything that leaves the site. current: true marks this page
+# for screen readers and gives the nav item its red weight.
+nav:
+  - label: "Maps &amp; Profiles"
+    href: "index.html#atlas"
+  - label: "HPRM"
+    href: "https://evictionresearch.net/hprm/"
+    newtab: true
+  - label: "Research"
+    href: "research.html"
+    current: true
+  - label: "About"
+    href: "about.html"
+  - label: "Contact"
+    href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+    button: true
+
+hero:
+  eyebrow: "Research"
+  h1_lead: "Research and evidence"
+  h1_em: "on eviction."
+  lede: >-
+    Policies with measured effects on eviction, written for legislators and the
+    staff who draft the bills, and a searchable library of everything we can
+    find on eviction, displacement, and housing precarity.
+  # The count that precedes this line is rendered from library.count_in_prose.
+  meta: >-
+    entries in the library · Library last updated April 2026
+  jump:
+    - label: "Policies that work"
+      href: "#brief"
+    - label: "Research library"
+      href: "#library"
+
+# ERN&#39;s own output. The library further down indexes the field&#39;s published
+# work, four Tim Thomas papers among it, but it is not a catalogue of ERN&#39;s
+# projects and datasets. Without this section the home page&#39;s "All research"
+# button would land on a page that presents none of ERN&#39;s own work as such.
+# These three cards are the same ones the home page carries.
+ours:
+  h2_lead: "From"
+  h2_em: "ERN."
+  sub: >-
+    What we have published, built, or evaluated ourselves.
+  more_label: "Read more →"
+  cards:
+    - kicker: "Working paper · 2026"
+      title: >-
+        Keeping People in Their Homes: the impact of emergency rental
+        assistance on evictions
+      body: >-
+        A neighborhood-level evaluation of whether $46.6 billion in emergency
+        rental assistance reduced eviction filings, across 700+ counties and
+        12,000+ census tracts in 22 states.
+      href: "https://evictionresearch.net/hud-era/"
+    - kicker: "State profile · 2026"
+      title: "Washington eviction filings, 2016–2026"
+      body: >-
+        Over the past 36 months, 1 in 45 renter households faced an eviction
+        filing, roughly 49% above the pre-pandemic normal. Seven of 39 counties
+        exceed the state rate.
+      href: "https://evictionresearch.net/washington/"
+    - kicker: "Cityscape (HUD) · 2024"
+      title: >-
+        Toward a national eviction data collection strategy using natural
+        language processing
+      body: >-
+        How ERN mined 111,740 Washington court records buried in scanned PDFs
+        and handwritten paper to expose the racial and gender disparities
+        structured data could not see.
+      href: "cityscape-2024.html"
+  button:
+    label: "Every state&#39;s data →"
+    href: "all_states/"
+
+brief:
+  eyebrow: "Evidence brief for policymakers"
+  h2_lead: "Seven policies that"
+  h2_em: "reduce evictions."
+  sub: >-
+    Every intervention below has been evaluated in at least one U.S.
+    jurisdiction and shown to reduce eviction filings, default judgments, or
+    displacement. Summaries cite peer-reviewed studies and independent program
+    evaluations, condensed for quick reference by legislative staff.
+  primary:
+    label: "Request a briefing →"
+    href: "mailto:evictions@berkeley.edu?Subject=Policy%20brief%20inquiry"
+  secondary:
+    label: "See the full evidence base →"
+    href: "#library"
+  policies:
+    - num: "01"
+      title: "Right to counsel in eviction cases"
+      what: >-
+        Publicly funded legal representation for low-income tenants facing
+        eviction. Typically phased in by income threshold and case type.
+      evidence: >-
+        In New York City&#39;s pilot ZIP codes (2017–2019), 84% of represented
+        tenants remained housed against roughly 30% of unrepresented tenants,
+        and citywide evictions fell by 41% after universal implementation. San
+        Francisco reported a 67% reduction in defaults. Similar gains are
+        documented in Cleveland and Philadelphia.
+      where: >-
+        New York City, San Francisco, Philadelphia, Cleveland, Washington State
+        (2021, statewide), Connecticut, Maryland, Minnesota, Washington D.C.,
+        Boulder, Kansas City, Louisville, Toledo, Detroit.
+      sources: >-
+        NYC Office of Civil Justice annual reports; Stout Risius Ross (2020),
+        Cost-Benefit Analysis of Right to Counsel; Seron et al. (2001),
+        <em>Housing Policy Debate</em>; National Coalition for a Civil Right to
+        Counsel.
+    - num: "02"
+      title: "Pre-filing eviction diversion and mediation"
+      what: >-
+        Programs that require, or strongly incentivize, landlord-tenant
+        mediation before a case can be filed in court. Often paired with rental
+        assistance.
+      evidence: >-
+        Philadelphia&#39;s Eviction Diversion Program cut filings by roughly 36%
+        relative to counterfactual and resolved about half of mediated cases
+        without judgment. Michigan&#39;s statewide Eviction Diversion Program
+        (2020–2021) distributed $1.1 billion in rental assistance and kept about
+        87% of participants housed.
+      where: >-
+        Philadelphia (mandatory), Michigan, Texas (Harris County), New Mexico,
+        Hawaii (emergency rules), Northampton County, Pennsylvania.
+      sources: >-
+        Reina, Aiken, et al. (2023), Philadelphia Eviction Diversion Program
+        evaluation; The Pew Charitable Trusts; National Center for State Courts.
+    - num: "03"
+      title: "Emergency rental assistance"
+      what: >-
+        Direct payment of arrears and forward rent to prevent eviction. Most
+        effective when delivered within 30 days, and when landlord participation
+        is structurally encouraged.
+      evidence: >-
+        Federal ERA1 and ERA2 ($46.5 billion, 2021–2023) disbursed aid to about
+        10 million households and is credited by Treasury and the Urban
+        Institute with preventing a post-moratorium eviction wave. State-level
+        follow-ons in Washington, Oregon, and California show a 15% to 30%
+        reduction in filings against matched controls.
+      where: >-
+        Washington State Eviction Rental Assistance Program, California Housing
+        is Key (archived), New York ERAP, Minnesota RentHelpMN.
+      sources: >-
+        U.S. Treasury ERA dashboard; Urban Institute (2022), ERA Implementation
+        Study; NLIHC ERA tracker; ERN&#39;s HUD-ERA evaluation with the Housing
+        Initiative at Penn (2026).
+    - num: "04"
+      title: "Just cause eviction protections"
+      what: >-
+        Require landlords to cite a specific, enumerated reason (nonpayment,
+        lease violation, owner move-in) before terminating a tenancy. Reduces
+        no-fault displacement and retaliation.
+      evidence: >-
+        Oregon&#39;s SB 608 (2019), the first statewide just-cause law, was
+        associated with a decline in no-cause terminations. California&#39;s AB
+        1482 (2019) extended protections to roughly 9 million tenants.
+        Quasi-experimental evidence from Seattle shows lower displacement rates
+        for protected units.
+      where: >-
+        California, Oregon, Washington, New Jersey, New Hampshire, Washington
+        D.C., Seattle, New York City, San Francisco, Los Angeles, Oakland,
+        Portland, and dozens of California municipalities.
+      sources: >-
+        Pastor, Carter and Abood (2018), USC Dornsife; Oregon Housing and
+        Community Services SB 608 report; UC Berkeley Urban Displacement
+        Project.
+    - num: "05"
+      title: "Sealing and expungement of eviction records"
+      what: >-
+        Automatically seal or expunge eviction filings, especially dismissed or
+        settled cases, so tenants are not screened out of future housing by the
+        mere existence of a filing.
+      evidence: >-
+        Tenant-screening companies report even dismissed filings, generating a
+        mark that follows a tenant for years. Minnesota&#39;s Statute 484.014
+        and Colorado&#39;s SB21-173 have reduced screening-based rejections, and
+        California SB 1100 (2023) sealed dismissed filings statewide.
+      where: >-
+        Minnesota, Colorado, California, New York, New Jersey, Nevada, Illinois,
+        Oregon, Washington. Under consideration in Arizona and Massachusetts.
+      sources: >-
+        Eviction Lab, The Scarlet E series; Sandefur (2014), <em>Indiana Law
+        Review</em>; Kleysteuber (2007), <em>Yale Law Journal</em>; NLIHC
+        eviction record sealing tracker.
+    - num: "06"
+      title: "Source-of-income discrimination protection"
+      what: >-
+        Prohibit landlords from refusing to rent to Section 8 voucher holders or
+        other lawful-source recipients. Expands housing choice and reduces the
+        concentration of voucher use in high-eviction neighborhoods.
+      evidence: >-
+        In the Urban Institute&#39;s paired-testing study (Cunningham et al.,
+        2018), denial rates for voucher holders fall from 78% to 31% in
+        protected jurisdictions, and voucher lease-up rates improve by 10 to 20
+        percentage points.
+      where: >-
+        22 states and D.C., including California, Washington, Oregon,
+        Massachusetts, Minnesota, New York, New Jersey, Virginia, Illinois, and
+        Connecticut, plus more than 100 municipalities.
+      sources: >-
+        Cunningham et al. (2018), Urban Institute; NYU Furman Center; Poverty
+        and Race Research Action Council source-of-income tracker; HUD PD&amp;R
+        report (2022).
+    - num: "07"
+      title: "Extended cure and notice periods"
+      what: >-
+        Lengthen statutory notice-to-quit, pay-or-quit, and cure periods, for
+        example from 3 days to 14. Gives tenants time to access assistance,
+        rectify the default, or find counsel.
+      evidence: >-
+        Washington&#39;s 2019 extension of the pay-or-quit period from 3 to 14
+        days, combined with standardized notice forms, was associated with a
+        measurable decline in default judgments and a higher rate of tenant
+        appearance in court. Similar findings in Oregon and Connecticut.
+      where: >-
+        Washington (14-day pay-or-quit, 2019), Oregon (10-day), Connecticut,
+        Nevada, Arizona. The federal CARES Act 30-day notice remains in place
+        for covered properties.
+      sources: >-
+        Washington State Supreme Court Gender and Justice Commission; Seattle
+        University Korematsu Center, <em>Losing Home</em> (2018); Oregon Law
+        Center; ERN&#39;s Washington state pipeline.
+  callout:
+    heading: "Why these seven"
+    body: >-
+      These are the policies with direct, quantified evidence of reducing
+      eviction filings, default judgments, or post-filing displacement, rather
+      than policies that improve tenants&#39; legal rights in the abstract.
+      Complementary interventions such as rent stabilization, housing-first
+      programs, and tenant opportunity-to-purchase acts also appear in the
+      peer-reviewed literature, but their evidence on eviction specifically is
+      more mixed or more indirect. They are covered in the library below. For a
+      tailored briefing on any of the seven,
+      <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request">contact ERN</a>.
+
+library:
+  eyebrow: "Research library"
+  h2_lead: "Everything we can find"
+  h2_em: "on eviction."
+  sub: >-
+    Peer-reviewed publications, reports, working papers, and datasets on
+    eviction, displacement, and housing precarity, from researchers, courts,
+    agencies, and advocacy organizations across the field. Searchable by state,
+    type, and keyword. Know of work that belongs here?
+    <a href="mailto:evictions@berkeley.edu?Subject=Library%20submission">Send it to us</a>.
+  # Checked against assets/data/research.json by code/build_research_data.py on
+  # every run. If the two disagree the script says so; fix this number, do not
+  # fix the script.
+  count_in_prose: 162
+  search_placeholder: "Search by title, author, or publisher"
+  all_states_label: "All states"
+  all_types_label: "All types"
+  loading_label: "Loading the library…"
+  empty_label: "No publications match those filters. Try broadening the search."
+
+contribute:
+  eyebrow: "Add to the record"
+  heading: "Know eviction work that is missing here?"
+  body: >-
+    The library is hand-maintained and it is incomplete by definition. If you
+    have published research, run a court data project, or maintain a tracker we
+    have not indexed, send it over and we will add it. If you need a policy
+    briefing for a hearing or a bill, we write those too.
+  primary:
+    label: "Submit a publication →"
+    href: "mailto:evictions@berkeley.edu?Subject=Library%20submission"
+  secondary:
+    label: "See how we work →"
+    href: "methodology.html"
+
+site_footer:
+  # Canonical wording from library/ORG.md. Do not paraphrase, and never write
+  # "housed in" — it reads as a campus unit.
+  affiliation: >-
+    A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
+    Berkeley Department of Sociology, which serves as its academic home.
+    Affiliated with the Berkeley Institute for Data Science.
+  collaborators: >-
+    Collaborators: Housing Initiative at Penn · Urban Displacement Project ·
+    Legal Services Corporation.
+  copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
+  accessibility:
+    label: "Report a web accessibility issue"
+    href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  columns:
+    - heading: "Data"
+      links:
+        - label: "Maps &amp; profiles"
+          href: "index.html#atlas"
+        - label: "HPRM risk maps"
+          href: "https://evictionresearch.net/hprm/"
+          newtab: true
+        - label: "U.S. Eviction Data Directory"
+          href: "all_states/"
+          newtab: true
+    - heading: "Research"
+      links:
+        - label: "Publications"
+          href: "research.html"
+        - label: "Methodology"
+          href: "methodology.html"
+          newtab: true
+        - label: "Understanding eviction"
+          href: "understanding-eviction.html"
+          newtab: true
+        - label: "News &amp; press"
+          href: "news.html"
+          newtab: true
+    - heading: "Contact"
+      links:
+        - label: "evictions@berkeley.edu"
+          href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+        - label: "Bluesky"
+          href: "https://bsky.app/profile/evictionresearch.bsky.social"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/company/evictionresearch/"
+          newtab: true
+        - label: "GitHub"
+          href: "https://github.com/evictionresearch"
+          newtab: true
+
+format: research-html
+output-file: research.html
+---

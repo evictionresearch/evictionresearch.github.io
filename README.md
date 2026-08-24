@@ -5,25 +5,37 @@ URL: [evictionresearch.net](https://evictionresearch.net)
 
 ERN is the academic arm of the [CiDR Lab](https://cidrlab.org/), housed in UC Berkeley's Department of Sociology. This repository serves [evictionresearch.net](https://evictionresearch.net) as a static GitHub Pages site.
 
-## Building the home page
+## Building the pages
 
-The home page is a Quarto document. Edit the copy in `index.qmd` and rebuild:
+The home page and the research page are Quarto documents. Edit the copy in the
+`.qmd` and rebuild:
 
-    quarto render index.qmd
+    quarto render index.qmd       # writes index.html
+    quarto render research.qmd    # writes research.html
 
-That overwrites `index.html` in place, so review `git diff index.html` before
-committing. Every heading, blurb, research card, link and footer entry is a
-labelled field in the front matter; the page chrome lives in the Pandoc
-template at `_extensions/ern/home/template.html` and rarely needs touching.
-This follows the same pattern as the state profiles (see `washington/index.qmd`).
+Each render overwrites its `.html` in place, so review `git diff <file>` before
+committing. Every heading, blurb, card, link and footer entry is a labelled
+field in the front matter; the page chrome lives in a Pandoc template under
+`_extensions/ern/` and rarely needs touching. This follows the same pattern as
+the state profiles (see `washington/index.qmd`).
 
-The two national maps under `maps/` carry their own copy and their own data:
+Both pages share `assets/css/ern-2026.css`, which holds the design system: the
+type scale, buttons, bands, header, footer, and the single brand red. Page-only
+components live alongside it (`research-2026.css`). Nothing on either page
+loads `main.css` or the vendor CSS.
+
+Three generators feed those pages, and each writes a file that is committed:
 
 - `code/build_home_map_data.py` generates the coverage map's state roster from
   `all_states/index.html` and the Eviction Data Atlas, then inlines it into the
   map. Re-run it whenever the directory changes.
 - `code/render_hprm_national.mjs` renders the HPRM tract raster. Its header
   documents the full pipeline.
+- `code/build_research_data.py` compiles the bibliography in
+  `assets/data/research.json` into `assets/data/research-data.js`, which the
+  research page loads as a plain script so the library also works when the page
+  is opened off disk. It reports duplicate titles and count mismatches; run it
+  after editing the bibliography.
 
 ## Branding
 

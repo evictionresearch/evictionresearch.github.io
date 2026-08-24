@@ -32,7 +32,7 @@
   --default-color: #223754; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #19222C; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #F9322B; /* ERN red for graphics: fills, borders, backgrounds. Same value as --accent-deep since 2026-08-24, when the site retired the brighter #F9322B that could not be used as text. */
-  --accent-deep: #F9322B; /* Same brand red as graphics since 2026-08-24. 3.80:1 on white, under WCAG 1.4.3 AA for small text — a deliberate call by Tim, who wants the red to pop. See assets/css/home-2026.css for the full note. */
+  --accent-deep: #F9322B; /* Same brand red as graphics since 2026-08-24. 3.80:1 on white, under WCAG 1.4.3 AA for small text — a deliberate call by Tim, who wants the red to pop. See assets/css/ern-2026.css for the full note. */
   --accent-deeper: #CC2118; /* Darker red for hover/active states of red text and buttons. */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */

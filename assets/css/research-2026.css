@@ -1,0 +1,133 @@
+/*!
+ * research-2026.css — the research and publications page.
+ *
+ * Loads on top of ern-2026.css and adds only what that sheet has no
+ * component for: the numbered policy brief, the library filters, and the
+ * bibliography list. Everything else (type scale, buttons, bands, header,
+ * footer, one red) comes from the design system and is not restated here.
+ */
+
+/* ─── Page hero ─── */
+/* The home page opens on a map, so its h1 shares a grid. This page opens on
+   text alone, which needs a measure or the hairline h1 runs the full 1240. */
+.sec-hero { padding-top: 76px; padding-bottom: 60px; }
+.hero-in { max-width: 60ch; }
+.hero-in .lede { max-width: 58ch; }
+.jump { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* ─── Policy brief ─── */
+.pol {
+  display: grid; grid-template-columns: 76px 1fr; gap: 30px;
+  padding: 34px 0; border-top: 1px solid var(--rule);
+}
+.pol:first-of-type { border-top: none; padding-top: 4px; }
+.pol-num {
+  /* margin 0, not the browser default 1em, or a 44px numeral is pushed a
+     full line below the heading it belongs to. */
+  margin: 5px 0 0; font-size: 44px; font-weight: 200; line-height: 0.9;
+  letter-spacing: -0.04em; color: var(--accent-deep);
+  font-variant-numeric: tabular-nums;
+}
+.pol h3 {
+  font-size: 22px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0 0 10px; text-wrap: pretty;
+}
+.pol-what {
+  font-size: 16px; line-height: 1.65; color: var(--body);
+  margin: 0 0 20px; max-width: 68ch; text-wrap: pretty;
+}
+/* Evidence, jurisdictions and sources as a definition list, so the label is
+   a real <dt> rather than a bolded run-in that screen readers read as prose. */
+.pol-rows { margin: 0; display: grid; gap: 15px; }
+.pol-rows > div { display: grid; grid-template-columns: 116px 1fr; gap: 20px; }
+.pol-rows dt {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted); padding-top: 4px;
+}
+.pol-rows dd {
+  margin: 0; font-size: 14.5px; line-height: 1.62;
+  color: var(--body); max-width: 70ch; text-wrap: pretty;
+}
+.pol-rows .src dd { font-size: 13px; color: var(--muted); }
+.pol-rows dd em { font-style: italic; }
+
+.callout {
+  margin-top: 40px; padding: 24px 28px;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent-deep);
+}
+.callout h3 {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--accent-deep); margin: 0 0 12px;
+}
+.callout p {
+  font-size: 14.5px; line-height: 1.65; color: var(--body);
+  margin: 0; max-width: 76ch; text-wrap: pretty;
+}
+.callout a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─── Library filters ─── */
+.filters { display: grid; grid-template-columns: 1fr 260px; gap: 14px; margin: 30px 0 18px; }
+.filters input, .filters select {
+  font-family: inherit; font-size: 14.5px; color: var(--ink);
+  background: var(--paper); border: 1px solid rgba(25, 34, 44, 0.18);
+  border-radius: 4px; padding: 12px 14px; width: 100%;
+}
+.filters input::placeholder { color: var(--muted); }
+.filters input:focus, .filters select:focus {
+  outline: none; border-color: var(--accent-deep);
+  box-shadow: 0 0 0 3px rgba(249, 50, 43, 0.16);
+}
+
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.pill {
+  font-family: inherit; font-size: 12.5px; font-weight: 500;
+  padding: 8px 15px; border-radius: 999px; cursor: pointer;
+  border: 1px solid rgba(25, 34, 44, 0.18);
+  background: var(--paper); color: var(--body);
+  transition: border-color 150ms ease, color 150ms ease, background 150ms ease;
+}
+.pill:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+.pill[aria-pressed="true"] {
+  background: var(--accent-deep); border-color: var(--accent-deep); color: #fff;
+}
+
+.count {
+  margin: 0 0 4px; font-size: 12.5px; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  padding-bottom: 12px; border-bottom: 1px solid var(--rule);
+}
+.count strong { color: var(--ink); font-weight: 600; }
+
+/* ─── Bibliography ─── */
+/* Two columns of entries rather than cards: 162 references read faster as a
+   list, and a list keeps a long title from setting the height of a whole row. */
+.bib { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.bib-item {
+  display: block; text-decoration: none; color: inherit;
+  padding: 17px 0; border-bottom: 1px solid var(--rule);
+}
+.bib-item:hover .bi-title { color: var(--accent-deep); }
+.bi-title { display: block; font-size: 15.5px; font-weight: 600; line-height: 1.4; color: var(--ink); margin: 0 0 5px; text-wrap: pretty; }
+.bi-meta { display: block; font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 9px; }
+.bi-meta .who { color: var(--body); }
+.bi-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.tag {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+}
+.tag.kind { background: rgba(34, 55, 84, 0.09); color: var(--body); }
+.tag.where { border: 1px solid var(--rule); color: var(--muted); }
+
+.empty { margin: 0; padding: 40px 0; font-size: 14.5px; color: var(--muted); }
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+  .bib { grid-template-columns: 1fr; gap: 0; }
+}
+@media (max-width: 900px) {
+  .pol { grid-template-columns: 1fr; gap: 12px; }
+  .pol-num { font-size: 34px; }
+  .pol-rows > div { grid-template-columns: 1fr; gap: 4px; }
+  .filters { grid-template-columns: 1fr; }
+}

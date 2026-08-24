@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>$title$</title>
+  <meta name="description" content="$meta.description$">
+  <meta name="keywords" content="$meta.keywords$">
+  <meta name="author" content="$meta.author$">
+
+  <link rel="canonical" href="$meta.canonical$">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="$meta.og_title$">
+  <meta property="og:description" content="$meta.short_description$">
+  <meta property="og:url" content="$meta.canonical$">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="$meta.og_image$">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$meta.og_title$">
+  <meta name="twitter:description" content="$meta.short_description$">
+  <meta name="twitter:image" content="$meta.og_image$">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/ern-2026.css" rel="stylesheet">
+  <link href="assets/css/research-2026.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="index.html" aria-label="Eviction Research Network — home">
+        <img src="$logos.logo$" alt="Eviction Research Network">
+      </a>
+      <nav class="nav" aria-label="Primary">
+$for(nav)$        <a$if(nav.button)$ class="btn sm"$endif$ href="$nav.href$"$if(nav.current)$ aria-current="page"$endif$$if(nav.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$nav.label$</a>
+$endfor$      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="wrap sec-hero">
+      <div class="hero-in">
+        <p class="eyebrow">$hero.eyebrow$</p>
+        <h1>$hero.h1_lead$ <em>$hero.h1_em$</em></h1>
+        <p class="lede">$hero.lede$</p>
+        <!-- The count is rendered from library.count_in_prose so the number
+             lives in exactly one place; code/build_research_data.py checks it
+             against the bibliography on every run. -->
+        <p class="meta"><strong>$library.count_in_prose$</strong> $hero.meta$</p>
+        <div class="jump">
+$for(hero.jump)$          <a class="btn ghost" href="$it.href$">$it.label$</a>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── ERN's own work ─────────── -->
+    <!-- The home page's "All research" button lands on this page, so ERN's own
+         output has to be reachable from here. The library below indexes the
+         field's published work, four Tim Thomas papers among it, but it is not
+         a catalogue of ERN's own projects and datasets. -->
+    <section id="ern-work" class="wrap sec">
+      <h2>$ours.h2_lead$ <em>$ours.h2_em$</em></h2>
+      <p class="sub">$ours.sub$</p>
+      <div class="cards">
+$for(ours.cards)$        <a class="card" href="$it.href$" target="_blank" rel="noopener noreferrer">
+          <span class="kicker">$it.kicker$</span>
+          <h3>$it.title$</h3>
+          <p>$it.body$</p>
+          <span class="more">$ours.more_label$</span>
+        </a>
+$endfor$      </div>
+      <a class="btn ghost" href="$ours.button.href$" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">$ours.button.label$</a>
+    </section>
+
+    <!-- ─────────── Evidence brief ─────────── -->
+    <section id="brief" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$brief.eyebrow$</p>
+        <h2>$brief.h2_lead$ <em>$brief.h2_em$</em></h2>
+        <p class="sub">$brief.sub$</p>
+        <div class="actions" style="margin-bottom: 12px;">
+          <a class="btn" href="$brief.primary.href$">$brief.primary.label$</a>
+          <a class="btn ghost" href="$brief.secondary.href$">$brief.secondary.label$</a>
+        </div>
+
+$for(brief.policies)$        <div class="pol">
+          <p class="pol-num">$it.num$</p>
+          <div>
+            <h3>$it.title$</h3>
+            <p class="pol-what">$it.what$</p>
+            <dl class="pol-rows">
+              <div><dt>Evidence</dt><dd>$it.evidence$</dd></div>
+              <div><dt>Enacted in</dt><dd>$it.where$</dd></div>
+              <div class="src"><dt>Sources</dt><dd>$it.sources$</dd></div>
+            </dl>
+          </div>
+        </div>
+$endfor$
+        <div class="callout">
+          <h3>$brief.callout.heading$</h3>
+          <p>$brief.callout.body$</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Library ─────────── -->
+    <section id="library" class="wrap sec">
+      <p class="eyebrow">$library.eyebrow$</p>
+      <h2>$library.h2_lead$ <em>$library.h2_em$</em></h2>
+      <p class="sub">$library.sub$</p>
+
+      <div class="filters">
+        <input id="f-q" type="search" placeholder="$library.search_placeholder$" aria-label="Search the library by title, author, or publisher">
+        <select id="f-state" aria-label="Filter the library by state">
+          <option value="">$library.all_states_label$</option>
+        </select>
+      </div>
+
+      <div class="pills" id="f-types" role="group" aria-label="Filter the library by publication type">
+        <button class="pill" type="button" data-type="" aria-pressed="true">$library.all_types_label$</button>
+      </div>
+
+      <p class="count" id="bib-count" role="status" aria-live="polite" aria-atomic="true">$library.loading_label$</p>
+      <div class="bib" id="bib"></div>
+      <p class="empty" id="bib-empty" hidden>$library.empty_label$</p>
+    </section>
+
+    <!-- ─────────── Contribute ─────────── -->
+    <section id="contribute" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">$contribute.eyebrow$</p>
+          <h2 class="on-dark">$contribute.heading$</h2>
+          <p class="body">$contribute.body$</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="$contribute.primary.href$">$contribute.primary.label$</a>
+          <a class="btn on-dark" href="$contribute.secondary.href$" target="_blank" rel="noopener noreferrer">$contribute.secondary.label$</a>
+        </div>
+      </div>
+    </section>
+
+$if(body)$    <section class="wrap sec">
+      <!-- Anything written in the body of research.qmd lands here. -->
+      <div class="prose">
+$body$
+      </div>
+    </section>
+$endif$
+  </main>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="$logos.logo_reversed$" alt="Eviction Research Network">
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations;
+             UDP appears only in the collaborator line below. -->
+        <p>$site_footer.affiliation$</p>
+        <p>$site_footer.collaborators$</p>
+      </div>
+$for(site_footer.columns)$      <div class="foot-col">
+        <span>$it.heading$</span>
+$for(it.links)$        <a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$      </div>
+$endfor$    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>$site_footer.copyright$</span>
+        <span><a href="$site_footer.accessibility.href$" target="_blank" rel="noopener noreferrer">$site_footer.accessibility.label$</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- The bibliography is a plain script, not fetched JSON: a browser gives
+       every file:// document its own opaque origin and blocks same-directory
+       fetches, which would leave the library empty whenever the page is
+       opened straight off disk. Built by code/build_research_data.py. -->
+  <script src="assets/data/research-data.js"></script>
+  <script>
+    (function () {
+      var DATA = window.ERN_RESEARCH;
+      var list = document.getElementById('bib');
+      var empty = document.getElementById('bib-empty');
+      var count = document.getElementById('bib-count');
+      var queryEl = document.getElementById('f-q');
+      var stateEl = document.getElementById('f-state');
+      var pills = document.getElementById('f-types');
+      if (!DATA || !DATA.items || !list) {
+        if (count) count.textContent = 'The publications library could not be loaded.';
+        return;
+      }
+
+      var filt = { q: '', state: '', type: '' };
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      DATA.states.forEach(function (s) {
+        var o = document.createElement('option');
+        o.value = s.value;
+        o.textContent = s.label;
+        stateEl.appendChild(o);
+      });
+
+      // Type filters come from the data so a new kind of entry cannot appear in
+      // the library without a pill to find it by.
+      DATA.types.forEach(function (t) {
+        var b = document.createElement('button');
+        b.className = 'pill';
+        b.type = 'button';
+        b.setAttribute('data-type', t.value);
+        b.setAttribute('aria-pressed', 'false');
+        b.textContent = t.label;
+        pills.appendChild(b);
+      });
+
+      function row(it) {
+        var meta = [];
+        if (it.authors) meta.push('<span class="who">' + esc(it.authors) + '</span>');
+        if (it.year) meta.push(esc(it.year));
+        if (it.venue) meta.push(esc(it.venue));
+        return '<a class="bib-item" href="' + esc(it.url) + '" target="_blank" rel="noopener noreferrer">'
+          + '<span class="bi-title">' + esc(it.title) + '</span>'
+          + (meta.length ? '<span class="bi-meta">' + meta.join(' &middot; ') + '</span>' : '')
+          + '<span class="bi-tags">'
+          + (it.typeLabel ? '<span class="tag kind">' + esc(it.typeLabel) + '</span>' : '')
+          + (it.stateLabel ? '<span class="tag where">' + esc(it.stateLabel) + '</span>' : '')
+          + '</span></a>';
+      }
+
+      function render() {
+        var needle = filt.q.trim().toLowerCase();
+        var hits = DATA.items.filter(function (it) {
+          if (filt.type && it.type !== filt.type) return false;
+          if (filt.state && it.state !== filt.state) return false;
+          if (!needle) return true;
+          var hay = (it.title + ' ' + it.authors + ' ' + it.venue + ' ' + it.stateLabel).toLowerCase();
+          return hay.indexOf(needle) !== -1;
+        });
+        count.innerHTML = 'Showing <strong>' + hits.length + '</strong> of ' + DATA.items.length + ' publications';
+        list.innerHTML = hits.map(row).join('');
+        empty.hidden = hits.length > 0;
+      }
+
+      queryEl.addEventListener('input', function (e) { filt.q = e.target.value; render(); });
+      stateEl.addEventListener('change', function (e) { filt.state = e.target.value; render(); });
+      pills.addEventListener('click', function (e) {
+        var b = e.target.closest('.pill');
+        if (!b) return;
+        pills.querySelectorAll('.pill').forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+        b.setAttribute('aria-pressed', 'true');
+        filt.type = b.getAttribute('data-type') || '';
+        render();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>

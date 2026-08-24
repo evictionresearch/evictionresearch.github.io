@@ -1,5 +1,5 @@
 /*!
- * home-2026.css — the Eviction Research Network home page.
+ * ern-2026.css — the Eviction Research Network design system.
  *
  * Built from the August 2026 design standardization review
  * (docs/design-handoff-2026-08/), which rebuilds the home page in the house
@@ -90,6 +90,7 @@ iframe:focus-visible {
 .nav a { font-size: 13px; font-weight: 500; color: var(--ink); text-decoration: none; white-space: nowrap; }
 .nav a:hover { color: var(--accent-deep); text-decoration: underline; }
 .nav a.btn:hover { text-decoration: none; }
+.nav a[aria-current="page"] { color: var(--accent-deep); font-weight: 600; }
 
 /* ─── Buttons ─── */
 .btn {
@@ -178,7 +179,9 @@ iframe.map { display: block; width: 100%; max-width: 100%; border: none; overflo
 .kicker { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep); }
 .card h3 { font-size: 20px; font-weight: 600; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty; }
 .card p { font-size: 14.5px; line-height: 1.6; color: var(--body); margin: 0; }
-.more { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-deep); margin-top: 2px; }
+/* margin-top:auto drops the link to the foot of the card, so a row of cards
+   with uneven blurbs still lines its "Read more" links up. */
+.more { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent-deep); margin-top: auto; padding-top: 4px; }
 .card:hover h3 { color: var(--accent-deep); }
 .card:hover .more { color: var(--accent-press); text-decoration: underline; }
 

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HPRM 2.0 — national housing precarity risk</title>
+<meta name="description" content="The Housing Precarity Risk Model scored for every census tract in the contiguous United States.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; background: #fff; font-family: 'Inter', system-ui, sans-serif; color: #19222C; font-feature-settings: 'ss01','cv11'; }
+  #chrome { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 2px 10px; flex-wrap: wrap; }
+  #ramp { display: flex; align-items: center; gap: 9px; font-size: 12px; color: #223754; }
+  #ramp .bar { display: flex; height: 13px; width: 216px; border-radius: 2px; overflow: hidden; }
+  #ramp .bar span { flex: 1; }
+  #mapholder { cursor: pointer; position: relative; }
+  #mapholder svg { display: block; width: 100%; }
+  #tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity 90ms ease; background: #19222C; color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 4px; white-space: nowrap; z-index: 9; }
+  #note { font-size: 11.5px; color: #586573; padding: 10px 2px 0; border-top: 1px solid rgba(25,34,44,0.14); margin: 8px 0 0; line-height: 1.5; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  #note a { color: #CC2118; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  #note a:hover { color: #B01D16; text-decoration: underline; }
+</style>
+</head>
+<body>
+<div id="chrome">
+  <div id="ramp">
+    <span>Lower risk</span>
+    <span class="bar" role="img" aria-label="Colour scale running from light blue at a composite score of zero through navy to red at eight">
+      <span style="background:#DBE4EE"></span><span style="background:#B3C4D6"></span><span style="background:#8BA3BE"></span><span style="background:#647E9F"></span><span style="background:#415A7C"></span><span style="background:#223754"></span><span style="background:#7D2C31"></span><span style="background:#C0231C"></span><span style="background:#F9322B"></span>
+    </span>
+    <span>Higher risk</span>
+  </div>
+  <span style="font-size:11.5px;color:#586573;">HPRM 2.0 composite · 83,500 census tracts · 2022</span>
+</div>
+<div id="mapholder"></div>
+<p id="note">
+  <span>Displacement risk plus eviction risk on a 0–8 scale, one value per tract. Most tracts are smaller than a pixel at this scale and are drawn at a minimum size. Tracts with no renter households or fewer than 20 people per square kilometre are not scored; Alaska and Hawaii are not modelled.</span>
+  <a href="https://evictionresearch.net/hprm/" target="_top">Open the HPRM map →</a>
+</p>
+<div id="tip"></div>
+<script>
+(function () {
+  var HPRM = 'https://evictionresearch.net/hprm/';
+  var W = 975, H = 610;
+  var tip = document.getElementById('tip');
+  // The raster is rendered by code/render_hprm_national.mjs with this exact
+  // projection, so the SVG geography drawn here lands on it pixel-for-pixel.
+  var SKIP = { '02': 1, '15': 1, '60': 1, '66': 1, '69': 1, '72': 1, '78': 1 };
+
+  Promise.all([
+    fetch('https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json').then(function (r) { return r.json(); }),
+    fetch('../assets/data/hprm-metros.json').then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    var us = res[0], metros = res[1];
+    var geoms = us.objects.states.geometries.filter(function (g) { return !SKIP[g.id]; });
+    var conus = { type: 'FeatureCollection', features: topojson.feature(us, us.objects.states).features.filter(function (f) { return !SKIP[f.id]; }) };
+    var nation = topojson.merge(us, geoms);
+    var mesh = topojson.mesh(us, { type: 'GeometryCollection', geometries: geoms }, function (a, b) { return a !== b; });
+    var path = d3.geoPath(d3.geoAlbers().fitSize([W, H], conus));
+
+    var svg = d3.select('#mapholder').append('svg')
+      .attr('viewBox', '0 0 ' + W + ' ' + H)
+      .attr('role', 'img')
+      .attr('aria-label', 'Housing precarity risk for every census tract in the contiguous United States. Risk concentrates in metropolitan areas, across the Southeast and along the Northeast corridor.');
+
+    svg.append('image')
+      .attr('href', '../assets/img/hprm-tracts-2022.png')
+      .attr('x', 0).attr('y', 0).attr('width', W).attr('height', H);
+
+    svg.append('path').datum(mesh).attr('d', path)
+      .attr('fill', 'none').attr('stroke', '#ffffff').attr('stroke-width', 0.7).attr('stroke-opacity', 0.85);
+    svg.append('path').attr('d', path({ type: 'Feature', geometry: nation }))
+      .attr('fill', 'none').attr('stroke', 'rgba(25,34,44,0.30)').attr('stroke-width', 0.8);
+
+    var halo = svg.append('circle').attr('fill', 'none')
+      .attr('stroke', '#19222C').attr('stroke-width', 1.6).attr('opacity', 0);
+
+    svg.append('rect').attr('width', W).attr('height', H).attr('fill', 'transparent')
+      .on('mousemove', function (ev) {
+        var pt = d3.pointer(ev, svg.node());
+        var best = null, bd = Infinity;
+        metros.forEach(function (m) {
+          var d = Math.hypot(pt[0] - m.x, pt[1] - m.y);
+          if (d < bd) { bd = d; best = m; }
+        });
+        if (best && bd < best.r) {
+          halo.attr('cx', best.x).attr('cy', best.y).attr('r', best.r).attr('opacity', 0.9);
+          tip.textContent = best.n;
+          tip.style.opacity = 1;
+          tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
+          tip.style.top = (ev.clientY + 16) + 'px';
+        } else {
+          halo.attr('opacity', 0);
+          tip.style.opacity = 0;
+        }
+      })
+      .on('mouseleave', function () { halo.attr('opacity', 0); tip.style.opacity = 0; })
+      .on('click', function () {
+        try { window.open(HPRM, '_top'); } catch (e) { window.location.href = HPRM; }
+      });
+    postH();
+  });
+
+  function postH() {
+    try {
+      var h = Math.ceil(document.body.getBoundingClientRect().height);
+      parent.postMessage({ ernMap: 'us-hprm-map', h: h }, '*');
+    } catch (e) {}
+  }
+  if (window.ResizeObserver) new ResizeObserver(postH).observe(document.documentElement);
+  window.addEventListener('resize', postH);
+  window.addEventListener('load', postH);
+  setTimeout(postH, 400); setTimeout(postH, 1600);
+})();
+</script>
+</body>
+</html>

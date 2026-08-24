@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ERN coverage — interactive state map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; background: #fff; font-family: 'Inter', system-ui, sans-serif; color: #19222C; }
+  #wrap { display: flex; flex-direction: column; }
+  #chrome { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 2px 10px; flex-wrap: wrap; }
+  #legend { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .lg { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #223754; }
+  .sw { width: 13px; height: 13px; border-radius: 2px; display: block; }
+  select { font-family: inherit; font-size: 12.5px; color: #19222C; background: #fff; border: 1px solid rgba(25,34,44,0.22); border-radius: 4px; padding: 7px 10px; }
+  path.st { cursor: pointer; transition: opacity 120ms ease; }
+  path.st:hover { opacity: 0.78; }
+  path.sel { stroke: #19222C !important; stroke-width: 2.2 !important; }
+  #tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity 100ms ease; background: #19222C; color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 4px; white-space: nowrap; z-index: 9; }
+  #panel { border-top: 1px solid rgba(25,34,44,0.14); margin-top: 8px; padding-top: 12px; display: grid; grid-template-columns: 220px 1fr auto; gap: 18px; align-items: baseline; min-height: 46px; }
+  #pname { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+  #pnote { font-size: 13px; color: #223754; line-height: 1.5; }
+  #plink { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #CC2118; text-decoration: none; white-space: nowrap; }
+  #plink[hidden] { display: none; }
+  #err { display: none; padding: 20px 2px; font-size: 13px; color: #586573; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="chrome">
+    <div id="legend">
+      <span class="lg"><span class="sw" style="background:#F9322B"></span>ERN state profile</span>
+      <span class="lg"><span class="sw" style="background:#223754"></span>Public data elsewhere, linked</span>
+      <span class="lg"><span class="sw" style="background:#fff;border:1px solid #b7c2cd"></span>No public eviction data</span>
+    </div>
+    <label style="font-size:12px;color:#586573;display:flex;align-items:center;gap:8px;">Find your state
+      <select id="pick"><option value="">Choose…</option></select>
+    </label>
+  </div>
+  <div id="mapholder"></div>
+  <div id="panel">
+    <span id="pname">Hover or select a state</span>
+    <span id="pnote">Red states have an ERN profile built from court records. Navy states link to the best public source we can find. White states have none.</span>
+    <a id="plink" href="#" hidden>Open profile →</a>
+  </div>
+</div>
+<div id="tip"></div>
+<div id="err">Map data could not be loaded.</div>
+<script>
+(function () {
+  var ERN = { '53':1,'41':1,'06':1,'27':1,'18':1,'39':1,'24':1,'10':1 };
+  var NONE = { '01':1,'19':1,'20':1,'28':1,'46':1 };
+  var NOTE = {
+    '53':'Full profile · filings 45% above the pre-pandemic normal for 33 months',
+    '41':'Full profile · statewide court record',
+    '06':'Profile in progress · statewide pipeline',
+    '27':'Full profile · expungement documented in the record',
+    '18':'Full profile · statewide court record',
+    '39':'Regional profile · Dayton',
+    '24':'Regional profile · Baltimore',
+    '10':'Full profile · statewide court record'
+  };
+  var tip = document.getElementById('tip'), pick = document.getElementById('pick');
+  var pname = document.getElementById('pname'), pnote = document.getElementById('pnote'), plink = document.getElementById('plink');
+  var selected = null;
+
+  function kind(id) { return ERN[id] ? 'ern' : NONE[id] ? 'none' : 'other'; }
+  function fill(id) { return ERN[id] ? '#F9322B' : NONE[id] ? '#ffffff' : '#223754'; }
+  function label(d) {
+    var k = kind(d.id);
+    return k === 'ern' ? (NOTE[d.id] || 'ERN state profile')
+      : k === 'none' ? 'No public eviction data from any source'
+      : 'Public eviction data published elsewhere — source linked';
+  }
+  function show(d, node) {
+    selected = d.id;
+    d3.selectAll('path.st').classed('sel', false);
+    if (node) d3.select(node).classed('sel', true);
+    pname.textContent = d.properties.name;
+    pnote.textContent = label(d);
+    if (kind(d.id) === 'ern') { plink.hidden = false; plink.textContent = 'Open profile →'; }
+    else if (kind(d.id) === 'other') { plink.hidden = false; plink.textContent = 'See the source →'; }
+    else { plink.hidden = false; plink.textContent = 'Why it is dark →'; }
+  }
+
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (us) {
+      var states = topojson.feature(us, us.objects.states);
+      var W = 975, H = 610;
+      var svg = d3.select('#mapholder').append('svg')
+        .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('display', 'block');
+      var path = d3.geoPath(d3.geoAlbersUsa().fitSize([W, H], states));
+
+      svg.append('g').selectAll('path').data(states.features).join('path')
+        .attr('class', 'st')
+        .attr('d', path)
+        .attr('fill', function (d) { return fill(d.id); })
+        .attr('stroke', function (d) { return NONE[d.id] ? '#b7c2cd' : '#ffffff'; })
+        .attr('stroke-width', 1)
+        .attr('tabindex', 0)
+        .attr('role', 'button')
+        .attr('aria-label', function (d) { return d.properties.name + ' — ' + label(d); })
+        .on('mousemove', function (ev, d) {
+          tip.textContent = d.properties.name + ' — ' + label(d);
+          tip.style.opacity = 1;
+          tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
+          tip.style.top = (ev.clientY + 16) + 'px';
+        })
+        .on('mouseleave', function () { tip.style.opacity = 0; })
+        .on('click', function (ev, d) { show(d, this); pick.value = d.id; })
+        .on('focus', function (ev, d) { show(d, this); pick.value = d.id; })
+        .on('keydown', function (ev, d) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); show(d, this); } });
+
+      states.features.slice()
+        .filter(function (d) { return !!path(d); })
+        .sort(function (a, b) { return d3.ascending(a.properties.name, b.properties.name); })
+        .forEach(function (d) {
+          var o = document.createElement('option');
+          o.value = d.id; o.textContent = d.properties.name;
+          pick.appendChild(o);
+        });
+      pick.addEventListener('change', function () {
+        var d = states.features.find(function (f) { return f.id === pick.value; });
+        if (!d) return;
+        var node = svg.selectAll('path.st').nodes().find(function (n) { return d3.select(n).datum().id === d.id; });
+        show(d, node);
+      });
+    })
+    .catch(function () { document.getElementById('err').style.display = 'block'; });
+
+  function postH() {
+    try {
+      var h = Math.ceil(document.body.getBoundingClientRect().height);
+      parent.postMessage({ ernMap: 'us-coverage-map.html', h: h }, '*');
+    } catch (e) {}
+  }
+  if (window.ResizeObserver) new ResizeObserver(postH).observe(document.documentElement);
+  window.addEventListener('resize', postH);
+  window.addEventListener('load', postH);
+  setTimeout(postH, 400);
+  setTimeout(postH, 1600);
+})();
+</script>
+</body>
+</html>

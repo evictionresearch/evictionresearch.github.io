@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HPRM 2.0 — national risk map (design placeholder)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; background: #fff; font-family: 'Inter', system-ui, sans-serif; color: #19222C; }
+  #chrome { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 2px 10px; flex-wrap: wrap; }
+  #ramp { display: flex; align-items: center; gap: 9px; font-size: 12px; color: #223754; }
+  #ramp .bar { display: flex; height: 13px; width: 210px; border-radius: 2px; overflow: hidden; }
+  #ramp .bar span { flex: 1; }
+  #mapholder { cursor: pointer; }
+  #tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity 90ms ease; background: #19222C; color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 4px; white-space: nowrap; z-index: 9; }
+  #note { font-size: 11.5px; color: #586573; padding: 10px 2px 0; border-top: 1px solid rgba(25,34,44,0.14); margin-top: 8px; line-height: 1.5; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  #note a { color: #CC2118; font-weight: 600; text-decoration: none; white-space: nowrap; }
+  #err { display: none; padding: 20px 2px; font-size: 13px; color: #586573; }
+</style>
+</head>
+<body>
+<div id="chrome">
+  <div id="ramp">
+    <span>Lower risk</span>
+    <span class="bar"><span style="background:#dbe4ee"></span><span style="background:#8BA3BE"></span><span style="background:#4d688c"></span><span style="background:#223754"></span><span style="background:#8f2a2a"></span><span style="background:#CC2118"></span><span style="background:#F9322B"></span></span>
+    <span>Higher risk</span>
+  </div>
+  <span style="font-size:11.5px;color:#586573;">HPRM 2.0 composite · neighborhood scale</span>
+</div>
+<div id="mapholder"></div>
+<p id="note">
+  <span>Design placeholder. The live model scores <strong>83,500 census tracts</strong>; the neighborhood pattern here is illustrative, standing in until the tract layer is wired up.</span>
+  <a href="https://evictionresearch.net/hprm/" target="_top">Open the HPRM map →</a>
+</p>
+<div id="tip"></div>
+<div id="err">Map data could not be loaded.</div>
+<script>
+(function () {
+  var HPRM = 'https://evictionresearch.net/hprm/';
+  var tip = document.getElementById('tip');
+  var ramp = d3.scaleLinear()
+    .domain([0, 2, 3.6, 5, 6.2, 7.2, 8])
+    .range(['#dbe4ee', '#8BA3BE', '#4d688c', '#223754', '#8f2a2a', '#CC2118', '#F9322B'])
+    .clamp(true);
+
+  // name, state, lat, lon, weight (relative metro size)
+  var METROS = [
+    ['New York','NY',40.71,-74.01,1.0],['Los Angeles','CA',34.05,-118.24,0.95],['Chicago','IL',41.88,-87.63,0.82],
+    ['Dallas–Fort Worth','TX',32.78,-96.80,0.76],['Houston','TX',29.76,-95.37,0.73],['Washington','DC',38.90,-77.04,0.70],
+    ['Miami','FL',25.76,-80.19,0.70],['Philadelphia','PA',39.95,-75.17,0.68],['Atlanta','GA',33.75,-84.39,0.68],
+    ['Phoenix','AZ',33.45,-112.07,0.62],['Boston','MA',42.36,-71.06,0.62],['San Francisco','CA',37.77,-122.42,0.60],
+    ['Riverside','CA',33.95,-117.40,0.58],['Detroit','MI',42.33,-83.05,0.57],['Seattle','WA',47.61,-122.33,0.56],
+    ['Minneapolis','MN',44.98,-93.27,0.52],['San Diego','CA',32.72,-117.16,0.52],['Tampa','FL',27.95,-82.46,0.50],
+    ['Denver','CO',39.74,-104.99,0.50],['St. Louis','MO',38.63,-90.20,0.45],['Baltimore','MD',39.29,-76.61,0.45],
+    ['Charlotte','NC',35.23,-80.84,0.44],['Orlando','FL',28.54,-81.38,0.44],['San Antonio','TX',29.42,-98.49,0.44],
+    ['Portland','OR',45.51,-122.68,0.44],['Sacramento','CA',38.58,-121.49,0.42],['Pittsburgh','PA',40.44,-79.99,0.40],
+    ['Las Vegas','NV',36.17,-115.14,0.40],['Cincinnati','OH',39.10,-84.51,0.40],['Kansas City','MO',39.10,-94.58,0.38],
+    ['Columbus','OH',39.96,-83.00,0.38],['Indianapolis','IN',39.77,-86.16,0.38],['Cleveland','OH',41.50,-81.69,0.38],
+    ['Nashville','TN',36.16,-86.78,0.38],['Austin','TX',30.27,-97.74,0.38],['Norfolk','VA',36.85,-76.29,0.34],
+    ['Providence','RI',41.82,-71.41,0.32],['Milwaukee','WI',43.04,-87.91,0.32],['Jacksonville','FL',30.33,-81.66,0.32],
+    ['Memphis','TN',35.15,-90.05,0.32],['Oklahoma City','OK',35.47,-97.52,0.30],['Louisville','KY',38.25,-85.76,0.30],
+    ['Richmond','VA',37.54,-77.44,0.30],['New Orleans','LA',29.95,-90.07,0.30],['Raleigh','NC',35.78,-78.64,0.30],
+    ['Salt Lake City','UT',40.76,-111.89,0.30],['Birmingham','AL',33.52,-86.80,0.28],['Hartford','CT',41.76,-72.67,0.26],
+    ['Buffalo','NY',42.89,-78.88,0.26],['Rochester','NY',43.16,-77.61,0.24],['Grand Rapids','MI',42.96,-85.67,0.24],
+    ['Tucson','AZ',32.22,-110.97,0.24],['Fresno','CA',36.74,-119.79,0.24],['Tulsa','OK',36.15,-95.99,0.24],
+    ['El Paso','TX',31.76,-106.49,0.24],['Greensboro','NC',36.07,-79.79,0.22],['Omaha','NE',41.26,-95.94,0.22],
+    ['Albuquerque','NM',35.08,-106.65,0.22],['Bakersfield','CA',35.37,-119.02,0.22],['Charleston','SC',32.78,-79.93,0.22],
+    ['Columbia','SC',34.00,-81.03,0.20],['Greenville','SC',34.85,-82.39,0.20],['Knoxville','TN',35.96,-83.92,0.20],
+    ['Dayton','OH',39.76,-84.19,0.20],['Toledo','OH',41.65,-83.54,0.20],['Wichita','KS',37.69,-97.34,0.20],
+    ['Spokane','WA',47.66,-117.43,0.20],['Baton Rouge','LA',30.45,-91.19,0.20],['Harrisburg','PA',40.27,-76.88,0.20],
+    ['Allentown','PA',40.60,-75.47,0.20],['Colorado Springs','CO',38.83,-104.82,0.20],['Boise','ID',43.62,-116.20,0.20],
+    ['Des Moines','IA',41.59,-93.62,0.20],['Little Rock','AR',34.75,-92.29,0.20],['Augusta','GA',33.47,-81.97,0.18],
+    ['Fayetteville','NC',35.05,-78.88,0.18],['Savannah','GA',32.08,-81.09,0.18],['Mobile','AL',30.69,-88.04,0.18],
+    ['Jackson','MS',32.30,-90.18,0.18],['Syracuse','NY',43.05,-76.15,0.18],['Scranton','PA',41.41,-75.66,0.18],
+    ['Springfield','MA',42.10,-72.59,0.18],['Madison','WI',43.07,-89.40,0.18],['Reno','NV',39.53,-119.81,0.18],
+    ['Montgomery','AL',32.37,-86.30,0.16],['Shreveport','LA',32.53,-93.75,0.16],['Eugene','OR',44.05,-123.09,0.16],
+    ['Honolulu','HI',21.31,-157.86,0.18],['Anchorage','AK',61.22,-149.90,0.14],['Lincoln','NE',40.81,-96.68,0.14],
+    ['Billings','MT',45.78,-108.50,0.12],['Sioux Falls','SD',43.55,-96.73,0.12],['Fargo','ND',46.88,-96.79,0.12],
+    ['Cheyenne','WY',41.14,-104.82,0.10],['Burlington','VT',44.48,-73.21,0.10],['Portland','ME',43.66,-70.26,0.12],
+    ['Charleston','WV',38.35,-81.63,0.14],['Lexington','KY',38.04,-84.50,0.16],['Chattanooga','TN',35.05,-85.31,0.16],
+    ['Huntsville','AL',34.73,-86.59,0.16],['Tallahassee','FL',30.44,-84.28,0.16],['Fort Myers','FL',26.64,-81.87,0.20],
+    ['Corpus Christi','TX',27.80,-97.40,0.16],['McAllen','TX',26.20,-98.23,0.20],['Laredo','TX',27.51,-99.51,0.14],
+    ['Amarillo','TX',35.22,-101.83,0.12],['Springfield','MO',37.21,-93.29,0.14],['Peoria','IL',40.69,-89.59,0.14],
+    ['Fort Wayne','IN',41.08,-85.14,0.16],['Lansing','MI',42.73,-84.56,0.14],['Akron','OH',41.08,-81.52,0.18],
+    ['Erie','PA',42.13,-80.09,0.12],['Wilmington','NC',34.23,-77.94,0.14],['Roanoke','VA',37.27,-79.94,0.12]
+  ];
+
+  function prng(seed) {
+    var t = seed + 0x6D2B79F5;
+    return function () {
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function gauss(r) { return Math.sqrt(-2 * Math.log(r() + 1e-9)) * Math.cos(2 * Math.PI * r()); }
+
+  fetch('https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json')
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(function (us) {
+      var states = topojson.feature(us, us.objects.states);
+      var nation = topojson.merge(us, us.objects.states.geometries);
+      var W = 975, H = 610;
+      var svg = d3.select('#mapholder').append('svg')
+        .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('display', 'block')
+        .attr('role', 'img')
+        .attr('aria-label', 'National housing precarity risk at neighborhood scale, illustrative placeholder');
+      var proj = d3.geoAlbersUsa().fitSize([W, H], states);
+      var path = d3.geoPath(proj);
+
+      svg.append('defs').append('clipPath').attr('id', 'land')
+        .append('path').attr('d', path(nation));
+
+      svg.append('path').attr('d', path(nation)).attr('fill', '#f4f6f9');
+
+      var layer = svg.append('g').attr('clip-path', 'url(#land)');
+
+      // sparse rural / small-town texture
+      var rr = prng(7);
+      var rural = [];
+      for (var i = 0; i < 2600; i++) {
+        rural.push({ x: rr() * W, y: rr() * H, s: 1.6 + rr() * 1.8, v: 0.6 + rr() * 3.4 });
+      }
+      layer.append('g').selectAll('rect').data(rural).join('rect')
+        .attr('x', function (d) { return d.x; }).attr('y', function (d) { return d.y; })
+        .attr('width', function (d) { return d.s; }).attr('height', function (d) { return d.s; })
+        .attr('fill', function (d) { return ramp(d.v); })
+        .attr('opacity', 0.75);
+
+      // metro clusters
+      var placed = [];
+      METROS.forEach(function (m, idx) {
+        var p = proj([m[3], m[2]]);
+        if (!p) return;
+        var w = m[4];
+        var n = Math.round(30 + w * 520);
+        var sigma = 5 + w * 34;
+        var r = prng(idx * 977 + 13);
+        var g = layer.append('g').attr('data-metro', idx);
+        var pts = [];
+        for (var i = 0; i < n; i++) {
+          var dx = gauss(r) * sigma, dy = gauss(r) * sigma * 0.82;
+          var dist = Math.sqrt(dx * dx + dy * dy) / (sigma + 0.001);
+          var v = 8 - dist * 3.4 - r() * 2.6 + w * 0.9;
+          pts.push({ x: p[0] + dx, y: p[1] + dy, s: 1.8 + r() * 2.6, v: Math.max(0.5, Math.min(8, v)) });
+        }
+        g.selectAll('rect').data(pts).join('rect')
+          .attr('x', function (d) { return d.x; }).attr('y', function (d) { return d.y; })
+          .attr('width', function (d) { return d.s; }).attr('height', function (d) { return d.s; })
+          .attr('fill', function (d) { return ramp(d.v); });
+        placed.push({ name: m[0] + ', ' + m[1], x: p[0], y: p[1], r: Math.max(14, sigma * 1.9), g: g });
+      });
+
+      svg.append('path')
+        .datum(topojson.mesh(us, us.objects.states, function (a, b) { return a !== b; }))
+        .attr('d', path).attr('fill', 'none').attr('stroke', '#ffffff').attr('stroke-width', 0.8);
+      svg.append('path').attr('d', path(nation)).attr('fill', 'none')
+        .attr('stroke', 'rgba(25,34,44,0.35)').attr('stroke-width', 0.8);
+
+      var halo = svg.append('circle').attr('fill', 'none')
+        .attr('stroke', '#19222C').attr('stroke-width', 1.6).attr('opacity', 0);
+
+      svg.append('rect').attr('width', W).attr('height', H).attr('fill', 'transparent')
+        .on('mousemove', function (ev) {
+          var pt = d3.pointer(ev, svg.node());
+          var best = null, bd = Infinity;
+          placed.forEach(function (m) {
+            var d = Math.hypot(pt[0] - m.x, pt[1] - m.y);
+            if (d < bd) { bd = d; best = m; }
+          });
+          if (best && bd < best.r) {
+            halo.attr('cx', best.x).attr('cy', best.y).attr('r', best.r).attr('opacity', 0.9);
+            tip.textContent = best.name;
+            tip.style.opacity = 1;
+            tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
+            tip.style.top = (ev.clientY + 16) + 'px';
+          } else {
+            halo.attr('opacity', 0);
+            tip.style.opacity = 0;
+          }
+        })
+        .on('mouseleave', function () { halo.attr('opacity', 0); tip.style.opacity = 0; })
+        .on('click', function () {
+          try { window.open(HPRM, '_top'); } catch (e) { window.location.href = HPRM; }
+        });
+    })
+    .catch(function () { document.getElementById('err').style.display = 'block'; });
+
+  function postH() {
+    try {
+      var h = Math.ceil(document.body.getBoundingClientRect().height);
+      parent.postMessage({ ernMap: 'us-hprm-map.html', h: h }, '*');
+    } catch (e) {}
+  }
+  if (window.ResizeObserver) new ResizeObserver(postH).observe(document.documentElement);
+  window.addEventListener('resize', postH);
+  window.addEventListener('load', postH);
+  setTimeout(postH, 400);
+  setTimeout(postH, 1600);
+})();
+</script>
+</body>
+</html>

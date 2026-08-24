@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eviction data across the US — interactive state map</title>
+<meta name="description" content="Which states have an Eviction Research Network profile, which publish eviction data elsewhere, and which publish none.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<style>
+  html, body { margin: 0; background: #fff; font-family: 'Inter', system-ui, sans-serif; color: #19222C; font-feature-settings: 'ss01','cv11'; }
+  #wrap { display: flex; flex-direction: column; }
+  #chrome { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 2px 10px; flex-wrap: wrap; }
+  #legend { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+  .lg { display: flex; align-items: center; gap: 7px; font-size: 12px; color: #223754; }
+  .sw { width: 13px; height: 13px; border-radius: 2px; display: block; }
+  select { font-family: inherit; font-size: 12.5px; color: #19222C; background: #fff; border: 1px solid rgba(25,34,44,0.22); border-radius: 4px; padding: 7px 10px; }
+  path.st { cursor: pointer; transition: opacity 120ms ease; }
+  path.st:hover { opacity: 0.78; }
+  path.st:focus { outline: none; }
+  path.sel { stroke: #19222C !important; stroke-width: 2.2 !important; }
+  #tip { position: fixed; pointer-events: none; opacity: 0; transition: opacity 100ms ease; background: #19222C; color: #fff; font-size: 12px; padding: 7px 10px; border-radius: 4px; white-space: nowrap; z-index: 9; }
+  #panel { border-top: 1px solid rgba(25,34,44,0.14); margin-top: 8px; padding-top: 12px; display: grid; grid-template-columns: 220px 1fr auto; gap: 18px; align-items: baseline; min-height: 46px; }
+  #pname { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+  #pnote { font-size: 13px; color: #223754; line-height: 1.5; }
+  #plink { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #CC2118; text-decoration: none; white-space: nowrap; }
+  #plink:hover { color: #B01D16; text-decoration: underline; }
+  #plink[hidden] { display: none; }
+  #err { display: none; padding: 20px 2px; font-size: 13px; color: #586573; }
+  @media (max-width: 720px) { #panel { grid-template-columns: 1fr; gap: 8px; } }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <div id="chrome">
+    <div id="legend">
+      <span class="lg"><span class="sw" style="background:#F9322B"></span>ERN state profile</span>
+      <span class="lg"><span class="sw" style="background:#223754"></span>Public data elsewhere, linked</span>
+      <span class="lg"><span class="sw" style="background:#fff;border:1px solid #b7c2cd"></span>No public eviction data</span>
+    </div>
+    <label style="font-size:12px;color:#586573;display:flex;align-items:center;gap:8px;">Find your state
+      <select id="pick"><option value="">Choose…</option></select>
+    </label>
+  </div>
+  <div id="mapholder"></div>
+  <div id="panel">
+    <span id="pname">Hover or select a state</span>
+    <span id="pnote">Red states have an ERN profile built from court records. Navy states link to the best public source we can find. White states have none.</span>
+    <a id="plink" href="#" hidden>Open profile →</a>
+  </div>
+</div>
+<div id="tip" role="status" aria-live="polite"></div>
+<div id="err">Map data could not be loaded.</div>
+<script>
+(function () {
+  // Roster, notes and links come from assets/data/state-coverage.json, which is
+  // generated from all_states/index.html and the Eviction Data Atlas by
+  // code/build_home_state_coverage.py. Nothing about coverage is stated here.
+  var DATA = '../assets/data/state-coverage.json';
+  var ATLAS = 'https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json';
+  var FILL = { ern: '#F9322B', other: '#223754', none: '#ffffff' };
+
+  var tip = document.getElementById('tip'), pick = document.getElementById('pick');
+  var pname = document.getElementById('pname'), pnote = document.getElementById('pnote');
+  var plink = document.getElementById('plink');
+  var states = {};
+
+  function rec(id) { return states[id] || null; }
+  function kind(id) { var r = rec(id); return r ? r.kind : 'other'; }
+  function fill(id) { return FILL[kind(id)] || FILL.other; }
+  function label(d) {
+    var r = rec(d.id);
+    return r ? r.note : 'Coverage not recorded';
+  }
+  function show(d, node) {
+    var r = rec(d.id);
+    d3.selectAll('path.st').classed('sel', false);
+    if (node) d3.select(node).classed('sel', true);
+    pname.textContent = r ? r.name : d.properties.name;
+    pnote.textContent = label(d);
+    if (r && r.url) {
+      plink.hidden = false;
+      plink.href = r.url;
+      plink.textContent = r.kind === 'ern' ? 'Open profile →' : 'See the source →';
+      if (r.url.indexOf('https://evictionresearch.net') === 0) {
+        plink.removeAttribute('target'); plink.removeAttribute('rel');
+      } else {
+        plink.setAttribute('target', '_blank'); plink.setAttribute('rel', 'noopener noreferrer');
+      }
+    } else {
+      plink.hidden = true;
+      plink.removeAttribute('href');
+    }
+  }
+
+  Promise.all([
+    fetch(DATA).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
+    fetch(ATLAS).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+  ]).then(function (res) {
+    states = res[0].states;
+    var us = res[1];
+    var feats = topojson.feature(us, us.objects.states);
+    var W = 975, H = 610;
+    var svg = d3.select('#mapholder').append('svg')
+      .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('display', 'block')
+      .attr('role', 'img')
+      .attr('aria-label', 'Map of the United States showing which states have an Eviction Research Network profile, which publish eviction data elsewhere, and which publish none');
+    var path = d3.geoPath(d3.geoAlbersUsa().fitSize([W, H], feats));
+
+    // states-10m carries five territories that geoAlbersUsa drops. They would
+    // draw nothing yet still sit in the DOM as focusable buttons reporting a
+    // coverage they never had, so they are filtered out before anything binds.
+    var drawable = feats.features.filter(function (d) { return !!path(d); });
+
+    svg.append('g').selectAll('path').data(drawable).join('path')
+      .attr('class', 'st')
+      .attr('d', path)
+      .attr('fill', function (d) { return fill(d.id); })
+      .attr('stroke', function (d) { return kind(d.id) === 'none' ? '#b7c2cd' : '#ffffff'; })
+      .attr('stroke-width', 1)
+      .attr('tabindex', 0)
+      .attr('role', 'button')
+      .attr('aria-label', function (d) {
+        var r = rec(d.id);
+        return (r ? r.name : d.properties.name) + ' — ' + label(d);
+      })
+      .on('mousemove', function (ev, d) {
+        var r = rec(d.id);
+        tip.textContent = (r ? r.name : d.properties.name) + ' — ' + label(d);
+        tip.style.opacity = 1;
+        tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
+        tip.style.top = (ev.clientY + 16) + 'px';
+      })
+      .on('mouseleave', function () { tip.style.opacity = 0; })
+      .on('click', function (ev, d) { show(d, this); pick.value = d.id; })
+      .on('focus', function (ev, d) { show(d, this); pick.value = d.id; })
+      .on('keydown', function (ev, d) {
+        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); show(d, this); }
+      });
+
+    drawable.slice()
+      .sort(function (a, b) { return d3.ascending(a.properties.name, b.properties.name); })
+      .forEach(function (d) {
+        var o = document.createElement('option');
+        o.value = d.id;
+        o.textContent = (rec(d.id) || d.properties).name;
+        pick.appendChild(o);
+      });
+    pick.addEventListener('change', function () {
+      var d = drawable.find(function (f) { return f.id === pick.value; });
+      if (!d) return;
+      var node = svg.selectAll('path.st').nodes().find(function (n) { return d3.select(n).datum().id === d.id; });
+      show(d, node);
+    });
+    postH();
+  }).catch(function () { document.getElementById('err').style.display = 'block'; });
+
+  function postH() {
+    try {
+      var h = Math.ceil(document.body.getBoundingClientRect().height);
+      parent.postMessage({ ernMap: 'us-coverage-map', h: h }, '*');
+    } catch (e) {}
+  }
+  // Measure body, not documentElement.scrollHeight: the latter is floored by the
+  // iframe viewport, so the frame could only ever grow. Observe documentElement
+  // and listen for resize, since a ResizeObserver on body misses width-only changes.
+  if (window.ResizeObserver) new ResizeObserver(postH).observe(document.documentElement);
+  window.addEventListener('resize', postH);
+  window.addEventListener('load', postH);
+  setTimeout(postH, 400); setTimeout(postH, 1600);
+})();
+</script>
+</body>
+</html>

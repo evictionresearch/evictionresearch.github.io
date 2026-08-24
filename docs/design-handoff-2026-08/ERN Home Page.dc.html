@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Eviction Research Network — eviction data across the US</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #fff; }
+    a { color: #CC2118; }
+    a:hover { color: #B01D16; }
+    ::selection { background: rgba(249,50,43,0.18); }
+    .ern-nav a { white-space: nowrap; }
+  </style>
+  <script>
+    window.addEventListener('message', function (e) {
+      var d = e && e.data;
+      if (!d || !d.ernMap || !d.h) return;
+      document.querySelectorAll('iframe[src]').forEach(function (f) {
+        if (f.getAttribute('src').indexOf(d.ernMap) !== 0) return;
+        f.style.aspectRatio = 'auto';
+        f.style.width = '100%';
+        f.style.height = (d.h + 4) + 'px';
+      });
+    });
+  </script>
+  <style>
+    @media (max-width: 1000px) {
+      .ern-head { flex-wrap: wrap !important; min-height: 0 !important; padding-top: 12px !important; padding-bottom: 12px !important; }
+      .ern-nav { width: 100%; flex-wrap: wrap; gap: 14px 18px !important; padding-top: 4px; }
+      .ern-nav a { font-size: 12.5px !important; }
+    }
+    @media (max-width: 1000px) {
+      .ern-atlas-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    }
+    @media (max-width: 900px) {
+      .ern-pad { padding-left: 20px !important; padding-right: 20px !important; }
+      .ern-title { font-size: 36px !important; }
+      .ern-research { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<div style="font-family: 'Inter', -apple-system, system-ui, sans-serif; color: #19222C; background: #fff; font-feature-settings: 'ss01', 'cv11'; font-size: 16px; line-height: 1.6;">
+
+  <!-- ─────────── Header ─────────── -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.94); backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid rgba(25,34,44,0.10);">
+    <div class="ern-pad ern-head" style="max-width: 1240px; margin: 0 auto; padding: 16px 40px; min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 32px; box-sizing: border-box;">
+      <a href="#top" style="display: flex; align-items: center; text-decoration: none;"><img src="assets/ern/banner-1A.png" alt="Eviction Research Network" style="height: 44px; width: auto; display: block;"></a>
+      <nav class="ern-nav" style="display: flex; align-items: center; gap: 26px;">
+        <a href="#atlas" style="font-size: 13px; font-weight: 500; color: #19222C; text-decoration: none;" style-hover="color: #CC2118;">Maps &amp; Profiles</a>
+        <a href="https://evictionresearch.net/hprm/" style="font-size: 13px; font-weight: 500; color: #19222C; text-decoration: none;" style-hover="color: #CC2118;">HPRM</a>
+        <a href="#research" style="font-size: 13px; font-weight: 500; color: #19222C; text-decoration: none;" style-hover="color: #CC2118;">Research</a>
+        <a href="#about" style="font-size: 13px; font-weight: 500; color: #19222C; text-decoration: none;" style-hover="color: #CC2118;">About</a>
+        <a href="#partner" style="font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: #CC2118; text-decoration: none; padding: 10px 18px; border-radius: 4px;" style-hover="background: #B01D16;">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─────────── Atlas ─────────── -->
+  <section id="top" class="ern-pad" style="max-width: 1240px; margin: 0 auto; padding: 64px 40px 56px; box-sizing: border-box; scroll-margin-top: 100px;">
+    <div id="atlas" class="ern-atlas-grid" style="display: grid; grid-template-columns: 0.85fr 1.6fr; gap: 56px; align-items: center; scroll-margin-top: 100px;">
+      <div>
+        <h1 class="ern-title" style="font-weight: 200; font-size: 52px; line-height: 1.05; letter-spacing: -0.026em; margin: 0 0 16px; text-wrap: pretty;">Eviction data across the <em style="font-style: normal; font-weight: 600;">US.</em></h1>
+        <p style="font-size: 18px; line-height: 1.6; margin: 0 0 18px; color: #223754; text-wrap: pretty;">An atlas of eviction data across the US showing what's available.</p>
+        <p style="display: inline-flex; align-items: center; gap: 8px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #CC2118; border: 1px solid rgba(204,33,24,0.4); border-radius: 3px; padding: 6px 11px; margin: 0 0 14px;">Under development</p>
+        <p style="font-size: 14.5px; line-height: 1.6; margin: 0 0 16px; color: #586573; text-wrap: pretty;">We're still building this out — states and sources are being added as we verify them. Check back for more data.</p>
+        <p style="font-size: 12.5px; line-height: 1.6; margin: 0 0 24px; padding-top: 12px; border-top: 1px solid rgba(25,34,44,0.10); color: #586573;">Last updated <strong style="color: #19222C; font-weight: 600;">August 2026</strong> · 200 sources across 50 states and D.C.</p>
+        <a href="#atlas" style="display: inline-flex; align-items: center; gap: 10px; background: #CC2118; color: #fff; border: 1.5px solid #CC2118; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 24px; border-radius: 4px; text-decoration: none;" style-hover="background: #B01D16; border-color: #B01D16;">Preview the atlas →</a>
+      </div>
+      <iframe src="us-coverage-map.html" title="Eviction data across the US — select a state" scrolling="no" width="100%" height="800" style="display: block; width: 100%; max-width: 100%; height: 800px; border: none; overflow: hidden;"></iframe>
+    </div>
+  </section>
+
+  <!-- ─────────── HPRM ─────────── -->
+  <section id="hprm" class="ern-pad" style="background: rgba(232,238,244,0.45); scroll-margin-top: 100px;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 56px 40px; box-sizing: border-box;">
+      <h2 style="font-weight: 200; font-size: 40px; line-height: 1.06; letter-spacing: -0.024em; margin: 0 0 14px; max-width: 22ch; text-wrap: pretty;">The Housing Precarity <em style="font-style: normal; font-weight: 600;">Risk Model.</em></h2>
+      <p style="font-size: 17px; line-height: 1.6; margin: 0 0 32px; max-width: 72ch; color: #223754; text-wrap: pretty;">HPRM 2.0 scores every neighborhood in the country for eviction risk and market displacement risk on one scale, designed on decades of gentrification, displacement, and housing precarity research.</p>
+      <a href="https://evictionresearch.net/hprm/" style="display: block; position: relative; background: #fff; border: 1px solid rgba(25,34,44,0.10); border-radius: 4px; padding: 20px 22px; text-decoration: none;" style-hover="border-color: #CC2118;">
+        <iframe src="us-hprm-map.html" title="HPRM 2.0 national risk map" scrolling="no" width="100%" height="762" style="display: block; width: 100%; max-width: 100%; height: 762px; border: none; overflow: hidden;"></iframe>
+      </a>
+      <a href="https://evictionresearch.net/hprm/" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 26px; background: #CC2118; color: #fff; border: 1.5px solid #CC2118; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 24px; border-radius: 4px; text-decoration: none;" style-hover="background: #B01D16; border-color: #B01D16;">Explore the model →</a>
+    </div>
+  </section>
+
+  <!-- ─────────── Research ─────────── -->
+  <section id="research" class="ern-pad" style="max-width: 1240px; margin: 0 auto; padding: 64px 40px; box-sizing: border-box; scroll-margin-top: 100px;">
+    <h2 style="font-weight: 200; font-size: 40px; line-height: 1.06; letter-spacing: -0.024em; margin: 0 0 32px;">Our <em style="font-style: normal; font-weight: 600;">research.</em></h2>
+    <div class="ern-research" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 36px;">
+      <a href="#research" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CC2118;">Working paper · 2026</span>
+        <span style="font-size: 20px; font-weight: 600; line-height: 1.35; color: #19222C; text-wrap: pretty;">Keeping people in their homes: emergency rental assistance and eviction filings</span>
+        <span style="font-size: 14.5px; line-height: 1.6; color: #223754;">The first large-scale evidence that $46.6 billion in emergency rental assistance reduced eviction filings, across 700+ counties in 22 states.</span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #CC2118; margin-top: 2px;">Read more →</span>
+      </a>
+      <a href="#research" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CC2118;">State profile · 2026</span>
+        <span style="font-size: 20px; font-weight: 600; line-height: 1.35; color: #19222C; text-wrap: pretty;">Washington eviction filings, 2016–2026</span>
+        <span style="font-size: 14.5px; line-height: 1.6; color: #223754;">Twenty years of court records: filings have run 45% above the pre-pandemic normal for 33 straight months, and the highest rates are suburban and rural.</span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #CC2118; margin-top: 2px;">Read more →</span>
+      </a>
+      <a href="#research" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #CC2118;">Cityscape (HUD) · 2024</span>
+        <span style="font-size: 20px; font-weight: 600; line-height: 1.35; color: #19222C; text-wrap: pretty;">Measuring the stream from displacement to homelessness</span>
+        <span style="font-size: 14.5px; line-height: 1.6; color: #223754;">Peer-reviewed work on how households move from displacement into homelessness — and what it takes to bring people back.</span>
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #CC2118; margin-top: 2px;">Read more →</span>
+      </a>
+    </div>
+    <a href="#research" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 36px; background: transparent; color: #19222C; border: 1.5px solid #19222C; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 13px 24px; border-radius: 4px; text-decoration: none;" style-hover="background: #19222C; color: #fff;">All research →</a>
+  </section>
+
+  <!-- ─────────── Mission ─────────── -->
+  <section id="about" class="ern-pad" style="background: rgba(232,238,244,0.45); scroll-margin-top: 100px;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 56px 40px; box-sizing: border-box;">
+      <p style="font-size: 11px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; color: #CC2118; margin: 0 0 14px;">Research for social good</p>
+      <h2 style="font-weight: 200; font-size: 40px; line-height: 1.06; letter-spacing: -0.024em; margin: 0 0 20px; max-width: 22ch; text-wrap: pretty;">What we <em style="font-style: normal; font-weight: 600;">do.</em></h2>
+      <p style="font-size: 16.5px; line-height: 1.7; margin: 0 0 14px; max-width: 72ch; color: #223754; text-wrap: pretty;">The Eviction Research Network collects, analyzes, and maps eviction data while helping other researchers do the same. We specialize in using social and data science to analyze racial and gender disparities in eviction — and urban theory to help explain our findings.</p>
+      <p style="font-size: 16.5px; line-height: 1.7; margin: 0; max-width: 72ch; color: #223754; text-wrap: pretty;">Our goal is to expand public and scholarly knowledge on the prevalence and drivers of evictions in under-studied regions, highlight work from scholars in the field, and provide evidence-based research that legislatures, practitioners, and advocates can use to inform policy.</p>
+    </div>
+  </section>
+
+  <!-- ─────────── Partner CTA ─────────── -->
+  <section id="partner" class="ern-pad" style="background: #19222C; scroll-margin-top: 100px;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 56px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; box-sizing: border-box;">
+      <div style="max-width: 56ch;">
+        <p style="font-size: 11px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; color: #ff706a; margin: 0 0 12px;">Partner with ERN</p>
+        <h2 style="font-weight: 200; font-size: 36px; line-height: 1.08; letter-spacing: -0.022em; margin: 0 0 12px; color: #fff; text-wrap: pretty;">Working on eviction where the data is thin?</h2>
+        <p style="font-size: 15.5px; line-height: 1.65; color: rgba(255,255,255,0.86); margin: 0;">We collect and analyze court records, build data pipelines, train collaborators, and co-author research with courts, legal aid organizations, agencies, advocates, and universities. If you have records no one has analyzed — or need help with the ones you have — get in touch.</p>
+      </div>
+      <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+        <a href="mailto:evictions@berkeley.edu" style="display: inline-flex; align-items: center; gap: 10px; background: #CC2118; color: #fff; border: 1.5px solid #CC2118; font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 26px; border-radius: 4px; text-decoration: none;" style-hover="background: #B01D16; border-color: #B01D16;">Start a conversation →</a>
+        <a href="#research" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.5); font-weight: 600; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 14px 26px; border-radius: 4px; text-decoration: none;" style-hover="background: #fff; color: #19222C; border-color: #fff;">See our impact →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="ern-pad" style="background: #19222C; border-top: 1px solid rgba(255,255,255,0.15);">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 44px 40px; display: flex; flex-wrap: wrap; gap: 44px; justify-content: space-between; box-sizing: border-box;">
+      <div style="display: flex; flex-direction: column; gap: 14px; max-width: 38ch;">
+        <img src="assets/ern/banner-1A-rev.png" alt="Eviction Research Network" style="height: 40px; width: auto; align-self: flex-start;">
+        <p style="font-size: 13px; line-height: 1.6; color: #8BA3BE; margin: 0;">A research program led by Dr. Tim Thomas in the UC Berkeley Department of Sociology, its academic home. Affiliated with the Berkeley Institute for Data Science.</p>
+        <p style="font-size: 12.5px; line-height: 1.6; color: #8BA3BE; margin: 0;">Collaborators: Housing Initiative at Penn · Urban Displacement Project · Legal Services Corporation. Methods shared with CiDR Lab.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8BA3BE;">Data</span>
+        <a href="#atlas" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Maps &amp; profiles</a>
+        <a href="https://evictionresearch.net/hprm/" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">HPRM risk maps</a>
+        <a href="#atlas" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Eviction Data Atlas</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8BA3BE;">Research</span>
+        <a href="#research" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Working papers</a>
+        <a href="#research" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Publications</a>
+        <a href="#about" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Methods &amp; charter</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8BA3BE;">Contact</span>
+        <a href="mailto:evictions@berkeley.edu" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">evictions@berkeley.edu</a>
+        <a href="#partner" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">Bluesky</a>
+        <a href="#partner" style="font-size: 13.5px; color: #fff; text-decoration: none;" style-hover="color: #ff706a;">GitHub</a>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.15);">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 18px 40px; font-size: 12px; color: #8BA3BE; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; box-sizing: border-box;">
+        <span>© 2026 Eviction Research Network · University of California, Berkeley</span>
+        <span>Accessibility · Privacy</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+</body>
+</html>

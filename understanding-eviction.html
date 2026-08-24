@@ -58,7 +58,7 @@
   <!-- Critical above-the-fold CSS (inlined so the fixed header + first plate
        render correctly before main.css / v5b.css load). -->
   <style>
-    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#E00E06;scroll-behavior:smooth}
+    :root{--default-font:"Inter",system-ui,-apple-system,"Segoe UI","Helvetica Neue",Arial,sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#19222C;--accent-color:#F9322B;scroll-behavior:smooth}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0;font-feature-settings:"ss01","cv11"}
     h1,h2,h3,h4,h5,h6{color:var(--heading-color)}
     html[data-header-style="plate"] body{padding-top:88px}
@@ -85,11 +85,12 @@
        Page-specific primitives for the eviction primer.
        Scoped under .primer so they never leak into other pages. Reuses the
        v5b tokens (--navy / --accent / --accent-deep / --muted / --tint-solid).
-       Red (#E00E06) is one value for fills, rules, markers and text;
-       all readable text uses navy, muted, or the WCAG-safe red #E00E06.
+       Red (#F9322B) is one value for fills, rules, markers and text;
+       all readable text uses navy, muted, or brand red #F9322B (which is
+       under AA as small text — a deliberate call, see home-2026.css).
        ─────────────────────────────────────────────────────────────────── -->
   <style>
-    .primer { --navy:#19222C; --navy-soft:#223754; --accent:#E00E06; --accent-deep:#E00E06; --muted:#586573; --tint:#e8eef4; --steel:#8BA3BE; --rule:rgba(25,34,44,.14); --rule-fine:rgba(25,34,44,.08); }
+    .primer { --navy:#19222C; --navy-soft:#223754; --accent:#F9322B; --accent-deep:#F9322B; --muted:#586573; --tint:#e8eef4; --steel:#8BA3BE; --rule:rgba(25,34,44,.14); --rule-fine:rgba(25,34,44,.08); }
 
     /* Table of contents rail under the hero */
     .primer .toc-rail { border-top:1px solid var(--rule-fine); border-bottom:1px solid var(--rule-fine); }
@@ -315,7 +316,7 @@
     <!-- ═══════════════════════════════════════════════════════════════════
          Section I — What an eviction record is
          ═══════════════════════════════════════════════════════════════════ -->
-    <aside role="note" style="max-width:1080px;margin:26px auto 0;padding:18px 22px;border:1px solid rgba(224,14,6,.30);border-left:4px solid #E00E06;border-radius:0 8px 8px 0;background:rgba(249,50,43,.04);font-size:15px;line-height:1.65;">
+    <aside role="note" style="max-width:1080px;margin:26px auto 0;padding:18px 22px;border:1px solid rgba(249,50,43,.30);border-left:4px solid #F9322B;border-radius:0 8px 8px 0;background:rgba(249,50,43,.04);font-size:15px;line-height:1.65;">
       <strong>Read this first.</strong> This page pairs a plain-language primer (Part&nbsp;I) with the research behind it (Part&nbsp;II). Every figure is cited in the <a href="#sources">sources</a>, was checked against its original source in July 2026, and carries its caveats in place. Statutory clocks are legal minimums, not typical cases; court counts are floors, not censuses of displacement. If you use this page for research, validate against the cited originals — and if you find an error, email <a href="mailto:evictions@berkeley.edu?Subject=Understanding%20Eviction%20correction">evictions@berkeley.edu</a>. Research, not legal advice.
     </aside>
 
@@ -360,9 +361,9 @@
               <text x="12" y="143" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT COURT RECORDS SEE</text>
               <text x="708" y="170" text-anchor="end" font-family="Inter,sans-serif" font-size="11" font-weight="700" letter-spacing=".12em" fill="#586573">WHAT THEY MISS</text>
               <!-- tip -->
-              <polygon points="360,40 300,150 420,150" fill="#E00E06"/>
+              <polygon points="360,40 300,150 420,150" fill="#F9322B"/>
               <!-- submerged mass -->
-              <polygon points="300,150 420,150 470,250 405,360 315,360 250,250" fill="#E00E06" fill-opacity="0.30" stroke="#E00E06" stroke-opacity="0.5" stroke-width="1"/>
+              <polygon points="300,150 420,150 470,250 405,360 315,360 250,250" fill="#F9322B" fill-opacity="0.30" stroke="#F9322B" stroke-opacity="0.5" stroke-width="1"/>
               <!-- tip labels (upper-right, clear of the triangle) -->
               <line x1="520" y1="84" x2="400" y2="108" stroke="#19222C" stroke-width="1"/>
               <text x="704" y="66" text-anchor="end" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#19222C">Formal court eviction</text>
@@ -370,7 +371,7 @@
               <!-- submerged labels -->
               <text x="360" y="250" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" fill="#19222C">Informal &amp; forced moves</text>
               <text x="360" y="272" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#19222C" fill-opacity="0.78">lockouts · non-renewals · threats · "voluntary" exits</text>
-              <text x="360" y="300" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#E00E06">about 5.5× as many — mostly unrecorded</text>
+              <text x="360" y="300" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" font-weight="600" fill="#F9322B">about 5.5× as many — mostly unrecorded</text>
             </svg>
             <figcaption>
               <strong>The ratio is a range, not a constant.</strong> 5.5 informal moves per formal eviction is the national estimate from the 2017 American Housing Survey; the 2:1 figure is from Milwaukee. Both count <em>forced</em> moves — not voluntary ones.
@@ -410,7 +411,7 @@
                 <div class="funnel-meta"><span class="tag-rec tag-yes">Recorded</span><br>Many judgments are never carried out — the renter has already gone.<span class="funnel-exit">↘ renters vacate before a forced removal</span></div>
               </div>
               <div class="funnel-row">
-                <div class="funnel-bar" style="background:#E00E06;width:26%;">Writ &amp; lockout
+                <div class="funnel-bar" style="background:#F9322B;width:26%;">Writ &amp; lockout
                   <small>A sheriff removes the household. No national count exists.</small></div>
                 <div class="funnel-meta"><span class="tag-rec tag-yes">Smallest · last</span><br>The most concrete number — and the smallest. It misses everyone who left earlier.<span class="funnel-exit">▪ the end of the line — most cases never reach it</span></div>
               </div>
@@ -530,7 +531,7 @@
 
               <!-- Headline -->
               <text x="80" y="32" font-family="Inter,sans-serif" font-size="11.5" font-weight="700" letter-spacing=".14em" fill="#586573">RENT DUE → LOCKED OUT · THE FOUR PHASES</text>
-              <text x="80" y="74" font-family="Inter,sans-serif" font-size="31" font-weight="200" fill="#19222C">About <tspan font-weight="600" fill="#E00E06">5 to 56 days,</tspan> end to end.</text>
+              <text x="80" y="74" font-family="Inter,sans-serif" font-size="31" font-weight="200" fill="#19222C">About <tspan font-weight="600" fill="#F9322B">5 to 56 days,</tspan> end to end.</text>
 
               <!-- Event connectors + labels (above the bar) -->
               <line x1="130" y1="232" x2="130" y2="176" stroke="#19222C" stroke-width=".8"/>
@@ -549,7 +550,7 @@
               <text x="700" y="115" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">order of possession</text>
 
               <line x1="920" y1="232" x2="920" y2="176" stroke="#19222C" stroke-width=".8"/>
-              <text x="920" y="166" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#E00E06">Lockout</text>
+              <text x="920" y="166" text-anchor="end" font-family="Inter,sans-serif" font-size="12.5" font-weight="700" fill="#F9322B">Lockout</text>
               <text x="920" y="151" text-anchor="end" font-family="Inter,sans-serif" font-size="11" fill="#586573">sheriff removes; locks change</text>
 
               <!-- Rent due marker (start) -->
@@ -557,7 +558,7 @@
 
               <!-- The four-phase bar -->
               <rect x="80"  y="234" width="50"  height="44" fill="#8BA3BE"/>
-              <rect x="130" y="234" width="250" height="44" fill="#E00E06"/>
+              <rect x="130" y="234" width="250" height="44" fill="#F9322B"/>
               <rect x="380" y="234" width="320" height="44" fill="#3a5a7a"/>
               <rect x="700" y="234" width="220" height="44" fill="#19222C"/>
               <!-- event dots on the bar's top edge -->
@@ -565,13 +566,13 @@
               <circle cx="380" cy="234" r="5" fill="#19222C"/>
               <circle cx="540" cy="234" r="4" fill="#ffffff" stroke="#19222C" stroke-width="1.5"/>
               <circle cx="700" cy="234" r="5" fill="#19222C"/>
-              <circle cx="920" cy="234" r="6" fill="#E00E06"/>
+              <circle cx="920" cy="234" r="6" fill="#F9322B"/>
 
               <!-- Phase labels + data-driven ranges (below the bar) -->
               <text x="105" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="#586573">GRACE</text>
               <text x="105" y="339" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#586573">0–15d · few states</text>
 
-              <text x="255" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#E00E06">NOTICE</text>
+              <text x="255" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#F9322B">NOTICE</text>
               <text x="255" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">0–30 days</text>
 
               <text x="540" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" fill="#223754">COURT · filing → judgment</text>
@@ -581,21 +582,21 @@
               <text x="810" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#586573">0–22 days</text>
 
               <!-- Renter window vs automatic bracket -->
-              <line x1="80" y1="364" x2="496" y2="364" stroke="#E00E06" stroke-width="1.4"/>
-              <line x1="80" y1="360" x2="80" y2="368" stroke="#E00E06" stroke-width="1.4"/>
-              <line x1="496" y1="360" x2="496" y2="368" stroke="#E00E06" stroke-width="1.4"/>
-              <text x="288" y="382" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#E00E06">The renter can pay, cure, or move — and respond in court</text>
+              <line x1="80" y1="364" x2="496" y2="364" stroke="#F9322B" stroke-width="1.4"/>
+              <line x1="80" y1="360" x2="80" y2="368" stroke="#F9322B" stroke-width="1.4"/>
+              <line x1="496" y1="360" x2="496" y2="368" stroke="#F9322B" stroke-width="1.4"/>
+              <text x="288" y="382" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#F9322B">The renter can pay, cure, or move — and respond in court</text>
               <line x1="504" y1="364" x2="920" y2="364" stroke="#19222C" stroke-width="1.4"/>
               <line x1="504" y1="360" x2="504" y2="368" stroke="#19222C" stroke-width="1.4"/>
               <line x1="920" y1="360" x2="920" y2="368" stroke="#19222C" stroke-width="1.4"/>
               <text x="712" y="382" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="600" fill="#19222C">After judgment, removal proceeds automatically</text>
 
               <!-- "move at any point" note -->
-              <text x="500" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#586573"><tspan font-weight="700" fill="#E00E06">↘</tspan> A renter can move, pay, or settle at any point — most leave well before the lockout.</text>
+              <text x="500" y="412" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#586573"><tspan font-weight="700" fill="#F9322B">↘</tspan> A renter can move, pay, or settle at any point — most leave well before the lockout.</text>
             </svg>
             <div class="tl-legend">
               <span class="lg"><span class="sw" style="background:#8BA3BE"></span> Grace</span>
-              <span class="lg"><span class="sw" style="background:#E00E06"></span> Notice</span>
+              <span class="lg"><span class="sw" style="background:#F9322B"></span> Notice</span>
               <span class="lg"><span class="sw" style="background:#3a5a7a"></span> Court (filing→judgment)</span>
               <span class="lg"><span class="sw" style="background:#19222C"></span> Post-judgment (→lockout)</span>
             </div>
@@ -680,9 +681,9 @@
                 <rect x="48" y="250" width="14" height="58" rx="7" fill="#8BA3BE"/>
                 <rect x="48" y="192" width="14" height="64" fill="#9aa0a8"/>
                 <rect x="48" y="134" width="14" height="62" fill="#d76a55"/>
-                <rect x="48" y="76" width="14" height="62" fill="#E00E06"/>
-                <rect x="48" y="24" width="14" height="58" rx="7" fill="#E00E06"/>
-                <circle cx="55" cy="320" r="20" fill="#E00E06"/>
+                <rect x="48" y="76" width="14" height="62" fill="#F9322B"/>
+                <rect x="48" y="24" width="14" height="58" rx="7" fill="#F9322B"/>
+                <circle cx="55" cy="320" r="20" fill="#F9322B"/>
                 <!-- stage rows -->
                 <g font-family="Inter,sans-serif">
                   <circle cx="55" cy="279" r="4.5" fill="#586573"/>
@@ -693,15 +694,15 @@
                   <text x="86" y="218" font-size="13.5" font-weight="700" fill="#19222C">Case filed</text>
                   <text x="86" y="235" font-size="12" fill="#586573">A public record begins — the "Scarlet&nbsp;E."</text>
 
-                  <circle cx="55" cy="163" r="4.5" fill="#E00E06"/>
+                  <circle cx="55" cy="163" r="4.5" fill="#F9322B"/>
                   <text x="86" y="160" font-size="13.5" font-weight="700" fill="#19222C">Judgment</text>
                   <text x="86" y="177" font-size="12" fill="#586573">Hearing, possible loss, mounting debt.</text>
 
-                  <circle cx="55" cy="105" r="4.5" fill="#E00E06"/>
+                  <circle cx="55" cy="105" r="4.5" fill="#F9322B"/>
                   <text x="86" y="102" font-size="13.5" font-weight="700" fill="#19222C">Lockout</text>
                   <text x="86" y="119" font-size="12" fill="#586573">Removal by the sheriff; belongings out.</text>
 
-                  <circle cx="55" cy="47" r="4.5" fill="#E00E06"/>
+                  <circle cx="55" cy="47" r="4.5" fill="#F9322B"/>
                   <text x="86" y="44" font-size="13.5" font-weight="700" fill="#19222C">Forced move</text>
                   <text x="86" y="61" font-size="12" fill="#586573">New home, new school, lost network — at once.</text>
                 </g>
@@ -1128,13 +1129,13 @@
        Chart rendering — vanilla SVG drawn from data arrays. Each chart has
        a visually-hidden <table> fallback already in the markup for screen
        readers and no-JS users; this script only adds the visual layer.
-       Brand discipline: #E00E06 for fills/markers and text; #19222C / #586573
-       for any readable text; #E00E06 where small red text is unavoidable.
+       Brand discipline: #F9322B for fills/markers and text; #19222C / #586573
+       for any readable text; #F9322B where small red text is unavoidable.
        ─────────────────────────────────────────────────────────────────── -->
   <script>
   (function () {
     var SVGNS = "http://www.w3.org/2000/svg";
-    var RED = "#E00E06", REDTXT = "#E00E06", NAVY = "#19222C", MUTED = "#586573", STEEL = "#8BA3BE", RULE = "rgba(25,34,44,.16)";
+    var RED = "#F9322B", REDTXT = "#F9322B", NAVY = "#19222C", MUTED = "#586573", STEEL = "#8BA3BE", RULE = "rgba(25,34,44,.16)";
     function el(name, attrs) {
       var n = document.createElementNS(SVGNS, name);
       for (var k in attrs) n.setAttribute(k, attrs[k]);
@@ -1222,7 +1223,7 @@
       // Phase colors: grace, notice, court (filing→judgment), post-judgment (→lockout)
       var PH = [
         { key: "grace",  color: "#8BA3BE", label: "Grace" },
-        { key: "notice", color: "#E00E06", label: "Notice" },
+        { key: "notice", color: "#F9322B", label: "Notice" },
         { key: "court",  color: "#3a5a7a", label: "Court (filing→judgment)" },
         { key: "post",   color: "#19222C", label: "Post-judgment (→lockout)" }
       ];

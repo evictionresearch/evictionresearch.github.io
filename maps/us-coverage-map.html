@@ -26,8 +26,8 @@
   #panel { border-top: 1px solid rgba(25,34,44,0.14); margin-top: 8px; padding-top: 12px; display: grid; grid-template-columns: 220px 1fr auto; gap: 18px; align-items: baseline; min-height: 46px; }
   #pname { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
   #pnote { font-size: 13px; color: #223754; line-height: 1.5; }
-  #plink { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #E00E06; text-decoration: none; white-space: nowrap; }
-  #plink:hover { color: #C20C05; text-decoration: underline; }
+  #plink { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #F9322B; text-decoration: none; white-space: nowrap; }
+  #plink:hover { color: #CC2118; text-decoration: underline; }
   #plink[hidden] { display: none; }
   #err { display: none; padding: 20px 2px; font-size: 13px; color: #586573; }
   @media (max-width: 720px) { #panel { grid-template-columns: 1fr; gap: 8px; } }
@@ -37,7 +37,7 @@
 <div id="wrap">
   <div id="chrome">
     <div id="legend">
-      <span class="lg"><span class="sw" style="background:#E00E06"></span>ERN state profile</span>
+      <span class="lg"><span class="sw" style="background:#F9322B"></span>ERN state profile</span>
       <span class="lg"><span class="sw" style="background:#223754"></span>Public data elsewhere, linked</span>
       <span class="lg"><span class="sw" style="background:#fff;border:1px solid #b7c2cd"></span>No public eviction data</span>
     </div>
@@ -48,7 +48,7 @@
   <div id="mapholder"></div>
   <div id="panel">
     <span id="pname">Hover or select a state</span>
-    <span id="pnote">Red states have an ERN profile built from court records. Navy states link to the best public source we can find. White states have none.</span>
+    <span id="pnote">Click a state to open its profile in a new tab. Red states have an ERN profile built from court records. Navy states link to the best public source we can find. White states have none.</span>
     <a id="plink" href="#" hidden>Open profile →</a>
   </div>
 </div>
@@ -66,7 +66,7 @@
   // origin and blocks same-directory fetches, which would leave the map blank
   // whenever the page is opened straight off disk.
   var ATLAS = 'https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json';
-  var FILL = { ern: '#E00E06', other: '#223754', none: '#ffffff' };
+  var FILL = { ern: '#F9322B', other: '#223754', none: '#ffffff' };
 
   var tip = document.getElementById('tip'), pick = document.getElementById('pick');
   var pname = document.getElementById('pname'), pnote = document.getElementById('pnote');
@@ -79,6 +79,14 @@
   function label(d) {
     var r = rec(d.id);
     return r ? r.note : 'Coverage not recorded';
+  }
+  // Clicking a state goes straight to its profile, or to whoever publishes its
+  // data. The five states with no public source have nowhere to go, so they
+  // just fill the readout.
+  function openSource(d) {
+    var r = rec(d.id);
+    if (!r || !r.url) return;
+    window.open(r.url, '_blank', 'noopener');
   }
   function show(d, node) {
     var r = rec(d.id);
@@ -124,10 +132,11 @@
       .attr('stroke', function (d) { return kind(d.id) === 'none' ? '#b7c2cd' : '#ffffff'; })
       .attr('stroke-width', 1)
       .attr('tabindex', 0)
-      .attr('role', 'button')
+      .attr('role', function (d) { return rec(d.id) && rec(d.id).url ? 'link' : 'button'; })
       .attr('aria-label', function (d) {
         var r = rec(d.id);
-        return (r ? r.name : d.properties.name) + ' — ' + label(d);
+        var base = (r ? r.name : d.properties.name) + ' — ' + label(d);
+        return r && r.url ? base + ' (opens in a new tab)' : base;
       })
       .on('mousemove', function (ev, d) {
         var r = rec(d.id);
@@ -137,10 +146,14 @@
         tip.style.top = (ev.clientY + 16) + 'px';
       })
       .on('mouseleave', function () { tip.style.opacity = 0; })
-      .on('click', function (ev, d) { show(d, this); pick.value = d.id; })
+      .on('click', function (ev, d) { show(d, this); pick.value = d.id; openSource(d); })
+      // Focus fills the readout but must not navigate — tabbing across the map
+      // would otherwise fire off a tab per state.
       .on('focus', function (ev, d) { show(d, this); pick.value = d.id; })
       .on('keydown', function (ev, d) {
-        if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); show(d, this); }
+        if (ev.key === 'Enter' || ev.key === ' ') {
+          ev.preventDefault(); show(d, this); pick.value = d.id; openSource(d);
+        }
       });
 
     drawable.slice()

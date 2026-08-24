@@ -38,7 +38,7 @@
 <div id="mapholder"></div>
 <p id="note">
   <span>Displacement risk plus eviction risk on a 0–8 scale, one value per tract. Most tracts are smaller than a pixel at this scale and are drawn at a minimum size. Tracts with no renter households or fewer than 20 people per square kilometre are not scored; Alaska and Hawaii are not modelled.</span>
-  <a href="https://evictionresearch.net/hprm/" target="_top">Open the HPRM map →</a>
+  <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">Open the HPRM map →</a>
 </p>
 <div id="tip"></div>
 <!-- BEGIN generated: hprm-metros -->
@@ -105,7 +105,7 @@
       })
       .on('mouseleave', function () { halo.attr('opacity', 0); tip.style.opacity = 0; })
       .on('click', function () {
-        try { window.open(HPRM, '_top'); } catch (e) { window.location.href = HPRM; }
+        window.open(HPRM, '_blank', 'noopener');
       });
     postH();
   });

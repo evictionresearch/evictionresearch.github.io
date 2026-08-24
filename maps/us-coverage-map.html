@@ -90,11 +90,8 @@
       plink.hidden = false;
       plink.href = r.url;
       plink.textContent = r.kind === 'ern' ? 'Open profile →' : 'See the source →';
-      if (r.url.indexOf('https://evictionresearch.net') === 0) {
-        plink.removeAttribute('target'); plink.removeAttribute('rel');
-      } else {
-        plink.setAttribute('target', '_blank'); plink.setAttribute('rel', 'noopener noreferrer');
-      }
+      plink.setAttribute('target', '_blank');
+      plink.setAttribute('rel', 'noopener noreferrer');
     } else {
       plink.hidden = true;
       plink.removeAttribute('href');

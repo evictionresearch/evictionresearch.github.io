@@ -37,7 +37,9 @@
 //    tracts score 0-5 and cover almost all the land; the 1,551 tracts scoring
 //    6+ are urban and sub-pixel at national scale. Drawing in file order at
 //    true area hides exactly what the map is about, so high scores draw last
-//    and every tract gets a minimum mark.
+//    and every tract gets a minimum mark. MIN_MARK is tuned for the size the
+//    map is actually displayed at on the home page, roughly 530 CSS px wide;
+//    if that column gets wider or narrower, re-tune it and re-render.
 import fs from 'node:fs';
 import readline from 'node:readline';
 import { geoAlbers, geoPath, geoCentroid } from 'd3-geo';
@@ -47,8 +49,8 @@ import { createCanvas } from '@napi-rs/canvas';
 
 const W = 975, H = 610, SCALE = 3;
 const LAND = '#f1f4f7';          // land with no score: unmapped tracts
-const MIN_MARK = 1.5;            // px side for tracts below MIN_AREA
-const MIN_AREA = 1.0;            // px^2
+const MIN_MARK = 2.2;            // px side for tracts below MIN_AREA
+const MIN_AREA = 1.6;            // px^2
 const TOP_FROM = 4;              // scores >= this are buffered and drawn last
 const SKIP = new Set(['02', '15', '60', '66', '69', '72', '78']); // AK, HI, territories
 

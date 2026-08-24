@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
-"""Build the home page coverage map's data file.
+"""Build the home page maps' data and wire it into them.
 
-The map on the home page and the directory at /all_states/ must never
-disagree about which states ERN has profiled or where a state's data lives,
-so the roster is read out of all_states/index.html rather than restated by
-hand. Per-profile coverage and date ranges come from the Eviction Data Atlas
-dataset (library/data/eviction_data_atlas/atlas.json), which records what each
+The map on the home page and the directory at /all_states/ must never disagree
+about which states ERN has profiled or where a state's data lives, so the
+roster is read out of all_states/index.html rather than restated by hand.
+Per-profile coverage and date ranges come from the Eviction Data Atlas dataset
+(library/data/eviction_data_atlas/atlas.json), which records what each
 published profile actually covers.
 
-    python3 code/build_home_state_coverage.py
+The maps carry their data inline rather than fetching it. A browser treats
+every file:// document as its own opaque origin and blocks same-directory
+fetches, so a fetched map is a blank map whenever the page is opened straight
+off disk instead of through a server. Inlining costs about 22KB and makes the
+page work either way.
 
-Writes assets/data/state-coverage.json.
+    python3 code/build_home_map_data.py
+
+Writes assets/data/state-coverage.json as the public artifact, then inlines it
+into maps/us-coverage-map.html, and inlines assets/data/hprm-metros.json
+(written by code/render_hprm_national.mjs) into maps/us-hprm-map.html. It is
+the only writer of those inline blocks; edit the sources and re-run.
 """
 import html
 import json
@@ -22,6 +31,9 @@ DIRECTORY = os.path.join(REPO, 'all_states', 'index.html')
 ATLAS = os.path.expanduser(
     '~/git/evictionresearch/library/data/eviction_data_atlas/atlas.json')
 OUT = os.path.join(REPO, 'assets', 'data', 'state-coverage.json')
+METROS = os.path.join(REPO, 'assets', 'data', 'hprm-metros.json')
+COVERAGE_MAP = os.path.join(REPO, 'maps', 'us-coverage-map.html')
+HPRM_MAP = os.path.join(REPO, 'maps', 'us-hprm-map.html')
 
 FIPS = {
     'Alabama': '01', 'Alaska': '02', 'Arizona': '04', 'Arkansas': '05',
@@ -63,6 +75,24 @@ KIND_LABEL = {
     'other': 'Public data elsewhere',
     'none': 'No public eviction data',
 }
+
+
+def inline(html_path, name, payload):
+    """Replace the generated <script type="application/json"> block in place."""
+    begin = '<!-- BEGIN generated: %s -->' % name
+    end = '<!-- END generated: %s -->' % name
+    body = json.dumps(payload, sort_keys=True, separators=(',', ':'))
+    # A literal "</script>" inside the JSON would close the block early.
+    body = body.replace('<', '\\u003c')
+    block = '%s\n<script type="application/json" id="%s">%s</script>\n%s' % (
+        begin, name, body, end)
+    src = open(html_path, encoding='utf-8').read()
+    i, j = src.find(begin), src.find(end)
+    if i < 0 or j < 0:
+        raise SystemExit('markers for %r not found in %s' % (name, html_path))
+    out = src[:i] + block + src[j + len(end):]
+    open(html_path, 'w', encoding='utf-8').write(out)
+    return len(body)
 
 
 def strip(markup):
@@ -124,7 +154,7 @@ def main():
         states[fips] = record
 
     payload = {
-        'built_by': 'code/build_home_state_coverage.py',
+        'built_by': 'code/build_home_map_data.py',
         'roster_from': 'all_states/index.html',
         'profiles_from': 'eviction_data_atlas/atlas.json (%s)' % atlas['built_from'],
         'counts': counts,
@@ -135,6 +165,14 @@ def main():
         fh.write('\n')
     print('wrote %s' % os.path.relpath(OUT, REPO))
     print('  ' + ' '.join('%s=%d' % kv for kv in sorted(counts.items())))
+
+    n = inline(COVERAGE_MAP, 'state-coverage', payload)
+    print('inlined %d bytes into %s' % (n, os.path.relpath(COVERAGE_MAP, REPO)))
+
+    metros = json.load(open(METROS, encoding='utf-8'))
+    n = inline(HPRM_MAP, 'hprm-metros', metros)
+    print('inlined %d bytes (%d metros) into %s'
+          % (n, len(metros), os.path.relpath(HPRM_MAP, REPO)))
 
 
 if __name__ == '__main__':

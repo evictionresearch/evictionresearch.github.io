@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>$title$</title>
+  <meta name="description" content="$meta.description$">
+  <meta name="keywords" content="$meta.keywords$">
+  <meta name="author" content="$meta.author$">
+
+  <link rel="canonical" href="$meta.canonical$">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="$meta.og_title$">
+  <meta property="og:description" content="$meta.short_description$">
+  <meta property="og:url" content="$meta.canonical$">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="$meta.og_image$">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$meta.og_title$">
+  <meta name="twitter:description" content="$meta.short_description$">
+  <meta name="twitter:image" content="$meta.og_image$">
+
+  <!-- Organization structured data — helps Google generate a richer search snippet -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Eviction Research Network",
+    "alternateName": "ERN",
+    "url": "https://evictionresearch.net/",
+    "logo": "$meta.og_image$",
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "University of California, Berkeley · Department of Sociology",
+      "url": "https://sociology.berkeley.edu"
+    },
+    "sameAs": [
+$for(social)$      "$social.url$"$sep$,
+$endfor$
+    ]
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md).
+       ss01 and cv11 are switched on in the stylesheet for its modern alternates. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/home-2026.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="#top" aria-label="Eviction Research Network — home">
+        <img src="$logos.logo$" alt="Eviction Research Network">
+      </a>
+      <nav class="nav" aria-label="Primary">
+$for(nav)$        <a$if(nav.button)$ class="btn sm"$endif$ href="$nav.href$"$if(nav.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$nav.label$</a>
+$endfor$      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────── Eviction data across the US ─────────── -->
+    <section id="top" class="wrap sec">
+      <div id="atlas" class="atlas-grid">
+        <div>
+          <h1>$atlas.h1_lead$ <em>$atlas.h1_em$</em></h1>
+          <p class="lede">$atlas.lede$</p>
+$if(atlas.badge)$          <p class="badge">$atlas.badge$</p>
+$endif$          <p class="small">$atlas.note$</p>
+          <p class="meta">$atlas.meta$</p>
+          <a class="btn" href="$atlas.button.href$" target="_blank" rel="noopener noreferrer">$atlas.button.label$</a>
+        </div>
+        <iframe class="map" src="$atlas.map.src$"
+                title="$atlas.map.title$"
+                scrolling="no" width="100%" height="$atlas.map.height$" style="height: $atlas.map.height$px;"></iframe>
+      </div>
+    </section>
+
+    <!-- ─────────── HPRM ─────────── -->
+    <section id="hprm" class="band">
+      <div class="wrap sec-sm hprm-grid">
+        <div>
+          <h2>$hprm.h2_lead$ <em>$hprm.h2_em$</em></h2>
+          <p class="sub">$hprm.sub$</p>
+          <a class="btn" href="$hprm.button.href$" target="_blank" rel="noopener noreferrer">$hprm.button.label$</a>
+        </div>
+        <a class="mapcard" href="$hprm.button.href$" target="_blank" rel="noopener noreferrer">
+          <iframe class="map" src="$hprm.map.src$"
+                  title="$hprm.map.title$"
+                  scrolling="no" width="100%" height="$hprm.map.height$" style="height: $hprm.map.height$px;"></iframe>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── Research ─────────── -->
+    <section id="research" class="wrap sec">
+      <h2>$research.h2_lead$ <em>$research.h2_em$</em></h2>
+      <div class="cards">
+$for(research.cards)$        <a class="card" href="$it.href$" target="_blank" rel="noopener noreferrer">
+          <span class="kicker">$it.kicker$</span>
+          <h3>$it.title$</h3>
+          <p>$it.body$</p>
+          <span class="more">$research.more_label$</span>
+        </a>
+$endfor$      </div>
+      <a class="btn ghost" href="$research.button.href$" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">$research.button.label$</a>
+    </section>
+
+    <!-- ─────────── What we do ─────────── -->
+    <section id="mission" class="band">
+      <div class="wrap sec-sm">
+        <p class="eyebrow">$mission.eyebrow$</p>
+        <h2>$mission.h2_lead$ <em>$mission.h2_em$</em></h2>
+$for(mission.paragraphs)$        <p class="prose">$mission.paragraphs$</p>
+$endfor$$if(body)$
+        <!-- Anything written in the body of index.qmd lands here, so extra
+             prose can be added without touching this template. -->
+        <div class="prose">
+$body$
+        </div>
+$endif$      </div>
+    </section>
+
+    <!-- ─────────── Partner ─────────── -->
+    <section id="partner" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">$partner.eyebrow$</p>
+          <h2 class="on-dark">$partner.heading$</h2>
+          <p class="body">$partner.body$</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="$partner.primary.href$">$partner.primary.label$</a>
+          <a class="btn on-dark" href="$partner.secondary.href$" target="_blank" rel="noopener noreferrer">$partner.secondary.label$</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="$logos.logo_reversed$" alt="Eviction Research Network">
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations;
+             UDP appears only in the collaborator line below. -->
+        <p>$site_footer.affiliation$</p>
+        <p>$site_footer.collaborators$</p>
+      </div>
+$for(site_footer.columns)$      <div class="foot-col">
+        <span>$it.heading$</span>
+$for(it.links)$        <a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$      </div>
+$endfor$    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>$site_footer.copyright$</span>
+        <span><a href="$site_footer.accessibility.href$" target="_blank" rel="noopener noreferrer">$site_footer.accessibility.label$</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Each map measures itself and posts its height up; the page sizes the
+    // frame to match. Without this the frames keep their fallback height and
+    // either clip the map or leave a gap under it.
+    window.addEventListener('message', function (e) {
+      var d = e && e.data;
+      if (!d || !d.ernMap || !d.h) return;
+      document.querySelectorAll('iframe.map[src]').forEach(function (f) {
+        if (f.getAttribute('src').indexOf(d.ernMap) === -1) return;
+        f.style.aspectRatio = 'auto';
+        f.style.width = '100%';
+        f.style.height = (d.h + 4) + 'px';
+      });
+    });
+  </script>
+</body>
+
+</html>

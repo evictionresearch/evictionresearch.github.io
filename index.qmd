@@ -1,0 +1,231 @@
+---
+# ============================================================================
+# ERN home page. Edit the copy here, then rebuild:
+#
+#     quarto render index.qmd
+#
+# That overwrites index.html in place. git is the safety net — review
+# `git diff index.html` before committing.
+#
+# The page chrome lives in _extensions/ern/home/template.html. Everything a
+# person normally wants to change (headings, blurbs, cards, links, footer)
+# is a field below, so the template should rarely need touching.
+#
+# NOTE: Quarto parses these values as Markdown with smart typography on, so a
+# bare apostrophe becomes a curly one. Write &#39; to keep it straight, which
+# is what the rest of the site uses. Do not backslash-escape: inside a folded
+# block scalar (>-) YAML keeps the backslash and it lands on the page.
+# Colons and URLs need no escaping.
+#
+# The two maps under maps/ carry their own copy and their own data. The
+# coverage map's roster is generated — see code/build_home_map_data.py.
+# ============================================================================
+
+title: "Eviction Research Network — eviction data across the US"
+
+meta:
+  canonical: "https://evictionresearch.net/"
+  author: "Eviction Research Network, UC Berkeley"
+  og_title: "Eviction Research Network — UC Berkeley"
+  og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  description: >-
+    The Eviction Research Network (ERN) at UC Berkeley collects, analyzes, and
+    maps eviction data to expose racial and gender disparities and drive
+    evidence into housing policy. Home of the Housing Precarity Risk Model
+    (HPRM) and state-level eviction research across the United States.
+  short_description: >-
+    Eviction data, displacement research, and the Housing Precarity Risk Model
+    from UC Berkeley&#39;s Eviction Research Network.
+  keywords: >-
+    eviction research, housing precarity, displacement, gentrification,
+    eviction data, housing policy, Housing Precarity Risk Model, HPRM,
+    UC Berkeley, Department of Sociology
+
+logos:
+  logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+
+social:
+  - url: "https://bsky.app/profile/evictionresearch.bsky.social"
+  - url: "https://twitter.com/EvictionNet"
+  - url: "https://www.linkedin.com/company/evictionresearch/"
+
+# newtab: true on anything that leaves the page. In-page anchors are left off
+# it deliberately — a new tab would defeat the jump.
+nav:
+  - label: "Maps &amp; Profiles"
+    href: "#atlas"
+  - label: "HPRM"
+    href: "https://evictionresearch.net/hprm/"
+    newtab: true
+  - label: "Research"
+    href: "#research"
+  - label: "About"
+    href: "about.html"
+    newtab: true
+  - label: "Contact"
+    href: "#partner"
+    button: true
+
+atlas:
+  h1_lead: "Eviction data across the"
+  h1_em: "US."
+  lede: "An atlas of eviction data across the US showing what&#39;s available."
+  badge: "Under development"
+  note: >-
+    We&#39;re still building this out — states and sources are being added as we
+    verify them. Check back for more data.
+  # Counts are printed by code/build_home_map_data.py on every run. Rerun it
+  # after the directory changes and bring these into line.
+  meta: >-
+    Last updated <strong>August 2026</strong> · 50 states and D.C. ·
+    <strong>8</strong> with an ERN profile, <strong>5</strong> with no public
+    source.
+  button:
+    label: "See every state&#39;s data →"
+    href: "all_states/"
+  map:
+    src: "maps/us-coverage-map.html"
+    title: "Eviction data across the US — select a state"
+    height: 800
+
+hprm:
+  h2_lead: "The Housing Precarity"
+  h2_em: "Risk Model."
+  sub: >-
+    HPRM 2.0 scores every neighborhood in the country for eviction risk and
+    market displacement risk on one scale, designed on decades of
+    gentrification, displacement, and housing precarity research.
+  button:
+    label: "Explore the model →"
+    href: "https://evictionresearch.net/hprm/"
+  # The raster inside this map is rendered for the width this column gives it.
+  # Widen the column and the tract marks need re-tuning — see
+  # code/render_hprm_national.mjs.
+  map:
+    src: "maps/us-hprm-map.html"
+    title: "HPRM 2.0 national risk map"
+    height: 520
+
+research:
+  h2_lead: "Our"
+  h2_em: "research."
+  more_label: "Read more →"
+  button:
+    label: "All research →"
+    href: "research.html"
+  cards:
+    - kicker: "Working paper · 2026"
+      title: >-
+        Keeping People in Their Homes: the impact of emergency rental
+        assistance on evictions
+      body: >-
+        A neighborhood-level evaluation of whether $46.6 billion in emergency
+        rental assistance reduced eviction filings, across 700+ counties and
+        12,000+ census tracts in 22 states.
+      href: "https://evictionresearch.net/hud-era/"
+    - kicker: "State profile · 2026"
+      title: "Washington eviction filings, 2016–2026"
+      body: >-
+        Over the past 36 months, 1 in 45 renter households faced an eviction
+        filing, roughly 49% above the pre-pandemic normal. Seven of 39 counties
+        exceed the state rate.
+      href: "https://evictionresearch.net/washington/"
+    - kicker: "Cityscape (HUD) · 2024"
+      title: >-
+        Toward a national eviction data collection strategy using natural
+        language processing
+      body: >-
+        How ERN mined 111,740 Washington court records buried in scanned PDFs
+        and handwritten paper to expose the racial and gender disparities
+        structured data could not see.
+      href: "cityscape-2024.html"
+
+mission:
+  eyebrow: "Research for social good"
+  h2_lead: "What we"
+  h2_em: "do."
+  # Client-supplied ERN description. Kept verbatim.
+  paragraphs:
+    - >-
+      The Eviction Research Network collects, analyzes, and maps eviction data
+      while helping other researchers do the same. We specialize in using
+      social and data science to analyze racial and gender disparities in
+      eviction — and urban theory to help explain our findings.
+    - >-
+      Our goal is to expand public and scholarly knowledge on the prevalence
+      and drivers of evictions in under-studied regions, highlight work from
+      scholars in the field, and provide evidence-based research that
+      legislatures, practitioners, and advocates can use to inform policy.
+
+partner:
+  eyebrow: "Partner with ERN"
+  heading: "Working on eviction where the data is thin?"
+  body: >-
+    We collect and analyze court records, build data pipelines, train
+    collaborators, and co-author research with courts, legal aid
+    organizations, agencies, advocates, and universities. If you have records
+    no one has analyzed — or need help with the ones you have — get in touch.
+  primary:
+    label: "Start a conversation →"
+    href: "mailto:evictions@berkeley.edu?Subject=Partnership%20inquiry%20via%20ERN%20website"
+  secondary:
+    label: "See how we work →"
+    href: "methodology.html"
+
+site_footer:
+  # Canonical wording from library/ORG.md. Do not paraphrase, and never write
+  # "housed in" — it reads as a campus unit.
+  affiliation: >-
+    A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
+    Berkeley Department of Sociology, which serves as its academic home.
+    Affiliated with the Berkeley Institute for Data Science.
+  collaborators: >-
+    Collaborators: Housing Initiative at Penn · Urban Displacement Project ·
+    Legal Services Corporation.
+  copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
+  accessibility:
+    label: "Report a web accessibility issue"
+    href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  columns:
+    - heading: "Data"
+      links:
+        - label: "Maps &amp; profiles"
+          href: "#atlas"
+        - label: "HPRM risk maps"
+          href: "https://evictionresearch.net/hprm/"
+          newtab: true
+        - label: "U.S. Eviction Data Directory"
+          href: "all_states/"
+          newtab: true
+    - heading: "Research"
+      links:
+        - label: "Publications"
+          href: "research.html"
+          newtab: true
+        - label: "Methodology"
+          href: "methodology.html"
+          newtab: true
+        - label: "Understanding eviction"
+          href: "understanding-eviction.html"
+          newtab: true
+        - label: "News &amp; press"
+          href: "news.html"
+          newtab: true
+    - heading: "Contact"
+      links:
+        - label: "evictions@berkeley.edu"
+          href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+        - label: "Bluesky"
+          href: "https://bsky.app/profile/evictionresearch.bsky.social"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/company/evictionresearch/"
+          newtab: true
+        - label: "GitHub"
+          href: "https://github.com/evictionresearch"
+          newtab: true
+
+format: home-html
+output-file: index.html
+---

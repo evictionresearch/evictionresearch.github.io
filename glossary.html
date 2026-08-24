@@ -42,7 +42,7 @@
 
   <!-- Critical above-the-fold CSS -->
   <style>
-    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;--accent:#F9322B;--accent-deep:#CC2118;--accent-deeper:#B01D16;--muted:#586573;scroll-behavior:smooth}
+    :root{--default-font:"Inter",-apple-system,system-ui,"Segoe UI","Helvetica Neue",Arial,sans-serif;--heading-font:"Inter",sans-serif;--nav-font:"Inter",sans-serif;--background-color:#fff;--default-color:#223754;--heading-color:#223754;--accent-color:#F9322B;--contrast-color:#fff;--nav-color:rgba(255,255,255,.55);--nav-hover-color:#fff;--accent:#F9322B;--accent-deep:#E00E06;--accent-deeper:#C20C05;--muted:#586573;scroll-behavior:smooth}
     .dark-background{--background-color:#19222C;--default-color:#fff;--heading-color:#fff;--surface-color:#223754;--contrast-color:#fff}
     .light-background{--background-color:#f4f7f6;--surface-color:#fff;--default-color:#223754;--heading-color:#223754}
     body{color:var(--default-color);background-color:var(--background-color);font-family:var(--default-font);margin:0}
@@ -63,34 +63,34 @@
     .scrolled .header .logo .logo-light-bg{display:block}
 
     /* ===== Glossary-specific (scoped). Colors use the v5b brand tokens
-       (--accent-deep #CC2118 for text/links per WCAG 1.4.3; --muted #586573),
+       (--accent-deep #E00E06 for text/links per WCAG 1.4.3; --muted #586573),
        with literal fallbacks so they hold before v5b.css loads async. ===== */
     .glossary-wrap{padding:0 0 8px}
     .glossary-updated{font-size:14px;color:var(--muted,#586573);margin:6px 0 0}
     .glossary-controls{margin:0 0 14px}
     .glossary-filter{width:100%;max-width:440px;padding:12px 16px;font:inherit;font-size:16px;border:1px solid #c7d2dd;border-radius:8px;background:#fff;color:#19222C}
-    .glossary-filter:focus{outline:3px solid var(--accent-deep,#CC2118);outline-offset:2px;border-color:var(--accent-deep,#CC2118)}
+    .glossary-filter:focus{outline:3px solid var(--accent-deep,#E00E06);outline-offset:2px;border-color:var(--accent-deep,#E00E06)}
     .glossary-az{display:flex;flex-wrap:wrap;gap:4px;margin:0 0 8px;padding:12px 0;border-top:1px solid rgba(25,34,44,.12);border-bottom:1px solid rgba(25,34,44,.12);position:sticky;top:76px;background:#fff;z-index:5}
     .glossary-az a,.glossary-az span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:6px;font-size:13px;font-weight:600;text-decoration:none}
-    .glossary-az a{color:var(--accent-deep,#CC2118)}
-    .glossary-az a:hover{background:var(--accent-deep,#CC2118);color:#fff}
+    .glossary-az a{color:var(--accent-deep,#E00E06)}
+    .glossary-az a:hover{background:var(--accent-deep,#E00E06);color:#fff}
     .glossary-az span{color:#b6c2cf;pointer-events:none}
-    .glossary-letter{font-family:"Inter",sans-serif;font-size:22px;font-weight:700;color:var(--accent-deep,#CC2118);border-bottom:2px solid rgba(25,34,44,.10);padding-bottom:6px;margin:30px 0 14px;scroll-margin-top:150px}
+    .glossary-letter{font-family:"Inter",sans-serif;font-size:22px;font-weight:700;color:var(--accent-deep,#E00E06);border-bottom:2px solid rgba(25,34,44,.10);padding-bottom:6px;margin:30px 0 14px;scroll-margin-top:150px}
     .glossary-term{padding:18px 0;border-bottom:1px solid rgba(25,34,44,.10);scroll-margin-top:150px}
     .glossary-term .term-name{font-size:20px;font-weight:700;color:#19222C;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
-    .term-anchor{opacity:0;font-weight:400;color:var(--accent-deep,#CC2118);text-decoration:none;font-size:16px;transition:opacity .12s}
+    .term-anchor{opacity:0;font-weight:400;color:var(--accent-deep,#E00E06);text-decoration:none;font-size:16px;transition:opacity .12s}
     .glossary-term:hover .term-anchor,.term-anchor:focus{opacity:1}
     .term-cat{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted,#586573);background:#e8eef4;border-radius:999px;padding:3px 10px;margin:0 0 10px}
     .term-def{font-size:16px;line-height:1.62;color:#223754;max-width:72ch}
     .term-def p{margin:0 0 8px}
     .term-def p:last-child{margin-bottom:0}
-    .term-def a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
-    .term-def a:hover{color:var(--accent-deeper,#B01D16)}
+    .term-def a{color:var(--accent-deep,#E00E06);text-decoration:underline;text-underline-offset:2px}
+    .term-def a:hover{color:var(--accent-deeper,#C20C05)}
     .term-def code{background:#eef2f6;padding:1px 5px;border-radius:4px;font-size:.92em}
     .term-see{font-size:14px;color:var(--muted,#586573);margin:12px 0 0;max-width:72ch}
     .term-see .see-label{font-weight:600;color:var(--muted,#586573)}
-    .term-see a{color:var(--accent-deep,#CC2118);text-decoration:underline;text-underline-offset:2px}
-    .term-see a:hover{color:var(--accent-deeper,#B01D16)}
+    .term-see a{color:var(--accent-deep,#E00E06);text-decoration:underline;text-underline-offset:2px}
+    .term-see a:hover{color:var(--accent-deeper,#C20C05)}
     .glossary-noresults{font-size:16px;color:var(--muted,#586573);padding:24px 0}
     @media (max-width:768px){.glossary-az{top:64px}}
   </style>

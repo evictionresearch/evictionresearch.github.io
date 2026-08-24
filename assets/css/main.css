@@ -32,8 +32,8 @@
   --default-color: #223754; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #19222C; /* Color for headings, subheadings and title throughout the website */
   --accent-color: #F9322B; /* Brand red — decorative use only: large fills, borders, backgrounds, graphics. NOT contrast-safe as small text on white (3.8:1, fails WCAG 1.4.3 AA). */
-  --accent-deep: #CC2118; /* Contrast-safe brand red for text, links, and button labels — 5.5:1 on white, 4.7:1 on the #e8eef4 tint (clears WCAG 1.4.3 AA on both). Use anywhere red is text. */
-  --accent-deeper: #B01D16; /* Darker red for hover/active states of red text and buttons. */
+  --accent-deep: #E00E06; /* Contrast-safe brand red for text, links, and button labels — 5.0:1 on white, 4.6:1 on the #e8eef4 tint (clears WCAG 1.4.3 AA on both). Use anywhere red is text. */
+  --accent-deeper: #C20C05; /* Darker red for hover/active states of red text and buttons. */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -4428,7 +4428,7 @@ section,
   background: #F9322B;
   color: #fff;
 }
-.policies-intro .pi-btn.primary:hover { background: #CC2118; color: #fff; } /* --accent-deep */
+.policies-intro .pi-btn.primary:hover { background: #E00E06; color: #fff; } /* --accent-deep */
 .policies-intro .pi-btn.ghost {
   border: 1.5px solid #223754;
   color: #223754;

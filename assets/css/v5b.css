@@ -34,8 +34,8 @@
   --navy-soft:    #223754;
   --steel:        #8BA3BE;
   --accent:       #F9322B;  /* decorative/large/graphic only — fails 1.4.3 as small text */
-  --accent-deep:  #CC2118;  /* contrast-safe red for text/links/buttons — 5.5:1 white, 4.7:1 on tint */
-  --accent-deeper:#B01D16;  /* hover/active for red text and buttons */
+  --accent-deep:  #E00E06;  /* contrast-safe red for text/links/buttons — 5.0:1 white, 4.6:1 on tint */
+  --accent-deeper:#C20C05;  /* hover/active for red text and buttons */
   --rule:         rgba(25, 34, 44, 0.18);
   --rule-fine:    rgba(25, 34, 44, 0.10);
   --muted:        #586573;  /* secondary text — 6.0:1 on white, 5.1:1 on tint (was #6c7a89, failed) */
@@ -783,7 +783,7 @@ html[data-header-style="plate"] .header .navmenu > ul > li > a {
 html[data-header-style="plate"] .header .navmenu ul a:hover,
 html[data-header-style="plate"] .header .navmenu ul li.active > a,
 html[data-header-style="plate"] .header .navmenu ul a[aria-current="page"] {
-  color: #CC2118;
+  color: #E00E06;
 }
 html[data-header-style="plate"] .header .mobile-nav-toggle { color: #19222C; }
 

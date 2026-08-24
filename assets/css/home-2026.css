@@ -8,7 +8,7 @@
  *
  * Colour is split for WCAG 2.1 AA, which is a requirement rather than a
  * preference: brand red #F9322B fails AA at body sizes, so it is confined to
- * graphics (map fills, legend swatches) and #CC2118 carries every readable
+ * graphics (map fills, legend swatches) and #E00E06 carries every readable
  * red. Berkeley's full-AA deadline is April 26, 2027.
  */
 
@@ -20,8 +20,8 @@
   --muted:        #586573;  /* captions and metadata — 6.0:1 on white */
   --steel:        #8BA3BE;  /* muted text on dark only — 6.2:1 on ink */
   --accent:       #F9322B;  /* graphics only — never body text or small UI */
-  --accent-deep:  #CC2118;  /* every readable red — 5.5:1 on white */
-  --accent-press: #B01D16;  /* hover and press on red */
+  --accent-deep:  #E00E06;  /* every readable red — 5.0:1 white, 4.6:1 on tint */
+  --accent-press: #C20C05;  /* hover and press on red */
   --red-on-dark:  #ff706a;  /* eyebrows and link hover on navy — 6.0:1 on ink */
   --rule:         rgba(25, 34, 44, 0.10);
   --rule-dark:    rgba(255, 255, 255, 0.15);
@@ -142,7 +142,7 @@ h1 em, h2 em { font-style: normal; font-weight: 600; }
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--accent-deep);
-  border: 1px solid rgba(204, 33, 24, 0.4); border-radius: 3px;
+  border: 1px solid rgba(224, 14, 6, 0.4); border-radius: 3px;
   padding: 6px 11px; margin: 0 0 14px;
 }
 

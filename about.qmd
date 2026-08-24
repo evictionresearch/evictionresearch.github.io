@@ -1,0 +1,603 @@
+---
+# ============================================================================
+# ERN about page. Edit the copy here, then rebuild:
+#
+#     quarto render about.qmd
+#
+# That overwrites about.html in place. git is the safety net — review
+# `git diff about.html` before committing.
+#
+# The page chrome lives in _extensions/ern/about/template.html, which also
+# carries the standing constraints on where Berkeley, BIDS, and the federal
+# seals may appear. Read those comments before moving a logo between walls.
+#
+# NOTE: values here are parsed as Markdown. Write &#39; for a straight
+# apostrophe, which is what the rest of the site uses. Do not backslash-escape:
+# inside a folded block scalar (>-) YAML keeps the backslash and it lands on
+# the page. Colons and URLs need no escaping.
+# ============================================================================
+
+title: "About the Eviction Research Network"
+
+meta:
+  canonical: "https://evictionresearch.net/about.html"
+  author: "Eviction Research Network, UC Berkeley"
+  og_title: "About the Eviction Research Network"
+  og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  description: >-
+    The Eviction Research Network is a research program led by Dr. Tim Thomas
+    in UC Berkeley&#39;s Department of Sociology. We turn civil court records
+    into open, comparable data on eviction and displacement. Team,
+    collaborators, academic home, and funders.
+  short_description: >-
+    No federal agency counts evictions. ERN turns civil court records into
+    open, comparable data on eviction and displacement.
+  keywords: >-
+    Eviction Research Network, Tim Thomas, UC Berkeley Sociology, eviction
+    data, court records, housing displacement, racial disparities, research
+    team, collaborators, funders
+
+logos:
+  logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+
+nav:
+  - label: "Maps &amp; Profiles"
+    href: "index.html#atlas"
+  - label: "HPRM"
+    href: "https://evictionresearch.net/hprm/"
+    newtab: true
+  - label: "Research"
+    href: "research.html"
+  - label: "About"
+    href: "about.html"
+    current: true
+  - label: "Contact"
+    href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+    button: true
+
+hero:
+  eyebrow: "About ERN"
+  h1_lead: "No federal agency counts evictions."
+  h1_em: "We do."
+  lede: >-
+    The Eviction Research Network is a research program led by Dr. Tim Thomas
+    in UC Berkeley&#39;s Department of Sociology. We turn civil court records
+    into open, comparable data on eviction and displacement, and we study how
+    housing loss connects to health, contact with the criminal justice system,
+    and climate risk.
+
+mission:
+  eyebrow: "Mission · Est 2018"
+  h2_lead: "It began with"
+  h2_em: "one case."
+  paragraphs:
+    - >-
+      A mother was served an eviction notice, settled out of court, and stayed
+      in her home for two more years. The filing stayed on her record anyway,
+      and was later used to deny her housing. With support from the American
+      Civil Liberties Union, her case opened a larger question about racial and
+      gender disparities in who faces eviction.
+    - >-
+      Research in King County, Washington found that Black households were four
+      times more likely than White households to receive eviction notices, and
+      that Black women were five times more likely than White men to have an
+      eviction case filed against them.
+    - >-
+      Tim Thomas, ERN&#39;s founder, led that research and extended it across
+      Washington State and other regions. The findings informed state and local
+      policy, including Washington&#39;s extension of the eviction notice period
+      from 3 to 14 days and Baltimore&#39;s Right to Counsel law, which
+      guarantees tenants a lawyer in eviction cases. Both measures aim to reduce
+      preventable evictions and give tenants a fairer process.
+  image:
+    src: "images/about_page/blackandwhitezone.jpeg"
+    # The old page called this a map of a redlined zone. It is a photograph.
+    alt: >-
+      Black and white aerial photograph of a lakeside city, dense residential
+      blocks running back from the shoreline toward a distant downtown
+
+# This section carried no heading on the old page, which left a block of prose
+# floating between two titled sections. The heading is new; the prose is not.
+approach:
+  h2_lead: "The records exist."
+  h2_em: "They just don&#39;t line up."
+  paragraphs:
+    - >-
+      Eviction records exist, but they sit with individual courts in
+      incompatible forms, sealed in one state, missing addresses in another,
+      held as scanned images in a third. ERN fills that gap. We collect the
+      records, clean and standardize them the same way everywhere, and publish
+      our methods and code, so that a finding in Oregon can be compared directly
+      with a finding in Maryland. Where a court system, a state, or another
+      research group already publishes reliable eviction data, we work from it
+      and cite it rather than duplicate it.
+    - >-
+      The disparities first documented in King County appear in state after
+      state, and they fall along lines drawn by earlier housing policy,
+      including redlining. Because a stable home shapes health, schooling, and
+      employment, these patterns carry consequences well beyond the courtroom.
+      ERN also estimates eviction and displacement risk at the neighborhood
+      level, including in places where court data is sparse or unavailable, so
+      that prevention can begin before a case is ever filed.
+
+work:
+  eyebrow: "What we do"
+  h2_lead: "Court records,"
+  h2_em: "made comparable."
+  sub: >-
+    We collect, standardize, and analyze civil court records so that eviction
+    can be measured the same way in every state, and so that disparities by
+    race, gender, and neighborhood are documented rather than assumed.
+  image:
+    src: "images/about_page/gimmeshelter.jpeg"
+    # The old page called this demonstrators with signs. It is a shop sign.
+    alt: >-
+      A hanging shop sign reading Gimme Shelter above a neighborhood sidewalk
+  capabilities:
+    - title: "Data preparation"
+      body: >-
+        We collect, clean, and standardize eviction records for the courts,
+        agencies, and legal organizations that hold them but do not have the
+        staff or tools to prepare them for research.
+    - title: "Maps and analysis"
+      body: >-
+        We estimate filing and judgment rates by neighborhood and by demographic
+        group, using Bayesian inference, a statistical method that estimates a
+        group&#39;s racial makeup from surnames and addresses. Race is estimated
+        as a group rate, never assigned to an individual. The results are
+        published as state profiles and interactive maps.
+    - title: "Network"
+      body: >-
+        We work with courts, legal aid organizations, public agencies, and
+        academic partners in each state we cover. Methods, code, and citations
+        are published openly, so findings can be reproduced, contested, and
+        extended by others.
+    - title: "Policy evidence"
+      body: >-
+        We brief legislators, agencies, and courts on what the evidence
+        supports, and evaluate which policies measurably reduce filings and
+        displacement.
+
+team:
+  eyebrow: "The team"
+  h2_lead: "Eviction Research"
+  h2_em: "Network."
+  people:
+    - name: "Tim Thomas"
+      role: "Executive Director"
+      img: "images/team/timthomas.jpeg"
+      webp: "images/team/timthomas.webp"
+      links:
+        - label: "Profile"
+          href: "https://bids.berkeley.edu/people/tim-thomas"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/drtthomas"
+          newtab: true
+    - name: "Aaron Culich"
+      role: "Director of Data Science"
+      img: "images/team/aaronculich.jpg"
+      webp: "images/team/aaronculich.webp"
+      links:
+        - label: "Profile"
+          href: "https://cidrlab.org"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/aaron-culich"
+          newtab: true
+    - name: "Mia Schwinghammer"
+      role: "Data Project Manager"
+      img: "images/team/miaschwinghammer.jpg"
+      webp: "images/team/miaschwinghammer.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/miaschwing"
+          newtab: true
+    - name: "Mina Mohebbi"
+      role: "Project Specialist"
+      img: "images/team/minamohebbi.jpg"
+      webp: "images/team/minamohebbi.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/mina-mohebbi00"
+          newtab: true
+    - name: "Reily Fairchild"
+      role: "Project Specialist"
+      img: "images/team/reilyfairchild.png"
+      webp: "images/team/reilyfairchild.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/reily-fairchild"
+          newtab: true
+    - name: "Elizabeth Kirkpatrick Fiske"
+      role: "Project Specialist"
+      img: "images/team/elizabethfiske.jpg"
+      webp: "images/team/elizabethfiske.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/ekfiske"
+          newtab: true
+    - name: "Eva Winter"
+      role: "Project Specialist"
+      img: "images/team/evawinter.jpg"
+      webp: "images/team/evawinter.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/evalwinter"
+          newtab: true
+    - name: "Will von Geldern"
+      role: "Research Associate, University of Washington"
+      img: "images/team/willvongeldern.jpg"
+      webp: "images/team/willvongeldern.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/willvongeldern/"
+          newtab: true
+
+collaborators:
+  eyebrow: "Network"
+  h2_lead: "Research"
+  h2_em: "Collaborators."
+  people:
+    - name: "Lisa Bates, Ph.D."
+      role: "Oregon Project Director, Portland State University"
+      img: "images/photos/LisaBates.jpeg"
+      webp: "images/photos/LisaBates.webp"
+      links:
+        - label: "Profile"
+          href: "https://www.pdx.edu/profile/lisa-bates"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/lisa-k-bates-69ab27298/"
+          newtab: true
+    - name: "Malcolm Drewery, Ph.D."
+      role: "Baltimore Collaborator, Morgan State University"
+      img: "images/photos/malcolmdrewery.jpeg"
+      webp: "images/photos/malcolmdrewery.webp"
+      links:
+        - label: "Profile"
+          href: "https://www.morgan.edu/sociology-and-anthropology/faculty/malcolm-drewery"
+          newtab: true
+    - name: "Cheng Ren"
+      role: "New York Collaborator, University of Albany, SUNY"
+      img: "images/photos/ChengRen4.jpg"
+      webp: "images/photos/ChengRen4.webp"
+      links:
+        - label: "Profile"
+          href: "https://www.albany.edu/cihs/faculty/cheng-ren"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/cheng-ren-48283491/"
+          newtab: true
+    - name: "Kathy Rowell, Ph.D."
+      role: "Ohio Collaborator, Sinclair Community College"
+      img: "images/photos/kathyrowell.jpg"
+      webp: "images/photos/kathyrowell.webp"
+      links:
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/katherine-rowell/"
+          newtab: true
+    - name: "Ott Toomet, Ph.D."
+      role: "Washington State Collaborator, University of Washington"
+      img: "images/photos/ott.jpg"
+      webp: "images/photos/ott.webp"
+      links:
+        - label: "Profile"
+          href: "https://ischool.uw.edu/people/faculty/profile/otoomet"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/ott-toomet-5882827/"
+          newtab: true
+    - name: "Jose Hernandez, Ph.D."
+      role: "Washington State Collaborator, Microsoft"
+      img: "images/photos/x_jose.jpg"
+      webp: "images/photos/x_jose.webp"
+      links:
+        - label: "Profile"
+          href: "https://csde.washington.edu/affiliates/hernandez-jose/"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/in/josemhe/"
+          newtab: true
+
+experts:
+  eyebrow: "Practice network"
+  h2_lead: "Expert"
+  h2_em: "Collaborators."
+  list_label: "Expert collaborators"
+  people:
+    - name: "Edmund Witter"
+      org: "Housing Justice Project, Washington"
+    - name: "Scott Crain"
+      org: "Northwest Justice Project"
+    - name: "Matt Hill"
+      org: "Public Justice Center, Maryland"
+    - name: "Eric Dunn"
+      org: "National Housing Law Project, Virginia"
+    - name: "Sandra Park"
+      org: "ACLU, New York"
+
+alumni:
+  eyebrow: "Alumni"
+  h2_lead: "Student"
+  h2_em: "Alumni."
+  sub: >-
+    Graduate and undergraduate researchers who have contributed to ERN projects.
+  list_label: "Student alumni"
+  names:
+    - "Kasey Zapatka, Ph.D."
+    - "Pia Deshpande"
+    - "&Aacute;ngel Mendiola Ross"
+    - "Alex Ramiller, Ph.D."
+    - "HC Moore"
+    - "Violet Davis"
+    - "Miller Jacquet"
+    - "Riya Rupen Patwa"
+    - "Pedro Ochoa Navarrete"
+    - "Jennifer Chen"
+    - "Ian Kennedy, Ph.D."
+    - "Anisha Keshavan, Ph.D."
+    - "Yohan Min, Ph.D."
+    - "Max McDonald"
+    - "Lucero Mejia"
+    - "Avery Richards, Ph.D."
+    - "Amit Cohen"
+    - "Ashley Santos"
+    - "Emely Ramirez"
+    - "Aniket Rahane"
+
+academic:
+  eyebrow: "Academic home"
+  h2_lead: "A research program"
+  h2_em: "in the Department of Sociology."
+  body: >-
+    The Eviction Research Network is a research program led by Dr. Tim Thomas,
+    Assistant Researcher in the UC Berkeley Department of Sociology, which
+    serves as its academic home. ERN is not a separate legal entity or a
+    separate campus unit; its externally funded research is administered through
+    the University.
+  mark:
+    href: "https://www.berkeley.edu"
+    src: "partner_logos/UCBshort.svg.png"
+    alt: "University of California, Berkeley"
+    height: 55
+    caption: >-
+      Academic home · <a href="https://sociology.berkeley.edu">Department of
+      Sociology</a>
+
+orgs:
+  eyebrow: "Partners"
+  h2_lead: "Organizational"
+  h2_em: "Collaborators."
+  list_label: "Additional organizational collaborators"
+  logos:
+    - href: "https://www.urbandisplacement.org"
+      src: "partner_logos/urbandisplacementproject.png"
+      alt: "Urban Displacement Project"
+      height: 44
+    - href: "https://www.planningcollaborative.com"
+      src: "partner_logos/cpc_logo.png"
+      alt: "Community Planning Collaborative"
+      height: 44
+    - href: "https://www.nhlp.org"
+      src: "partner_logos/NHLP_Logo_Horizontal.eps.png"
+      alt: "National Housing Law Project"
+      height: 44
+    - href: "https://www.kqed.org"
+      src: "partner_logos/kqed_new.jpg"
+      alt: "KQED"
+      height: 44
+    - href: "https://www.kcba.org/?pg=Housing-Justice-Project"
+      src: "partner_logos/hjp_logo.png"
+      alt: "Housing Justice Project"
+      height: 44
+    - href: "https://www.policylink.org"
+      src: "partner_logos/PolicyLink.png"
+      alt: "PolicyLink"
+      height: 44
+    - href: "https://www.newamerica.org"
+      src: "partner_logos/newamerica_logo.svg"
+      alt: "New America"
+      height: 44
+    - href: "https://www.lsc.gov"
+      src: "partner_logos/protecting-the-promise-logo.png"
+      alt: "Legal Services Corporation"
+      height: 44
+    - href: "https://www.aclu.org"
+      src: "partner_logos/ACLULogo_Blue-on-white.jpg"
+      alt: "American Civil Liberties Union"
+      height: 44
+    - href: "https://www.publicjustice.org/en/"
+      src: "partner_logos/PJC.png"
+      alt: "Public Justice Center"
+      height: 44
+    - href: "https://legalaidchicago.org"
+      src: "partner_logos/LAC_whitebk.jpg"
+      alt: "Legal Aid Chicago"
+      height: 44
+    # UC Berkeley lives in the Academic Home section above. PSU appears both
+    # here and in Funders, per Tim (2026-08-13): it is both. BIDS and CDSS
+    # shown here as collaborators per Tim (2026-08-14); affiliation-language
+    # claims elsewhere still await BIDS sign-off (Meredith/Kirstie thread,
+    # library/docs/berkeley-affiliation/).
+    - href: "https://bids.berkeley.edu"
+      src: "partner_logos/bids_logo.png"
+      alt: "Berkeley Institute for Data Science"
+      height: 44
+    - href: "https://cdss.berkeley.edu"
+      src: "partner_logos/cdss_logo.svg"
+      alt: "UC Berkeley College of Computing, Data Science, and Society"
+      height: 32
+    - href: "https://www.pdx.edu/urban-studies/eviction-research"
+      src: "partner_logos/psu_resize.png"
+      alt: "Portland State University"
+      height: 44
+    - href: "https://www.sinclair.edu"
+      src: "partner_logos/sinclair.png"
+      alt: "Sinclair Community College"
+      height: 44
+    - href: "https://www.housinginitiative.org"
+      src: "partner_logos/hip_logo.png"
+      alt: "The Housing Initiative at Penn"
+      height: 52
+    # UTHealth&#39;s lockup is a 10.6:1 horizontal wordmark. Height 24 keeps its
+    # visual area in line with the 44px marks; at 44 it would run ~470px wide
+    # and swamp the row.
+    - href: "https://www.uth.edu/"
+      src: "partner_logos/uth_logo.svg"
+      alt: "UTHealth Houston"
+      height: 24
+    - href: "https://escience.washington.edu"
+      src: "partner_logos/eScienceInstitute.png"
+      alt: "eScience Institute"
+      height: 44
+    - href: "https://urbanalytics.uw.edu"
+      src: "partner_logos/cuacblk.png"
+      alt: "Cascadia Urban Analytics Cooperative"
+      height: 44
+    # VA seal cropped from the official VA.gov header asset
+    # (www.va.gov/img/header-logo.png, fetched 2026-08-13). The full lockup
+    # could not be used: its "U.S. Department of Veterans Affairs" wordmark is
+    # white, built for VA.gov&#39;s navy header, and is invisible on this
+    # page&#39;s light backgrounds. Seal use is governed by 38 CFR 1.9; Tim
+    # authorized this placement 2026-08-13, clearance not obtained.
+    - href: "https://www.va.gov/puget-sound-health-care/"
+      src: "partner_logos/va_seal.png"
+      alt: "VA Puget Sound Health Care System"
+      height: 52
+      caption: "VA Puget Sound Health Care System"
+    - href: "https://csde.washington.edu"
+      src: "partner_logos/csdeblk.png"
+      alt: "Center for Studies in Demography and Ecology, University of Washington"
+      height: 52
+  chips:
+    - label: "UW Housing Futures Center"
+      href: "https://housingfutures.be.uw.edu/"
+
+funders:
+  eyebrow: "Support"
+  h2_lead: "Research"
+  h2_em: "Funders."
+  logos:
+    - href: "https://www.gatesfoundation.org"
+      src: "partner_logos/BMGclearback.svg.png"
+      alt: "Bill and Melinda Gates Foundation"
+      height: 44
+    # PJMF mark extracted from the inline SVG data URI their own site serves as
+    # the .mcgf-logo background (mcgovern.org, 2026-08-13); they publish no
+    # standalone logo file.
+    - href: "https://www.mcgovern.org"
+      src: "partner_logos/pjmf_logo.svg"
+      alt: "Patrick J. McGovern Foundation"
+      height: 40
+    - href: "https://www.enterprisecommunity.org"
+      src: "partner_logos/enterprise_black_font.png"
+      alt: "Enterprise Community Partners"
+      height: 44
+    - href: "https://www.pdx.edu/urban-studies/eviction-research"
+      src: "partner_logos/psu_resize.png"
+      alt: "Portland State University"
+      height: 44
+    - href: "https://c3.ai"
+      src: "partner_logos/c3ai_logo.svg"
+      alt: "C3.ai"
+      height: 40
+    # Federal funders. HUD and NIH marks are used on the same basis as the VA
+    # seal: Tim authorized 2026-08-13, no agency clearance obtained. Both
+    # render in full colour on light backgrounds.
+    - href: "https://www.hud.gov"
+      src: "partner_logos/hud_seal.svg"
+      alt: "U.S. Department of Housing and Urban Development"
+      height: 52
+    - href: "https://www.nih.gov"
+      src: "partner_logos/nih_logo.svg"
+      alt: "National Institutes of Health"
+      height: 48
+    # California HCD funded the EDR sub-model of the HPRM (funding statement,
+    # hprm/manuscripts/journal_article/paper1/HPRM_manuscript_v3.md; confirmed
+    # by Tim 2026-08-13). Seal from hcd.ca.gov.
+    - href: "https://www.hcd.ca.gov"
+      src: "partner_logos/hcd_logo.png"
+      alt: "California Department of Housing and Community Development"
+      height: 52
+    # Sponsor of record for Award 059281-002 is the Department, not the
+    # facility: veteran-health/README.md names the sponsor as the Department of
+    # Veterans Affairs, while the IPA runs UC Berkeley to VA Puget Sound. The
+    # facility is credited in Collaborators above.
+    - href: "https://www.va.gov/"
+      src: "partner_logos/va_seal.png"
+      alt: "U.S. Department of Veterans Affairs"
+      height: 52
+      caption: "U.S. Department of Veterans Affairs"
+
+partner:
+  eyebrow: "Partner with ERN"
+  heading: "Working on eviction where the data is thin?"
+  body: >-
+    We collect and analyze court records, build data pipelines, train
+    collaborators, and co-author research with courts, legal aid organizations,
+    agencies, advocates, and universities. If you have records no one has
+    analyzed, or need help with the ones you have, get in touch.
+  primary:
+    label: "Start a conversation →"
+    href: "mailto:evictions@berkeley.edu?Subject=Partnership%20inquiry%20via%20ERN%20website"
+  secondary:
+    label: "See how we work →"
+    href: "methodology.html"
+
+site_footer:
+  # Canonical wording from library/ORG.md. Do not paraphrase, and never write
+  # "housed in" — it reads as a campus unit.
+  affiliation: >-
+    A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
+    Berkeley Department of Sociology, which serves as its academic home.
+    Affiliated with the Berkeley Institute for Data Science.
+  collaborators: >-
+    Collaborators: Housing Initiative at Penn · Urban Displacement Project ·
+    Legal Services Corporation.
+  copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
+  accessibility:
+    label: "Report a web accessibility issue"
+    href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  columns:
+    - heading: "Data"
+      links:
+        - label: "Maps &amp; profiles"
+          href: "index.html#atlas"
+        - label: "HPRM risk maps"
+          href: "https://evictionresearch.net/hprm/"
+          newtab: true
+        - label: "U.S. Eviction Data Directory"
+          href: "all_states/"
+          newtab: true
+    - heading: "Research"
+      links:
+        - label: "Publications"
+          href: "research.html"
+        - label: "Methodology"
+          href: "methodology.html"
+          newtab: true
+        - label: "Understanding eviction"
+          href: "understanding-eviction.html"
+          newtab: true
+        - label: "News &amp; press"
+          href: "news.html"
+          newtab: true
+    - heading: "Contact"
+      links:
+        - label: "evictions@berkeley.edu"
+          href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+        - label: "Bluesky"
+          href: "https://bsky.app/profile/evictionresearch.bsky.social"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/company/evictionresearch/"
+          newtab: true
+        - label: "GitHub"
+          href: "https://github.com/evictionresearch"
+          newtab: true
+
+format: about-html
+output-file: about.html
+---

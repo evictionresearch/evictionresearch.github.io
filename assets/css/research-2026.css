@@ -8,11 +8,7 @@
  */
 
 /* ─── Page hero ─── */
-/* The home page opens on a map, so its h1 shares a grid. This page opens on
-   text alone, which needs a measure or the hairline h1 runs the full 1240. */
-.sec-hero { padding-top: 76px; padding-bottom: 60px; }
-.hero-in { max-width: 60ch; }
-.hero-in .lede { max-width: 58ch; }
+/* .sec-hero and .hero-in live in ern-2026.css: About uses them too. */
 .jump { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
 
 /* ─── Policy brief ─── */

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>$title$</title>
+  <meta name="description" content="$meta.description$">
+  <meta name="keywords" content="$meta.keywords$">
+  <meta name="author" content="$meta.author$">
+
+  <link rel="canonical" href="$meta.canonical$">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="$meta.og_title$">
+  <meta property="og:description" content="$meta.short_description$">
+  <meta property="og:url" content="$meta.canonical$">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="$meta.og_image$">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$meta.og_title$">
+  <meta name="twitter:description" content="$meta.short_description$">
+  <meta name="twitter:image" content="$meta.og_image$">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/ern-2026.css" rel="stylesheet">
+  <link href="assets/css/about-2026.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="index.html" aria-label="Eviction Research Network — home">
+        <img src="$logos.logo$" alt="Eviction Research Network">
+      </a>
+      <nav class="nav" aria-label="Primary">
+$for(nav)$        <a$if(nav.button)$ class="btn sm"$endif$ href="$nav.href$"$if(nav.current)$ aria-current="page"$endif$$if(nav.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$nav.label$</a>
+$endfor$      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="wrap sec-hero">
+      <div class="hero-in">
+        <p class="eyebrow">$hero.eyebrow$</p>
+        <h1>$hero.h1_lead$ <em>$hero.h1_em$</em></h1>
+        <p class="lede">$hero.lede$</p>
+      </div>
+    </section>
+
+    <!-- ─────────── Mission ─────────── -->
+    <section id="mission" class="band">
+      <div class="wrap sec split">
+        <div>
+          <p class="eyebrow">$mission.eyebrow$</p>
+          <h2>$mission.h2_lead$ <em>$mission.h2_em$</em></h2>
+$for(mission.paragraphs)$          <p class="prose">$mission.paragraphs$</p>
+$endfor$        </div>
+        <img src="$mission.image.src$" alt="$mission.image.alt$" loading="lazy">
+      </div>
+    </section>
+
+    <!-- ─────────── The gap ERN fills ─────────── -->
+    <section id="approach" class="wrap sec">
+      <h2>$approach.h2_lead$ <em>$approach.h2_em$</em></h2>
+$for(approach.paragraphs)$      <p class="prose">$approach.paragraphs$</p>
+$endfor$    </section>
+
+    <!-- ─────────── What we do ─────────── -->
+    <section id="what-we-do" class="band">
+      <div class="wrap sec">
+        <div class="split" style="margin-bottom: 52px;">
+          <div>
+            <p class="eyebrow">$work.eyebrow$</p>
+            <h2>$work.h2_lead$ <em>$work.h2_em$</em></h2>
+            <p class="prose">$work.sub$</p>
+          </div>
+          <img src="$work.image.src$" alt="$work.image.alt$" loading="lazy">
+        </div>
+        <div class="cards four">
+$for(work.capabilities)$          <article class="cap">
+            <h3>$it.title$</h3>
+            <p>$it.body$</p>
+          </article>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Team ─────────── -->
+    <section id="team" class="wrap sec">
+      <p class="eyebrow">$team.eyebrow$</p>
+      <h2>$team.h2_lead$ <em>$team.h2_em$</em></h2>
+      <div class="people" style="margin-top: 36px;">
+$for(team.people)$        <div class="person">
+          <picture>
+$if(it.webp)$            <source srcset="$it.webp$" type="image/webp">
+$endif$            <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
+          </picture>
+          <h3>$it.name$</h3>
+          <p class="role">$it.role$</p>
+$if(it.links)$          <p class="links">$for(it.links)$<a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>$sep$<span class="sep">·</span>$endfor$</p>
+$endif$        </div>
+$endfor$      </div>
+    </section>
+
+    <!-- ─────────── Research collaborators ─────────── -->
+    <section id="research-collaborators" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$collaborators.eyebrow$</p>
+        <h2>$collaborators.h2_lead$ <em>$collaborators.h2_em$</em></h2>
+        <div class="people" style="margin-top: 36px;">
+$for(collaborators.people)$          <div class="person">
+            <picture>
+$if(it.webp)$              <source srcset="$it.webp$" type="image/webp">
+$endif$              <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
+            </picture>
+            <h3>$it.name$</h3>
+            <p class="role">$it.role$</p>
+$if(it.links)$            <p class="links">$for(it.links)$<a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>$sep$<span class="sep">·</span>$endfor$</p>
+$endif$          </div>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Expert collaborators ─────────── -->
+    <section id="expert-collaborators" class="wrap sec">
+      <p class="eyebrow">$experts.eyebrow$</p>
+      <h2>$experts.h2_lead$ <em>$experts.h2_em$</em></h2>
+      <ul class="chips" style="margin-top: 28px;" aria-label="$experts.list_label$">
+$for(experts.people)$        <li><strong>$it.name$</strong> · $it.org$</li>
+$endfor$      </ul>
+    </section>
+
+    <!-- ─────────── Student alumni ─────────── -->
+    <section id="student-alumni" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$alumni.eyebrow$</p>
+        <h2>$alumni.h2_lead$ <em>$alumni.h2_em$</em></h2>
+        <p class="sub">$alumni.sub$</p>
+        <ul class="chips" aria-label="$alumni.list_label$">
+$for(alumni.names)$        <li>$alumni.names$</li>
+$endfor$        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────── Academic home ─────────── -->
+    <!-- Kept deliberately separate from the Collaborators and Funders walls
+         below. ERN's Berkeley relationship is not a funding relationship, and
+         the marks must not sit in either of those rows (UC Berkeley Brand
+         Protection, Project #0946). Canonical wording:
+         library/docs/berkeley-affiliation/. -->
+    <section id="academic-home" class="wrap sec">
+      <p class="eyebrow">$academic.eyebrow$</p>
+      <h2>$academic.h2_lead$ <em>$academic.h2_em$</em></h2>
+      <p class="sub">$academic.body$</p>
+      <!-- Berkeley and Sociology only in THIS section. BIDS and CDSS appear in
+           Organizational Collaborators below (Tim, 2026-08-14): collaboration,
+           not the affiliation claim; affiliation language still awaits the
+           Meredith/Kirstie sign-off. IGS pending contact. TODO: add the
+           Department of Sociology mark once someone exports a web asset from
+           images/logos/sociology.afdesign (PNG or SVG). Until then Sociology
+           is named in the caption and in the statement above. -->
+      <div class="wall single">
+        <figure>
+          <a href="$academic.mark.href$" target="_blank" rel="noopener noreferrer"><img src="$academic.mark.src$" alt="$academic.mark.alt$" height="$academic.mark.height$"></a>
+          <figcaption>$academic.mark.caption$</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ─────────── Organizational collaborators ─────────── -->
+    <!-- Split from Funders on 2026-08-13. A logo in this wall makes no claim
+         about money; funding is asserted only in the Funders section below. -->
+    <section id="collaborators" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$orgs.eyebrow$</p>
+        <h2>$orgs.h2_lead$ <em>$orgs.h2_em$</em></h2>
+        <div class="wall" style="margin-top: 32px;">
+$for(orgs.logos)$$if(it.caption)$          <figure>
+            <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+            <figcaption>$it.caption$</figcaption>
+          </figure>
+$else$          <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+$endif$$endfor$        </div>
+        <!-- Collaborators with no logo asset on hand. Move any of these up into
+             the wall once a usable mark is obtained. Sources: HIP and UTHealth
+             Houston (HOPE-M R01, Hernandez) per library/ORG.md and hprm book
+             README; UW HFC (Colburn) per EvictionDataCollection_cowork/
+             washington; New America EDRN 2026-2028 cohort; CPC co-authored the
+             Bay HPRM report (Dolgoff, Driskell). -->
+        <ul class="chips" style="margin-top: 22px;" aria-label="$orgs.list_label$">
+$for(orgs.chips)$        <li><a href="$it.href$" target="_blank" rel="noopener noreferrer">$it.label$</a></li>
+$endfor$        </ul>
+      </div>
+    </section>
+
+    <!-- ─────────── Funders ─────────── -->
+    <!-- Berkeley never appears here: it administers externally funded research,
+         it does not fund ERN (UC Berkeley Brand Protection, Project #0946).
+         Provenance. C3.ai funded HPRM 1.0 (hprm/manuscripts/journal_article/
+         paper1/HPRM_manuscript_v3.md); HUD funded the ERA project (HIP prime)
+         and the PDR PIT-Alternatives grant; NIH funds the HOPE-M R01 on which
+         Tim is co-investigator; Enterprise's support of the 2018 Washington
+         work is recorded in library/legal_impact/README.md; Patrick J. McGovern
+         Foundation is per Tim (2026-08-13), not corroborated in the repos.
+         Deliberately NOT listed: Salt Lake (which Tim's own notes call
+         "Wasatch") and SANDAG, pending the ERN-vs-CiDR attribution flagged in
+         hprm/manuscripts/a-good-place.md. -->
+    <section id="funders" class="wrap sec">
+      <p class="eyebrow">$funders.eyebrow$</p>
+      <h2>$funders.h2_lead$ <em>$funders.h2_em$</em></h2>
+      <div class="wall" style="margin-top: 32px;">
+$for(funders.logos)$$if(it.caption)$        <figure>
+          <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+          <figcaption>$it.caption$</figcaption>
+        </figure>
+$else$        <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+$endif$$endfor$      </div>
+    </section>
+
+    <!-- ─────────── Partner ─────────── -->
+    <section id="partner" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">$partner.eyebrow$</p>
+          <h2 class="on-dark">$partner.heading$</h2>
+          <p class="body">$partner.body$</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="$partner.primary.href$">$partner.primary.label$</a>
+          <a class="btn on-dark" href="$partner.secondary.href$" target="_blank" rel="noopener noreferrer">$partner.secondary.label$</a>
+        </div>
+      </div>
+    </section>
+
+$if(body)$    <section class="wrap sec">
+      <!-- Anything written in the body of about.qmd lands here. -->
+      <div class="prose">
+$body$
+      </div>
+    </section>
+$endif$
+  </main>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="$logos.logo_reversed$" alt="Eviction Research Network">
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations;
+             UDP appears only in the collaborator line below. -->
+        <p>$site_footer.affiliation$</p>
+        <p>$site_footer.collaborators$</p>
+      </div>
+$for(site_footer.columns)$      <div class="foot-col">
+        <span>$it.heading$</span>
+$for(it.links)$        <a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$      </div>
+$endfor$    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>$site_footer.copyright$</span>
+        <span><a href="$site_footer.accessibility.href$" target="_blank" rel="noopener noreferrer">$site_footer.accessibility.label$</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

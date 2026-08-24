@@ -1,0 +1,97 @@
+/*!
+ * about-2026.css — the About page.
+ *
+ * Loads on top of ern-2026.css and adds only what that sheet has no
+ * component for: the text-and-photograph split, the capability cards, the
+ * people grid, the name chips, and the logo walls. Everything else (type
+ * scale, buttons, bands, header, footer, one red) comes from the design
+ * system and is not restated here.
+ *
+ * No icon font. The design system carries no icons, and the old page's only
+ * use for one was two glyphs on each portrait, which are now text links.
+ */
+
+/* ─── Text beside a photograph ─── */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.split > div { min-width: 0; }
+.split img {
+  display: block; width: 100%; height: auto;
+  /* Capped and cropped rather than left to run: the two photographs are 4:3
+     and 3:4, so at full height one column would be half again as tall. */
+  max-height: 540px; object-fit: cover; border-radius: 3px;
+}
+
+/* ─── Capability cards ─── */
+.cards.four { grid-template-columns: repeat(4, 1fr); gap: 30px; }
+.cap { border-top: 3px solid var(--accent); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+.cap h3 { font-size: 17px; font-weight: 600; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty; }
+.cap p { font-size: 14px; line-height: 1.6; color: var(--body); margin: 0; text-wrap: pretty; }
+
+/* ─── People ─── */
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 32px; }
+/* Column layout plus margin-top:auto on the links, so a role that wraps to two
+   lines does not push one person's links out of step with the rest of the row. */
+.person { display: flex; flex-direction: column; }
+.person img {
+  display: block; width: 100%; aspect-ratio: 1 / 1;
+  object-fit: cover; border-radius: 3px; background: var(--tint);
+}
+.person h3 { font-size: 16px; font-weight: 600; line-height: 1.35; color: var(--ink); margin: 15px 0 3px; text-wrap: pretty; }
+.person .role { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 9px; text-wrap: pretty; }
+.person .links {
+  margin-top: auto;
+  display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline;
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.person .links a { color: var(--accent-deep); text-decoration: none; }
+.person .links a:hover { color: var(--accent-press); text-decoration: underline; }
+.person .links .sep { color: var(--steel); }
+
+/* ─── Name chips ─── */
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.chips li {
+  font-size: 13.5px; line-height: 1.4; color: var(--body);
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 999px; padding: 8px 16px;
+}
+.chips strong { font-weight: 600; color: var(--ink); }
+.chips a { color: inherit; text-decoration: none; }
+.chips li:has(a):hover { border-color: var(--accent-deep); }
+.chips li:has(a):hover a { color: var(--accent-deep); }
+
+/* ─── Logo walls ─── */
+/* White ground even inside a tinted band: several partner marks are JPEGs
+   with a baked-in white background and would otherwise sit in visible boxes. */
+.wall {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 40px; row-gap: 34px;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-radius: 4px; padding: 34px 36px;
+}
+.wall a { display: inline-flex; align-items: center; }
+.wall img { display: block; width: auto; max-width: 100%; }
+.wall figure { margin: 0; max-width: 160px; text-align: center; }
+.wall figcaption { margin-top: 11px; font-size: 12.5px; line-height: 1.35; color: var(--muted); }
+.wall figcaption a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; }
+.wall figcaption a:hover { color: var(--accent-deep); }
+
+/* The academic-home mark stands alone and should not read as one logo in a
+   row of many, so its wall is sized to its contents. */
+.wall.single { display: inline-flex; }
+
+/* ─── Responsive ─── */
+@media (max-width: 1100px) {
+  .cards.four { grid-template-columns: repeat(2, 1fr); }
+  .people { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1000px) {
+  .split { grid-template-columns: 1fr; gap: 32px; }
+  .split img { max-height: 420px; }
+}
+@media (max-width: 900px) {
+  .people { grid-template-columns: repeat(2, 1fr); gap: 32px 22px; }
+  .wall { gap: 30px; row-gap: 26px; padding: 26px 24px; }
+}
+@media (max-width: 560px) {
+  .cards.four { grid-template-columns: 1fr; }
+}

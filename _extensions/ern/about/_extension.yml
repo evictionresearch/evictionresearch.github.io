@@ -1,0 +1,26 @@
+title: ERN about page
+author: Eviction Research Network
+version: 0.1.0
+quarto-required: ">=1.4.0"
+contributes:
+  formats:
+    html:
+      # Same arrangement as _extensions/ern/home: a full custom pandoc template
+      # carrying the page chrome, and no Quarto theme or chrome to leak into it.
+      template: template.html
+      # Markdown reader tuned for parity with the shipped page:
+      #   -smart              straight quotes stay straight
+      #   -tex_math_dollars   dollar amounts are never eaten as math
+      #   -auto_identifiers   headings carry no generated ids
+      from: markdown-smart-tex_math_dollars-auto_identifiers
+      minimal: true
+      theme: none
+      html-table-processing: none
+      toc: false
+      section-divs: false
+      embed-resources: false
+      anchor-sections: false
+      # Targets are set per link in the template, so Quarto must not rewrite
+      # them. The in-page anchors and mailto links deliberately stay put.
+      link-external-newwindow: false
+      smooth-scroll: false

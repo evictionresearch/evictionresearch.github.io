@@ -115,6 +115,11 @@ section { scroll-margin-top: 100px; }
 .band-dark { background: var(--ink); }
 .sec { padding-top: 64px; padding-bottom: 56px; }
 .sec-sm { padding-top: 56px; padding-bottom: 56px; }
+/* A section that opens a page on text rather than a map. The measure matters:
+   without it a hairline h1 runs the full 1240 and stops reading as a heading. */
+.sec-hero { padding-top: 76px; padding-bottom: 60px; }
+.hero-in { max-width: 62ch; }
+.hero-in .lede { max-width: 60ch; }
 
 /* ─── Type ─── */
 h1, h2 { font-weight: 200; margin: 0 0 16px; text-wrap: pretty; }

@@ -29,6 +29,8 @@
   #plink { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #F9322B; text-decoration: none; white-space: nowrap; }
   #plink:hover { color: #CC2118; text-decoration: underline; }
   #plink[hidden] { display: none; }
+  path.dclead { fill: none; stroke: #8BA3BE; stroke-width: 1; pointer-events: none; }
+  text.dclabel { font-size: 11px; font-weight: 600; letter-spacing: 0.02em; fill: #19222C; pointer-events: none; }
   #err { display: none; padding: 20px 2px; font-size: 13px; color: #586573; }
   @media (max-width: 720px) { #panel { grid-template-columns: 1fr; gap: 8px; } }
 </style>
@@ -67,6 +69,8 @@
   // whenever the page is opened straight off disk.
   var ATLAS = 'https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-10m.json';
   var FILL = { ern: '#F9322B', other: '#223754', none: '#ffffff' };
+  // D.C. and where its offshore chip sits, in projected viewBox units.
+  var DC = '11', CHIP = { x: 902, y: 292, s: 17 };
 
   var tip = document.getElementById('tip'), pick = document.getElementById('pick');
   var pname = document.getElementById('pname'), pnote = document.getElementById('pnote');
@@ -125,36 +129,66 @@
     // coverage they never had, so they are filtered out before anything binds.
     var drawable = feats.features.filter(function (d) { return !!path(d); });
 
-    svg.append('g').selectAll('path').data(drawable).join('path')
+    // Every shape on the map gets the same affordances. Factored out so the
+    // D.C. chip below reuses them instead of drifting from the states.
+    function wire(sel) {
+      return sel
+        .attr('tabindex', 0)
+        .attr('role', function (d) { return rec(d.id) && rec(d.id).url ? 'link' : 'button'; })
+        .attr('aria-label', function (d) {
+          var r = rec(d.id);
+          var base = (r ? r.name : d.properties.name) + ' — ' + label(d);
+          return r && r.url ? base + ' (opens in a new tab)' : base;
+        })
+        .on('mousemove', function (ev, d) {
+          var r = rec(d.id);
+          tip.textContent = (r ? r.name : d.properties.name) + ' — ' + label(d);
+          tip.style.opacity = 1;
+          tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
+          tip.style.top = (ev.clientY + 16) + 'px';
+        })
+        .on('mouseleave', function () { tip.style.opacity = 0; })
+        .on('click', function (ev, d) { show(d, this); pick.value = d.id; openSource(d); })
+        // Focus fills the readout but must not navigate — tabbing across the
+        // map would otherwise fire off a tab per state.
+        .on('focus', function (ev, d) { show(d, this); pick.value = d.id; })
+        .on('keydown', function (ev, d) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault(); show(d, this); pick.value = d.id; openSource(d);
+          }
+        });
+    }
+
+    var shapes = svg.append('g').selectAll('path').data(drawable).join('path')
       .attr('class', 'st')
       .attr('d', path)
       .attr('fill', function (d) { return fill(d.id); })
       .attr('stroke', function (d) { return kind(d.id) === 'none' ? '#b7c2cd' : '#ffffff'; })
-      .attr('stroke-width', 1)
-      .attr('tabindex', 0)
-      .attr('role', function (d) { return rec(d.id) && rec(d.id).url ? 'link' : 'button'; })
-      .attr('aria-label', function (d) {
-        var r = rec(d.id);
-        var base = (r ? r.name : d.properties.name) + ' — ' + label(d);
-        return r && r.url ? base + ' (opens in a new tab)' : base;
-      })
-      .on('mousemove', function (ev, d) {
-        var r = rec(d.id);
-        tip.textContent = (r ? r.name : d.properties.name) + ' — ' + label(d);
-        tip.style.opacity = 1;
-        tip.style.left = Math.min(ev.clientX + 14, window.innerWidth - tip.offsetWidth - 8) + 'px';
-        tip.style.top = (ev.clientY + 16) + 'px';
-      })
-      .on('mouseleave', function () { tip.style.opacity = 0; })
-      .on('click', function (ev, d) { show(d, this); pick.value = d.id; openSource(d); })
-      // Focus fills the readout but must not navigate — tabbing across the map
-      // would otherwise fire off a tab per state.
-      .on('focus', function (ev, d) { show(d, this); pick.value = d.id; })
-      .on('keydown', function (ev, d) {
-        if (ev.key === 'Enter' || ev.key === ' ') {
-          ev.preventDefault(); show(d, this); pick.value = d.id; openSource(d);
-        }
-      });
+      .attr('stroke-width', 1);
+
+    wire(shapes.filter(function (d) { return d.id !== DC; }));
+
+    // The District projects to 3.6 by 4.4 units in this 975-wide viewBox, under
+    // three screen pixels at the width the page gives the map. Too small to
+    // see, hover or click, so the real outline stays purely decorative and a
+    // labelled chip offshore carries D.C.'s colour and all of its interaction.
+    var dc = drawable.find(function (d) { return d.id === DC; });
+    shapes.filter(function (d) { return d.id === DC; })
+      .attr('aria-hidden', 'true').style('pointer-events', 'none');
+    if (dc) {
+      var a = path.centroid(dc), g = svg.append('g');
+      g.append('path').attr('class', 'dclead')
+        .attr('d', 'M' + a[0].toFixed(1) + ',' + a[1].toFixed(1) + 'L' + (CHIP.x - 3) + ',' + (CHIP.y + CHIP.s / 2));
+      wire(g.append('path').datum(dc)
+        .attr('class', 'st')
+        .attr('d', 'M' + CHIP.x + ',' + CHIP.y + 'h' + CHIP.s + 'v' + CHIP.s + 'h' + -CHIP.s + 'Z')
+        .attr('fill', fill(dc.id))
+        .attr('stroke', kind(dc.id) === 'none' ? '#b7c2cd' : '#ffffff')
+        .attr('stroke-width', 1));
+      g.append('text').attr('class', 'dclabel')
+        .attr('x', CHIP.x + CHIP.s + 6).attr('y', CHIP.y + CHIP.s - 4)
+        .text('D.C.');
+    }
 
     drawable.slice()
       .sort(function (a, b) { return d3.ascending(a.properties.name, b.properties.name); })
@@ -167,7 +201,9 @@
     pick.addEventListener('change', function () {
       var d = drawable.find(function (f) { return f.id === pick.value; });
       if (!d) return;
-      var node = svg.selectAll('path.st').nodes().find(function (n) { return d3.select(n).datum().id === d.id; });
+      // Last match wins: D.C. has two shapes and the chip is drawn second.
+      var hits = svg.selectAll('path.st').nodes().filter(function (n) { return d3.select(n).datum().id === d.id; });
+      var node = hits[hits.length - 1];
       show(d, node);
     });
     postH();

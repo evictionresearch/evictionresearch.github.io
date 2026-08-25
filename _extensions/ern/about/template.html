@@ -209,9 +209,10 @@ $endif$$endfor$        </div>
            README; UW HFC (Colburn) per EvictionDataCollection_cowork/
            washington; New America EDRN 2026-2028 cohort; CPC co-authored the
            Bay HPRM report (Dolgoff, Driskell). -->
-      <ul class="chips" style="margin-top: 22px;" aria-label="$orgs.list_label$">
+$if(orgs.chips)$<ul class="chips" style="margin-top: 22px;" aria-label="$orgs.list_label$">
 $for(orgs.chips)$        <li><a href="$it.href$" target="_blank" rel="noopener noreferrer">$it.label$</a></li>
 $endfor$        </ul>
+$endif$
     </section>
 
     <!-- ─────────── Funders ─────────── -->

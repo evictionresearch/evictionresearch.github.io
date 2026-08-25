@@ -489,9 +489,14 @@ orgs:
       src: "partner_logos/csdeblk.png"
       alt: "Center for Studies in Demography and Ecology, University of Washington"
       height: 52
-  chips:
-    - label: "UW Housing Futures Center"
-      href: "https://housingfutures.be.uw.edu/"
+    # Housing Futures Center sits beside CSDE, the other UW centre. Copied from
+    # washington/images/logos/hfc.png, added there 2026-08-24. Its lockup is
+    # 6.56:1, near-identical to Cascadia Urban Analytics, so it takes the same
+    # 44px height and lands at the same visual width.
+    - href: "https://housingfutures.be.uw.edu/"
+      src: "partner_logos/uw_hfc.png"
+      alt: "Housing Futures Center, University of Washington"
+      height: 44
 
 funders:
   eyebrow: "Support"

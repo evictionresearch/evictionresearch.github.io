@@ -25,11 +25,22 @@
   max-height: 540px; object-fit: cover; border-radius: 3px;
 }
 
-/* ─── Capability cards ─── */
-.cards.four { grid-template-columns: repeat(4, 1fr); gap: 30px; }
-.cap { border-top: 3px solid var(--accent); padding-top: 18px; display: flex; flex-direction: column; gap: 10px; }
-.cap h3 { font-size: 17px; font-weight: 600; line-height: 1.35; color: var(--ink); margin: 0; text-wrap: pretty; }
-.cap p { font-size: 14px; line-height: 1.6; color: var(--body); margin: 0; text-wrap: pretty; }
+/* ─── Capability quadrant ─── */
+/* Two by two beside the photograph, the arrangement the team used. The
+   photograph fills the column rather than being capped, so the two halves of
+   the row finish level. */
+.split.quad { grid-template-columns: 1.15fr 1fr; align-items: stretch; }
+.split.quad img { height: 100%; max-height: none; }
+
+.caps { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 34px; margin-top: 34px; }
+.cap h3 {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 16px; font-weight: 650; line-height: 1.3;
+  color: var(--ink); margin: 0 0 9px; text-wrap: pretty;
+}
+.cap-i { width: 20px; height: 20px; flex: none; fill: var(--accent); }
+/* Body copy hangs under the title, not under the icon. */
+.cap p { font-size: 14px; line-height: 1.6; color: var(--body); margin: 0; padding-left: 30px; text-wrap: pretty; }
 
 /* ─── People ─── */
 .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px 32px; }
@@ -87,17 +98,16 @@
 
 /* ─── Responsive ─── */
 @media (max-width: 1100px) {
-  .cards.four { grid-template-columns: repeat(2, 1fr); }
   .people { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 1000px) {
   .split { grid-template-columns: 1fr; gap: 32px; }
-  .split img { max-height: 420px; }
+  .split img, .split.quad img { max-height: 420px; height: auto; }
 }
 @media (max-width: 900px) {
   .people { grid-template-columns: repeat(2, 1fr); gap: 32px 22px; }
   .wall { gap: 30px; row-gap: 26px; padding: 26px 24px; }
 }
 @media (max-width: 560px) {
-  .cards.four { grid-template-columns: 1fr; }
+  .caps { grid-template-columns: 1fr; gap: 26px; }
 }

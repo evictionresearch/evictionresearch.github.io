@@ -38,6 +38,16 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
+  <!-- Bootstrap Icons, the same four the team used, lifted straight from
+       assets/vendor/bootstrap-icons/fonts/bootstrap-icons.woff2 by
+       code/extract_icons.py so the page needs no icon font. -->
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <symbol id="i-layers" viewbox="0 0 16 16"><path d="M8.21 1.55Q8 1.44 7.79 1.55L0.27 5.55Q0 5.71 0 6Q0 6.29 0.27 6.45L3.2 8L0.27 9.55Q0 9.71 0 10Q0 10.29 0.27 10.45L7.79 14.45Q8 14.56 8.21 14.45L15.73 10.45Q16 10.29 16 10Q16 9.71 15.73 9.55L12.8 8L15.73 6.45Q16 6.29 16 6Q16 5.71 15.73 5.55ZM11.73 8.59 14.45 9.97 8 13.44 1.55 9.97 4.27 8.59 7.79 10.45Q8 10.56 8.21 10.45ZM8 9.44 1.55 5.97 8 2.56 14.45 5.97Z"></path></symbol>
+    <symbol id="i-map" viewbox="0 0 16 16"><path d="M15.84 0.11Q16 0.27 16 0.48V14.51Q16 14.67 15.89 14.8Q15.79 14.93 15.57 14.99L10.61 16Q10.51 16 10.4 16L5.49 14.99L0.59 16Q0.37 16.05 0.19 15.89Q0 15.73 0 15.52V1.49Q0 1.33 0.11 1.2Q0.21 1.07 0.43 1.01L5.39 0Q5.49 0 5.6 0L10.51 1.01L15.41 0Q15.63 -0.05 15.84 0.11ZM10.03 1.92 6.03 1.12V14.08L10.03 14.88ZM10.99 14.88 14.99 14.08V1.12L10.99 1.92ZM5.01 14.08V1.12L1.01 1.92V14.88Z"></path></symbol>
+    <symbol id="i-people" viewbox="0 0 16 16"><path d="M14.99 13.97Q15.15 13.97 15.25 13.97Q15.57 13.87 15.79 13.65Q16 13.44 16 13.01Q16 12.32 15.57 11.52Q15.04 10.45 14.08 9.81Q12.8 9.01 10.99 9.01Q9.17 9.01 7.95 9.81Q6.93 10.45 6.4 11.52Q6.03 12.32 6.03 13.01Q6.03 13.44 6.24 13.65Q6.45 13.87 6.72 13.97H6.99ZM7.04 13.01H6.99Q6.99 12.69 7.15 12.32Q7.36 11.73 7.79 11.25Q8.85 10.03 11.01 10Q13.17 9.97 14.24 11.25Q14.61 11.73 14.83 12.32Q14.99 12.69 14.99 13.01ZM10.99 6.99Q11.84 6.99 12.43 6.4Q13.01 5.81 13.01 4.99Q13.01 4.16 12.43 3.57Q11.84 2.99 11.01 2.99Q10.19 2.99 9.6 3.57Q9.01 4.16 9.01 4.99Q9.01 5.81 9.6 6.4Q10.19 6.99 10.99 6.99ZM14.03 5.01Q14.03 6.24 13.15 7.12Q12.27 8 11.01 8Q9.76 8 8.88 7.12Q8 6.24 8 4.99Q8 3.73 8.88 2.88Q9.76 2.03 11.01 2Q12.27 1.97 13.12 2.85Q13.97 3.73 13.97 5.01ZM6.93 9.28Q6.35 9.07 5.71 9.01Q5.33 9.01 5.01 9.01Q3.2 9.01 1.92 9.81Q0.96 10.45 0.43 11.52Q0 12.32 0 13.01Q0 13.97 1.01 13.97H5.23Q5.01 13.55 5.01 13.01Q5.01 11.41 6.08 10.08Q6.45 9.65 6.93 9.28ZM4.91 9.97Q4 11.36 4 13.01H1.01Q1.01 12.75 1.17 12.32Q1.39 11.73 1.76 11.25Q2.83 10.03 4.91 10.03ZM1.49 5.49Q1.49 4.27 2.37 3.39Q3.25 2.51 4.51 2.51Q5.76 2.51 6.64 3.39Q7.52 4.27 7.52 5.49Q7.52 6.72 6.64 7.6Q5.76 8.48 4.51 8.48Q3.25 8.48 2.37 7.6Q1.49 6.72 1.49 5.49ZM4.48 3.52Q3.68 3.52 3.09 4.11Q2.51 4.69 2.51 5.52Q2.51 6.35 3.09 6.93Q3.68 7.52 4.51 7.52Q5.33 7.52 5.92 6.93Q6.51 6.35 6.51 5.52Q6.51 4.69 5.92 4.11Q5.33 3.52 4.48 3.52Z"></path></symbol>
+    <symbol id="i-megaphone" viewbox="0 0 16 16"><path d="M13.01 2.51Q13.01 1.87 13.44 1.44Q13.87 1.01 14.51 1.01Q15.15 1.01 15.57 1.44Q16 1.87 16 2.51V13.49Q16 14.13 15.57 14.56Q15.15 14.99 14.51 14.99Q13.87 14.99 13.44 14.56Q13.01 14.13 13.01 13.49V13.28Q10.08 11.57 6.08 11.2L6.51 13.92Q6.56 14.4 6.27 14.75Q5.97 15.09 5.49 15.09H4.96Q4.64 15.09 4.4 14.93Q4.16 14.77 4.05 14.51L2.19 10.99H1.97Q1.17 10.99 0.59 10.4Q0 9.81 0 9.01V6.99Q0 6.19 0.59 5.6Q1.17 5.01 1.97 5.01Q3.25 4.96 4.48 4.91Q6.88 4.8 9.01 4.27Q11.25 3.68 13.01 2.72ZM14.03 2.51V13.49Q14.03 13.71 14.16 13.84Q14.29 13.97 14.51 13.97Q14.72 13.97 14.85 13.84Q14.99 13.71 14.99 13.49V2.51Q14.99 2.29 14.85 2.13Q14.72 1.97 14.51 1.97Q14.29 1.97 14.13 2.13Q13.97 2.29 13.97 2.51ZM13.01 3.84Q11.31 4.75 9.17 5.23Q7.2 5.71 5.01 5.87V10.13H5.55Q9.81 10.45 13.01 12.16ZM4 10.08V5.92L2.03 5.97Q1.6 5.97 1.31 6.27Q1.01 6.56 1.01 6.99V9.01Q1.01 9.39 1.31 9.71Q1.6 10.03 2.03 10.03Q2.99 10.03 4 10.08ZM3.36 11.04 4.96 14.08H5.49L5.07 11.15Z"></path></symbol>
+  </svg>
+
   <!-- ─────────── Header ─────────── -->
   <header class="head">
     <div class="wrap head-in">
@@ -82,32 +92,32 @@
 
     <!-- ─────────── What we do ─────────── -->
     <section id="what-we-do" class="wrap sec">
-      <div class="split" style="margin-bottom: 52px;">
+      <div class="split quad">
         <div>
           <p class="eyebrow">What We Do</p>
           <h2>What <em>We Do.</em></h2>
           <p class="prose">We collect, analyze, and visualize eviction data to put numbers to disparities left in the wake of historical injustice.</p>
+          <div class="caps">
+            <article class="cap">
+              <h3><svg class="cap-i" aria-hidden="true"><use href="#i-layers"></use></svg><span>Data Preparation</span></h3>
+              <p>We provide data and research expertise to collect, prepare, and process eviction data for sources who may not have the means to do so.</p>
+            </article>
+            <article class="cap">
+              <h3><svg class="cap-i" aria-hidden="true"><use href="#i-map"></use></svg><span>Maps and Analysis</span></h3>
+              <p>We analyze the data we have collected and help other partners analyze data for disparities based on race, sex, and other factors. We then integrate that information into maps of the state that show disparities by region.</p>
+            </article>
+            <article class="cap">
+              <h3><svg class="cap-i" aria-hidden="true"><use href="#i-people"></use></svg><span>Network</span></h3>
+              <p>We create relationships and work alongside partners to help understand their data, share our analysis, and otherwise interact in order to create a force for advocacy, made exponentially more powerful through the mutual amplification of our collective voices.</p>
+            </article>
+            <article class="cap">
+              <h3><svg class="cap-i" aria-hidden="true"><use href="#i-megaphone"></use></svg><span>Advocacy</span></h3>
+              <p>Equipped with undeniable statistics, we advise and champion policies aimed to address disproportionate impact of evictions on vulnerable populations and communities.</p>
+            </article>
+          </div>
         </div>
         <img src="images/about_page/gimmeshelter.jpeg" alt="A hanging shop sign reading Gimme Shelter above a neighborhood sidewalk" loading="lazy">
       </div>
-      <div class="cards four">
-          <article class="cap">
-          <h3>Data Preparation</h3>
-          <p>We provide data and research expertise to collect, prepare, and process eviction data for sources who may not have the means to do so.</p>
-        </article>
-          <article class="cap">
-          <h3>Maps and Analysis</h3>
-          <p>We analyze the data we have collected and help other partners analyze data for disparities based on race, sex, and other factors. We then integrate that information into maps of the state that show disparities by region.</p>
-        </article>
-          <article class="cap">
-          <h3>Network</h3>
-          <p>We create relationships and work alongside partners to help understand their data, share our analysis, and otherwise interact in order to create a force for advocacy, made exponentially more powerful through the mutual amplification of our collective voices.</p>
-        </article>
-          <article class="cap">
-          <h3>Advocacy</h3>
-          <p>Equipped with undeniable statistics, we advise and champion policies aimed to address disproportionate impact of evictions on vulnerable populations and communities.</p>
-        </article>
-        </div>
     </section>
 
     <!-- ─────────── Team ─────────── -->

@@ -150,22 +150,26 @@ work:
       A hanging shop sign reading Gimme Shelter above a neighborhood sidewalk
   capabilities:
     - title: "Data Preparation"
+      icon: "layers"
       body: >-
         We provide data and research expertise to collect, prepare, and process
         eviction data for sources who may not have the means to do so.
     - title: "Maps and Analysis"
+      icon: "map"
       body: >-
         We analyze the data we have collected and help other partners analyze
         data for disparities based on race, sex, and other factors. We then
         integrate that information into maps of the state that show disparities
         by region.
     - title: "Network"
+      icon: "people"
       body: >-
         We create relationships and work alongside partners to help understand
         their data, share our analysis, and otherwise interact in order to
         create a force for advocacy, made exponentially more powerful through
         the mutual amplification of our collective voices.
     - title: "Advocacy"
+      icon: "megaphone"
       body: >-
         Equipped with undeniable statistics, we advise and champion policies
         aimed to address disproportionate impact of evictions on vulnerable

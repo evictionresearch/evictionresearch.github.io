@@ -138,8 +138,10 @@ work:
   eyebrow: "What We Do"
   h2_lead: "What"
   h2_em: "We Do."
-  # Restored verbatim from the team's About page (f725271, 23 Feb 2026). The one
-  # edit is a spelling fix in the Network card: "amplicification" -> "amplification".
+  # Restored from the team's About page (f725271, 23 Feb 2026), with two edits:
+  # a spelling fix in the Network card ("amplicification" -> "amplification"),
+  # and Tim's rewording of the Advocacy card on 2026-08-25 ("disproportionate
+  # impact of evictions on" -> "disproportionate impacts on").
   sub: >-
     We collect, analyze, and visualize eviction data to put numbers to
     disparities left in the wake of historical injustice.
@@ -172,8 +174,8 @@ work:
       icon: "megaphone"
       body: >-
         Equipped with undeniable statistics, we advise and champion policies
-        aimed to address disproportionate impact of evictions on vulnerable
-        populations and communities.
+        aimed to address disproportionate impacts on vulnerable populations and
+        communities.
 
 team:
   eyebrow: "The team"

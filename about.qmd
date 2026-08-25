@@ -25,13 +25,12 @@ meta:
   og_title: "About the Eviction Research Network"
   og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   description: >-
-    The Eviction Research Network is a research program led by Dr. Tim Thomas
-    in UC Berkeley&#39;s Department of Sociology. We turn civil court records
-    into open, comparable data on eviction and displacement. Team,
-    collaborators, academic home, and funders.
+    The Eviction Research Network collects, analyzes, and visualizes eviction
+    data to put numbers to disparities left in the wake of historical injustice.
+    Mission, team, collaborators, academic home, and funders.
   short_description: >-
-    No federal agency counts evictions. ERN turns civil court records into
-    open, comparable data on eviction and displacement.
+    We make things that can&#39;t be unseen. The Eviction Research Network
+    collects, analyzes, and visualizes eviction data.
   keywords: >-
     Eviction Research Network, Tim Thomas, UC Berkeley Sociology, eviction
     data, court records, housing displacement, racial disparities, research
@@ -57,39 +56,53 @@ nav:
     button: true
 
 hero:
-  eyebrow: "About ERN"
-  h1_lead: "No federal agency counts evictions."
-  h1_em: "We do."
-  lede: >-
-    The Eviction Research Network is a research program led by Dr. Tim Thomas
-    in UC Berkeley&#39;s Department of Sociology. We turn civil court records
-    into open, comparable data on eviction and displacement, and we study how
-    housing loss connects to health, contact with the criminal justice system,
-    and climate risk.
+  eyebrow: "About"
+  # The team's h1. Only the closing period is new, so the heading matches the
+  # rest of the site; the words are theirs.
+  h1_lead: "We make things that"
+  h1_em: "can&#39;t be unseen."
+  # They carried "Est 2018" under the headline as its own line.
+  meta: "Est 2018"
 
 mission:
-  eyebrow: "Mission · Est 2018"
-  h2_lead: "It began with"
-  h2_em: "one case."
+  eyebrow: "Mission"
+  # Their section label was simply "Mission", so there is no lead half here.
+  h2_em: "Mission."
+  # Restored verbatim from the team's About page (f725271, 23 Feb 2026). Their
+  # punctuation and numerals are kept as written, em-dashes included.
   paragraphs:
     - >-
-      A mother was served an eviction notice, settled out of court, and stayed
-      in her home for two more years. The filing stayed on her record anyway,
-      and was later used to deny her housing. With support from the American
-      Civil Liberties Union, her case opened a larger question about racial and
-      gender disparities in who faces eviction.
+      It started with a mother who was served an eviction notice, settled out of
+      court, and continued to live in the residence for 2 more years. But the
+      filing followed her&mdash;ultimately leading to denial of future housing.
+      With support from the American Civil Liberties Union, her case exposed
+      deep racial and gender disparities embedded in eviction practices.
     - >-
       Research in King County, Washington found that Black households were four
       times more likely than White households to receive eviction notices, and
       that Black women were five times more likely than White men to have an
-      eviction case filed against them.
+      eviction case filed against them. Building on this work, founder Tim
+      Thomas began examining local eviction data and later expanded this
+      analysis across Washington State and other regions. These findings have
+      informed the development of state and local policies, including Washington
+      State&#39;s extension of the eviction notice period from 3 to 14 days and
+      the establishment of Right to Counsel in Baltimore City, with the goal of
+      reducing preventable evictions and supporting fairer processes.
     - >-
-      Tim Thomas, ERN&#39;s founder, led that research and extended it across
-      Washington State and other regions. The findings informed state and local
-      policy, including Washington&#39;s extension of the eviction notice period
-      from 3 to 14 days and Baltimore&#39;s Right to Counsel law, which
-      guarantees tenants a lawyer in eviction cases. Both measures aim to reduce
-      preventable evictions and give tenants a fairer process.
+      The Eviction Research Network (ERN) specializes in making housing and
+      eviction dynamics measurable and understandable. Through open-source
+      tools, academic research, and collaboration with a wide range of
+      partners&mdash;including community organizations, service providers, and
+      public agencies&mdash;ERN develops accessible data that clarifies where
+      and for whom evictions are most likely to occur. Similar patterns to those
+      observed in Washington appear across many jurisdictions and reflect the
+      long-term effects of historical housing policies and practices. Because
+      stable housing underpins health, education, and overall well-being, these
+      patterns have significant implications for communities&#39; long-term
+      outcomes. By identifying populations and neighborhoods at elevated risk of
+      eviction at the local level, the Eviction Research Network supports
+      data-informed strategies aimed at preventing displacement and
+      strengthening housing stability.
   image:
     src: "images/about_page/blackandwhitezone.jpeg"
     # The old page called this a map of a redlined zone. It is a photograph.
@@ -122,42 +135,41 @@ approach:
       that prevention can begin before a case is ever filed.
 
 work:
-  eyebrow: "What we do"
-  h2_lead: "Court records,"
-  h2_em: "made comparable."
+  eyebrow: "What We Do"
+  h2_lead: "What"
+  h2_em: "We Do."
+  # Restored verbatim from the team's About page (f725271, 23 Feb 2026). The one
+  # edit is a spelling fix in the Network card: "amplicification" -> "amplification".
   sub: >-
-    We collect, standardize, and analyze civil court records so that eviction
-    can be measured the same way in every state, and so that disparities by
-    race, gender, and neighborhood are documented rather than assumed.
+    We collect, analyze, and visualize eviction data to put numbers to
+    disparities left in the wake of historical injustice.
   image:
     src: "images/about_page/gimmeshelter.jpeg"
     # The old page called this demonstrators with signs. It is a shop sign.
     alt: >-
       A hanging shop sign reading Gimme Shelter above a neighborhood sidewalk
   capabilities:
-    - title: "Data preparation"
+    - title: "Data Preparation"
       body: >-
-        We collect, clean, and standardize eviction records for the courts,
-        agencies, and legal organizations that hold them but do not have the
-        staff or tools to prepare them for research.
-    - title: "Maps and analysis"
+        We provide data and research expertise to collect, prepare, and process
+        eviction data for sources who may not have the means to do so.
+    - title: "Maps and Analysis"
       body: >-
-        We estimate filing and judgment rates by neighborhood and by demographic
-        group, using Bayesian inference, a statistical method that estimates a
-        group&#39;s racial makeup from surnames and addresses. Race is estimated
-        as a group rate, never assigned to an individual. The results are
-        published as state profiles and interactive maps.
+        We analyze the data we have collected and help other partners analyze
+        data for disparities based on race, sex, and other factors. We then
+        integrate that information into maps of the state that show disparities
+        by region.
     - title: "Network"
       body: >-
-        We work with courts, legal aid organizations, public agencies, and
-        academic partners in each state we cover. Methods, code, and citations
-        are published openly, so findings can be reproduced, contested, and
-        extended by others.
-    - title: "Policy evidence"
+        We create relationships and work alongside partners to help understand
+        their data, share our analysis, and otherwise interact in order to
+        create a force for advocacy, made exponentially more powerful through
+        the mutual amplification of our collective voices.
+    - title: "Advocacy"
       body: >-
-        We brief legislators, agencies, and courts on what the evidence
-        supports, and evaluate which policies measurably reduce filings and
-        displacement.
+        Equipped with undeniable statistics, we advise and champion policies
+        aimed to address disproportionate impact of evictions on vulnerable
+        populations and communities.
 
 team:
   eyebrow: "The team"

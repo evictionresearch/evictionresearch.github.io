@@ -59,104 +59,98 @@ $endfor$      </nav>
     <section id="top" class="wrap sec-hero">
       <div class="hero-in">
         <p class="eyebrow">$hero.eyebrow$</p>
-        <h1>$hero.h1_lead$ <em>$hero.h1_em$</em></h1>
-        <p class="lede">$hero.lede$</p>
+        <h1>$if(hero.h1_lead)$$hero.h1_lead$ $endif$<em>$hero.h1_em$</em></h1>
+$if(hero.lede)$        <p class="lede">$hero.lede$</p>
+$endif$$if(hero.meta)$        <p class="meta">$hero.meta$</p>
+$endif$
       </div>
     </section>
 
     <!-- ─────────── Mission ─────────── -->
     <section id="mission" class="band">
-      <div class="wrap sec split">
+      <div class="wrap sec split long">
         <div>
           <p class="eyebrow">$mission.eyebrow$</p>
-          <h2>$mission.h2_lead$ <em>$mission.h2_em$</em></h2>
+          <h2>$if(mission.h2_lead)$$mission.h2_lead$ $endif$<em>$mission.h2_em$</em></h2>
 $for(mission.paragraphs)$          <p class="prose">$mission.paragraphs$</p>
 $endfor$        </div>
         <img src="$mission.image.src$" alt="$mission.image.alt$" loading="lazy">
       </div>
     </section>
 
-    <!-- ─────────── The gap ERN fills ─────────── -->
-    <section id="approach" class="wrap sec">
-      <h2>$approach.h2_lead$ <em>$approach.h2_em$</em></h2>
-$for(approach.paragraphs)$      <p class="prose">$approach.paragraphs$</p>
-$endfor$    </section>
-
     <!-- ─────────── What we do ─────────── -->
-    <section id="what-we-do" class="band">
-      <div class="wrap sec">
-        <div class="split" style="margin-bottom: 52px;">
-          <div>
-            <p class="eyebrow">$work.eyebrow$</p>
-            <h2>$work.h2_lead$ <em>$work.h2_em$</em></h2>
-            <p class="prose">$work.sub$</p>
-          </div>
-          <img src="$work.image.src$" alt="$work.image.alt$" loading="lazy">
+    <section id="what-we-do" class="wrap sec">
+      <div class="split" style="margin-bottom: 52px;">
+        <div>
+          <p class="eyebrow">$work.eyebrow$</p>
+          <h2>$if(work.h2_lead)$$work.h2_lead$ $endif$<em>$work.h2_em$</em></h2>
+          <p class="prose">$work.sub$</p>
         </div>
-        <div class="cards four">
-$for(work.capabilities)$          <article class="cap">
-            <h3>$it.title$</h3>
-            <p>$it.body$</p>
-          </article>
-$endfor$        </div>
+        <img src="$work.image.src$" alt="$work.image.alt$" loading="lazy">
       </div>
+      <div class="cards four">
+$for(work.capabilities)$          <article class="cap">
+          <h3>$it.title$</h3>
+          <p>$it.body$</p>
+        </article>
+$endfor$        </div>
     </section>
 
     <!-- ─────────── Team ─────────── -->
-    <section id="team" class="wrap sec">
-      <p class="eyebrow">$team.eyebrow$</p>
-      <h2>$team.h2_lead$ <em>$team.h2_em$</em></h2>
-      <div class="people" style="margin-top: 36px;">
-$for(team.people)$        <div class="person">
-          <picture>
-$if(it.webp)$            <source srcset="$it.webp$" type="image/webp">
-$endif$            <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
-          </picture>
-          <h3>$it.name$</h3>
-          <p class="role">$it.role$</p>
-$if(it.links)$          <p class="links">$for(it.links)$<a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>$sep$<span class="sep">·</span>$endfor$</p>
-$endif$        </div>
-$endfor$      </div>
-    </section>
-
-    <!-- ─────────── Research collaborators ─────────── -->
-    <section id="research-collaborators" class="band">
+    <section id="team" class="band">
       <div class="wrap sec">
-        <p class="eyebrow">$collaborators.eyebrow$</p>
-        <h2>$collaborators.h2_lead$ <em>$collaborators.h2_em$</em></h2>
+        <p class="eyebrow">$team.eyebrow$</p>
+        <h2>$if(team.h2_lead)$$team.h2_lead$ $endif$<em>$team.h2_em$</em></h2>
         <div class="people" style="margin-top: 36px;">
-$for(collaborators.people)$          <div class="person">
+  $for(team.people)$        <div class="person">
             <picture>
-$if(it.webp)$              <source srcset="$it.webp$" type="image/webp">
-$endif$              <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
+  $if(it.webp)$            <source srcset="$it.webp$" type="image/webp">
+  $endif$            <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
             </picture>
             <h3>$it.name$</h3>
             <p class="role">$it.role$</p>
+  $if(it.links)$          <p class="links">$for(it.links)$<a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>$sep$<span class="sep">·</span>$endfor$</p>
+  $endif$        </div>
+  $endfor$      </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Research collaborators ─────────── -->
+    <section id="research-collaborators" class="wrap sec">
+      <p class="eyebrow">$collaborators.eyebrow$</p>
+      <h2>$if(collaborators.h2_lead)$$collaborators.h2_lead$ $endif$<em>$collaborators.h2_em$</em></h2>
+      <div class="people" style="margin-top: 36px;">
+$for(collaborators.people)$          <div class="person">
+          <picture>
+$if(it.webp)$              <source srcset="$it.webp$" type="image/webp">
+$endif$              <img src="$it.img$" alt="Portrait of $it.name$" loading="lazy">
+          </picture>
+          <h3>$it.name$</h3>
+          <p class="role">$it.role$</p>
 $if(it.links)$            <p class="links">$for(it.links)$<a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>$sep$<span class="sep">·</span>$endfor$</p>
 $endif$          </div>
 $endfor$        </div>
-      </div>
     </section>
 
     <!-- ─────────── Expert collaborators ─────────── -->
-    <section id="expert-collaborators" class="wrap sec">
-      <p class="eyebrow">$experts.eyebrow$</p>
-      <h2>$experts.h2_lead$ <em>$experts.h2_em$</em></h2>
-      <ul class="chips" style="margin-top: 28px;" aria-label="$experts.list_label$">
-$for(experts.people)$        <li><strong>$it.name$</strong> · $it.org$</li>
-$endfor$      </ul>
+    <section id="expert-collaborators" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$experts.eyebrow$</p>
+        <h2>$if(experts.h2_lead)$$experts.h2_lead$ $endif$<em>$experts.h2_em$</em></h2>
+        <ul class="chips" style="margin-top: 28px;" aria-label="$experts.list_label$">
+  $for(experts.people)$        <li><strong>$it.name$</strong> · $it.org$</li>
+  $endfor$      </ul>
+      </div>
     </section>
 
     <!-- ─────────── Student alumni ─────────── -->
-    <section id="student-alumni" class="band">
-      <div class="wrap sec">
-        <p class="eyebrow">$alumni.eyebrow$</p>
-        <h2>$alumni.h2_lead$ <em>$alumni.h2_em$</em></h2>
-        <p class="sub">$alumni.sub$</p>
-        <ul class="chips" aria-label="$alumni.list_label$">
+    <section id="student-alumni" class="wrap sec">
+      <p class="eyebrow">$alumni.eyebrow$</p>
+      <h2>$if(alumni.h2_lead)$$alumni.h2_lead$ $endif$<em>$alumni.h2_em$</em></h2>
+      <p class="sub">$alumni.sub$</p>
+      <ul class="chips" aria-label="$alumni.list_label$">
 $for(alumni.names)$        <li>$alumni.names$</li>
 $endfor$        </ul>
-      </div>
     </section>
 
     <!-- ─────────── Academic home ─────────── -->
@@ -165,49 +159,49 @@ $endfor$        </ul>
          the marks must not sit in either of those rows (UC Berkeley Brand
          Protection, Project #0946). Canonical wording:
          library/docs/berkeley-affiliation/. -->
-    <section id="academic-home" class="wrap sec">
-      <p class="eyebrow">$academic.eyebrow$</p>
-      <h2>$academic.h2_lead$ <em>$academic.h2_em$</em></h2>
-      <p class="sub">$academic.body$</p>
-      <!-- Berkeley and Sociology only in THIS section. BIDS and CDSS appear in
-           Organizational Collaborators below (Tim, 2026-08-14): collaboration,
-           not the affiliation claim; affiliation language still awaits the
-           Meredith/Kirstie sign-off. IGS pending contact. TODO: add the
-           Department of Sociology mark once someone exports a web asset from
-           images/logos/sociology.afdesign (PNG or SVG). Until then Sociology
-           is named in the caption and in the statement above. -->
-      <div class="wall single">
-        <figure>
-          <a href="$academic.mark.href$" target="_blank" rel="noopener noreferrer"><img src="$academic.mark.src$" alt="$academic.mark.alt$" height="$academic.mark.height$"></a>
-          <figcaption>$academic.mark.caption$</figcaption>
-        </figure>
+    <section id="academic-home" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$academic.eyebrow$</p>
+        <h2>$if(academic.h2_lead)$$academic.h2_lead$ $endif$<em>$academic.h2_em$</em></h2>
+        <p class="sub">$academic.body$</p>
+        <!-- Berkeley and Sociology only in THIS section. BIDS and CDSS appear in
+             Organizational Collaborators below (Tim, 2026-08-14): collaboration,
+             not the affiliation claim; affiliation language still awaits the
+             Meredith/Kirstie sign-off. IGS pending contact. TODO: add the
+             Department of Sociology mark once someone exports a web asset from
+             images/logos/sociology.afdesign (PNG or SVG). Until then Sociology
+             is named in the caption and in the statement above. -->
+        <div class="wall single">
+          <figure>
+            <a href="$academic.mark.href$" target="_blank" rel="noopener noreferrer"><img src="$academic.mark.src$" alt="$academic.mark.alt$" height="$academic.mark.height$"></a>
+            <figcaption>$academic.mark.caption$</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <!-- ─────────── Organizational collaborators ─────────── -->
     <!-- Split from Funders on 2026-08-13. A logo in this wall makes no claim
          about money; funding is asserted only in the Funders section below. -->
-    <section id="collaborators" class="band">
-      <div class="wrap sec">
-        <p class="eyebrow">$orgs.eyebrow$</p>
-        <h2>$orgs.h2_lead$ <em>$orgs.h2_em$</em></h2>
-        <div class="wall" style="margin-top: 32px;">
+    <section id="collaborators" class="wrap sec">
+      <p class="eyebrow">$orgs.eyebrow$</p>
+      <h2>$if(orgs.h2_lead)$$orgs.h2_lead$ $endif$<em>$orgs.h2_em$</em></h2>
+      <div class="wall" style="margin-top: 32px;">
 $for(orgs.logos)$$if(it.caption)$          <figure>
-            <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
-            <figcaption>$it.caption$</figcaption>
-          </figure>
+          <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+          <figcaption>$it.caption$</figcaption>
+        </figure>
 $else$          <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
 $endif$$endfor$        </div>
-        <!-- Collaborators with no logo asset on hand. Move any of these up into
-             the wall once a usable mark is obtained. Sources: HIP and UTHealth
-             Houston (HOPE-M R01, Hernandez) per library/ORG.md and hprm book
-             README; UW HFC (Colburn) per EvictionDataCollection_cowork/
-             washington; New America EDRN 2026-2028 cohort; CPC co-authored the
-             Bay HPRM report (Dolgoff, Driskell). -->
-        <ul class="chips" style="margin-top: 22px;" aria-label="$orgs.list_label$">
+      <!-- Collaborators with no logo asset on hand. Move any of these up into
+           the wall once a usable mark is obtained. Sources: HIP and UTHealth
+           Houston (HOPE-M R01, Hernandez) per library/ORG.md and hprm book
+           README; UW HFC (Colburn) per EvictionDataCollection_cowork/
+           washington; New America EDRN 2026-2028 cohort; CPC co-authored the
+           Bay HPRM report (Dolgoff, Driskell). -->
+      <ul class="chips" style="margin-top: 22px;" aria-label="$orgs.list_label$">
 $for(orgs.chips)$        <li><a href="$it.href$" target="_blank" rel="noopener noreferrer">$it.label$</a></li>
 $endfor$        </ul>
-      </div>
     </section>
 
     <!-- ─────────── Funders ─────────── -->
@@ -222,16 +216,18 @@ $endfor$        </ul>
          Deliberately NOT listed: Salt Lake (which Tim's own notes call
          "Wasatch") and SANDAG, pending the ERN-vs-CiDR attribution flagged in
          hprm/manuscripts/a-good-place.md. -->
-    <section id="funders" class="wrap sec">
-      <p class="eyebrow">$funders.eyebrow$</p>
-      <h2>$funders.h2_lead$ <em>$funders.h2_em$</em></h2>
-      <div class="wall" style="margin-top: 32px;">
-$for(funders.logos)$$if(it.caption)$        <figure>
-          <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
-          <figcaption>$it.caption$</figcaption>
-        </figure>
-$else$        <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
-$endif$$endfor$      </div>
+    <section id="funders" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$funders.eyebrow$</p>
+        <h2>$if(funders.h2_lead)$$funders.h2_lead$ $endif$<em>$funders.h2_em$</em></h2>
+        <div class="wall" style="margin-top: 32px;">
+  $for(funders.logos)$$if(it.caption)$        <figure>
+            <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+            <figcaption>$it.caption$</figcaption>
+          </figure>
+  $else$        <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
+  $endif$$endfor$      </div>
+      </div>
     </section>
 
     <!-- ─────────── Partner ─────────── -->

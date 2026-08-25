@@ -13,6 +13,10 @@
 
 /* ─── Text beside a photograph ─── */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+/* Mission runs three long paragraphs against one photograph. Centred, the
+   photograph floats in the middle of a column twice its height; topped and
+   given a little less width, the two columns start on the same line. */
+.split.long { grid-template-columns: 1.18fr 1fr; align-items: start; }
 .split > div { min-width: 0; }
 .split img {
   display: block; width: 100%; height: auto;
@@ -32,9 +36,11 @@
 /* Column layout plus margin-top:auto on the links, so a role that wraps to two
    lines does not push one person's links out of step with the rest of the row. */
 .person { display: flex; flex-direction: column; }
+/* Circular portraits. The source images are all close to square, so a circle
+   crops the corners and nothing else. */
 .person img {
   display: block; width: 100%; aspect-ratio: 1 / 1;
-  object-fit: cover; border-radius: 3px; background: var(--tint);
+  object-fit: cover; border-radius: 50%; background: var(--tint);
 }
 .person h3 { font-size: 16px; font-weight: 600; line-height: 1.35; color: var(--ink); margin: 15px 0 3px; text-wrap: pretty; }
 .person .role { font-size: 13px; line-height: 1.5; color: var(--muted); margin: 0 0 9px; text-wrap: pretty; }

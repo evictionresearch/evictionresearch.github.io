@@ -17,7 +17,7 @@
 # inside a folded block scalar (>-) YAML keeps the backslash and it lands on
 # the page. Colons and URLs need no escaping.
 #
-# The library&#39;s 162 entries are NOT in this file. They live in
+# The library&#39;s 196 entries are NOT in this file. They live in
 # assets/data/research.json and are compiled to assets/data/research-data.js.
 # ============================================================================
 
@@ -30,12 +30,12 @@ meta:
   og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   description: >-
     Seven eviction-prevention policies with measured effects, written for
-    legislators and their staff, plus a searchable library of 162 publications,
+    legislators and their staff, plus a searchable library of 196 publications,
     reports, and datasets on eviction, displacement, and housing precarity from
     researchers across the field.
   short_description: >-
     Seven eviction-prevention policies with measured effects, and a searchable
-    library of 162 publications on eviction and displacement.
+    library of 196 publications on eviction and displacement.
   keywords: >-
     eviction prevention policy, right to counsel, eviction diversion, rental
     assistance, just cause eviction, eviction record sealing, source of income
@@ -72,7 +72,7 @@ hero:
     find on eviction, displacement, and housing precarity.
   # The count that precedes this line is rendered from library.count_in_prose.
   meta: >-
-    entries in the library · Library last updated April 2026
+    entries in the library · Library last updated August 2026
   jump:
     - label: "Policies that work"
       href: "#brief"
@@ -295,7 +295,7 @@ library:
   # Checked against assets/data/research.json by code/build_research_data.py on
   # every run. If the two disagree the script says so; fix this number, do not
   # fix the script.
-  count_in_prose: 162
+  count_in_prose: 196
   search_placeholder: "Search by title, author, or publisher"
   all_states_label: "All states"
   all_types_label: "All types"

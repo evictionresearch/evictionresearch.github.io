@@ -1,6 +1,6 @@
 {
-  "updated": "2026-04-20",
-  "count": 272,
+  "updated": "2026-08-26",
+  "count": 196,
   "items": [
     {
       "title": "Eviction Lab",
@@ -1620,6 +1620,346 @@
       "venue": "Wisconsin Policy Forum",
       "state": "wisconsin",
       "url": "https://wispolicyforum.org/wp-content/uploads/2018/12/Focus_18_25-1.pdf",
+      "description": ""
+    },
+    {
+      "title": "A spatial analysis of the associations between housing eviction and alcohol-related hospitalizations in Pennsylvania",
+      "authors": "Michelle Dougherty, Robert W.S. Coulter, Sarah L. Pedersen, Maya I. Ragavan, Sara E. Baumann, Christina Mair",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Health & Place",
+      "state": "pennsylvania",
+      "url": "https://doi.org/10.1016/j.healthplace.2026.103632",
+      "description": ""
+    },
+    {
+      "title": "Administrative burdens in post-filing eviction prevention programs: Focusing on Oregon’s Safe Harbor Policy",
+      "authors": "Minji Cho",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Journal of Urban Affairs",
+      "state": "oregon",
+      "url": "https://doi.org/10.1080/07352166.2026.2655743",
+      "description": ""
+    },
+    {
+      "title": "Can rapid rental assistance avert evictions? Evidence from administrative delays",
+      "authors": "Mason Alexander, Matthew Freedman, Stephanie Casey Pierce",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Journal of Urban Economics",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.jue.2026.103891",
+      "description": ""
+    },
+    {
+      "title": "Courthouse funneling: how organizational mechanisms teach tenants to bargain in eviction court",
+      "authors": "N. Hardaway, Matthew Clair",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Law & Society Review",
+      "state": "national",
+      "url": "https://doi.org/10.1017/lsr.2026.10100",
+      "description": ""
+    },
+    {
+      "title": "Eviction Filing Patterns in Subsidized Housing: Differences by Owner, Manager, and Program Type",
+      "authors": "Yi Wang, Lisa K. Bates",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "national",
+      "url": "https://doi.org/10.1080/10511482.2026.2623133",
+      "description": ""
+    },
+    {
+      "title": "Eviction risk and mental health outcomes among the US adults during and after the COVID-19 pandemic",
+      "authors": "Mohit Tamta, Thomas Byrne",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Preventive Medicine",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.ypmed.2026.108586",
+      "description": ""
+    },
+    {
+      "title": "Investigating the impact of Kansas City’s tenant right to counsel program on eviction court outcomes",
+      "authors": "Yi Wang, Caitlin McMurtry, Hye-Sung Han",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Journal of Urban Affairs",
+      "state": "missouri",
+      "url": "https://doi.org/10.1080/07352166.2026.2658609",
+      "description": ""
+    },
+    {
+      "title": "Making room for vacationers? The effect of Airbnb entry on eviction filings in the United States",
+      "authors": "Hannah Sayre",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Regional Science and Urban Economics",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.regsciurbeco.2026.104248",
+      "description": ""
+    },
+    {
+      "title": "Mental Health Care Utilization Following Eviction Moratorium Expirations",
+      "authors": "Yimin Ge, Kathryn M. Leifheit, Alene Kennedy-Hendricks, Iraj Qureshi, Sabriya Linton, Michael Fingerhood",
+      "year": 2026,
+      "type": "academic",
+      "venue": "JAMA Health Forum",
+      "state": "national",
+      "url": "https://doi.org/10.1001/jamahealthforum.2026.1212",
+      "description": ""
+    },
+    {
+      "title": "Neighborhood eviction filings and judgments, child maltreatment reports, and child protective services involvement",
+      "authors": "Hyunil Kim, William Schneider",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Children and Youth Services Review",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.childyouth.2025.108698",
+      "description": ""
+    },
+    {
+      "title": "State Eviction Moratoria and Foster Care Entries",
+      "authors": "Yi Wang, Liwei Zhang, Lawrence M. Berger",
+      "year": 2026,
+      "type": "academic",
+      "venue": "JAMA Health Forum",
+      "state": "national",
+      "url": "https://doi.org/10.1001/jamahealthforum.2026.2855",
+      "description": ""
+    },
+    {
+      "title": "SynthEHR-eviction: enhancing eviction SDoH detection with LLM-augmented synthetic EHR data",
+      "authors": "Zonghai Yao, Youxia Zhao, Avijit Mitra, David A. Levy, Emily Druhl, Jack Tsai",
+      "year": 2026,
+      "type": "academic",
+      "venue": "npj Digital Medicine",
+      "state": "national",
+      "url": "https://doi.org/10.1038/s41746-026-02473-0",
+      "description": ""
+    },
+    {
+      "title": "The Effects of RAD Conversion on Eviction Patterns",
+      "authors": "Elizabeth Lochhead, Peter Hepburn, Ingrid Gould Ellen",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "national",
+      "url": "https://doi.org/10.1080/10511482.2026.2668088",
+      "description": ""
+    },
+    {
+      "title": "The Equilibrium Effects of Eviction Policies",
+      "authors": "BOAZ ABRAMSON",
+      "year": 2026,
+      "type": "academic",
+      "venue": "The Journal of Finance",
+      "state": "national",
+      "url": "https://doi.org/10.1111/jofi.70046",
+      "description": ""
+    },
+    {
+      "title": "The Eviction Caste System",
+      "authors": "Allison M. Freedman",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Boston College Law Review",
+      "state": "national",
+      "url": "https://doi.org/10.70167/amrl0503",
+      "description": ""
+    },
+    {
+      "title": "The effect of payday lending restrictions on eviction filings",
+      "authors": "Dongwoo Kim, Eunhye Kwak",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Applied Economics Letters",
+      "state": "national",
+      "url": "https://doi.org/10.1080/13504851.2026.2702106",
+      "description": ""
+    },
+    {
+      "title": "The “golden era” of eviction prevention: Contingent governance in Virginia",
+      "authors": "Kathryn Howell, Benjamin Teresa, Caroline Hanley",
+      "year": 2026,
+      "type": "academic",
+      "venue": "Journal of Urban Affairs",
+      "state": "virginia",
+      "url": "https://doi.org/10.1080/07352166.2026.2665184",
+      "description": ""
+    },
+    {
+      "title": "Can Neighborhood Eviction Filings Explain the Impact of Gentrification on Preterm Birth Among Black Birthing People in the San Francisco Bay Area? A Multi-Level Mediation Analysis",
+      "authors": "Rebekah Israel Cross, Gretchen Bandoli, Chandra L. Ford",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "national",
+      "url": "https://doi.org/10.1080/10511482.2025.2510236",
+      "description": ""
+    },
+    {
+      "title": "Duration of exposure to eviction moratoria in the early COVID-19 pandemic and perinatal outcomes: A population-level analysis of US births conceived in March-May 2020",
+      "authors": "Kaitlyn K. Stanhope, Sara Markowitz, Michael R. Kramer",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Annals of Epidemiology",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.annepidem.2025.01.001",
+      "description": ""
+    },
+    {
+      "title": "Eviction moratoria and race disparities of eviction filing rates in the U.S",
+      "authors": "Linchi Hsu, Alexander Henke",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Applied Economics",
+      "state": "national",
+      "url": "https://doi.org/10.1080/00036846.2025.2558232",
+      "description": ""
+    },
+    {
+      "title": "Eviction, inability to pay rent, and youth mental health: a fixed effects study",
+      "authors": "Gabriel L Schwartz, Nigel Walsh Harriman, Bruce Ramphal, Natalie Slopen",
+      "year": 2025,
+      "type": "academic",
+      "venue": "American Journal of Epidemiology",
+      "state": "national",
+      "url": "https://doi.org/10.1093/aje/kwaf212",
+      "description": ""
+    },
+    {
+      "title": "Expiration of a state level eviction moratorium in the first or second trimester of pregnancy and perinatal outcomes among Medicaid and uninsured people, 2020–2022",
+      "authors": "Kaitlyn K. Stanhope, Sara Markowitz, Michael R. Kramer",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Health & Place",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.healthplace.2024.103408",
+      "description": ""
+    },
+    {
+      "title": "Extra-Judicial Evictions and Changing Landlord Strategies in Response to the Eviction Moratorium",
+      "authors": "Edward G. Goetz, Yi Wang, Anthony Damiano",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "national",
+      "url": "https://doi.org/10.1080/10511482.2025.2467818",
+      "description": ""
+    },
+    {
+      "title": "Neighborhood Threat of Eviction over Time and Risk of Preterm Birth in Black American Women",
+      "authors": "Shawnita Sealy-Jefferson, Loretta J. Ross, Kyra Sanders, Karen Harry, Tamika Anderson-Mays, Roquesha Oneal",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Journal of Racial and Ethnic Health Disparities",
+      "state": "national",
+      "url": "https://doi.org/10.1007/s40615-025-02465-y",
+      "description": ""
+    },
+    {
+      "title": "Rational eviction: How landlords use evictions in response to rent control",
+      "authors": "Eilidh Geddes, Nicole Holz",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Journal of Housing Economics",
+      "state": "national",
+      "url": "https://doi.org/10.1016/j.jhe.2025.102047",
+      "description": ""
+    },
+    {
+      "title": "Record costs: examining the impact of eviction filings for tenants and their families",
+      "authors": "Kate Brantley, Alexa Eisenberg, Roshanak Mehdipanah",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Housing Studies",
+      "state": "national",
+      "url": "https://doi.org/10.1080/02673037.2025.2543477",
+      "description": ""
+    },
+    {
+      "title": "Rent and Eviction Filing at Enterprise-Backed Rental Properties",
+      "authors": "Nick Graetz, Adam Chapnik, Jacob Udell, Ruthy Gourevitch",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Housing Policy Debate",
+      "state": "national",
+      "url": "https://doi.org/10.1080/10511482.2025.2581673",
+      "description": ""
+    },
+    {
+      "title": "Rental Arrears and Perceived Risk of Eviction among U.S. Renter Households by Household Composition, Race, and Ethnicity 2020 to 2024",
+      "authors": "Vincent A. Fusaro, K. Megan Collier, Christopher Baidoo, Rebekah Levine Coley",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Socius: Sociological Research for a Dynamic World",
+      "state": "national",
+      "url": "https://doi.org/10.1177/23780231241309788",
+      "description": ""
+    },
+    {
+      "title": "Shadow players of the eviction crisis: identifying and characterizing professional evicting attorneys in Massachusetts",
+      "authors": "Asya Aizman, Eric Robsky Huntley",
+      "year": 2025,
+      "type": "academic",
+      "venue": "Housing Studies",
+      "state": "massachusetts",
+      "url": "https://doi.org/10.1080/02673037.2025.2596640",
+      "description": ""
+    },
+    {
+      "title": "Stress About Eviction or Loss of Housing and Child Mental Health",
+      "authors": "Jamie L. Hanson",
+      "year": 2025,
+      "type": "academic",
+      "venue": "JAMA Network Open",
+      "state": "national",
+      "url": "https://doi.org/10.1001/jamanetworkopen.2024.58984",
+      "description": ""
+    },
+    {
+      "title": "Preliminary Analysis: Eviction Filing Patterns in 2025",
+      "authors": "Eviction Lab",
+      "year": 2026,
+      "type": "report",
+      "venue": "Princeton University",
+      "state": "national",
+      "url": "https://evictionlab.org/ets-report-2025/",
+      "description": ""
+    },
+    {
+      "title": "Stout's Independent Evaluation of Cleveland's Eviction Right to Counsel: Annual Report for the Period January 1, 2025 through December 31, 2025",
+      "authors": "Stout",
+      "year": 2026,
+      "type": "report",
+      "venue": "Stout Risius Ross",
+      "state": "ohio",
+      "url": "https://www.stout.com/-/media/pdf/evictions/stout2025independentevaluationclevelandevictionrightcounselfinal20260129.pdf",
+      "description": ""
+    },
+    {
+      "title": "2025 National Renter Survey",
+      "authors": "National Low Income Housing Coalition",
+      "year": 2025,
+      "type": "report",
+      "venue": "National Low Income Housing Coalition",
+      "state": "national",
+      "url": "https://nlihc.org/national-renter-survey",
+      "description": ""
+    },
+    {
+      "title": "The State of the Nation's Housing 2025",
+      "authors": "Joint Center for Housing Studies of Harvard University",
+      "year": 2025,
+      "type": "report",
+      "venue": "Harvard University",
+      "state": "national",
+      "url": "https://www.jchs.harvard.edu/state-nations-housing-2025",
       "description": ""
     }
   ]

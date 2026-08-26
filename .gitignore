@@ -3,3 +3,8 @@ qxY.Rproj.user
 .RData
 .Ruserdata
 *.DS_Store*
+
+# Volatile output of code/research_watch.py. The schedule itself
+# (code/research-watch.json) is tracked; these reports are regenerated.
+code/.research-watch/
+__pycache__/

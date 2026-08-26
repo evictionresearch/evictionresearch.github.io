@@ -42,6 +42,39 @@ Three generators feed those pages, and each writes a file that is committed:
   is opened off disk. It reports duplicate titles and count mismatches; run it
   after editing the bibliography.
 
+## Keeping the research section current
+
+A bibliography goes stale in two directions at once. Cited links rot, and new
+work gets published. `code/research_watch.py` watches both and asks about them
+on a schedule rather than waiting to be remembered.
+
+A SessionStart hook in `.claude/settings.json` runs it whenever a Claude Code
+session opens in this repo. If neither half is due it prints nothing. If either
+is, it prints a short brief and Claude asks whether to run the refresh. It only
+ever reports, and never edits `research.json` or a page on its own.
+
+    python3 code/research_watch.py status   # schedule and what is outstanding
+    python3 code/research_watch.py links    # check every cited URL
+    python3 code/research_watch.py pubs     # ask Crossref what is new
+    python3 code/research_watch.py ack      # section refreshed, reset the clock
+
+The schedule lives in `code/research-watch.json` and is tracked, so it survives
+a clone. Reports are written to `code/.research-watch/` and are not.
+
+Two details worth knowing. The clock counts from the last `ack`, not from the
+last automated check, so a background run cannot answer the question on Tim's
+behalf. And `auto_check` is on, which means an overdue brief kicks the two
+checks off in the background so the next session opens with numbers instead of
+another question. Both are read-only requests to sources this site already
+cites in public. Set `auto_check` to false in the state file to be asked first.
+
+The link check reads more than the bibliography. It resolves every `href` and
+`src` across the site's HTML, flags internal paths that point at nothing on
+disk, and separates a redirect that lands on a different host from an ordinary
+one. That last case is the reason the check exists. A sweep in August 2026
+found `catherinemcauleycenter.org` had lapsed and was forwarding tenants
+looking for housing help to a squatted domain.
+
 ## Branding
 
 Brand colors, typography, and logo assets are maintained centrally in the CiDR Lab library:

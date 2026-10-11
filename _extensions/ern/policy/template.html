@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>$title$</title>
+  <meta name="description" content="$meta.description$">
+  <meta name="keywords" content="$meta.keywords$">
+  <meta name="author" content="$meta.author$">
+
+  <link rel="canonical" href="$meta.canonical$">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="$meta.og_title$">
+  <meta property="og:description" content="$meta.short_description$">
+  <meta property="og:url" content="$meta.canonical$">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="$meta.og_image$">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$meta.og_title$">
+  <meta name="twitter:description" content="$meta.short_description$">
+  <meta name="twitter:image" content="$meta.og_image$">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/ern-2026.css" rel="stylesheet">
+  <link href="assets/css/policy-2026.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="index.html" aria-label="Eviction Research Network — home">
+        <img src="$logos.logo$" alt="Eviction Research Network">
+      </a>
+      <nav class="nav" aria-label="Primary">
+$for(nav)$        <a$if(nav.button)$ class="btn sm"$endif$ href="$nav.href$"$if(nav.current)$ aria-current="page"$endif$$if(nav.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$nav.label$</a>
+$endfor$      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="wrap sec-hero">
+      <div class="hero-in">
+        <p class="eyebrow">$hero.eyebrow$</p>
+        <h1>$hero.h1_lead$ <em>$hero.h1_em$</em></h1>
+        <p class="lede">$hero.lede$</p>
+        <p class="meta">$hero.meta$</p>
+        <div class="jump">
+$for(hero.jump)$          <a class="btn ghost" href="$it.href$">$it.label$</a>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── The scale of the problem ─────────── -->
+    <section id="scale" class="wrap" aria-label="The scale of the problem">
+      <div class="statrow">
+$for(stats)$        <div class="stat">
+          <div class="v">$it.v$$if(it.unit)$<span class="unit">&thinsp;$it.unit$</span>$endif$</div>
+          <div class="l">$it.l$</div>
+          <div class="s">$it.s$</div>
+        </div>
+$endfor$      </div>
+      <p class="statnote">$statnote$</p>
+    </section>
+
+    <!-- ─────────── The framework ─────────── -->
+    <section id="framework" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$framework.eyebrow$</p>
+        <h2>$framework.h2_lead$ <em>$framework.h2_em$</em></h2>
+        <p class="sub">$framework.sub$</p>
+        <div class="fourp">
+$for(framework.tiles)$          <a class="tile" href="$it.href$">
+            <span class="kicker">$it.kicker$</span>
+            <p>$it.body$</p>
+          </a>
+$endfor$        </div>
+        <p class="small fourp-note">$framework.note$</p>
+        <div class="legendbox" aria-label="How to read each plank">
+          <h3>$legend.heading$</h3>
+          <div class="legend-line">
+            <span class="ev ev-e">Evidence</span> $legend.evidence$
+            <span class="ev ev-r">Reasoned</span> $legend.reasoned$
+          </div>
+          <div class="legend-line">
+            <span class="status s-yes">&#10003; Federal law today</span>
+            <span class="status s-local">&#9681; Some states or cities</span>
+            <span class="status s-lapsed">&#8856; Ran nationally, then ended</span>
+            <span class="status s-none">&#9675; Nowhere yet, or proposed</span>
+            <span class="tierkey">$legend.tierkey$</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── The four P's, and the floor ─────────── -->
+    <!-- Each group is a P: eyebrow, claim heading, definition, then its
+         planks as chips inside a band box tinted by groups[].num. Chips
+         come in rows so related planks stay side by side. -->
+$for(groups)$    <section id="$it.anchor$">
+      <div class="wrap sec">
+        <p class="eyebrow">$it.kicker$</p>
+        <h2>$it.h2_lead$ <em>$it.h2_em$</em></h2>
+        <p class="sub">$it.sub$</p>
+        <div class="bandbox" data-p="$it.num$">
+$for(it.rows)$          <div class="chips">
+$for(it.planks)$            <article class="chip">
+              <div class="chip-top"><span class="tier $it.tier_class$">$it.tier$</span><span class="ev $it.ev_class$">$it.ev_label$</span><span class="status $it.status_class$">$it.status$</span></div>
+              <h3 class="chip-name">$it.name$</h3>
+              <p class="chip-body">$it.body$</p>
+            </article>
+$endfor$          </div>
+$endfor$        </div>
+      </div>
+    </section>
+$endfor$
+    <!-- ─────────── The through-line / what we know / method ─────────── -->
+    <section id="notes" class="wrap sec">
+      <div class="thruline">
+$for(closing.thruline)$        <p>$it$</p>
+$endfor$      </div>
+      <div class="callout">
+        <h3>$closing.callout.heading$</h3>
+        <p>$closing.callout.body$</p>
+      </div>
+      <p class="endnote">$closing.method$</p>
+    </section>
+
+    <!-- ─────────── Briefing CTA ─────────── -->
+    <section id="briefing" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">$cta.eyebrow$</p>
+          <h2 class="on-dark">$cta.heading$</h2>
+          <p class="body">$cta.body$</p>
+        </div>
+        <div class="actions">
+          <a class="btn" href="$cta.primary.href$">$cta.primary.label$</a>
+          <a class="btn on-dark" href="$cta.secondary.href$">$cta.secondary.label$</a>
+        </div>
+      </div>
+    </section>
+
+$if(body)$    <section class="wrap sec">
+      <!-- Anything written in the body of policy.qmd lands here. -->
+      <div class="prose">
+$body$
+      </div>
+    </section>
+$endif$
+  </main>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="$logos.logo_stacked_reversed$" alt="Eviction Research Network">
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations. -->
+        <p>$site_footer.affiliation$</p>
+      </div>
+$for(site_footer.columns)$      <div class="foot-col">
+        <span>$it.heading$</span>
+$for(it.links)$        <a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$      </div>
+$endfor$    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>$site_footer.copyright$</span>
+        <span><a href="$site_footer.accessibility.href$" target="_blank" rel="noopener noreferrer">$site_footer.accessibility.label$</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -1,22 +1,33 @@
 {
   "auto_check": true,
+  "help_last_checked": "2026-08-27",
+  "help_last_result": {
+    "blocked": 12,
+    "dead": 1,
+    "mismatch": 109,
+    "moved": 2,
+    "providers": 1420,
+    "urls": 1063
+  },
+  "help_last_reviewed": "2026-08-27",
   "interval_days": {
+    "help": 90,
     "links": 30,
     "pubs": 30
   },
-  "links_last_checked": "2026-08-26",
+  "links_last_checked": "2026-10-08",
   "links_last_result": {
-    "blocked": 77,
-    "checked": 631,
-    "failed": 35,
-    "internal_missing": 0
+    "blocked": 95,
+    "checked": 626,
+    "failed": 39,
+    "internal_missing": 14
   },
   "links_last_reviewed": "2026-08-26",
   "pubs_last_result": {
-    "candidates": 40,
+    "candidates": 42,
     "query_errors": 0,
-    "since": "2026-05-28"
+    "since": "2026-08-26"
   },
-  "pubs_last_reviewed": "2026-08-26",
-  "pubs_last_swept": "2026-08-26"
+  "pubs_last_reviewed": "2026-10-08",
+  "pubs_last_swept": "2026-10-08"
 }

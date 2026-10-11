@@ -1,0 +1,169 @@
+/*!
+ * policy-2026.css — the What Works policy-evidence page.
+ *
+ * Loads on top of ern-2026.css and adds only what the design system has no
+ * component for. The August 2026 merge with the housing-rights-charter draft
+ * (library/quarto/housing-rights-charter) brought over that page's plank
+ * cards: each policy is a chip carrying a tier pill, an Evidence/Reasoned
+ * badge, and a national-status mark, and each P's chips sit in a band box
+ * tinted down a navy ramp (Prevent darkest, Produce lightest, the floor on
+ * the paper tint). Colors, type, buttons, bands, header, and footer all come
+ * from the design system and are not restated here.
+ */
+
+:root {
+  --tint-solid: #f3f6f9;
+  --ok:         #2a7d4f;  /* status: federal law today */
+  --part:       #B7791F;  /* status: some states or cities */
+  --lapse:      #6E7C8A;  /* status: ran nationally, then ended */
+}
+
+/* ─── Page hero ─── */
+/* .sec-hero and .hero-in live in ern-2026.css: Research and About use them too. */
+.jump { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* ─── The scale of the problem ─── */
+.statrow {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+  padding-top: 8px;
+}
+.stat { border-top: 3px solid var(--ink); padding: 14px 2px 4px; }
+.stat .v {
+  font-size: 38px; font-weight: 650; line-height: 1.05; color: var(--ink);
+  letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
+}
+.stat .v .unit { font-size: 20px; font-weight: 600; color: var(--muted); }
+.stat .l { font-size: 13.5px; line-height: 1.45; color: var(--body); margin-top: 7px; }
+.stat .s { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+.stat .s a { color: var(--muted); }
+.statnote {
+  margin: 26px 0 0; font-size: 13px; line-height: 1.6; color: var(--muted);
+  max-width: 76ch; text-wrap: pretty;
+}
+
+/* ─── The four-P framework ─── */
+.fourp { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 44px; margin-top: 36px; }
+.tile {
+  display: block; text-decoration: none;
+  border-top: 1px solid rgba(25, 34, 44, 0.18); padding-top: 13px;
+  transition: border-color 150ms ease;
+}
+.tile:hover { border-top-color: var(--accent-deep); }
+.tile .kicker { display: block; margin: 0 0 7px; }
+.tile p { font-size: 14.5px; line-height: 1.6; color: var(--body); margin: 0; text-wrap: pretty; }
+.tile:hover p { color: var(--ink); }
+.fourp-note { margin-top: 24px; max-width: 72ch; }
+
+/* ─── How to read each plank ─── */
+.legendbox {
+  margin-top: 34px; border: 1px solid var(--rule); border-radius: 8px;
+  background: var(--paper); padding: 16px 20px;
+}
+.legendbox h3 {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--ink); margin: 0 0 10px;
+}
+.legend-line {
+  display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center;
+  font-size: 12.5px; color: var(--muted); margin: 0 0 8px;
+}
+.legend-line:last-child { margin-bottom: 0; }
+.tierkey { font-size: 12px; color: var(--muted); }
+
+/* ─── Plank chips ───
+   Each P's chips sit in a band box stepping down a navy ramp, so the page
+   reads darkest where policy acts fastest. Chips are white cards; the
+   status mark keeps its color against them. */
+.bandbox { margin-top: 8px; padding: 14px; border-radius: 8px; }
+.bandbox[data-p="1"] { background: #19222C; }
+.bandbox[data-p="2"] { background: #3C4C5C; }
+.bandbox[data-p="3"] { background: #6E7C8A; }
+.bandbox[data-p="4"] { background: #B4BFC9; }
+.bandbox[data-p="5"] { background: var(--tint-solid); border: 1px solid var(--rule); }
+
+.chips { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+.chips + .chips { margin-top: 12px; }
+.chip {
+  border: 1px solid transparent; border-radius: 6px; padding: 14px 16px;
+  background: var(--paper); display: flex; flex-direction: column; gap: 7px;
+}
+.bandbox[data-p="5"] .chip { border-color: var(--rule); }
+
+.chip-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.chip .tier {
+  font-size: 10.5px; font-weight: 700; padding: 1px 6px; border-radius: 4px;
+  letter-spacing: 0.02em;
+}
+.chip .tier.t1 { color: #fff; background: var(--accent-deep); }
+.chip .tier.t2 { color: var(--ink); background: #e3e8ee; }
+.chip .tier.t3 { color: #fff; background: #61788f; }
+.ev {
+  display: inline-block; font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.05em; padding: 1px 7px; border-radius: 4px;
+}
+.ev-e { color: #fff; background: var(--ink); }
+.ev-r { color: var(--ink); background: transparent; box-shadow: inset 0 0 0 1.4px var(--ink); }
+.chip .status { margin-left: auto; font-size: 12px; font-weight: 700; text-align: right; }
+.s-yes { color: var(--ok); }
+.s-local { color: var(--part); }
+.s-lapsed { color: var(--lapse); }
+.s-none { color: var(--accent-press); }
+
+.chip-name {
+  font-size: 15.5px; font-weight: 600; line-height: 1.3;
+  color: var(--ink); margin: 0; text-wrap: pretty;
+}
+.chip-body { font-size: 13.5px; line-height: 1.58; color: var(--body); margin: 0; }
+.chip-body strong { color: var(--ink); font-weight: 650; }
+.chip-body a { color: var(--accent-deep); text-decoration: none; }
+.chip-body a:hover { color: var(--accent-press); text-decoration: underline; }
+
+/* ─── The through-line ─── */
+.thruline {
+  margin: 0 0 28px; padding: 22px 26px;
+  background: var(--tint); border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.thruline p {
+  font-size: 14.5px; line-height: 1.65; color: var(--body);
+  margin: 0 0 14px; max-width: 80ch; text-wrap: pretty;
+}
+.thruline p:last-child { margin-bottom: 0; }
+.thruline strong { color: var(--ink); }
+.thruline a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─── Callout & method note ─── */
+.callout {
+  margin: 0; padding: 24px 28px;
+  background: var(--paper); border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent-deep);
+}
+.callout h3 {
+  font-size: 11px; font-weight: 800; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--accent-deep); margin: 0 0 12px;
+}
+.callout p {
+  font-size: 14.5px; line-height: 1.65; color: var(--body);
+  margin: 0; max-width: 76ch; text-wrap: pretty;
+}
+.callout a { text-decoration: underline; text-underline-offset: 2px; }
+
+.endnote {
+  margin: 28px 0 0; padding-top: 18px; border-top: 1px solid var(--rule);
+  font-size: 13.5px; line-height: 1.65; color: var(--muted);
+  max-width: 76ch; text-wrap: pretty;
+}
+.endnote a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ─── Responsive ─── */
+@media (max-width: 1000px) {
+  .statrow { grid-template-columns: 1fr 1fr; gap: 22px; }
+}
+@media (max-width: 900px) {
+  .fourp { grid-template-columns: 1fr; gap: 20px; }
+  .chips { grid-template-columns: 1fr; }
+  .chip .status { margin-left: 0; text-align: left; width: 100%; }
+}
+@media (max-width: 560px) {
+  .statrow { grid-template-columns: 1fr; }
+}

@@ -7,7 +7,7 @@
   "other": 26
  },
  "profiles_from": "eviction_data_atlas/atlas.json (July 2026 research sweep)",
- "roster_from": "all_states/index.html",
+ "roster_from": "eviction-data-atlas.html",
  "states": {
   "01": {
    "kind": "none",
@@ -28,8 +28,8 @@
   "04": {
    "kind": "other",
    "name": "Arizona",
-   "note": "Public eviction data published elsewhere: Arizona courts dashboard.",
-   "source": "Arizona courts dashboard",
+   "note": "Public eviction data published elsewhere: Arizona courts eviction dashboard.",
+   "source": "Arizona courts eviction dashboard",
    "status": "Public data elsewhere",
    "url": "https://www.azcourts.gov/statistics/Interactive-Data-Dashboards/Justice-Court-Evictions"
   },
@@ -54,8 +54,8 @@
   "08": {
    "kind": "other",
    "name": "Colorado",
-   "note": "Public eviction data published elsewhere: Colorado Judicial dashboard.",
-   "source": "Colorado Judicial dashboard",
+   "note": "Public eviction data published elsewhere: Colorado Judicial eviction dashboard.",
+   "source": "Colorado Judicial eviction dashboard",
    "status": "Public data elsewhere",
    "url": "https://coloradojudicial.gov/eviction-filings"
   },
@@ -88,8 +88,8 @@
   "12": {
    "kind": "other",
    "name": "Florida",
-   "note": "Public eviction data published elsewhere: Shimberg Center (University of Florida).",
-   "source": "Shimberg Center (University of Florida)",
+   "note": "Public eviction data published elsewhere: Shimberg Center housing data clearinghouse (UF).",
+   "source": "Shimberg Center housing data clearinghouse (UF)",
    "status": "Public data elsewhere",
    "url": "https://flhousingdata.shimberg.ufl.edu/eviction-foreclosure"
   },
@@ -104,24 +104,24 @@
   "15": {
    "kind": "other",
    "name": "Hawaii",
-   "note": "Public eviction data published elsewhere: Hawaii Judiciary annual report (PDF).",
-   "source": "Hawaii Judiciary annual report (PDF)",
+   "note": "Public eviction data published elsewhere: Hawai'i Judiciary annual report.",
+   "source": "Hawai'i Judiciary annual report",
    "status": "Public data elsewhere",
    "url": "https://www.courts.state.hi.us/wp-content/uploads/2026/02/FY2025_annual_report_statistical_supplement_Final_Draft-2.pdf"
   },
   "16": {
    "kind": "other",
    "name": "Idaho",
-   "note": "Public eviction data published elsewhere: Idaho Policy Institute (Boise State).",
-   "source": "Idaho Policy Institute (Boise State)",
+   "note": "Public eviction data published elsewhere: Idaho Policy Institute eviction reports.",
+   "source": "Idaho Policy Institute eviction reports",
    "status": "Public data elsewhere",
    "url": "https://www.boisestate.edu/sps-ipi/evictions-in-idaho/evictions-in-idaho-2/"
   },
   "17": {
    "kind": "other",
    "name": "Illinois",
-   "note": "Public eviction data published elsewhere: Illinois courts statistical reports.",
-   "source": "Illinois courts statistical reports",
+   "note": "Public eviction data published elsewhere: Illinois circuit court statistics.",
+   "source": "Illinois circuit court statistics",
    "status": "Public data elsewhere",
    "url": "https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/"
   },
@@ -162,16 +162,16 @@
   "22": {
    "kind": "other",
    "name": "Louisiana",
-   "note": "Public eviction data published elsewhere: Eviction Lab, New Orleans tracking.",
-   "source": "Eviction Lab, New Orleans tracking",
+   "note": "Public eviction data published elsewhere: Eviction Lab, New Orleans.",
+   "source": "Eviction Lab, New Orleans",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/new-orleans-la/"
   },
   "23": {
    "kind": "other",
    "name": "Maine",
-   "note": "Public eviction data published elsewhere: Maine Judicial FED report (PDF).",
-   "source": "Maine Judicial FED report (PDF)",
+   "note": "Public eviction data published elsewhere: Maine Judicial monthly FED report.",
+   "source": "Maine Judicial monthly FED report",
    "status": "Public data elsewhere",
    "url": "https://www.courts.maine.gov/about/reports/fed-monthly15yr-report.pdf"
   },
@@ -180,7 +180,7 @@
    "kind": "ern",
    "name": "Maryland",
    "note": "Baltimore City, census tract \u00b7 January 2018 - July 2019",
-   "source": "ERN profile (Baltimore)",
+   "source": "ERN state profile",
    "span": "January 2018 - July 2019",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/maryland/report/baltimore.html"
@@ -222,8 +222,8 @@
   "29": {
    "kind": "other",
    "name": "Missouri",
-   "note": "Public eviction data published elsewhere: Eviction Lab tracking.",
-   "source": "Eviction Lab tracking",
+   "note": "Public eviction data published elsewhere: Eviction Lab tracking, Missouri.",
+   "source": "Eviction Lab tracking, Missouri",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/missouri/"
   },
@@ -270,8 +270,8 @@
   "35": {
    "kind": "other",
    "name": "New Mexico",
-   "note": "Public eviction data published elsewhere: Eviction Lab tracking.",
-   "source": "Eviction Lab tracking",
+   "note": "Public eviction data published elsewhere: Eviction Lab tracking, New Mexico.",
+   "source": "Eviction Lab tracking, New Mexico",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/new-mexico/"
   },
@@ -286,8 +286,8 @@
   "37": {
    "kind": "other",
    "name": "North Carolina",
-   "note": "Public eviction data published elsewhere: North Carolina courts data.",
-   "source": "North Carolina courts data",
+   "note": "Public eviction data published elsewhere: North Carolina courts dashboard.",
+   "source": "North Carolina courts dashboard",
    "status": "Public data elsewhere",
    "url": "https://www.nccourts.gov/data"
   },
@@ -304,7 +304,7 @@
    "kind": "ern",
    "name": "Ohio",
    "note": "Dayton metro, census tract",
-   "source": "ERN profile (Dayton)",
+   "source": "ERN state profile",
    "span": null,
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/ohio/dayton.html"
@@ -330,8 +330,8 @@
   "42": {
    "kind": "other",
    "name": "Pennsylvania",
-   "note": "Public eviction data published elsewhere: Eviction Lab tracking.",
-   "source": "Eviction Lab tracking",
+   "note": "Public eviction data published elsewhere: Eviction Lab tracking, Pennsylvania.",
+   "source": "Eviction Lab tracking, Pennsylvania",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/pennsylvania/"
   },
@@ -428,8 +428,8 @@
   "56": {
    "kind": "other",
    "name": "Wyoming",
-   "note": "Public eviction data published elsewhere: Wyoming circuit courts.",
-   "source": "Wyoming circuit courts",
+   "note": "Public eviction data published elsewhere: Wyoming courts annual report.",
+   "source": "Wyoming courts annual report",
    "status": "Public data elsewhere",
    "url": "https://www.wyocourts.gov/circuit-courts/"
   }

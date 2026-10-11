@@ -25,12 +25,13 @@ meta:
   og_title: "About the Eviction Research Network"
   og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   description: >-
-    The Eviction Research Network collects, analyzes, and visualizes eviction
-    data to put numbers to disparities left in the wake of historical injustice.
-    Mission, team, collaborators, academic home, and funders.
+    The Eviction Research Network, a research program at UC Berkeley, collects
+    eviction court records and turns them into maps, state profiles, and trends
+    that make eviction understandable. Mission, team, collaborators, academic
+    home, and funders.
   short_description: >-
-    We make things that can&#39;t be unseen. The Eviction Research Network
-    collects, analyzes, and visualizes eviction data.
+    The Eviction Research Network collects eviction court records and turns
+    them into maps and trends that anyone can read.
   keywords: >-
     Eviction Research Network, Tim Thomas, UC Berkeley Sociology, eviction
     data, court records, housing displacement, racial disparities, research
@@ -39,6 +40,7 @@ meta:
 logos:
   logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+  logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
 
 nav:
   - label: "Maps &amp; Profiles"
@@ -48,6 +50,8 @@ nav:
     newtab: true
   - label: "Research"
     href: "research.html"
+  - label: "What works"
+    href: "policy.html"
   - label: "About"
     href: "about.html"
     current: true
@@ -57,52 +61,57 @@ nav:
 
 hero:
   eyebrow: "About"
-  # The team's h1. Only the closing period is new, so the heading matches the
-  # rest of the site; the words are theirs.
-  h1_lead: "We make things that"
-  h1_em: "can&#39;t be unseen."
-  # They carried "Est 2018" under the headline as its own line.
-  meta: "Est 2018"
+  # Rewritten 2026-10-08 at Tim's direction and approved by him the same day.
+  # The earlier headlines ("No federal agency counts evictions. We do.", live
+  # since Aug 10; "We make things that can't be unseen", the team's 2026 page)
+  # were retired as campy. The register is plain and academic: the site is
+  # public-facing and exists to give advocates tools and policymakers an
+  # understanding of trends. ERN's framing is making eviction understandable
+  # through accessible maps and trends, not a claim to be the only counter.
+  h1_lead: "Making eviction"
+  h1_em: "understandable."
+  lede: >-
+    The Eviction Research Network collects eviction court records across the
+    United States and turns them into maps, state profiles, and trend data that
+    anyone can read. We are a research program at UC Berkeley, founded in
+    2018, and we work with courts, legal aid organizations, public agencies,
+    advocates, and universities to show where evictions happen, who they fall
+    on, and how they change over time.
 
 mission:
   eyebrow: "Mission"
-  # Their section label was simply "Mission", so there is no lead half here.
-  h2_em: "Mission."
-  # Restored verbatim from the team's About page (f725271, 23 Feb 2026). Their
-  # punctuation and numerals are kept as written, em-dashes included.
+  # Rewritten 2026-10-08 in the plain register. The facts are the team's
+  # (f725271, 23 Feb 2026): the King County case, the four- and five-fold
+  # disparities, the Washington notice period, and Baltimore's right to
+  # counsel. The em-dashes and the consultant phrasing are gone.
+  h2_lead: "Where the work"
+  h2_em: "began."
   paragraphs:
     - >-
-      It started with a mother who was served an eviction notice, settled out of
-      court, and continued to live in the residence for 2 more years. But the
-      filing followed her&mdash;ultimately leading to denial of future housing.
-      With support from the American Civil Liberties Union, her case exposed
-      deep racial and gender disparities embedded in eviction practices.
+      The network began with one case in King County, Washington. A mother was
+      served an eviction notice, settled out of court, and stayed in her home
+      for two more years. The filing stayed on her record and was later used to
+      deny her housing. With support from the American Civil Liberties Union,
+      her case raised a larger question about who faces eviction and how those
+      cases are recorded.
     - >-
-      Research in King County, Washington found that Black households were four
-      times more likely than White households to receive eviction notices, and
-      that Black women were five times more likely than White men to have an
-      eviction case filed against them. Building on this work, founder Tim
-      Thomas began examining local eviction data and later expanded this
-      analysis across Washington State and other regions. These findings have
-      informed the development of state and local policies, including Washington
-      State&#39;s extension of the eviction notice period from 3 to 14 days and
-      the establishment of Right to Counsel in Baltimore City, with the goal of
-      reducing preventable evictions and supporting fairer processes.
+      Research in King County found that Black households were four times more
+      likely than White households to receive an eviction notice, and that
+      Black women were five times more likely than White men to have an
+      eviction case filed against them. Tim Thomas, who founded ERN, led that
+      research and extended it across Washington State and then to other
+      states. The findings informed Washington&#39;s 2019 extension of the
+      eviction notice period from 3 to 14 days and Baltimore City&#39;s right
+      to counsel for tenants facing eviction.
     - >-
-      The Eviction Research Network (ERN) specializes in making housing and
-      eviction dynamics measurable and understandable. Through open-source
-      tools, academic research, and collaboration with a wide range of
-      partners&mdash;including community organizations, service providers, and
-      public agencies&mdash;ERN develops accessible data that clarifies where
-      and for whom evictions are most likely to occur. Similar patterns to those
-      observed in Washington appear across many jurisdictions and reflect the
-      long-term effects of historical housing policies and practices. Because
-      stable housing underpins health, education, and overall well-being, these
-      patterns have significant implications for communities&#39; long-term
-      outcomes. By identifying populations and neighborhoods at elevated risk of
-      eviction at the local level, the Eviction Research Network supports
-      data-informed strategies aimed at preventing displacement and
-      strengthening housing stability.
+      The same patterns appear in state after state, and they follow lines
+      drawn by earlier housing policy, including redlining. Because a stable
+      home shapes health, schooling, and work, eviction reaches well beyond the
+      courtroom. ERN exists to make those patterns visible. We collect court
+      records, standardize them, and publish maps and trends that show where
+      evictions are concentrated, who they fall on, and how they change over
+      time, so that tenants, advocates, agencies, and researchers can see the
+      problem in their own communities and act on it.
   image:
     src: "images/about_page/blackandwhitezone.jpeg"
     # The old page called this a map of a redlined zone. It is a photograph.
@@ -110,72 +119,47 @@ mission:
       Black and white aerial photograph of a lakeside city, dense residential
       blocks running back from the shoreline toward a distant downtown
 
-# This section carried no heading on the old page, which left a block of prose
-# floating between two titled sections. The heading is new; the prose is not.
-approach:
-  h2_lead: "The records exist."
-  h2_em: "They just don&#39;t line up."
-  paragraphs:
-    - >-
-      Eviction records exist, but they sit with individual courts in
-      incompatible forms, sealed in one state, missing addresses in another,
-      held as scanned images in a third. ERN fills that gap. We collect the
-      records, clean and standardize them the same way everywhere, and publish
-      our methods and code, so that a finding in Oregon can be compared directly
-      with a finding in Maryland. Where a court system, a state, or another
-      research group already publishes reliable eviction data, we work from it
-      and cite it rather than duplicate it.
-    - >-
-      The disparities first documented in King County appear in state after
-      state, and they fall along lines drawn by earlier housing policy,
-      including redlining. Because a stable home shapes health, schooling, and
-      employment, these patterns carry consequences well beyond the courtroom.
-      ERN also estimates eviction and displacement risk at the neighborhood
-      level, including in places where court data is sparse or unavailable, so
-      that prevention can begin before a case is ever filed.
-
 work:
-  eyebrow: "What We Do"
+  eyebrow: "What we do"
   h2_lead: "What"
-  h2_em: "We Do."
-  # Restored from the team's About page (f725271, 23 Feb 2026), with two edits:
-  # a spelling fix in the Network card ("amplicification" -> "amplification"),
-  # and Tim's rewording of the Advocacy card on 2026-08-25 ("disproportionate
-  # impact of evictions on" -> "disproportionate impacts on").
+  h2_em: "we do."
+  # Rewritten 2026-10-08 in the plain register. The four card titles are the
+  # team's, Advocacy included (Tim restored it from "Policy evidence" on
+  # 2026-08-24). The bodies now say what each line of work produces.
   sub: >-
-    We collect, analyze, and visualize eviction data to put numbers to
-    disparities left in the wake of historical injustice.
+    We collect, analyze, and map eviction data, and we help courts, agencies,
+    and partner organizations do the same with theirs.
   image:
     src: "images/about_page/gimmeshelter.jpeg"
     # The old page called this demonstrators with signs. It is a shop sign.
     alt: >-
       A hanging shop sign reading Gimme Shelter above a neighborhood sidewalk
   capabilities:
-    - title: "Data Preparation"
+    - title: "Data preparation"
       icon: "layers"
       body: >-
-        We provide data and research expertise to collect, prepare, and process
-        eviction data for sources who may not have the means to do so.
-    - title: "Maps and Analysis"
+        We collect, clean, and standardize eviction records for the courts,
+        agencies, and organizations that hold them but do not have the staff or
+        tools to turn them into usable data.
+    - title: "Maps and analysis"
       icon: "map"
       body: >-
-        We analyze the data we have collected and help other partners analyze
-        data for disparities based on race, sex, and other factors. We then
-        integrate that information into maps of the state that show disparities
-        by region.
+        We measure filing and judgment rates by neighborhood and by race and
+        sex, and publish the results as state profiles, interactive maps, and
+        trend charts that a reader without a statistics background can follow.
     - title: "Network"
       icon: "people"
       body: >-
-        We create relationships and work alongside partners to help understand
-        their data, share our analysis, and otherwise interact in order to
-        create a force for advocacy, made exponentially more powerful through
-        the mutual amplification of our collective voices.
+        We work alongside courts, legal aid organizations, agencies, advocates,
+        and universities, helping partners understand their own data and sharing
+        our methods and code so that findings can be checked, repeated, and
+        extended.
     - title: "Advocacy"
       icon: "megaphone"
       body: >-
-        Equipped with undeniable statistics, we advise and champion policies
-        aimed to address disproportionate impacts on vulnerable populations and
-        communities.
+        We bring the evidence to legislators, agencies, and courts, and we
+        advise on policies that reduce preventable evictions and their
+        disproportionate impact on vulnerable communities.
 
 team:
   eyebrow: "The team"
@@ -318,23 +302,6 @@ collaborators:
         - label: "LinkedIn"
           href: "https://www.linkedin.com/in/josemhe/"
           newtab: true
-
-experts:
-  eyebrow: "Practice network"
-  h2_lead: "Expert"
-  h2_em: "Collaborators."
-  list_label: "Expert collaborators"
-  people:
-    - name: "Edmund Witter"
-      org: "Housing Justice Project, Washington"
-    - name: "Scott Crain"
-      org: "Northwest Justice Project"
-    - name: "Matt Hill"
-      org: "Public Justice Center, Maryland"
-    - name: "Eric Dunn"
-      org: "National Housing Law Project, Virginia"
-    - name: "Sandra Park"
-      org: "ACLU, New York"
 
 alumni:
   eyebrow: "Alumni"
@@ -576,9 +543,6 @@ site_footer:
     A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
     Berkeley Department of Sociology, which serves as its academic home.
     Affiliated with the Berkeley Institute for Data Science.
-  collaborators: >-
-    Collaborators: Housing Initiative at Penn · Urban Displacement Project ·
-    Legal Services Corporation.
   copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
   accessibility:
     label: "Report a web accessibility issue"
@@ -592,12 +556,14 @@ site_footer:
           href: "https://evictionresearch.net/hprm/"
           newtab: true
         - label: "U.S. Eviction Data Directory"
-          href: "all_states/"
+          href: "eviction-data-atlas.html"
           newtab: true
     - heading: "Research"
       links:
         - label: "Publications"
           href: "research.html"
+        - label: "What works"
+          href: "policy.html"
         - label: "Methodology"
           href: "methodology.html"
           newtab: true

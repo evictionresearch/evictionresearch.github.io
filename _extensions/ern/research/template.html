@@ -90,36 +90,9 @@ $endfor$      </div>
       <a class="btn ghost" href="$ours.button.href$" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">$ours.button.label$</a>
     </section>
 
-    <!-- ─────────── Evidence brief ─────────── -->
-    <section id="brief" class="band">
-      <div class="wrap sec">
-        <p class="eyebrow">$brief.eyebrow$</p>
-        <h2>$brief.h2_lead$ <em>$brief.h2_em$</em></h2>
-        <p class="sub">$brief.sub$</p>
-        <div class="actions" style="margin-bottom: 12px;">
-          <a class="btn" href="$brief.primary.href$">$brief.primary.label$</a>
-          <a class="btn ghost" href="$brief.secondary.href$">$brief.secondary.label$</a>
-        </div>
-
-$for(brief.policies)$        <div class="pol">
-          <p class="pol-num">$it.num$</p>
-          <div>
-            <h3>$it.title$</h3>
-            <p class="pol-what">$it.what$</p>
-            <dl class="pol-rows">
-              <div><dt>Evidence</dt><dd>$it.evidence$</dd></div>
-              <div><dt>Enacted in</dt><dd>$it.where$</dd></div>
-              <div class="src"><dt>Sources</dt><dd>$it.sources$</dd></div>
-            </dl>
-          </div>
-        </div>
-$endfor$
-        <div class="callout">
-          <h3>$brief.callout.heading$</h3>
-          <p>$brief.callout.body$</p>
-        </div>
-      </div>
-    </section>
+    <!-- The seven-policy evidence brief that used to sit here moved to its
+         own page in August 2026: policy.qmd / policy.html (What works),
+         reorganized under the four P's. -->
 
     <!-- ─────────── Library ─────────── -->
     <section id="library" class="wrap sec">
@@ -131,6 +104,9 @@ $endfor$
         <input id="f-q" type="search" placeholder="$library.search_placeholder$" aria-label="Search the library by title, author, or publisher">
         <select id="f-state" aria-label="Filter the library by state">
           <option value="">$library.all_states_label$</option>
+        </select>
+        <select id="f-topic" aria-label="Filter the library by topic">
+          <option value="">$library.all_topics_label$</option>
         </select>
       </div>
 
@@ -171,13 +147,11 @@ $endif$
   <footer class="foot" role="contentinfo">
     <div class="wrap foot-in">
       <div class="foot-brand">
-        <img src="$logos.logo_reversed$" alt="Eviction Research Network">
+        <img src="$logos.logo_stacked_reversed$" alt="Eviction Research Network">
         <!-- Affiliation wording is canonical, from library/ORG.md. Do not
              paraphrase and never write "housed in", which reads as a campus
-             unit. IGS, UDP and CDSS are historical, not current, affiliations;
-             UDP appears only in the collaborator line below. -->
+             unit. IGS, UDP and CDSS are historical, not current, affiliations. -->
         <p>$site_footer.affiliation$</p>
-        <p>$site_footer.collaborators$</p>
       </div>
 $for(site_footer.columns)$      <div class="foot-col">
         <span>$it.heading$</span>
@@ -205,13 +179,14 @@ $endfor$    </div>
       var count = document.getElementById('bib-count');
       var queryEl = document.getElementById('f-q');
       var stateEl = document.getElementById('f-state');
+      var topicEl = document.getElementById('f-topic');
       var pills = document.getElementById('f-types');
       if (!DATA || !DATA.items || !list) {
         if (count) count.textContent = 'The publications library could not be loaded.';
         return;
       }
 
-      var filt = { q: '', state: '', type: '' };
+      var filt = { q: '', state: '', type: '', topic: '' };
 
       function esc(s) {
         return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -225,6 +200,20 @@ $endfor$    </div>
         o.textContent = s.label;
         stateEl.appendChild(o);
       });
+
+      // Topics come from the data too. If the bibliography carries none, the
+      // menu is removed rather than left offering nothing.
+      if (DATA.keywords && DATA.keywords.length) {
+        DATA.keywords.forEach(function (k) {
+          var o = document.createElement('option');
+          o.value = k.value;
+          o.textContent = k.label + ' (' + k.count + ')';
+          topicEl.appendChild(o);
+        });
+      } else if (topicEl) {
+        topicEl.parentNode.removeChild(topicEl);
+        topicEl = null;
+      }
 
       // Type filters come from the data so a new kind of entry cannot appear in
       // the library without a pill to find it by.
@@ -249,6 +238,7 @@ $endfor$    </div>
           + '<span class="bi-tags">'
           + (it.typeLabel ? '<span class="tag kind">' + esc(it.typeLabel) + '</span>' : '')
           + (it.stateLabel ? '<span class="tag where">' + esc(it.stateLabel) + '</span>' : '')
+          + (it.keywordLabels || []).map(function (k) { return '<span class="tag topic">' + esc(k) + '</span>'; }).join('')
           + '</span></a>';
       }
 
@@ -257,8 +247,9 @@ $endfor$    </div>
         var hits = DATA.items.filter(function (it) {
           if (filt.type && it.type !== filt.type) return false;
           if (filt.state && it.state !== filt.state) return false;
+          if (filt.topic && (it.keywords || []).indexOf(filt.topic) === -1) return false;
           if (!needle) return true;
-          var hay = (it.title + ' ' + it.authors + ' ' + it.venue + ' ' + it.stateLabel).toLowerCase();
+          var hay = (it.title + ' ' + it.authors + ' ' + it.venue + ' ' + it.stateLabel + ' ' + (it.keywordLabels || []).join(' ')).toLowerCase();
           return hay.indexOf(needle) !== -1;
         });
         count.innerHTML = 'Showing <strong>' + hits.length + '</strong> of ' + DATA.items.length + ' publications';
@@ -268,6 +259,7 @@ $endfor$    </div>
 
       queryEl.addEventListener('input', function (e) { filt.q = e.target.value; render(); });
       stateEl.addEventListener('change', function (e) { filt.state = e.target.value; render(); });
+      if (topicEl) topicEl.addEventListener('change', function (e) { filt.topic = e.target.value; render(); });
       pills.addEventListener('click', function (e) {
         var b = e.target.closest('.pill');
         if (!b) return;

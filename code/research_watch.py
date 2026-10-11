@@ -46,6 +46,9 @@ STATE = os.path.join(REPO, "code", "research-watch.json")
 WORK = os.path.join(REPO, "code", ".research-watch")
 LINKS_MD = os.path.join(WORK, "LINKS.md")
 PUBS_MD = os.path.join(WORK, "PUBS.md")
+HELP_MD = os.path.join(WORK, "HELP.md")
+HELP_CSV = os.path.expanduser(
+    "~/git/evictionresearch/library/data/tenant_help/providers.csv")
 BIB = os.path.join(REPO, "assets", "data", "research.json")
 
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " \
@@ -151,7 +154,7 @@ US_SIGNAL = re.compile(
 )
 
 DEFAULTS = {
-    "interval_days": {"links": 30, "pubs": 30},
+    "interval_days": {"links": 30, "pubs": 30, "help": 90},
     # When Tim last signed off on the section. This, not the check date, is
     # what the brief counts from, so a background check cannot quietly answer
     # the question on his behalf.
@@ -160,6 +163,7 @@ DEFAULTS = {
     # When the automated check last ran. Evidence, not sign-off.
     "links_last_checked": None,
     "pubs_last_swept": None,
+    "help_last_checked": None,
     # The link sweep and the Crossref query are read-only GETs against sources
     # this site already cites in public. Set false to be asked first instead.
     "auto_check": True,
@@ -425,6 +429,166 @@ def changed_hands(url, final):
     return _domain(url) != _domain(final)
 
 
+
+# ------------------------------------------------------------------ help ----
+# The tenant-help directory needs a check the links sweep cannot perform.
+# Every defect the 2026 audit of that page found returned HTTP 200 while
+# pointing at the wrong organisation: "Legal Services San Diego" resolving to
+# the Los Angeles County Sheriff, "Mississippi Legal Services" to a Colorado
+# property-rights firm, three different agencies sharing the initials CHFA
+# scattered across four states. Status codes are blind to all of it. So this
+# compares the name we publish against the title the destination serves.
+
+HELP_STOP = {
+    "the", "of", "and", "for", "inc", "llc", "org", "a", "an", "in", "to",
+    "on", "at", "program", "programs", "service", "services", "housing",
+    "legal", "aid", "help", "center", "centre", "county", "counties",
+    "state", "statewide", "office", "department", "tenant", "tenants",
+    "rental", "rent", "resource", "resources", "association", "society",
+    "network", "coalition", "project", "initiative", "fund", "authority",
+    "commission", "division", "bureau", "agency", "group", "law", "rights",
+    "court", "courts", "self", "community", "emergency", "utility",
+    "utilities", "information", "line", "hotline", "corporation", "council",
+    "foundation", "institute", "partnership", "alliance", "welcome", "home",
+    "homepage", "index", "page", "site", "official", "website",
+}
+
+
+def help_tokens(text):
+    return {w for w in re.findall(r"[a-z]{4,}", (text or "").lower())
+            if w not in HELP_STOP}
+
+
+def probe_titled(url):
+    """Status, final URL, and the page title. The title is the whole point."""
+    ctx = ssl.create_default_context()
+    req = urllib.request.Request(url, headers={
+        "User-Agent": UA,
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+    })
+    try:
+        with urllib.request.urlopen(req, timeout=25, context=ctx) as resp:
+            raw = resp.read(200000)
+            enc = resp.headers.get_content_charset() or "utf-8"
+            body = raw.decode(enc, "replace")
+            m = re.search(r"<title[^>]*>(.*?)</title>", body, re.S | re.I)
+            title = html.unescape(re.sub(r"\s+", " ", m.group(1))).strip() if m else ""
+            return resp.status, resp.geturl(), title
+    except urllib.error.HTTPError as exc:
+        return exc.code, url, ""
+    except Exception as exc:
+        return 0, f"{type(exc).__name__}: {exc}", ""
+
+
+def load_help_rows():
+    if not os.path.exists(HELP_CSV):
+        return []
+    import csv as _csv
+    with open(HELP_CSV, newline="", encoding="utf-8") as fh:
+        return [r for r in _csv.DictReader(fh)]
+
+
+def cmd_help(argv):
+    os.makedirs(WORK, exist_ok=True)
+    rows = load_help_rows()
+    if not rows:
+        print(f"no roster at {HELP_CSV}", file=sys.stderr)
+        return 1
+
+    targets = {}
+    for r in rows:
+        u = (r.get("url") or "").strip()
+        if u.startswith("http"):
+            targets.setdefault(u, []).append(r)
+
+    results = {}
+    with futures.ThreadPoolExecutor(max_workers=8) as pool:
+        jobs = {pool.submit(probe_titled, u): u for u in targets}
+        for job in futures.as_completed(jobs):
+            results[jobs[job]] = job.result()
+
+    # One probe is not evidence. Timeouts, 52x from a CDN, and momentary
+    # parking redirects all clear on a retry, and a false "this link is dead"
+    # costs someone an afternoon chasing a provider that was always fine.
+    # Anything that looks broken gets a second, slower look before it is
+    # reported, and only a repeated failure counts.
+    suspect = [u for u, (code, final, _) in results.items()
+               if code == 0 or code >= 400 or changed_hands(u, final)]
+    if suspect:
+        with futures.ThreadPoolExecutor(max_workers=4) as pool:
+            jobs = {pool.submit(probe_titled, u): u for u in suspect}
+            for job in futures.as_completed(jobs):
+                url = jobs[job]
+                code, final, title = job.result()
+                first = results[url]
+                # Keep the better of the two readings.
+                if code and code < 400 and not changed_hands(url, final):
+                    results[url] = (code, final, title or first[2])
+                else:
+                    results[url] = (code, final, title or first[2])
+
+    dead, blocked, moved, mismatch = [], [], [], []
+    for url, (code, final, title) in sorted(results.items()):
+        who = ", ".join(sorted({r["name"] for r in targets[url]})[:3])
+        if code == 0:
+            dead.append((url, who, final))
+        elif code in (401, 403, 429, 999):
+            blocked.append((url, who, code))
+        elif code >= 400:
+            dead.append((url, who, f"HTTP {code}"))
+        else:
+            if changed_hands(url, final):
+                moved.append((url, who, final))
+            # Only judge the title when there is one to judge.
+            if title:
+                for r in targets[url]:
+                    nm, tt = help_tokens(r["name"]), help_tokens(title)
+                    dom = help_tokens(_domain(final).replace(".", " "))
+                    if nm and tt and not (nm & tt) and not (nm & dom):
+                        mismatch.append((r["name"], url, title, r.get("state", "")))
+
+    stamp = date.today().isoformat()
+    out = [f"# Tenant-help directory check, {stamp}", "",
+           f"{len(rows)} providers, {len(targets)} distinct URLs.", ""]
+
+    def block(title_, items, render):
+        if not items:
+            return []
+        return [f"## {title_} ({len(items)})", ""] + [render(i) for i in items] + [""]
+
+    out += block("Name does not match the destination", mismatch,
+                 lambda i: f"- **{i[0]}** ({i[3]}) -> <{i[1]}>\n  page says: _{i[2]}_")
+    out += block("Dead", dead, lambda i: f"- <{i[0]}> ({i[1]}) - {i[2]}")
+    out += block("Domain changed hands", moved,
+                 lambda i: f"- <{i[0]}> ({i[1]}) now lands on <{i[2]}>")
+    out += block("Blocked (bot protection, probably fine)", blocked,
+                 lambda i: f"- <{i[0]}> ({i[1]}) - HTTP {i[2]}")
+    if not (mismatch or dead or moved):
+        out += ["Nothing wrong found.", ""]
+    out += ["", "A name/title mismatch is a lead, not a verdict: some sites",
+            "title themselves generically. Open each before changing the CSV.",
+            "",
+            "Python's TLS is stricter than a browser's. A government site can",
+            "appear dead here and load fine for a person; www.jud.ct.gov is a",
+            "known example. Confirm with curl before removing anything.",
+            "", "When reviewed: `python3 code/research_watch.py ack help`"]
+
+    with open(HELP_MD, "w") as fh:
+        fh.write("\n".join(out) + "\n")
+
+    state = load_state()
+    state["help_last_checked"] = stamp
+    state["help_last_result"] = {
+        "providers": len(rows), "urls": len(targets), "mismatch": len(mismatch),
+        "dead": len(dead), "moved": len(moved), "blocked": len(blocked),
+    }
+    save_state(state)
+    print(f"{len(targets)} URLs checked - {len(mismatch)} name mismatches, "
+          f"{len(dead)} dead, {len(moved)} moved. -> {HELP_MD}")
+    return 0
+
+
 # ----------------------------------------------------------------- pubs ----
 
 def normalize(title):
@@ -606,6 +770,15 @@ def summarize(state):
             bits.append(f"{lr['internal_missing']} internal paths missing")
         out.append(f"- `code/.research-watch/LINKS.md`, checked "
                    f"{state.get('links_last_checked')} · " + ", ".join(bits))
+    hr = state.get("help_last_result")
+    if hr and os.path.exists(HELP_MD):
+        bits = [f"{hr['urls']} URLs"]
+        if hr.get("mismatch"):
+            bits.append(f"{hr['mismatch']} name/destination mismatches")
+        if hr.get("dead"):
+            bits.append(f"{hr['dead']} dead")
+        out.append(f"- `code/.research-watch/HELP.md`, checked "
+                   f"{state.get('help_last_checked')} - " + ", ".join(bits))
     pr = state.get("pubs_last_result")
     if pr and os.path.exists(PUBS_MD):
         out.append(f"- `code/.research-watch/PUBS.md`, swept "
@@ -620,7 +793,8 @@ def cmd_report(argv):
 
     due_links, age_links = overdue(state, "links")
     due_pubs, age_pubs = overdue(state, "pubs")
-    if not (due_links or due_pubs):
+    due_help, age_help = overdue(state, "help")
+    if not (due_links or due_pubs or due_help):
         return 0
 
     if session and session == read_stamp("last-briefed-session"):
@@ -634,6 +808,8 @@ def cmd_report(argv):
             started.append("links")
         if due_pubs and spawn("pubs"):
             started.append("pubs")
+        if due_help and spawn("help"):
+            started.append("help")
 
     def row(name, due, age, half):
         if not due:
@@ -642,15 +818,17 @@ def cmd_report(argv):
         return f"| {name} | {when} | every {state['interval_days'][half]} days |"
 
     rows = [r for r in (row("Links", due_links, age_links, "links"),
-                        row("Publications", due_pubs, age_pubs, "pubs")) if r]
+                        row("Publications", due_pubs, age_pubs, "pubs"),
+                        row("Tenant-help directory", due_help, age_help,
+                            "help")) if r]
 
     out = [
         "<!-- ern-research-watch -->",
-        "# The research section is due for a refresh",
+        "# Something on this site is due for a refresh",
         "",
-        "Ask Tim whether he wants it run before starting other work in this",
-        "repo, then wait for his answer. Do not touch assets/data/research.json",
-        "or any cited link without it.",
+        "Ask Tim whether he wants it run before starting other work, then wait",
+        "for his answer. Do not touch assets/data/research.json, the tenant-help",
+        "roster, or any cited link without it.",
         "",
         "| Half | Last reviewed | Interval |",
         "|---|---|---|",
@@ -668,7 +846,20 @@ def cmd_report(argv):
     elif not evidence:
         out += ["No evidence gathered yet. To collect it:", "",
                 "    python3 code/research_watch.py links",
-                "    python3 code/research_watch.py pubs", ""]
+                "    python3 code/research_watch.py pubs",
+                "    python3 code/research_watch.py help", ""]
+
+    if due_help:
+        out += [
+            "The tenant-help directory is the one to take most seriously. It is",
+            "read by people with days to answer a summons, and its failure mode",
+            "is silent: every defect the 2026 audit found returned HTTP 200",
+            "while pointing at the wrong organisation. `help` compares each",
+            "published name against the title its link actually serves.",
+            "Rebuild the roster from library/data/tenant_help/pipeline/, then",
+            "regenerate the page with code/o3_tenant_help.r.",
+            "",
+        ]
 
     out += [
         "Refreshing means two things. Confirm every cited URL still resolves to",
@@ -685,7 +876,8 @@ def cmd_report(argv):
 
 
 def cmd_ack(argv):
-    halves = [a for a in argv if a in ("links", "pubs")] or ["links", "pubs"]
+    halves = [a for a in argv if a in ("links", "pubs", "help")] \
+        or ["links", "pubs", "help"]
     state = load_state()
     today = date.today().isoformat()
     for half in halves:
@@ -704,7 +896,8 @@ def cmd_status(argv):
     print(f"auto     : {'on' if state.get('auto_check', True) else 'off'}"
           "  (set auto_check false in the state file to be asked first)")
     print()
-    for half, label in (("links", "Links"), ("pubs", "Publications")):
+    for half, label in (("links", "Links"), ("pubs", "Publications"),
+                        ("help", "Tenant-help")):
         due, age = overdue(state, half)
         when = "never" if age is None else f"{age} days ago"
         print(f"{label:<14} reviewed {when:<16} "
@@ -712,14 +905,15 @@ def cmd_status(argv):
               f"{'DUE' if due else 'ok'}")
     print()
     for key in ("links_last_checked", "links_last_result",
-                "pubs_last_swept", "pubs_last_result"):
+                "pubs_last_swept", "pubs_last_result",
+                "help_last_checked", "help_last_result"):
         if state.get(key) is not None:
             print(f"  {key:<20} {json.dumps(state[key])}")
     return 0
 
 
 MODES = {"report": cmd_report, "links": cmd_links, "pubs": cmd_pubs,
-         "ack": cmd_ack, "status": cmd_status}
+         "help": cmd_help, "ack": cmd_ack, "status": cmd_status}
 
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else "report"

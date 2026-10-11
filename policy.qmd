@@ -1,0 +1,1454 @@
+---
+# ============================================================================
+# ERN policy-evidence page — the four P&#39;s, and the floor under them.
+# Edit the copy here, then rebuild:
+#
+#     quarto render policy.qmd
+#
+# That overwrites policy.html in place. git is the safety net — review
+# `git diff policy.html` before committing.
+#
+# The page chrome lives in _extensions/ern/policy/template.html. Everything a
+# person normally wants to change (headings, the framework tiles, every
+# plank, the legend, the callout, links, footer) is a field below, so the
+# template should rarely need touching.
+#
+# NOTE: values here are parsed as Markdown. Write &#39; for a straight
+# apostrophe, which is what the rest of the site uses. Do not backslash-escape:
+# inside a folded block scalar (>-) YAML keeps the backslash and it lands on
+# the page. Colons and URLs need no escaping.
+#
+# AUGUST 2026 MERGE: this page now carries the plank cards from ERN&#39;s
+# draft national housing rights charter (library/quarto/housing-rights-charter
+# in the evictionresearch repo). The four P sections keep this page&#39;s
+# claim headlines; the planks inside use the charter&#39;s card format — a
+# tier pill (T1 fastest/largest effect, T3 structural/slow), an Evidence or
+# Reasoned badge, and a national-status mark (&#10003; federal law /
+# &#9681; some states / &#8856; ran nationally, ended / &#9675; nowhere yet).
+# A fifth section, The floor, carries the charter&#39;s Article V.
+#
+# FACT DISCIPLINE: every plank marked Evidence was checked against its named
+# source. The charter&#39;s planks were verified by source-fetching agents on
+# 2026-08-27; the full merged page was re-verified claim by claim on
+# 2026-08-28 (verification ledger at the end of this comment). Planks marked
+# Reasoned are argued from mechanism or arithmetic and labeled as such. Do
+# not add a number without doing the same.
+#
+# DO NOT CLAIM (carried from the charter&#39;s verification):
+#   - No one-to-one prevention-cost vs homelessness-cost ledger; magnitudes
+#     only (the populations differ — the Evans card says so on the page).
+#   - Evans 2016 is a funding-availability quasi-experiment, not an RCT.
+#     The paper&#39;s own body ties the 76% to a six-month horizon (88% at
+#     three months), so "within six months" is correct — a 2026-08-28
+#     full-text read reversed the earlier abstract-only lock.
+#   - Humphries NBER 33155: $1,252 is the AVERAGE rent owed by move-out,
+#     not a median at filing. The verified filing-month figure is "90% of
+#     evicted tenants owe at least one month of rent."
+#   - Auckland figure is 23% (Economic Inquiry 2026), not 20–35%.
+#   - Mast 2023 moves 45–70 PEOPLE, not units.
+#   - NYC right-to-counsel: cite FY2023&#39;s 84%; FY2024&#39;s 89% uses a
+#     broadened definition.
+#   - Mortality 19%/40% is Graetz et al., Soc Sci & Medicine 2024 — not the
+#     JAMA COVID paper.
+#   - Do not say "rent control chills construction" against capped-increase
+#     designs that exempt new construction; Diamond et al. found conversion,
+#     not suppressed building.
+#   - Old research-page claims that failed checking stay dropped: the "NYC
+#     evictions fell 41%" figure, the "first statewide just-cause" credit to
+#     Oregon (New Jersey, 1974), a Michigan 87% figure.
+#   - "Maryland filings fell by more than half" after the 10-day notice:
+#     no source found (2026-08-28 search); dropped.
+#   - NYC borough range 72&ndash;93% is FY2024, whose "remain in home" metric
+#     is the broadened one; kept off with the FY24 89%.
+#   - Benfer&#39;s $1B&#8594;$4.5B figure is the broader business+landlord
+#     background-check industry, confirmed only via a reproduced abstract;
+#     kept off. Same for "nine in ten landlords screen" (a TransUnion
+#     survey via CFPB fn 14; CFPB&#39;s own text is more cautious).
+#   - Do not write "SOI laws roughly halve denial rates" — the HUD study
+#     disclaims evaluating the laws; Philadelphia (67% denial) had one.
+#   - (2026-10-08) Humphries $1,252 is the average balance at move-out for
+#     ALL tenants in the sample; evicted tenants owed about $3,229 (3.5
+#     months). Never present $1,252 as what evicted tenants owed.
+#   - (2026-10-08) Reinvestment Fund: 7.4% (all assisted, 6 months) vs
+#     42.2% (unassisted); 4.2% is the mediated-agreement subgroup (n=119);
+#     33.3% at 21 months is all assisted cases. Do not pair 4.2% with 33.3%.
+#   - (2026-10-08) CCP 1161.2 unmasks a record 60 days after filing only
+#     when the plaintiff won within 60 days; later wins need a court order.
+#   - (2026-10-08) Covenant Homeownership: no official page states a
+#     $150,000 cap; do not print one. HUD opened a Fair Housing Act
+#     investigation March 24, 2026 (letter to WSHFC), unresolved.
+#   - (2026-10-08) RCW 59.20.370 states no notice period; three months'
+#     notice is RCW 59.20.090(2). RCW 59.20.325's 70 days is to form a
+#     tenant organization and declare interest, not to bid.
+#   - (2026-10-08) Stout Cleveland does not say the prevention rate fell;
+#     cumulative 83% vs 76% for 2025 cases; overall goal achievement fell
+#     80% to 75%, driven by the rent-assistance goal.
+#
+# VERIFICATION LEDGER (2026-08-28, six source-fetching agents; quote +
+# location recorded for every item; agent transcripts in the session tasks
+# directory). V = verified at source; P = verified via mirror/snippet
+# because the primary was bot-blocked.
+#   Humphries NBER 33155 p.10-11 (90% >=1 month V; $1,252 = avg owed by
+#     move-out V); ERN/Penn HUD ERA eval via evictionresearch.net/hud-era
+#     (53%/65% LA, 45%/673k, 700+ counties/22 states, proxy-rules lesson V;
+#     "45% lower odds forced move" FAILED -> replaced with 1/3-vs-18%
+#     informal-eviction stat); Treasury 10.8M/$46.55B V; Eviction Lab
+#     50.3%/1.36M/3M+ V; Minn. Stat. 462A.204 (1993) V; Reinvestment Fund
+#     pp.6-11 (4.2/42.2/33.3) V; WA ERPP 78% p.29, sunset 6/30/2023 V;
+#     Phila. 9-811 eff. 1/1/2022 P (30/45-day nuance -> day-count dropped;
+#     2026-10-08: Bill 240245 (2024) removed the sunset, 30-day minimum);
+#     TDHCA 25k+/$243M V; Evans Science pp.694-698 (76% IS the 6-month
+#     figure; quasi-experiment) V; LEO Santa Clara $2.47/$1 V; NAEH
+#     $35,578 V; HUD AHAR 745,652 V; NASEM PSH highlights p.2 V; Family
+#     Options p.36 and p.xxxiii (homelessness more than halved; the p.45
+#     cite recorded in August was wrong, corrected 2026-10-08) V.
+#   NCCRC 28 jurisdictions + 4%/84% (~43-study compilation) V; RCW
+#     59.18.640 (2021; "first state" via ABA Journal) V; NYC OCJ FY2023
+#     p.10 84% V; Furman pp.2,6 (54%, 40%; 64 OCA jurisdictions) V; Stout
+#     Philly $12.74 (Phila. Bar page) V; Stout Cleveland pp.6-10
+#     (83/70, ~50% no defense, back-rent quote, assistance wind-down) V;
+#     MD FY2017 abstract Table DC-2 144,058 landlord-tenant filed V;
+#     Losing Home 4,788 (2017, King County) P - report PDF currently 404s;
+#     Md. Ch. 746 10-day notice eff. 10/1/2021 V; SB 5600 14-day + RCW
+#     59.18.410 redemption V; NPHL fact sheet pp.1,3 (1-in-3 2014 = Leung
+#     et al.; $76/3.11 = Gomory et al. HPD 2023) V.
+#   Porton 22% (abstract wording) P; So HPD 2023 P (journal 403, full PDF
+#     mirror read); CFPB 16,000+ V; Hepburn 19.9/32.7 p.653 V; FCRA 15 USC
+#     1681c(a)(2) V; NLIHC 2026 Advocates&#39; Guide ch.7: 19 states + DC
+#     V; CCP 1161.2(a)(1)(E)-(F) V (opens on any landlord win, hence
+#     "unmasks it if the landlord wins"); RCW 59.18.367 discretionary V;
+#     Urban/HUD denial rates V (pattern statement is the study&#39;s own);
+#     PRRAC >60% (March 2026, p.1 fn) V; DOJ RealPage: filed 8/23/2024,
+#     proposed judgment 11/24/2025, NOT entered as of 8/28/2026, Seattle
+#     Ord 127241 (7/1/2025), King Co 9/23/2025 V; WA caps: RCW 59.18.700
+#     (7%+CPI max 10%), .710 (12-yr exemption), 59.20.370 (5% lots),
+#     59.18.140 (90-day notice) V; Diamond AER 2019 15% (conversion +
+#     redevelopment) V.
+#   JCHS 2026 pp.3,15,25 (9.3M/2.5M/30%; 22.7M ~49%) + p.2,21 (547k->416k
+#     multifamily STARTS) V; PAHRC pp.5-6 (5M/10%; 374,497) V; CARB
+#     pp.5,9,12,13,56 (ratings; 3/4 unsubsidized; CLT "economic
+#     resources"; Gallaher 58% = completed TOPA process and could afford
+#     units) V; WA Commerce 5/7/2026 $97.7M vs $34.1M V; RCW 59.20.325
+#     (70-day window, opportunity to compete; CLTs in 59.20.030(4)) V;
+#     PL 119-101 sec.1001 (350 homes, no divestment, 7/11/2026) V;
+#     Raymond et al. Atlanta Fed CED 04-16 pp.1,17 (8% more likely to
+#     file) V; Colburn UC Press V.
+#   Asquith REStat 5-7% V; Auckland 23% + 3/4 upzoned (EI 2026) V; JUE
+#     2023 construction V; Pew Minneapolis 12/1 vs 4/14 P (Pew bot-blocks;
+#     MN Senate PDF capture); Mast 45-70 people, most within 3 years P
+#     (RePEc abstract); Seattle Prop 1A 5%/$53M V; RCW 39.33.015 V;
+#     Covenant $150k/0%/$75-100M (WSHFC FAQ p.3) V; 3SHB 1491 50-year
+#     affordability V.
+#   GAO-24-106637 (2/28/2024) quote V; Gromis PNAS 3.6M/~7%/99.9M/1M
+#     (PMC copy) V; Cityscape 5.5:1 p.281 V; SB 1160: Senate 39-0
+#     5/27/2026, out of Approps 8/13, on Assembly floor as of 8/28 V;
+#     CBPP 5.1M + 3-in-4 P (bot-blocked, snippet-confirmed); Collinson
+#     QJE (3.4pp/300%, -14% yr2, +29% hospital visits, female and Black
+#     tenants) V; CMTO 15->53 (full services bundle) V; Graetz SSM 2024
+#     19/40 V; Himmelstein JAMA Peds V; NLIHC Gap 2026 pp.4-17
+#     (7.2M/11M/35/74%) V.
+#   ERN-internal, repo provenance: HPRM top-5-of-184 process clocks
+#     (understanding-eviction.html, verified July 2026); six states
+#     publish case-level data + Smith v. Wasatch (law/02_evidence_base.md).
+#   2026-09-14 companion-database pass (reference shelf + plank pointers):
+#     NLIHC State and Local Tenant Protections Database
+#     (nlihc.org/tenant-protections): tracks RTC, source of income, record
+#     sealing, anti-rent-gouging, just cause across states, territories,
+#     tribes, localities; comprehensive tracking since Jan 2021; data
+#     partners PRRAC, NCCRC, LSC, PowerSwitch Action V. LSC Eviction Laws
+#     Database (with Temple Beasley&#39;s Center for Public Health Law
+#     Research): pre-filing through post-judgment; 50 states + DC + the
+#     territories (site: first public dataset to cover eviction in U.S.
+#     territories) plus a 30-jurisdiction local sample; SNAPSHOT of law in
+#     effect Jan 1, 2021 only (site&#39;s own caveat — always carry it) V.
+#     Housing Solutions Lab policy library
+#     (housingsolutionslab.org/housing-policy-library/): NYU Furman Center;
+#     four-pillar organization; note localhousingsolutions.org now 301s to
+#     housingsolutionslab.org — link the new domain V. PolicyLink All-In
+#     Cities anti-displacement toolkit P (Cloudflare-blocked 2026-09-14;
+#     described from search snippets only: briefs exist for just cause,
+#     rent stabilization, TOPA/COPA, rental registries, eviction records
+#     and tenant screening; NO figures taken from PolicyLink pages).
+#   2026-10-08 RE-VERIFICATION (four source-fetching agents, every claim
+#     above re-opened; reports in the session tasks directory). No claim
+#     failed outright. CHANGED and applied: SB 1160 signed 9/27/2026, Ch.
+#     681 (GovBuddy action list, Governor's 9/27 update); DOJ v. RealPage
+#     final judgment ENTERED 5/19/2026 (Doc. 194; 9/30/2026 opinion, Doc.
+#     223, keeps state claims alive); PL 119-101 sec. 1001 ban effective
+#     180 days after 7/11/2026 enactment, 15-year sunset; Picture of
+#     Preservation 374,497 is "through 2028"; WSHFC Covenant FAQ PDF now
+#     redirects to heretohome.org (cite replaced; HB 1696 2025 raised the
+#     income cap to 120% AMI, forgiveness at 80%); RCW 36.35.150 for
+#     tax-foreclosed parcels (county offers to city before auction; amended
+#     2026 c 233); Seattle CB 121000 signed 7/1/2025, effective 7/31/2025;
+#     King County KCC 12.23 effective Oct 2025; Maryland filing fee raised
+#     Oct 2024 (secondary sources). WORDING tightened: NCCRC "several dozen"
+#     studies and "enacted" (not guaranteed; RCW 59.18.640 is subject to
+#     appropriation); Smith v. Wasatch "first" is the ACLU's own claim;
+#     GAO quote reads "in the U.S."; CARB rates IZ as dependent on a strong
+#     market, not "only" there; Eviction Lab 50.3% is for the 31 cities and
+#     6 states it tracks. Still BLOCKED at the primary (verified by mirror
+#     or snippet): CBPP 5.1M and "3 in 4" (snippets; the 3-in-4 figure is
+#     CBPP's interactive, not the Policy Basics page), PolicyLink three
+#     pages (Cloudflare), Phila. Code text on amlegal (bill copy read
+#     instead), Pew Minneapolis (Route Fifty mirror; link moved to pew.org).
+#   2026-10-09 BALANCE PASS (Tim: check the page is not biased toward
+#     Washington State; Minnesota first). Added, all opened at source:
+#     Minnesota Housing FHPAP 94% kept housing (FY Oct 2023-Sep 2024,
+#     program exit figure) V; Minn. Stat. 504B.321 subd. 1a 14-day notice,
+#     local longer periods allowed V; Minn. Stat. 327C.095 45-day notice,
+#     resident offer, relocation trust fund V; NCSC EDI interim report
+#     (24 programs, 17 states + DC, 89% settled or dismissed, 6% trial) V;
+#     Hawaii Act 57 85% stayed (Hawaii Public Radio report of the Appleseed
+#     review; the review PDF itself not located) P; Stout CT Year 4 (85%
+#     avoided disruptive displacement, $3.65 per $1, pp.5, 28) V; Maryland
+#     OAG release 1/15/2025 (88% of those who wanted to stay did; $3.04
+#     per $1) V; Oregon SB 608 enrolled (7%+CPI, 15-yr exemption) V and
+#     ORS 90.324 10% ceiling (2023) V; Cal. Civ. Code 1947.12 (5%+CPI,
+#     max 10%) V; Colorado HB24-1098 signed 4/19/2024 and NY Good Cause
+#     2024 (headings) V; Mass. G.L. c.239 s.16 text V; NY S.7882 Ch. 437
+#     signed 10/16/2025, GBL 340-b V; CNHED TOPA 16,224 units 1975-2021 V.
+#     Not added (unverified or no measured effect): Minnesota expungement
+#     expansion (parts reportedly struck down, MN Supreme Court review
+#     pending); Delaware Year 2 outcomes; Detroit Stout (secondary only);
+#     Oregon HB 2001 results; Colorado SB 64 data law; NJ c.189 sealing.
+#     Noted, not fixed here: the hud-era source page says 22 states in its
+#     header and 21 in its methods; Losing Home's seattle.gov PDF is 404
+#     (Wayback copy exists; the page carries no link).
+# ============================================================================
+
+title: "What keeps people housed — Eviction Research Network"
+
+meta:
+  canonical: "https://evictionresearch.net/policy.html"
+  author: "Eviction Research Network, UC Berkeley"
+  og_title: "What keeps people housed — Eviction Research Network"
+  og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  description: >-
+    The four P&#39;s of eviction policy — prevent, protect, preserve,
+    produce — as thirty policy planks with the measured evidence behind
+    each, plus the data, funding, and organizing floor they all stand on.
+    Written for legislators and the staff who draft the bills.
+  short_description: >-
+    Four kinds of policy with measured effects on eviction — prevent,
+    protect, preserve, produce — as thirty planks, each marked evidence
+    or reasoned.
+  keywords: >-
+    eviction prevention policy, four Ps housing, housing rights charter,
+    right to counsel, eviction diversion, emergency rental assistance, just
+    cause eviction, eviction record sealing, source of income
+    discrimination, housing preservation, housing supply, social housing,
+    eviction data, Eviction Research Network
+
+logos:
+  logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+  logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
+
+# newtab: true on anything that leaves the site. current: true marks this page
+# for screen readers and gives the nav item its red weight.
+nav:
+  - label: "Maps &amp; Profiles"
+    href: "index.html#atlas"
+  - label: "HPRM"
+    href: "https://evictionresearch.net/hprm/"
+    newtab: true
+  - label: "Research"
+    href: "research.html"
+  - label: "What works"
+    href: "policy.html"
+    current: true
+  - label: "About"
+    href: "about.html"
+  - label: "Contact"
+    href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+    button: true
+
+hero:
+  eyebrow: "Policy evidence"
+  h1_lead: "What keeps people"
+  h1_em: "housed."
+  lede: >-
+    Eviction responds to policy. This page sorts the interventions with
+    measured effects into four kinds, the four P&#39;s, ordered from
+    fastest-acting to slowest. For each one it says what it does, what the
+    evidence shows, and where it stands. A fifth section names the floor every lever stands
+    on. Written for legislators and the staff who draft the bills.
+  meta: >-
+    **Four P&#39;s · Thirty planks** · Each marked Evidence or Reasoned ·
+    Every statistic carries its source · Updated October 2026
+  jump:
+    - label: "01 · Prevent"
+      href: "#prevent"
+    - label: "02 · Protect"
+      href: "#protect"
+    - label: "03 · Preserve"
+      href: "#preserve"
+    - label: "04 · Produce"
+      href: "#produce"
+    - label: "05 · The floor"
+      href: "#floor"
+
+stats:
+  - v: "3.6"
+    unit: "million"
+    l: >-
+      Eviction cases landlords file in an average year. Almost 7% of renting
+      households face one.
+    s: >-
+      <a href="https://www.pnas.org/doi/10.1073/pnas.2116169119">Gromis et
+      al., PNAS 2022</a>
+  - v: "5.5"
+    unit: "to&thinsp;1"
+    l: >-
+      Informal evictions for every formal one. Most forced moves never reach
+      a court.
+    s: >-
+      <a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol23num2/ch15.pdf">Gromis
+      &amp; Desmond, Cityscape 2021</a>, 2017 AHS
+  - v: "35"
+    unit: "per&thinsp;100"
+    l: >-
+      Affordable and available rental homes per 100 extremely low-income
+      renter households. The national shortage is 7.2 million homes.
+    s: >-
+      <a href="https://nlihc.org/gap">NLIHC, The Gap, March 2026</a>
+  - v: "22.7"
+    unit: "million"
+    l: >-
+      Renter households paying over 30% of income for housing in 2024. A
+      record, and roughly half of all renters.
+    s: >-
+      <a href="https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_Americas_Rental_Housing_2026.pdf">Harvard
+      JCHS, America&#39;s Rental Housing 2026</a>
+statnote: >-
+  A filing count is the weakest number housing research publishes. It counts
+  court cases, not displacement, and the 2017 American Housing Survey puts
+  the national ratio at 5.5 informal evictions for every formal one. Where
+  tenants have counsel and protections, more displacement passes through a
+  court and gets counted. Where they do not, it disappears from the record.
+  Every rate on this page carries that caveat.
+
+framework:
+  eyebrow: "The framework"
+  h2_lead: "No single lever stops an eviction."
+  h2_em: "It takes four."
+  sub: >-
+    ERN organizes the evidence as four P&#39;s, sorted by where each policy
+    meets the problem (before the courthouse, inside it, or in the housing
+    market underneath) and by how fast it acts. The further down the list,
+    the slower the lever, and the more it addresses the cause rather than
+    the case.
+  tiles:
+    - kicker: "01 · Prevent"
+      href: "#prevent"
+      body: >-
+        Stop the case before it reaches court. Rental assistance, mediation,
+        and time to pay resolve the debt instead of litigating it.
+    - kicker: "02 · Protect"
+      href: "#protect"
+      body: >-
+        Even the odds once a case exists. Counsel, sealed records, and a
+        stated cause change what a filing costs a tenant.
+    - kicker: "03 · Preserve"
+      href: "#preserve"
+      body: >-
+        Keep the low-cost homes that already exist. They leave the market
+        quietly, one sale or one expiring subsidy at a time.
+    - kicker: "04 · Produce"
+      href: "#produce"
+      body: >-
+        Add homes, especially below market. The slowest lever, and the only
+        one that closes the shortage underneath the docket.
+  note: >-
+    Ordered by speed of effect: assistance lands in weeks, mediation in
+    months, preservation and construction in years. The strongest single
+    combination on the evidence pairs a Prevent tool (rental assistance)
+    with a Protect tool (right to counsel). A fifth section names the floor
+    under all four: the data, funding, and standing every lever depends on.
+
+legend:
+  heading: "How to read each plank"
+  evidence: "the numbers in the plank were verified against the linked source"
+  reasoned: "a logical case, argued from mechanism or arithmetic and labeled as such"
+  tierkey: "Tier 1 = largest &amp; fastest effect &middot; Tier 3 = structural &amp; slow"
+
+groups:
+  - anchor: "prevent"
+    num: "1"
+    kicker: "01 · Prevent"
+    h2_lead: "Nine in ten evicted tenants owe at least a month&#39;s rent."
+    h2_em: "The fastest tools resolve the debt, not the tenancy."
+    sub: >-
+      Prevention acts before a case exists: pay the arrears, mediate the
+      dispute, allow time to cure. The debts are small against the costs that
+      follow. In the largest study of nonpayment cases, 90% of evicted
+      tenants owed at least one month&#39;s rent, and across all tenants in
+      the study the average balance at move-out was $1,252, about one and a
+      quarter months&#39; rent
+      (<a href="https://www.nber.org/papers/w33155">Humphries et al., NBER
+      2024</a>). The money goes to the landlord, the arrears clear, and no
+      record is created.
+    rows:
+      - planks:
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-lapsed"
+            status: "&#8856; Federal program ended"
+            name: "Permanent emergency rental assistance"
+            body: >-
+              The pandemic ran the largest test of eviction prevention to
+              date. Emergency Rental Assistance made nearly <strong>10.8
+              million payments</strong> to households from $46.5 billion made
+              available (<a href="https://home.treasury.gov/news/featured-stories/at-low-income-housing-forum-deputy-secretary-adeyemo-announces-nearly-108-million-emergency-rental-assistance-program-payments-to-families-at-risk-of-eviction">Treasury</a>),
+              and with moratoria in force, 2021 filings ran at <strong>half
+              their historical average</strong> in tracked areas
+              (<a href="https://evictionlab.org/us-eviction-filing-patterns-2021/">Eviction
+              Lab</a>). The HUD-funded evaluation by ERN and the Housing
+              Initiative at Penn, spanning more than 700 counties in 22
+              states, found that counties receiving more assistance saw fewer
+              filings, with the largest effects where low-income renters,
+              unemployment, and rent burden ran highest; assisted families in
+              Los Angeles were <strong>53% less likely to have moved</strong>
+              and 65% less likely to end up on the street, and among
+              unfunded applicants who moved, a third reported the landlord
+              forced them out with no court proceeding, against about 18% of
+              funded applicants
+              (<a href="https://evictionresearch.net/hud-era/">ERN &amp;
+              Housing Initiative at Penn, 2026</a>). The design lesson
+              carries to any successor: programs that verified eligibility
+              with neighborhood-level data instead of pay stubs and hardship
+              documents prevented more evictions.
+              Minnesota has funded prevention assistance statewide since 1993
+              (<a href="https://www.revisor.mn.gov/statutes/cite/462a.204">Minn.
+              Stat. &sect; 462A.204</a>); in the year to September 2024,
+              94% of households that received its prevention assistance
+              kept their housing, a program exit figure rather than a
+              counterfactual estimate
+              (<a href="https://www.mnhousing.gov/documents/53609/fhpap-scoring-transparency_26-27/view">Minnesota
+              Housing</a>). The plank is a standing national
+              program that expands automatically when arrears rise, instead
+              of one built from scratch in each emergency.
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Local models"
+            name: "Divert the case before it reaches the docket"
+            body: >-
+              In Phase 2 of Philadelphia&#39;s diversion program,
+              <strong>7.4%</strong> of cases that received rental assistance
+              faced an eviction filing within six months, against
+              <strong>42.2%</strong> without assistance, and 4.2% where the
+              assistance came with a mediated agreement; over 21 months the
+              assisted rate rose to 33.3%, a sign assistance sometimes
+              delays rather than fully prevents
+              (<a href="https://www.reinvestment.com/wp-content/uploads/2023/11/Eviction-Diversion-Brief-11.29.23.pdf">Dowdall
+              &amp; Goldstein, Reinvestment Fund 2023</a>). Philadelphia has
+              required every landlord to enroll in the program and
+              participate in good faith before filing since 2022, a rule
+              made permanent in 2024 with a 30-day minimum
+              (<a href="https://codelibrary.amlegal.com/codes/philadelphia/latest/philadelphia_pa/0-0-0-278160">Phila.
+              Code &sect; 9-811</a>). Washington State required pre-filing
+              resolution statewide from November 2021, and the courts&#39;
+              own evaluation found a <strong>78% settlement rate</strong>
+              before the program ended in 2023
+              (<a href="https://www.courts.wa.gov/newsinfo/pdf/ERPP%20Full%20Legislative%20Report%20to%20the%20Legislature.pdf">AOC
+              legislative report</a>). Texas ran the model statewide through
+              its Supreme Court and housing agency: courts paused cases
+              while both parties applied, and more than 25,000 applicants
+              received over $243 million (TDHCA, 2021&ndash;2023). Hawaii
+              required mediation before any nonpayment filing in 2021 and
+              2022, and its legal aid review found 85% of mediated tenants
+              stayed housed
+              (<a href="https://www.hawaiipublicradio.org/local-news/2022-10-19/report-mandatory-mediation-saved-hundreds-of-tenants-from-eviction">Hawaii
+              Appleseed, as reported 2022</a>). Across 24 court-based
+              programs in 17 states and D.C., <strong>89%</strong> of cases
+              that engaged with diversion ended in a settlement or voluntary
+              dismissal, and only 6% went to trial
+              (<a href="https://www.ncsc.org/sites/default/files/media/document/EDI_Interim_Report_2024_3-18-25.pdf">National
+              Center for State Courts, 2025</a>). The plank makes good-faith
+              diversion a national precondition of filing.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; State models"
+            name: "Slow the clock: notice, time to cure, a right to redeem"
+            body: >-
+              The statutory clock between falling behind and facing a filing
+              decides whether assistance and mediation get the time they
+              need. The cleanest natural experiment is Maryland, where for
+              decades no notice was required, filing cost $15 (a fee the
+              state raised in 2024), and trial came on the fifth day: Baltimore City alone recorded
+              <strong>144,058 landlord-tenant filings</strong> in fiscal
+              2017, thirty times the 4,788 in all of King County,
+              Washington, a gap in process, not in hardship
+              (<a href="https://mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2017/fy2017statisticalabstract.pdf">Maryland
+              Judiciary FY2017</a>; <em>Losing Home</em>, 2018). Maryland
+              added a 10-day pre-filing notice in October 2021
+              (<a href="https://mgaleg.maryland.gov/2021RS/chapters_noln/Ch_746_hb0018E.pdf">Md.
+              HB 18, Ch. 746</a>). In ERN&#39;s national
+              eviction-risk model, two of the five strongest predictors of a
+              neighborhood&#39;s filing rate, out of 184, are process
+              clocks: the notice period and the post-judgment window
+              (<a href="understanding-eviction.html">ERN, HPRM</a>).
+              Washington State pairs a 14-day pay-or-vacate notice (SB 5600, 2019)
+              with a statutory right to reinstate the tenancy by paying what
+              is owed, before judgment or within five court days after
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.410">RCW
+              59.18.410</a>); Minnesota adopted a 14-day pre-filing notice
+              in 2024 and lets local governments set a longer one
+              (<a href="https://www.revisor.mn.gov/statutes/cite/504B.321">Minn.
+              Stat. &sect; 504B.321</a>). No study has yet isolated the
+              effect of the notice length itself. Every redemption is an eviction that did not
+              happen at a cost the tenant already owed. ERN&#39;s
+              <a href="state-eviction-timeframes/">state timeframes
+              table</a> compares all fifty states and D.C.; for the full
+              process law from pre-filing through post-judgment, the Legal
+              Services Corporation&#39;s
+              <a href="https://www.lsc.gov/initiatives/effect-state-local-laws-evictions/lsc-eviction-laws-database">Eviction
+              Laws Database</a>, built with Temple&#39;s Center for Public
+              Health Law Research, covers every state and territory as a
+              snapshot of law in effect January 1, 2021.
+      - planks:
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Programs, not a guarantee"
+            name: "Fund homelessness prevention like the returns are real"
+            body: >-
+              Families who called Chicago&#39;s homelessness-prevention line
+              when one-time emergency funds happened to be available were
+              <strong>76% less likely</strong> to enter a homeless shelter
+              within six months than families who called when funds were
+              not, at roughly
+              <strong>$10,300 per instance of homelessness averted</strong>
+              (<a href="https://www.science.org/doi/10.1126/science.aag0833">Evans,
+              Sullivan &amp; Wallskog, <em>Science</em> 2016</a>). A Santa
+              Clara County randomized trial of prevention assistance
+              returned an estimated <strong>$2.47 in benefits for every
+              dollar spent</strong>
+              (<a href="https://leo.nd.edu/news/santa-clara-county-homelessness-prevention/">Phillips
+              &amp; Sullivan, 2023</a>). Chronic homelessness costs the
+              public roughly <strong>$35,000 per person per year</strong>
+              (National Alliance to End Homelessness, 2017). Prevention
+              spends four figures per household; homelessness costs five
+              figures per person per year. The populations differ, so this
+              is a comparison of magnitudes, not a one-to-one ledger.
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Programs, not a right"
+            name: "Permanent housing for people experiencing homelessness"
+            body: >-
+              On a single night in January 2025, <strong>745,652
+              people</strong> were homeless in the United States
+              (<a href="https://www.hud.gov/news/hud-no-26-037">HUD 2025
+              AHAR</a>). The evidence for permanent supportive housing is
+              strong exactly where a housing policy needs it. It maintains
+              housing stability for most chronically homeless people over
+              the studied one-to-two-year windows, while the National
+              Academies found no substantial evidence yet that it improves
+              health outcomes, and this page keeps that distinction
+              (<a href="https://nap.nationalacademies.org/resource/25133/Permanent%20Supportive%20Housing-ReportHighlights.pdf">NASEM
+              2018</a>). For homeless families, a long-term rent subsidy cut
+              subsequent homelessness by more than half against usual care
+              (<a href="https://www.huduser.gov/portal/sites/default/files/pdf/family-options-study-full-report.pdf">HUD
+              Family Options Study, 2016</a>). The plank funds permanent
+              housing at the scale of the count and evaluates it on the
+              outcome it demonstrably moves.
+
+  - anchor: "protect"
+    num: "2"
+    kicker: "02 · Protect"
+    h2_lead: "Landlords arrive with a lawyer 84% of the time."
+    h2_em: "Tenants, 4%."
+    sub: >-
+      Protection changes what happens once a case exists: who has a lawyer,
+      what the record does afterward, and whether a tenancy can end without a
+      stated reason. None of it prevents the filing; all of it changes what
+      the filing costs.
+    rows:
+      - planks:
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; States and cities, no federal right"
+            name: "A right to counsel in eviction court"
+            body: >-
+              Absent a right to counsel, about <strong>4% of
+              tenants</strong> have lawyers against <strong>84% of
+              landlords</strong>, the National Coalition for a Civil Right
+              to Counsel&#39;s average across several dozen local studies.
+              <strong>28 jurisdictions</strong> (5 states, 21 cities, 2
+              counties) have enacted some version of the right
+              (<a href="https://civilrighttocounsel.org/resources/organizing_around_right_to_counsel/">NCCRC,
+              August 2026</a>); Washington State&#39;s 2021 law was the first
+              statewide
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.640">RCW
+              59.18.640</a>), with Maryland and Connecticut following the
+              same year. The results are measured. In New York City,
+              <strong>84%</strong> of households represented in court
+              remained in their homes in FY2023
+              (<a href="https://www.nyc.gov/assets/hra/downloads/pdf/services/civiljustice/OCJ_UA_Annual_Report_2023.pdf">Office
+              of Civil Justice</a>); in Cleveland, represented clients with
+              a legal defense prevented an eviction or involuntary move
+              <strong>83%</strong> of the time in 2025
+              (<a href="https://www.stout.com/-/media/pdf/evictions/stout2025independentevaluationclevelandevictionrightcounselfinal20260129.pdf">Stout
+              independent evaluation, 2026</a>). Statewide programs show
+              the same pattern: Connecticut&#39;s attorneys helped clients
+              avoid disruptive displacement in <strong>85%</strong> of cases
+              and returned an estimated $3.65 per dollar spent
+              (<a href="https://www.stout.com/-/media/pdf/evictions/stout-year-4-ct-rtc-independent-evaluation-final-2025-12-23.pdf">Stout,
+              2025</a>), and Maryland&#39;s program kept 88% of clients who
+              wanted to stay in their homes, at $3.04 per dollar
+              (<a href="https://oag.maryland.gov/News/Pages/Groundbreaking-Access-to-Counsel-in-Evictions-Program-(ACE)-Delivers-Significant-Impact-for-Maryland-Tenants.aspx">Maryland
+              Attorney General, 2025</a>). Counsel also answers the
+              default problem: across New York State&#39;s covered
+              jurisdictions, 54% of nonpayment filings went unanswered by
+              the tenant, and defaults account for an estimated 40% of the
+              eviction warrants issued across the state
+              (<a href="https://furmancenter.org/files/publications/Half_the_Battle_is_Just_Showing_Up_V3_(1).pdf">NYU
+              Furman Center, 2023</a>). A 2018 Stout analysis for Philadelphia
+              projected roughly <strong>$12.74 returned for every
+              dollar</strong> spent on tenant counsel. The plank is a
+              national right, funded like the public-defender obligation it
+              parallels.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Some states"
+            name: "Just cause to end a tenancy"
+            body: >-
+              A just-cause standard ends no-cause terminations, so a tenancy
+              can be ended only for a listed reason. New Jersey has required
+              good cause since 1974, a law its legislature tied to the
+              state&#39;s housing shortage (N.J.S.A. 2A:18-61.1); Oregon and
+              California adopted statewide standards in 2019
+              (<a href="https://olis.oregonlegislature.gov/liz/2019R1/Downloads/MeasureDocument/SB608/Enrolled">SB
+              608</a>; AB 1482), Washington State in 2021
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.650">RCW
+              59.18.650</a>), and Colorado and New York in 2024. The CARB anti-displacement review rates
+              just-cause protections <strong>high-potential and
+              fast-acting</strong>
+              (<a href="https://ww2.arb.ca.gov/sites/default/files/2021-04/19RD018%20-%20Anti-Displacement%20Strategy%20Effectiveness.pdf">Chapple
+              &amp; Loukaitou-Sideris, 2021</a>). The direct effect is
+              definitional, ending no-cause terminations; causal estimates
+              of the effect on filings are thinner than for the tools above,
+              and this page treats that as an open question rather than
+              settled. The plank sets a national floor while leaving the
+              list of causes to the states.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Some states"
+            name: "Make voucher discrimination illegal everywhere"
+            body: >-
+              A voucher only prevents an eviction if a landlord will take
+              it. In HUD&#39;s five-city paired-testing study, landlords
+              refused voucher holders in <strong>78%</strong> of tests in
+              Fort Worth, 76% in Los Angeles, and 67% in Philadelphia,
+              against 31% in Newark and 15% in Washington, D.C. The
+              study&#39;s own summary is that landlord refusal is more
+              common in jurisdictions without source-of-income protections,
+              though it did not evaluate the laws&#39; impact
+              (<a href="https://www.urban.org/research/publication/pilot-study-landlord-acceptance-housing-choice-vouchers">Cunningham
+              et al., Urban Institute for HUD, 2018</a>). Adoption has
+              spread far enough that PRRAC estimates it is likely that over
+              <strong>60%</strong> of voucher holders are now covered by a
+              state or local law
+              (<a href="https://www.prrac.org/pdf/AppendixB.pdf">Appendix B,
+              updated March 2026</a>). Refusing a tenant because rent
+              arrives as a voucher wastes money the public has already
+              committed. The plank adds source of income to federal
+              fair-housing law, so protection stops depending on the state
+              line.
+      - planks:
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; 19 states and D.C."
+            name: "Seal the record until the case has merit"
+            body: >-
+              Screening reports recite any filing regardless of outcome,
+              and the Fair Credit Reporting Act lets a civil record ride a
+              report for up to seven years
+              (<a href="https://www.law.cornell.edu/uscode/text/15/1681c">15
+              U.S.C. &sect; 1681c</a>). Roughly <strong>22%</strong> of
+              eviction records carry ambiguous information on how the case
+              was resolved or falsely represent a tenant&#39;s history
+              (<a href="https://collaborate.princeton.edu/en/publications/inaccuracies-in-eviction-records-implications-for-renters-and-res/">Porton,
+              Gromis &amp; Desmond, <em>Housing Policy Debate</em> 2021</a>),
+              landlords in a behavioral experiment treated mere filings like
+              executed evictions
+              (<a href="https://www.tandfonline.com/doi/full/10.1080/10511482.2022.2113815">So,
+              <em>Housing Policy Debate</em> 2023</a>), and the CFPB logged
+              more than <strong>16,000</strong> renter complaints about
+              incorrect information on screening reports
+              (<a href="https://www.consumerfinance.gov/about-us/newsroom/cfpb-reports-highlight-problems-with-tenant-background-checks/">2022</a>).
+              Black renters are <strong>19.9%</strong> of adult renters and
+              <strong>32.7%</strong> of eviction-filing defendants
+              (<a href="https://sociologicalscience.com/articles-v7-27-649/">Hepburn,
+              Louis &amp; Desmond, <em>Sociological Science</em> 2020</a>),
+              which is why blanket record screening draws disparate-impact
+              challenges under the Fair Housing Act; the first such case, by
+              the ACLU&#39;s account, was brought for a tenant whose
+              years-old filing never resulted in an eviction (<em>Smith v. Wasatch</em>, W.D. Wash. 2017, built on
+              ERN&#39;s King County analysis). Nineteen states and D.C. have
+              passed sealing or expungement policies
+              (<a href="https://nlihc.org/sites/default/files/AG-2026/CH7/2_Eviction_Record_Sealing_Expungement_Chapter_7.pdf">NLIHC,
+              2026</a>), and NLIHC&#39;s
+              <a href="https://nlihc.org/tenant-protections">State and
+              Local Tenant Protections Database</a> tracks adoption
+              jurisdiction by jurisdiction. California hides every filing from the general
+              public by default and unmasks it only if the landlord wins
+              within 60 days of filing, or later by court order
+              (<a href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1161.2.&amp;lawCode=CCP">CCP
+              &sect; 1161.2</a>); Massachusetts lets tenants seal no-fault
+              cases at any time, nonpayment cases after four years, and
+              dismissals or tenant wins without a hearing
+              (<a href="https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleIII/Chapter239/Section16">G.L.
+              c. 239, &sect; 16</a>, 2024); Washington State seals case by
+              case, at the court&#39;s discretion
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.367">RCW
+              59.18.367</a>). The plank is the California default,
+              nationally.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-none"
+            status: "&#9675; Largely unaddressed"
+            name: "Price serial filing out of the collections business"
+            body: >-
+              In 2014, nearly <strong>one in three</strong> households
+              facing eviction nationally was filed against more than once
+              (Leung, Hepburn &amp; Desmond, <em>Social Forces</em> 2020),
+              and serial filing runs highest where filing is cheap and
+              fast. A 2023 study ties every <strong>$76</strong> of filing
+              fee to a <strong>3.11-point drop</strong> in serial filing
+              (Gomory et al., <em>Housing Policy Debate</em> 2023; both via
+              the
+              <a href="https://www.networkforphl.org/wp-content/uploads/2025/01/Deterring-Serial-Eviction-Filing.pdf">Network
+              for Public Health Law fact sheet, 2025</a>). The plank pairs meaningful filing fees with
+              limits on repeat filings against the same household, so the
+              courthouse stops functioning as a rent-collection window.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; One state, local bans, federal consent judgment"
+            name: "Ban algorithmic rent collusion"
+            body: >-
+              Rent-setting software that pools competitors&#39; private data
+              lets landlords coordinate increases no one would risk alone.
+              The Department of Justice sued RealPage in 2024, and a
+              consent judgment entered in May 2026 requires the software to
+              stop using competitors&#39; nonpublic data to set rents; the
+              states&#39; claims against RealPage and several large landlords
+              continued past a September 2026 ruling
+              (<a href="https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and">DOJ</a>;
+              <a href="https://www.govinfo.gov/content/pkg/FR-2026-05-08/pdf/2026-09147.pdf">Federal
+              Register</a>). New York enacted the first statewide ban in
+              October 2025, making it unlawful to run or license software
+              that coordinates rents between landlords
+              (<a href="https://www.nysenate.gov/legislation/bills/2025/S7882">S.
+              7882, Ch. 437</a>); Seattle banned the practice in 2025
+              (<a href="https://library.municode.com/wa/seattle/codes/municipal_code?nodeId=TIT7CO_CH7.34PRRESEALSOSE">SMC
+              7.34</a>) and King County followed for its unincorporated
+              areas. The plank writes the same rule into national law, so it
+              stops depending on case-by-case enforcement.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Some states"
+            name: "Anti-gouging rent stabilization, designed not to chill building"
+            body: >-
+              Second-generation caps limit increases inside a tenancy while
+              exempting new construction, which is where the supply risk
+              lives. Oregon set the first statewide cap in 2019, at 7 points
+              plus inflation with a 15-year new-construction exemption
+              (<a href="https://olis.oregonlegislature.gov/liz/2019R1/Downloads/MeasureDocument/SB608/Enrolled">SB
+              608</a>, since tightened to a 10% ceiling); California
+              followed the same year at 5 points plus inflation, capped at
+              10% (AB 1482); Washington State&#39;s 2025 law caps increases
+              at 7 points plus inflation to a maximum of 10%
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.700">RCW
+              59.18.700</a>), with a 12-year new-construction exemption
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.710">RCW
+              59.18.710</a>). The
+              honest evidence cuts both ways. San Francisco&#39;s 1994
+              expansion cut its rental supply about <strong>15%</strong>,
+              with landlords converting buildings to condos and redeveloping
+              them rather than cutting new construction, under a law that
+              also exempted new building
+              (<a href="https://www.aeaweb.org/articles?id=10.1257/aer.20181289">Diamond,
+              McQuade &amp; Qian, <em>AER</em> 2019</a>). Rent
+              regulation is a stability tool, not a supply tool, and the
+              new-construction exemption is its single most protective
+              design feature. The plank is a national anti-gouging ceiling
+              of that second-generation design, not a hard freeze.
+
+  - anchor: "preserve"
+    num: "3"
+    kicker: "03 · Preserve"
+    h2_lead: "2.5 million of the cheapest rentals left the market in a decade."
+    h2_em: "No court recorded it."
+    sub: >-
+      Preservation keeps existing low-cost homes on the market: the aging
+      private stock that rents cheap, and the subsidized stock whose
+      affordability runs on a contract clock. Losses here displace people
+      without any legal event, which ERN measures as soft displacement, so
+      the harm never appears in a court record.
+    rows:
+      - planks:
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Funded, oversubscribed"
+            name: "A national fund for the unsubsidized low-cost stock"
+            body: >-
+              Between 2014 and 2024 the country lost <strong>9.3
+              million</strong> units renting under $1,400 a month; 2.5
+              million of them rented under $600, a <strong>30%
+              decrease</strong> in the lowest-cost stock in one decade
+              (<a href="https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_Americas_Rental_Housing_2026.pdf">JCHS,
+              <em>America&#39;s Rental Housing 2026</em></a>). No eviction
+              is filed when a building leaves the low-cost market; the
+              households that would have lived there never appear in any
+              record. About <strong>three quarters</strong> of Americans in
+              affordable housing live in unsubsidized units, and the CARB
+              review rates preserving them among the highest-potential
+              anti-displacement strategies, effective in any market and fast
+              (<a href="https://ww2.arb.ca.gov/sites/default/files/2021-04/19RD018%20-%20Anti-Displacement%20Strategy%20Effectiveness.pdf">Chapple
+              &amp; Loukaitou-Sideris, 2021</a>). Where funds exist they are
+              swamped: Washington State&#39;s 2026 preservation round drew
+              <strong>$97.7 million in requests against $34.1 million
+              available</strong>
+              (<a href="https://www.commerce.wa.gov/commerce-receives-91-applications-for-preservation-and-continuing-affordability-of-multifamily-housing/">Commerce,
+              May 2026</a>). The plank is a standing federal acquisition
+              fund sized to the demand states already demonstrate.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; DC and manufactured-home states"
+            name: "A first chance for tenants to buy the building"
+            body: >-
+              Under Washington, D.C.&#39;s tenant opportunity-to-purchase law,
+              <strong>58%</strong> of tenants in one study sample made it
+              through the purchase process and could afford their units in
+              the end (Gallaher 2016, via the
+              <a href="https://ww2.arb.ca.gov/sites/default/files/2021-04/19RD018%20-%20Anti-Displacement%20Strategy%20Effectiveness.pdf">CARB
+              white paper</a>), and a 2023 review counted 16,224 affordable
+              homes developed or preserved under the law between 1975 and
+              2021
+              (<a href="https://cnhed.org/news/cnhed-releases-comprehensive-analysis-of-dcs-tenant-opportunity-to-purchase-act-topa/">CNHED</a>).
+              Washington State requires notice before a
+              manufactured-home community is marketed for sale and gives
+              residents 70 days to form an organization and declare their
+              intent to compete, an opportunity to compete rather than a
+              right of first refusal
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.20.325">RCW
+              59.20.325</a>). The plank is a national notice-and-opportunity
+              floor for any sale of an occupied rental property, with
+              financing to make tenant and nonprofit bids real. PolicyLink
+              publishes a policy brief on
+              <a href="https://policylink.org/resources-tools/tools/all-in-cities/housing-anti-displacement/topa-copa">tenant
+              and community opportunity to purchase</a> in its All-In
+              Cities toolkit.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-local"
+            status: "&#9681; State patchwork"
+            name: "Protect the homes people own on land they rent"
+            body: >-
+              A manufactured home is the largest unsubsidized
+              affordable-housing stock in the country&#39;s rural counties,
+              and its owner is uniquely exposed. The home is theirs, the
+              ground is not, and moving the home is often impossible in
+              practice. Washington State caps lot-rent increases at 5%
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.20.370">RCW
+              59.20.370</a>) with three months&#39; notice of any increase
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.20.090">RCW
+              59.20.090</a>); its
+              sale-notice law names community land trusts among the
+              eligible buyers
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=59.20.030">RCW
+              59.20.030</a>). Minnesota requires 45 days&#39; notice before
+              a park is sold to a converter, lets residents match the price,
+              and pays relocation costs from a state trust fund when a park
+              closes
+              (<a href="https://www.revisor.mn.gov/statutes/cite/327C.095">Minn.
+              Stat. &sect; 327C.095</a>). The plank is a national floor of
+              lot-rent protection, sale notice, and purchase financing for
+              resident ownership. The logic is exposure. Rules written for
+              tenants and rules written for owners both miss the household
+              that is each on one side of the property line.
+      - planks:
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Local, narrow reach"
+            name: "Community control of land"
+            body: >-
+              Community land trusts take land off the private market for
+              good. The CARB review rates their displacement-prevention
+              potential <strong>high</strong> and, unlike new construction,
+              they do not need a hot market to work; the same review finds
+              them rare, dependent on coordinated tenant action and economic
+              resources, and generally not reaching the lowest incomes
+              (<a href="https://ww2.arb.ca.gov/sites/default/files/2021-04/19RD018%20-%20Anti-Displacement%20Strategy%20Effectiveness.pdf">Chapple
+              &amp; Loukaitou-Sideris, 2021</a>). The plank funds
+              acquisition at a scale that changes that last finding.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-yes"
+            status: "&#10003; Federal law, floor set high"
+            name: "Lower the ceiling on corporate single-family ownership"
+            body: >-
+              Federal law, in force from January 2027, bars an investor
+              holding <strong>350 or more</strong> single-family homes from
+              buying another, with exceptions and no divestment requirement
+              (<a href="https://www.govinfo.gov/content/pkg/PLAW-119publ101/pdf/PLAW-119publ101.pdf">21st
+              Century ROAD to Housing Act</a>, Public Law 119&ndash;101,
+              2026). The eviction link is measured. In Fulton County,
+              Georgia, large corporate owners of single-family rentals were
+              <strong>8% more likely</strong> than small landlords to file
+              eviction notices, after controls
+              (<a href="https://fraser.stlouisfed.org/files/docs/historical/frbatl/publications/ceddps/frbatl_discussionpaper_2016-4.pdf">Raymond
+              et al., Federal Reserve Bank of Atlanta, 2016</a>). The
+              plank lowers the threshold toward the 100-home lines states
+              are already debating, and adds beneficial-ownership disclosure
+              so the count cannot hide behind shell LLCs.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-none"
+            status: "&#9675; No standing renewal fund"
+            name: "Renew the affordability the public already bought"
+            body: >-
+              Five million rental homes, one in ten rentals nationally,
+              carry federally funded project-based subsidies, and
+              affordability restrictions are set to expire on
+              <strong>374,497</strong> of them by 2028
+              (<a href="https://preservationdatabase.org/picture-of-preservation/">NLIHC
+              &amp; PAHRC, <em>2024 Picture of Preservation</em></a>). When an
+              owner opts out, the affordability ends without a single court
+              event, and the public usually buys the same affordability
+              twice somewhere else. At-risk properties are tracked one by
+              one in the National Housing Preservation Database. The plank
+              is a standing renewal fund plus a first right to purchase for
+              mission-driven buyers whenever a subsidized property&#39;s
+              restrictions approach expiration. Renewing a home the public
+              already financed is the cheapest unit the public will ever
+              add.
+
+  - anchor: "produce"
+    num: "4"
+    kicker: "04 · Produce"
+    h2_lead: "35 affordable homes exist for every 100 of the lowest-income renters."
+    h2_em: "Nothing above closes that gap."
+    sub: >-
+      Production is the slowest lever and the only structural one: every tool
+      above operates inside a shortage that none of them reduces. Its
+      evidence runs through rents and exposure rather than courtrooms. New
+      supply lowers nearby rents, and rent burden is where eviction risk
+      concentrates.
+    rows:
+      - planks:
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; State reforms spreading"
+            name: "Build more homes, of every kind"
+            body: >-
+              Large new market-rate buildings in low-income areas lower
+              nearby rents by <strong>5 to 7 percent</strong> relative to
+              comparable areas, and draw more in-movers from lower-income
+              neighborhoods, the reverse of the displacement usually feared
+              (Asquith, Mast &amp; Reed, <em>REStat</em> 2023). The chain is
+              measured: a new market-rate building housing 100 people leads
+              <strong>45 to 70 people</strong> to move out of
+              below-median-income neighborhoods, most within three years
+              (<a href="https://www.sciencedirect.com/science/article/abs/pii/S0094119021000656">Mast,
+              <em>JUE</em> 2023</a>). City-scale reforms show the same
+              direction. Auckland upzoned about three quarters of its
+              residential land in 2016; eight years on, rents were an
+              estimated <strong>23% below</strong> the no-reform
+              counterfactual
+              (<a href="https://onlinelibrary.wiley.com/doi/full/10.1111/ecin.70075">Greenaway-McGrevy
+              &amp; So, <em>Economic Inquiry</em> 2026</a>) after a
+              construction boom the reform demonstrably stimulated
+              (<a href="https://doi.org/10.1016/j.jue.2023.103555">Greenaway-McGrevy
+              &amp; Phillips, <em>JUE</em> 2023</a>). Minneapolis grew its
+              stock <strong>12%</strong> from 2017 to 2022 after its
+              land-use reforms while rents rose 1%; the rest of Minnesota
+              added 4% and rents rose 14%
+              (<a href="https://www.pew.org/en/research-and-analysis/articles/2024/01/04/minneapolis-land-use-reforms-offer-a-blueprint-for-housing-affordability">Pew,
+              2024</a>). The pipeline is currently shrinking: multifamily
+              starts fell from a three-decade peak of 547,000 units in 2022
+              to 416,000 in 2025
+              (<a href="https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_Americas_Rental_Housing_2026.pdf">JCHS
+              2026</a>). The plank ties federal infrastructure money
+              to a statewide zoning floor that legalizes middle housing,
+              with Washington State&#39;s package as the model.
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-none"
+            status: "&#9675; Far short everywhere"
+            name: "Build the homes the market never builds"
+            body: >-
+              The national shortage is <strong>7.2 million</strong> rental
+              homes affordable and available to the country&#39;s 11
+              million extremely low-income renter households; only 35 exist
+              per 100 such households, and <strong>74%</strong> of those
+              renters spend more than half their income on rent and
+              utilities (<a href="https://nlihc.org/gap">NLIHC, The Gap,
+              2026</a>). Across cities, homelessness tracks housing-market
+              conditions, absolute rent levels and vacancy rates, more than
+              it tracks local poverty, addiction, or weather
+              (<a href="https://www.ucpress.edu/books/homelessness-is-a-housing-problem/paper">Colburn
+              &amp; Aldern, <em>Homelessness Is a Housing Problem</em>,
+              2022</a>).
+              The market cannot price a home an extremely low-income renter
+              can pay, because the rent that household can afford does not
+              cover the cost of operating the building, let alone
+              constructing it. Deep affordability exists only where the
+              public builds it or buys it. The plank is a production
+              program targeted at 0&ndash;30% of area median income, sized
+              against the 7.2 million gap. No prevention or protection tool
+              changes that arithmetic.
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-local"
+            status: "&#9681; Local experiments"
+            name: "Social housing that pays for itself"
+            body: >-
+              Publicly developed mixed-income housing, where higher rents
+              cross-subsidize lower ones, is standard practice in much of
+              the world and newly live in the United States. Seattle voters
+              created a social housing developer in 2023 and funded it in
+              2025 with a 5% payroll tax on compensation above $1 million,
+              estimated at roughly <strong>$53 million a year</strong>
+              (<a href="https://nlihc.org/resource/seattle-voters-approve-ballot-initiative-fund-social-housing-developer">Proposition
+              1A</a>). The plank is a federal revolving loan fund that lets
+              any city capitalize a developer like it once, then recycle the
+              money. The logic is a balance sheet. A public developer
+              borrows once, builds, and repays from rents, so a dollar
+              produces homes repeatedly instead of subsidizing once.
+      - planks:
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-local"
+            status: "&#9681; State models"
+            name: "Public land for public homes"
+            body: >-
+              Governments already own land in the places homes are
+              scarcest. Washington State lets any agency transfer surplus public
+              property for affordable housing on any mutually agreeable
+              terms, including at no cost, with a covenant binding the use
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=39.33.015">RCW
+              39.33.015</a>), and requires counties to offer tax-foreclosed
+              parcels to the city for affordable housing before auction
+              (<a href="https://app.leg.wa.gov/RCW/default.aspx?cite=36.35.150">RCW
+              36.35.150</a>). The plank is a federal
+              default. Surplus public land is offered for permanently
+              affordable housing before anything else, priced at its use,
+              not its speculation.
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-local"
+            status: "&#9681; State models, oversubscribed"
+            name: "Turn renters into owners, and count the vacancy it creates"
+            body: >-
+              Every renter who buys leaves a rental behind, so ownership
+              programs are rental-supply policy too; the chain breaks only
+              where the purchase itself displaces a sitting tenant. That
+              much is arithmetic, not a study. Washington State&#39;s
+              Covenant Homeownership Program lends <strong>0%-interest
+              down-payment assistance</strong> to first-time buyers from
+              communities harmed by racially restrictive covenants, funded
+              by a $100 recording fee projected to raise $75&ndash;100
+              million a year; demand already outpaces its monthly funds
+              (<a href="https://heretohome.org/covenant">HB 1474, 2023</a>).
+              HUD opened a Fair Housing Act investigation of the program in
+              March 2026, which is unresolved.
+              The plank is a national down-payment program with a
+              repair-the-harm design, sized to its own waiting lists.
+          - tier: "T3"
+            tier_class: "t3"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Rated, not yet funded to scale"
+            name: "Trade density and tax breaks for below-market homes"
+            body: >-
+              Inclusionary and incentive tools depend on a strong market;
+              the CARB review rates them medium-potential and long-term
+              (<a href="https://ww2.arb.ca.gov/sites/default/files/2021-04/19RD018%20-%20Anti-Displacement%20Strategy%20Effectiveness.pdf">Chapple
+              &amp; Loukaitou-Sideris, 2021</a>). Washington State&#39;s
+              transit-density law attaches 50-year affordability strings to
+              its upzones. The plank keeps the trade honest nationally.
+              Public value created by public rezoning buys permanent
+              affordability, not a one-cycle discount.
+
+  - anchor: "floor"
+    num: "5"
+    kicker: "05 · The floor"
+    h2_lead: "The best national count still misses a million cases a year."
+    h2_em: "Every lever above stands on this floor."
+    sub: >-
+      Four levers, one foundation: data that shows whether any of this
+      works, assistance that does not run out mid-year, and the standing to
+      invoke a right without losing your home for trying. Two of these
+      planks are measured; four are labeled as the reasoned arguments they
+      are.
+    rows:
+      - planks:
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-local"
+            status: "&#9681; Six states publish; no federal count"
+            name: "Count every eviction"
+            body: >-
+              The federal government&#39;s own review concluded that
+              "relatively little comprehensive data exist on evictions in
+              the U.S."
+              (<a href="https://www.gao.gov/products/gao-24-106637">GAO-24-106637,
+              2024</a>), and the best national estimates, built from 99.9
+              million collected court records, still undercount filings by
+              about <strong>1 million cases a year</strong> because some
+              counties&#39; records cannot be obtained
+              (<a href="https://www.pnas.org/doi/10.1073/pnas.2116169119">Gromis
+              et al., PNAS 2022</a>). In ERN&#39;s 50-state census of
+              eviction data sources, only six jurisdictions (Alaska,
+              Connecticut, DC, Maryland, New York, Virginia) publish
+              statewide case-level eviction data. California will join
+              them: SB 1160, which directs the Judicial Council to collect
+              and publish eviction case data from every county, was signed
+              on September 27, 2026 (Chapter 681, Statutes of 2026), with
+              reporting phased in over the following years
+              (<a href="https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202520260SB1160">leginfo</a>).
+              The plank is a national eviction data
+              standard. Courts report standardized, outcome-complete case
+              data the way public health reports disease. Nothing else on
+              this page can be evaluated without it.
+          - tier: "T1"
+            tier_class: "t1"
+            ev_class: "ev-e"
+            ev_label: "Evidence"
+            status_class: "s-none"
+            status: "&#9675; Rationed by lottery and line"
+            name: "Make rental assistance an entitlement, not a lottery"
+            body: >-
+              Federal rental assistance reaches <strong>5.1
+              million</strong> households, and <strong>3 in 4</strong>
+              eligible households receive none of it
+              (<a href="https://www.cbpp.org/research/housing/policy-basics-federal-rental-assistance">CBPP,
+              2026</a>). Eviction is not only a hardship; it is a cause of
+              the harms that follow it. A study using cases randomly
+              assigned to judges across Cook County and New York courts
+              found an eviction order raised shelter use by <strong>3.4
+              percentage points</strong>, an increase of more than
+              <strong>300%</strong>, cut earnings about <strong>14%</strong>
+              by the second year, and raised hospital visits
+              <strong>29%</strong>, with the housing and labor effects
+              concentrated among female and Black tenants
+              (<a href="https://www.nber.org/papers/w30382">Collinson et
+              al., <em>QJE</em> 2024</a>). And when voucher families in the
+              Creating Moves to Opportunity experiment received customized
+              search help, landlord outreach, and short-term financial
+              assistance, the share moving to high-upward-mobility
+              neighborhoods rose from <strong>15% to 53%</strong>
+              (<a href="https://www.aeaweb.org/articles?id=10.1257/aer.20200407">Bergman
+              et al., <em>AER</em> 2024</a>). The plank phases federal
+              rental assistance toward an entitlement for eligible
+              households, paired with the search help that makes a voucher
+              a real choice.
+      - planks:
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-none"
+            status: "&#9675; Nowhere yet"
+            name: "Subsidy parity for renters"
+            body: >-
+              Federal tax law subsidizes owning a home as a standing
+              entitlement, no waiting list attached. Assistance for renting
+              one is rationed. The plank is a renter&#39;s tax credit that
+              closes part of that gap for cost-burdened households. The
+              logic is symmetry. If housing is worth subsidizing through
+              the tax code, tenure should not decide who gets the subsidy.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-none"
+            status: "&#9675; No general national right"
+            name: "A right to organize without retaliation"
+            body: >-
+              Every protection on this page is enforced, in practice, by a
+              tenant willing to invoke it, and retaliation is how
+              invocation gets suppressed. Labor law solved the same problem
+              a century ago by protecting the organizing itself. The plank
+              is a national right to form and join tenant associations,
+              with retaliation for organizing treated the way retaliation
+              for union activity is treated. The logic is enforcement.
+              Rights that depend on isolated individuals asserting them
+              against their own landlord under-enforce by design.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-local"
+            status: "&#9681; Complaint-driven almost everywhere"
+            name: "A habitability floor someone actually inspects"
+            body: >-
+              Habitability standards exist nearly everywhere and are
+              enforced almost nowhere, because enforcement waits for a
+              tenant complaint, and complaining invites the eviction the
+              rest of this page is about. The plank pairs a national
+              habitability floor with proactive rental inspection and
+              registration, shifting enforcement from the household with
+              the least power to the government with the most. The logic is
+              incentives. A standard enforced only by its most vulnerable
+              beneficiary is a standard designed to be waived. PolicyLink
+              publishes a policy brief on
+              <a href="https://www.policylink.org/resources-tools/tools/all-in-cities/housing-anti-displacement/rental-registries">rental
+              registries</a>, the registration half of this plank.
+          - tier: "T2"
+            tier_class: "t2"
+            ev_class: "ev-r"
+            ev_label: "Reasoned"
+            status_class: "s-none"
+            status: "&#9675; Owner-centric by design"
+            name: "Rehouse renters after disasters like owners"
+            body: >-
+              Disaster recovery is built around the property owner.
+              Rebuilding aid follows the deed, and the renter displaced
+              from the same address holds a thinner claim on a shorter
+              clock. Climate change is making displacement without an
+              eviction filing a growing share of all displacement, and none
+              of it appears in court data. The plank writes tenure-neutral
+              rehousing into disaster law. Displacement is measured by who
+              lost their home, not by who owned it.
+
+closing:
+  thruline:
+    - >-
+      <strong>The pandemic ran the experiment no legislature would have
+      authorized.</strong> For about two years the country operated several
+      of these planks at once, a filing moratorium and $46.5 billion in
+      emergency rental assistance, and 2021 filings ran at half their
+      historical average, with more than three million cases avoided
+      between March 2020 and the end of 2021
+      (<a href="https://evictionlab.org/us-eviction-filing-patterns-2021/">Eviction
+      Lab</a>). Filings returned as each piece lapsed. The lesson is not
+      that emergencies work. It is that these levers move the number, and
+      that no state holds all four at once.
+    - >-
+      <strong>The costs of doing nothing are measured.</strong> An eviction
+      filing that never reaches a judgment is associated with 19% higher
+      mortality, and an eviction judgment with 40%
+      (<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10828546/">Graetz
+      et al., <em>Social Science &amp; Medicine</em> 2024</a>). Eviction
+      during pregnancy is associated with lower birth weight and more
+      premature births
+      (<a href="https://jamanetwork.com/journals/jamapediatrics/fullarticle/2776776">Himmelstein
+      &amp; Desmond, <em>JAMA Pediatrics</em> 2021</a>). These are
+      associations measured on millions of records, and they fall on the
+      same households the screening, filing, and shortage planks above
+      describe.
+    - >-
+      <strong>The pair that works is a lawyer and a check.</strong>
+      Cleveland&#39;s right-to-counsel evaluation shows the mechanism.
+      About half of eviction cases carry no legal defense, and those cases,
+      in the evaluator&#39;s words, "center on the amount of back rent
+      owed, which often requires a monetary solution." In 2025, represented
+      clients with a legal defense prevented an eviction or involuntary
+      move 83% of the time; clients without one, 70%. The program&#39;s
+      prevention rate for 2025 cases, 76%, sat below its 83% since 2020,
+      in the year the county&#39;s rental assistance programs closed
+      (<a href="https://www.stout.com/-/media/pdf/evictions/stout2025independentevaluationclevelandevictionrightcounselfinal20260129.pdf">Stout,
+      2026</a>). A lawyer wins the case with a legal defect. A check
+      resolves the case without one. National policy funds both,
+      permanently, and measures the result with data it finally collects.
+  callout:
+    heading: "What we know"
+    body: >-
+      What works is no longer the open question. A decade of evaluations
+      points the same way. Rental assistance, diversion, representation,
+      and record sealing all show measured results, and several return more
+      than they cost. The open questions are implementation and speed:
+      whether a jurisdiction is willing and able to adopt and fund what is
+      proven, and how to keep people housed while the slow levers catch up.
+      Where the evidence on eviction specifically is mixed or indirect,
+      each plank says so on its face rather than rounding up. For the full
+      literature, see the <a href="research.html#library">research
+      library</a>. For a tailored briefing on any plank,
+      <a href="mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request">contact ERN</a>.
+  method: >-
+    How this list was made: every plank marked <strong>Evidence</strong>
+    carries direct, quantified findings of reduced eviction filings,
+    judgments, or displacement, or of a measurably changed case cost, from
+    peer-reviewed studies, federal evaluations, statutes, and program
+    records, linked in place. Each was verified against the named source in
+    August 2026 and checked again in October 2026. Planks marked <strong>Reasoned</strong> are argued from
+    mechanism or arithmetic and labeled as such rather than dressed up as
+    findings. Where the evidence is thin or cuts both ways, the plank says
+    so. The four-P framing is ERN&#39;s, and the plank structure is shared
+    with ERN&#39;s draft national housing rights charter. For how eviction
+    itself works (the process, the records, the data), see
+    <a href="understanding-eviction.html">Understanding Eviction</a>; for
+    the full literature, the <a href="research.html#library">research
+    library</a>; for the adoption trackers and drafting libraries other
+    organizations maintain, <a href="#shelf">the reference shelf</a> at
+    the foot of this page.
+
+cta:
+  eyebrow: "For hearings and bills"
+  heading: "Need this evidence for a hearing?"
+  body: >-
+    If you need a policy briefing for a hearing or a bill, we write those:
+    your jurisdiction&#39;s data, the relevant evidence, and its limits, in
+    plain language.
+  primary:
+    label: "Request a briefing →"
+    href: "mailto:evictions@berkeley.edu?Subject=Policy%20briefing%20request"
+  secondary:
+    label: "Browse the research library →"
+    href: "research.html#library"
+
+site_footer:
+  # Canonical wording from library/ORG.md. Do not paraphrase, and never write
+  # "housed in" — it reads as a campus unit.
+  affiliation: >-
+    A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
+    Berkeley Department of Sociology, which serves as its academic home.
+    Affiliated with the Berkeley Institute for Data Science.
+  copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
+  accessibility:
+    label: "Report a web accessibility issue"
+    href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  columns:
+    - heading: "Data"
+      links:
+        - label: "Maps &amp; profiles"
+          href: "index.html#atlas"
+        - label: "HPRM risk maps"
+          href: "https://evictionresearch.net/hprm/"
+          newtab: true
+        - label: "U.S. Eviction Data Directory"
+          href: "eviction-data-atlas.html"
+          newtab: true
+    - heading: "Research"
+      links:
+        - label: "Publications"
+          href: "research.html"
+        - label: "What works"
+          href: "policy.html"
+        - label: "Methodology"
+          href: "methodology.html"
+          newtab: true
+        - label: "Understanding eviction"
+          href: "understanding-eviction.html"
+          newtab: true
+        - label: "News &amp; press"
+          href: "news.html"
+          newtab: true
+    - heading: "Contact"
+      links:
+        - label: "evictions@berkeley.edu"
+          href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+        - label: "Bluesky"
+          href: "https://bsky.app/profile/evictionresearch.bsky.social"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/company/evictionresearch/"
+          newtab: true
+        - label: "GitHub"
+          href: "https://github.com/evictionresearch"
+          newtab: true
+
+format: policy-html
+output-file: policy.html
+---
+
+## The reference shelf {#shelf}
+
+This page grades the evidence behind each plank. Four companion resources,
+maintained by other organizations, track what this page does not: which
+jurisdictions have adopted what, how the legal process runs in each state,
+and how to draft the ordinance. ERN links them here because a legislator's
+next question after "does it work" is "who has it, and what does the bill
+say."
+
+- **[State and Local Tenant Protections Database](https://nlihc.org/tenant-protections)**,
+  National Low Income Housing Coalition. Tracks right to counsel, source-of-income
+  protection, eviction record sealing, anti-rent-gouging measures, and just-cause
+  laws across states, territories, tribes, and localities, with comprehensive
+  tracking since January 2021. The live answer to where any Protect plank stands
+  in your jurisdiction.
+- **[Eviction Laws Database](https://www.lsc.gov/initiatives/effect-state-local-laws-evictions/lsc-eviction-laws-database)**,
+  Legal Services Corporation, with the Center for Public Health Law Research
+  at Temple University. Maps the legal process of eviction from pre-filing
+  through post-judgment for all fifty states, D.C., and the U.S. territories,
+  plus a 30-jurisdiction local sample. A snapshot of law in effect January 1,
+  2021, which makes it the baseline against which the protections passed since
+  can be read; ERN's [state timeframes table](state-eviction-timeframes/)
+  carries the current process clocks.
+- **[Housing Policy Library](https://www.housingsolutionslab.org/housing-policy-library/)**,
+  Housing Solutions Lab at the NYU Furman Center, originally built as the
+  Local Housing Solutions toolkit. Implementation briefs across the full
+  breadth of local housing policy, organized on four pillars of its own
+  (dedicated affordable units, housing supply, access to private-market homes,
+  and protection against displacement and poor conditions). The drafting-level
+  detail this page leaves to the bill writers.
+- **[All-In Cities Anti-Displacement Toolkit](https://www.policylink.org/resources-tools/tools/all-in-cities/housing-anti-displacement)**,
+  PolicyLink. City- and organizer-facing policy briefs, including just cause,
+  rent stabilization, tenant and community opportunity to purchase, rental
+  registries, and eviction-record and tenant-screening protections.

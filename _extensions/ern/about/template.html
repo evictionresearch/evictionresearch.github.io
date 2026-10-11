@@ -142,25 +142,16 @@ $endif$          </div>
 $endfor$        </div>
     </section>
 
-    <!-- ─────────── Expert collaborators ─────────── -->
-    <section id="expert-collaborators" class="band">
-      <div class="wrap sec">
-        <p class="eyebrow">$experts.eyebrow$</p>
-        <h2>$if(experts.h2_lead)$$experts.h2_lead$ $endif$<em>$experts.h2_em$</em></h2>
-        <ul class="chips" style="margin-top: 28px;" aria-label="$experts.list_label$">
-  $for(experts.people)$        <li><strong>$it.name$</strong> · $it.org$</li>
-  $endfor$      </ul>
-      </div>
-    </section>
-
     <!-- ─────────── Student alumni ─────────── -->
-    <section id="student-alumni" class="wrap sec">
+    <section id="student-alumni" class="band">
+      <div class="wrap sec">
       <p class="eyebrow">$alumni.eyebrow$</p>
       <h2>$if(alumni.h2_lead)$$alumni.h2_lead$ $endif$<em>$alumni.h2_em$</em></h2>
       <p class="sub">$alumni.sub$</p>
       <ul class="chips" aria-label="$alumni.list_label$">
 $for(alumni.names)$        <li>$alumni.names$</li>
 $endfor$        </ul>
+      </div>
     </section>
 
     <!-- ─────────── Academic home ─────────── -->
@@ -169,8 +160,7 @@ $endfor$        </ul>
          the marks must not sit in either of those rows (UC Berkeley Brand
          Protection, Project #0946). Canonical wording:
          library/docs/berkeley-affiliation/. -->
-    <section id="academic-home" class="band">
-      <div class="wrap sec">
+    <section id="academic-home" class="wrap sec">
         <p class="eyebrow">$academic.eyebrow$</p>
         <h2>$if(academic.h2_lead)$$academic.h2_lead$ $endif$<em>$academic.h2_em$</em></h2>
         <p class="sub">$academic.body$</p>
@@ -187,13 +177,13 @@ $endfor$        </ul>
             <figcaption>$academic.mark.caption$</figcaption>
           </figure>
         </div>
-      </div>
     </section>
 
     <!-- ─────────── Organizational collaborators ─────────── -->
     <!-- Split from Funders on 2026-08-13. A logo in this wall makes no claim
          about money; funding is asserted only in the Funders section below. -->
-    <section id="collaborators" class="wrap sec">
+    <section id="collaborators" class="band">
+      <div class="wrap sec">
       <p class="eyebrow">$orgs.eyebrow$</p>
       <h2>$if(orgs.h2_lead)$$orgs.h2_lead$ $endif$<em>$orgs.h2_em$</em></h2>
       <div class="wall" style="margin-top: 32px;">
@@ -213,6 +203,7 @@ $if(orgs.chips)$<ul class="chips" style="margin-top: 22px;" aria-label="$orgs.li
 $for(orgs.chips)$        <li><a href="$it.href$" target="_blank" rel="noopener noreferrer">$it.label$</a></li>
 $endfor$        </ul>
 $endif$
+      </div>
     </section>
 
     <!-- ─────────── Funders ─────────── -->
@@ -227,8 +218,7 @@ $endif$
          Deliberately NOT listed: Salt Lake (which Tim's own notes call
          "Wasatch") and SANDAG, pending the ERN-vs-CiDR attribution flagged in
          hprm/manuscripts/a-good-place.md. -->
-    <section id="funders" class="band">
-      <div class="wrap sec">
+    <section id="funders" class="wrap sec">
         <p class="eyebrow">$funders.eyebrow$</p>
         <h2>$if(funders.h2_lead)$$funders.h2_lead$ $endif$<em>$funders.h2_em$</em></h2>
         <div class="wall" style="margin-top: 32px;">
@@ -238,7 +228,6 @@ $endif$
           </figure>
   $else$        <a href="$it.href$" target="_blank" rel="noopener noreferrer"><img src="$it.src$" alt="$it.alt$" height="$it.height$"></a>
   $endif$$endfor$      </div>
-      </div>
     </section>
 
     <!-- ─────────── Partner ─────────── -->
@@ -269,13 +258,11 @@ $endif$
   <footer class="foot" role="contentinfo">
     <div class="wrap foot-in">
       <div class="foot-brand">
-        <img src="$logos.logo_reversed$" alt="Eviction Research Network">
+        <img src="$logos.logo_stacked_reversed$" alt="Eviction Research Network">
         <!-- Affiliation wording is canonical, from library/ORG.md. Do not
              paraphrase and never write "housed in", which reads as a campus
-             unit. IGS, UDP and CDSS are historical, not current, affiliations;
-             UDP appears only in the collaborator line below. -->
+             unit. IGS, UDP and CDSS are historical, not current, affiliations. -->
         <p>$site_footer.affiliation$</p>
-        <p>$site_footer.collaborators$</p>
       </div>
 $for(site_footer.columns)$      <div class="foot-col">
         <span>$it.heading$</span>

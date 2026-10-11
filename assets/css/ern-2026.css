@@ -200,7 +200,9 @@ iframe.map { display: block; width: 100%; max-width: 100%; border: none; overflo
 .foot { background: var(--ink); border-top: 1px solid var(--rule-dark); }
 .foot-in { display: flex; flex-wrap: wrap; gap: 44px; justify-content: space-between; padding-top: 44px; padding-bottom: 44px; }
 .foot-brand { display: flex; flex-direction: column; gap: 14px; max-width: 38ch; }
-.foot-brand img { height: 40px; width: auto; align-self: flex-start; }
+/* The stacked mark is 3001x1977 (BRAND.md assigns it to footers), so it needs
+   more height than the banner did to stay legible. */
+.foot-brand img { height: 72px; width: auto; align-self: flex-start; }
 .foot-brand p { font-size: 13px; line-height: 1.6; color: var(--steel); margin: 0; }
 .foot-brand p + p { font-size: 12.5px; }
 .foot-col { display: flex; flex-direction: column; gap: 10px; }

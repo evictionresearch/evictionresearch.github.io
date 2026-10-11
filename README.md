@@ -29,11 +29,13 @@ the three loads `main.css` or the vendor CSS.
 the Berkeley, BIDS, and federal marks may appear. Read those comments before
 moving a logo between walls.
 
-Three generators feed those pages, and each writes a file that is committed:
+Four generators feed those pages, and each writes a file that is committed:
 
+- `code/o2_data_directory.r` builds `eviction-data-atlas.html`, the U.S.
+  Eviction Data Directory. See its own section below.
 - `code/build_home_map_data.py` generates the coverage map's state roster from
-  `all_states/index.html` and the Eviction Data Atlas, then inlines it into the
-  map. Re-run it whenever the directory changes.
+  `eviction-data-atlas.html` and the Eviction Data Atlas dataset, then inlines
+  it into the map. Re-run it whenever the directory changes.
 - `code/render_hprm_national.mjs` renders the HPRM tract raster. Its header
   documents the full pipeline.
 - `code/build_research_data.py` compiles the bibliography in
@@ -41,6 +43,64 @@ Three generators feed those pages, and each writes a file that is committed:
   research page loads as a plain script so the library also works when the page
   is opened off disk. It reports duplicate titles and count mismatches; run it
   after editing the bibliography.
+
+## The U.S. Eviction Data Directory
+
+`code/o2_data_directory.r` lists, for every state, the best starting point for
+eviction data and every active public source the July 2026 atlas verified. It
+writes `eviction-data-atlas.html`, served at
+evictionresearch.net/eviction-data-atlas.html. The page used to live at
+/all_states/; that path now holds a redirect stub.
+
+```sh
+Rscript code/o2_data_directory.r    # -> eviction-data-atlas.html
+python3 code/build_home_map_data.py # always re-run this after
+```
+
+It lived in a separate `all_states` repo until 2026-08-28. That meant a script
+in one repo generated a file in another, and `build_home_map_data.py` parsed
+markup it could not see. The parser had already gone stale against a redesign
+before anyone noticed. Both now live here so a markup change and its parser fix
+land in the same commit.
+
+Inputs are `library/data/state_profile_readiness/d2_public_source_inventory.csv`
+(the atlas's 200 verified collectors; the active and free ones get listed) and
+the rosters at the top of the script.
+
+**Rosters.** The census deciding each state's primary target is
+`library/docs/state_profile_expansion.md` ("Who each state should link to").
+Edit there first, then keep `o2_data_directory.r` and `us_state_map_urls.r` in
+sync. Both carry the same `ern_url` / `lsc_slug` / `partner_url` vectors. When an
+ERN profile ships for a planned state, move it to `ern_url` in both and rebuild.
+
+**LSC coverage.** `lsc_cov` carries LSC's own `counties_tracked`,
+`counties_total` and latest month, read from
+`civilcourtdata.lsc.gov/page-data/data/eviction/<slug>/page-data.json`. Re-read
+that JSON on rebuild; the figures move. Two traps. A state page returning HTTP
+200 proves nothing, since about a dozen render an empty shell while the bulk
+download still carries their data, so test for a filings figure rather than a
+status code. And coverage is wildly uneven, so nothing is listed without its
+county fraction. Kansas and Mississippi hold one county each and are kept out of
+the state lists on purpose, because one county would contradict their "no public
+data" badge; they are named in the notes instead.
+
+**Link rot on a schedule.** The Hawai'i target is a year-stamped annual report
+PDF and Maine's is the judiciary's monthly FED report PDF. Re-check both on every
+rebuild.
+
+**Chrome.** The header and footer are copies of the ones on the home page: same
+logos, same nav, same footer columns, same 1240px measure, all in the `css` and
+`html` blocks of the script. Same-site links and assets are relative; HPRM is a
+separate deploy and stays absolute. If the home page nav changes, change it here
+too, because nothing links the two automatically.
+
+The page is dark by choice rather than by OS setting, so the palette is one set
+of tokens with no `prefers-color-scheme` override. Every colour clears WCAG AA on
+the dark ground, including the brand red at 4.7:1, which is the one thing the
+light home page does not manage.
+
+`code/archive/o1_datawrapper.R` and `code/archive/build_dataset.R` came over with
+the move. Both predate this page and are unrelated to it.
 
 ## Keeping the research section current
 
@@ -129,7 +189,8 @@ evictionresearch.github.io/
 │   └── logos/                   # Berkeley wordmark, partner marks used inline
 ├── partner_logos/               # Partner organization logos
 ├── maps/                        # Embeddable map pages
-├── code/                        # R scripts used to build map embeds
+├── code/                        # Page and map generators (R, Python, Node)
+│   └── archive/                 # Superseded scripts kept for reference
 ├── data/                        # Reference data (redlining, test maps)
 └── docs/WEBDESIGN.md            # Page-level design conventions
 ```

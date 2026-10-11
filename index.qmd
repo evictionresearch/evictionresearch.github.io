@@ -44,6 +44,7 @@ meta:
 logos:
   logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
+  logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
 
 social:
   - url: "https://bsky.app/profile/evictionresearch.bsky.social"
@@ -60,6 +61,9 @@ nav:
     newtab: true
   - label: "Research"
     href: "#research"
+  - label: "What works"
+    href: "policy.html"
+    newtab: true
   - label: "About"
     href: "about.html"
     newtab: true
@@ -83,7 +87,7 @@ atlas:
     source.
   button:
     label: "See every state&#39;s data →"
-    href: "all_states/"
+    href: "eviction-data-atlas.html"
   map:
     src: "maps/us-coverage-map.html"
     title: "Eviction data across the US — select a state"
@@ -180,9 +184,6 @@ site_footer:
     A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
     Berkeley Department of Sociology, which serves as its academic home.
     Affiliated with the Berkeley Institute for Data Science.
-  collaborators: >-
-    Collaborators: Housing Initiative at Penn · Urban Displacement Project ·
-    Legal Services Corporation.
   copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
   accessibility:
     label: "Report a web accessibility issue"
@@ -196,12 +197,15 @@ site_footer:
           href: "https://evictionresearch.net/hprm/"
           newtab: true
         - label: "U.S. Eviction Data Directory"
-          href: "all_states/"
+          href: "eviction-data-atlas.html"
           newtab: true
     - heading: "Research"
       links:
         - label: "Publications"
           href: "research.html"
+          newtab: true
+        - label: "What works"
+          href: "policy.html"
           newtab: true
         - label: "Methodology"
           href: "methodology.html"

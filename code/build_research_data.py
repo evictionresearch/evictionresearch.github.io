@@ -63,6 +63,11 @@ def sort_key(item):
 def main():
     raw = json.loads(SRC.read_text(encoding="utf-8"))
     items = raw.get("items", [])
+    # Topic keywords. The vocabulary is hand-maintained at the top of
+    # research.json as {"slug": "Label"}; every item carries a list of slugs.
+    # An item with a slug the vocabulary does not know is a problem, not a
+    # silent new topic, for the same reason types are closed above.
+    vocab = raw.get("keywords", {}) or {}
 
     problems = []
     for i, it in enumerate(items):
@@ -72,6 +77,9 @@ def main():
             problems.append(f"item {i} ({it.get('title')!r}) has no url")
         if it.get("type") and it["type"] not in TYPE_LABELS:
             problems.append(f"item {i} has unknown type {it['type']!r}")
+        for kw in it.get("keywords") or []:
+            if kw not in vocab:
+                problems.append(f"item {i} ({it.get('title')!r}) has unknown keyword {kw!r}")
 
     titles = {}
     for it in items:
@@ -98,6 +106,8 @@ def main():
                 "state": it.get("state") or "",
                 "stateLabel": state_label(it["state"]) if it.get("state") else "",
                 "url": (it.get("url") or "").strip(),
+                "keywords": [k for k in (it.get("keywords") or []) if k in vocab],
+                "keywordLabels": [vocab[k] for k in (it.get("keywords") or []) if k in vocab],
             }
         )
 
@@ -116,6 +126,16 @@ def main():
             if any(i["type"] == v for i in clean)
         ],
         "states": [{"value": v, "label": lb} for v, lb in states],
+        # Only topics that at least one entry carries, with their counts, so
+        # the menu never offers an empty result. Sorted by label.
+        "keywords": sorted(
+            (
+                {"value": v, "label": lb, "count": sum(1 for i in clean if v in i["keywords"])}
+                for v, lb in vocab.items()
+                if any(v in i["keywords"] for i in clean)
+            ),
+            key=lambda k: k["label"].lower(),
+        ),
         "items": clean,
     }
 

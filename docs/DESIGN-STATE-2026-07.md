@@ -1,5 +1,13 @@
 # ERN Website — Design Decision State (July 16, 2026)
 
+> **Superseded 2026-08-28. Kept as the record of what was open in July, not as
+> current guidance.** Two rows below are now wrong. The red split was replaced
+> on 2026-08-24 by one red, `#F9322B`, for graphics and text alike. The
+> two-template split was resolved by the August rebuild: `index`, `about`,
+> `research`, and `policy` are Quarto pages on `assets/css/ern-2026.css` with
+> no Bootstrap at all. Current guidance is
+> `evictionresearch/library/standards/ern-site-design-2026.md`.
+
 > Written to be the single pickup point for the design pass. Start here.
 > Branch context: `reports-2026-07` is the **superset tip** — every other
 > branch (main, qs-migration, all brand/*, style/dubois-revision,
@@ -11,9 +19,9 @@
 | Decision | Where recorded |
 |---|---|
 | Inter only, all weights; no display companion font (2026-04-29) | `BRAND.md`; canonical: `cidrlab/library/brand/ern/BRAND.md` |
-| WCAG-split reds: `#F9322B` graphics-only, `#CC2118` text/links/buttons; muted `#586573`; navy `#19222C`; tint `#e8eef4` | `BRAND.md` |
+| ~~WCAG-split reds: `#F9322B` graphics-only, `#CC2118` text/links/buttons~~ **superseded 2026-08-24: one red `#F9322B` for both, `#CC2118` demoted to hover/press**; muted `#586573`; navy `#19222C`; tint `#e8eef4` | `BRAND.md`; `standards/ern-site-design-2026.md` |
 | Du Bois lineage, "spirit not surface": claim-sentence titles, numbered **Figures** (renamed from "plates" 2026-06-28), interpretive descriptions; no cream/sepia/serif | `evictionresearch/library/dubois_lineage.md` |
-| Front page = v5b design (May 12 "finalize webpage"); `data-header-style="plate"` | `index.html`, `assets/css/v5b.css` |
+| ~~Front page = v5b design (May 12 "finalize webpage")~~ **superseded 2026-08-24: the front page is a Quarto page on `ern-2026.css`**; v5b survives only on the seven legacy pages | `index.qmd`, `assets/css/ern-2026.css` |
 | WCAG 2.1 AA sitewide (Berkeley dap requirement) | `BRAND.md` accessibility notes |
 
 ## Open decisions (the actual design agenda)

@@ -304,7 +304,7 @@ stats:
       Informal evictions for every formal one. Most forced moves never reach
       a court.
     s: >-
-      <a href="https://www.huduser.gov/portal/periodicals/cityscpe/vol23num2/ch15.pdf">Gromis
+      <a href="https://www.huduser.gov/portal/sites/default/files/periodicals/cityscpe/vol23num2/ch15.pdf">Gromis
       &amp; Desmond, Cityscape 2021</a>, 2017 AHS
   - v: "35"
     unit: "per&thinsp;100"

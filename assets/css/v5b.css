@@ -867,12 +867,12 @@ footer.site .footer-logos img {
   width: auto;
   display: block;
 }
-/* Berkeley wordmark on the main site is rendered for dark backgrounds
-   (white pixels). Invert + darken so it reads navy on the white footer
-   without re-rendering a separate asset. */
+/* UC Berkeley Sociology lockup (official file, Berkeley Blue on its own
+   white ground; approved 2026-09-02). Taller than the ERN banner because the
+   file carries its clear space inside the canvas: at 56px the lettering is
+   about 22px. */
 footer.site .footer-logos .berkeley-mark {
-  max-height: 26px;
-  filter: invert(1) brightness(0.15);
+  max-height: 56px;
 }
 footer.site .footer-logo-divider {
   width: 1px;

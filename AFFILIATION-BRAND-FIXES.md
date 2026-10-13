@@ -24,7 +24,7 @@ Short footer/affiliation form:
 ## Guardrails
 - Do **not** describe Berkeley as a "funder."
 - Keep **CiDR Lab** off any page bearing the Berkeley name/marks.
-- Use only the Brand-Protection-approved wordmark/lockup once confirmed (pending Project #0946).
+- Use only the Brand-Protection-approved mark: the UC Berkeley Sociology departmental lockup (Project #1008, approved 2026-09-02). No bare wordmark, seal, or Cal script.
 
 ## Checklist
 - [ ] Move UCB logo out of the funders row (`about.html`)
@@ -32,7 +32,7 @@ Short footer/affiliation form:
 - [ ] Update footer copyright/affiliation line (shared template)
 - [ ] Insert canonical statement (About intro + `<meta>` description)
 - [ ] Confirm BIDS affiliation language with Kirstie before publishing
-- [ ] Swap to approved Berkeley wordmark once Brand Protection approves
+- [x] Swap to the approved UC Berkeley Sociology lockup (Brand Protection Project #1008, approved 2026-09-02; applied site-wide 2026-10-13, files in `images/logos/berkeley/`)
 - [ ] Follow up with CDSS to retire/relabel the 2023 project page
 
 _Source drafts (reply to Brand Protection, endorsement letter, BIDS email, talking points): CiDR Lab library, `berkeley-affiliation/`._

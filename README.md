@@ -186,7 +186,7 @@ evictionresearch.github.io/
 │   └── webfonts/                # FontAwesome webfont files
 ├── images/
 │   ├── ern_logo/                # Deployed ERN logo (sync from library)
-│   └── logos/                   # Berkeley wordmark, partner marks used inline
+│   └── logos/                   # UC Berkeley Sociology lockup (berkeley/), partner marks used inline
 ├── partner_logos/               # Partner organization logos
 ├── maps/                        # Embeddable map pages
 ├── code/                        # Page and map generators (R, Python, Node)

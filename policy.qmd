@@ -244,6 +244,10 @@ logos:
   logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
   logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
+  # UC Berkeley Sociology lockup for the dark footer (white on Berkeley Blue,
+  # official file with its own ground). Approved by Brand Protection,
+  # Project #1008, 2026-09-02.
+  berkeley_lockup_reversed: "images/logos/berkeley/uc-berkeley-sociology_h_white_transparent.png"
 
 # newtab: true on anything that leaves the site. current: true marks this page
 # for screen readers and gives the nav item its red weight.

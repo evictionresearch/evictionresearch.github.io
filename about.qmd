@@ -41,6 +41,10 @@ logos:
   logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
   logo_reversed: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER_REV.png"
   logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
+  # UC Berkeley Sociology lockup for the dark footer (white on Berkeley Blue,
+  # official file with its own ground). Approved by Brand Protection,
+  # Project #1008, 2026-09-02.
+  berkeley_lockup_reversed: "images/logos/berkeley/uc-berkeley-sociology_h_white_transparent.png"
 
 nav:
   - label: "Maps &amp; Profiles"
@@ -342,11 +346,15 @@ academic:
     serves as its academic home. ERN is not a separate legal entity or a
     separate campus unit; its externally funded research is administered through
     the University.
+  # UC Berkeley Sociology departmental lockup, the mark Brand Protection
+  # approved for this site (Project #1008, 2026-09-02). Official file with its
+  # own white ground; never recolor, crop, or retype it. Canonical package:
+  # cidrlab/library/brand/logos/uc_berkeley/sociology-lockup/.
   mark:
-    href: "https://www.berkeley.edu"
-    src: "partner_logos/UCBshort.svg.png"
-    alt: "University of California, Berkeley"
-    height: 55
+    href: "https://sociology.berkeley.edu"
+    src: "images/logos/berkeley/uc-berkeley-sociology_h_blue-on-white.png"
+    alt: "UC Berkeley Sociology"
+    height: 84
     caption: >-
       Academic home · <a href="https://sociology.berkeley.edu">Department of
       Sociology</a>

@@ -15,11 +15,11 @@
     "links": 30,
     "pubs": 30
   },
-  "links_last_checked": "2026-10-08",
+  "links_last_checked": "2026-10-12",
   "links_last_result": {
-    "blocked": 95,
-    "checked": 626,
-    "failed": 39,
+    "blocked": 88,
+    "checked": 638,
+    "failed": 40,
     "internal_missing": 14
   },
   "links_last_reviewed": "2026-08-26",

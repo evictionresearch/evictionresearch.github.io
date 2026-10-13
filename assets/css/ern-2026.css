@@ -203,6 +203,11 @@ iframe.map { display: block; width: 100%; max-width: 100%; border: none; overflo
 /* The stacked mark is 3001x1977 (BRAND.md assigns it to footers), so it needs
    more height than the banner did to stay legible. */
 .foot-brand img { height: 72px; width: auto; align-self: flex-start; }
+/* UC Berkeley Sociology lockup (approved 2026-09-02). The official file
+   carries its own Berkeley Blue ground, so it sits as a tile under the ERN
+   mark; at 60px tall the lettering is about 24px. */
+.foot-brand .foot-berkeley { display: inline-flex; align-self: flex-start; }
+.foot-brand .foot-berkeley img { height: 26px; width: auto; }
 .foot-brand p { font-size: 13px; line-height: 1.6; color: var(--steel); margin: 0; }
 .foot-brand p + p { font-size: 12.5px; }
 .foot-col { display: flex; flex-direction: column; gap: 10px; }

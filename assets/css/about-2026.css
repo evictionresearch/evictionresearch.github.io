@@ -95,6 +95,11 @@
 /* The academic-home mark stands alone and should not read as one logo in a
    row of many, so its wall is sized to its contents. */
 .wall.single { display: inline-flex; }
+/* The UC Berkeley Sociology lockup is a wide horizontal file that carries its
+   clear space inside the canvas (lettering is 40% of the height), so it needs
+   more room than a partner logo: 354px wide gives about 34px lettering. */
+.wall.single figure { max-width: none; }
+.wall.single img { width: 354px; max-width: 100%; height: auto; }
 
 /* ─── Responsive ─── */
 @media (max-width: 1100px) {

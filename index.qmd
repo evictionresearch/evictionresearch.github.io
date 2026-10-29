@@ -166,6 +166,48 @@ mission:
       scholars in the field, and provide evidence-based research that
       legislatures, practitioners, and advocates can use to inform policy.
 
+# Each image is a drawn SVG in images/tools/ holding synthetic values only.
+# Keep it that way: no real case, name, or address on this page.
+tools:
+  eyebrow: "Free and open source"
+  h2_lead: "Our"
+  h2_em: "tools."
+  intro: >-
+    Eviction records sit in thousands of separate court systems, and few of
+    the organizations that need them can afford to build software to read
+    them. ERN releases the tools behind its research as free, open-source
+    code so that courts, legal aid groups, agencies, and other researchers
+    can collect and analyze eviction data themselves, and can see exactly
+    how our numbers are made.
+  more_label: "View on GitHub →"
+  cards:
+    - kicker: "Python and R · AGPL-3.0"
+      title: "extract-text"
+      badge: "Under development"
+      body: >-
+        Turns eviction court filings, including scanned and handwritten
+        pages, into a table of cases with party names, addresses, and case
+        details. It runs entirely on your own computer, so records never
+        leave your hands. Validated on more than a million pages of
+        Washington State filings.
+      image: "images/tools/extract-text.svg"
+      alt: >-
+        A scanned court summons with a handwritten address, an arrow, and
+        the same case as rows of digital text.
+      href: "https://github.com/evictionresearch/extract-text"
+    - kicker: "R package · MIT"
+      title: "neighborhood"
+      body: >-
+        Functions for studying neighborhood change with census data,
+        including racial typologies of census tracts, housing affordability
+        by income level, and the interactive maps and charts used in ERN&#39;s
+        state eviction profiles.
+      image: "images/tools/neighborhood.svg"
+      alt: >-
+        A table of census figures, an arrow, and a map of census tracts
+        shaded from light to dark blue.
+      href: "https://github.com/evictionresearch/neighborhood"
+
 partner:
   eyebrow: "Partner with ERN"
   heading: "Working on eviction where the data is thin?"

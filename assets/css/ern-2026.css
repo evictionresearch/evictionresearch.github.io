@@ -190,6 +190,12 @@ iframe.map { display: block; width: 100%; max-width: 100%; border: none; overflo
 .card:hover h3 { color: var(--accent-deep); }
 .card:hover .more { color: var(--accent-press); text-decoration: underline; }
 
+/* ─── Tools ─── two cards, each led by a drawn illustration on the tint */
+.tools { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 36px; }
+.tool img { display: block; width: 100%; height: auto; background: var(--tint); border-radius: 8px; padding: 12px 8px; margin-bottom: 6px; }
+.tool h3 { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 19px; }
+.tool h3 .badge { font-family: var(--sans); font-size: 10px; padding: 3px 8px; margin: 0 0 0 10px; vertical-align: 3px; }
+
 /* ─── Partner ─── */
 .partner-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; }
 .partner-in p.body { font-size: 15.5px; line-height: 1.65; color: rgba(255, 255, 255, 0.86); margin: 0; }
@@ -237,6 +243,7 @@ iframe.map { display: block; width: 100%; max-width: 100%; border: none; overflo
   h2 { font-size: 32px; }
   h2.on-dark { font-size: 30px; }
   .cards { grid-template-columns: 1fr; }
+  .tools { grid-template-columns: 1fr; gap: 40px; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }

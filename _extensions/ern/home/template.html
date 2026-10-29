@@ -138,6 +138,22 @@ $body$
 $endif$      </div>
     </section>
 
+    <!-- ─────────── Open-source tools ─────────── -->
+    <section id="tools" class="wrap sec">
+      <p class="eyebrow">$tools.eyebrow$</p>
+      <h2>$tools.h2_lead$ <em>$tools.h2_em$</em></h2>
+      <p class="prose">$tools.intro$</p>
+      <div class="tools">
+$for(tools.cards)$        <a class="card tool" href="$it.href$" target="_blank" rel="noopener noreferrer">
+          <img src="$it.image$" alt="$it.alt$" width="480" height="260" loading="lazy">
+          <span class="kicker">$it.kicker$</span>
+          <h3>$it.title$$if(it.badge)$ <span class="badge">$it.badge$</span>$endif$</h3>
+          <p>$it.body$</p>
+          <span class="more">$tools.more_label$</span>
+        </a>
+$endfor$      </div>
+    </section>
+
     <!-- ─────────── Partner ─────────── -->
     <section id="partner" class="band-dark">
       <div class="wrap sec-sm partner-in">

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" role="img" aria-labelledby="t">
+  <title id="t">A scanned court summons with a handwritten address, an arrow, and the same case as rows of digital text</title>
+  <!-- Every value is synthetic. -->
+  <defs>
+    <filter id="sh" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#19222C" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+  <!-- The paper filing -->
+  <g transform="rotate(-4 105 130)" filter="url(#sh)">
+    <rect x="30" y="22" width="150" height="208" rx="2" fill="#FBF9F3" stroke="#D9D4C7"/>
+    <text x="105" y="44" text-anchor="middle" font-family="Georgia, serif" font-size="7.5" letter-spacing="1" fill="#3B3B3B">SUPERIOR COURT</text>
+    <text x="105" y="62" text-anchor="middle" font-family="Georgia, serif" font-size="11" font-weight="bold" letter-spacing="2" fill="#222">SUMMONS</text>
+    <line x1="44" y1="70" x2="166" y2="70" stroke="#9A958A" stroke-width="0.8"/>
+    <text x="44" y="83" font-family="Courier New, monospace" font-size="6.5" fill="#444">No. 26-2-01234-1</text>
+    <g fill="#B9B4A8">
+      <rect x="44" y="92" width="118" height="3.2"/><rect x="44" y="99" width="104" height="3.2"/>
+      <rect x="44" y="106" width="112" height="3.2"/><rect x="44" y="113" width="80" height="3.2"/>
+      <rect x="44" y="160" width="116" height="3.2"/><rect x="44" y="167" width="98" height="3.2"/>
+      <rect x="44" y="174" width="108" height="3.2"/>
+    </g>
+    <!-- Handwritten tenant address -->
+    <g fill="none" stroke="#2F4A8A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M46 132c3-6 5-6 6 0s3 5 5-1 4-5 5 1c1 4 3 4 5-1m4 0c2 6 4 6 6 0 1-3 3-3 4 1m5-3c2 5 5 5 7 0s4-4 5 1 3 3 6-1"/>
+      <path d="M46 146c2-5 4-5 5 0 1 4 3 3 4-1s3-4 5 1m4-1c3 4 6 3 7-1m4 1c1 4 4 4 6-1 1-3 3-3 4 0 2 4 5 3 6-1m4 0c2 4 4 4 6 0"/>
+    </g>
+    <circle cx="150" cy="207" r="14" fill="none" stroke="#F9322B" stroke-opacity="0.55" stroke-width="1.6"/>
+    <text x="150" y="209.5" text-anchor="middle" font-family="Georgia, serif" font-size="6" fill="#F9322B" fill-opacity="0.6">FILED</text>
+  </g>
+  <!-- Arrow -->
+  <g stroke="#F9322B" stroke-width="3" stroke-linecap="round" fill="none">
+    <path d="M200 130h52"/><path d="M242 119l12 11-12 11" stroke-linejoin="round"/>
+  </g>
+  <!-- The extracted case table -->
+  <g filter="url(#sh)">
+    <rect x="270" y="52" width="190" height="156" rx="6" fill="#FFFFFF" stroke="#DCE3EA"/>
+  </g>
+  <rect x="270" y="52" width="190" height="24" rx="6" fill="#19222C"/>
+  <rect x="270" y="68" width="190" height="8" fill="#19222C"/>
+  <text x="282" y="68" font-family="Inter, Helvetica, Arial, sans-serif" font-size="9" font-weight="600" fill="#FFFFFF">case record</text>
+  <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="8.5">
+    <g fill="#586573">
+      <text x="282" y="96">case_no</text><text x="282" y="122">filed</text>
+      <text x="282" y="148">plaintiff</text><text x="282" y="174">defendant</text>
+      <text x="282" y="200">address</text>
+    </g>
+    <g fill="#19222C">
+      <text x="342" y="96">26-2-01234-1</text><text x="342" y="122">2026-03-14</text>
+      <text x="342" y="148">Maple Court LLC</text><text x="342" y="174">J. Doe</text>
+      <text x="342" y="200" fill="#CC2118">12 Elm St, Apt 4</text>
+    </g>
+  </g>
+  <g stroke="#E8EEF4"><path d="M278 107h174M278 133h174M278 159h174M278 185h174"/></g>
+</svg>

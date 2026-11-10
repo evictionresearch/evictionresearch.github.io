@@ -1,0 +1,495 @@
+---
+# ============================================================================
+# ERN landing page for the 2024 Cityscape paper (Thomas, Ramiller, Ren, and
+# Toomet). Edit the copy here, then rebuild:
+#
+#     quarto render cityscape-2024.qmd
+#
+# That overwrites cityscape-2024.html in place. Review
+# `git diff cityscape-2024.html` before committing.
+#
+# The page chrome lives in _extensions/ern/paper/template.html and the
+# page-only styles in assets/css/paper-2026.css. Every heading, paragraph,
+# table cell, link, and footer entry is a field below.
+#
+# Values are parsed as Markdown. Do not backslash-escape inside a folded
+# block scalar (>-); YAML keeps the backslash and it lands on the page.
+#
+# FACT DISCIPLINE. Every number, quotation, and claim about the paper was
+# checked against the PDF on the site
+# (assets/papers/thomas_ramiller_ren_toomet_2024_cityscape_26-1.pdf; page
+# numbers are the journal's running footers, pp. 241-259). Exhibit A.1
+# (p. 254) is the source of the table. The two 2021 law dates were checked
+# on app.leg.wa.gov on 2026-11-10: RCW 59.18.650 (2021 c 212, just cause)
+# and RCW 59.18.640 (2021 c 115, appointed counsel). Do not add a figure
+# without doing the same.
+#
+# CONFIRMED BY TIM, 2026-11-10 (not in the paper): the legislative
+# testimony and coalition work in policy.paras[1]; "one of the first states"
+# for appointed counsel; the peer-reviewed kicker; Alex Ramiller is now at
+# the University of Toronto. ESSB 5600's text (bill as passed, sec. 1-3) was
+# read on lawfilesext.leg.wa.gov the same day for policy.laws[0]. The paper
+# does not name right to counsel; the page says so.
+#
+# Converted from hand-written legacy HTML (Bootstrap, main.css, v5b.css) to
+# the 2026 design system on 2026-11-10.
+# ============================================================================
+
+title: "Toward a National Eviction Data Collection Strategy (Thomas et al., Cityscape 2024)"
+
+meta:
+  description: >-
+    A UC Berkeley and University of Washington team used natural language
+    processing to read 111,740 eviction court records in four Washington
+    counties and estimate racial and gender disparities in filings. Published
+    in Cityscape (HUD, 2024).
+  short_description: >-
+    How the Eviction Research Network used natural language processing to
+    read 111,740 Washington eviction court records and estimate racial and
+    gender disparities in filings.
+  og_title: "Toward a National Eviction Data Collection Strategy Using NLP (Cityscape 2024)"
+  keywords: >-
+    eviction data, natural language processing, NLP, court records, Washington
+    State evictions, Cityscape, HUD, racial disparity, gender disparity,
+    Bayesian race estimation, demographic estimation, Tim Thomas, Eviction
+    Research Network, UC Berkeley
+  author: "Eviction Research Network, UC Berkeley"
+  canonical: "https://evictionresearch.net/cityscape-2024.html"
+  og_image: "https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+
+logos:
+  logo: "images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png"
+  logo_stacked_reversed: "images/ern_logo/1A/EvictionStudy_logo_v09_1A_LOGO_STACK_REV.png"
+  # UC Berkeley Sociology lockup for the dark footer (white on a transparent
+  # ground, no blue tile, per the 2026-10-13 decision). Approved by Brand
+  # Protection, Project #1008, 2026-09-02.
+  berkeley_lockup_reversed: "images/logos/berkeley/uc-berkeley-sociology_h_white_transparent.png"
+
+# Same nav as the other 2026 pages. No item is marked current: this page sits
+# under Research but is not the Research page.
+nav:
+  - label: "Maps &amp; Profiles"
+    href: "index.html#atlas"
+  - label: "HPRM"
+    href: "https://evictionresearch.net/hprm/"
+    newtab: true
+  - label: "Research"
+    href: "research.html"
+  - label: "What works"
+    href: "policy.html"
+  - label: "About"
+    href: "about.html"
+  - label: "Contact"
+    href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+    button: true
+
+hero:
+  eyebrow: "Peer-reviewed article · Cityscape 26(1) · HUD PD&amp;R"
+  h1_lead: "Toward a National Eviction Data Collection Strategy"
+  h1_em: "Using Natural Language Processing"
+  lede: >-
+    How the Eviction Research Network read 111,740 Washington eviction court
+    records from scanned PDF and TIFF images, and estimated racial and gender
+    disparities that county-level counts do not show.
+  meta: >-
+    **Tim Thomas** and **Alex Ramiller**, UC Berkeley · **Cheng Ren**,
+    University at Albany, SUNY · **Ott Toomet**, University of
+    Washington<br>*Cityscape* vol. 26, no. 1 (2024), HUD Office of Policy
+    Development and Research
+  buttons:
+    - label: "Read the paper (PDF)"
+      href: "assets/papers/thomas_ramiller_ren_toomet_2024_cityscape_26-1.pdf"
+      newtab: true
+    - label: "2019 Washington archive"
+      href: "maps.html"
+      ghost: true
+
+# All four match the paper: 111,740 images (p. 246), the four counties,
+# 2004-2017 (p. 246), 93% rooftop-to-block (p. 248).
+stats:
+  - v: "111,740"
+    l: "court record images processed"
+  - v: "4"
+    l: "Washington counties"
+  - v: "2004–2017"
+    l: "years of filings"
+  - v: "93%"
+    l: "of addresses geocoded to rooftop-to-block accuracy"
+
+intro:
+  eyebrow: "About the paper"
+  h2_lead: "Why court records"
+  h2_em: "need a pipeline"
+  paras:
+    - >-
+      Many states have no formal process to digitize, count, or release
+      eviction filings, and some publish only county-level counts. In those
+      states the names and addresses that show who is evicted, and from which
+      neighborhoods, sit in scanned court images or paper files.
+    - >-
+      The 2024 *Cityscape* paper lays out the pipeline the Eviction Research
+      Network built for Washington State and proposes a strategy for
+      collecting eviction data across the country. The team downloaded
+      111,740 court record images from Pierce, Snohomish, Whatcom, and King
+      counties, converted them to text with optical character recognition
+      (OCR), and extracted defendant addresses with rule-based matching and a
+      spaCy named-entity recognizer. It then geocoded the addresses and
+      estimated race and gender with published R packages, checking the
+      estimates against legal-aid intake data.
+    - >-
+      In Pierce County, **one in five** Black female-headed renter households
+      was named in an eviction filing between 2013 and 2017. In King County,
+      it was one in nine. The state's own records counted filings only by
+      county.
+  glance:
+    heading: "The paper's sections"
+    items:
+      - name: "Background."
+        body: "The eviction process, the records it creates, and the current state of national eviction data collection."
+      - name: "Data and methods."
+        body: "Court record access, OCR, address extraction, geocoding, validation, and race and gender estimation."
+      - name: "Findings."
+        body: "Household eviction rates by race and gender, judgment amounts, and neighborhood patterns in four counties."
+      - name: "Future strategies."
+        body: "Document layout analysis and large language models."
+      - name: "Conclusion."
+        body: "A recommended strategy for collecting eviction data nationally."
+
+contributions:
+  eyebrow: "Contributions"
+  h2_lead: "What the paper"
+  h2_em: "contributes"
+  points:
+    - title: "OCR and text extraction can read scanned court records at scale"
+      body: >-
+        Tesseract OCR converted 111,740 PDF and TIFF images to text, and
+        rule-based matching plus spaCy named-entity recognition extracted
+        defendant addresses. A Naive Bayes model put 98% confidence on the
+        correct address.
+    # Geocoder list and results: p. 247-248. Google is not among the five
+    # tested (the legacy page said it was).
+    - title: "Geocoders differ in coverage and in replicability"
+      body: >-
+        The team tested OpenStreetMap, the Census Bureau geocoder, King
+        County's address file, Esri Business Analyst, and Azure on about 5,000
+        hand-extracted 2013 King County addresses. Azure geocoded the most.
+        Among tools whose results can be reproduced later, Esri Business
+        Analyst did best.
+    - title: "Surname-based race estimates came within several percentage points of intake data"
+      body: >-
+        Imai and Khanna's `wru` package, backed by Xie's `rethnicity` Bi-LSTM
+        model, produced race estimates within several percentage points of
+        King County legal-aid intake data. The training data were voter files
+        from Southern states, so estimates outside the South need extra
+        caution.
+    # Exhibit A.1: Black female is the highest rate in each county.
+    - title: "Black female-headed households had the highest filing rates in every county"
+      body: >-
+        The rates were 11% against 6% to 7% for White-headed households in
+        King, 19% against 13% to 16% in Pierce, and 12% against 8% to 10% in
+        Snohomish. Whatcom's 26% rests on 15 cases.
+    - title: "Court access depended on each clerk"
+      body: >-
+        One clerk granted access readily and two others through local legal
+        aid. A fourth would not waive a 25-cent page fee, an estimated
+        $350,000 for 2004 to 2017. The technical pipeline is portable, but
+        access may take a legislative mandate, grant support, or a legal-aid
+        partner.
+    - title: "Layout analysis and language models could lower the barrier"
+      body: >-
+        The paper tested large language models such as ChatGPT on the 2013
+        court records and flags privacy risks and accuracy gaps. It also
+        points to document layout analysis, which combines computer vision and
+        NLP. Both could let researchers with less programming experience do
+        this work.
+
+pipeline:
+  eyebrow: "The pipeline"
+  h2_lead: "From court image to"
+  h2_em: "demographic estimate"
+  sub: >-
+    The paper documents each of the five stages so that other teams can
+    reproduce the pipeline or adapt it to their own courts' records.
+  groups:
+    - label: "Case study area"
+      pills: ["King County", "Pierce County", "Snohomish County", "Whatcom County"]
+    - label: "Tools"
+      pills: ["Tesseract OCR", "spaCy NER", "Azure Maps", "Esri Business Analyst", "wru (R)", "rethnicity (R)", "gender (R)"]
+  steps:
+    - name: "Access and download"
+      body: >-
+        With case numbers from a state records request made with the
+        Washington Office of Civil Legal Aid, a scraper pulled 111,740
+        eviction case images from Washington's court portals, pausing between
+        requests so as not to overload the servers.
+    - name: "OCR and text cleaning"
+      body: >-
+        Tesseract OCR converted scanned PDF and TIFF summonses into text.
+        Common errors, such as a "1" read as "|", a superscript "th" read as a
+        quote mark, and row numbers caught inside addresses, were handled in
+        post-processing.
+    - name: "Address extraction"
+      body: >-
+        Rule-based regular expressions (house numbers, street types, and ZIP
+        Code patterns) ran first, then spaCy named-entity recognition. A
+        Naive Bayes model scored each candidate address; the correct defendant
+        address had 98% confidence. Against 2013 addresses extracted by hand,
+        the method was 93% accurate. The usual error was picking up the
+        court's or the attorney's address.
+    - name: "Geocoding and validation"
+      body: >-
+        Addresses that resolved only to a street or county centroid were
+        dropped, leaving 93% at rooftop-to-block accuracy. Against
+        hand-extracted 2013 addresses, the extracted addresses had an average
+        Levenshtein ratio of 0.82.
+    - name: "Race and gender estimation"
+      body: >-
+        The R package `wru` (Imai and Khanna) estimated race by Bayesian
+        inference from surname and tract composition, and `rethnicity` (Xie)
+        handled the remaining names with a Bi-LSTM model. The `gender` package
+        (Mullen et al.) inferred gender from first names checked against SSA
+        and IPUMS records. Estimates agreed with King County Bar Housing
+        Justice Project intake data within several percentage points.
+
+findings:
+  eyebrow: "Washington findings"
+  h2_lead: "Eviction filing rates by"
+  h2_em: "race and gender"
+  paras:
+    - >-
+      Black female-headed renter households had the highest five-year filing
+      rate in every county, from 11% in King to 19% in Pierce. Pierce County's
+      rates ran high for every group, from 12% to 19%. The paper describes
+      Pierce as one of the largest destinations for movers from King County
+      and the rest of the country.
+  table:
+    row_heading: "Householder group"
+    columns: ["King", "Pierce", "Snohomish", "Whatcom"]
+    caption: "Five-year eviction rates by race and gender of householder, King, Pierce, Snohomish, and Whatcom counties, 2013–2017"
+    source: >-
+      Source: Thomas, Ramiller, Ren, and Toomet (2024), Exhibit A.1.
+      Denominators are estimated renter households from ACS 5-year estimates;
+      numerators are estimated heads of household named in unlawful detainer
+      filings, identified through the NLP pipeline. Darker cells mark higher
+      rates.
+    # v is the rate in percent, Exhibit A.1 (p. 254); all 40 cells checked
+    # 2026-11-05. mark adds a footnote sign after the value.
+    rows:
+      - group: "Black female"
+        cells: [{v: 11}, {v: 19}, {v: 12}, {v: 26, mark: "&#42;"}]
+      - group: "Black male"
+        cells: [{v: 8}, {v: 15}, {v: 7}, {v: 6}]
+      - group: "Asian female"
+        cells: [{v: 6}, {v: 16}, {v: 10}, {v: 5}]
+      - group: "Asian male"
+        cells: [{v: 4}, {v: 16}, {v: 9}, {v: 6}]
+      - group: "Latinx female"
+        cells: [{v: 8}, {v: 14}, {v: 8}, {v: 5}]
+      - group: "Latinx male"
+        cells: [{v: 8}, {v: 12}, {v: 10}, {v: 4}]
+      - group: "White female"
+        cells: [{v: 6}, {v: 13}, {v: 8}, {v: 5}]
+      - group: "White male"
+        cells: [{v: 7}, {v: 16}, {v: 10}, {v: 7}]
+      - group: "Other race/ethnicity female"
+        cells: [{v: 5}, {v: 12}, {v: 7}, {v: 3}]
+      - group: "Other race/ethnicity male"
+        cells: [{v: 8}, {v: 13}, {v: 10}, {v: 5}]
+  note: >-
+    &#42; Hatched: the Whatcom County Black female rate rests on 15 named
+    defendants.
+    The Pierce County rate, the paper's headline figure, rests on 1,392
+    filings against an estimated 7,233 Black female-headed renter households.
+
+summary:
+  eyebrow: "Summary"
+  h2_lead: "The paper"
+  h2_em: "in depth"
+  paras:
+    # p. 244: neither effort can capture records that appear only in
+    # unstructured formats.
+    - >-
+      The two national eviction data efforts, Eviction Lab and the Legal
+      Services Corporation (LSC), collect structured records and cannot
+      capture filings that exist only as scanned images or paper files, the
+      paper finds. Eviction Lab receives datasets from collaborators or buys
+      them from vendors; LSC scrapes digital data from county court systems.
+    - >-
+      Washington's legislature asked for estimates of racial and gender
+      disparities in eviction, and the state's own counts existed only at the
+      county level. The records sit on three web portals, and each elected
+      county clerk decides who gets access. One clerk would not waive a charge
+      of 25 cents per downloaded page, an estimated $350,000 for the records
+      from 2004 to 2017.
+  # Verbatim, p. 253, first lines of "Conclusion and Discussion".
+  quote:
+    text: >-
+      "Combining data science tools with existing eviction data collection
+      efforts can fill in massive gaps. The NLP approach can extract addresses
+      from court record images, creating the opportunity to analyze
+      demographic disparities in the State of Washington and create a clearer
+      picture of who was being evicted and from where."
+    cite: "Thomas, Ramiller, Ren, and Toomet (2024), p. 253"
+  sections:
+    # p. 252, end of Findings.
+    - heading: "Where eviction rates peaked"
+      paras:
+        - >-
+          Eviction rates peaked in the region's lowest-rent and most racially
+          diverse neighborhoods. In King County, cases were more frequent
+          in South Seattle's diverse neighborhoods in the earlier years and
+          then grew outside the city in South King County, both known
+          displacement destinations for Black, Indigenous, Latinx, and Asian
+          households. In Pierce and Snohomish counties, evictions concentrated
+          in segregated urban areas.
+    # pp. 253-254.
+    - heading: "What this means for other jurisdictions"
+      paras:
+        - >-
+          The case study is Washington, but the method is general. OCR,
+          address extraction, geocoding, validation, and demographic
+          estimation each use tools the paper names (pp. 253–254), and teams
+          in states without complete Eviction Lab or LSC coverage can start
+          from them.
+        - >-
+          The paper also sets two conditions for scaling the approach. An
+          interdisciplinary team has to guard privacy and data integrity at
+          every step, and court officers may cooperate only with a legislative
+          mandate or grant support.
+
+policy:
+  eyebrow: "Policy context"
+  h2_lead: "Washington"
+  h2_em: "tenant protections"
+  paras:
+    # pp. 241-242 ("helped pass", "motivated the adoption") and p. 253.
+    - >-
+      The paper reports that this research helped pass several statewide
+      tenant protections, including the 2019 extension of the pay-or-vacate
+      notice from 3 to 14 days (ESSB 5600) and just-cause eviction
+      protections.
+    # Not in the paper; confirmed by Tim 2026-11-10.
+    - >-
+      The estimates produced by the pipeline were used in legislative
+      testimony and in coalition work with the Washington Office of Civil
+      Legal Aid, the King County Bar Housing Justice Project, and tenant
+      attorneys across the four counties in the study. None of these reforms
+      is attributable to a single study.
+  laws:
+    - year: "2019"
+      name: "Pay-or-vacate notice extended from 3 to 14 days"
+      cite: "ESSB 5600 (2019 c 356) · named in the paper"
+      body: "Replaced the 3-day notice to pay rent or vacate with a 14-day notice in a set form. The same law created a state payment to landlords in some eviction cases, to give tenants more time to find the resources to stay."
+    - year: "2021"
+      name: "Statewide just cause"
+      cite: "RCW 59.18.650 (2021 c 212) · named in the paper"
+      body: "A landlord may end a tenancy only for a cause the statute lists, with limited exceptions for fixed-term leases."
+    - year: "2021"
+      name: "Appointed counsel for low-income tenants"
+      cite: "RCW 59.18.640 (2021 c 115) · not named in the paper"
+      body: "Courts must appoint an attorney for indigent tenants in unlawful detainer cases, subject to funding. Washington was one of the first states to guarantee it."
+
+team:
+  eyebrow: "Authors"
+  h2_lead: "The research"
+  h2_em: "team"
+  note: "Current affiliations where known, then the affiliations at publication as listed in the paper (p. 257)."
+  people:
+    - name: "Tim Thomas, Ph.D."
+      role: "Assistant Researcher, UC Berkeley Department of Sociology, and Director, Eviction Research Network. At publication, Research Director, UC Berkeley Urban Displacement Project."
+    - name: "Alex Ramiller"
+      role: "University of Toronto. At publication, Ph.D. candidate in City and Regional Planning, UC Berkeley."
+    - name: "Cheng Ren"
+      role: "At publication, Ph.D. candidate, UC Berkeley Department of Social Welfare, and Lecturer, University at Albany, SUNY."
+    - name: "Ott Toomet, Ph.D."
+      role: "At publication, Assistant Teaching Professor, University of Washington."
+  # Verbatim, p. 257. The one em-dash is the paper's own punctuation.
+  acknowledgments: >-
+    From the paper's acknowledgments: &ldquo;This work was funded in part by
+    the Moore/Sloan foundation, Bill and Melinda Gates Foundation, and
+    MacArthur Foundation. The authors would like to also thank the numerous
+    colleagues and organizations that helped make this work possible,
+    including the Snohomish, Pierce, and Whatcom Counties court clerks and
+    tenant attorneys; Edmund Whitter and the King County Bar Association; John
+    Stovall and Washington State Representative Nicole Macri; Jim Bamberger
+    and the Washington Office of Civil Legal Aid; the University of Washington
+    eScience Institute, iSchool, Department of Sociology, and Center for
+    Studies in Demography and Ecology&mdash;particularly, Bill Howe, Jose
+    Hernandez, Ian Kennedy, Sarah Stone, and Kyle Crowder; and The University
+    of California Berkeley Institute of Governmental Studies; D-Lab; Berkeley
+    Institute of Data Science; and Karen Chapple and the Urban Displacement
+    Project.&rdquo;
+
+cta:
+  eyebrow: "Full paper"
+  heading: "Read the 19-page article"
+  body: >-
+    Published open access by HUD's Office of Policy Development and Research
+    in *Cityscape* vol. 26, no. 1 (2024), the "Local Data for Local Action"
+    issue.
+  buttons:
+    - label: "Paper (PDF)"
+      href: "assets/papers/thomas_ramiller_ren_toomet_2024_cityscape_26-1.pdf"
+      newtab: true
+    - label: "Cityscape 26(1)"
+      href: "https://www.huduser.gov/portal/periodicals/cityscape/vol26num1/index.html"
+      newtab: true
+      outline: true
+    - label: "ERN methodology"
+      href: "methodology.html"
+      outline: true
+
+site_footer:
+  # Canonical wording from library/ORG.md. Do not paraphrase, and never write
+  # "housed in"; it reads as a campus unit.
+  affiliation: >-
+    A research program led by Dr. Tim Thomas, Assistant Researcher in the UC
+    Berkeley Department of Sociology, which serves as its academic home.
+    Affiliated with the Berkeley Institute for Data Science.
+  copyright: "© 2026 Eviction Research Network · University of California, Berkeley"
+  accessibility:
+    label: "Report a web accessibility issue"
+    href: "https://dap.berkeley.edu/get-help/report-web-accessibility-issue"
+  columns:
+    - heading: "Data"
+      links:
+        - label: "Maps &amp; profiles"
+          href: "index.html#atlas"
+        - label: "HPRM risk maps"
+          href: "https://evictionresearch.net/hprm/"
+          newtab: true
+        - label: "U.S. Eviction Data Directory"
+          href: "eviction-data-atlas.html"
+          newtab: true
+    - heading: "Research"
+      links:
+        - label: "Publications"
+          href: "research.html"
+        - label: "What works"
+          href: "policy.html"
+        - label: "Methodology"
+          href: "methodology.html"
+          newtab: true
+        - label: "Understanding eviction"
+          href: "understanding-eviction.html"
+          newtab: true
+        - label: "News &amp; press"
+          href: "news.html"
+          newtab: true
+    - heading: "Contact"
+      links:
+        - label: "evictions@berkeley.edu"
+          href: "mailto:evictions@berkeley.edu?Subject=Contact%20through%20website"
+        - label: "Bluesky"
+          href: "https://bsky.app/profile/evictionresearch.bsky.social"
+          newtab: true
+        - label: "LinkedIn"
+          href: "https://www.linkedin.com/company/evictionresearch/"
+          newtab: true
+        - label: "GitHub"
+          href: "https://github.com/evictionresearch"
+          newtab: true
+
+format: paper-html
+output-file: cityscape-2024.html
+---

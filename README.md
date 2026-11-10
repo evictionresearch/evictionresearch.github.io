@@ -7,12 +7,14 @@ ERN is the academic arm of the [CiDR Lab](https://cidrlab.org/), housed in UC Be
 
 ## Building the pages
 
-The home, research, and about pages are Quarto documents. Edit the copy in the
-`.qmd` and rebuild:
+The home, research, about, policy, and Cityscape paper pages are Quarto
+documents. Edit the copy in the `.qmd` and rebuild:
 
-    quarto render index.qmd       # writes index.html
-    quarto render research.qmd    # writes research.html
-    quarto render about.qmd       # writes about.html
+    quarto render index.qmd            # writes index.html
+    quarto render research.qmd         # writes research.html
+    quarto render about.qmd            # writes about.html
+    quarto render policy.qmd           # writes policy.html
+    quarto render cityscape-2024.qmd   # writes cityscape-2024.html
 
 Each render overwrites its `.html` in place, so review `git diff <file>` before
 committing. Every heading, blurb, card, link and footer entry is a labelled
@@ -20,10 +22,11 @@ field in the front matter; the page chrome lives in a Pandoc template under
 `_extensions/ern/` and rarely needs touching. This follows the same pattern as
 the state profiles (see `washington/index.qmd`).
 
-All three share `assets/css/ern-2026.css`, which holds the design system: the
+All of them share `assets/css/ern-2026.css`, which holds the design system: the
 type scale, buttons, bands, header, footer, and the single brand red. Page-only
-components live alongside it (`research-2026.css`, `about-2026.css`). None of
-the three loads `main.css` or the vendor CSS.
+components live alongside it (`research-2026.css`, `about-2026.css`,
+`policy-2026.css`, and `paper-2026.css`, which the `ern/paper` extension uses for
+paper landing pages). None of them loads `main.css` or the vendor CSS.
 
 `_extensions/ern/about/template.html` carries the standing constraints on where
 the Berkeley, BIDS, and federal marks may appear. Read those comments before

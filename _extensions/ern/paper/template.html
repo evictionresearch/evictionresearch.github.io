@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>$title$</title>
+  <meta name="description" content="$meta.description$">
+  <meta name="keywords" content="$meta.keywords$">
+  <meta name="author" content="$meta.author$">
+
+  <link rel="canonical" href="$meta.canonical$">
+
+  <!-- Open Graph / social -->
+  <meta property="og:title" content="$meta.og_title$">
+  <meta property="og:description" content="$meta.short_description$">
+  <meta property="og:url" content="$meta.canonical$">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="$meta.og_image$">
+  <meta property="og:site_name" content="Eviction Research Network">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$meta.og_title$">
+  <meta name="twitter:description" content="$meta.short_description$">
+  <meta name="twitter:image" content="$meta.og_image$">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Inter is the canonical ERN brand font (decided 2026-04-29, see BRAND.md). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="assets/css/ern-2026.css" rel="stylesheet">
+  <link href="assets/css/paper-2026.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ─────────── Header ─────────── -->
+  <header class="head">
+    <div class="wrap head-in">
+      <a href="index.html" aria-label="Eviction Research Network, home">
+        <img src="$logos.logo$" alt="Eviction Research Network">
+      </a>
+      <nav class="nav" aria-label="Primary">
+$for(nav)$        <a$if(nav.button)$ class="btn sm"$endif$ href="$nav.href$"$if(nav.current)$ aria-current="page"$endif$$if(nav.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$nav.label$</a>
+$endfor$      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ─────────── Hero ─────────── -->
+    <section id="top" class="wrap sec-hero">
+      <div class="hero-in paper-hero">
+        <p class="eyebrow">$hero.eyebrow$</p>
+        <h1>$hero.h1_lead$ <em>$hero.h1_em$</em></h1>
+        <p class="lede">$hero.lede$</p>
+        <p class="meta">$hero.meta$</p>
+        <div class="jump">
+$for(hero.buttons)$          <a class="btn$if(it.ghost)$ ghost$endif$" href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Stats ─────────── -->
+    <section class="wrap" aria-label="The study in numbers">
+      <div class="statrow">
+$for(stats)$        <div class="stat">
+          <div class="v">$it.v$</div>
+          <div class="l">$it.l$</div>
+        </div>
+$endfor$      </div>
+    </section>
+
+    <!-- ─────────── About the paper ─────────── -->
+    <section id="about">
+      <div class="wrap sec split">
+        <div>
+          <p class="eyebrow">$intro.eyebrow$</p>
+          <h2>$intro.h2_lead$ <em>$intro.h2_em$</em></h2>
+$for(intro.paras)$          <p class="prose">$it$</p>
+$endfor$        </div>
+        <aside class="glance" aria-label="$intro.glance.heading$">
+          <h3>$intro.glance.heading$</h3>
+          <ol>
+$for(intro.glance.items)$            <li><strong>$it.name$</strong> <span>$it.body$</span></li>
+$endfor$          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ─────────── Contributions ─────────── -->
+    <section id="contributions" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$contributions.eyebrow$</p>
+        <h2>$contributions.h2_lead$ <em>$contributions.h2_em$</em></h2>
+        <div class="points">
+$for(contributions.points)$          <article class="point">
+            <h3>$it.title$</h3>
+            <p>$it.body$</p>
+          </article>
+$endfor$        </div>
+      </div>
+    </section>
+
+    <!-- ─────────── Pipeline ─────────── -->
+    <section id="pipeline">
+      <div class="wrap sec split">
+        <div>
+          <p class="eyebrow">$pipeline.eyebrow$</p>
+          <h2>$pipeline.h2_lead$ <em>$pipeline.h2_em$</em></h2>
+          <p class="sub">$pipeline.sub$</p>
+$for(pipeline.groups)$          <p class="kicker pill-label">$it.label$</p>
+          <ul class="pills">
+$for(it.pills)$            <li>$it$</li>
+$endfor$          </ul>
+$endfor$        </div>
+        <ol class="steps">
+$for(pipeline.steps)$          <li>
+            <h3>$it.name$</h3>
+            <p>$it.body$</p>
+          </li>
+$endfor$        </ol>
+      </div>
+    </section>
+
+    <!-- ─────────── Findings ─────────── -->
+    <!-- Each cell carries its rate as --v, which paper-2026.css turns into a
+         red tint (darker = higher). Text stays ink on every cell, so the
+         shading adds a pattern without costing contrast. -->
+    <section id="findings" class="band">
+      <div class="wrap sec">
+        <p class="eyebrow">$findings.eyebrow$</p>
+        <h2>$findings.h2_lead$ <em>$findings.h2_em$</em></h2>
+$for(findings.paras)$        <p class="prose">$it$</p>
+$endfor$        <div class="table-scroll">
+          <table class="rates">
+            <caption>$findings.table.caption$</caption>
+            <thead>
+              <tr>
+                <th scope="col">$findings.table.row_heading$</th>
+$for(findings.table.columns)$                <th scope="col" class="num">$it$</th>
+$endfor$              </tr>
+            </thead>
+            <tbody>
+$for(findings.table.rows)$              <tr>
+                <th scope="row">$it.group$</th>
+$for(it.cells)$                <td class="num$if(it.mark)$ thin$endif$" style="--v: $it.v$">$it.v$%$if(it.mark)$<span class="mark">$it.mark$</span>$endif$</td>
+$endfor$              </tr>
+$endfor$            </tbody>
+          </table>
+        </div>
+        <p class="small table-note">$findings.table.source$</p>
+        <p class="small table-note">$findings.note$</p>
+      </div>
+    </section>
+
+    <!-- ─────────── Summary ─────────── -->
+    <section id="summary">
+      <div class="wrap sec longform">
+        <p class="eyebrow">$summary.eyebrow$</p>
+        <h2>$summary.h2_lead$ <em>$summary.h2_em$</em></h2>
+$for(summary.paras)$        <p class="prose">$it$</p>
+$endfor$        <blockquote class="pull">
+          <p>$summary.quote.text$</p>
+          <cite>$summary.quote.cite$</cite>
+        </blockquote>
+$for(summary.sections)$        <h3>$it.heading$</h3>
+$for(it.paras)$        <p class="prose">$it$</p>
+$endfor$$endfor$      </div>
+    </section>
+
+    <!-- ─────────── Policy context ─────────── -->
+    <section id="policy" class="band">
+      <div class="wrap sec split">
+        <div>
+          <p class="eyebrow">$policy.eyebrow$</p>
+          <h2>$policy.h2_lead$ <em>$policy.h2_em$</em></h2>
+$for(policy.paras)$          <p class="prose">$it$</p>
+$endfor$        </div>
+        <ol class="laws">
+$for(policy.laws)$          <li>
+            <span class="year">$it.year$</span>
+            <div>
+              <h3>$it.name$</h3>
+              <p class="cite">$it.cite$</p>
+              <p>$it.body$</p>
+            </div>
+          </li>
+$endfor$        </ol>
+      </div>
+    </section>
+
+    <!-- ─────────── Authors ─────────── -->
+    <section id="authors">
+      <div class="wrap sec longform">
+        <p class="eyebrow">$team.eyebrow$</p>
+        <h2>$team.h2_lead$ <em>$team.h2_em$</em></h2>
+        <p class="small">$team.note$</p>
+        <ul class="people">
+$for(team.people)$          <li><strong>$it.name$</strong> <span>$it.role$</span></li>
+$endfor$        </ul>
+        <p class="small acknowledgments">$team.acknowledgments$</p>
+      </div>
+    </section>
+
+    <!-- ─────────── Full paper ─────────── -->
+    <section id="paper" class="band-dark">
+      <div class="wrap sec-sm partner-in">
+        <div style="max-width: 56ch;">
+          <p class="eyebrow on-dark">$cta.eyebrow$</p>
+          <h2 class="on-dark">$cta.heading$</h2>
+          <p class="body">$cta.body$</p>
+        </div>
+        <div class="actions">
+$for(cta.buttons)$          <a class="btn$if(it.outline)$ on-dark$endif$" href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$        </div>
+      </div>
+    </section>
+
+$if(body)$    <section class="wrap sec">
+      <!-- Anything written in the body of the .qmd lands here. -->
+      <div class="longform">
+$body$
+      </div>
+    </section>
+$endif$
+  </main>
+
+  <!-- ─────────── Footer ─────────── -->
+  <footer class="foot" role="contentinfo">
+    <div class="wrap foot-in">
+      <div class="foot-brand">
+        <img src="$logos.logo_stacked_reversed$" alt="Eviction Research Network">
+        <a class="foot-berkeley" href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer"><img src="$logos.berkeley_lockup_reversed$" alt="UC Berkeley Sociology"></a>
+        <!-- Affiliation wording is canonical, from library/ORG.md. Do not
+             paraphrase and never write "housed in", which reads as a campus
+             unit. IGS, UDP and CDSS are historical, not current, affiliations. -->
+        <p>$site_footer.affiliation$</p>
+      </div>
+$for(site_footer.columns)$      <div class="foot-col">
+        <span>$it.heading$</span>
+$for(it.links)$        <a href="$it.href$"$if(it.newtab)$ target="_blank" rel="noopener noreferrer"$endif$>$it.label$</a>
+$endfor$      </div>
+$endfor$    </div>
+    <div class="foot-bar">
+      <div class="wrap">
+        <span>$site_footer.copyright$</span>
+        <span><a href="$site_footer.accessibility.href$" target="_blank" rel="noopener noreferrer">$site_footer.accessibility.label$</a></span>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

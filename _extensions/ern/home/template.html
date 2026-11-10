@@ -149,7 +149,7 @@ $for(tools.cards)$        <a class="card tool" href="$it.href$" target="_blank" 
           <span class="kicker">$it.kicker$</span>
           <h3>$it.title$$if(it.badge)$ <span class="badge">$it.badge$</span>$endif$</h3>
           <p>$it.body$</p>
-          <span class="more">$tools.more_label$</span>
+          <span class="more">$if(it.more)$$it.more$$else$$tools.more_label$$endif$</span>
         </a>
 $endfor$      </div>
     </section>

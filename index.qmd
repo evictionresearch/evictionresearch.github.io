@@ -194,7 +194,8 @@ tools:
       alt: >-
         A scanned court summons with a handwritten address, an arrow, and
         the same case as rows of digital text.
-      href: "https://github.com/evictionresearch/extract-text"
+      href: "https://evictionresearch.net/extract-text/"
+      more: "Visit the site →"
     - kicker: "R package · MIT"
       title: "neighborhood"
       body: >-

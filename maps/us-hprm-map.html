@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HPRM 2.0 — national housing precarity risk</title>
-<meta name="description" content="The Housing Precarity Risk Model scored for every census tract in the contiguous United States.">
+<title>National housing precarity risk (HPRM 2.0)</title>
+<meta name="description" content="The Housing Precarity Risk Model, scored for census tracts in the contiguous United States, 2022.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
 <div id="chrome">
   <div id="ramp">
     <span>Lower risk</span>
-    <span class="bar" role="img" aria-label="Colour scale running from light blue at a composite score of zero through navy to red at eight">
+    <span class="bar" role="img" aria-label="Color scale running from light blue at a composite score of zero through navy to red at eight">
       <span style="background:#DBE4EE"></span><span style="background:#B3C4D6"></span><span style="background:#8BA3BE"></span><span style="background:#647E9F"></span><span style="background:#415A7C"></span><span style="background:#223754"></span><span style="background:#7D2C31"></span><span style="background:#C0231C"></span><span style="background:#F9322B"></span>
     </span>
     <span>Higher risk</span>
@@ -37,7 +37,7 @@
 </div>
 <div id="mapholder"></div>
 <p id="note">
-  <span>Displacement risk plus eviction risk on a 0–8 scale, one value per tract. Most tracts are smaller than a pixel at this scale and are drawn at a minimum size. Tracts with no renter households or fewer than 20 people per square kilometre are not scored; Alaska and Hawaii are not modelled.</span>
+  <span>Displacement risk plus eviction risk on a 0–8 scale, one value per tract. Most tracts are smaller than a pixel at this scale and are drawn at a minimum size. Tracts with no renter households or fewer than 20 people per square kilometer are not scored; Alaska and Hawaii are not modeled.</span>
   <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">Open the HPRM map →</a>
 </p>
 <div id="tip"></div>
@@ -70,7 +70,7 @@
     var svg = d3.select('#mapholder').append('svg')
       .attr('viewBox', '0 0 ' + W + ' ' + H)
       .attr('role', 'img')
-      .attr('aria-label', 'Housing precarity risk for every census tract in the contiguous United States. Risk concentrates in metropolitan areas, across the Southeast and along the Northeast corridor.');
+      .attr('aria-label', 'Housing precarity risk by census tract in the contiguous United States. Risk concentrates in metropolitan areas, across the Southeast and along the Northeast corridor.');
 
     svg.append('image')
       .attr('href', '../assets/img/hprm-tracts-2022.png')

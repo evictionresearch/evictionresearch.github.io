@@ -2,7 +2,7 @@
 <html lang="en"><head><meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Eviction Research Network — eviction data across the US</title>
-  <meta name="description" content="The Eviction Research Network (ERN) at UC Berkeley collects, analyzes, and maps eviction data to expose racial and gender disparities and drive evidence into housing policy. Home of the Housing Precarity Risk Model (HPRM) and state-level eviction research across the United States.">
+  <meta name="description" content="The Eviction Research Network at UC Berkeley collects eviction court records and turns them into maps, state profiles, and trends that show where evictions happen, who they fall on, and how they change over time. It is the home of the Housing Precarity Risk Model (HPRM).">
   <meta name="keywords" content="eviction research, housing precarity, displacement, gentrification, eviction data, housing policy, Housing Precarity Risk Model, HPRM, UC Berkeley, Department of Sociology">
   <meta name="author" content="Eviction Research Network, UC Berkeley">
 
@@ -84,10 +84,10 @@
       <div id="atlas" class="atlas-grid">
         <div>
           <h1>Eviction data across the <em>US.</em></h1>
-          <p class="lede">An atlas of eviction data across the US showing what's available.</p>
+          <p class="lede">This map is a census of where eviction data resides. States in red have an ERN analysis.</p>
           <p class="badge">Under development</p>
-          <p class="small">We're still building this out — states and sources are being added as we verify them. Check back for more data.</p>
-          <p class="meta">Last updated <strong>August 2026</strong> · 50 states and D.C. · <strong>8</strong> with an ERN profile, <strong>5</strong> with no public source.</p>
+          <p class="small">We add states and sources as we verify them.</p>
+          <p class="meta">Last updated <strong>November 2026</strong> · 50 states and D.C. · <strong>8</strong> with an ERN profile, <strong>5</strong> with no statewide public source.</p>
           <a class="btn" href="eviction-data-atlas.html" target="_blank" rel="noopener noreferrer">See every state's data →</a>
         </div>
         <iframe class="map" src="maps/us-coverage-map.html" title="Eviction data across the US — select a state" scrolling="no" width="100%" height="800" style="height: 800px;"></iframe>
@@ -99,12 +99,45 @@
       <div class="wrap sec-sm hprm-grid">
         <div>
           <h2>The Housing Precarity <em>Risk Model.</em></h2>
-          <p class="sub">HPRM 2.0 scores every neighborhood in the country for eviction risk and market displacement risk on one scale, designed on decades of gentrification, displacement, and housing precarity research.</p>
+          <p class="sub">HPRM 2.0 scores census tracts across the contiguous United States for eviction risk and market displacement risk on one 0 to 8 scale.</p>
           <a class="btn" href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">Explore the model →</a>
         </div>
         <a class="mapcard" href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">
           <iframe class="map" src="maps/us-hprm-map.html" title="HPRM 2.0 national risk map" scrolling="no" width="100%" height="520" style="height: 520px;"></iframe>
         </a>
+      </div>
+    </section>
+
+    <!-- ─────────── Open-source tools ─────────── -->
+    <section id="tools" class="wrap sec">
+      <p class="eyebrow">Free and open source</p>
+      <h2>Our <em>tools.</em></h2>
+      <p class="prose">Eviction records sit in thousands of separate court systems, and few of the organizations that need them can afford to build software to read them. ERN releases the tools behind its research as free, open-source code. Courts, legal aid groups, agencies, and other researchers can use them to collect and analyze eviction data themselves. Anyone can read the code to see how our numbers are made.</p>
+      <div class="tools">
+        <a class="card tool" href="https://evictionresearch.net/extract-text/" target="_blank" rel="noopener noreferrer">
+          <img src="images/tools/extract-text.svg" alt="A scanned court summons with a handwritten address, an arrow, and the same case as rows of digital text." width="480" height="260" loading="lazy">
+          <span class="kicker">Python and R · AGPL-3.0</span>
+          <h3>extract-text <span class="badge">Under development</span></h3>
+          <p>extract-text turns eviction court filings, including scanned and handwritten pages, into a table of cases with party names, addresses, and case details. It runs entirely on your own computer, so records never leave your hands. It was validated on more than a million pages of Washington State filings.</p>
+          <span class="more">Visit the site →</span>
+        </a>
+        <a class="card tool" href="https://github.com/evictionresearch/neighborhood" target="_blank" rel="noopener noreferrer">
+          <img src="images/tools/neighborhood.svg" alt="A table of census figures, an arrow, and a map of census tracts shaded from light to dark blue." width="480" height="260" loading="lazy">
+          <span class="kicker">R package · MIT</span>
+          <h3>neighborhood</h3>
+          <p>The neighborhood package holds R functions for studying neighborhood change with census data. They include racial typologies of census tracts, housing affordability by income level, and the interactive maps and charts used in ERN's state eviction profiles.</p>
+          <span class="more">View on GitHub →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ─────────── What we do ─────────── -->
+    <section id="mission" class="band">
+      <div class="wrap sec-sm">
+        <p class="eyebrow">Research for social good</p>
+        <h2>What we <em>do.</em></h2>
+        <p class="prose">The Eviction Research Network collects, analyzes, and maps eviction data and helps other researchers do the same. We use social and data science to measure racial and gender disparities in eviction, and urban theory to explain them.</p>
+        <p class="prose">We study how common eviction is and what drives it in regions with little research. We point readers to other scholars' work. We give legislatures, practitioners, and advocates evidence they can use.</p>
       </div>
     </section>
 
@@ -115,55 +148,43 @@
         <a class="card" href="https://evictionresearch.net/hud-era/" target="_blank" rel="noopener noreferrer">
           <span class="kicker">Working paper · 2026</span>
           <h3>Keeping People in Their Homes: the impact of emergency rental assistance on evictions</h3>
-          <p>A neighborhood-level evaluation of whether $46.6 billion in emergency rental assistance reduced eviction filings, across 700+ counties and 12,000+ census tracts in 22 states.</p>
+          <p>This neighborhood-level study tests whether $46.6 billion in emergency rental assistance reduced eviction filings. It covers 700+ counties and 12,000+ census tracts in 22 states.</p>
           <span class="more">Read more →</span>
         </a>
         <a class="card" href="https://evictionresearch.net/washington/" target="_blank" rel="noopener noreferrer">
           <span class="kicker">State profile · 2026</span>
           <h3>Washington eviction filings, 2016–2026</h3>
-          <p>Over the past 36 months, 1 in 45 renter households faced an eviction filing, roughly 49% above the pre-pandemic normal. Seven of 39 counties exceed the state rate.</p>
+          <p>Over the past 38 months, 1 in 44 renter households faced an eviction filing. That is roughly 52% above the pre-pandemic normal. Nine of 39 counties exceed the state rate.</p>
           <span class="more">Read more →</span>
         </a>
         <a class="card" href="cityscape-2024.html" target="_blank" rel="noopener noreferrer">
           <span class="kicker">Cityscape (HUD) · 2024</span>
           <h3>Toward a national eviction data collection strategy using natural language processing</h3>
-          <p>How ERN mined 111,740 Washington court records buried in scanned PDFs and handwritten paper to expose the racial and gender disparities structured data could not see.</p>
+          <p>ERN read 111,740 Washington eviction court records from scanned PDF and TIFF images. It then estimated the racial and gender disparities in filings that county-level counts do not show.</p>
           <span class="more">Read more →</span>
         </a>
       </div>
       <a class="btn ghost" href="research.html" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">All research →</a>
     </section>
 
-    <!-- ─────────── What we do ─────────── -->
-    <section id="mission" class="band">
-      <div class="wrap sec-sm">
-        <p class="eyebrow">Research for social good</p>
-        <h2>What we <em>do.</em></h2>
-        <p class="prose">The Eviction Research Network collects, analyzes, and maps eviction data while helping other researchers do the same. We specialize in using social and data science to analyze racial and gender disparities in eviction — and urban theory to help explain our findings.</p>
-        <p class="prose">Our goal is to expand public and scholarly knowledge on the prevalence and drivers of evictions in under-studied regions, highlight work from scholars in the field, and provide evidence-based research that legislatures, practitioners, and advocates can use to inform policy.</p>
-      </div>
-    </section>
-
-    <!-- ─────────── Open-source tools ─────────── -->
-    <section id="tools" class="wrap sec">
-      <p class="eyebrow">Free and open source</p>
-      <h2>Our <em>tools.</em></h2>
-      <p class="prose">Eviction records sit in thousands of separate court systems, and few of the organizations that need them can afford to build software to read them. ERN releases the tools behind its research as free, open-source code so that courts, legal aid groups, agencies, and other researchers can collect and analyze eviction data themselves, and can see exactly how our numbers are made.</p>
-      <div class="tools">
-        <a class="card tool" href="https://evictionresearch.net/extract-text/" target="_blank" rel="noopener noreferrer">
-          <img src="images/tools/extract-text.svg" alt="A scanned court summons with a handwritten address, an arrow, and the same case as rows of digital text." width="480" height="260" loading="lazy">
-          <span class="kicker">Python and R · AGPL-3.0</span>
-          <h3>extract-text <span class="badge">Under development</span></h3>
-          <p>Turns eviction court filings, including scanned and handwritten pages, into a table of cases with party names, addresses, and case details. It runs entirely on your own computer, so records never leave your hands. Validated on more than a million pages of Washington State filings.</p>
-          <span class="more">Visit the site →</span>
-        </a>
-        <a class="card tool" href="https://github.com/evictionresearch/neighborhood" target="_blank" rel="noopener noreferrer">
-          <img src="images/tools/neighborhood.svg" alt="A table of census figures, an arrow, and a map of census tracts shaded from light to dark blue." width="480" height="260" loading="lazy">
-          <span class="kicker">R package · MIT</span>
-          <h3>neighborhood</h3>
-          <p>Functions for studying neighborhood change with census data, including racial typologies of census tracts, housing affordability by income level, and the interactive maps and charts used in ERN's state eviction profiles.</p>
-          <span class="more">View on GitHub →</span>
-        </a>
+    <!-- ─────────── Film for groups and classes ─────────── -->
+    <section id="film" class="band">
+      <div class="wrap sec film-grid">
+        <div class="film-video">
+          <iframe src="https://player.vimeo.com/video/1061006434?dnt=1" title="Trailer for Evicting the American Dream" allow="fullscreen; picture-in-picture" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div>
+          <p class="eyebrow">For groups and classes</p>
+          <h2>Evicting the American <em>Dream.</em></h2>
+          <span class="kicker">Documentary · 2025 · 51 minutes</span>
+          <p class="prose">Evicting the American Dream tells the stories of children and families facing eviction and homelessness. The filmmakers also interview pediatric psychologists, social workers, tenant advocates, housing officials, and eviction lawyers. The film traces the causes of eviction and argues that eviction can be prevented.</p>
+          <p class="prose">Counter Stories Productions, the film arm of Presbyterian Disaster Assistance, made the film. The producers make it available to schools, organizations, and communities that want to host a screening. They also publish a resource guide for the discussion afterward.</p>
+          <div class="film-links">
+            <a class="btn" href="https://www.amazon.com/Evicting-American-Dream-David-Barnhart/dp/B0FSKZFKDT" target="_blank" rel="noopener noreferrer">Watch on Prime Video →</a>
+            <a class="btn ghost" href="https://counterstoriesproductions.com/screenings.html" target="_blank" rel="noopener noreferrer">Host a screening →</a>
+          </div>
+          <a class="more" href="https://pcusa.org/resource/evicting-american-dream-resource-guide" target="_blank" rel="noopener noreferrer">Resource guide →</a>
+        </div>
       </div>
     </section>
 
@@ -173,7 +194,7 @@
         <div style="max-width: 56ch;">
           <p class="eyebrow on-dark">Partner with ERN</p>
           <h2 class="on-dark">Working on eviction where the data is thin?</h2>
-          <p class="body">We collect and analyze court records, build data pipelines, train collaborators, and co-author research with courts, legal aid organizations, agencies, advocates, and universities. If you have records no one has analyzed — or need help with the ones you have — get in touch.</p>
+          <p class="body">We work with courts, legal aid organizations, agencies, advocates, and universities. We collect and analyze court records, build data pipelines, train collaborators, and co-author research. If you have records no one has analyzed, or need help with the ones you have, get in touch.</p>
         </div>
         <div class="actions">
           <a class="btn" href="mailto:evictions@berkeley.edu?Subject=Partnership%20inquiry%20via%20ERN%20website">Start a conversation →</a>
@@ -203,6 +224,7 @@
         <a href="#atlas">Maps &amp; profiles</a>
         <a href="https://evictionresearch.net/hprm/" target="_blank" rel="noopener noreferrer">HPRM risk maps</a>
         <a href="eviction-data-atlas.html" target="_blank" rel="noopener noreferrer">U.S. Eviction Data Directory</a>
+        <a href="state-of-eviction-data/" target="_blank" rel="noopener noreferrer">The State of Eviction Data</a>
       </div>
       <div class="foot-col">
         <span>Research</span>

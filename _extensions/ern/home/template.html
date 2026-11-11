@@ -109,18 +109,20 @@ $endif$          <p class="small">$atlas.note$</p>
       </div>
     </section>
 
-    <!-- ─────────── Research ─────────── -->
-    <section id="research" class="wrap sec">
-      <h2>$research.h2_lead$ <em>$research.h2_em$</em></h2>
-      <div class="cards">
-$for(research.cards)$        <a class="card" href="$it.href$" target="_blank" rel="noopener noreferrer">
+    <!-- ─────────── Open-source tools ─────────── -->
+    <section id="tools" class="wrap sec">
+      <p class="eyebrow">$tools.eyebrow$</p>
+      <h2>$tools.h2_lead$ <em>$tools.h2_em$</em></h2>
+      <p class="prose">$tools.intro$</p>
+      <div class="tools">
+$for(tools.cards)$        <a class="card tool" href="$it.href$" target="_blank" rel="noopener noreferrer">
+          <img src="$it.image$" alt="$it.alt$" width="480" height="260" loading="lazy">
           <span class="kicker">$it.kicker$</span>
-          <h3>$it.title$</h3>
+          <h3>$it.title$$if(it.badge)$ <span class="badge">$it.badge$</span>$endif$</h3>
           <p>$it.body$</p>
-          <span class="more">$research.more_label$</span>
+          <span class="more">$if(it.more)$$it.more$$else$$tools.more_label$$endif$</span>
         </a>
 $endfor$      </div>
-      <a class="btn ghost" href="$research.button.href$" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">$research.button.label$</a>
     </section>
 
     <!-- ─────────── What we do ─────────── -->
@@ -138,20 +140,38 @@ $body$
 $endif$      </div>
     </section>
 
-    <!-- ─────────── Open-source tools ─────────── -->
-    <section id="tools" class="wrap sec">
-      <p class="eyebrow">$tools.eyebrow$</p>
-      <h2>$tools.h2_lead$ <em>$tools.h2_em$</em></h2>
-      <p class="prose">$tools.intro$</p>
-      <div class="tools">
-$for(tools.cards)$        <a class="card tool" href="$it.href$" target="_blank" rel="noopener noreferrer">
-          <img src="$it.image$" alt="$it.alt$" width="480" height="260" loading="lazy">
+    <!-- ─────────── Research ─────────── -->
+    <section id="research" class="wrap sec">
+      <h2>$research.h2_lead$ <em>$research.h2_em$</em></h2>
+      <div class="cards">
+$for(research.cards)$        <a class="card" href="$it.href$" target="_blank" rel="noopener noreferrer">
           <span class="kicker">$it.kicker$</span>
-          <h3>$it.title$$if(it.badge)$ <span class="badge">$it.badge$</span>$endif$</h3>
+          <h3>$it.title$</h3>
           <p>$it.body$</p>
-          <span class="more">$if(it.more)$$it.more$$else$$tools.more_label$$endif$</span>
+          <span class="more">$research.more_label$</span>
         </a>
 $endfor$      </div>
+      <a class="btn ghost" href="$research.button.href$" style="margin-top: 36px;" target="_blank" rel="noopener noreferrer">$research.button.label$</a>
+    </section>
+
+    <!-- ─────────── Film for groups and classes ─────────── -->
+    <section id="film" class="band">
+      <div class="wrap sec film-grid">
+        <div class="film-video">
+          <iframe src="$film.video$" title="$film.video_title$" allow="fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div>
+          <p class="eyebrow">$film.eyebrow$</p>
+          <h2>$film.h2_lead$ <em>$film.h2_em$</em></h2>
+          <span class="kicker">$film.kicker$</span>
+$for(film.paragraphs)$          <p class="prose">$film.paragraphs$</p>
+$endfor$          <div class="film-links">
+            <a class="btn" href="$film.primary.href$" target="_blank" rel="noopener noreferrer">$film.primary.label$</a>
+            <a class="btn ghost" href="$film.secondary.href$" target="_blank" rel="noopener noreferrer">$film.secondary.label$</a>
+          </div>
+          <a class="more" href="$film.guide.href$" target="_blank" rel="noopener noreferrer">$film.guide.label$</a>
+        </div>
+      </div>
     </section>
 
     <!-- ─────────── Partner ─────────── -->

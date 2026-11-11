@@ -58,13 +58,13 @@ FIPS = {
 # condensed for a one-line readout, and the spans are asserted against the
 # dataset below so a refreshed atlas cannot leave a stale claim on the page.
 PROFILE_NOTES = {
-    '53': ('Statewide, county level', 'January 2016 - April 2026'),
-    '27': ('Statewide, county and census tract', 'January 2017 - March 2026'),
-    '41': ('Statewide, county and census tract', '2017 - March 2024'),
-    '18': ('Statewide, county and census tract', '2016 - April 2022'),
-    '10': ('Statewide, all three counties', '2016 - April 2022'),
-    '06': ('Nine-county Bay Area', '2017 - October 2021'),
-    '24': ('Baltimore City, census tract', 'January 2018 - July 2019'),
+    '53': ('Statewide, county level', 'January 2016–September 2026'),
+    '27': ('Statewide, county and census tract', 'January 2017–March 2026'),
+    '41': ('Statewide, county and census tract', '2017–March 2024'),
+    '18': ('Statewide, county and census tract', '2016–April 2022'),
+    '10': ('Statewide, all three counties', '2016–April 2022'),
+    '06': ('Nine-county Bay Area', '2017–October 2021'),
+    '24': ('Baltimore City, census tract', 'January 2018–July 2019'),
     # The Dayton page contradicts itself on dates (title 2017-2021, body
     # 2015-2022), so the readout states coverage and leaves the span to the
     # profile itself rather than pick a side.
@@ -75,7 +75,7 @@ KIND_LABEL = {
     'ern': 'ERN state profile',
     'lsc': 'Public data elsewhere',
     'other': 'Public data elsewhere',
-    'none': 'No public eviction data',
+    'none': 'No statewide public source',
 }
 
 
@@ -120,6 +120,18 @@ def main():
         '10': 'DE', '06': 'CA', '24': 'MD', '39': 'OH',
     }
 
+    # New America's Eviction Data Response Network partners, as the directory
+    # prints them under each state. The readout has room for one line, so it
+    # carries the newest cohort's partner and leaves the rest to the directory.
+    edrn = {}
+    for section in re.findall(r'<section class="state".*?</section>', directory, re.S):
+        name = strip(re.search(r'<h2>(.*?)</h2>', section, re.S).group(1)).replace('\u02bb', '')
+        lines = [strip(x) for x in re.findall(r'<p class="edrn">(.*?)</p>', section, re.S)
+                 for x in re.findall(r'<span>(.*?)</span>', x, re.S)]
+        if lines:
+            newest = max(re.search(r'(\d{4})–\d{4}', ln).group(1) for ln in lines)
+            edrn[name] = [ln for ln in lines if ', %s–' % newest in ln]
+
     states = {}
     counts = {}
     # The page writes Hawaii with an okina; FIPS above keeps the plain spelling.
@@ -156,9 +168,13 @@ def main():
             # A no-data state has no link to read a label off, only a sentence.
             record['source'] = 'None public'
             record['url'] = None
-            record['note'] = 'No public eviction data in our directory of state sources.'
+            record['note'] = 'No statewide public source of eviction data in our directory.'
         else:
             record['note'] = 'Public eviction data published elsewhere: %s.' % record['source']
+
+        if name in edrn:
+            record['edrn'] = edrn[name]
+            record['note'] = '%s %s.' % (record['note'].rstrip('.') + '.', '; '.join(edrn[name]))
 
         states[fips] = record
 

@@ -33,7 +33,10 @@ librarian::shelf(dplyr, readr, glue, stringr, tibble)
 # Config
 # ===============================================
 
-inv_csv  <- "~/git/evictionresearch/library/data/state_profile_readiness/d2_public_source_inventory.csv"
+edrn_csv <- "~/git/evictionresearch/library/data/state_profile_readiness/edrn_partners.csv"
+# Dated snapshots written by library/code/state_profile_readiness/d4_state_data_watch.r.
+# The newest LSC snapshot supplies county coverage and the "Reviewed" month.
+watch_dir <- "~/data/evictionresearch/library/state_data_watch"
 out_html <- "~/git/evictionresearch/evictionresearch.github.io/eviction-data-atlas.html"
 # "The State of Eviction Data" is the companion report, built by
 # library/code/eviction_data_atlas/build_page.py and deployed to the site root.
@@ -62,11 +65,11 @@ partner_label <- c(
     CT = 'CTData eviction map',               DC = 'Office of the Tenant Advocate',
     FL = 'Shimberg Center housing data clearinghouse (UF)',
     GA = 'Metro Atlanta eviction tracker (ARC)',
-    HI = "Hawai'i Judiciary annual report",
+    HI = "Hawaiʻi Judiciary annual report",
     ID = 'Idaho Policy Institute eviction reports',
     IL = 'Illinois circuit court statistics', LA = 'Eviction Lab, New Orleans',
     MA = 'Massachusetts Trial Court dashboard',
-    ME = 'Maine Judicial monthly FED report', MI = 'Michigan SCAO dashboard',
+    ME = 'Maine Judicial monthly FED report', MI = 'Michigan courts eviction snapshot',
     MO = 'Eviction Lab tracking, Missouri',   NC = 'North Carolina courts dashboard',
     NE = 'Nebraska courts eviction report',   NH = 'New Hampshire courts data reports',
     NJ = 'New Jersey Judiciary statistics',   NM = 'Eviction Lab tracking, New Mexico',
@@ -83,12 +86,12 @@ partner_url <- c(
     FL = 'https://flhousingdata.shimberg.ufl.edu/eviction-foreclosure',
     GA = 'https://atlregional.github.io/eviction-tracker/',
     HI = 'https://www.courts.state.hi.us/wp-content/uploads/2026/02/FY2025_annual_report_statistical_supplement_Final_Draft-2.pdf',
-    ID = 'https://www.boisestate.edu/sps-ipi/evictions-in-idaho/evictions-in-idaho-2/',
+    ID = 'https://www.boisestate.edu/sps-ipi/evictions-in-idaho/',
     IL = 'https://www.illinoiscourts.gov/courts/circuit-court/illinois-circuit-court-statistical-reports/',
     LA = 'https://evictionlab.org/eviction-tracking/new-orleans-la/',
     MA = 'https://public.tableau.com/app/profile/drap4687/viz/MassachusettsTrialCourtSummaryProcess/SummaryProcess',
     ME = 'https://www.courts.maine.gov/about/reports/fed-monthly15yr-report.pdf',
-    MI = 'https://app.powerbigov.us/view?r=eyJrIjoiZGE3NzljYmItYTBmZC00OGI2LTliYTgtYzY5ZjI0N2U0MWYxIiwidCI6IjM0NTZmZTkyLWNiZDEtNDA2ZC1iNWEzLTUzNjRiZWMwYTgzMyJ9',
+    MI = 'https://www.courts.michigan.gov/4af43b/siteassets/covid/covid-19/eviction-rate.pdf',
     MO = 'https://evictionlab.org/eviction-tracking/missouri/',
     NC = 'https://www.nccourts.gov/data',
     NE = 'https://nebraskajudicial.gov/administration/publications-reports',
@@ -103,35 +106,50 @@ partner_url <- c(
     WI = 'https://doa.wi.gov/Pages/Wisconsin-Eviction-Data-Project.aspx',
     WY = 'https://www.wyocourts.gov/circuit-courts/')
 
+# Michigan (2026-11-10): the Power BI address the July census recorded as
+# Michigan's dashboard opens the New York courts' eviction dashboard. Michigan's
+# own product is the snapshot PDF on courts.michigan.gov, which is what the
+# Start-here link now points to. Open a dashboard link in a browser and read
+# whose it is before listing it; a page title is not enough.
 dark <- c('AL', 'IA', 'KS', 'MS', 'SD')
 
-# LSC's Civil Court Data Initiative reaches 32 states, not the 12 it is the
-# primary link for. Coverage is wildly uneven - Texas is 13 counties of 254 -
-# so nothing is listed without its fraction. tracked/total/latest are LSC's own
-# published figures, read from
-# civilcourtdata.lsc.gov/page-data/data/eviction/<slug>/page-data.json on
-# 2026-08-27, not counted by us. Re-read that JSON on rebuild; the numbers move,
-# and a state page returning HTTP 200 is no evidence of coverage - a dozen of
-# them render an empty shell while the bulk download still carries their data.
-lsc_cov <- data.frame(
-  ab      = c("AK", "AR", "AZ", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IN", "KS", "KY", "ME", "MN",
-              "MS", "MT", "NC", "ND", "NH", "NY", "OH", "OK", "PA", "SC", "TN", "TX", "UT", "VA", "VT",
-              "WI", "WV"),
-  slug    = c("alaska", "arkansas", "arizona", "colorado", "connecticut", "delaware", "florida",
-              "georgia", "hawaii", "idaho", "indiana", "kansas", "kentucky", "maine", "minnesota",
-              "mississippi", "montana", "north-carolina", "north-dakota", "new-hampshire", "new-york",
-              "ohio", "oklahoma", "pennsylvania", "south-carolina", "tennessee", "texas", "utah",
-              "virginia", "vermont", "wisconsin", "west-virginia"),
-  tracked = c(30, 75, 1, 62, 8, 3, 42, 3, 5, 43, 92, 1, 120, 16, 87, 1, 35, 100, 52, 10, 62, 4, 77, 67,
-              46, 37, 13, 29, 133, 14, 72, 55),
-  total   = c(30, 75, 15, 64, 8, 3, 67, 159, 5, 44, 92, 105, 120, 16, 87, 82, 56, 100, 53, 10, 62, 88, 77,
-              67, 46, 95, 254, 29, 133, 14, 72, 55),
-  latest  = c("June 2026", "June 2026", "June 2026", "November 2023", "June 2026", "June 2026", "June
-              2026", "March 2026", "July 2022", "May 2025", "June 2026", "February 2025", "June 2026",
-              "May 2023", "June 2026", "March 2024", "November 2025", "June 2022", "June 2025", "April
-              2023", "June 2026", "June 2026", "June 2026", "June 2026", "June 2026", "June 2026", "June
-              2026", "June 2026", "June 2026", "June 2026", "December 2023", "June 2026"),
-  stringsAsFactors = FALSE)
+# LSC's Civil Court Data Initiative reaches far more states than the 12 it is
+# the primary link for. Coverage is wildly uneven - Texas is 13 counties of
+# 254 - so nothing is listed without its fraction. tracked/total/latest are
+# LSC's own published figures, not counted by us. They used to be typed into
+# this script by hand and went stale between rebuilds; since 2026-11-10 they
+# are read from the newest snapshot the state data watch saved from
+# civilcourtdata.lsc.gov/page-data/data/eviction/<slug>/page-data.json. Run
+# the watch first, then this script. A state page returning HTTP 200 is no
+# evidence of coverage - a dozen of them render an empty shell while the bulk
+# download still carries their data - so only states with a county count in
+# the feed are kept. Puerto Rico and the U.S. Virgin Islands are in the feed
+# and are left out because this page lists states and D.C.
+lsc_file <- sort(list.files(path.expand(watch_dir), full.names = TRUE,
+                            pattern = "^lsc_coverage_\\d{4}-\\d{2}-\\d{2}\\.csv$"),
+                 decreasing = TRUE)[1]
+reviewed <- as.Date(str_extract(basename(lsc_file), "\\d{4}-\\d{2}-\\d{2}"))
+
+lsc_cov <- read_csv(lsc_file, col_types = cols(.default = "c")) %>%
+  filter(!is.na(counties_tracked), !ab %in% c("PR", "VI")) %>%
+  transmute(ab, slug,
+            tracked = as.integer(counties_tracked),
+            total   = as.integer(counties_total),
+            latest  = format(as.Date(paste0(latest_month, "-01")), "%B %Y")) %>%
+  as.data.frame()
+
+stopifnot(
+  "the LSC snapshot is under 45 days old (run d4_state_data_watch.r first, or this page prints stale months)" =
+    as.numeric(Sys.Date() - reviewed) <= 45,
+  "the LSC snapshot carries at least 30 states" = nrow(lsc_cov) >= 30,
+  "every LSC primary state is in the snapshot" = all(names(lsc_slug) %in% lsc_cov$ab)
+)
+
+# New America's Eviction Data Response Network partners, one row per partner.
+# ERN names them under their state and does not build on top of them (standing
+# decision, 2026-10-29). Names and cohorts are checked against New America's
+# own pages; the source and date are in the file.
+edrn <- read_csv(path.expand(edrn_csv), show_col_types = FALSE)
 
 state_names <- c(
   AL="Alabama", AK="Alaska", AZ="Arizona", AR="Arkansas", CA="California",
@@ -151,9 +169,21 @@ state_names <- c(
 # Load and shape
 # ===============================================
 
-inv <- read_csv(path.expand(inv_csv), show_col_types = FALSE) %>%
+# The July 2026 census with every change a later review recorded applied to
+# it (library/data/state_profile_readiness/d2_inventory_updates.csv and
+# d2_inventory_additions.csv). The census file itself is never hand-edited.
+source("~/git/evictionresearch/library/code/state_profile_readiness/f_current_inventory.r")
+
+inv <- current_inventory() %>%
   filter(status == "active", !is.na(url), url != "", access != "paid") %>%
-  mutate(name_short = str_squish(str_replace(collector, "—.*$", "")))
+  mutate(name_short = str_squish(str_replace(collector, "—.*$", ""))) %>%
+  # Two sources from one collector in a state would print the same name twice
+  # (two "Texas Housers", two "Alaska Court System"), so those keep the report
+  # or place after the dash, joined with a comma.
+  group_by(state, name_short) %>%
+  mutate(name_short = if (n() > 1)
+           str_squish(str_replace(collector, "\\s*—\\s*", ", ")) else name_short) %>%
+  ungroup()
 
 stopifnot(
   "every jurisdiction accounted for" =
@@ -202,25 +232,34 @@ section_html <- function(ab) {
   }
   rows <- if (nrow(srcs)) paste0(vapply(seq_len(nrow(srcs)), function(i) {
     r <- srcs[i, ]
-    # Currency strings are free text; only date-shaped ones print, cut on a
-    # word boundary so no dangling fragments.
+    # Currency strings are free text that also carries the researcher's
+    # verification notes. Only a leading period prints (a year, a month and
+    # year, a full date, or a fiscal year), and only when the end of the
+    # string, a parenthesis, semicolon, or comma, or the word data, caseloads,
+    # or filings follows it, so "2025 Housing Fact Book" or "June 2026 report
+    # exists per..." print nothing. Changed 2026-11-05; the old rule cut the
+    # free text at 52 characters and printed working notes.
+    cur_re <- paste0(
+      "^(FY ?(19|20)[0-9]{2}(-[0-9]{2,4})?",
+      "|(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|June?|July?|Aug(ust)?",
+      "|Sep(t(ember)?)?|Oct(ober)?|Nov(ember)?|Dec(ember)?) ([0-9]{1,2}, )?(19|20)[0-9]{2}",
+      "|(19|20)[0-9]{2})(?=$| \\(|;|,| data\\b| caseloads\\b| filings\\b)")
     cur    <- str_squish(coalesce(r$most_recent_data, ""))
-    cur_ok <- grepl("^(19|20|FY|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|[0-9])", cur)
-    if (cur_ok && nchar(cur) > 52)
-      cur <- paste0(sub("\\s+\\S*$", "", substr(cur, 1, 52)), "…")
+    cur_ok <- grepl(cur_re, cur, perl = TRUE)
+    if (cur_ok) cur <- regmatches(cur, regexpr(cur_re, cur, perl = TRUE))
     meta <- paste(na.omit(c(
       if (!r$smallest_geography %in% c(NA, "unknown")) r$smallest_geography else NA,
       if (cur_ok) paste("through", cur) else NA)), collapse = " · ")
     glue('<li><a href="{esc(r$url)}">{esc(r$name_short)}</a>',
          '{if (nchar(meta)) paste0(" <span class=meta>", esc(meta), "</span>") else ""}</li>')
   }, character(1)), collapse = "\n") else
-    glue('<li class="none">See <a href="{atlas_url}">The State of Eviction Data</a> for what exists behind paywalls or on request.</li>')
+    glue('<li class="none"><a href="{atlas_url}">The State of Eviction Data</a> describes what exists behind paywalls or on request.</li>')
 
   badge <- switch(p[1],
     ern     = '<span class="badge b-ern">ERN profile</span>',
     lsc     = '<span class="badge b-lsc">LSC dashboard</span>',
     partner = '<span class="badge b-partner">State / partner</span>',
-    none    = '<span class="badge b-none">No public data</span>')
+    none    = '<span class="badge b-none">No statewide data</span>')
 
   # An LSC primary states its coverage inline. Sending a reader to "the LSC
   # dashboard" for Tennessee without saying it holds 37 of 95 counties is the
@@ -230,13 +269,25 @@ section_html <- function(ab) {
   else ""
 
   primary <- if (p[1] == "none")
-    '<p class="primary none">No statewide eviction data is published by anyone we could verify.</p>'
+    '<p class="primary none">We found no public source of statewide eviction data.</p>'
   else
     glue('<p class="primary">Start here: <a href="{esc(p[2])}">{esc(p[3])}</a>{p_meta}</p>')
+
+  # New America's partners in this state, newest cohort first. A local partner
+  # carries its city or county so nobody reads Austin as all of Texas.
+  e <- edrn %>% filter(state == ab) %>% arrange(desc(cohort), area)
+  edrn_p <- if (nrow(e)) paste0('<p class="edrn">', paste0(vapply(seq_len(nrow(e)), function(i) {
+    r     <- e[i, ]
+    name  <- if (is.na(r$partner_url)) esc(r$partner) else
+      glue('<a href="{esc(r$partner_url)}">{esc(r$partner)}</a>')
+    where <- if (r$scope == "local") paste0(" (", esc(r$area), ")") else ""
+    glue('<span>Eviction Data Response Network partner, {sub("-", "–", r$cohort)}: {name}{where}</span>')
+  }, character(1)), collapse = "\n"), '</p>') else ""
 
   glue('<section class="state" id="{tolower(ab)}" data-name="{tolower(nm)} {tolower(ab)}">
   <div class="st-h"><h2>{nm}</h2>{badge}</div>
   {primary}
+  {edrn_p}
   <ul class="sources">{rows}</ul>
 </section>')
 }
@@ -256,6 +307,15 @@ n_ern     <- length(ern_url)
 n_lsc     <- length(lsc_slug)
 n_partner <- length(partner_url)
 n_dark    <- length(dark)
+n_lsc_all <- nrow(lsc_cov)
+n_edrn_28 <- sum(edrn$cohort == "2026-2028")
+n_edrn_25 <- sum(edrn$cohort == "2024-2025")
+lsc_of    <- function(ab) paste(lsc_cov$tracked[lsc_cov$ab == ab], "of", lsc_cov$total[lsc_cov$ab == ab])
+
+stopifnot(
+  "New America's 2026-2028 cohort is eleven states" = n_edrn_28 == 11,
+  "New America's 2024-2025 cohort is nine partners" = n_edrn_25 == 9
+)
 
 # ===============================================
 # Page chrome
@@ -368,6 +428,11 @@ h2{font-size:22px;font-weight:600;margin:0;letter-spacing:-.012em;color:var(--in
 .primary a:hover{color:var(--red);text-decoration-color:currentColor}
 .primary.none{color:var(--muted)}
 .primary .meta{color:var(--muted);font-size:12.5px;font-weight:400}
+.edrn{margin:0 0 6px;font-size:13px;color:var(--muted)}
+.edrn span{display:block}
+.edrn a{color:var(--body);text-decoration:underline;text-underline-offset:2px;
+        text-decoration-color:rgba(213,223,234,.30)}
+.edrn a:hover{color:var(--red);text-decoration-color:currentColor}
 ul.sources{margin:8px 0 0;padding-left:20px;font-size:14px}
 ul.sources li{margin:5px 0}
 ul.sources a{color:var(--body);text-decoration:underline;text-underline-offset:2px;
@@ -439,7 +504,7 @@ html <- glue('<!doctype html>
 <meta name="description" content="Where to find eviction data in every U.S. state: ERN profiles, the LSC Civil Court Data Initiative, state court dashboards, and university and partner trackers.">
 <link rel="canonical" href="https://evictionresearch.net/eviction-data-atlas.html">
 <meta property="og:title" content="U.S. Eviction Data Directory — Eviction Research Network">
-<meta property="og:description" content="Where every state’s public eviction data lives: ERN profiles, LSC’s Civil Court Data Initiative, state courts, universities, and nonprofits.">
+<meta property="og:description" content="Where each state’s public eviction data lives, and the five states with no public statewide source.">
 <meta property="og:url" content="https://evictionresearch.net/eviction-data-atlas.html">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://evictionresearch.net/images/ern_logo/1Av2/EvictionStudy_logo_v09_1A_LOGO_BANNER.png">
@@ -463,6 +528,7 @@ html <- glue('<!doctype html>
       <a href="index.html#atlas">Maps &amp; Profiles</a>
       <a href="{hprm_url}">HPRM</a>
       <a href="index.html#research">Research</a>
+      <a href="policy.html">What works</a>
       <a href="about.html">About</a>
       <a class="btn" href="index.html#partner">Contact</a>
     </nav>
@@ -472,10 +538,10 @@ html <- glue('<!doctype html>
 <main id="main">
 <div class="wrap">
   <div class="mast col">
-    <p class="eyebrow">Eviction data across the US</p>
+    <p class="eyebrow">Eviction data across the U.S.</p>
     <h1>U.S. Eviction Data <em>Directory.</em></h1>
-    <p class="lede">Where eviction data lives, state by state: the best starting point for each state, then every active public source we have verified. How each state’s pathway was judged, including sources that have gone dormant, is documented in <a href="{atlas_url}">The State of Eviction Data</a>.</p>
-    <p class="stats">Reviewed August 2026 · 50 states and D.C. · <strong>{n_src}</strong> active public sources · <strong>{n_ern}</strong> with an ERN profile, <strong>{n_lsc}</strong> led by the LSC dashboard, <strong>{n_partner}</strong> with a state or partner source, <strong>{n_dark}</strong> with none.</p>
+    <p class="lede">This directory lists where to find eviction data in every state. Each state’s entry begins with the best place to start. Below it are the other active public sources we have verified. <a href="{atlas_url}">The State of Eviction Data</a> explains how we chose each starting point.</p>
+    <p class="stats">Reviewed {format(reviewed, "%B %Y")} · 50 states and D.C. · <strong>{n_src}</strong> active public sources · <strong>{n_ern}</strong> with an ERN profile, <strong>{n_lsc}</strong> led by the LSC dashboard, <strong>{n_partner}</strong> with a state or partner source, <strong>{n_dark}</strong> with no statewide source.</p>
   </div>
 
   <div class="tools col">
@@ -486,10 +552,12 @@ html <- glue('<!doctype html>
   {sections}
 
   <div class="notes">
-    <p><b>What counts as a source.</b> Active public programs that publish eviction filings or closely related court records: state courts, universities, legal aid, nonprofits, and journalism. Paid lookup services and one-off studies are excluded here but appear in the atlas.</p>
-    <p><b>Filings are not judgments, notices, or lockouts.</b> Sources differ in which stage of eviction they count, and the stages differ by an order of magnitude. Check each source’s definitions before comparing.</p>
-    <p><b>Five states publish nothing.</b> Alabama, Iowa, Kansas, Mississippi, and South Dakota have no public statewide eviction data from any source we could verify. Two of them have a single county in LSC’s Civil Court Data Initiative, Johnson County in Kansas and DeSoto County in Mississippi. One county is not statewide coverage, so they stay listed here.</p>
-    <p><b>LSC coverage varies enormously.</b> The Civil Court Data Initiative reaches 32 states, and every listing above carries the share of counties it actually holds. Some are complete, such as Kentucky at 120 of 120. Others are a fraction of the state, such as Texas at 13 counties of 254, and cannot be read as statewide. A state page that loads is not evidence of coverage: about a dozen render an empty page while the bulk download still carries their data.</p>
+    <p><b>What counts as a source.</b> A source is an active public program that publishes eviction filings or closely related court records. Sources include state courts, universities, legal aid groups, nonprofits, and news organizations. Paid lookup services and one-off studies are not listed here. <a href="{atlas_url}">The State of Eviction Data</a> lists them.</p>
+    <p><b>Each date is the latest period we read on that source.</b> We re-read some sources in {format(reviewed, "%B %Y")}. The rest keep the date we read in July 2026.</p>
+    <p><b>Filings are not judgments, notices, or lockouts.</b> Sources count different stages of eviction, and each stage produces a different number. A filing count from one source cannot be compared with a judgment or lockout count from another.</p>
+    <p><b>Five states have no public statewide data.</b> Alabama, Iowa, Kansas, Mississippi, and South Dakota have no public statewide eviction data from any source we could verify. LSC’s Civil Court Data Initiative holds one county in Kansas (Johnson County) and one in Mississippi (DeSoto County). One county is not statewide coverage, so both states are counted among the five.</p>
+    <p><b>LSC coverage is uneven.</b> The Civil Court Data Initiative reaches {n_lsc_all} states. Each LSC listing above shows how many of the state’s counties it holds and the latest month in its feed. Some states are complete, such as Kentucky at {lsc_of("KY")} counties. Others are a fraction, such as Texas at {lsc_of("TX")} counties, and cannot be read as statewide.</p>
+    <p><b>New America’s Eviction Data Response Network.</b> New America gives state and local teams funding and technical help to build eviction data systems. Each team’s lead organization is named under its state above. Eleven states are in the 2026–2028 cohort, and nine local and state partners were in the 2024–2025 cohort. New America’s target is a pipeline of reliable eviction data in each of the eleven states by December 31, 2028. In Washington, ERN works on the partner team with the University of Washington’s Housing Futures Center. Sources: New America’s <a href="https://www.newamerica.org/insights/state-partners-join-eviction-data-response-network/">2026–2028 announcement</a> and its <a href="https://www.newamerica.org/insights/about-the-eviction-data-response-network/">description of the network</a>.</p>
   </div>
 </div>
 </main>
@@ -498,6 +566,10 @@ html <- glue('<!doctype html>
   <div class="wrap foot-in">
     <div class="foot-brand">
       <img src="{logo_stak}" alt="Eviction Research Network">
+      <!-- UC Berkeley Sociology departmental lockup, approved for this site by
+           Brand Protection (Project #1008, 2026-09-02). Official file, white on
+           its own Berkeley Blue ground; never recolor or crop it. -->
+      <a class="foot-berkeley" href="https://sociology.berkeley.edu" target="_blank" rel="noopener noreferrer"><img src="images/logos/berkeley/uc-berkeley-sociology_h_white_transparent.png" alt="UC Berkeley Sociology"></a>
       <p>A research program led by Dr.&nbsp;Tim Thomas, Assistant Researcher in the UC Berkeley Department of Sociology, which serves as its academic home. Affiliated with the Berkeley Institute for Data Science.</p>
     </div>
     <div class="foot-col">

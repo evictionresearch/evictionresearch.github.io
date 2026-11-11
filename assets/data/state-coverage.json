@@ -12,9 +12,9 @@
   "01": {
    "kind": "none",
    "name": "Alabama",
-   "note": "No public eviction data in our directory of state sources.",
+   "note": "No statewide public source of eviction data in our directory.",
    "source": "None public",
-   "status": "No public eviction data",
+   "status": "No statewide public source",
    "url": null
   },
   "02": {
@@ -45,16 +45,19 @@
    "coverage": "Nine-county Bay Area",
    "kind": "ern",
    "name": "California",
-   "note": "Nine-county Bay Area \u00b7 2017 - October 2021",
+   "note": "Nine-county Bay Area \u00b7 2017\u2013October 2021",
    "source": "ERN state profile",
-   "span": "2017 - October 2021",
+   "span": "2017\u2013October 2021",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/california/"
   },
   "08": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Division of Housing, Colorado Department of Local Affairs"
+   ],
    "kind": "other",
    "name": "Colorado",
-   "note": "Public eviction data published elsewhere: Colorado Judicial eviction dashboard.",
+   "note": "Public eviction data published elsewhere: Colorado Judicial eviction dashboard. Eviction Data Response Network partner, 2026\u20132028: Division of Housing, Colorado Department of Local Affairs.",
    "source": "Colorado Judicial eviction dashboard",
    "status": "Public data elsewhere",
    "url": "https://coloradojudicial.gov/eviction-filings"
@@ -69,11 +72,14 @@
   },
   "10": {
    "coverage": "Statewide, all three counties",
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Center for Community Research and Service, University of Delaware"
+   ],
    "kind": "ern",
    "name": "Delaware",
-   "note": "Statewide, all three counties \u00b7 2016 - April 2022",
+   "note": "Statewide, all three counties \u00b7 2016\u2013April 2022. Eviction Data Response Network partner, 2026\u20132028: Center for Community Research and Service, University of Delaware.",
    "source": "ERN state profile",
-   "span": "2016 - April 2022",
+   "span": "2016\u2013April 2022",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/delaware/"
   },
@@ -86,17 +92,23 @@
    "url": "https://ota.dc.gov/page/monthly-eviction-data"
   },
   "12": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2024\u20132025: Bright Community Trust (Orange County)"
+   ],
    "kind": "other",
    "name": "Florida",
-   "note": "Public eviction data published elsewhere: Shimberg Center housing data clearinghouse (UF).",
+   "note": "Public eviction data published elsewhere: Shimberg Center housing data clearinghouse (UF). Eviction Data Response Network partner, 2024\u20132025: Bright Community Trust (Orange County).",
    "source": "Shimberg Center housing data clearinghouse (UF)",
    "status": "Public data elsewhere",
    "url": "https://flhousingdata.shimberg.ufl.edu/eviction-foreclosure"
   },
   "13": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Center for Neighborhoods & Communities, Georgia State University"
+   ],
    "kind": "other",
    "name": "Georgia",
-   "note": "Public eviction data published elsewhere: Metro Atlanta eviction tracker (ARC).",
+   "note": "Public eviction data published elsewhere: Metro Atlanta eviction tracker (ARC). Eviction Data Response Network partner, 2026\u20132028: Center for Neighborhoods & Communities, Georgia State University.",
    "source": "Metro Atlanta eviction tracker (ARC)",
    "status": "Public data elsewhere",
    "url": "https://atlregional.github.io/eviction-tracker/"
@@ -104,8 +116,8 @@
   "15": {
    "kind": "other",
    "name": "Hawaii",
-   "note": "Public eviction data published elsewhere: Hawai'i Judiciary annual report.",
-   "source": "Hawai'i Judiciary annual report",
+   "note": "Public eviction data published elsewhere: Hawai\u02bbi Judiciary annual report.",
+   "source": "Hawai\u02bbi Judiciary annual report",
    "status": "Public data elsewhere",
    "url": "https://www.courts.state.hi.us/wp-content/uploads/2026/02/FY2025_annual_report_statistical_supplement_Final_Draft-2.pdf"
   },
@@ -115,7 +127,7 @@
    "note": "Public eviction data published elsewhere: Idaho Policy Institute eviction reports.",
    "source": "Idaho Policy Institute eviction reports",
    "status": "Public data elsewhere",
-   "url": "https://www.boisestate.edu/sps-ipi/evictions-in-idaho/evictions-in-idaho-2/"
+   "url": "https://www.boisestate.edu/sps-ipi/evictions-in-idaho/"
   },
   "17": {
    "kind": "other",
@@ -127,34 +139,40 @@
   },
   "18": {
    "coverage": "Statewide, county and census tract",
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: The Polis Center, Indiana University Indianapolis"
+   ],
    "kind": "ern",
    "name": "Indiana",
-   "note": "Statewide, county and census tract \u00b7 2016 - April 2022",
+   "note": "Statewide, county and census tract \u00b7 2016\u2013April 2022. Eviction Data Response Network partner, 2026\u20132028: The Polis Center, Indiana University Indianapolis.",
    "source": "ERN state profile",
-   "span": "2016 - April 2022",
+   "span": "2016\u2013April 2022",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/indiana/"
   },
   "19": {
    "kind": "none",
    "name": "Iowa",
-   "note": "No public eviction data in our directory of state sources.",
+   "note": "No statewide public source of eviction data in our directory.",
    "source": "None public",
-   "status": "No public eviction data",
+   "status": "No statewide public source",
    "url": null
   },
   "20": {
    "kind": "none",
    "name": "Kansas",
-   "note": "No public eviction data in our directory of state sources.",
+   "note": "No statewide public source of eviction data in our directory.",
    "source": "None public",
-   "status": "No public eviction data",
+   "status": "No statewide public source",
    "url": null
   },
   "21": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2024\u20132025: University of Louisville and Louisville Metro Government Office of Housing and Community Development (Louisville)"
+   ],
    "kind": "other",
    "name": "Kentucky",
-   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative.",
+   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative. Eviction Data Response Network partner, 2024\u20132025: University of Louisville and Louisville Metro Government Office of Housing and Community Development (Louisville).",
    "source": "LSC Civil Court Data Initiative",
    "status": "Public data elsewhere",
    "url": "https://civilcourtdata.lsc.gov/data/eviction/kentucky"
@@ -177,11 +195,14 @@
   },
   "24": {
    "coverage": "Baltimore City, census tract",
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Office of Tenant and Landlord Affairs, Maryland Department of Housing and Community Development"
+   ],
    "kind": "ern",
    "name": "Maryland",
-   "note": "Baltimore City, census tract \u00b7 January 2018 - July 2019",
+   "note": "Baltimore City, census tract \u00b7 January 2018\u2013July 2019. Eviction Data Response Network partner, 2026\u20132028: Office of Tenant and Landlord Affairs, Maryland Department of Housing and Community Development.",
    "source": "ERN state profile",
-   "span": "January 2018 - July 2019",
+   "span": "January 2018\u2013July 2019",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/maryland/report/baltimore.html"
   },
@@ -196,27 +217,27 @@
   "26": {
    "kind": "other",
    "name": "Michigan",
-   "note": "Public eviction data published elsewhere: Michigan SCAO dashboard.",
-   "source": "Michigan SCAO dashboard",
+   "note": "Public eviction data published elsewhere: Michigan courts eviction snapshot.",
+   "source": "Michigan courts eviction snapshot",
    "status": "Public data elsewhere",
-   "url": "https://app.powerbigov.us/view?r=eyJrIjoiZGE3NzljYmItYTBmZC00OGI2LTliYTgtYzY5ZjI0N2U0MWYxIiwidCI6IjM0NTZmZTkyLWNiZDEtNDA2ZC1iNWEzLTUzNjRiZWMwYTgzMyJ9"
+   "url": "https://www.courts.michigan.gov/4af43b/siteassets/covid/covid-19/eviction-rate.pdf"
   },
   "27": {
    "coverage": "Statewide, county and census tract",
    "kind": "ern",
    "name": "Minnesota",
-   "note": "Statewide, county and census tract \u00b7 January 2017 - March 2026",
+   "note": "Statewide, county and census tract \u00b7 January 2017\u2013March 2026",
    "source": "ERN state profile",
-   "span": "January 2017 - March 2026",
+   "span": "January 2017\u2013March 2026",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/minnesota/"
   },
   "28": {
    "kind": "none",
    "name": "Mississippi",
-   "note": "No public eviction data in our directory of state sources.",
+   "note": "No statewide public source of eviction data in our directory.",
    "source": "None public",
-   "status": "No public eviction data",
+   "status": "No statewide public source",
    "url": null
   },
   "29": {
@@ -260,25 +281,34 @@
    "url": "https://www.courts.nh.gov/media/data-reports"
   },
   "34": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Office of Eviction Prevention, New Jersey Department of Community Affairs"
+   ],
    "kind": "other",
    "name": "New Jersey",
-   "note": "Public eviction data published elsewhere: New Jersey Judiciary statistics.",
+   "note": "Public eviction data published elsewhere: New Jersey Judiciary statistics. Eviction Data Response Network partner, 2026\u20132028: Office of Eviction Prevention, New Jersey Department of Community Affairs.",
    "source": "New Jersey Judiciary statistics",
    "status": "Public data elsewhere",
    "url": "https://www.njcourts.gov/public/statistics/fil-res-current"
   },
   "35": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: New Mexico Center on Law and Poverty"
+   ],
    "kind": "other",
    "name": "New Mexico",
-   "note": "Public eviction data published elsewhere: Eviction Lab tracking, New Mexico.",
+   "note": "Public eviction data published elsewhere: Eviction Lab tracking, New Mexico. Eviction Data Response Network partner, 2026\u20132028: New Mexico Center on Law and Poverty.",
    "source": "Eviction Lab tracking, New Mexico",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/new-mexico/"
   },
   "36": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Furman Center, New York University"
+   ],
    "kind": "other",
    "name": "New York",
-   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative.",
+   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative. Eviction Data Response Network partner, 2026\u20132028: Furman Center, New York University.",
    "source": "LSC Civil Court Data Initiative",
    "status": "Public data elsewhere",
    "url": "https://civilcourtdata.lsc.gov/data/eviction/new-york"
@@ -301,18 +331,24 @@
   },
   "39": {
    "coverage": "Dayton metro, census tract",
+   "edrn": [
+    "Eviction Data Response Network partner, 2024\u20132025: Ohio State University Center for Urban and Regional Analysis and Ohio State University JusticeTech (Columbus)"
+   ],
    "kind": "ern",
    "name": "Ohio",
-   "note": "Dayton metro, census tract",
+   "note": "Dayton metro, census tract. Eviction Data Response Network partner, 2024\u20132025: Ohio State University Center for Urban and Regional Analysis and Ohio State University JusticeTech (Columbus).",
    "source": "ERN state profile",
    "span": null,
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/ohio/dayton.html"
   },
   "40": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Oklahoma Policy Institute"
+   ],
    "kind": "other",
    "name": "Oklahoma",
-   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative.",
+   "note": "Public eviction data published elsewhere: LSC Civil Court Data Initiative. Eviction Data Response Network partner, 2026\u20132028: Oklahoma Policy Institute.",
    "source": "LSC Civil Court Data Initiative",
    "status": "Public data elsewhere",
    "url": "https://civilcourtdata.lsc.gov/data/eviction/oklahoma"
@@ -321,16 +357,19 @@
    "coverage": "Statewide, county and census tract",
    "kind": "ern",
    "name": "Oregon",
-   "note": "Statewide, county and census tract \u00b7 2017 - March 2024",
+   "note": "Statewide, county and census tract \u00b7 2017\u2013March 2024",
    "source": "ERN state profile",
-   "span": "2017 - March 2024",
+   "span": "2017\u2013March 2024",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/oregon/"
   },
   "42": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Housing Alliance of Pennsylvania"
+   ],
    "kind": "other",
    "name": "Pennsylvania",
-   "note": "Public eviction data published elsewhere: Eviction Lab tracking, Pennsylvania.",
+   "note": "Public eviction data published elsewhere: Eviction Lab tracking, Pennsylvania. Eviction Data Response Network partner, 2026\u20132028: Housing Alliance of Pennsylvania.",
    "source": "Eviction Lab tracking, Pennsylvania",
    "status": "Public data elsewhere",
    "url": "https://evictionlab.org/eviction-tracking/pennsylvania/"
@@ -354,9 +393,9 @@
   "46": {
    "kind": "none",
    "name": "South Dakota",
-   "note": "No public eviction data in our directory of state sources.",
+   "note": "No statewide public source of eviction data in our directory.",
    "source": "None public",
-   "status": "No public eviction data",
+   "status": "No statewide public source",
    "url": null
   },
   "47": {
@@ -368,9 +407,12 @@
    "url": "https://civilcourtdata.lsc.gov/data/eviction/tennessee"
   },
   "48": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2024\u20132025: City of Austin Housing Department (Austin)"
+   ],
    "kind": "other",
    "name": "Texas",
-   "note": "Public eviction data published elsewhere: Texas Office of Court Administration.",
+   "note": "Public eviction data published elsewhere: Texas Office of Court Administration. Eviction Data Response Network partner, 2024\u20132025: City of Austin Housing Department (Austin).",
    "source": "Texas Office of Court Administration",
    "status": "Public data elsewhere",
    "url": "https://card.txcourts.gov/"
@@ -392,20 +434,26 @@
    "url": "https://civilcourtdata.lsc.gov/data/eviction/vermont"
   },
   "51": {
+   "edrn": [
+    "Eviction Data Response Network partner, 2024\u20132025: United Way of the Virginia Peninsula (Virginia Peninsula)"
+   ],
    "kind": "other",
    "name": "Virginia",
-   "note": "Public eviction data published elsewhere: virginiacourtdata.org.",
+   "note": "Public eviction data published elsewhere: virginiacourtdata.org. Eviction Data Response Network partner, 2024\u20132025: United Way of the Virginia Peninsula (Virginia Peninsula).",
    "source": "virginiacourtdata.org",
    "status": "Public data elsewhere",
    "url": "https://virginiacourtdata.org/"
   },
   "53": {
    "coverage": "Statewide, county level",
+   "edrn": [
+    "Eviction Data Response Network partner, 2026\u20132028: Housing Futures Center, University of Washington, with the Eviction Research Network"
+   ],
    "kind": "ern",
    "name": "Washington",
-   "note": "Statewide, county level \u00b7 January 2016 - April 2026",
+   "note": "Statewide, county level \u00b7 January 2016\u2013September 2026. Eviction Data Response Network partner, 2026\u20132028: Housing Futures Center, University of Washington, with the Eviction Research Network.",
    "source": "ERN state profile",
-   "span": "January 2016 - April 2026",
+   "span": "January 2016\u2013September 2026",
    "status": "ERN state profile",
    "url": "https://evictionresearch.net/washington/"
   },

@@ -79,8 +79,8 @@ atlas:
   h1_lead: "Eviction data across the"
   h1_em: "US."
   lede: >-
-    This map is a census of where eviction data resides. States in red have
-    an ERN analysis.
+    This map shows who publishes eviction data in each state. States in red
+    have an ERN analysis.
   badge: "Under development"
   note: >-
     We add states and sources as we verify them.
@@ -91,7 +91,7 @@ atlas:
   # public data from any source (AL, IA, SD). Keep the word "statewide".
   meta: >-
     Last updated <strong>November 2026</strong> · 50 states and D.C. ·
-    <strong>8</strong> with an ERN profile, <strong>5</strong> with no
+    <strong>8</strong> with an ERN analysis, <strong>5</strong> with no
     statewide public source.
   button:
     label: "See every state&#39;s data →"

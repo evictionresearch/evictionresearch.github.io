@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>State eviction data coverage</title>
-<meta name="description" content="Which states have an Eviction Research Network profile, which publish eviction data elsewhere, and which have no statewide public source.">
+<meta name="description" content="Which states have an Eviction Research Network analysis, which publish eviction data elsewhere, and which have no statewide public source.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;700&display=swap" rel="stylesheet">
@@ -39,7 +39,7 @@
 <div id="wrap">
   <div id="chrome">
     <div id="legend">
-      <span class="lg"><span class="sw" style="background:#F9322B"></span>ERN profile (statewide or local)</span>
+      <span class="lg"><span class="sw" style="background:#F9322B"></span>ERN analysis (statewide or local)</span>
       <span class="lg"><span class="sw" style="background:#223754"></span>Public data elsewhere, linked</span>
       <span class="lg"><span class="sw" style="background:#fff;border:1px solid #b7c2cd"></span>No statewide public source</span>
     </div>
@@ -50,8 +50,8 @@
   <div id="mapholder"></div>
   <div id="panel">
     <span id="pname">Hover or select a state</span>
-    <span id="pnote">Click a state to open its ERN profile or its public data source in a new tab. States in red have an ERN profile, statewide or for one city or region. States in navy have public data from another source. States in white have no statewide public source in our directory.</span>
-    <a id="plink" href="#" hidden>Open profile →</a>
+    <span id="pnote">Click a state to open its ERN analysis or its public data source in a new tab. States in red have an ERN analysis, statewide or for one city or region. States in navy have public data from another source. States in white have no statewide public source in our directory.</span>
+    <a id="plink" href="#" hidden>Open analysis →</a>
   </div>
 </div>
 <div id="tip" role="status" aria-live="polite"></div>
@@ -101,7 +101,7 @@
     if (r && r.url) {
       plink.hidden = false;
       plink.href = r.url;
-      plink.textContent = r.kind === 'ern' ? 'Open profile →' : 'See the source →';
+      plink.textContent = r.kind === 'ern' ? 'Open analysis →' : 'See the source →';
       plink.setAttribute('target', '_blank');
       plink.setAttribute('rel', 'noopener noreferrer');
     } else {
@@ -121,7 +121,7 @@
     var svg = d3.select('#mapholder').append('svg')
       .attr('viewBox', '0 0 ' + W + ' ' + H).attr('width', '100%').style('display', 'block')
       .attr('role', 'img')
-      .attr('aria-label', 'Map of the United States showing which states have an Eviction Research Network profile, which publish eviction data elsewhere, and which have no statewide public source');
+      .attr('aria-label', 'Map of the United States showing which states have an Eviction Research Network analysis, which publish eviction data elsewhere, and which have no statewide public source');
     var path = d3.geoPath(d3.geoAlbersUsa().fitSize([W, H], feats));
 
     // states-10m carries five territories that geoAlbersUsa drops. They would
